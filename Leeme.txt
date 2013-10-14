@@ -1,0 +1,12 @@
+- Inventory_Server: Código del servidor
+- Inventory_CommsAgent: Proyecto dependencia del anterior (recuperación de datos de cajero)
+
+
+El fichero "inventory.properties" debe situarse en la ruta:
+C:\Program Files\NCR\Inventory
+
+Para la importación en la base de datos PostgreSQL, lanzar el siguiente comando (situarse en la carpeta “bin” donde se encuentre instalado PostgreSQL):
+
+psql – U usuario –d inventory –f fichero
+
+donde “usuario” será el user con el que se conectará a la base de datos “inventory” (esta base de datos se habrá creado previamente). El “fichero” a usar será el sql adjunto indicando el path donde se encuentra.

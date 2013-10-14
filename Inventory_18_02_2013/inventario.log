@@ -1,0 +1,1438 @@
+2012-12-28 00:24:56,047 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 00:36:50,438 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 00:40:02,748 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 00:40:14,083 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 00:47:35,330 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 00:49:04,099 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 00:57:12,388 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 01:07:42,061 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 01:15:08,491 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 01:15:24,999 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 01:15:31,614 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 01:19:18,126 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 02:03:40,589 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 02:06:54,429 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 02:09:46,497 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 02:10:17,105 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 02:10:22,965 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2012-12-28 02:22:29,289 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-10 23:22:05,932 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-10 23:52:48,986 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-10 23:52:49,030 ERROR [main] ncr.inventory.Inventory main - java.lang.NullPointerException
+ 2013-01-10 23:53:49,831 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-10 23:54:45,826 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-10 23:57:04,761 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-10 23:57:04,801 ERROR [main] ncr.inventory.Inventory main - java.lang.NullPointerException
+ 2013-01-10 23:57:47,286 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-10 23:59:33,761 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 00:01:20,513 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 01:30:02,708 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 01:30:23,134 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 21:44:02,763 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 21:59:03,050 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:02:19,989 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:09:58,174 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:11:48,644 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:28:06,340 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:31:29,103 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:32:36,370 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:33:56,659 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:36:41,033 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:37:04,536 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:37:30,480 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:38:09,316 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:38:32,747 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:38:39,005 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 22:50:15,321 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 23:31:17,273 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-11 23:32:54,734 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:32:54,735 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:32:54,739 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:32:54,740 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:34:54,694 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:34:54,694 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:34:54,697 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:34:54,698 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:36:54,695 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:36:54,696 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:36:54,698 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:36:54,701 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:38:54,688 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:38:54,690 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:38:54,692 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:38:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:40:54,688 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:40:54,689 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:40:54,689 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:40:54,690 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:42:54,692 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:42:54,693 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_5] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:42:54,694 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_5] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:42:54,695 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_5] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:44:54,691 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:44:54,692 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_6] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:44:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_6] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:44:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_6] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:46:54,694 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:46:54,695 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_7] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:46:54,696 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_7] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:46:54,697 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_7] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:48:54,691 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:48:54,692 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_8] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:48:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_8] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:48:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_8] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:50:54,682 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:50:54,682 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_9] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:50:54,683 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_9] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:50:54,683 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_9] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:52:54,698 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:52:54,699 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_10] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:52:54,700 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_10] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:52:54,700 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_10] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:54:54,697 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:54:54,698 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_11] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:54:54,699 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_11] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:54:54,700 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_11] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:56:54,697 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:56:54,698 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_12] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:56:54,698 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_12] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:56:54,699 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_12] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-11 23:58:54,719 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-11 23:58:54,720 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_13] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-11 23:58:54,721 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_13] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-11 23:58:54,721 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_13] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:00:54,685 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:00:54,685 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_14] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:00:54,685 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_14] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:00:54,686 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_14] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:02:54,694 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:02:54,695 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_15] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:02:54,697 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_15] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:02:54,697 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_15] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:04:54,693 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:04:54,693 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_16] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:04:54,694 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_16] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:04:54,695 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_16] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:06:54,692 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:06:54,693 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_17] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:06:54,694 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_17] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:06:54,694 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_17] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:08:54,691 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:08:54,692 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_18] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:08:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_18] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:08:54,694 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_18] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:10:54,692 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:10:54,693 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_19] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:10:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_19] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:10:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_19] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:12:54,690 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:12:54,690 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_20] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:12:54,692 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_20] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:12:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_20] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:14:54,692 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:14:54,693 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_21] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:14:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_21] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:14:54,694 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_21] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:16:54,694 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:16:54,695 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_22] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:16:54,696 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_22] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:16:54,697 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_22] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:18:54,691 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:18:54,692 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_23] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:18:54,693 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_23] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:18:54,694 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_23] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:20:54,694 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:20:54,695 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_24] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:20:54,695 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_24] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:20:54,695 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_24] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:23:47,644 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 00:27:32,559 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 00:29:32,666 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 00:29:43,713 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 00:30:54,769 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:30:54,770 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:30:54,771 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:30:54,771 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:32:54,719 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:32:54,720 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:32:54,722 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:32:54,724 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:34:46,132 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 00:34:49,304 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 00:36:54,771 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:36:54,771 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:36:54,775 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:36:54,776 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:38:11,413 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 00:38:54,754 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:38:54,754 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:38:54,757 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:38:54,758 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:40:54,715 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:40:54,716 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:40:54,717 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:40:54,718 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:41:31,234 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 00:42:54,792 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:42:54,799 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:42:54,801 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:44:01,660 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:44:54,741 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:44:54,756 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:44:54,757 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 00:46:36,079 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 00:46:54,755 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 00:46:54,756 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 00:46:54,759 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 00:46:54,760 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:02:12,680 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 01:13:12,953 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 01:14:54,784 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:14:54,784 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:14:54,788 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:14:54,789 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:16:24,430 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 01:16:54,802 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:16:54,805 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:16:54,806 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:17:19,601 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:18:54,763 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:18:54,767 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:18:54,770 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:20:54,752 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:20:54,763 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:20:54,763 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:26:39,029 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 01:26:54,800 ERROR [172.16.122.128_1161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:26:54,805 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:26:54,805 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:26:54,806 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:28:48,644 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 01:30:54,775 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:30:54,776 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:30:54,778 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:30:54,778 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:32:54,741 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:32:54,741 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:32:54,744 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:32:54,745 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:34:54,747 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:34:54,748 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:34:54,750 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:34:54,752 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:36:54,743 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:36:54,744 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:36:54,747 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:36:54,748 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:38:54,743 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:38:54,744 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:38:54,746 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:38:54,747 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:40:54,733 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:40:54,733 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_5] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:40:54,734 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_5] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:40:54,734 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_5] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:42:54,741 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:42:54,741 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_6] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:42:54,743 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_6] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:42:54,744 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_6] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:44:54,740 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:44:54,740 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_7] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:44:54,742 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_7] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:44:54,743 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_7] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:46:54,740 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:46:54,741 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_8] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:46:54,742 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_8] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:46:54,743 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_8] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:48:54,741 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:48:54,743 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_9] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:48:54,744 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_9] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:48:54,745 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_9] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:50:54,734 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:50:54,735 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_10] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:50:54,735 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_10] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:50:54,737 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_10] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:52:54,751 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:52:54,753 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_11] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:52:54,754 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_11] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:52:54,754 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_11] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:54:54,752 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:54:54,752 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_12] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:54:54,754 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_12] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:54:54,754 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_12] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:56:54,755 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:56:54,756 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_13] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:56:54,757 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_13] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:56:54,757 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_13] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 01:58:54,753 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 01:58:54,754 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_14] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 01:58:54,755 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_14] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 01:58:54,755 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_14] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:00:54,750 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:00:54,750 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_15] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:00:54,751 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_15] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:00:54,752 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_15] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:02:54,756 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:02:54,757 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_16] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:02:54,758 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_16] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:02:54,758 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_16] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:04:54,752 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:04:54,752 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_17] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:04:54,754 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_17] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:04:54,754 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_17] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:06:54,751 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:06:54,751 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_18] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:06:54,753 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_18] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:06:54,754 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_18] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:08:54,758 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:08:54,759 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_19] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:08:54,761 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_19] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:08:54,762 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_19] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:10:54,746 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:10:54,747 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_20] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:10:54,747 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_20] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:10:54,747 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_20] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:12:54,751 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:12:54,752 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_21] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:12:54,753 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_21] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:12:54,753 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_21] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:14:54,755 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:14:54,756 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_22] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:14:54,757 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_22] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:14:54,757 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_22] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:16:54,751 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:16:54,753 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_23] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:16:54,753 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_23] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:16:54,754 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_23] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:18:54,753 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:18:54,754 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_24] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:18:54,755 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_24] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:18:54,756 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_24] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:20:54,744 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:20:54,744 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_25] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:20:54,745 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_25] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:20:54,745 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_25] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:22:54,754 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:22:54,755 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_26] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:22:54,756 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_26] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:22:54,757 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_26] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:24:54,760 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:24:54,760 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_27] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:24:54,762 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_27] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:24:54,763 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_27] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:26:54,753 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:26:54,754 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_28] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:26:54,755 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_28] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:26:54,756 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_28] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:28:54,755 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:28:54,756 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_29] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:28:54,757 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_29] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:28:54,757 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_29] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:30:54,746 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:30:54,747 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_30] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:30:54,747 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_30] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:30:54,747 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_30] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:32:54,754 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:32:54,754 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_31] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:32:54,756 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_31] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:32:54,757 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_31] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:34:54,751 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:34:54,751 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_32] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:34:54,753 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_32] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:34:54,754 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_32] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:36:35,423 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 02:36:46,737 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 02:38:54,825 ERROR [172.16.122.128_1161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:38:54,828 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:38:54,829 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:38:54,830 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:39:32,736 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 02:40:54,791 ERROR [172.16.122.128_161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:40:54,791 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:40:54,793 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:40:54,793 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:42:54,762 ERROR [172.16.122.128_161_172.16.122.1_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:42:54,763 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:42:54,765 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:42:54,767 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:43:40,266 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 02:43:44,911 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 02:44:54,798 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:44:54,799 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:44:54,802 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:44:54,803 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:46:54,759 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:46:54,759 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:46:54,762 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:46:54,763 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:47:36,607 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 02:48:54,828 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:48:54,830 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:48:54,831 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:49:32,127 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 02:50:54,775 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:50:54,777 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:50:54,781 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:52:54,761 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:52:54,763 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:52:54,773 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:55:37,335 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 02:57:52,114 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:57:52,116 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:57:52,117 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 02:59:50,998 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 02:59:50,999 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 02:59:51,001 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:01:47,834 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:01:47,835 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:01:47,836 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:03:52,063 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:03:52,064 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:03:52,066 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:05:03,943 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 03:10:22,499 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 03:10:54,779 ERROR [172.16.122.128_162_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 03:10:54,780 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:10:54,782 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:10:54,782 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:12:54,760 ERROR [172.16.122.128_162_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 03:12:54,760 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:12:54,763 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:12:54,764 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:14:54,745 ERROR [172.16.122.128_162_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 03:14:54,746 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:14:54,749 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:14:54,750 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_2] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:16:54,754 ERROR [172.16.122.128_162_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 03:16:54,756 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:16:54,758 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:16:54,759 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:18:54,755 ERROR [172.16.122.128_162_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 03:18:54,756 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:18:54,758 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:18:54,759 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:20:54,745 ERROR [172.16.122.128_162_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 03:20:54,745 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_5] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:20:54,746 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_5] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:20:54,746 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_5] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:21:38,806 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 03:22:19,605 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 03:22:54,802 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 03:22:54,803 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:22:54,806 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:22:54,807 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:52:22,069 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 03:53:52,360 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:53:52,363 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:53:52,364 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 03:54:19,192 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 03:55:40,623 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-12 03:55:40,625 ERROR [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-12 03:55:40,627 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-12 03:55:40,628 DEBUG [172.16.122.128_1081_KickProcessIncomingMessage_1] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-12 17:12:17,734 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 17:17:49,700 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 17:17:56,018 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-12 17:17:57,750 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-12 17:17:57,779 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-12 17:17:58,201 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-12 17:17:58,236 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-12 17:17:58,281 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-12 17:17:58,314 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-12 17:17:58,430 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-12 17:17:58,486 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-12 17:17:58,525 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-12 17:17:58,569 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-12 17:17:58,603 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-12 17:17:58,691 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-12 17:17:58,738 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-12 17:17:58,879 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-12 17:17:58,920 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-12 17:17:59,040 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-12 17:17:59,079 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-12 17:17:59,140 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-12 17:17:59,239 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-12 17:17:59,327 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-12 17:17:59,335 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-12 17:17:59,391 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-12 17:17:59,435 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-12 17:17:59,497 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-12 17:17:59,644 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-12 17:17:59,645 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-12 17:18:39,872 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 17:19:55,130 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-12 17:19:55,953 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-12 17:19:55,957 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-12 17:19:55,968 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-12 17:19:55,983 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-12 17:19:56,007 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-12 17:19:56,021 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-12 17:19:56,031 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-12 17:19:56,046 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-12 17:19:56,066 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-12 17:19:56,077 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-12 17:19:56,088 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-12 17:19:56,111 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-12 17:19:56,124 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-12 17:19:56,141 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-12 17:19:56,152 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-12 17:19:56,163 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-12 17:19:56,182 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-12 17:19:56,228 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-12 17:19:56,237 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-12 17:19:56,305 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-12 17:19:56,308 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-12 17:19:56,321 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-12 17:19:56,331 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-12 17:19:56,364 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-12 17:19:56,445 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-12 17:19:56,446 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-12 19:45:17,011 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 19:46:38,004 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 19:52:17,397 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 19:53:55,834 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-12 19:53:56,790 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-12 19:53:56,806 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-12 19:53:56,815 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-12 19:53:56,827 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-12 19:53:56,842 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-12 19:53:56,857 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-12 19:53:56,891 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-12 19:53:56,910 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-12 19:53:56,933 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-12 19:53:56,943 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-12 19:53:56,955 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-12 19:53:56,980 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-12 19:53:56,997 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-12 19:53:57,016 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-12 19:53:57,030 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-12 19:53:57,046 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-12 19:53:57,065 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-12 19:53:57,096 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-12 19:53:57,105 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-12 19:53:57,157 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-12 19:53:57,160 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-12 19:53:57,172 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-12 19:53:57,201 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-12 19:53:57,962 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-12 19:53:58,056 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-12 19:53:58,057 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-12 19:55:21,091 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 19:58:50,065 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 19:59:55,570 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-12 19:59:56,399 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-12 19:59:56,402 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-12 19:59:56,413 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-12 19:59:56,427 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-12 19:59:56,437 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-12 19:59:56,450 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-12 19:59:56,462 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-12 19:59:56,477 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-12 19:59:56,496 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-12 19:59:56,507 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-12 19:59:56,523 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-12 19:59:56,544 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-12 19:59:56,565 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-12 19:59:56,580 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-12 19:59:56,589 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-12 19:59:56,603 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-12 19:59:56,623 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-12 19:59:56,771 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-12 19:59:56,779 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-12 19:59:56,840 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-12 19:59:56,844 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-12 19:59:56,857 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-12 19:59:56,869 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-12 19:59:56,896 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-12 19:59:56,979 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-12 19:59:56,979 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-12 20:02:56,748 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-12 20:03:55,578 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-12 20:03:56,427 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-12 20:03:56,431 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-12 20:03:56,440 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-12 20:03:56,465 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-12 20:03:56,475 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-12 20:03:56,490 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-12 20:03:56,500 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-12 20:03:56,517 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-12 20:03:56,543 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-12 20:03:56,554 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-12 20:03:56,565 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-12 20:03:56,590 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-12 20:03:56,603 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-12 20:03:56,619 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-12 20:03:56,690 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-12 20:03:56,703 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-12 20:03:56,720 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-12 20:03:56,755 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-12 20:03:56,764 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-12 20:03:56,819 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-12 20:03:56,822 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-12 20:03:56,840 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-12 20:03:56,857 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-12 20:03:56,893 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-12 20:03:56,983 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-12 20:03:56,983 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-12 20:27:55,597 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-12 20:27:56,599 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-12 20:27:56,602 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-12 20:27:56,611 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-12 20:27:56,623 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-12 20:27:57,126 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-12 20:27:57,143 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-12 20:27:57,157 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-12 20:27:57,172 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-12 20:27:57,193 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-12 20:27:57,203 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-12 20:27:57,215 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-12 20:27:57,249 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-12 20:27:57,266 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-12 20:27:57,283 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-12 20:27:57,300 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-12 20:27:57,321 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-12 20:27:57,341 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-12 20:27:57,375 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-12 20:27:57,385 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-12 20:27:57,447 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-12 20:27:57,453 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-12 20:27:57,467 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-12 20:27:57,481 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-12 20:27:57,512 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-12 20:27:57,582 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-12 20:27:57,582 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-12 20:29:55,585 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-12 20:29:56,488 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-12 20:29:56,492 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-12 20:29:56,502 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-12 20:29:56,516 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-12 20:29:56,534 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-12 20:29:56,549 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-12 20:29:56,558 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-12 20:29:56,573 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-12 20:29:56,601 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-12 20:29:56,611 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-12 20:29:56,623 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-12 20:29:56,698 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-12 20:29:56,710 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-12 20:29:56,726 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-12 20:29:56,735 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-12 20:29:56,752 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-12 20:29:56,769 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-12 20:29:56,819 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-12 20:29:56,828 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-12 20:29:56,885 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-12 20:29:56,888 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-12 20:29:56,902 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-12 20:29:56,912 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-12 20:29:56,947 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-12 20:29:57,029 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-12 20:29:57,029 DEBUG [172.16.122.128_1030_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-16 01:01:46,721 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-16 01:07:31,944 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-16 01:07:45,585 ERROR [192.168.1.126_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-16 01:22:10,607 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-16 01:22:24,244 ERROR [192.168.1.126_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-16 01:26:17,030 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-16 01:27:39,357 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-16 01:41:29,508 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-16 01:42:28,269 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-16 01:47:42,786 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-16 01:49:20,807 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-16 01:52:30,231 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 00:31:18,296 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 00:32:18,116 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 00:32:31,952 ERROR [192.168.1.126_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-17 00:33:15,297 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 00:33:28,912 ERROR [192.168.1.126_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-17 00:34:28,924 ERROR [192.168.1.126_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-17 00:34:29,423 ERROR [main] ncr.inventory.snmp.SNMPData getProduct - java.lang.NullPointerException
+ 2013-01-17 00:34:29,423 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-01-17 00:34:29,423 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-01-17 01:44:15,013 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 01:45:21,135 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 01:47:24,313 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 01:47:25,314 DEBUG [main] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 01:47:26,316 DEBUG [main] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 01:47:27,479 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 01:47:27,484 DEBUG [main] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 01:47:28,489 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 01:47:30,492 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 01:47:32,495 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 01:47:34,503 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 01:47:36,507 DEBUG [main] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 01:47:38,511 DEBUG [main] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 01:47:41,516 DEBUG [main] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 01:47:43,519 DEBUG [main] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 01:47:46,522 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 01:47:48,534 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 01:47:50,537 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 01:47:53,544 DEBUG [main] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 01:47:58,551 DEBUG [main] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 01:48:00,554 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 01:48:02,584 DEBUG [main] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 01:48:02,590 DEBUG [main] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 01:48:02,596 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 01:48:02,605 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 01:48:04,615 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 01:48:14,241 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 01:49:18,381 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 01:51:18,600 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 01:51:19,602 DEBUG [main] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 01:51:20,606 DEBUG [main] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 01:51:21,622 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 01:51:22,626 DEBUG [main] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 01:51:23,630 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 01:51:23,636 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 01:51:24,642 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 01:51:26,653 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 01:51:28,658 DEBUG [main] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 01:51:30,664 DEBUG [main] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 01:51:33,678 DEBUG [main] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 01:51:35,685 DEBUG [main] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 01:51:38,754 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 01:51:40,765 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 01:51:40,782 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 01:51:40,789 DEBUG [main] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 01:51:44,800 DEBUG [main] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 01:51:46,805 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 01:51:50,836 DEBUG [main] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 01:51:50,838 DEBUG [main] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 01:51:51,848 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 01:51:53,852 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 01:51:57,863 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 01:51:59,889 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-17 01:51:59,889 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-17 01:53:29,658 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 01:54:35,984 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 01:56:33,197 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 01:56:34,200 DEBUG [main] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 01:56:34,206 DEBUG [main] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 01:56:35,214 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 01:56:35,222 DEBUG [main] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 01:56:35,230 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 01:56:35,236 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 01:56:37,243 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 01:56:39,261 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 01:56:41,268 DEBUG [main] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 01:56:43,271 DEBUG [main] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 01:56:46,279 DEBUG [main] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 01:56:48,282 DEBUG [main] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 01:56:51,287 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 01:56:53,298 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 01:56:54,306 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 01:56:54,318 DEBUG [main] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 01:56:58,334 DEBUG [main] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 01:57:00,339 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 01:57:04,360 DEBUG [main] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 01:57:05,363 DEBUG [main] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 01:57:07,366 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 01:57:09,370 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 01:57:13,377 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 01:57:16,408 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-17 01:57:16,409 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-17 22:00:14,453 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 22:02:27,835 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 22:03:34,641 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 22:04:17,912 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 22:05:24,029 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 22:07:23,795 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 22:08:25,919 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 22:10:03,164 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 22:10:04,188 DEBUG [main] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 22:10:05,265 DEBUG [main] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 22:10:06,333 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 22:10:07,356 DEBUG [main] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 22:10:08,434 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 22:10:10,488 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 22:10:12,521 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 22:10:14,612 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 22:10:16,667 DEBUG [main] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 22:10:18,689 DEBUG [main] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 22:10:21,746 DEBUG [main] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 22:10:23,809 DEBUG [main] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 22:10:26,866 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 22:10:26,922 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 22:10:28,967 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 22:10:31,989 DEBUG [main] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 22:10:37,060 DEBUG [main] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 22:10:39,088 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 22:10:43,118 DEBUG [main] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 22:10:44,118 DEBUG [main] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 22:10:46,180 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 22:10:48,202 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 22:10:52,226 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 22:11:00,285 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-17 22:11:00,285 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-17 22:50:32,695 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 22:51:38,881 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 22:53:22,260 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 22:53:23,329 DEBUG [main] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 22:53:24,363 DEBUG [main] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 22:53:25,419 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 22:53:26,442 DEBUG [main] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 22:53:27,475 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 22:53:29,551 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 22:53:31,574 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 22:53:33,620 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 22:53:35,664 DEBUG [main] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 22:53:37,675 DEBUG [main] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 22:53:39,689 DEBUG [main] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 22:53:39,717 DEBUG [main] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 22:53:42,730 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 22:53:44,764 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 22:53:46,775 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 22:53:49,830 DEBUG [main] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 22:53:54,850 DEBUG [main] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 22:53:56,874 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 22:54:00,970 DEBUG [main] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 22:54:01,971 DEBUG [main] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 22:54:04,011 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 22:54:06,077 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 22:54:10,101 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 22:54:22,807 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 22:55:28,920 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 22:57:24,211 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 22:57:25,213 DEBUG [main] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 22:57:26,223 DEBUG [main] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 22:57:27,229 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 22:57:28,233 DEBUG [main] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 22:57:29,239 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 22:57:31,243 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 22:57:33,251 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 22:57:35,267 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 22:57:37,272 DEBUG [main] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 22:57:39,282 DEBUG [main] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 22:57:42,295 DEBUG [main] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 22:57:44,302 DEBUG [main] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 22:57:47,311 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 22:57:49,320 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 22:57:51,327 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 22:57:54,332 DEBUG [main] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 22:57:59,339 DEBUG [main] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 22:58:01,341 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 22:58:05,359 DEBUG [main] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 22:58:06,359 DEBUG [main] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 22:58:08,364 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 22:58:08,371 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 22:58:11,378 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 22:58:18,401 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-17 22:58:18,401 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-17 23:06:00,832 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:06:18,901 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:06:20,105 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 23:06:21,321 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 23:06:21,327 DEBUG [main] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 23:06:21,336 DEBUG [main] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 23:06:21,341 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 23:06:21,344 DEBUG [main] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 23:06:21,348 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 23:06:21,351 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 23:06:21,357 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 23:06:21,384 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 23:06:21,403 DEBUG [main] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 23:06:21,428 DEBUG [main] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 23:06:21,445 DEBUG [main] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 23:06:21,470 DEBUG [main] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 23:06:21,508 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 23:06:21,536 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 23:06:21,547 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 23:06:21,555 DEBUG [main] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 23:06:21,610 DEBUG [main] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 23:06:21,633 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 23:06:21,673 DEBUG [main] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 23:06:21,676 DEBUG [main] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 23:06:21,707 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 23:06:21,715 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 23:06:21,749 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 23:06:21,823 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-17 23:06:21,823 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-17 23:08:08,171 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:08:16,627 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:08:17,062 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 23:08:18,182 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 23:08:18,185 DEBUG [main] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 23:08:18,192 DEBUG [main] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 23:08:18,196 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 23:08:18,199 DEBUG [main] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 23:08:18,204 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 23:08:18,208 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 23:08:18,219 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 23:08:18,227 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 23:08:18,233 DEBUG [main] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 23:08:18,277 DEBUG [main] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 23:08:18,304 DEBUG [main] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 23:08:18,328 DEBUG [main] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 23:08:18,365 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 23:08:18,372 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 23:08:18,395 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 23:08:18,424 DEBUG [main] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 23:08:18,487 DEBUG [main] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 23:08:18,511 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 23:08:18,538 DEBUG [main] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 23:08:18,540 DEBUG [main] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 23:08:18,557 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 23:08:18,563 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 23:08:18,597 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 23:08:18,663 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-17 23:08:18,663 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-17 23:09:35,752 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:09:36,192 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 23:09:37,447 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 23:09:37,452 DEBUG [main] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 23:09:37,473 DEBUG [main] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 23:09:37,491 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 23:09:37,505 DEBUG [main] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 23:09:37,523 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 23:09:37,528 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 23:09:37,546 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 23:09:37,572 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 23:09:37,580 DEBUG [main] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 23:09:37,603 DEBUG [main] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 23:09:37,643 DEBUG [main] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 23:09:37,648 DEBUG [main] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 23:09:37,656 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 23:09:37,665 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 23:09:37,670 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 23:09:37,677 DEBUG [main] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 23:09:37,738 DEBUG [main] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 23:09:37,762 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 23:09:37,815 DEBUG [main] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 23:09:37,830 DEBUG [main] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 23:09:37,836 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 23:09:37,846 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 23:09:37,862 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 23:09:37,896 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-17 23:09:37,896 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-17 23:15:24,695 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:18:44,103 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:21:23,523 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:21:23,977 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 23:21:24,656 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 23:21:24,668 DEBUG [main] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 23:21:24,674 DEBUG [main] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 23:21:24,678 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 23:21:24,680 DEBUG [main] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 23:21:24,685 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 23:21:24,689 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 23:21:24,716 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 23:21:24,741 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 23:21:24,746 DEBUG [main] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 23:21:24,750 DEBUG [main] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 23:21:24,758 DEBUG [main] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 23:21:24,775 DEBUG [main] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 23:21:24,819 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 23:21:24,844 DEBUG [main] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 23:21:24,867 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 23:21:24,901 DEBUG [main] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 23:21:24,961 DEBUG [main] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 23:21:24,987 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 23:21:25,035 DEBUG [main] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 23:21:25,037 DEBUG [main] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 23:21:25,045 DEBUG [main] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 23:21:25,051 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 23:21:25,093 DEBUG [main] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 23:21:25,150 DEBUG [main] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-17 23:21:25,150 DEBUG [main] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-17 23:25:20,565 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:25:36,417 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 23:25:37,276 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 23:25:37,288 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 23:25:37,304 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 23:25:37,316 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 23:25:37,319 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 23:25:37,325 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 23:25:37,329 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 23:25:37,339 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 23:25:37,355 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 23:25:37,375 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 23:25:37,380 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 23:25:37,391 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 23:25:37,396 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 23:25:37,402 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 23:25:37,419 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 23:25:37,442 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 23:25:37,478 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 23:25:37,537 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 23:25:37,560 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 23:25:37,605 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 23:25:37,607 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 23:25:37,615 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 23:25:37,619 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 23:25:37,635 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 23:25:37,721 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-17 23:25:37,721 DEBUG [172.16.122.128_1089_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-17 23:26:21,062 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:27:42,991 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-17 23:27:43,665 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-17 23:27:43,677 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-17 23:27:43,696 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-17 23:27:43,711 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-17 23:27:43,726 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-17 23:27:43,732 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-17 23:27:43,738 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-17 23:27:43,751 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-17 23:27:43,773 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-17 23:27:43,778 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-17 23:27:43,783 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-17 23:27:43,790 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-17 23:27:43,795 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-17 23:27:43,803 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-17 23:27:43,811 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-17 23:27:43,815 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-17 23:27:43,822 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-17 23:27:43,886 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-17 23:27:43,909 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-17 23:27:43,960 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-17 23:27:43,962 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-17 23:27:43,968 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-17 23:27:43,972 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-17 23:27:43,983 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-17 23:27:44,003 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-17 23:27:44,003 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_3] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-17 23:28:17,471 DEBUG [main] ncr.inventory.Inventory main - Reading inventory properties file...
+ 2013-01-17 23:52:39,035 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-17 23:52:39,121 ERROR [main] ncr.inventory.snmp.SNMPUtils set - Excepcion: java.lang.NullPointerException
+ 2013-01-17 23:53:38,284 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-17 23:53:38,388 ERROR [main] ncr.inventory.snmp.SNMPUtils set - Excepcion: java.lang.NullPointerException
+ 2013-01-17 23:54:34,582 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-17 23:54:34,656 ERROR [main] ncr.inventory.snmp.SNMPUtils set - Excepcion: java.lang.NullPointerException
+ 2013-01-17 23:54:44,007 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-17 23:54:50,920 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-17 23:54:51,001 ERROR [main] ncr.inventory.snmp.SNMPUtils set - Excepcion: java.lang.NullPointerException
+ 2013-01-17 23:55:02,306 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-17 23:56:20,257 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-18 00:04:27,183 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-18 00:07:00,012 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-18 00:07:07,302 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-18 00:09:44,911 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-18 00:09:58,968 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-18 00:10:00,094 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-18 00:10:00,109 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-18 00:10:00,121 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-18 00:10:00,135 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-18 00:10:00,146 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-18 00:10:00,158 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-18 00:10:00,181 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-18 00:10:00,204 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-18 00:10:00,228 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-18 00:10:00,244 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-18 00:10:00,265 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-18 00:10:00,299 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-18 00:10:00,322 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-18 00:10:00,357 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-18 00:10:00,386 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-18 00:10:00,414 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-18 00:10:00,448 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-18 00:10:00,505 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-18 00:10:00,530 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-18 00:10:00,576 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-18 00:10:00,586 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-18 00:10:00,609 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-18 00:10:00,634 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-18 00:10:00,649 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-18 00:10:00,711 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-18 00:10:00,712 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-18 00:11:18,318 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-18 00:11:25,336 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-18 00:11:26,052 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-18 00:11:26,061 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-18 00:11:26,068 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-18 00:11:26,077 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-18 00:11:26,085 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-18 00:11:26,093 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-18 00:11:26,107 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-18 00:11:26,126 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-18 00:11:26,140 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-18 00:11:26,153 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-18 00:11:26,166 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-18 00:11:26,189 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-18 00:11:26,204 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-18 00:11:26,226 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-18 00:11:26,234 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-18 00:11:26,239 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-18 00:11:26,246 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-18 00:11:26,286 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-18 00:11:26,290 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-18 00:11:26,322 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-18 00:11:26,324 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-18 00:11:26,338 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-18 00:11:26,361 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-18 00:11:26,395 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-18 00:11:26,448 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-18 00:11:26,448 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-18 00:16:17,305 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-18 00:16:28,356 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-18 00:16:42,252 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-18 00:16:42,965 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-18 00:16:42,972 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-18 00:16:42,975 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-18 00:16:42,982 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-18 00:16:42,989 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-18 00:16:42,994 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-18 00:16:43,000 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-18 00:16:43,010 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-18 00:16:43,026 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-18 00:16:43,040 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-18 00:16:43,056 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-18 00:16:43,078 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-18 00:16:43,092 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-18 00:16:43,111 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-18 00:16:43,127 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-18 00:16:43,131 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-18 00:16:43,150 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-18 00:16:43,176 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-18 00:16:43,181 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-18 00:16:43,197 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-18 00:16:43,199 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-18 00:16:43,204 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-18 00:16:43,209 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-18 00:16:43,221 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-18 00:16:43,259 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-18 00:16:43,260 DEBUG [172.16.122.128_1096_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-18 00:20:04,787 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-18 00:20:05,423 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-18 00:20:05,430 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-18 00:20:05,437 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-18 00:20:05,445 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-18 00:20:05,450 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-18 00:20:05,460 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-18 00:20:05,472 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-18 00:20:05,483 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-18 00:20:05,495 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-18 00:20:05,507 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-18 00:20:05,518 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-18 00:20:05,550 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-18 00:20:05,561 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-18 00:20:05,578 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-18 00:20:05,582 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-18 00:20:05,586 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-18 00:20:05,603 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-18 00:20:05,633 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-18 00:20:05,642 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-18 00:20:05,661 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-18 00:20:05,663 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-18 00:20:05,670 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-18 00:20:05,680 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-18 00:20:05,690 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-18 00:20:05,716 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-18 00:20:05,717 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_4] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-18 00:21:01,347 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-18 00:21:11,347 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-18 00:21:11,917 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-18 00:21:11,924 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-18 00:21:11,927 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-18 00:21:11,930 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-18 00:21:11,937 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-18 00:21:11,941 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-18 00:21:11,952 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-18 00:21:11,965 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-18 00:21:11,986 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-18 00:21:12,001 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-18 00:21:12,021 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-18 00:21:12,030 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-18 00:21:12,037 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-18 00:21:12,045 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-18 00:21:12,056 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-18 00:21:12,070 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-18 00:21:12,089 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-18 00:21:12,124 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-18 00:21:12,128 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-18 00:21:12,151 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-18 00:21:12,153 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-18 00:21:12,158 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-18 00:21:12,163 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-18 00:21:12,175 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-18 00:21:12,199 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-18 00:21:12,199 DEBUG [172.16.122.128_1101_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-20 14:03:38,998 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-20 19:09:13,557 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-20 19:11:12,074 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-20 19:11:12,672 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-20 19:14:19,003 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-20 19:14:19,590 ERROR [172.16.122.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-20 21:40:10,342 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-20 21:40:44,303 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-20 21:40:45,076 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-20 21:40:45,101 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-20 21:40:45,108 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-20 21:40:45,134 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-20 21:40:45,166 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-20 21:40:45,174 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-20 21:40:45,186 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-20 21:40:45,201 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-20 21:40:45,216 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-20 21:40:45,226 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-20 21:40:45,239 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-20 21:40:45,256 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-20 21:40:45,285 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-20 21:40:45,316 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-20 21:40:45,324 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-20 21:40:45,338 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-20 21:40:45,368 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-20 21:40:45,412 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-20 21:40:45,424 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-20 21:40:45,456 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-20 21:40:45,464 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-20 21:40:45,604 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-20 21:40:45,635 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-20 21:40:45,671 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-20 21:40:45,757 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-20 21:40:45,757 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-20 21:44:07,642 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-20 21:44:32,118 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-20 21:44:32,848 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-20 21:44:32,854 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-20 21:44:32,857 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-20 21:44:32,864 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-20 21:44:32,867 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-20 21:44:32,872 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-20 21:44:32,884 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-20 21:44:32,896 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-20 21:44:32,903 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-20 21:44:32,908 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-20 21:44:32,913 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-20 21:44:32,924 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-20 21:44:32,931 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-20 21:44:32,958 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-20 21:44:32,976 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-20 21:44:32,989 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-20 21:44:33,002 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-20 21:44:33,044 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-20 21:44:33,053 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-20 21:44:33,094 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-20 21:44:33,097 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-20 21:44:33,103 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-20 21:44:33,117 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-20 21:44:33,141 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-20 21:44:33,190 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-20 21:44:33,193 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-20 21:45:47,413 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-20 21:46:02,241 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-20 21:46:29,639 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-20 21:46:30,352 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-20 21:46:30,364 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-20 21:46:30,372 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-20 21:46:30,376 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-20 21:46:30,384 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-20 21:46:30,391 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-20 21:46:30,401 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-20 21:46:30,415 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-20 21:46:30,426 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-20 21:46:30,432 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-20 21:46:30,437 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-20 21:46:30,446 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-20 21:46:30,452 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-20 21:46:30,459 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-20 21:46:30,475 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-20 21:46:30,489 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-20 21:46:30,498 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-20 21:46:30,544 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-20 21:46:30,555 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-20 21:46:30,580 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-20 21:46:30,586 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-20 21:46:30,597 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-20 21:46:30,604 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-20 21:46:30,624 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-20 21:46:30,661 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-20 21:46:30,663 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-20 21:54:18,782 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-20 21:54:46,989 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-01-20 21:54:47,750 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-01-20 21:54:47,759 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-01-20 21:54:47,766 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-01-20 21:54:47,774 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-01-20 21:54:47,781 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-01-20 21:54:47,789 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-01-20 21:54:47,793 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-01-20 21:54:47,800 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-01-20 21:54:47,819 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-01-20 21:54:47,832 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-01-20 21:54:47,844 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-01-20 21:54:47,854 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-01-20 21:54:47,859 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-01-20 21:54:47,871 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-01-20 21:54:47,881 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-01-20 21:54:47,891 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-01-20 21:54:47,902 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-01-20 21:54:47,928 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-01-20 21:54:47,938 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-01-20 21:54:47,981 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-01-20 21:54:47,993 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-01-20 21:54:48,008 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-01-20 21:54:48,021 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-01-20 21:54:48,056 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-01-20 21:54:48,148 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-01-20 21:54:48,149 DEBUG [172.16.122.128_1090_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-01-31 11:11:07,155 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 11:11:47,807 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 11:15:47,238 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 11:15:55,707 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 11:16:04,906 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 11:16:13,155 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 11:16:27,604 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 11:16:52,831 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 11:16:52,838 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-01-31 11:17:09,304 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 11:17:09,308 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-01-31 11:17:24,167 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:12:08,440 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:12:20,431 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:12:20,435 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-01-31 12:12:37,075 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:12:37,080 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-01-31 12:12:40,519 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:12:40,524 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-01-31 12:12:42,107 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:12:42,112 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-01-31 12:12:43,369 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:12:43,375 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-01-31 12:12:52,569 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:13:19,227 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:13:45,841 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:14:43,189 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:15:59,187 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:26:07,401 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:33:01,578 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:35:14,325 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 12:35:40,891 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-01-31 14:07:56,161 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 14:08:19,497 ERROR [135.130.13.103_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-01-31 14:10:42,468 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-01-31 14:14:13,574 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-01-31 14:14:13,749 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-01-31 18:03:56,901 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-01 09:28:13,971 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 09:54:03,109 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 09:54:16,260 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 09:54:41,378 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 09:55:14,739 ERROR [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.StringIndexOutOfBoundsException: String index out of range: 2
+ 2013-02-26 09:55:14,740 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-02-26 09:55:14,743 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-02-26 09:59:07,208 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 09:59:14,712 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:00:45,916 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 10:01:56,524 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:04:19,544 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 10:04:19,731 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:04:42,913 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 10:04:49,451 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:05:02,744 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 10:05:24,336 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:07:57,472 ERROR [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.StringIndexOutOfBoundsException: String index out of range: 2
+ 2013-02-26 10:09:40,465 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 10:10:15,689 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:11:55,611 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 10:14:00,414 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:14:56,098 ERROR [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.StringIndexOutOfBoundsException: String index out of range: 2
+ 2013-02-26 10:14:56,098 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-02-26 10:14:56,098 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-02-26 10:15:12,542 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 10:15:40,872 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:20:50,933 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 10:21:25,785 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:21:33,903 ERROR [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getProduct - java.lang.StringIndexOutOfBoundsException: String index out of range: 2
+ 2013-02-26 10:21:39,363 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: false
+ 2013-02-26 10:21:43,358 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-02-26 10:22:59,757 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 10:23:23,767 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:27:42,811 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 10:28:11,283 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 10:29:13,851 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-02-26 10:29:13,872 ERROR [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getHotfix - java.lang.StringIndexOutOfBoundsException: String index out of range: 2
+ 2013-02-26 10:29:13,873 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: false
+ 2013-02-26 10:29:13,873 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: false
+ 2013-02-26 12:16:54,385 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-02-26 12:17:19,736 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-02-26 12:17:55,476 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Product: true
+ 2013-02-26 12:17:57,100 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Hotfix: true
+ 2013-02-26 12:17:57,132 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - IExplorer: true
+ 2013-02-26 12:17:57,149 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - OperatingSystem: true
+ 2013-02-26 12:17:57,182 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ComputerSystem: true
+ 2013-02-26 12:17:57,183 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - BaseBoard: true
+ 2013-02-26 12:17:57,200 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Biostrue
+ 2013-02-26 12:17:57,254 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PhysicalMemory: true
+ 2013-02-26 12:17:57,327 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Processor: true
+ 2013-02-26 12:17:57,378 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DiskDrive: true
+ 2013-02-26 12:17:57,395 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - CDROMDrive: true
+ 2013-02-26 12:17:57,449 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - FloppyDrive: true
+ 2013-02-26 12:17:57,483 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - LogicalDisk: true
+ 2013-02-26 12:17:57,534 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - VideoController: true
+ 2013-02-26 12:17:57,558 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SerialPort: true
+ 2013-02-26 12:17:57,596 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - ParallelPort: true
+ 2013-02-26 12:17:57,598 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SCSIController: true
+ 2013-02-26 12:17:57,729 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - USBController: true
+ 2013-02-26 12:17:57,807 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - UsbHub: true
+ 2013-02-26 12:17:57,825 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SoundDevice: true
+ 2013-02-26 12:17:57,898 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - NetworkAdapterSetting: true
+ 2013-02-26 12:17:57,900 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - 1394Controller: true
+ 2013-02-26 12:17:57,942 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - DesktopMonitor: true
+ 2013-02-26 12:17:57,964 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Keyboard: true
+ 2013-02-26 12:17:58,004 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - PointingDevice: true
+ 2013-02-26 12:17:58,012 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - SystemSlot: true
+ 2013-02-26 12:17:58,045 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Terminal: true
+ 2013-02-26 12:17:58,154 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Device: true
+ 2013-02-26 12:17:58,262 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Package: true
+ 2013-02-26 12:17:58,262 DEBUG [135.130.15.232_1029_KickProcessIncomingMessage_0] ncr.inventory.snmp.SNMPData getData - Resultado final: true
+ 2013-03-14 13:47:51,135 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 13:48:50,543 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 13:49:05,771 ERROR [main] ncr.inventory.Test main - java.lang.NullPointerException
+ 2013-03-14 13:50:52,394 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 13:51:40,762 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 13:51:43,200 ERROR [main] ncr.inventory.Test main - java.lang.NullPointerException
+ 2013-03-14 14:04:17,788 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 14:04:17,793 ERROR [main] ncr.inventory.Test main - java.lang.NullPointerException
+ 2013-03-14 14:04:26,485 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 14:04:31,603 ERROR [main] ncr.inventory.Test main - java.lang.NullPointerException
+ 2013-03-14 14:05:49,109 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 14:05:49,137 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-03-14 14:06:36,579 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 14:06:36,584 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-03-14 14:07:04,597 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 14:07:04,602 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-03-14 14:07:10,990 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 14:08:08,986 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 14:08:34,605 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 14:09:16,618 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 14:09:39,209 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-03-14 21:23:50,943 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:24:33,990 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:25:09,121 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:25:50,044 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:26:56,307 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:31:30,204 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:32:44,268 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:33:18,380 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:38:03,109 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:38:03,122 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-03-14 21:38:39,881 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:38:39,894 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-03-14 21:39:37,850 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:39:37,864 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-03-14 21:40:18,090 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 21:40:18,107 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-03-14 22:11:01,896 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 22:17:42,363 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-14 22:17:50,812 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-15 09:11:28,652 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-15 09:13:42,871 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-15 09:14:56,801 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-03-15 09:16:18,141 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 16:41:38,570 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 16:42:34,510 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 16:45:12,620 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 16:49:36,407 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 16:51:06,856 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 16:51:07,253 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-08-14 16:51:07,653 ERROR [135.130.15.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-08-14 16:52:39,935 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 16:53:08,139 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 16:54:54,883 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 16:55:37,663 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 16:55:53,266 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-08-14 16:55:53,667 ERROR [135.130.15.128_161_null_v0_Trans0] ncr.inventory.snmp.SNMPUtils update - Error durante la recepci�n de la respuesta: uk.co.westhawk.snmp.stack.AgentException: Timed out
+ 2013-08-14 17:01:57,044 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 17:01:57,279 DEBUG [main] ncr.inventory.Test main - Finished...
+ 2013-08-14 17:03:00,156 DEBUG [main] ncr.inventory.Test main - Reading inventory properties file...
+ 2013-08-14 17:04:21,308 DEBUG [main] ncr.inventory.Test main - Finished...
+ 

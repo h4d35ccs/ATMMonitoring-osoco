@@ -1,0 +1,5 @@
+#surefire
+#Mon Jan 28 19:32:08 CET 2013
+user.dir=/home/george/workspace-web/Inventory
+localRepository=/home/george/.m2/repository
+basedir=/home/george/workspace-web/Inventory
