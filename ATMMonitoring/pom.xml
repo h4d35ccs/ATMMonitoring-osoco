@@ -50,7 +50,7 @@
             <artifactId>Inventory</artifactId>
             <version>0.1</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../Inventory_18_02_2013/target/Inventory-0.1.jar</systemPath>
+            <systemPath>${basedir}/../Inventory/target/Inventory-0.1.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -58,7 +58,7 @@
 	    <artifactId>snmp-stack</artifactId>
 	    <version>6.1</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../Inventory_18_02_2013/lib/snmp6_1.jar</systemPath>
+            <systemPath>${basedir}/../Inventory/lib/snmp6_1.jar</systemPath>
 	</dependency>
 
         <dependency>
