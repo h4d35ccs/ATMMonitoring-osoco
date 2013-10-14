@@ -1,5 +1,6 @@
 package ncr.inventory;
 
+import java.io.File;
 import java.io.IOException;
 
 import ncr.inventory.data.ATM;
@@ -31,39 +32,39 @@ public class Inventory implements RawPduListener {
     protected int port2;
 
     public Inventory(String propertiesFilename) {
-    	
+
     	//Eva - 14/03/2013 - The INVENTORY_HOME gives the path for the inventory.properties file
-    	String path = System.getenv("INVENTORY_HOME") + "\\" + propertiesFilename;
+    	String path = System.getenv("INVENTORY_HOME") + File.separator + propertiesFilename;
     	util = new Util(path, this.getClass().getName());
     	community = util.getCommunity();
     	port1 = util.getPort1(SnmpContextBasisFace.DEFAULT_PORT);
     	port2 = util.getPort2(ListeningContextPool.DEFAULT_TRAP_PORT);
-    	
+
     	System.out.println("Datos Properties: " + path + "\nCommunity:" + community + "  Port1:" + port1 + "  Port2:" + port2 + "  Host:" + util.getHost()
     			+ "  Bind:" + util.getBindAddress() + "  SocketType:" + util.getSocketType());
     }
-    
-    
+
+
     public void init() {
-    	
+
     	//Eva - 15/03/2013 - Bind should be null to avoid host detection problems
 		String host = util.getHost();
 		String bindAddr = util.getBindAddress();
 		if((bindAddr.isEmpty() || (bindAddr.equalsIgnoreCase("null"))))
 			bindAddr = null;
-		String socketType = util.getSocketType();	
+		String socketType = util.getSocketType();
 
     	try {
 		    context = new SnmpContext(host, port1, bindAddr, socketType);
 		    context.setCommunity(community);
-	
+
 		    // listen on port2
 		    defTrap = new ListeningContextPool(port2, bindAddr, socketType);
 		    defTrap.addUnhandledRawPduListener(this);
-	
+
 		    System.out.println("ReceiveTrap.init(): " + context.toString());
 		    System.out.println("ReceiveTrap.init(): " + defTrap.toString());
-		} 
+		}
     	catch (java.io.IOException exc) {
 			    System.out.println("ReceiveTrap.init(): IOException " + exc.getMessage());
 			    exc.printStackTrace();
@@ -75,13 +76,13 @@ public class Inventory implements RawPduListener {
     public void rawPduReceived(RawPduEvent evt) {
 		System.out.println();
 		System.out.println(getClass().getName() + ".rawPduReceived():");
-	
+
 		int port = evt.getHostPort();
 		int version = evt.getVersion();
 		String host = evt.getHostAddress();
-	
+
 		byte[] message = evt.getMessage();
-	
+
 		String hex = SnmpUtilities.toHexString(message);
 		StringBuilder output = new StringBuilder();
 		for (int i = 0; i < hex.length(); i += 2) {
@@ -89,17 +90,17 @@ public class Inventory implements RawPduListener {
 		    output.append((char) Integer.parseInt(str, 16));
 		}
 		System.out.println(output);
-	
+
 		System.out.println("\traw pdu v "
 			+ SnmpUtilities.getSnmpVersionString(version) + " from host "
 			+ host + ", sent from port " + port + ", with message "
 			+ message + "\t " + SnmpUtilities.toHexString(message));
-	
+
 		try {
 		    TrapPduv1 pduFull = new TrapPduv1(context);
 		    pduFull = (TrapPduv1) context.processIncomingPdu(message);
 		    String sEnterpriseOID = pduFull.getEnterprise();
-	
+
 		    //Only listening to the requests for NCRInventory Community
 		    if (sEnterpriseOID.equals("1.3.6.1.4.1.191.117")) {
 				Pdu pdu = context.processIncomingPdu(message);
@@ -117,7 +118,7 @@ public class Inventory implements RawPduListener {
 				    e.printStackTrace();
 				}
 		    }
-	
+
 		} catch (DecodingException e) {
 		    e.printStackTrace();
 		} catch (IOException e) {
