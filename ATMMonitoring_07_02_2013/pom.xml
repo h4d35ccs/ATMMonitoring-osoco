@@ -1,6 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 	http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ncr.ATMMonitoring</groupId>
@@ -9,7 +9,7 @@
 	<version>1.0</version>
 	<name>ATMMonitoring</name>
 	<url>http://maven.apache.org</url>
- 
+
 	<repositories>
 		<repository>
 			<id>java.net</id>
@@ -49,7 +49,17 @@
             <groupId>ncr.inventory</groupId>
             <artifactId>Inventory</artifactId>
             <version>0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../Inventory_18_02_2013/target/Inventory-0.1.jar</systemPath>
         </dependency>
+
+        <dependency>
+	    <groupId>uk.co.westhawk.snmp</groupId>
+	    <artifactId>snmp-stack</artifactId>
+	    <version>6.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../Inventory_18_02_2013/lib/snmp6_1.jar</systemPath>
+	</dependency>
 
         <dependency>
             <groupId>log4j</groupId>
@@ -57,7 +67,7 @@
             <version>1.2.16</version>
         </dependency>
 
-		<!-- Application Context 
+		<!-- Application Context
     		(depends on spring-core, spring-expression, spring-aop, spring-beans)
     		This is the central artifact for Spring's Dependency Injection Container
     		and is generally always defined-->
@@ -67,9 +77,9 @@
     		<version>${org.springframework.version}</version>
 		</dependency>
 
-		<!-- JDBC Data Access Library 
+		<!-- JDBC Data Access Library
     		(depends on spring-core, spring-beans, spring-context, spring-tx)
-    		Define this if you use Spring's JdbcTemplate API 
+    		Define this if you use Spring's JdbcTemplate API
     		(org.springframework.jdbc.*)-->
 		<dependency>
     		<groupId>org.springframework</groupId>
@@ -86,8 +96,8 @@
     		<version>${org.springframework.version}</version>
 		</dependency>
 
-		<!-- Web application development utilities applicable to both Servlet and 
-    		Portlet Environments 
+		<!-- Web application development utilities applicable to both Servlet and
+    		Portlet Environments
     		(depends on spring-core, spring-beans, spring-context)
     		Define this if you use Spring MVC, or wish to use Struts, JSF, or another
     		web framework with Spring (org.springframework.web.*)-->
@@ -97,9 +107,9 @@
     		<version>${org.springframework.version}</version>
 		</dependency>
 
-		<!-- Spring MVC for Servlet Environments 
+		<!-- Spring MVC for Servlet Environments
     		(depends on spring-core, spring-beans, spring-context, spring-web)
-    		Define this if you use Spring MVC with a Servlet Container such as 
+    		Define this if you use Spring MVC with a Servlet Container such as
    			Apache Tomcat (org.springframework.web.servlet.*)-->
 		<dependency>
     		<groupId>org.springframework</groupId>
@@ -108,7 +118,7 @@
 		</dependency>
 
     	<!-- Core utilities used by other modules.
-    		Define this if you use Spring Utility APIs 
+    		Define this if you use Spring Utility APIs
     		(org.springframework.core.*/org.springframework.util.*)-->
     	<!--
 		<dependency>
@@ -118,9 +128,9 @@
 		</dependency>
 		-->
 
-		<!-- Aspect Oriented Programming (AOP) Framework 
+		<!-- Aspect Oriented Programming (AOP) Framework
     		(depends on spring-core, spring-beans)
-    		Define this if you use Spring AOP APIs 
+    		Define this if you use Spring AOP APIs
     		(org.springframework.aop.*)-->
     	<!--
 		<dependency>
@@ -130,7 +140,7 @@
 		</dependency>
 		-->
 
-		<!-- Transaction Management Abstraction 
+		<!-- Transaction Management Abstraction
     		(depends on spring-core, spring-beans, spring-aop, spring-context)
     		Define this if you use Spring Transactions or DAO Exception Hierarchy
     		(org.springframework.transaction.*/org.springframework.dao.*)-->
@@ -141,9 +151,9 @@
     		<version>${org.springframework.version}</version>
 		</dependency>
 		-->
-		
+
 		<!-- Support for testing Spring applications with tools such as JUnit and TestNG
-    		This artifact is generally always defined with a 'test' scope for the 
+    		This artifact is generally always defined with a 'test' scope for the
     		integration testing framework and unit testing stubs-->
 		<!--
 		<dependency>
@@ -154,25 +164,25 @@
 		</dependency>
 		-->
 
-		
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
     		<version>${org.springframework.version}</version>
 		</dependency>
- 
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
     		<version>${org.springframework.version}</version>
 		</dependency>
- 
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
     		<version>${org.springframework.version}</version>
 		</dependency>
- 
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
@@ -184,7 +194,7 @@
     		<artifactId>jstl</artifactId>
     		<version>1.2</version>
 		</dependency>
-		
+
 		<dependency>
     		<groupId>javax.servlet</groupId>
     		<artifactId>servlet-api</artifactId>
@@ -202,25 +212,25 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
-		
+
 		<dependency>
     		<groupId>postgresql</groupId>
     		<artifactId>postgresql</artifactId>
     		<version>9.1-901.jdbc4</version>
 		</dependency>
-		
+
 		<dependency>
     		<groupId>commons-codec</groupId>
     		<artifactId>commons-codec</artifactId>
     		<version>1.4</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.mindrot</groupId>
 			<artifactId>jbcrypt</artifactId>
 			<version>0.3m</version>
 		</dependency>
-		
+
 		<dependency>
       		<groupId>org.aspectj</groupId>
       		<artifactId>aspectjtools</artifactId>
@@ -232,7 +242,7 @@
       		<artifactId>cglib</artifactId>
       		<version>2.2</version>
   		</dependency>
-  
+
   		<dependency>
       		<groupId>com.oracle</groupId>
       		<artifactId>ojdbc6</artifactId>
@@ -240,11 +250,11 @@
   		</dependency>
 
 	</dependencies>
-	
- 
+
+
 	<build>
 	  <plugins>
- 
+
 		<plugin>
 			<artifactId>maven-compiler-plugin</artifactId>
 			<configuration>
@@ -266,5 +276,5 @@
 
 	   </plugins>
 	</build>
- 
+
 </project>
