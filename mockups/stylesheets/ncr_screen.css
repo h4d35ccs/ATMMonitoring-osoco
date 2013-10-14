@@ -158,87 +158,33 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 80, ../sass/_header.scss */
-nav#main_nav {
-  background: url("../images/general/bg_main_nav.jpg") no-repeat;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 998;
-  padding-bottom: 45px;
-  padding-top: 40px;
-}
-/* line 88, ../sass/_header.scss */
-nav#main_nav ul {
-  border-top: 1px solid #6ca932;
-}
-/* line 91, ../sass/_header.scss */
-nav#main_nav li {
-  position: relative;
-}
-/* line 94, ../sass/_header.scss */
-nav#main_nav .dashboard a {
-  background: url("../images/icons/icons_main_left.png") no-repeat 0 0 transparent;
-}
-/* line 97, ../sass/_header.scss */
-nav#main_nav .terminals a {
-  background: url("../images/icons/icons_main_left.png") no-repeat -90px 0 transparent;
-}
-/* line 100, ../sass/_header.scss */
-nav#main_nav .users a {
-  background: url("../images/icons/icons_main_left.png") no-repeat -180px 0 transparent;
-}
-/* line 103, ../sass/_header.scss */
-nav#main_nav .reports a {
-  background: url("../images/icons/icons_main_left.png") no-repeat -270px 0 transparent;
-}
-/* line 106, ../sass/_header.scss */
-nav#main_nav .schedule a {
-  background: url("../images/icons/icons_main_left.png") no-repeat -360px 0 transparent;
-}
-/* line 109, ../sass/_header.scss */
-nav#main_nav a {
-  color: white;
-  display: block;
-  width: 90px;
-  padding-top: 70px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #6ca932;
-  text-align: center;
-}
-/* line 117, ../sass/_header.scss */
-nav#main_nav a:hover {
-  text-decoration: none;
-  background-color: #333333;
-}
-
-/* line 123, ../sass/_header.scss */
 #header_g {
   position: relative;
   clear: both;
   height: 3em;
   position: relative;
 }
-/* line 129, ../sass/_header.scss */
+/* line 86, ../sass/_header.scss */
 #header_g #breadcrumb li {
   float: left;
   margin-right: .5em;
 }
-/* line 132, ../sass/_header.scss */
+/* line 89, ../sass/_header.scss */
 #header_g #breadcrumb li a:after {
   content: " > ";
 }
-/* line 137, ../sass/_header.scss */
+/* line 94, ../sass/_header.scss */
 #header_g .botonera {
   position: absolute;
   right: 0;
   top: 3em;
 }
-/* line 141, ../sass/_header.scss */
+/* line 98, ../sass/_header.scss */
 #header_g .botonera li {
   float: left;
   margin-left: .5em;
 }
-/* line 145, ../sass/_header.scss */
+/* line 102, ../sass/_header.scss */
 #header_g .botonera .btn {
   margin-right: 0;
   margin-left: .5em;
@@ -861,6 +807,102 @@ table tr.active {
   border-right: 2px solid #f4a725;
 }
 
+/* line 1, ../sass/_nav.scss */
+nav#main_nav {
+  background: url("../images/general/bg_main_nav.jpg") no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  padding-bottom: 45px;
+  padding-top: 40px;
+}
+/* line 9, ../sass/_nav.scss */
+nav#main_nav ul {
+  border-top: 1px solid #6ca932;
+}
+/* line 12, ../sass/_nav.scss */
+nav#main_nav li {
+  position: relative;
+}
+/* line 15, ../sass/_nav.scss */
+nav#main_nav .dashboard a {
+  background: url("../images/icons/icons_main_left.png") no-repeat 0 0 transparent;
+}
+/* line 18, ../sass/_nav.scss */
+nav#main_nav .terminals a {
+  background: url("../images/icons/icons_main_left.png") no-repeat -90px 0 transparent;
+}
+/* line 21, ../sass/_nav.scss */
+nav#main_nav .users a {
+  background: url("../images/icons/icons_main_left.png") no-repeat -180px 0 transparent;
+}
+/* line 24, ../sass/_nav.scss */
+nav#main_nav .reports a {
+  background: url("../images/icons/icons_main_left.png") no-repeat -270px 0 transparent;
+}
+/* line 27, ../sass/_nav.scss */
+nav#main_nav .schedule a {
+  background: url("../images/icons/icons_main_left.png") no-repeat -360px 0 transparent;
+}
+/* line 30, ../sass/_nav.scss */
+nav#main_nav a {
+  color: white;
+  display: block;
+  width: 90px;
+  padding-top: 70px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #6ca932;
+  text-align: center;
+}
+/* line 38, ../sass/_nav.scss */
+nav#main_nav a:hover {
+  text-decoration: none;
+  background-color: #333333;
+}
+
+/* line 44, ../sass/_nav.scss */
+nav.sub_nav {
+  background-color: #f3f3f3;
+  height: 3em;
+  margin-bottom: 2em;
+}
+/* line 48, ../sass/_nav.scss */
+nav.sub_nav li {
+  float: left;
+  border-right: 1px solid #e6e6e6;
+  position: relative;
+}
+/* line 52, ../sass/_nav.scss */
+nav.sub_nav li a {
+  display: block;
+  padding: 1em;
+  color: #333333;
+}
+/* line 56, ../sass/_nav.scss */
+nav.sub_nav li a:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #333333;
+}
+/* line 63, ../sass/_nav.scss */
+nav.sub_nav li.current a {
+  text-decoration: none;
+  color: white;
+  background-color: #333333;
+}
+/* line 67, ../sass/_nav.scss */
+nav.sub_nav li.current a:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 2em;
+  border-top: 1.5em solid #333333;
+  border-top-color: #333333;
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;
+}
+
 /* line 1, ../sass/_main.scss */
 body {
   background: white url("../images/general/bg_body.png") repeat-y;
@@ -928,42 +970,50 @@ p {
 /* line 47, ../sass/_main.scss */
 .pagination div {
   float: left;
+  margin-right: 1em;
 }
-/* line 50, ../sass/_main.scss */
+/* line 51, ../sass/_main.scss */
 .pagination ul {
   float: left;
 }
-/* line 53, ../sass/_main.scss */
+/* line 54, ../sass/_main.scss */
 .pagination li {
   float: left;
+  margin-right: .2em;
 }
-/* line 55, ../sass/_main.scss */
+/* line 57, ../sass/_main.scss */
 .pagination li a {
   display: block;
   padding: 0 0.5em;
 }
+/* line 60, ../sass/_main.scss */
+.pagination li a:hover {
+  background-color: #333333;
+  text-decoration: none;
+  color: white;
+}
 
-/* line 61, ../sass/_main.scss */
+/* line 68, ../sass/_main.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 64, ../sass/_main.scss */
+/* line 71, ../sass/_main.scss */
 .botonera {
   overflow: hidden;
   clear: both;
   margin: 1em 0;
 }
-/* line 68, ../sass/_main.scss */
+/* line 75, ../sass/_main.scss */
 .botonera li {
   float: right;
   margin-left: .5em;
 }
-/* line 71, ../sass/_main.scss */
+/* line 78, ../sass/_main.scss */
 .botonera li a {
   margin: 0;
 }
-/* line 75, ../sass/_main.scss */
+/* line 82, ../sass/_main.scss */
 .botonera .request {
   float: left;
   margin-left: 4%;

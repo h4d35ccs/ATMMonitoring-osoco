@@ -46,15 +46,22 @@ p{
 	width: 400px;
 	div{
 		float: left;
+		margin-right: 1em;
 	}
 	ul{
 		float: left;
 	}
 	li{
 		float: left;
+		margin-right: .2em;
 		a{
 			display: block;
 			padding: 0 .5em;
+			&:hover{
+				background-color: $colorK1;
+				text-decoration: none;
+				color: $colorW;
+			}
 		}
 	}
 }

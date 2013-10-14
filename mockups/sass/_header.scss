@@ -77,49 +77,6 @@
 		}
 	}
 }
-nav#main_nav{
-	background:url("../images/general/bg_main_nav.jpg") no-repeat;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 998;
-	padding-bottom: 45px;
-	padding-top: 40px;
-	ul{
-		border-top: 1px solid $colorG;
-	}
-	li{
-		position: relative;
-	}
-	& .dashboard a{
-		background:url("../images/icons/icons_main_left.png") no-repeat 0 0 transparent;
-	}
-	& .terminals a{
-		background:url("../images/icons/icons_main_left.png") no-repeat -90px 0 transparent;
-	}
-	& .users a{
-		background:url("../images/icons/icons_main_left.png") no-repeat -180px 0 transparent;
-	}
-	& .reports a{
-		background:url("../images/icons/icons_main_left.png") no-repeat -270px 0 transparent;
-	}
-	& .schedule a{
-		background:url("../images/icons/icons_main_left.png") no-repeat -360px 0 transparent;
-	}
-	a{
-		color: $colorW;
-		display: block;
-		width: 90px;
-		padding-top: 70px;
-		padding-bottom: 5px;
-		border-bottom: 1px solid $colorG;
-		text-align: center;
-		&:hover{
-			text-decoration: none;
-			background-color: $colorK1;
-		}
-	}
-}
 #header_g{
 	position: relative;
 	clear: both;
