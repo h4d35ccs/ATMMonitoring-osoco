@@ -1,0 +1,150 @@
+#main_header{
+	background:$colorK;
+	background:rgba(51,51,51,0.9);
+	height: 40px;
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+	h1{
+		position: absolute;
+		font-size: 16px;
+		color: $colorW;
+		height: 40px;
+		top: 0;
+		left: 0;
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		span{
+			position: absolute;
+			top: -200px;
+		}
+		strong{
+			top: 5px;
+			left: 125px;
+			position: absolute;
+			font-weight: normal;
+			font-size: 1.8em;
+		}
+	}
+	#user_info{
+		text-transform: uppercase;
+		font-size: .8em;
+		color: $colorW;
+		margin-left: 20em;
+		padding-top: 1.8em;
+		position: absolute;
+		right: 45px;
+		top: 0;
+		&>div, &>nav{
+			float: left;
+			margin-left: 2em;
+		}
+	}
+	#lang{
+		display: inline;
+		cursor: pointer;
+		color: $colorW;
+		text-transform: uppercase;
+		text-align: right;
+		.txt{
+			display: block;
+			padding-right: 2em;
+			background:url("../images/icons/icons_onoff_w.png") no-repeat right top;
+		}
+		ul{
+			display: none;
+			padding-top:1em;
+			position: absolute;
+		}
+		li{
+			@include shadow;
+			background:$colorW;
+			color: $colorG;
+			a{
+				padding: .5em 1em;
+				border-bottom: 1px solid $colorG;
+				text-align: left;
+				display: block;
+			}
+		}
+	}
+	#exit{
+		a{
+			color: $colorW;
+		}
+	}
+}
+nav#main_nav{
+	background:url("../images/general/bg_main_nav.jpg") no-repeat;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 998;
+	padding-bottom: 45px;
+	padding-top: 40px;
+	ul{
+		border-top: 1px solid $colorG;
+	}
+	li{
+		position: relative;
+	}
+	& .dashboard a{
+		background:url("../images/icons/icons_main_left.png") no-repeat 0 0 transparent;
+	}
+	& .terminals a{
+		background:url("../images/icons/icons_main_left.png") no-repeat -90px 0 transparent;
+	}
+	& .users a{
+		background:url("../images/icons/icons_main_left.png") no-repeat -180px 0 transparent;
+	}
+	& .reports a{
+		background:url("../images/icons/icons_main_left.png") no-repeat -270px 0 transparent;
+	}
+	& .schedule a{
+		background:url("../images/icons/icons_main_left.png") no-repeat -360px 0 transparent;
+	}
+	a{
+		color: $colorW;
+		display: block;
+		width: 90px;
+		padding-top: 70px;
+		padding-bottom: 5px;
+		border-bottom: 1px solid $colorG;
+		text-align: center;
+		&:hover{
+			text-decoration: none;
+			background-color: $colorK1;
+		}
+	}
+}
+#header_g{
+	position: relative;
+	clear: both;
+	height: 3em;
+	position: relative;
+	#breadcrumb{
+		li{
+			float: left;
+			margin-right: .5em;
+			a:after{
+				content: " > ";
+			}
+		}
+	}
+	.botonera{
+		position: absolute;
+		right: 0;
+		top: 3em;
+		li{
+			float: left;
+			margin-left: .5em;
+		}
+		.btn{
+			margin-right: 0;
+			margin-left: .5em;
+		}
+	}
+}

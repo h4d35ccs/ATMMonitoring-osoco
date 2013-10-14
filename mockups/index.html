@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>NCR Inventory</title>
+	<script type='text/javascript' src="js/jquery-1.7.2.min.js"></script>
+	<script type='text/javascript' src="js/jquery-ui.min.js"></script>
+	<script type='text/javascript' src="js/jquery.ui.touch-punch.min.js"></script>
+	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+	<script type='text/javascript' src='js/google_charts.js'></script>
+	<script type='text/javascript' src='js/menu.js'></script>
+
+	<link rel="stylesheet" type="text/css" media="all" href="stylesheets/ncr_screen.css" />
+	<!--[if lt IE 9]>
+        <script type="text/javascript">
+          document.createElement("nav");
+          document.createElement("header");
+          document.createElement("footer");
+          document.createElement("section");
+          document.createElement("article");
+          document.createElement("aside");
+          document.createElement("hgroup");
+        </script>
+    <![endif]-->
+	<script>
+        $(function() {
+          $( "#sortable" ).sortable({
+            placeholder: "ui-state-highlight"
+          });
+          $( "#sortable" ).disableSelection();
+        });
+    </script>
+</head>
+<body id="dashboard">
+	<header id="main_header">
+		<h1>
+			<a href="index.html"><img src="images/general/logo.png"/></a>
+			<span>NCR</span> <strong>Inventory</strong>
+		</h1>
+		<div id="user_info">
+			<div class="wellcome">Bienvenido <a href="#">Felipe Aguirre</a></div>
+			<div class="date">02/10/13 - 8:30 am</div>
+			<div id="lang" class="desplegable">
+				<div class="txt hide">
+					<span>Castellano</span>
+				</div>
+					<ul>
+						<li><a href="#">Castellano</a></li>
+						<li><a href="#">English</a></li>
+					</ul>
+			</div>
+			<div id="exit">
+				<a href="#">CERRAR SESIÓN</a>
+			</div>
+		</div>
+	</header>
+	<nav id="main_nav">
+		<ul>
+			<li class="dashboard">
+				<a href="index.html">
+					<span>Dashboard</span>
+				</a>
+			</li>
+			<li class="terminals">
+				<a href="terminales.html">
+					<span>Terminales</span>
+				</a>
+			</li>
+			<li class="users">
+				<a href="usuarios.html">
+					<span>Usuarios</span>
+				</a>
+			</li>
+			<li class="reports">
+				<a href="informes.html">
+					<span>Informes</span>
+				</a>
+			</li>
+			<li class="schedule">
+				<a href="planificador.html">
+					<span>Planificador</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<div id="main">
+		<div id="primary">
+			<article>
+				<div id="header_g">
+					<div id="components">
+						<div id="my_components" class="desplegable">
+							<div class="txt hide">
+								<span>Mis componentes</span>
+							</div>
+							<ul>
+								<li class="off">Geo - ATM Mundo</li>
+								<li><a href="#">Proveedores</a></li>
+								<li class="off">ATM S.O.</li>
+								<li><a href="#">Sistemas operativos</a></li>
+								<li><a href="#">Cajeros Madrid</a></li>
+								<li class="off">ATM S.O. Madrid</li>
+								<li class="off">Idiomas</li>
+								<li class="off">Historico S.O. Macrid</li>
+								<li class="off">Historico S.O. Barcelona</li>
+								<li class="off">Historico S.O. Valencia</li>
+								<li class="off">ATM España</li>
+							</ul>
+						</div>
+						<div id="add_components">
+							<a href="#"><span>Añadir componente</span></a>
+						</div>
+					</div>
+					<div id="columns">
+						<nav>
+							<ul>
+								<li class=" column1"><a href="#"><span>2 columnas</span></a></li>
+								<li class=" column2"><a href="#"><span>2 columnas</span></a></li>
+								<li class="column3"><a href="#"><span>3 columnas</span></a></li>
+								<li class="current column4"><a href="#"><span>4 columnas</span></a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<ul id="sortable" class="ui-sortable column4">
+					<li class="ui-state-default">
+						<div class="content">
+
+							<div class="close"><span>cerrar</span></div>
+							<nav class="icons_menu desplegable">
+								<div class="icon16 config hide txt">
+									<span>Opciones</span>
+								</div>
+								<ul>
+									<li>
+										<a href="#">Editar</a>
+									</li>
+									<li>
+										<a href="#">Compartir</a>
+									</li>
+									<li>
+										<a href="#">Eliminar</a>
+									</li>
+								</ul>
+							</nav>
+							<div class="icons_bg"></div>
+							<div class="graph" id="chart_div"></div>
+						</div>
+					</li>
+					<li class="ui-state-default">
+						<div class="content">
+							<div class="close"><span>cerrar</span></div>
+							<nav class="icons_menu desplegable">
+								<div class="icon16 config hide txt">
+									<span>Opciones</span>
+								</div>
+								<ul>
+									<li>
+										<a href="#">Editar</a>
+									</li>
+									<li>
+										<a href="#">Compartir</a>
+									</li>
+									<li>
+										<a href="#">Eliminar</a>
+									</li>
+								</ul>
+							</nav>
+							<div class="icons_bg"></div>
+							<div class="graph" id="piechart_3d"></div>
+						</div>
+					</li>
+					<li class="ui-state-default">
+						<div class="content">
+							<div class="close"><span>cerrar</span></div>
+							<nav class="icons_menu desplegable">
+								<div class="icon16 config hide txt">
+									<span>Opciones</span>
+								</div>
+								<ul>
+									<li>
+										<a href="#">Editar</a>
+									</li>
+									<li>
+										<a href="#">Compartir</a>
+									</li>
+									<li>
+										<a href="#">Eliminar</a>
+									</li>
+								</ul>
+							</nav>
+							<div class="icons_bg"></div>
+							<div class="graph" id="donutchart"></div>
+						</div>
+					</li>
+					<li class="ui-state-default">
+						<div class="content">
+							<div class="close"><span>cerrar</span></div>
+							<nav class="icons_menu desplegable">
+								<div class="icon16 config hide txt">
+									<span>Opciones</span>
+								</div>
+								<ul>
+									<li>
+										<a href="#">Editar</a>
+									</li>
+									<li>
+										<a href="#">Compartir</a>
+									</li>
+									<li>
+										<a href="#">Eliminar</a>
+									</li>
+								</ul>
+							</nav>
+							<div class="icons_bg"></div>
+							<div class="graph" id="piechart"></div>
+						</div>
+					</li>
+					<li class="ui-state-default">
+						<div class="content">
+							<div class="close"><span>cerrar</span></div>
+							<nav class="icons_menu desplegable">
+								<div class="icon16 config hide txt">
+									<span>Opciones</span>
+								</div>
+								<ul>
+									<li>
+										<a href="#">Editar</a>
+									</li>
+									<li>
+										<a href="#">Compartir</a>
+									</li>
+									<li>
+										<a href="#">Eliminar</a>
+									</li>
+								</ul>
+							</nav>
+							<div class="icons_bg"></div>
+							<div class="graph" id="Graph01"></div>
+						</div>
+					</li>
+					<li class="ui-state-default">
+						<div class="content">
+							<div class="close"><span>cerrar</span></div>
+							<nav class="icons_menu desplegable">
+								<div class="icon16 config hide txt">
+									<span>Opciones</span>
+								</div>
+								<ul>
+									<li>
+										<a href="#">Editar</a>
+									</li>
+									<li>
+										<a href="#">Compartir</a>
+									</li>
+									<li>
+										<a href="#">Eliminar</a>
+									</li>
+								</ul>
+							</nav>
+							<div class="icons_bg"></div>
+							<div class="graph" id="Graph02"></div>
+						</div>
+					</li>
+					<li class="ui-state-default">
+						<div class="content">
+							<div class="close"><span>cerrar</span></div>
+							<nav class="icons_menu desplegable">
+								<div class="icon16 config hide txt">
+									<span>Opciones</span>
+								</div>
+								<ul>
+									<li>
+										<a href="#">Editar</a>
+									</li>
+									<li>
+										<a href="#">Compartir</a>
+									</li>
+									<li>
+										<a href="#">Eliminar</a>
+									</li>
+								</ul>
+							</nav>
+							<div class="icons_bg"></div>
+							<div class="graph" id="Graph03"></div>
+						</div>
+					</li>
+					<li class="ui-state-default">
+						<div class="content">
+							<div class="close"><span>cerrar</span></div>
+							<nav class="icons_menu desplegable">
+								<div class="icon16 config hide txt">
+									<span>Opciones</span>
+								</div>
+								<ul>
+									<li>
+										<a href="#">Editar</a>
+									</li>
+									<li>
+										<a href="#">Compartir</a>
+									</li>
+									<li>
+										<a href="#">Eliminar</a>
+									</li>
+								</ul>
+							</nav>
+							<div class="icons_bg"></div>
+							<div class="graph" id="Graph04"></div>
+						</div>
+					</li>
+				</ul>
+			</article>
+		</div>
+		<!-- /primary -->
+		<div id="secundary"></div>
+		<!-- /secundary -->
+		<!-- /main -->
+	</div>
+	<!-- /#main -->
+</body>
+</html>

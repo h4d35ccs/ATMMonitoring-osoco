@@ -1,0 +1,136 @@
+.icons_bg{
+	background: $colorW;
+	background:rgba(255, 255, 255, .75);
+	display: block;
+	border:1px solid $colorK5;
+	@include shadow();
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 73px;
+	height: 32px;
+	z-index: 1;
+	@include border-radius(4px);
+}
+.close{
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	background:url("../images/close.png") no-repeat;
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	display: block;
+	z-index: 2;
+	cursor: pointer;
+	span{
+		position: absolute;
+		top: 2em;
+	}
+}
+.icons_menu{
+	position: absolute;
+	top: 1em;
+	right: 3em;
+	width: 35px;
+	height: 20px;
+	z-index: 2;
+	ul{
+		//display: none;
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+		top: 0;
+		padding-top: 2em;
+		a{
+			display: block;
+			color: $colorW;
+			padding: .5em 1em;
+			border-bottom: 1px solid $colorK4;
+			background:$colorG;
+			@include shadow;
+			&:hover{
+				text-decoration: none;
+				background:$colorK3;
+			}
+		}
+		li:last-child a{
+				border:none;
+			}
+	}
+}
+.icon16{
+	width: 100%;
+	height: 100%;
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	z-index: 100;
+	span{
+		position: absolute;
+		top: -40px;
+	}
+	&.config{
+		background:url("../images/icons/icons.png") no-repeat 0 -20px;
+		cursor: pointer;
+	}
+	&.config.hide{
+		background:url("../images/icons/icons.png") no-repeat 0 0;
+		&:hover{
+			background:url("../images/icons/icons.png") no-repeat 0 0;
+		}
+	}
+}
+.add{
+	background:url("../images/icons/icon_add.png") no-repeat right top $colorW;
+	padding-right: 40px;
+	&:hover{
+		background:url("../images/icons/icon_add.png") no-repeat right bottom $colorG;
+	}
+}
+.info{
+	width: 25px;
+	height: 25px;
+	background:url("../images/icons/icon_info.png") no-repeat top right;
+	padding-right: 2em;
+	overflow: hidden;
+	position: relative;
+	display: inline;
+	cursor: pointer;
+	cursor: help;
+	&:hover{
+		background:url("../images/icons/icon_info.png") no-repeat bottom right;
+	}
+	span{
+		display: block;
+		overflow: hidden;
+		position: absolute;
+		height: 0;
+		width: 0;
+	}
+}
+.note{
+	background:url("../images/icons/icon_note.png") no-repeat;
+	width: 25px;
+	height: 25px;
+	padding: .5em 1em;
+	margin-left: .5em;
+	overflow: hidden;
+	position: relative;
+	display: inline;
+	cursor: help;
+	span{
+		display: block;
+		overflow: hidden;
+		position: absolute;
+		height: 0;
+		width: 0;
+	}
+}
+.download{
+	background:url("../images/icons/icon_download.png") no-repeat top right $colorW;
+	padding-right: 40px;
+	&:hover{
+		background:url("../images/icons/icon_download.png") no-repeat bottom right $colorG;
+	}
+}

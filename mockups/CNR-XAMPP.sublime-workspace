@@ -1,0 +1,1083 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pa",
+				"padding-right"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"colorK",
+				"colorK3"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"color",
+				"colorK4"
+			],
+			[
+				"border-col",
+				"border-color"
+			],
+			[
+				"colorB",
+				"colorB5"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"colorW",
+				"colorW1"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"paddin",
+				"padding"
+			],
+			[
+				"B",
+				"bottom"
+			],
+			[
+				"colo",
+				"colorK"
+			],
+			[
+				"colorb",
+				"colorB3"
+			],
+			[
+				"re",
+				"relative"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"padding",
+				"padding"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"col",
+				"collapse"
+			],
+			[
+				"bo",
+				"bold"
+			],
+			[
+				"borde",
+				"border-radius"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"b",
+				"bg	background"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"pc",
+				"pc_has"
+			],
+			[
+				"bg",
+				"bg	background"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"MAR",
+				"margin"
+			],
+			[
+				"bot",
+				"both"
+			],
+			[
+				"lef",
+				"left"
+			],
+			[
+				"BA",
+				"background-size"
+			],
+			[
+				"WI",
+				"width"
+			],
+			[
+				"lis-s",
+				"list-style-type"
+			],
+			[
+				"ti",
+				"title	<title>"
+			],
+			[
+				"error",
+				"error404"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"FA",
+				"FAQ"
+			],
+			[
+				"zi",
+				"z-index"
+			],
+			[
+				"bgro",
+				"background"
+			],
+			[
+				"h",
+				"h1	Tag"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"text-",
+				"text-transform"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"hi",
+				"hidden"
+			],
+			[
+				"border-ri",
+				"border-right"
+			],
+			[
+				"in",
+				"inherit"
+			],
+			[
+				"q",
+				"square"
+			],
+			[
+				"z-in",
+				"z-index"
+			],
+			[
+				"anim",
+				"anim-	animation: ${1:name} ${2:duration} ${3:timing-function} ${4:delay} ${5:iteration-count} ${6:direction} ${7:fill-mode};"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"SEC",
+				"section	Tag"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"designcolor",
+				"designColorB5"
+			],
+			[
+				"desig",
+				"designColorW1"
+			],
+			[
+				"designColorK",
+				"designColorK5"
+			],
+			[
+				"designColorW",
+				"designColorW1"
+			],
+			[
+				"designColor",
+				"designColorK4"
+			],
+			[
+				"designColorB",
+				"designColorB5"
+			],
+			[
+				"desi",
+				"designColorB2"
+			],
+			[
+				"design",
+				"designColorW"
+			],
+			[
+				"designcolorB",
+				"designColorB5"
+			],
+			[
+				"general",
+				"generalColor"
+			],
+			[
+				"z-",
+				"z-index"
+			],
+			[
+				"let",
+				"left"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"POS",
+				"position"
+			],
+			[
+				"create",
+				"createAccountForm"
+			],
+			[
+				"cre",
+				"createAccountForm"
+			],
+			[
+				"top",
+				"top_five"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"img",
+				"images"
+			],
+			[
+				"camp",
+				"campaign"
+			],
+			[
+				"tab",
+				"table-cell"
+			],
+			[
+				"user",
+				"user_points"
+			],
+			[
+				"s",
+				"box-shadow"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"le",
+				"left"
+			],
+			[
+				"open",
+				"open_close"
+			],
+			[
+				"rig",
+				"right"
+			],
+			[
+				"mi",
+				"middle"
+			],
+			[
+				"main_",
+				"main_header"
+			],
+			[
+				"nor",
+				"no-repeat"
+			],
+			[
+				"out",
+				"outside"
+			],
+			[
+				"po",
+				"list-style-position"
+			],
+			[
+				"ou",
+				"outside"
+			],
+			[
+				"lis",
+				"list-style-position"
+			],
+			[
+				"list-",
+				"list-style-type"
+			],
+			[
+				"sc",
+				"Screenshots"
+			],
+			[
+				"se",
+				"section	Tag"
+			],
+			[
+				"ma",
+				"max-height"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"hea",
+				"header	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "sass/_main.scss",
+			"settings":
+			{
+				"buffer_size": 415,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sass/_header.scss",
+			"settings":
+			{
+				"buffer_size": 1722,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sass/ncr_screen.scss",
+			"settings":
+			{
+				"buffer_size": 182,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sass/_dashboard.scss",
+			"settings":
+			{
+				"buffer_size": 2836,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/chrome-preview.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"nm",
+				"Text Pastry: From N to X by M"
+			],
+			[
+				"pas",
+				"Text Pastry: From N to X by M"
+			],
+			[
+				"past",
+				"Text Pastry: From N to X by M"
+			],
+			[
+				"tex",
+				"Text Pastry: From N to X by M"
+			],
+			[
+				"pastry",
+				"Text Pastry: From N to X by M"
+			],
+			[
+				"0",
+				"Text Pastry: From 0 To X"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"lore",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"intall",
+				"Package Control: Install Package"
+			],
+			[
+				"lor",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"bar",
+				"View: Toggle Side Bar"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"lorem",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"css",
+				"Emmet: Reflect CSS Value"
+			],
+			[
+				"list packages",
+				"Package Control: List Packages"
+			],
+			[
+				"packs",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 476.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/XAMPP/xamppfiles/htdocs/ncr/WWW/sass/_responsive.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/ncr/WWW/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/ncr/WWW/sass/_main.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/ncr/WWW/sass/_dashboard.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/ncr/WWW/js/google_charts.js",
+		"/Users/emilioek10/Work/NCR/WWW/sass/_variables.scss",
+		"/Users/emilioek10/Work/NCR/WWW/sass/_icons.scss",
+		"/Users/emilioek10/Work/NCR/WWW/js/menu.js",
+		"/Users/emilioek10/Work/NCR/WWW/sass/_responsive.scss",
+		"/Users/emilioek10/Work/NCR/WWW/sass/ncr_screen.scss",
+		"/Users/emilioek10/Work/NCR/WWW/sass/_footer.scss",
+		"/Users/emilioek10/Work/NCR/WWW/js/google_charts.js",
+		"/Users/emilioek10/Work/NCR/WWW/sass/_dashboard.scss",
+		"/Users/emilioek10/Work/NCR/WWW/index.html",
+		"/Users/emilioek10/Work/NCR/WWW/sass/_main.scss",
+		"/Users/emilioek10/Work/NCR/WWW/sass/_footer.js",
+		"/Users/emilioek10/Desktop/borrame.html",
+		"/Users/emilioek10/Work/NCR/WWW/js/jquery-1.7.2.min.js",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/group/index.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_js.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/templates/_prettyMessage.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/campaign/create.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/campaign/_groups.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/campaign/groups/_list.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_campaign.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/i18n/messages.properties",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/i18n/messages_en.properties",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_responsive.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/campaign/broadcastMessage.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_main_header.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/report/_list.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/screen.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_forms.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/group/_createEditGroup.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_myGroups.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/screen_v910.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_user_page.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_main.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_my_panel.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_aplication.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/css/screen.css",
+		"/Users/emilioek10/Work/BBVA/BBVABT/.gitignore",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/report/listByCampaign.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/forum/showThread.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/forum/listByCategory.gsp",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_impact.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass/_general.scss",
+		"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/taglib/es/osoco/bbva/betatesting/tags/BetatestingTagLib.groovy",
+		"/Users/emilioek10/Work/BBVA/BBVABT/redis-flushall.sh",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/sass/_page_eventos.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/content-eventos.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/sass/_page_poesia.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/single-eventos.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/sass/_generales.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/header.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/searchform.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/inc/template-tags.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/header-poesia.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/header-eventos.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/header-criticas.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/search.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/sass/_page_index.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/page-contacto.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/sass/style.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-includes/media-template.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/page-eventos.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/single.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/page-criticas.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/image.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/sass/_page_criticas.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/single-criticas.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/sass/_page_eventos",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/languages/_s.pot",
+		"/Applications/XAMPP/xamppfiles/htdocs/sye/wp-content/themes/lureka/page_actualidad.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/sye/wp-content/themes/lureka/single_actualidad.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/archive.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/content-criticas.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/sass/_variables.scss",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-admin/upgrade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/single-poesias.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/page-index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/style_old.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/page-poesia.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/languages/themes/twentythirteen-es_ES.po",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/no-results.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/languages/themes/twentytwelve-es_ES.po",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/content-CV.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/page-cv.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/content-page.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-admin/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/license.txt",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/content-poesia.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-config.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler/functions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesus_soler/colecciones/mfashion.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesus_soler/colecciones/por_la_paz.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesus_soler/colecciones/miradas_mujer.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesus_soler/colecciones/picasso.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesus_soler/colecciones/2mayo.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesus_soler/colecciones/mfashion2.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesus_soler/colecciones/guayasamin.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesus_soler/colecciones/tauromaquia.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesus_soler/colecciones/texturas_naturaleza.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/jesus_soler/colecciones/meninas_recicladas.html",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/i18n/messages.properties",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/report/_bodyReport.gsp",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_aplication.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_my_panel.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/application/showDeveloperApps.gsp",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_impact.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/layouts/_backofficeHeader.gsp",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_backoffice.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/layouts/backoffice-main.gsp",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_main_header.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_general.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_js.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/domain/es/osoco/bbva/betatesting/product/OperatingSystem.groovy",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/taglib/es/osoco/bbva/betatesting/tags/BetatestingTagLib.groovy",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_campaign.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_poll.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/layouts/_header_logout.gsp",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_logout.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_main.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/application/show.gsp",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/campaign/create.gsp",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_forms.scss",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/report/_duplicates.gsp",
+		"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass/_instructions.scss"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/emilioek10/Work/BBVA/BBVABT/web-app/sass",
+			"/Users/emilioek10/Work/BBVA/BBVABT/grails-app",
+			"/Users/emilioek10/Work/BBVA/BBVABT/web-app",
+			"/Users/emilioek10/Work/BBVA/BBVABT",
+			"/Users/emilioek10/Work/BBVA/BBVABT/grails-app",
+			"/Users/emilioek10/Work/BBVA/BBVABT/web-app",
+			"/Users/emilioek10/Work/BBVA/BBVABT",
+			"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views",
+			"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views/report",
+			"/Users/emilioek10/Work/BBVA/BBVABT/grails-app/views",
+			"/Users/emilioek10/Work/BBVA/BBVABT",
+			"/Users/emilioek10/Work/BBVA/BBVABT/grails-app",
+			"/Users/emilioek10/Work/BBVA/BBVABT",
+			"/Users/emilioek10/Work/BBVA/BBVABT/web-app",
+			"/Users/emilioek10/Work/BBVA/BBVABT",
+			"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler",
+			"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/languages",
+			"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD",
+			"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler",
+			"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD",
+			"/Applications/XAMPP/xamppfiles/htdocs/jesusSoler_BBDD/wp-content/themes/jesussoler",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/report",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/report",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass",
+			"/Users/emilioek10/Work/BBVA/BETATESTER",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/device",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app/views/poll",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/branches/RELEASE_0.2/web-app/sass",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/grails-app",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/design/html",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app/sass",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/web-app",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk",
+			"/Users/emilioek10/Work/BBVA/BETATESTER/trunk/design/html"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"100",
+			"<div class=\"icons_bg\"></div>",
+			";\n",
+			"my_components",
+			";\n",
+			"menu",
+			".9em",
+			"9px",
+			"SESIÓN",
+			" class=\"off\"",
+			"colorK5",
+			"2",
+			"config hide",
+			"icons_menu",
+			"colum",
+			"colum2",
+			"icons_menu",
+			"5px",
+			"15px",
+			"10px",
+			"230",
+			"204",
+			"<a href=\"#\">Eliminar</a>\n									</li>\n								</ul>\n							</nav>",
+			"\"",
+			"<div class=\"icon16 config hide\">",
+			"<a href=\"#\" class=\"icon16",
+			"config",
+			"Configurar",
+			"<a href=\"#\">Editar</a>\n									</li>\n									<li>\n										<a href=\"#\">Cerrar</a>\n									</li>\n									<li>\n										<a href=\"#\">Eliminar</a>",
+			"drawMarkersMap",
+			"drawChart",
+			" class=\"drawChart_div\"",
+			"drawChart",
+			".drawChart ",
+			"graph",
+			"video",
+			"drawChart",
+			"800px",
+			"1",
+			" 100% 100%",
+			"cover",
+			"<div class=\"content\">",
+			"<div class=\"graf01\">\n				</div>",
+			"<li class=",
+			"div",
+			"http://code.jquery.com",
+			"Borrar",
+			"$colorR",
+			"id=\"groups",
+			"id=\"group4",
+			"border-top",
+			"border-bottom",
+			".select2-drop.select2-drop-above.select2-drop-active",
+			"#fff",
+			".select2-drop",
+			"#5897fb",
+			".select2-drop.select2-drop-above.select2-drop-active",
+			"betatesting.campaign.new.guests.pending",
+			"usuairos previamente",
+			"#groups .account li",
+			"#groups",
+			"#groups .account li",
+			"groupsDivContainer",
+			"invitation_on",
+			"banner",
+			"showBanners",
+			"Descargar la lista de reports.",
+			"Descargar",
+			"download",
+			"download small",
+			"<ul",
+			"ul",
+			".device_table",
+			"bold",
+			"td",
+			"table",
+			"td",
+			"<style>",
+			"style",
+			"style=",
+			"<style",
+			"#my_account dl dt",
+			".camp{",
+			"#my_account dl dt",
+			"padding-top: 6em",
+			".camp{",
+			".camp ",
+			".camp",
+			".camp{",
+			"style=\"",
+			"style",
+			"stile",
+			"stile=",
+			"br /",
+			"p",
+			"border",
+			"div",
+			"Post navigation",
+			"video",
+			"Search for",
+			"#fff;",
+			"gallery",
+			"<dl",
+			"#gallery",
+			"gallery-item",
+			"poesia",
+			"gallery",
+			"la comunidad",
+			"mesa",
+			"LA PINO",
+			"Post navigation",
+			"Older posts",
+			"← Older posts",
+			"Older posts",
+			"← Older posts",
+			"jesussoler_content_nav",
+			"nav-below",
+			"par",
+			"aligncenter",
+			">\n",
+			"Nothing Found",
+			"category",
+			"image.php:39",
+			"Perhaps searching can help.",
+			"It seems we can’t find what you’re looking for. Perhaps searching can help.",
+			"nav",
+			"#",
+			"<h1>Poesía</h1>"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"href=\"design/design/css/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "sass/_main.scss",
+					"settings":
+					{
+						"buffer_size": 415,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								413,
+								413
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "sass/_header.scss",
+					"settings":
+					{
+						"buffer_size": 1722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1348,
+								1348
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "sass/ncr_screen.scss",
+					"settings":
+					{
+						"buffer_size": 182,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								85,
+								85
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "sass/_dashboard.scss",
+					"settings":
+					{
+						"buffer_size": 2836,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								81,
+								81
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.csslint_result_view":
+	{
+		"height": 25.0
+	},
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"operati",
+				"trunk/grails-app/domain/es/osoco/bbva/betatesting/product/OperatingSystem.groovy"
+			],
+			[
+				"",
+				"BBVABT.sublime-workspace"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 300.0,
+	"status_bar_visible": true
+}

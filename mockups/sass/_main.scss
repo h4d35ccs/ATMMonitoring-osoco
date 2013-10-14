@@ -1,0 +1,79 @@
+body{
+	background: $colorW url("../images/general/bg_body.png") repeat-y;
+	color: $colorK1;
+	font-family: Arial, Sans-Serif;
+	font-size: .8em;
+}
+a{
+	@include transitionAll;
+	color:$colorG;
+	text-decoration: none;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+p{
+	margin: .5em 0;
+	line-height: 1.5em;
+}
+#main{
+	padding: 16px 35px;
+	border-top: 40px solid $colorK1;
+	margin-left: 90px;
+	background:$colorW;
+	min-height: 300px;
+	position: relative;
+	h1{
+		font-size: 2.2em;
+		color: $colorG;
+		margin-bottom: 1em;
+		font-weight: normal;
+	}
+	h2{
+		@extend h1;
+		font-size: 2em;
+	}
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.pagination{
+	overflow: hidden;
+	margin: 2em auto;
+	width: 400px;
+	div{
+		float: left;
+	}
+	ul{
+		float: left;
+	}
+	li{
+		float: left;
+		a{
+			display: block;
+			padding: 0 .5em;
+		}
+	}
+}
+strong{
+	font-weight: bold;
+}
+.botonera{
+	overflow: hidden;
+	clear: both;
+	margin: 1em 0;
+	li{
+		float: right;
+		margin-left: .5em;
+		a{
+			margin: 0;
+		}
+	}
+	.request{
+		float: left;
+		margin-left: 4%;
+	}
+}

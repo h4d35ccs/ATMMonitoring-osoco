@@ -1,0 +1,51 @@
+// COLORS
+$colorK: #000000;
+$colorK1: #333333;
+$colorK2: #808080;
+$colorK3: #B3B3B3;
+$colorK4: #CCCCCC;
+$colorK5: #E6E6E6;
+$colorK6: #F3F3F3;
+
+$colorG: #6ca932;
+
+$colorR: #E14F3C;
+
+$colorB1: #8080D9;
+$colorB2: #5CD8EE;
+$colorB3: #4D99F2;
+
+$colorY1: #CCBF9E;
+$colorY2: #EDE634;
+$colorY3: #F4A725;
+
+$colorW: #FFFFFF;
+
+@mixin transitionAll{
+ -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+@mixin transitionNone{
+ -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+@mixin shadow(){
+	-webkit-box-shadow: 2px 2px 5px $colorK3;
+    -moz-box-shadow: 2px 2px 5px $colorK3;
+    box-shadow: 2px 2px 5px $colorK3;
+}
+@mixin shadow1(){
+	-webkit-box-shadow: 8px 8px 5px $colorK3;
+    -moz-box-shadow: 8px 8px 5px $colorK3;
+    box-shadow: 8px 8px 5px $colorK3;
+}
+
+@mixin border-radius($radius){
+	-o-border-radius: $radius;
+ 	-moz-border-radius: $radius;
+ 	-webkit-border-radius: $radius;
+ 	border-radius: $radius;
+}

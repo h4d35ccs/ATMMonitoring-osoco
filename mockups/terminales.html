@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>NCR Inventory</title>
+	<script type='text/javascript' src="js/jquery-1.7.2.min.js"></script>
+	<script type='text/javascript' src='js/menu.js'></script>
+
+	<link rel="stylesheet" type="text/css" media="all" href="stylesheets/ncr_screen.css" />
+	<!--[if lt IE 9]>
+        <script type="text/javascript">
+          document.createElement("nav");
+          document.createElement("header");
+          document.createElement("footer");
+          document.createElement("section");
+          document.createElement("article");
+          document.createElement("aside");
+          document.createElement("hgroup");
+        </script>
+    <![endif]-->
+</head>
+<body id="terminals">
+	<header id="main_header">
+		<h1>
+			<a href="index.html"><img src="images/general/logo.png"/></a>
+			<span>NCR</span> <strong>Inventory</strong>
+		</h1>
+		<div id="user_info">
+			<div class="wellcome">Bienvenido <a href="#">Felipe Aguirre</a></div>
+			<div class="date">02/10/13 - 8:30 am</div>
+			<div id="lang" class="desplegable">
+				<div class="txt hide">
+					<span>Castellano</span>
+				</div>
+					<ul>
+						<li><a href="#">Castellano</a></li>
+						<li><a href="#">English</a></li>
+					</ul>
+			</div>
+			<div id="exit">
+				<a href="#">CERRAR SESIÓN</a>
+			</div>
+		</div>
+	</header>
+	<nav id="main_nav">
+		<ul>
+			<li class="dashboard">
+				<a href="index.html">
+					<span>Dashboard</span>
+				</a>
+			</li>
+			<li class="terminals">
+				<a href="terminales.html">
+					<span>Terminales</span>
+				</a>
+			</li>
+			<li class="users">
+				<a href="usuarios.html">
+					<span>Usuarios</span>
+				</a>
+			</li>
+			<li class="reports">
+				<a href="informes.html">
+					<span>Informes</span>
+				</a>
+			</li>
+			<li class="schedule">
+				<a href="planificador.html">
+					<span>Planificador</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<div id="main">
+		<div id="primary">
+			<article>
+				<div id="header_g">
+					<nav id="breadcrumb">
+						<ul>
+							<li><a href="#">inicio</a></li>
+							<li>Terminales</li>
+						</ul>
+					</nav>
+					<div class="botonera">
+						<ul>
+							<li><a href="#" class="btn add">Añadir terminal</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="content">
+					<h1>Terminales</h1>
+					<div class="action_box">
+						<h2>Consultas <div class="info"><span>Más información</span></div></h2>
+						<div class="row">
+							<label>Elige tu consulta:</label>
+							<select>
+								<option value="">Seleccionar</option>
+							</select>
+							<input type="submit" value="Aplicar" class="btn">
+							<a href="#" class="btn add right">Añadir consulta</a>
+						</div>
+					</div>
+					<div class="botonera">
+						<ul>
+							<li><a href="#" class="btn download">Descargar CVS</a></li>
+						</ul>
+					</div>
+					<table>
+						<tr>
+							<th class="order top">MAC</th>
+							<th class="order bottom">IP</th>
+							<th class="order ">Nº serie</th>
+							<th class="order ">Tipo terminal</th>
+							<th class="order ">Proveedor</th>
+							<th class="order ">Dirección geográfica</th>
+							<th class="order ">Modelo</th>
+							<th class="order ">Clase de producto</th>
+							<th class="order ">Nº trazador</th>
+						</tr>
+						<tr>
+							<td>00:1b:21:01:82:8B <a href="#" class="note"><span>Nota</span></a></td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+						<tr>
+							<td>00:1b:21:01:82:8B</td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+						<tr class="active">
+							<td>00:1b:21:01:82:8B<a href="#" class="note"><span>Nota</span></a></td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+						<tr>
+							<td class="note_detail" colspan="9">
+								<div>
+									<ul>
+										<li><strong>25/05/12 09:40 | Nombre Autor </strong><P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, dolorem, possimus soluta fuga ab harum quo illum maiores ea facere quis hic sed beatae. Sit, fugit eum debitis modi est. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, dolorem, possimus soluta fuga ab harum quo illum maiores ea facere quis hic sed beatae. Sit, fugit eum debitis modi est.</P></li>
+										<li><strong>25/05/12 09:40 | Nombre Autor </strong><P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, dolorem, possimus soluta fuga ab harum quo illum maiores ea facere quis hic sed beatae. Sit, fugit eum debitis modi est.</P></li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>00:1b:21:01:82:8B<a href="#" class="note"><span>Nota</span></a></td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+						<tr>
+							<td>00:1b:21:01:82:8B</td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+						<tr>
+							<td>00:1b:21:01:82:8B</td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+						<tr>
+							<td>00:1b:21:01:82:8B</td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+						<tr>
+							<td>00:1b:21:01:82:8B</td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+						<tr>
+							<td>00:1b:21:01:82:8B</td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+						<tr>
+							<td>00:1b:21:01:82:8B</td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+						<tr>
+							<td>00:1b:21:01:82:8B</td>
+							<td>117.129.23.12</td>
+							<td>24778922</td>
+							<td>SST</td>
+							<td>Wincor</td>
+							<td>Madrid</td>
+							<td>0</td>
+							<td>5347</td>
+							<td>767</td>
+						</tr>
+					</table>
+					<div class="pagination">
+						<div>56.983 Terminales | Página</div>
+						<ul>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">6</a></li>
+							<li><a href="#">7</a></li>
+							<li><a href="#">8</a></li>
+							<li><a href="#">9</a></li>
+							<li><a href="#">...</a></li>
+						</ul>
+					</div>
+				</div>
+			</article>
+		</div>
+		<!-- /primary -->
+		<div id="secundary"></div>
+		<!-- /secundary -->
+		<!-- /main -->
+	</div>
+	<!-- /#main -->
+</body>
+</html>
