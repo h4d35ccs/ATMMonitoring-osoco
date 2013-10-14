@@ -12,10 +12,12 @@
         </dependency>
 
         <dependency>
-		     <groupId>uk.co.westhawk.snmp</groupId>
-		     <artifactId>snmp-stack</artifactId>
-		     <version>6.1</version>
-		</dependency>
+	    <groupId>uk.co.westhawk.snmp</groupId>
+	    <artifactId>snmp-stack</artifactId>
+	    <version>6.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/snmp6_1.jar</systemPath>
+	</dependency>
   </dependencies>
-        
+
 </project>
