@@ -4,31 +4,30 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<table class="data subform">
+
+<table>
 <tr>
-    <th width="135px"><i><spring:message code="label.terminal.mac"/></i></th>
-    <th width="120px"><i><spring:message code="label.terminal.ip"/></i></th>
-    <th width="110px"><i><spring:message code="label.terminal.serialNumber"/></i></th>
-    <th width="80px"><i><spring:message code="label.terminal.terminalType"/></i></th>
-    <th width="80px"><i><spring:message code="label.terminal.terminalVendor"/></i></th>
-    <th width="160px"><i><spring:message code="label.terminal.geographicAddress"/></i></th>
-    <th width="75px"><i><spring:message code="label.terminal.model"/></i></th>
-    <th width="105px"><i><spring:message code="label.terminal.productClass"/></i></th>
-	<th width="60px"><i><spring:message code="label.terminal.tracerNumber"/></i></th>
+    <th class="order top"><spring:message code="label.terminal.mac"/></th>
+    <th class="order bottom"><spring:message code="label.terminal.ip"/></th>
+    <th class="order"><spring:message code="label.terminal.serialNumber"/></th>
+    <th class="order"><spring:message code="label.terminal.terminalType"/></th>
+    <th class="order"><spring:message code="label.terminal.terminalVendor"/></th>
+    <th class="order"><spring:message code="label.terminal.geographicAddress"/></th>
+    <th class="order"><spring:message code="label.terminal.model"/></th>
+    <th class="order"><spring:message code="label.terminal.productClass"/></th>
+	<th class="order"><spring:message code="label.terminal.tracerNumber"/></th>
 </tr>
-<c:set var="alt" value="${false}"/>
 <c:forEach items="${terminals}" var="terminal">
-    <tr <c:if test="${alt}">class="alt"</c:if>>
-        <td width="135px"><a href="terminals/details/${terminal.id}">${terminal.mac}</a></td>
-        <td width="120px">${terminal.ip}</td>
-	    <td width="110px">${terminal.serialNumber}</td>
-        <td width="80px">${terminal.terminalType}</td>
-        <td width="80px">${terminal.terminalVendor}</td>
-        <td width="160px">${terminal.geographicAddress}</td>
-        <td width="75px">${terminal.model}</td>
-        <td width="105px">${terminal.productClass}</td>
-        <td width="60px">${terminal.tracerNumber}</td>
+    <tr>
+        <td><a href="terminals/details/${terminal.id}">${terminal.mac}</a></td>
+        <td>${terminal.ip}</td>
+	    <td>${terminal.serialNumber}</td>
+        <td>${terminal.terminalType}</td>
+        <td>${terminal.terminalVendor}</td>
+        <td>${terminal.geographicAddress}</td>
+        <td>${terminal.model}</td>
+        <td>${terminal.productClass}</td>
+        <td>${terminal.tracerNumber}</td>
     </tr>
-	<c:set var="alt" value="${!alt}"/>
 </c:forEach>
 </table>

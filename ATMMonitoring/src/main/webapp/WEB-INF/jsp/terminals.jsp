@@ -5,37 +5,96 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<t:wrapper titleCode="label.terminalsManager" userMsg="${userMsg}">
-<h1><spring:message code="label.terminalsManager"/></h1>
+<t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}" section="terminals">
 
-<div class="box">
-	<h2><spring:message code="label.terminals"/></h2>
-	<div class="box-tableContainer">
-		<c:if  test="${empty pagedListHolder.pageList}">
-		<div class="empty-list"><spring:message code="label.terminal.noTerminals"/></div>
-		</c:if>
-		<c:if  test="${!empty pagedListHolder.pageList}">
-			<t:terminalsTable terminals="${pagedListHolder.pageList}"/>
-			<div class="pagingContainer">
-			<t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/list?p=~"/>
-			</div>
-		</c:if>
-	</div>
-</div>
+    <div id="main">
+        <div id="primary">
+            <article>
+                <div id="header_g">
+                    <nav id="breadcrumb">
+                        <ul>
+                            <li><a href="#">inicio</a></li>
+                            <li>Terminales</li>
+                        </ul>
+                    </nav>
+                    <div class="botonera">
+                        <ul>
+                            <li><a href="terminales_add_terminal.html" class="btn add">Añadir terminal</a></li>
+                        </ul>
+                    </div>
+                </div>
 
+                <div class="content">
+                    <h1><spring:message code="label.terminals"/></h1>
+                    <div class="action_box desplegable">
+                        <h2 class="txt">Consultas <div class="info"><span>Más información</span></div></h2>
+                        <div class="row ocultable">
+                            <label>Elige tu consulta:</label>
+                            <select>
+                                <option value="">Seleccionar</option>
+                            </select>
+                            <input type="submit" value="Aplicar" class="btn">
+                            <a href="queries" class="btn right">Mis consultas</a>
+                        </div>
+                    </div>
+
+                    <div class="botonera">
+                        <ul>
+                            <li><a href="#" class="btn download">Descargar CVS</a></li>
+                        </ul>
+                    </div>
+
+
+                    <c:if  test="${empty pagedListHolder.pageList}">
+                        <div class="empty-list"><spring:message code="label.terminal.noTerminals"/></div>
+                    </c:if>
+                    <c:if  test="${!empty pagedListHolder.pageList}">
+
+                        <t:terminalsTable terminals="${pagedListHolder.pageList}"/>
+
+<%--
+                      <div class="pagingContainer">
+                        <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/list?p=~"/>
+                      </div>
+--%>
+                    </c:if>
+
+                    <div class="pagination">
+                        <div>${pagedListHolder.pageList.size()} Terminales | Página</div>
+                        <ul>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">...</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <!-- /primary -->
+    </div>
+    <!-- /#main -->
+
+<%--
 <c:if test="${canAdd == true}">
 
 	<div class="box">
 	<h2><spring:message code="label.requestSnmpUpdateTitle"/></h2>
 	<button class="form-submit" style="margin: 10px;" onclick="requestSnmpUpdate()"><spring:message code="label.terminal.requestSnmpUpdate"/></button>
-	
+
 	<c:if test="${canManageScheduled == true}">
 	<div style="margin: 10px;">
 		<a href="terminals/schedules/list" style="font-weight: italic; font-size: 18;"><spring:message code="label.terminal.manageScheduledUpdates"/></a>
 	</div>
 	</c:if>
 	</div>
-	
+
 	<div class="box">
 	<h2><spring:message code="label.newTerminal"/></h2>
 
@@ -151,11 +210,11 @@
 	<script type="text/javascript">
 		function requestSnmpUpdate() {
 			if (window.confirm('<spring:message code="label.terminal.requestSnmpUpdateConfirm"/>')) {
-				$.blockUI({ 
-		            theme:     true, 
-		            title:    '<spring:message code="label.terminal.requestSnmpUpdateFrameTitle"/>', 
+				$.blockUI({
+		            theme:     true,
+		            title:    '<spring:message code="label.terminal.requestSnmpUpdateFrameTitle"/>',
 		            message:  '<center><p><spring:message code="label.terminal.requestSnmpUpdateFrameMessage"/></p><br><div id="spinner" style="height:20px;"/></center>',
-		            themedCSS: { 
+		            themedCSS: {
 		                width: '275px',
 		                height: '150px'
 		            }
@@ -166,5 +225,6 @@
 		}
 	</script>
 </c:if>
+--%>
 
-</t:wrapper>
+</t:osoco-wrapper>
