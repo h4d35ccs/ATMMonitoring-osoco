@@ -25,9 +25,9 @@
 		@include transitionAll;
 		font-size: 1.5em;
 		background:$colorW;
+		background: rgba(255,255,255,0.85);
 		position: absolute;
 		@include border-radius(4px);
-		@include shadowK();
 		top: 50%;
 		left: 50%;
 		width: 500px;

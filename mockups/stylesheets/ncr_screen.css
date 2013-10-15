@@ -1438,14 +1438,12 @@ strong {
   transition: all 0.5s;
   font-size: 1.5em;
   background: white;
+  background: rgba(255, 255, 255, 0.85);
   position: absolute;
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  -webkit-box-shadow: 8px 8px 30px black;
-  -moz-box-shadow: 8px 8px 30px black;
-  box-shadow: 8px 8px 30px black;
   top: 50%;
   left: 50%;
   width: 500px;
