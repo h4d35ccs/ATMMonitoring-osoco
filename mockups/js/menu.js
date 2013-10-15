@@ -1,11 +1,11 @@
 $(document).ready(function() {
-	$('.desplegable ul').hide(); // Cierro todos los menun de las cajas
+	$('ul.ocultable').hide(); // Cierro todos los menun de las cajas
 	$('.desplegable .txt').click(function() {
 		if($(this).hasClass('hide')){ // si pulso en uno que está cerrado...
 			$(this).removeClass('hide');
-			$(this).next('ul').show();
+			$(this).next('.ocultable').show();
 		}else{
-			$(this).next('ul').hide();
+			$(this).next('.ocultable').hide();
 			$(this).addClass('hide');
 		}
 	});
@@ -14,6 +14,6 @@ $(document).ready(function() {
 			$(this).prev('div').addClass('hide');
 	});
 	$('.close').click(function() {
-		$(this).parent().parent().hide('slow');
+		$(this).parent().parent().parent().hide('slow');
 	});
 });

@@ -9,6 +9,9 @@
 		background:url("../images/icons/icon_box_show.png") no-repeat top right;
 		cursor: pointer;
 		margin-bottom: 0;
+		&.hide{
+			background-position:bottom right;
+		}
 	}
 	.photo{
 		float: left;

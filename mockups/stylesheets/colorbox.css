@@ -162,9 +162,9 @@ label {
 
 /* line 1, ../sass/_icons.scss */
 .icons_bg {
+  display: none;
   background: white;
   background: rgba(255, 255, 255, 0.75);
-  display: block;
   border: 1px solid #e6e6e6;
   -webkit-box-shadow: 2px 2px 5px #b3b3b3;
   -moz-box-shadow: 2px 2px 5px #b3b3b3;
@@ -188,8 +188,8 @@ label {
   overflow: hidden;
   background: url("../images/close.png") no-repeat;
   position: absolute;
-  top: 1em;
-  right: 1em;
+  top: 8px;
+  right: 8px;
   display: block;
   z-index: 2;
   cursor: pointer;
@@ -203,8 +203,8 @@ label {
 /* line 31, ../sass/_icons.scss */
 .icons_menu {
   position: absolute;
-  top: 1em;
-  right: 3em;
+  top: 8px;
+  right: 30px;
   width: 35px;
   height: 20px;
   z-index: 2;

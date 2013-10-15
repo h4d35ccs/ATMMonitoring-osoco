@@ -1,7 +1,7 @@
 .icons_bg{
+	display: none;
 	background: $colorW;
 	background:rgba(255, 255, 255, .75);
-	display: block;
 	border:1px solid $colorK5;
 	@include shadow();
 	position: absolute;
@@ -18,8 +18,8 @@
 	overflow: hidden;
 	background:url("../images/close.png") no-repeat;
 	position: absolute;
-	top: 1em;
-	right: 1em;
+	top: 8px;
+	right: 8px;
 	display: block;
 	z-index: 2;
 	cursor: pointer;
@@ -30,8 +30,8 @@
 }
 .icons_menu{
 	position: absolute;
-	top: 1em;
-	right: 3em;
+	top: 8px;
+	right: 30px;
 	width: 35px;
 	height: 20px;
 	z-index: 2;
