@@ -65,14 +65,14 @@ nav.sub_nav{
 		color: $colorW;
 		background-color: $colorK1;
 		&:after {
-			   content: "";
-			   position: absolute;
-			   top: 100%;
-			   left: 2em;
-			   border-top: 1.5em solid $colorK1;
-			   border-top-color: $colorK1;
-			   border-left: 1em solid transparent;
-			   border-right: 1em solid transparent;
-			  }
+		   content: "";
+		   position: absolute;
+		   top: 100%;
+		   left: 38%;
+		   border-top: 1.5em solid $colorK1;
+		   border-top-color: $colorK1;
+		   border-left: 1em solid transparent;
+		   border-right: 1em solid transparent;
+		  }
 	}
 }

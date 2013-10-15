@@ -109,22 +109,40 @@
 		width: 0;
 	}
 }
-.note{
-	background:url("../images/icons/icon_note.png") no-repeat;
-	width: 25px;
-	height: 25px;
-	padding: .5em 1em;
-	margin-left: .5em;
-	overflow: hidden;
-	position: relative;
-	display: inline;
-	cursor: help;
-	span{
-		display: block;
+.icons_action{
+	position: absolute;
+	top: .5em;
+	right: 0;
+	white-space: nowrap;
+	.note{
+		background:url("../images/icons/icon_note.png") no-repeat;
+		width: 20px;
+		height: 20px;
 		overflow: hidden;
-		position: absolute;
-		height: 0;
-		width: 0;
+		display: block;
+		cursor: help;
+		margin-right: 2px;
+		float: left;
+		span{
+			display: block;
+			overflow: hidden;
+			position: absolute;
+			height: 0;
+			width: 0;
+		}
+		&:hover{
+			background-position-y: -20px;  
+		}
+	}
+	.edit{
+		@extend .note;
+		background-position: -40px 0;
+		cursor: pointer;
+	}
+	.delete{
+		@extend .note;
+		background-position: -20px 0;
+		cursor: pointer;
 	}
 }
 .download{

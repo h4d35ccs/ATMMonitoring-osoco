@@ -64,6 +64,286 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
+/*
+    Colorbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+/* line 5, ../sass/_js.scss */
+#colorbox, #cboxOverlay, #cboxWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* line 6, ../sass/_js.scss */
+#cboxOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 7, ../sass/_js.scss */
+#cboxMiddleLeft, #cboxBottomLeft {
+  clear: left;
+}
+
+/* line 8, ../sass/_js.scss */
+#cboxContent {
+  position: relative;
+}
+
+/* line 9, ../sass/_js.scss */
+#cboxLoadedContent {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* line 10, ../sass/_js.scss */
+#cboxTitle {
+  margin: 0;
+}
+
+/* line 11, ../sass/_js.scss */
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 12, ../sass/_js.scss */
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+  cursor: pointer;
+}
+
+/* line 13, ../sass/_js.scss */
+.cboxPhoto {
+  float: left;
+  margin: auto;
+  border: 0;
+  display: block;
+  max-width: none;
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 14, ../sass/_js.scss */
+.cboxIframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+/* line 15, ../sass/_js.scss */
+#colorbox, #cboxContent, #cboxLoadedContent {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of Colorbox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+/* line 22, ../sass/_js.scss */
+#cboxOverlay {
+  background: #333;
+}
+
+/* line 23, ../sass/_js.scss */
+#colorbox {
+  outline: 0;
+}
+
+/* line 24, ../sass/_js.scss */
+#cboxTopLeft {
+  width: 25px;
+  height: 25px;
+  background: url(images/border1.png) no-repeat 0 0;
+}
+
+/* line 25, ../sass/_js.scss */
+#cboxTopCenter {
+  height: 25px;
+  background: url(images/border1.png) repeat-x 0 -50px;
+}
+
+/* line 26, ../sass/_js.scss */
+#cboxTopRight {
+  width: 25px;
+  height: 25px;
+  background: url(images/border1.png) no-repeat -25px 0;
+}
+
+/* line 27, ../sass/_js.scss */
+#cboxBottomLeft {
+  width: 25px;
+  height: 25px;
+  background: url(images/border1.png) no-repeat 0 -25px;
+}
+
+/* line 28, ../sass/_js.scss */
+#cboxBottomCenter {
+  height: 25px;
+  background: url(images/border1.png) repeat-x 0 -75px;
+}
+
+/* line 29, ../sass/_js.scss */
+#cboxBottomRight {
+  width: 25px;
+  height: 25px;
+  background: url(images/border1.png) no-repeat -25px -25px;
+}
+
+/* line 30, ../sass/_js.scss */
+#cboxMiddleLeft {
+  width: 25px;
+  background: url(images/border2.png) repeat-y 0 0;
+}
+
+/* line 31, ../sass/_js.scss */
+#cboxMiddleRight {
+  width: 25px;
+  background: url(images/border2.png) repeat-y -25px 0;
+}
+
+/* line 32, ../sass/_js.scss */
+#cboxContent {
+  background: #fff;
+  overflow: hidden;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 33, ../sass/_js.scss */
+.cboxIframe {
+  background: #fff;
+}
+
+/* line 34, ../sass/_js.scss */
+#cboxError {
+  padding: 50px;
+  border: 1px solid #cccccc;
+}
+
+/* line 35, ../sass/_js.scss */
+#cboxLoadedContent {
+  margin-bottom: 20px;
+}
+
+/* line 36, ../sass/_js.scss */
+#cboxTitle {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  color: #999;
+}
+
+/* line 37, ../sass/_js.scss */
+#cboxCurrent {
+  position: absolute;
+  bottom: 0px;
+  left: 100px;
+  color: #999;
+}
+
+/* line 38, ../sass/_js.scss */
+#cboxLoadingOverlay {
+  background: white url(images/loading.gif) no-repeat 5px 5px;
+}
+
+/* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+/* line 41, ../sass/_js.scss */
+#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  width: auto;
+  background: none;
+}
+
+/* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+/* line 44, ../sass/_js.scss */
+#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {
+  outline: 0;
+}
+
+/* line 46, ../sass/_js.scss */
+#cboxSlideshow {
+  position: absolute;
+  bottom: 0px;
+  right: 42px;
+  color: #444;
+}
+
+/* line 47, ../sass/_js.scss */
+#cboxPrevious {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  color: #444;
+}
+
+/* line 48, ../sass/_js.scss */
+#cboxNext {
+  position: absolute;
+  bottom: 0px;
+  left: 63px;
+  color: #444;
+}
+
+/* line 49, ../sass/_js.scss */
+#cboxClose {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  color: white;
+  background-color: #e14f3c;
+  padding: 0.8em 1em;
+  margin: 1em;
+  -o-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+/* line 52, ../sass/_js.scss */
+#cboxClose:hover {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  background-color: #333333;
+}
+
+/*
+  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to or needed in IE9.
+  See: http://jacklmoore.com/notes/ie-transparency-problems/
+*/
+/* line 71, ../sass/_js.scss */
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxMiddleRight {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+}
+
 /* line 1, ../sass/_header.scss */
 #main_header {
   background: black;
@@ -222,19 +502,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   padding-top: 3em;
 }
 /* line 25, ../sass/_dashboard.scss */
-#dashboard #sortable.column1 li {
+#dashboard #sortable.column1 li.ui-state-default {
   width: 96%;
 }
 /* line 28, ../sass/_dashboard.scss */
-#dashboard #sortable.column2 li {
+#dashboard #sortable.column2 li.ui-state-default {
   width: 46%;
 }
 /* line 31, ../sass/_dashboard.scss */
-#dashboard #sortable.column3 li {
+#dashboard #sortable.column3 li.ui-state-default {
   width: 29%;
 }
 /* line 34, ../sass/_dashboard.scss */
-#dashboard #sortable.column4 li {
+#dashboard #sortable.column4 li.ui-state-default {
   width: 21%;
 }
 /* line 37, ../sass/_dashboard.scss */
@@ -506,27 +786,70 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin: 0;
   margin-left: 1em;
 }
+/* line 24, ../sass/_forms.scss */
+.btn.cancel {
+  background: #e14f3c;
+  color: white;
+}
+/* line 27, ../sass/_forms.scss */
+.btn.cancel:hover {
+  text-decoration: none;
+  background: #333333;
+  color: white;
+}
 
-/* line 25, ../sass/_forms.scss */
+/* line 34, ../sass/_forms.scss */
 input, select, area, label {
   font-size: 1em;
   padding: 0.5em 1em;
   vertical-align: middle;
 }
 
-/* line 30, ../sass/_forms.scss */
+/* line 39, ../sass/_forms.scss */
+select {
+  margin: 0.5em 1em;
+}
+
+/* line 42, ../sass/_forms.scss */
+label {
+  display: block;
+  float: left;
+  text-align: right;
+  padding: .8em;
+}
+/* line 47, ../sass/_forms.scss */
+.colorbox_box label {
+  width: 25%;
+}
+
+/* line 51, ../sass/_forms.scss */
 .row {
   margin: 1em 0;
   padding: 1em 0 0 0;
   border-top: 1px solid #cccccc;
+  overflow: hidden;
 }
-/* line 34, ../sass/_forms.scss */
+/* line 56, ../sass/_forms.scss */
 .row .left {
   float: left;
 }
-/* line 37, ../sass/_forms.scss */
+/* line 59, ../sass/_forms.scss */
 .row .right {
   float: right;
+}
+/* line 62, ../sass/_forms.scss */
+.colorbox_box .row input[type="text"], .row area {
+  width: 70%;
+}
+/* line 65, ../sass/_forms.scss */
+.row li {
+  float: left;
+  width: auto;
+  white-space: nowrap;
+}
+/* line 69, ../sass/_forms.scss */
+.row li label {
+  width: auto;
 }
 
 /* line 1, ../sass/_icons.scss */
@@ -671,32 +994,52 @@ input, select, area, label {
 }
 
 /* line 112, ../sass/_icons.scss */
-.note {
-  background: url("../images/icons/icon_note.png") no-repeat;
-  width: 25px;
-  height: 25px;
-  padding: 0.5em 1em;
-  margin-left: .5em;
-  overflow: hidden;
-  position: relative;
-  display: inline;
-  cursor: help;
+.icons_action {
+  position: absolute;
+  top: .5em;
+  right: 0;
+  white-space: nowrap;
 }
-/* line 122, ../sass/_icons.scss */
-.note span {
+/* line 117, ../sass/_icons.scss */
+.icons_action .note, .icons_action .edit, .icons_action .delete {
+  background: url("../images/icons/icon_note.png") no-repeat;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  cursor: help;
+  margin-right: 2px;
+  float: left;
+}
+/* line 126, ../sass/_icons.scss */
+.icons_action .note span, .icons_action .edit span, .icons_action .delete span {
   display: block;
   overflow: hidden;
   position: absolute;
   height: 0;
   width: 0;
 }
+/* line 133, ../sass/_icons.scss */
+.icons_action .note:hover, .icons_action .edit:hover, .icons_action .delete:hover {
+  background-position-y: -20px;
+}
+/* line 137, ../sass/_icons.scss */
+.icons_action .edit {
+  background-position: -40px 0;
+  cursor: pointer;
+}
+/* line 142, ../sass/_icons.scss */
+.icons_action .delete {
+  background-position: -20px 0;
+  cursor: pointer;
+}
 
-/* line 130, ../sass/_icons.scss */
+/* line 148, ../sass/_icons.scss */
 .download {
   background: url("../images/icons/icon_download.png") no-repeat top right white;
   padding-right: 40px;
 }
-/* line 133, ../sass/_icons.scss */
+/* line 151, ../sass/_icons.scss */
 .download:hover {
   background: url("../images/icons/icon_download.png") no-repeat bottom right #6ca932;
 }
@@ -736,8 +1079,9 @@ table th, table td {
   border: 1px solid #cccccc;
   border-collapse: collapse;
   position: relative;
+  vertical-align: top;
 }
-/* line 28, ../sass/_table.scss */
+/* line 29, ../sass/_table.scss */
 table th.note_detail, table td.note_detail {
   border-bottom: 2px solid #f4a725;
   border-left: 2px solid #f4a725;
@@ -746,11 +1090,11 @@ table th.note_detail, table td.note_detail {
   float: none;
   padding: 1em;
 }
-/* line 29, ../sass/_table.scss */
+/* line 30, ../sass/_table.scss */
 table th.note_detail:hover, table td.note_detail:hover {
   color: #333333;
 }
-/* line 38, ../sass/_table.scss */
+/* line 39, ../sass/_table.scss */
 table th.note_detail div, table td.note_detail div {
   position: relative;
   background: white;
@@ -763,7 +1107,7 @@ table th.note_detail div, table td.note_detail div {
   -moz-box-shadow: 2px 2px 5px #b3b3b3;
   box-shadow: 2px 2px 5px #b3b3b3;
 }
-/* line 43, ../sass/_table.scss */
+/* line 44, ../sass/_table.scss */
 table th.note_detail div:after, table td.note_detail div:after {
   content: "";
   position: absolute;
@@ -775,36 +1119,40 @@ table th.note_detail div:after, table td.note_detail div:after {
   display: block;
   width: 0;
 }
-/* line 55, ../sass/_table.scss */
+/* line 56, ../sass/_table.scss */
 table th.note_detail div li, table td.note_detail div li {
   border-bottom: 2px dotted #cccccc;
   margin-bottom: 1em;
 }
-/* line 59, ../sass/_table.scss */
+/* line 60, ../sass/_table.scss */
 table th.note_detail div li:last-child, table td.note_detail div li:last-child {
   border: none;
   margin-bottom: 0;
 }
-/* line 66, ../sass/_table.scss */
+/* line 67, ../sass/_table.scss */
 table tr {
   cursor: pointer;
 }
-/* line 68, ../sass/_table.scss */
+/* line 69, ../sass/_table.scss */
 table tr:nth-child(2n+1) {
   background: #e6e6e6;
 }
-/* line 71, ../sass/_table.scss */
+/* line 72, ../sass/_table.scss */
 table tr:hover {
   background: #cccccc;
   color: white;
   border: 1px solid white;
 }
-/* line 76, ../sass/_table.scss */
+/* line 77, ../sass/_table.scss */
 table tr.active {
   background: #f4a725;
   border-top: 2px solid #f4a725;
   border-left: 2px solid #f4a725;
   border-right: 2px solid #f4a725;
+}
+/* line 84, ../sass/_table.scss */
+table .editable {
+  padding-right: 4em;
 }
 
 /* line 1, ../sass/_nav.scss */
@@ -896,7 +1244,7 @@ nav.sub_nav li.current a:after {
   content: "";
   position: absolute;
   top: 100%;
-  left: 2em;
+  left: 38%;
   border-top: 1.5em solid #333333;
   border-top-color: #333333;
   border-left: 1em solid transparent;

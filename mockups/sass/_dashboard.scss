@@ -22,16 +22,16 @@
 			}			
 
 		}
-		&.column1 li{
+		&.column1 li.ui-state-default{
 			width: 96%;
 		}
-		&.column2 li{
+		&.column2 li.ui-state-default{
 			width: 46%;
 		}
-		&.column3 li{
+		&.column3 li.ui-state-default{
 			width: 29%;
 		}
-		&.column4 li{
+		&.column4 li.ui-state-default{
 			width: 21%;
 		}
 		div.content{

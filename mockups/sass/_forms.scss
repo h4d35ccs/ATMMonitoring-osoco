@@ -21,20 +21,53 @@
 		margin: 0;
 		margin-left: 1em;
 	}
+	&.cancel{
+		background:$colorR;
+		color: $colorW;
+		&:hover{
+			text-decoration: none;
+			background:$colorK1;
+			color: $colorW;
+		}
+	}
 }
 input, select, area, label{
 	font-size: 1em;
 	padding: .5em 1em;
 	vertical-align: middle;
 }
+select{
+	margin: .5em 1em;
+}
+label{
+	display: block;
+	float: left;
+	text-align: right;
+	padding: .8em;
+	.colorbox_box &{
+		width: 25%;
+	}
+}
 .row{
 	margin: 1em 0;
 	padding: 1em 0 0 0;
 	border-top: 1px solid $colorK4;
+	overflow: hidden;
 	.left{
 		float: left;
 		}
 	.right{
 		float: right;
+	}
+	.colorbox_box & input[type="text"], area{
+		width: 70%;
+	}
+	li{
+		float: left;
+		width: auto;
+		white-space: nowrap;
+		label{
+			width: auto;
+		}
 	}
 }

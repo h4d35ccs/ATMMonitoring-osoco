@@ -25,6 +25,7 @@ table{
 		border: 1px solid $colorK4;
 		border-collapse: collapse;
 		position: relative;
+		vertical-align: top;
 		&.note_detail{
 			&:hover{
 				color: $colorK1;
@@ -41,16 +42,16 @@ table{
 				padding: 1em;
 				@include border-radius(4px);
 				&:after {
-					    content: "";
-					    position: absolute;
-					    top: -20px;
-					    left: 105px;
-					    border-width: 0 15px 25px;
-					    border-style: solid;
-					    border-color: $colorW transparent;
-					    display: block;
-					    width: 0;
-					  }
+				    content: "";
+				    position: absolute;
+				    top: -20px;
+				    left: 105px;
+				    border-width: 0 15px 25px;
+				    border-style: solid;
+				    border-color: $colorW transparent;
+				    display: block;
+				    width: 0;
+				  }	
 				@include shadow;
 				li{
 					border-bottom: 2px dotted $colorK4;
@@ -79,5 +80,8 @@ table{
 			border-left:  2px solid $colorY3;
 			border-right:  2px solid $colorY3;
 		}
+	}
+	.editable{
+		padding-right: 4em;
 	}
 }
