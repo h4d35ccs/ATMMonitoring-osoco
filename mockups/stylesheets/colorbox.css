@@ -277,6 +277,16 @@ label {
 }
 
 /* line 91, ../sass/_icons.scss */
+.next {
+  background: url("../images/icons/icon_next.png") no-repeat right top white;
+  padding-right: 40px;
+}
+/* line 94, ../sass/_icons.scss */
+.next:hover {
+  background: url("../images/icons/icon_next.png") no-repeat right bottom #6ca932;
+}
+
+/* line 99, ../sass/_icons.scss */
 .info {
   width: 25px;
   height: 25px;
@@ -288,11 +298,11 @@ label {
   cursor: pointer;
   cursor: help;
 }
-/* line 101, ../sass/_icons.scss */
+/* line 109, ../sass/_icons.scss */
 .info:hover {
   background: url("../images/icons/icon_info.png") no-repeat bottom right;
 }
-/* line 104, ../sass/_icons.scss */
+/* line 112, ../sass/_icons.scss */
 .info span {
   display: block;
   overflow: hidden;
@@ -301,14 +311,14 @@ label {
   width: 0;
 }
 
-/* line 112, ../sass/_icons.scss */
+/* line 120, ../sass/_icons.scss */
 .icons_action {
   position: absolute;
   top: .5em;
   right: 0;
   white-space: nowrap;
 }
-/* line 117, ../sass/_icons.scss */
+/* line 125, ../sass/_icons.scss */
 .icons_action .note, .icons_action .edit, .icons_action .delete {
   background: url("../images/icons/icon_note.png") no-repeat;
   width: 20px;
@@ -319,7 +329,7 @@ label {
   margin-right: 2px;
   float: left;
 }
-/* line 126, ../sass/_icons.scss */
+/* line 134, ../sass/_icons.scss */
 .icons_action .note span, .icons_action .edit span, .icons_action .delete span {
   display: block;
   overflow: hidden;
@@ -327,27 +337,27 @@ label {
   height: 0;
   width: 0;
 }
-/* line 133, ../sass/_icons.scss */
+/* line 141, ../sass/_icons.scss */
 .icons_action .note:hover, .icons_action .edit:hover, .icons_action .delete:hover {
   background-position-y: -20px;
 }
-/* line 137, ../sass/_icons.scss */
+/* line 145, ../sass/_icons.scss */
 .icons_action .edit {
   background-position: -40px 0;
   cursor: pointer;
 }
-/* line 142, ../sass/_icons.scss */
+/* line 150, ../sass/_icons.scss */
 .icons_action .delete {
   background-position: -20px 0;
   cursor: pointer;
 }
 
-/* line 148, ../sass/_icons.scss */
+/* line 156, ../sass/_icons.scss */
 .download {
   background: url("../images/icons/icon_download.png") no-repeat top right white;
   padding-right: 40px;
 }
-/* line 151, ../sass/_icons.scss */
+/* line 159, ../sass/_icons.scss */
 .download:hover {
   background: url("../images/icons/icon_download.png") no-repeat bottom right #6ca932;
 }

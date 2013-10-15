@@ -973,6 +973,16 @@ label {
 }
 
 /* line 91, ../sass/_icons.scss */
+.next {
+  background: url("../images/icons/icon_next.png") no-repeat right top white;
+  padding-right: 40px;
+}
+/* line 94, ../sass/_icons.scss */
+.next:hover {
+  background: url("../images/icons/icon_next.png") no-repeat right bottom #6ca932;
+}
+
+/* line 99, ../sass/_icons.scss */
 .info {
   width: 25px;
   height: 25px;
@@ -984,11 +994,11 @@ label {
   cursor: pointer;
   cursor: help;
 }
-/* line 101, ../sass/_icons.scss */
+/* line 109, ../sass/_icons.scss */
 .info:hover {
   background: url("../images/icons/icon_info.png") no-repeat bottom right;
 }
-/* line 104, ../sass/_icons.scss */
+/* line 112, ../sass/_icons.scss */
 .info span {
   display: block;
   overflow: hidden;
@@ -997,14 +1007,14 @@ label {
   width: 0;
 }
 
-/* line 112, ../sass/_icons.scss */
+/* line 120, ../sass/_icons.scss */
 .icons_action {
   position: absolute;
   top: .5em;
   right: 0;
   white-space: nowrap;
 }
-/* line 117, ../sass/_icons.scss */
+/* line 125, ../sass/_icons.scss */
 .icons_action .note, .icons_action .edit, .icons_action .delete {
   background: url("../images/icons/icon_note.png") no-repeat;
   width: 20px;
@@ -1015,7 +1025,7 @@ label {
   margin-right: 2px;
   float: left;
 }
-/* line 126, ../sass/_icons.scss */
+/* line 134, ../sass/_icons.scss */
 .icons_action .note span, .icons_action .edit span, .icons_action .delete span {
   display: block;
   overflow: hidden;
@@ -1023,27 +1033,27 @@ label {
   height: 0;
   width: 0;
 }
-/* line 133, ../sass/_icons.scss */
+/* line 141, ../sass/_icons.scss */
 .icons_action .note:hover, .icons_action .edit:hover, .icons_action .delete:hover {
   background-position-y: -20px;
 }
-/* line 137, ../sass/_icons.scss */
+/* line 145, ../sass/_icons.scss */
 .icons_action .edit {
   background-position: -40px 0;
   cursor: pointer;
 }
-/* line 142, ../sass/_icons.scss */
+/* line 150, ../sass/_icons.scss */
 .icons_action .delete {
   background-position: -20px 0;
   cursor: pointer;
 }
 
-/* line 148, ../sass/_icons.scss */
+/* line 156, ../sass/_icons.scss */
 .download {
   background: url("../images/icons/icon_download.png") no-repeat top right white;
   padding-right: 40px;
 }
-/* line 151, ../sass/_icons.scss */
+/* line 159, ../sass/_icons.scss */
 .download:hover {
   background: url("../images/icons/icon_download.png") no-repeat bottom right #6ca932;
 }
@@ -1255,6 +1265,48 @@ nav.sub_nav li.current a:after {
   border-right: 1em solid transparent;
 }
 
+/* line 1, ../sass/_messages.scss */
+.notification {
+  background: #f0f6ea;
+  border: 1px dotted #89ba5b;
+  padding: 1em 2em;
+  margin: 0.5em 0;
+}
+
+/* line 7, ../sass/_messages.scss */
+.error {
+  background: #e14f3c;
+  border: 1px dotted white;
+  color: white;
+  padding: 1em 2em;
+  margin: 0.5em 0;
+  position: relative;
+}
+/* line 15, ../sass/_messages.scss */
+.error.top:after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 45%;
+  border-width: 0 15px 25px;
+  border-style: solid;
+  border-color: #e14f3c transparent;
+  display: block;
+  width: 0;
+}
+/* line 28, ../sass/_messages.scss */
+.error.bottom:after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 45%;
+  border-width: 25px 15px 0 15px;
+  border-style: solid;
+  border-color: #e14f3c transparent;
+  display: block;
+  width: 0;
+}
+
 /* line 1, ../sass/_main.scss */
 body {
   background: white url("../images/general/bg_body.png") repeat-y;
@@ -1369,6 +1421,92 @@ strong {
 .botonera .request {
   float: left;
   margin-left: 4%;
+}
+
+/* line 1, ../sass/_login_user.scss */
+#login_user {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #333333 url(../images/general/login_bg.jpg) no-repeat;
+  background-size: cover;
+}
+/* line 7, ../sass/_login_user.scss */
+#login_user #login_box {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  font-size: 1.5em;
+  background: white;
+  position: absolute;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 8px 8px 30px black;
+  -moz-box-shadow: 8px 8px 30px black;
+  box-shadow: 8px 8px 30px black;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  min-height: 290px;
+  margin-top: -250px;
+  margin-left: -250px;
+  padding-bottom: 1em;
+}
+/* line 8, ../sass/_login_user.scss */
+#login_user #login_box h1, #login_user #login_box #main h2, #main #login_user #login_box h2 {
+  color: white;
+  background: url("../images/general/livinggreen.jpg") no-repeat #6ca932;
+  padding: 0.5em 1.2em;
+  text-align: right;
+}
+/* line 13, ../sass/_login_user.scss */
+#login_user #login_box h1 span, #login_user #login_box #main h2 span, #main #login_user #login_box h2 span {
+  position: absolute;
+  top: -300px;
+}
+/* line 17, ../sass/_login_user.scss */
+#login_user #login_box h1 img, #login_user #login_box #main h2 img, #main #login_user #login_box h2 img {
+  float: left;
+}
+/* line 20, ../sass/_login_user.scss */
+#login_user #login_box h1 strong, #login_user #login_box #main h2 strong, #main #login_user #login_box h2 strong {
+  font-size: 2em;
+  font-weight: normal;
+}
+/* line 38, ../sass/_login_user.scss */
+#login_user #login_box label {
+  width: 30%;
+  text-align: right;
+}
+/* line 42, ../sass/_login_user.scss */
+#login_user #login_box .row {
+  border: none;
+  padding: 0.5em 0 0 0;
+}
+/* line 45, ../sass/_login_user.scss */
+#login_user #login_box .row input {
+  width: 50%;
+  color: #b3b3b3;
+}
+/* line 50, ../sass/_login_user.scss */
+#login_user #login_box .botonera {
+  padding-right: .5em;
+  border-top: 2px dotted #cccccc;
+  padding-top: .5em;
+  margin-bottom: 0;
+}
+/* line 55, ../sass/_login_user.scss */
+#login_user #login_box .botonera .btn {
+  float: right;
+}
+/* line 59, ../sass/_login_user.scss */
+#login_user #login_box .error {
+  margin: .5em;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 @media screen and (max-width: 1200px) {

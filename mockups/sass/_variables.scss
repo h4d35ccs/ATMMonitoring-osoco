@@ -47,7 +47,11 @@ $colorW: #FFFFFF;
     -moz-box-shadow: 8px 8px 5px $colorK3;
     box-shadow: 8px 8px 5px $colorK3;
 }
-
+@mixin shadowK(){
+  -webkit-box-shadow: 8px 8px 30px $colorK;
+    -moz-box-shadow: 8px 8px 30px $colorK;
+    box-shadow: 8px 8px 30px $colorK;
+}
 @mixin border-radius($radius){
 	-o-border-radius: $radius;
  	-moz-border-radius: $radius;

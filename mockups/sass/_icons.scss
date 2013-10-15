@@ -88,6 +88,14 @@
 		background:url("../images/icons/icon_add.png") no-repeat right bottom $colorG;
 	}
 }
+.next{
+	background:url("../images/icons/icon_next.png") no-repeat right top $colorW;
+	padding-right: 40px;
+	&:hover{
+		background:url("../images/icons/icon_next.png") no-repeat right bottom $colorG;
+	}
+	
+}
 .info{
 	width: 25px;
 	height: 25px;
