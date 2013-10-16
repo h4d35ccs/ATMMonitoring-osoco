@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	$('ul.ocultable').hide(); // Cierro todos los menun de las cajas
 	$('.desplegable .txt').click(function() {

@@ -6,7 +6,26 @@
 
 <t:osoco-wrapperWoMenu titleCode="label.login">
 
-    <div id="login_box" >
+    <style type="text/css" media="screen">
+      #scene {
+        perspective: 800px;
+      }
+      #login_box {
+        -webkit-transition: -webkit-transform 1s;
+        transition: transform 1s;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform-origin: right center;
+        transform-origin: right center;
+        transform: translateX(30%) translateZ(-250px) rotateY(90deg);
+      }
+      #login_box.flipped {
+        transform: translateX(0) translateZ(0) rotateY(0deg);
+      }
+    </style>
+
+    <div id="scene">
+      <div id="login_box" >
         <h1><img src="resources/images/general/logo.png"/><span>NCR</span> <strong>HASM</strong></h1>
 
         <c:if test="${error == true}">
@@ -29,6 +48,15 @@
                 <input name="reset" type="reset" value="cancelar" class="btn cancel"/>
             </div>
         </form>
+      </div>
     </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        window.setTimeout(function(){
+          $("#login_box").addClass("flipped");
+        }, 1000);
+      });
+    </script>
 
 </t:osoco-wrapperWoMenu>

@@ -12,7 +12,7 @@
         <c:set var="url">${req.requestURL}</c:set>
         <c:set var="base" value="${fn:substring(url, 0, fn:length(url) - fn:length(req.requestURI))}${req.contextPath}/" />
         <base href="${base}">
-        <script src="resources/js/jy-1.8.3.min.js"></script>
+        <script src="resources/js/jquery-1.8.3.min.js"></script>
 
         <title><spring:message code="label.baseTitle"/> - <spring:message code="${titleCode}"/></title>
         <link rel="stylesheet" type="text/css" media="all" href="resources/css/ncr_screen.css" />
