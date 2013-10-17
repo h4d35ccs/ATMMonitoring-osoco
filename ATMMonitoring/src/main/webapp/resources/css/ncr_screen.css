@@ -739,14 +739,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 32, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul {
   overflow: hidden;
+  margin-bottom: 2em;
 }
-/* line 34, ../sass/_action_box.scss */
+/* line 35, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li {
   margin-left: 4%;
   padding: 0.5em 0;
   float: left;
   width: 46%;
-  height: 3em;
   border-bottom: 1px solid #b3b3b3;
 }
 /* line 41, ../sass/_action_box.scss */
@@ -755,10 +755,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin-right: 4%;
   float: left;
   display: block;
-}
-/* line 47, ../sass/_action_box.scss */
-#main .action_box.data .ul_data > ul li:hover {
-  background-color: #e6e6e6;
 }
 
 /* line 1, ../sass/_forms.scss */

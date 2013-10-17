@@ -31,12 +31,11 @@
 						<h2 class="txt">Detalles del terminal</h2>
 						<div class="ocultable">
 							<div class="photo">
-								<a href="resources/images/terminal_original.jpg">
 									<img src="resources/images/terminal.jpg"/>
-								</a>
 							</div>
 
 							<c:choose>
+							
 								<c:when test="${canEdit == true}">
 									<form:form method="post" action="terminals/update" commandName="terminal">
 										<form:hidden path="id"/>
@@ -303,185 +302,127 @@
 									</div>
 								</c:when>
 								<c:otherwise>
+								
 									<div class="ul_data">
 										<ul>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.serialNumber"/>
-													</label>
-
 												</strong>
-												<label>${terminal.serialNumber}</label>
+												${terminal.serialNumber}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.ip"/>
-													</label>
 												</strong>
-												<label>${terminal.ip}</label>
+												${terminal.ip}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.mac"/>
-													</label>
 												</strong>
-												<label>${terminal.mac}</label>
+												${terminal.mac}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.terminalType"/>
-													</label>
 												</strong>
-												<label>${terminal.terminalType}</label>
+												${terminal.terminalType}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.terminalVendor"/>
-													</label>
 												</strong>
-												<label>${terminal.terminalVendor}</label>
+												${terminal.terminalVendor}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.frontReplenish"/>
-													</label>
 												</strong>
-												<label>${terminal.frontReplenish}</label>
+												${terminal.frontReplenish}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.bank"/>
-													</label>
 												</strong>
-												<label>${terminal.bank}</label>
+												${terminal.bank}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.branch"/>
-													</label>
 												</strong>
-												<label>${terminal.branch}</label>
+												${terminal.branch}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.geographicAddress"/>
-													</label>
 												</strong>
-												<label>${terminal.geographicAddress}</label>
+												${terminal.geographicAddress}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.address"/>
-													</label>
 												</strong>
-												<label>${terminal.address}</label>
+												${terminal.address}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.city"/>
-													</label>
 												</strong>
-												<label>${terminal.city}</label>
+												${terminal.city}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.zipCode"/>
-													</label>
 												</strong>
-												<label>${terminal.zipCode}</label>
+												${terminal.zipCode}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.area"/>
-													</label>
 												</strong>
-												<label>${terminal.area}</label>
+												${terminal.area}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.country"/>
-													</label>
 												</strong>
-												<label>${terminal.country}</label>
+												${terminal.country}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.manufacturingSite"/>
-													</label>
 												</strong>
-												<label>${terminal.manufacturingSite}</label>
+												${terminal.manufacturingSite}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.model"/>
-													</label>
 												</strong>
-												<label>${terminal.model}</label>
+												${terminal.model}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.productClass"/>
-													</label>
 												</strong>
-												<label>${terminal.productClass}</label>
+												${terminal.productClass}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.productClassDescription"/>
-													</label>
 												</strong>
-												<label>${terminal.productClassDescription}</label>
+												${terminal.productClassDescription}
 											</li>
 											<li>
 												<strong>
-
-													<label>
 														<spring:message code="label.terminal.tracerNumber"/>
-													</label>
-
 												</strong>
-												<label>${terminal.tracerNumber}</label>
+												${terminal.tracerNumber}
 											</li>
 										</ul>
 									</div>
 									<!-- //ul-data -->
-								</c:otherwise>
+								 </c:otherwise> 
 							</c:choose>
 						</div>
 						<!-- // ocultable -->

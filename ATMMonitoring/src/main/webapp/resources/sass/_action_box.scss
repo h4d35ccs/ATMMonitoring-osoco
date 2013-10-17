@@ -31,21 +31,18 @@
 			width: 78%;
 			&>ul{
 				overflow: hidden;
+				margin-bottom: 2em;
 				li{
 					margin-left: 4%;
 					padding: .5em 0;
 					float: left;
 					width: 46%;
-					height: 3em;
 					border-bottom: 1px solid $colorK3;
 					strong{
 						width: 46%;
 						margin-right: 4%;
 						float: left;
 						display: block;
-					}
-					&:hover{
-						background-color: $colorK5;
 					}
 				}
 			}
