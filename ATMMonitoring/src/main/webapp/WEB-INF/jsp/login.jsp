@@ -9,18 +9,23 @@
     <style type="text/css" media="screen">
       #scene {
         perspective: 800px;
+        -webkit-perspective: 800px;
       }
       #login_box {
-        -webkit-transition: -webkit-transform 1s;
         transition: transform 1s;
-        -webkit-backface-visibility: hidden;
+        -webkit-transition: -webkit-transform 1s;
         backface-visibility: hidden;
-        -webkit-transform-origin: right center;
+        -webkit-backface-visibility: hidden;
         transform-origin: right center;
+        -webkit-transform-origin: right center;
+        transform-style: preserve3d;
+        -webkit-transform-style: preserve3d;
         transform: translateX(30%) translateZ(-250px) rotateY(90deg);
+        -webkit-transform: translateX(30%) translateZ(-250px) rotateY(90deg);
       }
       #login_box.flipped {
         transform: translateX(0) translateZ(0) rotateY(0deg);
+        -webkit-transform: translateX(0) translateZ(0) rotateY(0deg);
       }
     </style>
 
