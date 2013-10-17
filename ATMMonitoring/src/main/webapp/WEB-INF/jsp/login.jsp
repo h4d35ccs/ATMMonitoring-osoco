@@ -5,30 +5,6 @@
 <%@page pageEncoding="UTF-8"%>
 
 <t:osoco-wrapperWoMenu titleCode="label.login">
-
-    <style type="text/css" media="screen">
-      #scene {
-        perspective: 800px;
-        -webkit-perspective: 800px;
-      }
-      #login_box {
-        transition: transform 1s;
-        -webkit-transition: -webkit-transform 1s;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-        transform-origin: right center;
-        -webkit-transform-origin: right center;
-        transform-style: preserve3d;
-        -webkit-transform-style: preserve3d;
-        transform: translateX(30%) translateZ(-250px) rotateY(90deg);
-        -webkit-transform: translateX(30%) translateZ(-250px) rotateY(90deg);
-      }
-      #login_box.flipped {
-        transform: translateX(0) translateZ(0) rotateY(0deg);
-        -webkit-transform: translateX(0) translateZ(0) rotateY(0deg);
-      }
-    </style>
-
     <div id="scene">
       <div id="login_box" >
         <h1><img src="resources/images/general/logo.png"/><span>NCR</span> <strong>HASM</strong></h1>

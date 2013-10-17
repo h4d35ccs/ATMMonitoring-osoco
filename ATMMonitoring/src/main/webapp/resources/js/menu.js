@@ -10,10 +10,6 @@ $(document).ready(function() {
 			$(this).addClass('hide');
 		}
 	});
-	$('.desplegable ul').click(function() {
-			$(this).hide();
-			$(this).prev('div').addClass('hide');
-	});
 	$('.close').click(function() {
 		$(this).parent().parent().parent().hide('slow');
 	});

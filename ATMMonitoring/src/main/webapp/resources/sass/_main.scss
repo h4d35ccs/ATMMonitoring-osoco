@@ -8,6 +8,7 @@ a{
 	@include transitionAll;
 	color:$colorG;
 	text-decoration: none;
+	outline: none;
 	&:hover{
 		text-decoration: underline;
 	}

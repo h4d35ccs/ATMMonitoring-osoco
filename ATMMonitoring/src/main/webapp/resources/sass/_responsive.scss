@@ -1,0 +1,145 @@
+@media screen and (max-width: 1200px) {
+	#dashboard{
+		#sortable{
+			overflow: hidden;
+			&>li{
+				width: 29%;
+			}
+		}
+	}
+}
+@media screen and (max-width: 960px) {
+	#dashboard{
+		#sortable{
+			overflow: hidden;
+			&>li{
+				width: 46%;
+				height: 250px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 530px) {
+	#columns{
+		display: none;
+	}
+	#main_header{
+		height: 130px;
+		#lang{
+			right: 1em;
+		}
+	}
+	#main{
+		font-size: 1.2em;
+		padding: 16px;
+	}
+	#dashboard{
+		#sortable{
+			overflow: hidden;
+			&>li{
+				width: 99%;
+				height: 240px;
+				margin-top: 3em;
+			}
+		}
+	}
+	#main #components #my_components{
+		margin-right: .5em;
+		 span{
+			padding-right: 30px;
+		}
+	}
+	#main #components #add_components{
+		a{
+			overflow: hidden;
+			width: 28px;
+			height: 28px;
+			padding: 0;
+			background:url("../images/icons/icon_add.png") no-repeat top;
+			&:hover{
+				background:url("../images/icons/icon_add.png") no-repeat bottom #6ca932;
+			}
+			span{
+				display: none;
+			}
+		}
+	}
+	#account_nav{
+		margin-bottom: 25px;
+	}
+	#user_info{
+		top: 105px;
+		left: 0;
+		width: 100%;
+		.welcome{
+			float: left;
+			margin-left: 1em;
+		}
+		.date{
+			float: right;
+			margin-right: 1em;
+		}
+	}
+	#main_header nav#account_nav{
+		right: 1em;
+	}
+	nav#main_nav{
+		padding-left: 0;
+		li{
+			margin-left: 1em;
+			a{
+				width: 32px;
+				height: 32px;
+				overflow: hidden;
+				display: block;
+				position: relative;
+				padding: 0;
+				margin: .5em;
+				span{
+					position: absolute;
+					top: -2em;
+				}
+			}
+			&.dashboard a{
+				background:url("../images/icons/icons_main.png") no-repeat 0 0;
+			}
+			&.dashboard.current a{
+				background:url("../images/icons/icons_main.png") no-repeat 0 -32px;	
+			}
+			&.terminals a{
+				background:url("../images/icons/icons_main.png") no-repeat -32px 0;
+			}
+			&.terminals.current a{
+				background:url("../images/icons/icons_main.png") no-repeat -32px -32px;	
+			}
+			&.queries a{
+				background:url("../images/icons/icons_main.png") no-repeat -64px 0;
+			}
+			&.queries.current a{
+				background:url("../images/icons/icons_main.png") no-repeat -64px -32px;	
+			}
+			&.users a{
+				background:url("../images/icons/icons_main.png") no-repeat -96px 0;
+			}
+			&.users.current a{
+				background:url("../images/icons/icons_main.png") no-repeat -96px -32px;	
+			}
+			&.reports a{
+				background:url("../images/icons/icons_main.png") no-repeat -128px 0;
+			}
+			&.reports.current a{
+				background:url("../images/icons/icons_main.png") no-repeat -128px -32px;	
+			}
+		}
+	}
+	.icons_bg{
+		width: 83px;
+		height: 42px;
+	}
+	#main_footer{
+		li, #copy{
+			padding-bottom: 1em;
+			display: block;
+		}
+	}
+}

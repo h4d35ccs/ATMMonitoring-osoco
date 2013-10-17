@@ -9,25 +9,26 @@
 	}
 	.request{
 		float: left;
-		margin-left: 4%;
 	}
 }
-.btn{
-	border:1px solid $colorK4;
+.btn, input[type="submit"], button{
+	border:2px solid $colorK4;
 	@include border-radius(4px);
-	color: $colorG;
+	@include transitionAll;
+	color: $colorW;
 	font-weight: normal;
 	font-size: 1em;
-	background:$colorW;
+	background:$colorG;
 	float: left;
 	margin-right: 1em;
 	padding: .5em 1em;
 	display: block;
 	cursor: pointer;
+	width: inherit;
 	&:hover{
 		text-decoration: none;
-		background:$colorG;
-		color: $colorW;
+		background:$colorW;
+		color: $colorG;
 	}
 	.row &{
 		float: none;

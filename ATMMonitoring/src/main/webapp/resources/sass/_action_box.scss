@@ -1,0 +1,54 @@
+#main .action_box{
+	border: 1px solid $colorK5;
+	background:$colorK6;
+	padding: 1em;
+	margin-bottom: 2em;
+	overflow: hidden;
+	@include border-radius(4px);
+	h2{
+		background:url("../images/icons/icon_box_show.png") no-repeat top right;
+		cursor: pointer;
+		margin-bottom: 0;
+		&.hide{
+			background-position:bottom right;
+		}
+	}
+	.photo{
+		float: left;
+	}
+	&.data{
+		.photo{
+			margin-top: 2em;
+			float: left;
+			width: 20%;
+			img{
+				width: 100%;
+			}
+		}
+		.ul_data{
+			margin-top: 2em;
+			float: left;
+			width: 78%;
+			&>ul{
+				overflow: hidden;
+				li{
+					margin-left: 4%;
+					padding: .5em 0;
+					float: left;
+					width: 46%;
+					height: 3em;
+					border-bottom: 1px solid $colorK3;
+					strong{
+						width: 46%;
+						margin-right: 4%;
+						float: left;
+						display: block;
+					}
+					&:hover{
+						background-color: $colorK5;
+					}
+				}
+			}
+		}
+	}
+}

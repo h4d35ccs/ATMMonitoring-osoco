@@ -1,0 +1,87 @@
+table{
+	width: 100%;
+	margin: .5em 0;
+	border: 1px solid $colorK4;
+	th{
+		background:$colorG;
+		color:$colorW;
+		border-right: 1px solid $colorW;
+		&.order{
+			background:url("../images/colunm_order.png") $colorG no-repeat right top;
+			padding-right: 2em;
+			&.bottom{
+				background:url("../images/colunm_order.png") $colorK1 no-repeat right -40px;
+			}
+			&.top{
+				background:url("../images/colunm_order.png") $colorK1 no-repeat right -80px;
+			}
+		}
+	}
+	th:last-child{
+		border-right: none;
+	}
+	th,td{
+		padding: .8em;
+		border: 1px solid $colorK4;
+		border-collapse: collapse;
+		position: relative;
+		vertical-align: top;
+		&.note_detail{
+			&:hover{
+				color: $colorK1;
+			}
+			border-bottom: 2px solid $colorY3;
+			border-left:  2px solid $colorY3;
+			border-right:  2px solid $colorY3;
+			background:$colorY3;
+			float: none;
+			padding: 1em;
+			div{
+				position: relative;
+				background:$colorW;
+				padding: 1em;
+				@include border-radius(4px);
+				&:after {
+				    content: "";
+				    position: absolute;
+				    top: -20px;
+				    left: 105px;
+				    border-width: 0 15px 25px;
+				    border-style: solid;
+				    border-color: $colorW transparent;
+				    display: block;
+				    width: 0;
+				  }	
+				@include shadow;
+				li{
+					border-bottom: 2px dotted $colorK4;
+					margin-bottom: 1em;
+				}
+				li:last-child{
+					border: none;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	tr{
+		cursor: pointer;
+		&:nth-child(2n+1) {
+			background: $colorK5;
+		}
+		&:hover{
+			background:$colorK4;
+			color: $colorW;
+			border: 1px solid $colorW;
+		}
+		&.active{
+			background:$colorY3;
+			border-top: 2px solid $colorY3;
+			border-left:  2px solid $colorY3;
+			border-right:  2px solid $colorY3;
+		}
+	}
+	.editable{
+		padding-right: 4em;
+	}
+}

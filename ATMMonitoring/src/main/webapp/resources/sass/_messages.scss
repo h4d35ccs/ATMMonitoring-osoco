@@ -1,0 +1,40 @@
+.notification{
+	background:$colorG5;
+	border:1px dotted $colorG3;
+	padding: 1em 2em;
+	margin: .5em 0;
+}
+.error{
+	background:$colorR;
+	border:1px dotted $colorW;
+	color: $colorW;
+	padding: 1em 2em;
+	margin: .5em 0;
+	position: relative;
+	&.top{
+		&:after {
+		    content: "";
+		    position: absolute;
+		    top: -20px;
+		    left: 45%;
+		    border-width: 0 15px 25px;
+		    border-style: solid;
+		    border-color: $colorR transparent;
+		    display: block;
+		    width: 0;
+		  }
+	}
+	&.bottom{
+		&:after {
+		    content: "";
+		    position: absolute;
+		    bottom: -20px;
+		    left: 45%;
+		    border-width: 25px 15px 0 15px;
+		    border-style: solid;
+		    border-color: $colorR transparent;
+		    display: block;
+		    width: 0;
+		  }
+	}
+}

@@ -39,7 +39,7 @@
     <body id="${section}">
         <header id="main_header">
             <h1>
-                <a href="index.html"><img src="resources/images/general/logo.png"/></a>
+                <a href="dashboard"><img src="resources/images/general/logo.png"/></a>
                 <span>NCR</span> <strong>HASM</strong>
             </h1>
             <div id="user_info">
