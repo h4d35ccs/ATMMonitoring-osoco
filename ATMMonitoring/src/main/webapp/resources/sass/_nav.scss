@@ -41,6 +41,12 @@ nav#main_nav{
 		}
 	}
 }
+.tabs{
+	min-height: 300px;
+	.margin-box{
+		margin-bottom: 2em;
+	}
+}
 nav.sub_nav{
 	background-color: $colorK6;
 	height: 3em;
@@ -49,8 +55,9 @@ nav.sub_nav{
 		float: left;
 		border-right: 1px solid $colorK5;
 		position: relative;
-		a{
+		span{
 			display: block;
+			cursor: pointer;
 			padding: 1em;
 			color: $colorK1;
 			&:hover{
@@ -60,7 +67,7 @@ nav.sub_nav{
 			}
 		}
 	}
-	li.current a{
+	li.current span{
 		text-decoration: none;
 		color: $colorW;
 		background-color: $colorK1;

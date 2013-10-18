@@ -5,7 +5,6 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
-
 <t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}" section="terminals">
 	<div id="main">
 		<div id="primary">
@@ -31,11 +30,11 @@
 						<h2 class="txt">Detalles del terminal</h2>
 						<div class="ocultable">
 							<div class="photo">
-									<img src="resources/images/terminal.jpg"/>
+								<img src="resources/images/terminal.jpg"/>
 							</div>
 
 							<c:choose>
-							
+
 								<c:when test="${canEdit == true}">
 									<form:form method="post" action="terminals/update" commandName="terminal">
 										<form:hidden path="id"/>
@@ -292,7 +291,8 @@
 											</ul>
 										</div>
 										<div class="botonera">
-											<input type="submit" class="btn update" value="<spring:message code="label.terminal.updateTerminal"/>"/>
+											<input type="submit" class="btn update" value="<spring:message code="label.terminal.updateTerminal"/>
+											"/>
 										</div>
 									</form:form>
 									<div class="botonera">
@@ -302,127 +302,127 @@
 									</div>
 								</c:when>
 								<c:otherwise>
-								
+
 									<div class="ul_data">
 										<ul>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.serialNumber"/>
+													<spring:message code="label.terminal.serialNumber"/>
 												</strong>
 												${terminal.serialNumber}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.ip"/>
+													<spring:message code="label.terminal.ip"/>
 												</strong>
 												${terminal.ip}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.mac"/>
+													<spring:message code="label.terminal.mac"/>
 												</strong>
 												${terminal.mac}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.terminalType"/>
+													<spring:message code="label.terminal.terminalType"/>
 												</strong>
 												${terminal.terminalType}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.terminalVendor"/>
+													<spring:message code="label.terminal.terminalVendor"/>
 												</strong>
 												${terminal.terminalVendor}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.frontReplenish"/>
+													<spring:message code="label.terminal.frontReplenish"/>
 												</strong>
 												${terminal.frontReplenish}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.bank"/>
+													<spring:message code="label.terminal.bank"/>
 												</strong>
 												${terminal.bank}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.branch"/>
+													<spring:message code="label.terminal.branch"/>
 												</strong>
 												${terminal.branch}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.geographicAddress"/>
+													<spring:message code="label.terminal.geographicAddress"/>
 												</strong>
 												${terminal.geographicAddress}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.address"/>
+													<spring:message code="label.terminal.address"/>
 												</strong>
 												${terminal.address}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.city"/>
+													<spring:message code="label.terminal.city"/>
 												</strong>
 												${terminal.city}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.zipCode"/>
+													<spring:message code="label.terminal.zipCode"/>
 												</strong>
 												${terminal.zipCode}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.area"/>
+													<spring:message code="label.terminal.area"/>
 												</strong>
 												${terminal.area}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.country"/>
+													<spring:message code="label.terminal.country"/>
 												</strong>
 												${terminal.country}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.manufacturingSite"/>
+													<spring:message code="label.terminal.manufacturingSite"/>
 												</strong>
 												${terminal.manufacturingSite}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.model"/>
+													<spring:message code="label.terminal.model"/>
 												</strong>
 												${terminal.model}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.productClass"/>
+													<spring:message code="label.terminal.productClass"/>
 												</strong>
 												${terminal.productClass}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.productClassDescription"/>
+													<spring:message code="label.terminal.productClassDescription"/>
 												</strong>
 												${terminal.productClassDescription}
 											</li>
 											<li>
 												<strong>
-														<spring:message code="label.terminal.tracerNumber"/>
+													<spring:message code="label.terminal.tracerNumber"/>
 												</strong>
 												${terminal.tracerNumber}
 											</li>
 										</ul>
 									</div>
 									<!-- //ul-data -->
-								 </c:otherwise> 
+								</c:otherwise>
 							</c:choose>
 						</div>
 						<!-- // ocultable -->
@@ -435,425 +435,448 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="box">
-					<h2>
-						<spring:message code="label.financialDevices"/>
-					</h2>
-					<div class="margin-box">
-						<c:if  test="${empty terminal.financialDevices}">
-							<div class="empty-list">
-								<spring:message code="label.terminal.noFinancialDevices"/>
-							</div>
-						</c:if>
-						<c:if test="${!empty terminal.financialDevices}">
-							<c:choose>
-								<c:when  test="${terminal.financialDevices.size() >
-									5}">
-									<table id="TestChromatable" class="data subform">
-										<thead>
-											<tr>
-												<th>
-
-													<spring:message code="label.financialDevice.name"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.majorVersion"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.serialNumber"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.caption"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.description"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.universalId"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.deviceInstance"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.deviceStatus"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.pmStatus"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.model"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.variant"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.manufacturer"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.firmwareMajorVersion"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.removable"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.replaceable"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.hotSwappable"/>
-
-												</th>
-												<th>
-
-													<spring:message code="label.financialDevice.xfsComponents"/>
-
-												</th>
-											</tr>
-										</thead>
-									</c:when>
-									<c:otherwise>
-										<table class="data subform">
+				<h2>Características</h2>
+				<div class="tabs">
+					<nav class="sub_nav">
+						<ul>
+							<li class="current">
+								<span>Dispositivos financieros</span>
+							</li>
+							<li>
+								<span>Hardware</span>
+							</li>
+							<li>
+								<span>Software</span>
+							</li>
+							<li>
+								<span>Agregados</span>
+							</li>
+							<li>
+								<span>HotTix</span>
+							</li>
+							<li>
+								<span>Navegadores</span>
+							</li>
+						</ul>
+					</nav>
+					<div class="content_tab">
+						<h2>
+							<spring:message code="label.financialDevices"/>
+						</h2>
+						<div class="margin-box">
+							<c:if  test="${empty terminal.financialDevices}">
+								<div class="empty-list notification">
+									<spring:message code="label.terminal.noFinancialDevices"/>
+								</div>
+							</c:if>
+							<c:if test="${!empty terminal.financialDevices}">
+								<c:choose>
+									<c:when  test="${terminal.financialDevices.size() >
+										5}">
+										<table id="TestChromatable" class="data subform">
 											<thead>
 												<tr>
-													<th width="125px">
+													<th>
 
 														<spring:message code="label.financialDevice.name"/>
 
 													</th>
-													<th width="80px">
+													<th>
 
 														<spring:message code="label.financialDevice.majorVersion"/>
 
 													</th>
-													<th width="55px">
+													<th>
 
 														<spring:message code="label.financialDevice.serialNumber"/>
 
 													</th>
-													<th width="40px">
+													<th>
 
 														<spring:message code="label.financialDevice.caption"/>
 
 													</th>
-													<th width="55px">
+													<th>
 
 														<spring:message code="label.financialDevice.description"/>
 
 													</th>
-													<th width="60px">
+													<th>
 
 														<spring:message code="label.financialDevice.universalId"/>
 
 													</th>
-													<th width="40px">
+													<th>
 
 														<spring:message code="label.financialDevice.deviceInstance"/>
 
 													</th>
-													<th width="40px">
+													<th>
 
 														<spring:message code="label.financialDevice.deviceStatus"/>
 
 													</th>
-													<th width="40px">
+													<th>
 
 														<spring:message code="label.financialDevice.pmStatus"/>
 
 													</th>
-													<th width="45px">
+													<th>
 
 														<spring:message code="label.financialDevice.model"/>
 
 													</th>
-													<th width="40px">
+													<th>
 
 														<spring:message code="label.financialDevice.variant"/>
 
 													</th>
-													<th width="65px">
+													<th>
 
 														<spring:message code="label.financialDevice.manufacturer"/>
 
 													</th>
-													<th width="65px">
+													<th>
 
 														<spring:message code="label.financialDevice.firmwareMajorVersion"/>
 
 													</th>
-													<th width="50px">
+													<th>
 
 														<spring:message code="label.financialDevice.removable"/>
 
 													</th>
-													<th width="60px">
+													<th>
 
 														<spring:message code="label.financialDevice.replaceable"/>
 
 													</th>
-													<th width="50px">
+													<th>
 
 														<spring:message code="label.financialDevice.hotSwappable"/>
 
 													</th>
-													<th width="55px">
+													<th>
 
 														<spring:message code="label.financialDevice.xfsComponents"/>
 
 													</th>
 												</tr>
 											</thead>
-										</c:otherwise>
-									</c:choose>
-									<tbody>
-										<c:set var="alt" value="${false}"/>
-										<c:forEach items="${terminal.financialDevices}" var="financialDevice">
-											<tr <c:if test="${alt}">class="alt"</c:if>
-											>
-											<td>
-												<label>${financialDevice.name}</label>
-											</td>
-											<td>
-												<label>${financialDevice.version}</label>
-											</td>
-											<td>
-												<label>${financialDevice.serialNumber}</label>
-											</td>
-											<td>
-												<label>${financialDevice.caption}</label>
-											</td>
-											<td>
-												<label>${financialDevice.description}</label>
-											</td>
-											<td>
-												<label>${financialDevice.universalId}</label>
-											</td>
-											<td>
-												<label>${financialDevice.deviceInstance}</label>
-											</td>
-											<td>
-												<label>${financialDevice.deviceStatus}</label>
-											</td>
-											<td>
-												<label>${financialDevice.pmStatus}</label>
-											</td>
-											<td>
-												<label>${financialDevice.model}</label>
-											</td>
-											<td>
-												<label>${financialDevice.variant}</label>
-											</td>
-											<td>
-												<label>${financialDevice.manufacturer}</label>
-											</td>
-											<td>
-												<label>${financialDevice.firmwareVersion}</label>
-											</td>
-											<td>
-												<label>${financialDevice.removable}</label>
-											</td>
-											<td>
-												<label>${financialDevice.replaceable}</label>
-											</td>
-											<td>
-												<label>${financialDevice.hotSwappable}</label>
-											</td>
-											<td>
-												<c:forEach items="${financialDevice.xfsComponents}" var="xfsComponent">
-													<a href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.serviceProvider}</a>
-													<br></c:forEach>
-											</td>
-										</tr>
-										<c:set var="alt" value="${!alt}"/>
-									</c:forEach>
-								</tbody>
-							</table>
+										</c:when>
+										<c:otherwise>
+											<table class="data subform">
+												<thead>
+													<tr>
+														<th width="125px">
+
+															<spring:message code="label.financialDevice.name"/>
+
+														</th>
+														<th width="80px">
+
+															<spring:message code="label.financialDevice.majorVersion"/>
+
+														</th>
+														<th width="55px">
+
+															<spring:message code="label.financialDevice.serialNumber"/>
+
+														</th>
+														<th width="40px">
+
+															<spring:message code="label.financialDevice.caption"/>
+
+														</th>
+														<th width="55px">
+
+															<spring:message code="label.financialDevice.description"/>
+
+														</th>
+														<th width="60px">
+
+															<spring:message code="label.financialDevice.universalId"/>
+
+														</th>
+														<th width="40px">
+
+															<spring:message code="label.financialDevice.deviceInstance"/>
+
+														</th>
+														<th width="40px">
+
+															<spring:message code="label.financialDevice.deviceStatus"/>
+
+														</th>
+														<th width="40px">
+
+															<spring:message code="label.financialDevice.pmStatus"/>
+
+														</th>
+														<th width="45px">
+
+															<spring:message code="label.financialDevice.model"/>
+
+														</th>
+														<th width="40px">
+
+															<spring:message code="label.financialDevice.variant"/>
+
+														</th>
+														<th width="65px">
+
+															<spring:message code="label.financialDevice.manufacturer"/>
+
+														</th>
+														<th width="65px">
+
+															<spring:message code="label.financialDevice.firmwareMajorVersion"/>
+
+														</th>
+														<th width="50px">
+
+															<spring:message code="label.financialDevice.removable"/>
+
+														</th>
+														<th width="60px">
+
+															<spring:message code="label.financialDevice.replaceable"/>
+
+														</th>
+														<th width="50px">
+
+															<spring:message code="label.financialDevice.hotSwappable"/>
+
+														</th>
+														<th width="55px">
+
+															<spring:message code="label.financialDevice.xfsComponents"/>
+
+														</th>
+													</tr>
+												</thead>
+											</c:otherwise>
+										</c:choose>
+										<tbody>
+											<c:set var="alt" value="${false}"/>
+											<c:forEach items="${terminal.financialDevices}" var="financialDevice">
+												<tr <c:if test="${alt}">class="alt"</c:if>
+												>
+												<td>
+													<label>${financialDevice.name}</label>
+												</td>
+												<td>
+													<label>${financialDevice.version}</label>
+												</td>
+												<td>
+													<label>${financialDevice.serialNumber}</label>
+												</td>
+												<td>
+													<label>${financialDevice.caption}</label>
+												</td>
+												<td>
+													<label>${financialDevice.description}</label>
+												</td>
+												<td>
+													<label>${financialDevice.universalId}</label>
+												</td>
+												<td>
+													<label>${financialDevice.deviceInstance}</label>
+												</td>
+												<td>
+													<label>${financialDevice.deviceStatus}</label>
+												</td>
+												<td>
+													<label>${financialDevice.pmStatus}</label>
+												</td>
+												<td>
+													<label>${financialDevice.model}</label>
+												</td>
+												<td>
+													<label>${financialDevice.variant}</label>
+												</td>
+												<td>
+													<label>${financialDevice.manufacturer}</label>
+												</td>
+												<td>
+													<label>${financialDevice.firmwareVersion}</label>
+												</td>
+												<td>
+													<label>${financialDevice.removable}</label>
+												</td>
+												<td>
+													<label>${financialDevice.replaceable}</label>
+												</td>
+												<td>
+													<label>${financialDevice.hotSwappable}</label>
+												</td>
+												<td>
+													<c:forEach items="${financialDevice.xfsComponents}" var="xfsComponent">
+														<a href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.serviceProvider}</a>
+														<br></c:forEach>
+												</td>
+											</tr>
+											<c:set var="alt" value="${!alt}"/>
+										</c:forEach>
+									</tbody>
+								</table>
+							</c:if>
+						</div>
+					</div>
+
+					<div class="content_tab">
+						<h2>
+							<spring:message code="label.hardwareDevices"/>
+						</h2>
+						<c:if  test="${empty terminal.hardwareDevices}">
+							<div class="empty-list notification">
+								<spring:message code="label.terminal.noHwDevices"/>
+							</div>
+						</c:if>
+						<c:if test="${!empty terminal.hardwareDevices}">
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.computerSystems}">
+									<t:computerSystemTable hardwareDevices="${terminal.computerSystems}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.processors}">
+									<t:processorTable hardwareDevices="${terminal.processors}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.physicalMemories}">
+									<t:physicalMemoryTable hardwareDevices="${terminal.physicalMemories}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.diskDrives}">
+									<t:diskDriveTable hardwareDevices="${terminal.diskDrives}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.logicalDisks}">
+									<t:logicalDiskTable hardwareDevices="${terminal.logicalDisks}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.baseBoards}">
+									<t:baseBoardTable hardwareDevices="${terminal.baseBoards}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.networkAdapters}">
+									<t:networkAdapterTable hardwareDevices="${terminal.networkAdapters}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.floppyDrives}">
+									<t:floppyDriveTable hardwareDevices="${terminal.floppyDrives}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.cdromDrives}">
+									<t:cdromDriveTable hardwareDevices="${terminal.cdromDrives}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.soundDevices}">
+									<t:soundDeviceTable hardwareDevices="${terminal.soundDevices}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.usbControllers}">
+									<t:usbControllerTable hardwareDevices="${terminal.usbControllers}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.serialPorts}">
+									<t:serialPortTable hardwareDevices="${terminal.serialPorts}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.parallelPorts}">
+									<t:parallelPortTable hardwareDevices="${terminal.parallelPorts}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.controllers1394}">
+									<t:1394ControllerTable hardwareDevices="${terminal.controllers1394}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.scsiControllers}">
+									<t:scsiControllerTable hardwareDevices="${terminal.scsiControllers}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.desktopMonitors}">
+									<t:desktopMonitorTable hardwareDevices="${terminal.desktopMonitors}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.keyboards}">
+									<t:keyboardTable hardwareDevices="${terminal.keyboards}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.pointingDevices}">
+									<t:pointingDeviceTable hardwareDevices="${terminal.pointingDevices}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.systemSlots}">
+									<t:systemSlotTable hardwareDevices="${terminal.systemSlots}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.bios}">
+									<t:biosTable hardwareDevices="${terminal.bios}"/>
+								</c:if>
+							</div>
+
+							<div class="margin-box">
+								<c:if test="${!empty terminal.videoControllers}">
+									<t:videoControllerTable hardwareDevices="${terminal.videoControllers}"/>
+								</c:if>
+							</div>
+
 						</c:if>
 					</div>
-				</div>
 
-				<div class="box">
-					<h2>
-						<spring:message code="label.hardwareDevices"/>
-					</h2>
-					<c:if  test="${empty terminal.hardwareDevices}">
-						<div class="empty-list">
-							<spring:message code="label.terminal.noHwDevices"/>
-						</div>
-					</c:if>
-					<c:if test="${!empty terminal.hardwareDevices}">
+					<div class="content_tab">
+						<h2>
+							<spring:message code="label.terminalConfigs"/>
+						</h2>
 
-						<div class="margin-box">
-							<c:if test="${!empty terminal.computerSystems}">
-								<t:computerSystemTable hardwareDevices="${terminal.computerSystems}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.processors}">
-								<t:processorTable hardwareDevices="${terminal.processors}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.physicalMemories}">
-								<t:physicalMemoryTable hardwareDevices="${terminal.physicalMemories}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.diskDrives}">
-								<t:diskDriveTable hardwareDevices="${terminal.diskDrives}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.logicalDisks}">
-								<t:logicalDiskTable hardwareDevices="${terminal.logicalDisks}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.baseBoards}">
-								<t:baseBoardTable hardwareDevices="${terminal.baseBoards}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.networkAdapters}">
-								<t:networkAdapterTable hardwareDevices="${terminal.networkAdapters}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.floppyDrives}">
-								<t:floppyDriveTable hardwareDevices="${terminal.floppyDrives}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.cdromDrives}">
-								<t:cdromDriveTable hardwareDevices="${terminal.cdromDrives}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.soundDevices}">
-								<t:soundDeviceTable hardwareDevices="${terminal.soundDevices}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.usbControllers}">
-								<t:usbControllerTable hardwareDevices="${terminal.usbControllers}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.serialPorts}">
-								<t:serialPortTable hardwareDevices="${terminal.serialPorts}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.parallelPorts}">
-								<t:parallelPortTable hardwareDevices="${terminal.parallelPorts}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.controllers1394}">
-								<t:1394ControllerTable hardwareDevices="${terminal.controllers1394}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.scsiControllers}">
-								<t:scsiControllerTable hardwareDevices="${terminal.scsiControllers}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.desktopMonitors}">
-								<t:desktopMonitorTable hardwareDevices="${terminal.desktopMonitors}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.keyboards}">
-								<t:keyboardTable hardwareDevices="${terminal.keyboards}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.pointingDevices}">
-								<t:pointingDeviceTable hardwareDevices="${terminal.pointingDevices}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.systemSlots}">
-								<t:systemSlotTable hardwareDevices="${terminal.systemSlots}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.bios}">
-								<t:biosTable hardwareDevices="${terminal.bios}"/>
-							</c:if>
-						</div>
-
-						<div class="margin-box">
-							<c:if test="${!empty terminal.videoControllers}">
-								<t:videoControllerTable hardwareDevices="${terminal.videoControllers}"/>
-							</c:if>
-						</div>
-
-					</c:if>
-				</div>
-
-				<div class="box">
-					<h2>
-						<spring:message code="label.terminalConfigs"/>
-					</h2>
-					<div class="margin-box">
 						<c:if  test="${empty terminal.configs}">
-							<div class="empty-list">
+							<div class="empty-list notification">
 								<spring:message code="label.terminal.noConfigs"/>
 							</div>
 						</c:if>
 						<c:if  test="${!empty terminal.configs}">
 
-							<div class="box">
+							<div>
 								<h3>
 									<spring:message code="label.currentTerminalConfig"/>
 								</h3>
@@ -908,12 +931,11 @@
 									</c:choose>
 									--%>
 								</table>
-
-								<t:listSoftware config="${terminal.currentConfig}"/>
 							</div>
+							<t:listSoftware config="${terminal.currentConfig}"/>
 						</div>
 
-						<div class="box">
+						<div class="">
 							<h3>
 								<spring:message code="label.terminalConfigsHistory"/>
 							</h3>
@@ -922,27 +944,27 @@
 									<c:when  test="${terminal.configs.size() >
 										10}">
 										<style type="text/css">
-/* define height and width of scrollable area. Add 16px to width for scrollbar          */
-div.tableContainerTc {
-	height: 287px;
-	width: 159px;
-}
+										/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+										div.tableContainerTc {
+											height: 287px;
+											width: 159px;
+										}
 
-/* define width of table. IE browsers only                 */
-div.tableContainerTc table {
-	width: 159px
-}
+										/* define width of table. IE browsers only                 */
+										div.tableContainerTc table {
+											width: 159px
+										}
 
-/* define width of table. Add 16px to width for scrollbar.           */
-/* All other non-IE browsers.                                        */
-html>body div.tableContainerTc table {
-	width: 159px;
-}
+										/* define width of table. Add 16px to width for scrollbar.           */
+										/* All other non-IE browsers.                                        */
+										html>body div.tableContainerTc table {
+											width: 159px;
+										}
 
-html>body tbody.scrollContentTc {
-	height: 261px;
-}
-</style>
+										html>body tbody.scrollContentTc {
+											height: 261px;
+										}
+										</style>
 										<div id="tableContainer" class="tableContainer tableContainerTc">
 											<table class="data">
 												<thead class="fixedHeader"></c:when>
@@ -996,116 +1018,219 @@ html>body tbody.scrollContentTc {
 										<c:choose>
 											<c:when  test="${terminal.configs.size() >10}"></tbody>
 										</table>
-									</div>
+									</c:when>
+									<c:otherwise></table>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
+					</div>
+				</div>
+			</div>
+			<div class="content_tab">
+				<h2>
+					<spring:message code="label.softwareAggregates"/>
+				</h2>
+				<div class="margin-box">
+					<c:if  test="${empty terminal.softwareAggregates}">
+						<div class="empty-list notification">
+							<spring:message code="label.terminal.noSwAggregates"/>
+						</div>
+					</c:if>
+					<c:if test="${!empty terminal.softwareAggregates}">
+						<c:choose>
+							<c:when  test="${terminal.softwareAggregates.size() >
+								5}">
+								<table id="AggregateChromatable" class="data">
+									<thead>
+										<tr>
+											<th>
+
+												<spring:message code="label.softwareAggregate.name"/>
+												+
+												<spring:message code="label.softwareAggregate.majorVersion"/>
+
+											</th>
+											<th>
+
+												<spring:message code="label.softwareAggregate.number"/>
+
+											</th>
+											<th>
+
+												<spring:message code="label.softwareAggregate.description"/>
+
+											</th>
+											<th>
+
+												<spring:message code="label.softwareAggregate.profile"/>
+
+											</th>
+										</tr>
+									</thead>
 								</c:when>
-								<c:otherwise></table>
-							</c:otherwise>
-						</c:choose>
+								<c:otherwise>
+									<table class="data">
+										<tr>
+											<th>
+
+												<spring:message code="label.softwareAggregate.name"/>
+												+
+												<spring:message code="label.softwareAggregate.majorVersion"/>
+
+											</th>
+											<th>
+
+												<spring:message code="label.softwareAggregate.number"/>
+
+											</th>
+											<th>
+
+												<spring:message code="label.softwareAggregate.description"/>
+
+											</th>
+											<th>
+
+												<spring:message code="label.softwareAggregate.profile"/>
+
+											</th>
+										</tr>
+									</c:otherwise>
+								</c:choose>
+								<c:set var="alt" value="${false}"/>
+								<c:forEach items="${terminal.softwareAggregates}" var="softwareAggregate">
+									<tr <c:if test="${alt}">class="alt"</c:if>
+									>
+									<td>${softwareAggregate.nameVersion}</td>
+									<td>${softwareAggregate.number}</td>
+									<td>${softwareAggregate.description}</td>
+									<td>${softwareAggregate.profile}</td>
+								</tr>
+								<c:set var="alt" value="${!alt}"/>
+							</c:forEach>
+						</table>
 					</c:if>
 				</div>
 			</div>
-		</div>
-	</div>
-	<%--Code with support for Terminal Config AUTHORS --%>
-	<%-- <h3>Add New Config</h3>
-<c:if  test="${!empty softwareList}">
-	<form:form method="post" action="terminals/swConfigs/add.html" commandName="newConfig">
-		<form:hidden path="terminal.id"/>
-		<table>
-			<tr>
-				<td>
-					<form:checkboxes items="${softwareList}" path="software" itemValue="id" itemLabel="nameVersion" delimiter="</td></tr>
-					<tr>
-						<td>"/></td>
-					</tr>
-					<tr>
-						<td>
-							<input type="submit" class="form-submit" value="<spring:message code="label.terminalconfig.addterminalconfig"/>
-							"/>
-						</td>
-					</tr>
-				</table>
-			</form:form>
-		</c:if>
-		--%>
-		<div class="box">
-			<h2>
-				<spring:message code="label.softwareAggregates"/>
-			</h2>
-			<div class="margin-box">
-				<c:if  test="${empty terminal.softwareAggregates}">
-					<div class="empty-list">
-						<spring:message code="label.terminal.noSwAggregates"/>
-					</div>
-				</c:if>
-				<c:if test="${!empty terminal.softwareAggregates}">
-					<c:choose>
-						<c:when  test="${terminal.softwareAggregates.size() >
-							5}">
-							<table id="AggregateChromatable" class="data">
-								<thead>
-									<tr>
-										<th>
 
-											<spring:message code="label.softwareAggregate.name"/>
-											+
-											<spring:message code="label.softwareAggregate.majorVersion"/>
+			<div class="content_tab">
+				<h2>
+					<spring:message code="label.hotfixes"/>
+				</h2>
+				<div class="margin-box">
+					<c:if  test="${empty terminal.hotfixes}">
+						<div class="empty-list notification">
+							<spring:message code="label.terminal.noHotfixes"/>
+						</div>
+					</c:if>
+					<c:if test="${!empty terminal.hotfixes}">
+						<c:choose>
+							<c:when  test="${terminal.hotfixes.size() >
+								5}">
+								<table id="HotfixChromatable" class="data">
+									<thead>
+										<tr>
+											<th>
 
-										</th>
-										<th>
+												<spring:message code="label.hotfix.hotfixId"/>
 
-											<spring:message code="label.softwareAggregate.number"/>
+											</th>
+											<th>
 
-										</th>
-										<th>
+												<spring:message code="label.hotfix.description"/>
 
-											<spring:message code="label.softwareAggregate.description"/>
+											</th>
+											<th>
 
-										</th>
-										<th>
+												<spring:message code="label.hotfix.number"/>
 
-											<spring:message code="label.softwareAggregate.profile"/>
+											</th>
+											<th>
 
-										</th>
-									</tr>
-								</thead>
-							</c:when>
-							<c:otherwise>
-								<table class="data">
-									<tr>
-										<th>
+												<spring:message code="label.hotfix.installedOn"/>
 
-											<spring:message code="label.softwareAggregate.name"/>
-											+
-											<spring:message code="label.softwareAggregate.majorVersion"/>
+											</th>
+											<th>
 
-										</th>
-										<th>
+												<spring:message code="label.hotfix.fixComments"/>
 
-											<spring:message code="label.softwareAggregate.number"/>
+											</th>
+										</tr>
+									</thead>
+								</c:when>
+								<c:otherwise>
+									<table class="data">
+										<tr>
+											<th>
 
-										</th>
-										<th>
+												<spring:message code="label.hotfix.hotfixId"/>
 
-											<spring:message code="label.softwareAggregate.description"/>
+											</th>
+											<th>
 
-										</th>
-										<th>
+												<spring:message code="label.hotfix.description"/>
 
-											<spring:message code="label.softwareAggregate.profile"/>
+											</th>
+											<th>
 
-										</th>
-									</tr>
-								</c:otherwise>
-							</c:choose>
+												<spring:message code="label.hotfix.number"/>
+
+											</th>
+											<th>
+
+												<spring:message code="label.hotfix.installedOn"/>
+
+											</th>
+											<th>
+
+												<spring:message code="label.hotfix.fixComments"/>
+
+											</th>
+										</tr>
+									</c:otherwise>
+								</c:choose>
+								<c:set var="alt" value="${false}"/>
+								<c:forEach items="${terminal.hotfixes}" var="hotfix">
+									<tr <c:if test="${alt}">class="alt"</c:if>
+									>
+									<td>${hotfix.hotfixId}</td>
+									<td>${hotfix.description}</td>
+									<td>${hotfix.number}</td>
+									<td>
+										<fmt:formatDate value="${hotfix.installedOn}" dateStyle="short" type="date" />
+									</td>
+									<td>${hotfix.fixComments}</td>
+								</tr>
+								<c:set var="alt" value="${!alt}"/>
+							</c:forEach>
+						</table>
+					</c:if>
+				</div>
+			</div>
+
+			<div class="content_tab">
+				<h2>
+					<spring:message code="label.internetExplorers"/>
+				</h2>
+				<div class="margin-box">
+					<c:if  test="${empty terminal.internetExplorers}">
+						<div class="empty-list notification">
+							<spring:message code="label.terminal.noIEs"/>
+						</div>
+					</c:if>
+					<c:if test="${!empty terminal.internetExplorers}">
+						<table class="data">
+							<tr>
+								<th>
+
+									<spring:message code="label.internetExplorer.majorVersion"/>
+
+								</th>
+							</tr>
 							<c:set var="alt" value="${false}"/>
-							<c:forEach items="${terminal.softwareAggregates}" var="softwareAggregate">
+							<c:forEach items="${terminal.internetExplorers}" var="internetExplorer">
 								<tr <c:if test="${alt}">class="alt"</c:if>
 								>
-								<td>${softwareAggregate.nameVersion}</td>
-								<td>${softwareAggregate.number}</td>
-								<td>${softwareAggregate.description}</td>
-								<td>${softwareAggregate.profile}</td>
+								<td>${internetExplorer.version}</td>
 							</tr>
 							<c:set var="alt" value="${!alt}"/>
 						</c:forEach>
@@ -1113,138 +1238,10 @@ html>body tbody.scrollContentTc {
 				</c:if>
 			</div>
 		</div>
-
-		<div class="box">
-			<h2>
-				<spring:message code="label.hotfixes"/>
-			</h2>
-			<div class="margin-box">
-				<c:if  test="${empty terminal.hotfixes}">
-					<div class="empty-list">
-						<spring:message code="label.terminal.noHotfixes"/>
-					</div>
-				</c:if>
-				<c:if test="${!empty terminal.hotfixes}">
-					<c:choose>
-						<c:when  test="${terminal.hotfixes.size() >
-							5}">
-							<table id="HotfixChromatable" class="data">
-								<thead>
-									<tr>
-										<th>
-
-											<spring:message code="label.hotfix.hotfixId"/>
-
-										</th>
-										<th>
-
-											<spring:message code="label.hotfix.description"/>
-
-										</th>
-										<th>
-
-											<spring:message code="label.hotfix.number"/>
-
-										</th>
-										<th>
-
-											<spring:message code="label.hotfix.installedOn"/>
-
-										</th>
-										<th>
-
-											<spring:message code="label.hotfix.fixComments"/>
-
-										</th>
-									</tr>
-								</thead>
-							</c:when>
-							<c:otherwise>
-								<table class="data">
-									<tr>
-										<th>
-
-											<spring:message code="label.hotfix.hotfixId"/>
-
-										</th>
-										<th>
-
-											<spring:message code="label.hotfix.description"/>
-
-										</th>
-										<th>
-
-											<spring:message code="label.hotfix.number"/>
-
-										</th>
-										<th>
-
-											<spring:message code="label.hotfix.installedOn"/>
-
-										</th>
-										<th>
-
-											<spring:message code="label.hotfix.fixComments"/>
-
-										</th>
-									</tr>
-								</c:otherwise>
-							</c:choose>
-							<c:set var="alt" value="${false}"/>
-							<c:forEach items="${terminal.hotfixes}" var="hotfix">
-								<tr <c:if test="${alt}">class="alt"</c:if>
-								>
-								<td>${hotfix.hotfixId}</td>
-								<td>${hotfix.description}</td>
-								<td>${hotfix.number}</td>
-								<td>
-									<fmt:formatDate value="${hotfix.installedOn}" dateStyle="short" type="date" />
-								</td>
-								<td>${hotfix.fixComments}</td>
-							</tr>
-							<c:set var="alt" value="${!alt}"/>
-						</c:forEach>
-					</table>
-				</c:if>
-			</div>
-		</div>
-
-		<div class="box">
-			<h2>
-				<spring:message code="label.internetExplorers"/>
-			</h2>
-			<div class="margin-box">
-				<c:if  test="${empty terminal.internetExplorers}">
-					<div class="empty-list">
-						<spring:message code="label.terminal.noIEs"/>
-					</div>
-				</c:if>
-				<c:if test="${!empty terminal.internetExplorers}">
-					<table class="data">
-						<tr>
-							<th>
-
-								<spring:message code="label.internetExplorer.majorVersion"/>
-
-							</th>
-						</tr>
-						<c:set var="alt" value="${false}"/>
-						<c:forEach items="${terminal.internetExplorers}" var="internetExplorer">
-							<tr <c:if test="${alt}">class="alt"</c:if>
-							>
-							<td>${internetExplorer.version}</td>
-						</tr>
-						<c:set var="alt" value="${!alt}"/>
-					</c:forEach>
-				</table>
-			</c:if>
-		</div>
+		<!-- /tabs -->
 	</div>
 </article>
 </div>
-<!-- /primary -->
-<div id="secundary"></div>
-<!-- /secundary -->
 <!-- /main -->
 </div>
 <!-- /#main -->

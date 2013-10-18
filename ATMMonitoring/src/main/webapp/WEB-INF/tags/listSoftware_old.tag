@@ -4,7 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<h5><spring:message code="label.operatingSystems"/></h5>
+<h3><spring:message code="label.operatingSystems"/></h3>
 <c:if  test="${!empty config.operatingSystems}">
 <table class="data subform">
 	<tr>

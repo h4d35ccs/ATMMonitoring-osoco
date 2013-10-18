@@ -3,7 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<h5><spring:message code="label.networkAdapters"/></h5>
+<h3><spring:message code="label.networkAdapters"/></h3>
 
 <table class="data subform">
 <tr>
@@ -26,119 +26,237 @@
 </tr>
 <c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
-    <tr <c:if test="${alt}">class="alt"</c:if>>
+    <tr class="showdetail open">
     	<c:if test="${hardwareDevice.name != null}">
-			<td><label>${hardwareDevice.name}</label></td>
+			<td>${hardwareDevice.name}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.manufacturer != null}">
-			<td><label>${hardwareDevice.manufacturer}</label></td>
+			<td>${hardwareDevice.manufacturer}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.manufacturer == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.adapterType != null}">
-			<td><label>${hardwareDevice.adapterType}</label></td>
+			<td>${hardwareDevice.adapterType}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.adapterType == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.caption != null}">
-			<td><label>${hardwareDevice.caption}</label></td>
+			<td>${hardwareDevice.caption}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.caption == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.description != null}">
-			<td><label>${hardwareDevice.description}</label></td>
+			<td>${hardwareDevice.description}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.description == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.dhcpEnabled != null}">
-			<td><label>${hardwareDevice.dhcpEnabled}</label></td>
+			<td>${hardwareDevice.dhcpEnabled}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.dhcpEnabled == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.dhcpServer != null}">
-			<td><label>${hardwareDevice.dhcpServer}</label></td>
+			<td>${hardwareDevice.dhcpServer}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.dhcpServer == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.ipAddress != null}">
-			<td><label>${hardwareDevice.ipAddress}</label></td>
+			<td>${hardwareDevice.ipAddress}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.ipAddress == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.ipSubnet != null}">
-			<td><label>${hardwareDevice.ipSubnet}</label></td>
+			<td>${hardwareDevice.ipSubnet}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.ipSubnet == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.defaultIpGateway != null}">
-			<td><label>${hardwareDevice.defaultIpGateway}</label></td>
+			<td>${hardwareDevice.defaultIpGateway}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.defaultIpGateway == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.macAddress != null}">
-			<td><label>${hardwareDevice.macAddress}</label></td>
+			<td>${hardwareDevice.macAddress}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.macAddress == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.speed != null}">
-			<td><label>${hardwareDevice.speed}</label></td>
+			<td>${hardwareDevice.speed}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.speed == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.netConnectionId != null}">
-			<td><label>${hardwareDevice.netConnectionId}</label></td>
+			<td>${hardwareDevice.netConnectionId}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.netConnectionId == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.netConnectionStatus != null}">
-			<td><label>${hardwareDevice.netConnectionStatus}</label></td>
+			<td>${hardwareDevice.netConnectionStatus}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.netConnectionStatus == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.interfaceIndex != null}">
-			<td><label>${hardwareDevice.interfaceIndex}</label></td>
+			<td>${hardwareDevice.interfaceIndex}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.interfaceIndex == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.status != null}">
-			<td><label>${hardwareDevice.status}</label></td>
+			<td>${hardwareDevice.status}</label></td>
 		</c:if>
 		<c:if test="${hardwareDevice.status == null}">
 			<td/>
 		</c:if>
-		
+    </tr>
+    <tr class="detail">
+    	<td colspan="16">
+	    	<div>
+		    	<ul>
+		    	<c:if test="${hardwareDevice.name != null}">
+					<li><strong><spring:message code="label.hardwareDevice.name"/>: </strong>${hardwareDevice.name}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.name == null}">
+					<li><strong><spring:message code="label.hardwareDevice.name"/>: </strong></li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.manufacturer != null}">
+					<li><strong><spring:message code="label.hardwareDevice.manufacturer"/>:</strong> ${hardwareDevice.manufacturer}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.manufacturer == null}">
+					<li><strong><spring:message code="label.hardwareDevice.manufacturer"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.adapterType != null}">
+					<li><strong><spring:message code="label.hardwareDevice.adapterType"/>:</strong> ${hardwareDevice.adapterType}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.adapterType == null}">
+					<li><strong><spring:message code="label.hardwareDevice.adapterType"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.caption != null}">
+					<li><strong><spring:message code="label.hardwareDevice.caption"/>:</strong> ${hardwareDevice.caption}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.caption == null}">
+					<li><strong><spring:message code="label.hardwareDevice.caption"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.description != null}">
+					<li><strong><spring:message code="label.hardwareDevice.description"/>:</strong> ${hardwareDevice.description}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.description == null}">
+					<li><strong><spring:message code="label.hardwareDevice.description"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.dhcpEnabled != null}">
+					<li><strong><spring:message code="label.hardwareDevice.dhcpEnabled"/>:</strong> ${hardwareDevice.dhcpEnabled}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.dhcpEnabled == null}">
+					<li><strong><spring:message code="label.hardwareDevice.dhcpEnabled"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.dhcpServer != null}">
+					<li><strong><spring:message code="label.hardwareDevice.dhcpServer"/>:</strong> ${hardwareDevice.dhcpServer}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.dhcpServer == null}">
+					<li><strong><spring:message code="label.hardwareDevice.dhcpServer"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.ipAddress != null}">
+					<li><strong><spring:message code="label.hardwareDevice.ipAddress"/>:</strong> ${hardwareDevice.ipAddress}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.ipAddress == null}">
+					<li><strong><spring:message code="label.hardwareDevice.ipAddress"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.ipSubnet != null}">
+					<li><strong><spring:message code="label.hardwareDevice.ipSubnet"/>:</strong> ${hardwareDevice.ipSubnet}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.ipSubnet == null}">
+					<li><strong><spring:message code="label.hardwareDevice.ipSubnet"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.defaultIpGateway != null}">
+					<li><strong><spring:message code="label.hardwareDevice.defaultIpGateway"/>:</strong> ${hardwareDevice.defaultIpGateway}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.defaultIpGateway == null}">
+					<li><strong><spring:message code="label.hardwareDevice.defaultIpGateway"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.macAddress != null}">
+					<li><strong><spring:message code="label.hardwareDevice.macAddress"/>:</strong> ${hardwareDevice.macAddress}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.macAddress == null}">
+					<li><strong><spring:message code="label.hardwareDevice.macAddress"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.speed != null}">
+					<li><strong><spring:message code="label.hardwareDevice.speed"/>:</strong> ${hardwareDevice.speed}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.speed == null}">
+					<li><strong><spring:message code="label.hardwareDevice.speed"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.netConnectionId != null}">
+					<li><strong><spring:message code="label.hardwareDevice.netConnectionId"/>:</strong> ${hardwareDevice.netConnectionId}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.netConnectionId == null}">
+					<li><strong><spring:message code="label.hardwareDevice.netConnectionId"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.netConnectionStatus != null}">
+					<li><strong><spring:message code="label.hardwareDevice.netConnectionStatus"/>:</strong> ${hardwareDevice.netConnectionStatus}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.netConnectionStatus == null}">
+					<li><strong><spring:message code="label.hardwareDevice.netConnectionStatus"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.interfaceIndex != null}">
+					<li><strong><spring:message code="label.hardwareDevice.interfaceIndex"/>:</strong> ${hardwareDevice.interfaceIndex}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.interfaceIndex == null}">
+					<li><strong><spring:message code="label.hardwareDevice.interfaceIndex"/>:</strong> </li>
+				</c:if>
+				
+		    	<c:if test="${hardwareDevice.status != null}">
+					<li><strong><spring:message code="label.hardwareDevice.status"/>:</strong> ${hardwareDevice.status}</li>
+				</c:if>
+				<c:if test="${hardwareDevice.status == null}">
+					<li><strong><spring:message code="label.hardwareDevice.status"/>:</strong> </li>
+				</c:if>
+				</ul>
+			</div>
+		</td>
     </tr>
 	<c:set var="alt" value="${!alt}"/>
 </c:forEach>

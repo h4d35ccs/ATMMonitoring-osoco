@@ -49,10 +49,11 @@ nav.sub_nav{
 		float: left;
 		border-right: 1px solid $colorK5;
 		position: relative;
-		a{
+		span{
 			display: block;
 			padding: 1em;
 			color: $colorK1;
+			cursor: pointer;
 			&:hover{
 				text-decoration: none;
 				color: $colorW;
@@ -60,7 +61,7 @@ nav.sub_nav{
 			}
 		}
 	}
-	li.current a{
+	li.current span{
 		text-decoration: none;
 		color: $colorW;
 		background-color: $colorK1;

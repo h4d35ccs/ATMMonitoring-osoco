@@ -65,6 +65,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 1, ../sass/_forms.scss */
+.botonera {
+  overflow: hidden;
+  clear: both;
+  margin: 1em 0;
+}
+/* line 5, ../sass/_forms.scss */
+.botonera .btn, .botonera input[type="submit"], .botonera button {
+  float: right;
+  margin-right: 0;
+  margin-left: 1em;
+}
+/* line 10, ../sass/_forms.scss */
+.botonera .request {
+  float: left;
+  margin-left: 4%;
+}
+
+/* line 15, ../sass/_forms.scss */
 .btn {
   border: 1px solid #cccccc;
   -o-border-radius: 4px;
@@ -81,81 +99,81 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
   cursor: pointer;
 }
-/* line 13, ../sass/_forms.scss */
+/* line 27, ../sass/_forms.scss */
 .btn:hover {
   text-decoration: none;
   background: #6ca932;
   color: white;
 }
-/* line 18, ../sass/_forms.scss */
+/* line 32, ../sass/_forms.scss */
 .row .btn {
   float: none;
   display: inline;
   margin: 0;
   margin-left: 1em;
 }
-/* line 24, ../sass/_forms.scss */
+/* line 38, ../sass/_forms.scss */
 .btn.cancel {
   background: #e14f3c;
   color: white;
 }
-/* line 27, ../sass/_forms.scss */
+/* line 41, ../sass/_forms.scss */
 .btn.cancel:hover {
   text-decoration: none;
   background: #333333;
   color: white;
 }
 
-/* line 34, ../sass/_forms.scss */
+/* line 48, ../sass/_forms.scss */
 input, select, area, label {
   font-size: 1em;
   padding: 0.5em 1em;
   vertical-align: middle;
 }
 
-/* line 39, ../sass/_forms.scss */
+/* line 53, ../sass/_forms.scss */
 select {
   margin: 0.5em 1em;
 }
 
-/* line 42, ../sass/_forms.scss */
+/* line 56, ../sass/_forms.scss */
 label {
   display: block;
   float: left;
   text-align: right;
   padding: .8em;
 }
-/* line 47, ../sass/_forms.scss */
+/* line 61, ../sass/_forms.scss */
 .colorbox_box label {
   width: 25%;
 }
 
-/* line 51, ../sass/_forms.scss */
+/* line 65, ../sass/_forms.scss */
 .row {
   margin: 1em 0;
   padding: 1em 0 0 0;
   border-top: 1px solid #cccccc;
   overflow: hidden;
 }
-/* line 56, ../sass/_forms.scss */
+/* line 70, ../sass/_forms.scss */
 .row .left {
   float: left;
 }
-/* line 59, ../sass/_forms.scss */
+/* line 73, ../sass/_forms.scss */
 .row .right {
   float: right;
 }
-/* line 62, ../sass/_forms.scss */
+/* line 76, ../sass/_forms.scss */
 .colorbox_box .row input[type="text"], .row area {
   width: 70%;
 }
-/* line 65, ../sass/_forms.scss */
+/* line 79, ../sass/_forms.scss */
 .row li {
   float: left;
   width: auto;
   white-space: nowrap;
 }
-/* line 69, ../sass/_forms.scss */
+/* line 83, ../sass/_forms.scss */
 .row li label {
   width: auto;
 }

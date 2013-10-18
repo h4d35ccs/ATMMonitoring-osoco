@@ -34,6 +34,19 @@ p{
 		@extend h1;
 		font-size: 2em;
 	}
+	h3{
+		@extend h1;
+		font-size: 1.5em;
+	}
+	h4{
+		@extend h1;
+		font-size: 1.2em;
+	}
+	h5{
+		@extend h1;
+		font-size: 1em;
+		font-weight: bold;
+	}
 }
 .left{
 	float: left;
