@@ -139,4 +139,52 @@ table{
 			color:inherit;
 		}
 	}
+	&.query-form{
+		border:1px solid $colorW;
+		margin-bottom: 2em;
+		tr{
+			border:1px solid $colorW;
+			border-bottom: 2px dotted $colorK5;
+			background: $colorW;
+			&:hover{
+				cursor: inherit;
+				border:1px solid $colorW;
+				border-bottom: 2px dotted $colorK5;
+			}
+			&:nth-child(2n+1) {
+				background: $colorW;
+			}
+		}
+		td:first-child{
+			width:30%;
+		}
+		td:nth-child(2){
+			width: 3em;
+		}
+		th{
+			border:1px solid $colorW;
+			border-bottom: 2px solid $colorG;
+			color: $colorG;
+			background:$colorW;
+			&:hover{
+				cursor: inherit;
+				border:1px solid $colorW;
+				border-bottom: 2px solid $colorG;
+			}
+		}
+		td{
+			background:$colorW;
+			border:1px solid $colorW;
+			&:hover{
+				background:$colorW;
+				border:1px solid $colorW;
+			}
+			&.btn_add{
+				border:1px solid $colorW;
+			}
+			&.btn_add .btn{
+				float: right;
+			}
+		}
+	}
 }

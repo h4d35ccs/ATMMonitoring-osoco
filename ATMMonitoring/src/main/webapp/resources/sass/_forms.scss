@@ -86,3 +86,14 @@ label{
 		}
 	}
 }
+input:disabled{
+	background:$colorK4;
+	color: $colorW;
+	border:1px solid $colorK3;
+	&:hover{
+		background:$colorK4;
+		color: $colorW;
+		border:1px solid $colorK3;
+		cursor: inherit;
+	}
+}

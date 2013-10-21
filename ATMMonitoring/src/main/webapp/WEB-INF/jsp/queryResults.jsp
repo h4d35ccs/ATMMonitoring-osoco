@@ -5,9 +5,24 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<t:wrapper titleCode="label.queryEngine" userMsg="${userMsg}">
+<t:osoco-wrapper titleCode="label.queryEngine" userMsg="${userMsg}"  section="terminals">
+	<div id="main">
+		<div id="primary">
+			<article>
+				<div id="header_g">
+					<nav id="breadcrumb">
+						<ul>
+							<li>
+								<a href="#">inicio</a>
+							</li>
+							<li><a href="terminals">Terminales</a></li>
+							<li><a href="queries/create">Mis consultas</a></li>
+							<li>Nueva Consulta</li>
+						</ul>
+					</nav>
+				</div>
 
-<div class="box">
+				<div class="content">
 	<h2><spring:message code="label.queryResults"/></h2>
 	<div class="box-tableContainer">
 		<c:if  test="${empty pagedListHolder.pageList}">
@@ -108,5 +123,7 @@
 		</c:if>
 	</div>
 </div>
-
-</t:wrapper>
+</article>
+</div>
+</div>
+</t:osoco-wrapper>

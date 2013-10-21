@@ -571,7 +571,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 /* line 78, ../sass/_dashboard.scss */
-#dashboard #header_g #components #my_components .hide span, #dashboard #header_g #components #add_components .hide span {
+#dashboard #header_g #components #my_components .content_hide span, #dashboard #header_g #components #add_components .content_hide span {
   background: url("../images/icons/icons_onoff.png") no-repeat right top;
 }
 /* line 84, ../sass/_dashboard.scss */
@@ -877,6 +877,20 @@ label {
   width: auto;
 }
 
+/* line 89, ../sass/_forms.scss */
+input:disabled {
+  background: #cccccc;
+  color: white;
+  border: 1px solid #b3b3b3;
+}
+/* line 93, ../sass/_forms.scss */
+input:disabled:hover {
+  background: #cccccc;
+  color: white;
+  border: 1px solid #b3b3b3;
+  cursor: inherit;
+}
+
 /* line 1, ../sass/_table.scss */
 table {
   width: 100%;
@@ -1051,6 +1065,66 @@ table tr.detail ul:after {
 table tr.detail:hover {
   background: #b3b3b3;
   color: inherit;
+}
+/* line 142, ../sass/_table.scss */
+table.query-form {
+  border: 1px solid white;
+  margin-bottom: 2em;
+}
+/* line 145, ../sass/_table.scss */
+table.query-form tr {
+  border: 1px solid white;
+  border-bottom: 2px dotted #e6e6e6;
+  background: white;
+}
+/* line 149, ../sass/_table.scss */
+table.query-form tr:hover {
+  cursor: inherit;
+  border: 1px solid white;
+  border-bottom: 2px dotted #e6e6e6;
+}
+/* line 154, ../sass/_table.scss */
+table.query-form tr:nth-child(2n+1) {
+  background: white;
+}
+/* line 158, ../sass/_table.scss */
+table.query-form td:first-child {
+  width: 30%;
+}
+/* line 161, ../sass/_table.scss */
+table.query-form td:nth-child(2) {
+  width: 3em;
+}
+/* line 164, ../sass/_table.scss */
+table.query-form th {
+  border: 1px solid white;
+  border-bottom: 2px solid #6ca932;
+  color: #6ca932;
+  background: white;
+}
+/* line 169, ../sass/_table.scss */
+table.query-form th:hover {
+  cursor: inherit;
+  border: 1px solid white;
+  border-bottom: 2px solid #6ca932;
+}
+/* line 175, ../sass/_table.scss */
+table.query-form td {
+  background: white;
+  border: 1px solid white;
+}
+/* line 178, ../sass/_table.scss */
+table.query-form td:hover {
+  background: white;
+  border: 1px solid white;
+}
+/* line 182, ../sass/_table.scss */
+table.query-form td.btn_add {
+  border: 1px solid white;
+}
+/* line 185, ../sass/_table.scss */
+table.query-form td.btn_add .btn {
+  float: right;
 }
 
 /* line 1, ../sass/_nav.scss */
@@ -1525,11 +1599,11 @@ strong {
   cursor: pointer;
 }
 /* line 77, ../sass/_icons.scss */
-.icon16.config.hide {
+.icon16.config.content_hide {
   background: url("../images/icons/icons.png") no-repeat 0 0;
 }
 /* line 79, ../sass/_icons.scss */
-.icon16.config.hide:hover {
+.icon16.config.content_hide:hover {
   background: url("../images/icons/icons.png") no-repeat 0 0;
 }
 

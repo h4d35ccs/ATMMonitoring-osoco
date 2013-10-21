@@ -46,7 +46,7 @@
                 <div class="wellcome"><spring:message code="label.welcomeMessage"/> <a href="#">${userMsg}</a></div>
                 <div class="date">02/10/13 - 8:30 am</div>
                 <div id="lang" class="desplegable">
-                    <div class="txt hide">
+                    <div class="txt content_hide">
                         <span>Castellano</span>
                     </div>
                     <ul class="ocultable">

@@ -13,9 +13,12 @@
 					<nav id="breadcrumb">
 						<ul>
 							<li>
-								<a href="#">inicio</a>
+								<a href="dashboard">inicio</a>
 							</li>
-							<li>Terminales</li>
+							<li>
+								<a href="terminals">Terminales</a>
+							</li>
+							<li>Mis consultas</li>
 						</ul>
 					</nav>
 				</div>
@@ -39,13 +42,13 @@
 							</div>
 							<div class="query-submit">
 								<input type="submit" class="form-submit" name="delete" id="delete" 
-	    <c:if test="${query.id == null}">disabled="disabled"</c:if>
-							value="<spring:message code="label.query.delete"/>"/>
+	    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
 						</div>
 					</form:form>
 					<div class="queries-notes">
 						<label>
-							<spring:message code="label.query.dateFormatNote"/> '${datePattern}'
+							<spring:message code="label.query.dateFormatNote"/>
+							'${datePattern}'
 						</label>
 					</div>
 					<form:form method="post" target="_blank" action="queries/results" commandName="query">
@@ -56,10 +59,11 @@
 						<div class="container">
 							<table class="query-form">
 								<tr>
-									<th> <spring:message code="label.query.field"/> 
+									<th>
+										<spring:message code="label.query.field"/>
 									</th>
 									<th>
-										<spring:message code="label.query.not"/> 
+										<spring:message code="label.query.not"/>
 									</th>
 									<th>
 										<spring:message code="label.query.comparison"/>
@@ -70,7 +74,8 @@
 									<th></th>
 								</tr>
 								<c:forEach var="i" begin="1" end="5" varStatus="status">
-									<tr id="terminalRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>>
+									<tr id="terminalRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
+									>
 									<td>
 										<form:select path="terminalCombo${i}1" id="terminalCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('terminal',${i})">
 											<form:option value="" label=""/>
@@ -93,8 +98,8 @@
 										<form:input class='form-tf-grey' path="terminalField${i}" id="terminalField${i}" disabled="true" maxlength="150"/>
 										<br></td>
 									<c:if test="${!status.last}">
-										<td style="padding-left: 5px;">
-											<div id="terminalShowButton${i}" src="resources/images/plus-button.png" onclick="showHiddenRow('terminal', ${i})" class="btn add">Añadir</div>
+										<td class="btn_add">
+											<div id="terminalShowButton${i}" onclick="showHiddenRow('terminal', ${i})" class="btn add">Añadir</div>
 										</td>
 									</c:if>
 								</tr>
@@ -112,29 +117,29 @@
 						<table class="query-form">
 							<tr>
 								<th>
-									
-										<spring:message code="label.query.deviceType"/>
-									
+
+									<spring:message code="label.query.deviceType"/>
+
 								</th>
 								<th>
-									
-										<spring:message code="label.query.field"/>
-									
+
+									<spring:message code="label.query.field"/>
+
 								</th>
 								<th>
-									
-										<spring:message code="label.query.not"/>
-									
+
+									<spring:message code="label.query.not"/>
+
 								</th>
 								<th>
-									
-										<spring:message code="label.query.comparison"/>
-									
+
+									<spring:message code="label.query.comparison"/>
+
 								</th>
 								<th>
-									
-										<spring:message code="label.query.value"/>
-									
+
+									<spring:message code="label.query.value"/>
+
 								</th>
 								<th></th>
 							</tr>
@@ -168,8 +173,8 @@
 									<form:input class='form-tf-grey' path="hardwareDeviceField${i}" id="hardwareDeviceField${i}" disabled="true" maxlength="150"/>
 									<br></td>
 								<c:if test="${!status.last}">
-									<td style="padding-left: 5px;">
-										<div id="hardwareDeviceShowButton${i}" src="resources/images/plus-button.png" onclick="showHiddenRow('hardwareDevice', ${i})" class="btn add">Añadir</div>
+									<td class="btn_add">
+										<div id="hardwareDeviceShowButton${i}" onclick="showHiddenRow('hardwareDevice', ${i})" class="btn add">Añadir</div>
 									</td>
 								</c:if>
 							</tr>
@@ -181,24 +186,24 @@
 					<table class="query-form">
 						<tr>
 							<th>
-								
-									<spring:message code="label.query.field"/>
-								
+
+								<spring:message code="label.query.field"/>
+
 							</th>
 							<th>
-								
-									<spring:message code="label.query.not"/>
-								
+
+								<spring:message code="label.query.not"/>
+
 							</th>
 							<th>
-								
-									<spring:message code="label.query.comparison"/>
-								
+
+								<spring:message code="label.query.comparison"/>
+
 							</th>
 							<th>
-								
-									<spring:message code="label.query.value"/>
-								
+
+								<spring:message code="label.query.value"/>
+
 							</th>
 							<th></th>
 						</tr>
@@ -227,8 +232,8 @@
 								<form:input class='form-tf-grey' path="financialDeviceField${i}" id="financialDeviceField${i}" disabled="true" maxlength="150"/>
 								<br></td>
 							<c:if test="${!status.last}">
-								<td style="padding-left: 5px;">
-									<div id="financialDeviceShowButton${i}" src="resources/images/plus-button.png" onclick="showHiddenRow('financialDevice', ${i})" class="btn add">Añadir</div>
+								<td class="btn_add">
+									<div id="financialDeviceShowButton${i}" onclick="showHiddenRow('financialDevice', ${i})" class="btn add">Añadir</div>
 								</td>
 							</c:if>
 						</tr>
@@ -246,24 +251,24 @@
 				<table class="query-form">
 					<tr>
 						<th>
-							
-								<spring:message code="label.query.field"/>
-							
+
+							<spring:message code="label.query.field"/>
+
 						</th>
 						<th>
-							
-								<spring:message code="label.query.not"/>
-							
+
+							<spring:message code="label.query.not"/>
+
 						</th>
 						<th>
-							
-								<spring:message code="label.query.comparison"/>
-							
+
+							<spring:message code="label.query.comparison"/>
+
 						</th>
 						<th>
-							
-								<spring:message code="label.query.value"/>
-							
+
+							<spring:message code="label.query.value"/>
+
 						</th>
 						<th></th>
 					</tr>
@@ -292,8 +297,8 @@
 							<form:input class='form-tf-grey' path="operatingSystemField${i}" id="operatingSystemField${i}" disabled="true" maxlength="150"/>
 							<br></td>
 						<c:if test="${!status.last}">
-							<td style="padding-left: 5px;">
-								<div id="operatingSystemShowButton${i}" src="resources/images/plus-button.png" onclick="showHiddenRow('operatingSystem', ${i})"  class="btn add">Añadir</div>
+							<td class="btn_add">
+								<div id="operatingSystemShowButton${i}" onclick="showHiddenRow('operatingSystem', ${i})"  class="btn add">Añadir</div>
 							</td>
 						</c:if>
 					</tr>
@@ -305,24 +310,24 @@
 			<table class="query-form">
 				<tr>
 					<th>
-						
-							<spring:message code="label.query.field"/>
-						
+
+						<spring:message code="label.query.field"/>
+
 					</th>
 					<th>
-						
-							<spring:message code="label.query.not"/>
-						
+
+						<spring:message code="label.query.not"/>
+
 					</th>
 					<th>
-						
-							<spring:message code="label.query.comparison"/>
-						
+
+						<spring:message code="label.query.comparison"/>
+
 					</th>
 					<th>
-						
-							<spring:message code="label.query.value"/>
-						
+
+						<spring:message code="label.query.value"/>
+
 					</th>
 					<th></th>
 				</tr>
@@ -351,8 +356,8 @@
 						<form:input class='form-tf-grey' path="internetExplorerField${i}" id="internetExplorerField${i}" disabled="true" maxlength="150"/>
 						<br></td>
 					<c:if test="${!status.last}">
-						<td style="padding-left: 5px;">
-							<div id="internetExplorerShowButton${i}" src="resources/images/plus-button.png" onclick="showHiddenRow('internetExplorer', ${i})" class="btn add">Añadir</div>
+						<td class="btn_add">
+							<div id="internetExplorerShowButton${i}" onclick="showHiddenRow('internetExplorer', ${i})" class="btn add">Añadir</div>
 						</td>
 					</c:if>
 				</tr>
@@ -364,24 +369,24 @@
 		<table class="query-form">
 			<tr>
 				<th>
-					
-						<spring:message code="label.query.field"/>
-					
+
+					<spring:message code="label.query.field"/>
+
 				</th>
 				<th>
-					
-						<spring:message code="label.query.not"/>
-					
+
+					<spring:message code="label.query.not"/>
+
 				</th>
 				<th>
-					
-						<spring:message code="label.query.comparison"/>
-					
+
+					<spring:message code="label.query.comparison"/>
+
 				</th>
 				<th>
-					
-						<spring:message code="label.query.value"/>
-					
+
+					<spring:message code="label.query.value"/>
+
 				</th>
 				<th></th>
 			</tr>
@@ -410,8 +415,8 @@
 					<form:input class='form-tf-grey' path="hotfixField${i}" id="hotfixField${i}" disabled="true" maxlength="150"/>
 					<br></td>
 				<c:if test="${!status.last}">
-					<td style="padding-left: 5px;">
-						<div id="hotfixShowButton${i}" src="resources/images/plus-button.png" onclick="showHiddenRow('hotfix', ${i})" class="btn add">Añadir</div>
+					<td class="btn_add">
+						<div id="hotfixShowButton${i}" onclick="showHiddenRow('hotfix', ${i})" class="btn add">Añadir</div>
 					</td>
 				</c:if>
 			</tr>
@@ -423,24 +428,24 @@
 	<table class="query-form">
 		<tr>
 			<th>
-				
-					<spring:message code="label.query.field"/>
-				
+
+				<spring:message code="label.query.field"/>
+
 			</th>
 			<th>
-				
-					<spring:message code="label.query.not"/>
-				
+
+				<spring:message code="label.query.not"/>
+
 			</th>
 			<th>
-				
-					<spring:message code="label.query.comparison"/>
-				
+
+				<spring:message code="label.query.comparison"/>
+
 			</th>
 			<th>
-				
-					<spring:message code="label.query.value"/>
-				
+
+				<spring:message code="label.query.value"/>
+
 			</th>
 			<th></th>
 		</tr>
@@ -469,8 +474,8 @@
 				<form:input class='form-tf-grey' path="softwareField${i}" id="softwareField${i}" disabled="true" maxlength="150"/>
 				<br></td>
 			<c:if test="${!status.last}">
-				<td style="padding-left: 5px;">
-					<div id="softwareShowButton${i}" src="resources/images/plus-button.png" onclick="showHiddenRow('software', ${i})"  class="btn add">Añadir</div>
+				<td class="btn_add">
+					<div id="softwareShowButton${i}" onclick="showHiddenRow('software', ${i})"  class="btn add">Añadir</div>
 				</td>
 			</c:if>
 		</tr>
@@ -482,24 +487,24 @@
 <table class="query-form">
 	<tr>
 		<th>
-			
-				<spring:message code="label.query.field"/>
-			
+
+			<spring:message code="label.query.field"/>
+
 		</th>
 		<th>
-			
-				<spring:message code="label.query.not"/>
-			
+
+			<spring:message code="label.query.not"/>
+
 		</th>
 		<th>
-			
-				<spring:message code="label.query.comparison"/>
-			
+
+			<spring:message code="label.query.comparison"/>
+
 		</th>
 		<th>
-			
-				<spring:message code="label.query.value"/>
-			
+
+			<spring:message code="label.query.value"/>
+
 		</th>
 		<th></th>
 	</tr>
@@ -528,8 +533,8 @@
 			<form:input class='form-tf-grey' path="featSwField${i}" id="featSwField${i}" disabled="true" maxlength="150"/>
 			<br></td>
 		<c:if test="${!status.last}">
-			<td style="padding-left: 5px;">
-				<div id="featSwShowButton${i}" src="resources/images/plus-button.png" onclick="showHiddenRow('featSw', ${i})" class="btn add">Añadir</div>
+			<td class="btn_add">
+				<div id="featSwShowButton${i}" onclick="showHiddenRow('featSw', ${i})" class="btn add">Añadir</div>
 			</td>
 		</c:if>
 	</tr>
@@ -541,24 +546,24 @@
 <table class="query-form">
 <tr>
 	<th>
-		
-			<spring:message code="label.query.field"/>
-		
+
+		<spring:message code="label.query.field"/>
+
 	</th>
 	<th>
-		
-			<spring:message code="label.query.not"/>
-		
+
+		<spring:message code="label.query.not"/>
+
 	</th>
 	<th>
-		
-			<spring:message code="label.query.comparison"/>
-		
+
+		<spring:message code="label.query.comparison"/>
+
 	</th>
 	<th>
-		
-			<spring:message code="label.query.value"/>
-		
+
+		<spring:message code="label.query.value"/>
+
 	</th>
 	<th></th>
 </tr>
@@ -587,8 +592,8 @@
 		<form:input class='form-tf-grey' path="xfsSwField${i}" id="xfsSwField${i}" disabled="true" maxlength="150"/>
 		<br></td>
 	<c:if test="${!status.last}">
-		<td style="padding-left: 5px;">
-			<div id="xfsSwShowButton${i}" src="resources/images/plus-button.png" onclick="showHiddenRow('xfsSw', ${i})" class="add btn">Añadir</div>
+		<td class="btn_add">
+			<div id="xfsSwShowButton${i}" onclick="showHiddenRow('xfsSw', ${i})" class="add btn">Añadir</div>
 		</td>
 	</c:if>
 </tr>
@@ -608,6 +613,11 @@
 "/>
 </div>
 </form:form>
+<div class="botonera">
+<a href="#" class="btn">Guardar Consulta</a>
+<a href="#" class="btn">Aplicar Consulta</a>
+<a href="#" class="btn cancel">Cancelar</a>
+</div>
 </div>
 
 <script type="text/javascript">

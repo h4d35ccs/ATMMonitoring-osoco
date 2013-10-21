@@ -2,12 +2,12 @@
 $(function() {
 	$('ul.ocultable').hide(); // Cierro todos los menun de las cajas
 	$('.desplegable .txt').click(function() {
-		if($(this).hasClass('hide')){ // si pulso en uno que está cerrado...
-			$(this).removeClass('hide');
+		if($(this).hasClass('content_hide')){ // si pulso en uno que está cerrado...
+			$(this).removeClass('content_hide');
 			$(this).next('.ocultable').show();
 		}else{
 			$(this).next('.ocultable').hide();
-			$(this).addClass('hide');
+			$(this).addClass('content_hide');
 		}
 	});
 	$('.close').click(function() {

@@ -13,7 +13,7 @@
                 <div id="header_g">
                     <div id="components">
                         <div id="my_components" class="desplegable">
-                            <div class="txt hide">
+                            <div class="txt content_hide">
                                 <span>Mis componentes</span>
                             </div>
                             <ul class="ocultable">
@@ -77,7 +77,7 @@
                                     <span>cerrar</span>
                                 </div>
                                 <nav class="icons_menu desplegable">
-                                    <div class="icon16 config hide txt">
+                                    <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
                                     <ul class="ocultable">
@@ -103,7 +103,7 @@
                                     <span>cerrar</span>
                                 </div>
                                 <nav class="icons_menu desplegable">
-                                    <div class="icon16 config hide txt">
+                                    <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
                                     <ul class="ocultable">
@@ -129,7 +129,7 @@
                                     <span>cerrar</span>
                                 </div>
                                 <nav class="icons_menu desplegable">
-                                    <div class="icon16 config hide txt">
+                                    <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
                                     <ul class="ocultable">
@@ -155,7 +155,7 @@
                                     <span>cerrar</span>
                                 </div>
                                 <nav class="icons_menu desplegable">
-                                    <div class="icon16 config hide txt">
+                                    <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
                                     <ul class="ocultable">
@@ -181,7 +181,7 @@
                                     <span>cerrar</span>
                                 </div>
                                 <nav class="icons_menu desplegable">
-                                    <div class="icon16 config hide txt">
+                                    <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
                                     <ul class="ocultable">
@@ -207,7 +207,7 @@
                                     <span>cerrar</span>
                                 </div>
                                 <nav class="icons_menu desplegable">
-                                    <div class="icon16 config hide txt">
+                                    <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
                                     <ul class="ocultable">
@@ -233,7 +233,7 @@
                                     <span>cerrar</span>
                                 </div>
                                 <nav class="icons_menu desplegable">
-                                    <div class="icon16 config hide txt">
+                                    <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
                                     <ul class="ocultable">
@@ -259,7 +259,7 @@
                                     <span>cerrar</span>
                                 </div>
                                 <nav class="icons_menu desplegable">
-                                    <div class="icon16 config hide txt">
+                                    <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
                                     <ul class="ocultable">
