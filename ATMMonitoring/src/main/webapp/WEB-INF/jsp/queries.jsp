@@ -27,31 +27,32 @@
 					<h1>
 						<spring:message code="label.queryDesigner"/>
 					</h1>
-					<div class="query-designer">
-						<form:form method="post" name="userQueriesForm" action="queries/create" commandName="query">
-							<div class="query-submit">
-								<label class="plain-label">
-									<spring:message code="label.query.userQueries"/>
-								</label>
-								<form:select path="id" id="id" size="1" onchange="userQuerySelected()">
-									<form:option value="" label=""/>
-									<c:forEach items="${userQueries}" var="userQuery">
-										<form:option value="${userQuery.id}" label="${userQuery.name}"/>
-									</c:forEach>
-								</form:select>
-							</div>
-							<div class="query-submit">
-								<input type="submit" class="form-submit" name="delete" id="delete" 
-	    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
-						</div>
-					</form:form>
-					<div class="queries-notes">
-						<label>
-							<spring:message code="label.query.dateFormatNote"/>
-							'${datePattern}'
-						</label>
-					</div>
+					<div class="action_box">
+							
+							<form:form method="post" name="userQueriesForm" action="queries/create" commandName="query">
+								
+									<label class="plain-label">
+										<spring:message code="label.query.userQueries"/>
+									</label>
+									<form:select path="id" id="id" size="1" onchange="userQuerySelected()">
+										<form:option value="" label=""/>
+										<c:forEach items="${userQueries}" var="userQuery">
+											<form:option value="${userQuery.id}" label="${userQuery.name}"/>
+										</c:forEach>
+									</form:select>
+								
+									<input type="submit" class="form-submit" name="delete" id="delete" 
+		    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
+							
+						</form:form>
+						
+							<label>
+								<spring:message code="label.query.dateFormatNote"/>
+								'${datePattern}'
+							</label>
+						
 					<form:form method="post" target="_blank" action="queries/results" commandName="query">
+
 						<h2 class="collapsible" id="terminalSection">
 							<spring:message code="label.query.terminalSection"/>
 							<span></span>

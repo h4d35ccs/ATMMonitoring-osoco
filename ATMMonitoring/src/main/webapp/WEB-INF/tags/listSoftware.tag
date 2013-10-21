@@ -6,7 +6,7 @@
 
 <h3><spring:message code="label.operatingSystems"/></h3>
 <c:if  test="${!empty config.operatingSystems}">
-<table class="data subform">
+<table class="data subform link">
 	<tr>
 	    <th width="80px"><i><spring:message code="label.operatingSystem.name"/> + <spring:message code="label.operatingSystem.majorVersion"/></i></th>
 	    <th width="40px"><i><spring:message code="label.operatingSystem.osType"/></i></th>
@@ -32,11 +32,11 @@
 </table>
 </c:if>
 
-<h5><spring:message code="label.otherSoftware"/></h5>
+<h3><spring:message code="label.otherSoftware"/></h3>
 <c:if  test="${!empty config.software}">
 <c:choose>
 <c:when  test="${config.software.size() > 7}">
-	<table id="SoftwareChromatable" class="data subform">
+	<table id="SoftwareChromatable" class="data subform link">
 	<thead>
 	<tr>
 	    <th><i><spring:message code="label.software.name"/> + <spring:message code="label.software.majorVersion"/></i></th>

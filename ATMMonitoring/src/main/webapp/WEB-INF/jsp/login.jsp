@@ -4,7 +4,7 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<t:osoco-wrapperWoMenu titleCode="label.login">
+<t:osoco-wrapperWoMenu titleCode="label.login" section="login_user">
     <div id="scene">
       <div id="login_box" >
         <h1><img src="resources/images/general/logo.png"/><span>NCR</span> <strong>HASM</strong></h1>

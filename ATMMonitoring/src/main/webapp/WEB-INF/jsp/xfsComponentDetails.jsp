@@ -5,8 +5,8 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<t:wrapper titleCode="label.terminalsManager" userMsg="${userMsg}">
+<t:osoco-wrapperWoMenu titleCode="label.terminalsManager" section="iframe">
 
 <t:xfsComponentDetails xfsComponent="${xfsComponent}"/>
 
-</t:wrapper>
+</t:osoco-wrapperWoMenu>

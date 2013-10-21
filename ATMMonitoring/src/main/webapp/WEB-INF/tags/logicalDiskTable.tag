@@ -5,7 +5,7 @@
 
 <h3><spring:message code="label.logicalDisks"/></h3>
 
-<table class="data subform">
+<table class="data subform link">
 <tr>
 	<th><i><label><spring:message code="label.hardwareDevice.name"/></label></i></th>
 	<th><i><label><spring:message code="label.hardwareDevice.size"/></label></i></th>

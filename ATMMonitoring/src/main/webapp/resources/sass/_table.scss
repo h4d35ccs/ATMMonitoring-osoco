@@ -1,3 +1,4 @@
+
 table{
 	width: 100%;
 	margin: .5em 0;
@@ -65,14 +66,8 @@ table{
 		}
 	}
 	tr{
-		cursor: pointer;
 		&:nth-child(2n+1) {
 			background: $colorK5;
-		}
-		&:hover{
-			background:$colorK4;
-			color: $colorW;
-			border: 1px solid $colorW;
 		}
 		&.active{
 			background:$colorY3;
@@ -184,6 +179,16 @@ table{
 			}
 			&.btn_add .btn{
 				float: right;
+			}
+		}
+	}
+	&.link{
+		tr{
+			cursor: pointer;
+			&:hover{
+				background:$colorK4;
+				color: $colorW;
+				border: 1px solid $colorW;
 			}
 		}
 	}

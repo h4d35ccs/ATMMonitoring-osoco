@@ -1,0 +1,21 @@
+#iframe{
+	background:$colorW;
+	#main{
+		border-top: 0;
+		margin-left: 0;
+		.box{
+			padding-top: 5em;
+			position: relative;
+			h1{
+				position: fixed;
+				color: $colorW;
+				background:$colorG;
+				width: 100%;
+				top: 0;
+				left: 0;
+				padding: .5em;
+				z-index: 2;
+			}
+		}
+	}
+}

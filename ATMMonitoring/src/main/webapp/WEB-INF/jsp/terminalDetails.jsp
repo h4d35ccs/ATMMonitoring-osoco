@@ -23,11 +23,9 @@
 					</nav>
 				</div>
 				<div class="content">
-					<h1>
-						<spring:message code="label.terminalDetails"/>
-					</h1>
+					<h1>Terminal 00:1b:21:01:82:8B</h1>
 					<div class="action_box data desplegable">
-						<h2 class="txt">Detalles del terminal</h2>
+						<h2 class="txt"><spring:message code="label.terminalDetails"/></h2>
 						<div class="ocultable">
 							<div class="photo">
 								<img src="resources/images/terminal.jpg"/>
@@ -472,7 +470,7 @@
 								<c:choose>
 									<c:when  test="${terminal.financialDevices.size() >
 										5}">
-										<table id="TestChromatable" class="data subform">
+										<table id="TestChromatable" class="data subform link">
 											<thead>
 												<tr>
 													<th>
@@ -564,7 +562,7 @@
 											</thead>
 										</c:when>
 										<c:otherwise>
-											<table class="data subform">
+											<table class="data subform link">
 												<thead>
 													<tr>
 														<th width="125px">
@@ -711,8 +709,8 @@
 												</td>
 												<td>
 													<c:forEach items="${financialDevice.xfsComponents}" var="xfsComponent">
-														<a href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.serviceProvider}</a>
-														<br></c:forEach>
+														<a class="iframe" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.serviceProvider}</a>
+														</c:forEach>
 												</td>
 											</tr>
 											<c:set var="alt" value="${!alt}"/>
@@ -965,10 +963,10 @@
 										}
 										</style>
 										<div id="tableContainer" class="tableContainer tableContainerTc">
-											<table class="data">
+											<table class="data link">
 												<thead class="fixedHeader"></c:when>
 												<c:otherwise>
-													<table class="data"></c:otherwise>
+													<table class="data link"></c:otherwise>
 												</c:choose>
 												<tr>
 													<c:choose>
@@ -976,7 +974,7 @@
 															10}">
 															<th width="151px"></c:when>
 															<c:otherwise>
-																<th width="136px"></c:otherwise>
+																<th></c:otherwise>
 															</c:choose>
 
 															<spring:message code="label.terminalConfig.startDate"/>
@@ -996,7 +994,7 @@
 												<c:forEach items="${terminal.configs}" var="config">
 													<tr <c:if test="${alt}">class="alt"</c:if>
 													>
-													<td width="135px">
+													<td>
 														<a href="terminals/swConfigs/details/${config.id}">
 															<fmt:formatDate value="${config.startDate}" dateStyle="short" type="both" />
 														</a>
@@ -1039,7 +1037,7 @@
 						<c:choose>
 							<c:when  test="${terminal.softwareAggregates.size() >
 								5}">
-								<table id="AggregateChromatable" class="data">
+								<table id="AggregateChromatable" class="data link">
 									<thead>
 										<tr>
 											<th>
@@ -1068,7 +1066,7 @@
 									</thead>
 								</c:when>
 								<c:otherwise>
-									<table class="data">
+									<table class="data link">
 										<tr>
 											<th>
 
@@ -1125,7 +1123,7 @@
 						<c:choose>
 							<c:when  test="${terminal.hotfixes.size() >
 								5}">
-								<table id="HotfixChromatable" class="data">
+								<table id="HotfixChromatable" class="data margin-box link">
 									<thead>
 										<tr>
 											<th>
@@ -1157,7 +1155,7 @@
 									</thead>
 								</c:when>
 								<c:otherwise>
-									<table class="data">
+									<table class="data link">
 										<tr>
 											<th>
 
@@ -1217,7 +1215,7 @@
 						</div>
 					</c:if>
 					<c:if test="${!empty terminal.internetExplorers}">
-						<table class="data">
+						<table class="data link">
 							<tr>
 								<th>
 

@@ -80,6 +80,9 @@
                         <a href="users"><span><spring:message code="label.menu.users"/></span></a>
                     </li>
                 </sec:authorize>
+                <li class="help">
+                    <a href="help"><span><spring:message code="label.menu.help"/></span></a>
+                </li>
             </ul>
         </nav>
 

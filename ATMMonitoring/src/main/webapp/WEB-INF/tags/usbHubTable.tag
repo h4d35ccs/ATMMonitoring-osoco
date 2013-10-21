@@ -5,7 +5,7 @@
 
 <h3><spring:message code="label.usbHubs"/></h3>
 
-<table class="data subform">
+<table class="data subform link">
 <tr>
 </tr>
 <c:set var="alt" value="${false}"/>

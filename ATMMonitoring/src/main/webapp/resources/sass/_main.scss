@@ -1,5 +1,5 @@
 body{
-	background: $colorW url("../images/general/bg_body.png") repeat-y;
+	background: $colorW url("../images/general/bg_body.png") repeat-y fixed;
 	color: $colorK1;
 	font-family: Arial, Sans-Serif;
 	font-size: .8em;
@@ -27,8 +27,9 @@ p{
 	h1{
 		font-size: 2.2em;
 		color: $colorG;
-		margin-bottom: 1em;
+		margin: .5em 0;
 		font-weight: normal;
+		clear: left;
 	}
 	h2{
 		@extend h1;
@@ -49,10 +50,13 @@ p{
 	}
 }
 .left{
-	float: left;
+	float: left !important;
 }
 .right{
-	float: right;
+	float: right !important;
+	&.photo{
+		margin: 0 0 1em 2em;
+	}
 }
 .pagination{
 	overflow: hidden;
@@ -84,4 +88,29 @@ strong{
 }
 .hidden, .hide{
 	display: none;
+}
+.content{
+	#help &{
+		border-top: 2px dotted $colorK4;
+		padding-bottom: 1em;
+		margin-bottom: .5em;
+		ul{
+			list-style-type:square;
+			padding-left: 2em;
+		}
+		ol{
+			list-style-type:decimal;
+			padding-left: 2em;
+		}
+		li{
+			padding: .5em;
+			padding-left: .5em;
+		}
+	}
+}
+.photo{
+	border:5px solid $colorK5;
+	@include shadow();
+	padding: .5em;
+	background:$colorW;
 }

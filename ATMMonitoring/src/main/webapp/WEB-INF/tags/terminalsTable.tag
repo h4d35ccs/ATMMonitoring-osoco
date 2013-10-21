@@ -5,8 +5,9 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 
-<table>
+<table class="link">
 <tr>
+    <th></th>
     <th class="order top"><spring:message code="label.terminal.mac"/></th>
     <th class="order bottom"><spring:message code="label.terminal.ip"/></th>
     <th class="order"><spring:message code="label.terminal.serialNumber"/></th>
@@ -19,6 +20,7 @@
 </tr>
 <c:forEach items="${terminals}" var="terminal">
     <tr>
+        <td class="check"><input type="checkbox"/></td>
         <td><a href="terminals/details/${terminal.id}">${terminal.mac}</a></td>
         <td>${terminal.ip}</td>
 	    <td>${terminal.serialNumber}</td>

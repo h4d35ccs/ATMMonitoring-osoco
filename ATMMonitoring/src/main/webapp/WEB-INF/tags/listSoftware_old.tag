@@ -6,7 +6,7 @@
 
 <h3><spring:message code="label.operatingSystems"/></h3>
 <c:if  test="${!empty config.operatingSystems}">
-<table class="data subform">
+<table class="data subform link">
 	<tr>
 	    <th width="80px"><i><spring:message code="label.operatingSystem.name"/> + <spring:message code="label.operatingSystem.majorVersion"/></i></th>
 	    <th width="40px"><i><spring:message code="label.operatingSystem.osType"/></i></th>

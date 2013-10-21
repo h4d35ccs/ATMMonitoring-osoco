@@ -88,6 +88,13 @@
 		background:url("../images/icons/icon_add.png") no-repeat right top $colorW;
 	}
 }
+.clock{
+	background:url("../images/icons/icon_clock.png") no-repeat right bottom $colorG;
+	padding-right: 40px;
+	&:hover{
+		background:url("../images/icons/icon_clock.png") no-repeat right top $colorW;
+	}
+}
 .next{
 	background:url("../images/icons/icon_next.png") no-repeat right bottom $colorG;
 	padding-right: 40px;

@@ -47,7 +47,7 @@
         #cboxPrevious{position:absolute; bottom:0px; left:0; color:#444;}
         #cboxNext{position:absolute; bottom:0px; left:63px; color:#444;}
         #cboxClose{
-            @include transitionAll;position:absolute; top:0; right:0; display:block; color:$colorW; background-color: $colorR; padding: .8em 1em; margin: 1em;
+            @include transitionAll;position:absolute; top:0; right:1em; display:block; color:$colorW; background-color: $colorR; padding: .8em 1em; margin: 1em;
             @include border-radius(8px);
             &:hover{
                 @include transitionAll;

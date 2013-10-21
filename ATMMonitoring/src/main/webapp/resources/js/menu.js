@@ -62,5 +62,18 @@ $(function() {
        }
 
    });
-
+// Check all
+	$("input.all_check").change(function(){
+		$("input.all_check").toggle();
+		$('.check input[type=checkbox]').each( function() {			
+			if($("input.all_check:checked").length == 1){
+				this.checked = true;
+			} else {
+				this.checked = false;
+			}
+		});
+	});
+// Colorbox
+	$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"}); // Iframes
+	$(".photo").colorbox({rel:'group1'}); // Photo
 });

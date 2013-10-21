@@ -8,7 +8,7 @@
 <div class="box">
 <h3>${hardwareDevice.name} (<spring:message code="label.hardwareDevice.${hardwareDevice.hardwareClass}"/>)</h3>
 <div class="margin-box">
-<table class="form-disabled-generic subform">
+<table class="form-disabled-generic subform link">
 <c:if test="${hardwareDevice.manufacturer != null}">
 <tr>
     <td class="header"><i><label><spring:message code="label.hardwareDevice.manufacturer"/></label></i></td>

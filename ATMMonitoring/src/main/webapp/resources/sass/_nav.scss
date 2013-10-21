@@ -27,6 +27,15 @@ nav#main_nav{
 	& .schedule a{
 		background:url("../images/icons/icons_main_left.png") no-repeat -360px 0 transparent;
 	}
+	& .help{
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		z-index: 2;
+		 a{
+			background:url("../images/icons/icons_main_left.png") no-repeat -450px 0 transparent;
+		}
+	}
 	a{
 		color: $colorW;
 		display: block;
