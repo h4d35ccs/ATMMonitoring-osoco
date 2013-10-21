@@ -291,8 +291,7 @@
 											</ul>
 										</div>
 										<div class="botonera">
-											<input type="submit" class="btn update" value="<spring:message code="label.terminal.updateTerminal"/>
-											"/>
+											<input type="submit" class="btn update" value="<spring:message code="label.terminal.updateTerminal"/>"/>
 										</div>
 									</form:form>
 									<div class="botonera">

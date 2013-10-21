@@ -25,6 +25,7 @@ $(function() {
 		$('.tabs .content_tab').hide();
 		$('.tabs').find( ".content_tab" ).eq( tab_click ).show();
 	});
+// Mostrar detalle de un TR
 	$('table .detail').hide();
 	$('table .showdetail').removeClass('open');
 	$('table .showdetail').click(function() {

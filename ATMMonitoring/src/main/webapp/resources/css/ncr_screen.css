@@ -1310,6 +1310,11 @@ strong {
   font-weight: bold;
 }
 
+/* line 85, ../sass/_main.scss */
+.hidden, .hide {
+  display: none;
+}
+
 /* line 1, ../sass/_login_user.scss */
 #login_user {
   width: 100%;
