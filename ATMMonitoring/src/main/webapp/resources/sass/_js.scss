@@ -29,7 +29,7 @@
     #cboxBottomRight{width:25px; height:25px; background:url(images/border1.png) no-repeat -25px -25px;}
     #cboxMiddleLeft{width:25px; background:url(images/border2.png) repeat-y 0 0;}
     #cboxMiddleRight{width:25px; background:url(images/border2.png) repeat-y -25px 0;}
-    #cboxContent{background:#fff; overflow:hidden; @include border-radius(4px);}
+    #cboxContent{background:#fff; @include border-radius(4px); padding-top: 2em;}
         .cboxIframe{background:#fff;}
         #cboxError{padding:50px; border:1px solid #ccc;}
         #cboxLoadedContent{margin-bottom:20px;}
@@ -47,7 +47,7 @@
         #cboxPrevious{position:absolute; bottom:0px; left:0; color:#444;}
         #cboxNext{position:absolute; bottom:0px; left:63px; color:#444;}
         #cboxClose{
-            @include transitionAll;position:absolute; top:0; right:1em; display:block; color:$colorW; background-color: $colorR; padding: .8em 1em; margin: 1em;
+            @include transitionAll;position:absolute; top:-30px; right:-30px; display:block; color:$colorW; background-color: $colorR; padding: .8em 1em; margin: 1em;
             @include border-radius(8px);
             &:hover{
                 @include transitionAll;

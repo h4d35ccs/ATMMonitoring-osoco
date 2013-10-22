@@ -338,4 +338,10 @@ public class TerminalController {
 	map.clear();
 	return "redirect:/terminals/details/" + terminal.getId().intValue();
     }
+
+    @RequestMapping("/terminals/installation")
+    public String terminalInstallation() {
+    	return "terminalInstallation";
+    }
+
 }

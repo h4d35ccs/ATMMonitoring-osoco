@@ -120,3 +120,34 @@ strong{
 		float: none;
 	}
 }
+.editable{
+	.relative{
+		position: relative;
+		padding-right:4em;
+		.botonera{
+			position: absolute;
+			right: 0;
+			top: 0;
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+.nowrap{
+	white-space: nowrap;
+}
+.w33{
+	width: 33%;
+}
+.w66{
+	width: 66%;
+}
+.w25{
+	width: 25%;
+}
+.w50{
+	width: 50%;
+}
+.w75{
+	width: 75%;
+}

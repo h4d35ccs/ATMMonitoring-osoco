@@ -375,7 +375,7 @@ input:disabled:hover {
 /* line 127, ../sass/_icons.scss */
 .icons_action {
   position: absolute;
-  top: .5em;
+  top: 0;
   right: 0;
   white-space: nowrap;
 }
@@ -583,39 +583,35 @@ table tr.active {
 table div {
   position: relative;
 }
-/* line 82, ../sass/_table.scss */
-table .editable {
-  padding-right: 4em;
-}
-/* line 86, ../sass/_table.scss */
+/* line 83, ../sass/_table.scss */
 table tr.showdetail.open {
   background: #b3b3b3;
   border: 1px solid #b3b3b3;
 }
-/* line 89, ../sass/_table.scss */
+/* line 86, ../sass/_table.scss */
 table tr.showdetail.open td {
   border: 1px solid #b3b3b3;
 }
-/* line 92, ../sass/_table.scss */
+/* line 89, ../sass/_table.scss */
 table tr.showdetail.open:hover {
   background: #b3b3b3;
   color: #333333;
 }
-/* line 97, ../sass/_table.scss */
+/* line 94, ../sass/_table.scss */
 table tr.detail {
   background: #b3b3b3;
 }
-/* line 99, ../sass/_table.scss */
+/* line 96, ../sass/_table.scss */
 table tr.detail td {
   border: 1px solid #b3b3b3;
 }
-/* line 102, ../sass/_table.scss */
+/* line 99, ../sass/_table.scss */
 table tr.detail ul {
   padding: 1%;
   background: white;
   overflow: hidden;
 }
-/* line 106, ../sass/_table.scss */
+/* line 103, ../sass/_table.scss */
 table tr.detail ul li {
   float: left;
   width: 32%;
@@ -623,7 +619,7 @@ table tr.detail ul li {
   padding: 0.5em 0;
   border-bottom: 1px solid #b3b3b3;
 }
-/* line 112, ../sass/_table.scss */
+/* line 109, ../sass/_table.scss */
 table tr.detail ul li strong {
   width: 30%;
   display: block;
@@ -631,7 +627,7 @@ table tr.detail ul li strong {
   text-align: right;
   margin-right: 1em;
 }
-/* line 120, ../sass/_table.scss */
+/* line 117, ../sass/_table.scss */
 table tr.detail ul:after {
   content: "";
   position: absolute;
@@ -643,76 +639,76 @@ table tr.detail ul:after {
   display: block;
   width: 0;
 }
-/* line 132, ../sass/_table.scss */
+/* line 129, ../sass/_table.scss */
 table tr.detail:hover {
   background: #b3b3b3;
   color: inherit;
 }
-/* line 137, ../sass/_table.scss */
+/* line 134, ../sass/_table.scss */
 table.query-form {
   border: 1px solid white;
   margin-bottom: 2em;
 }
-/* line 140, ../sass/_table.scss */
+/* line 137, ../sass/_table.scss */
 table.query-form tr {
   border: 1px solid white;
   border-bottom: 2px dotted #e6e6e6;
   background: white;
 }
-/* line 144, ../sass/_table.scss */
+/* line 141, ../sass/_table.scss */
 table.query-form tr:hover {
   cursor: inherit;
   border: 1px solid white;
   border-bottom: 2px dotted #e6e6e6;
 }
-/* line 149, ../sass/_table.scss */
+/* line 146, ../sass/_table.scss */
 table.query-form tr:nth-child(2n+1) {
   background: white;
 }
-/* line 153, ../sass/_table.scss */
+/* line 150, ../sass/_table.scss */
 table.query-form td:first-child {
   width: 30%;
 }
-/* line 156, ../sass/_table.scss */
+/* line 153, ../sass/_table.scss */
 table.query-form td:nth-child(2) {
   width: 3em;
 }
-/* line 159, ../sass/_table.scss */
+/* line 156, ../sass/_table.scss */
 table.query-form th {
   border: 1px solid white;
   border-bottom: 2px solid #e6e6e6;
   color: #6ca932;
   background: #f0f6ea;
 }
-/* line 164, ../sass/_table.scss */
+/* line 161, ../sass/_table.scss */
 table.query-form th:hover {
   cursor: inherit;
   border: 1px solid white;
   border-bottom: 2px solid #e6e6e6;
 }
-/* line 170, ../sass/_table.scss */
+/* line 167, ../sass/_table.scss */
 table.query-form td {
   background: white;
   border: 1px solid white;
 }
-/* line 173, ../sass/_table.scss */
+/* line 170, ../sass/_table.scss */
 table.query-form td:hover {
   background: white;
   border: 1px solid white;
 }
-/* line 177, ../sass/_table.scss */
+/* line 174, ../sass/_table.scss */
 table.query-form td.btn_add {
   border: 1px solid white;
 }
-/* line 180, ../sass/_table.scss */
+/* line 177, ../sass/_table.scss */
 table.query-form td.btn_add .btn {
   float: right;
 }
-/* line 186, ../sass/_table.scss */
+/* line 183, ../sass/_table.scss */
 table.link tr {
   cursor: pointer;
 }
-/* line 188, ../sass/_table.scss */
+/* line 185, ../sass/_table.scss */
 table.link tr:hover {
   background: #cccccc;
   color: white;

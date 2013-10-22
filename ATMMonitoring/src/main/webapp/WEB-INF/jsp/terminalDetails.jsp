@@ -25,8 +25,8 @@
 				<div class="content">
 					<h1>Terminal 00:1b:21:01:82:8B</h1>
 					<div class="action_box data desplegable">
-						<h2 class="txt"><spring:message code="label.terminalDetails"/></h2>
-						<div class="collapsible">
+						<h2 class="txt last"><spring:message code="label.terminalDetails"/></h2>
+						<div class="collapsible last">
 							<div class="photo">
 								<img src="resources/images/terminal.jpg"/>
 								<div class="desplegable">
@@ -327,8 +327,8 @@
 					</div>
 					<!-- // /action_box -->
 					<div class="action_box data desplegable">
-						<h2 class="txt">Histórico</h2>
-						<div class="collapsible">
+						<h2 class="txt last">Histórico</h2>
+						<div class="collapsible last">
 							<img src="resources/images/historico.png" style="width:100%; margin:1em 0" />
 						</div>
 					</div>
@@ -365,7 +365,7 @@
 							Instalaciones
 						</h2>
 						<div class="botonera">
-							<a href="#" class="btn">Cambio de oficina</a>
+							<a href="terminals/installation" class="btn iframe">Nueva instalación</a>
 						</div>
 						<h3>Instalación actual</h3>
 						<table>

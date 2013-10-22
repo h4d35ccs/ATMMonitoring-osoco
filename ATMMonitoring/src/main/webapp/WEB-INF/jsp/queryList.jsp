@@ -24,7 +24,7 @@
                     <h1>Mis Consultas</h1>
                     <div class="botonera">
                         <ul>
-                            <li><a href="queries/create" class="btn add">Nueva Consulta</a></li>
+                            <li><a href="queries/create" class="btn next">Nueva Consulta</a></li>
                         </ul>
                     </div>
                     <table>
@@ -34,40 +34,88 @@
                     		<th>Descripción</th>
                     	</tr>
                     	<tr>
-                    		<td>Madrid Windows XP</td>
-                    		<td>21-10-2013</td>
+                    		<td class="editable w33">
+                    			<div class="relative">
+								<div class="icons_action">
+									<a href="#" class="edit"><span>Editar</span></a>
+									<a href="#" class="delete"><span>Eliminar</span></a>
+								</div>
+                    			Madrid Windows XP consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo s
+		                    		
+		                    		aepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit</div></td>
+                    		<td class="nowrap">21-10-2013</td>
                     		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
                     	</tr>
                     	<tr>
-                    		<td>Madrid Windows XP</td>
-                    		<td>21-10-2013</td>
+                    		<td class="editable w33">
+                    			<div class="relative">
+								<div class="icons_action">
+									<a href="#" class="edit"><span>Editar</span></a>
+									<a href="#" class="delete"><span>Eliminar</span></a>
+								</div>
+                    			Madrid Windows XP
+		                    		</div>
+		                    	</td>
+                    		<td class="nowrap">21-10-2013</td>
                     		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
                     	</tr>
                     	<tr>
-                    		<td>Madrid Windows XP</td>
-                    		<td>21-10-2013</td>
+                    		<td class="editable w33">
+                    			<div class="relative">
+								<div class="icons_action">
+									<a href="#" class="edit"><span>Editar</span></a>
+									<a href="#" class="delete"><span>Eliminar</span></a>
+								</div>
+                    			Madrid Windows XP
+		                    		</div>
+		                    	</td>
+                    		<td class="nowrap">21-10-2013</td>
                     		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
                     	</tr>
                     	<tr>
-                    		<td>Madrid Windows XP</td>
-                    		<td>21-10-2013</td>
+                    		<td class="editable w33">
+                    			<div class="relative">
+								<div class="icons_action">
+									<a href="#" class="edit"><span>Editar</span></a>
+									<a href="#" class="delete"><span>Eliminar</span></a>
+								</div>
+                    			Madrid Windows XP
+		                    		</div>
+		                    	</td>
+                    		<td class="nowrap">21-10-2013</td>
                     		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
                     	</tr>
                     	<tr>
-                    		<td>Madrid Windows XP</td>
-                    		<td>21-10-2013</td>
+                    		<td class="editable w33">
+                    			<div class="relative">
+								<div class="icons_action">
+									<a href="#" class="edit"><span>Editar</span></a>
+									<a href="#" class="delete"><span>Eliminar</span></a>
+								</div>
+                    			Madrid Windows XP
+		                    		</div>
+		                    	</td>
+                    		<td class="nowrap">21-10-2013</td>
                     		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
                     	</tr>
                     	<tr>
-                    		<td>Madrid Windows XP</td>
-                    		<td>21-10-2013</td>
+                    		<td class="editable w33">
+                    			<div class="relative">
+								<div class="icons_action">
+									<a href="#" class="edit"><span>Editar</span></a>
+									<a href="#" class="delete"><span>Eliminar</span></a>
+								</div>
+                    			Madrid Windows XP
+		                    		</div>
+		                    	</td>
+                    		<td class="nowrap">21-10-2013</td>
                     		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
                     	</tr>
                     	
                     </table>
                 </div>
                 <div class="pagination">
-                        <div>200 Consultas | Página</div>
+                        <div class="relative">200 Consultas | Página</div>
                         <ul>
                             <li><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
