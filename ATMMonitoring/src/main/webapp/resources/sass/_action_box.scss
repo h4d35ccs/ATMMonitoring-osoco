@@ -4,13 +4,53 @@
 	padding: 1em;
 	margin-bottom: 2em;
 	overflow: hidden;
+	position: relative;
 	@include border-radius(4px);
 	.txt{
 		background:url("../images/icons/icon_box_show.png") no-repeat top right;
 		cursor: pointer;
 		margin-bottom: 0;
+		padding: 3px;
+		border-bottom: 2px dotted $colorK4;
+		@include border-radius(4px);
+		&:hover{
+			background-color:$colorK5;
+		}
 		&.content_hide{
 			background-position:bottom right;
+			@include border-radius(0);
+			&.last{
+				border-bottom: none;
+			}
+		}
+		&.plus{
+			background:url("../images/icons/icon_box_show_plus.png") no-repeat bottom right $colorG;
+			overflow: hidden;
+			@include shadow();
+			color: $colorW;
+			position: absolute;
+			width: 28px;
+			height: 28px;
+			top:3px;
+			right: 3px;
+			@include border-radius(4px);
+			span{
+				position: absolute;
+				top: 40px;
+			}
+			&.content_hide{
+				background:url("../images/icons/icon_box_show_plus.png") no-repeat top right $colorG;
+				top: 0;
+				right: 0;
+				@include shadow0();
+			}
+		}
+	}
+	.collapsible{
+		border-bottom: 2px dotted $colorK4;
+		padding: 1em;
+		&.last{
+			border-bottom: none;
 		}
 	}
 	.photo{
@@ -21,8 +61,35 @@
 			margin-top: 2em;
 			float: left;
 			width: 20%;
+			position: relative;
 			img{
 				width: 100%;
+			}
+			.desplegable{
+				position: absolute;
+				top: -10px;
+				right: 0;
+				background:$colorK4;
+				padding: .5em;
+				@include border-radius(4px);
+				margin-top: 1em;
+				dl{
+					margin-top: 1em;
+					padding: 1em;
+					background:$colorW;
+					overflow: hidden;
+					dt{
+						font-weight: bold;
+					}
+					dd{
+						border-bottom: 1px solid $colorK4;
+						padding: .5em 0;
+						margin-bottom: .5em;
+						&:last-child{
+							border:none;
+						}
+					}
+				}
 			}
 		}
 		.ul_data{
@@ -44,6 +111,11 @@
 						float: left;
 						display: block;
 					}
+				}
+			}
+			&.edit{
+				&>ul li{
+					min-height: 3em;
 				}
 			}
 		}

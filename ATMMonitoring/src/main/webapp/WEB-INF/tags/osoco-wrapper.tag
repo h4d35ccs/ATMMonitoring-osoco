@@ -49,7 +49,7 @@
                     <div class="txt content_hide">
                         <span>Castellano</span>
                     </div>
-                    <ul class="ocultable">
+                    <ul class="collapsible">
                         <li><a href="#">Castellano</a></li>
                         <li><a href="#">English</a></li>
                     </ul>

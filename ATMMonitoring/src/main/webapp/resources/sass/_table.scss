@@ -158,13 +158,13 @@ table{
 		}
 		th{
 			border:1px solid $colorW;
-			border-bottom: 2px solid $colorG;
+			border-bottom: 2px solid $colorK5;
 			color: $colorG;
-			background:$colorW;
+			background:$colorG5;
 			&:hover{
 				cursor: inherit;
 				border:1px solid $colorW;
-				border-bottom: 2px solid $colorG;
+				border-bottom: 2px solid $colorK5;
 			}
 		}
 		td{

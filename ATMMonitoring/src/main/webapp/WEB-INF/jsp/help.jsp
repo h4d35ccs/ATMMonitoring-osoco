@@ -22,7 +22,7 @@
 				<h1><spring:message code="label.menu.help"/></h1>
 				<div class="content">
 					<h2>Dasboard</h2>
-						<p><a href="resources/images/ejemplo/db_b.png" class="photo right"><img src="resources/images/ejemplo/db_s.png" /></a>Scelerisque montes est et! Sit dignissim, sed, aenean ac scelerisque. Pulvinar ac! Elementum natoque penatibus scelerisque sociis tempor, hac ridiculus ac augue non et. Magna dignissim lundium rhoncus turpis! Porttitor eros dis proin pulvinar sagittis ac, facilisis porta mauris tincidunt scelerisque pulvinar. Arcu augue eu. Penatibus sit phasellus lorem in.</p>
+						<p><a href="resources/images/ejemplo/db_b.png" class="colorbox photo right"><img src="resources/images/ejemplo/db_s.png" /></a>Scelerisque montes est et! Sit dignissim, sed, aenean ac scelerisque. Pulvinar ac! Elementum natoque penatibus scelerisque sociis tempor, hac ridiculus ac augue non et. Magna dignissim lundium rhoncus turpis! Porttitor eros dis proin pulvinar sagittis ac, facilisis porta mauris tincidunt scelerisque pulvinar. Arcu augue eu. Penatibus sit phasellus lorem in.</p>
 
 						<h3>Pulvinar ac!</h3>
 

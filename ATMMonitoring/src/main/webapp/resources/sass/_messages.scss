@@ -1,15 +1,21 @@
 .notification{
-	background:$colorG5;
-	border:1px dotted $colorG3;
-	padding: 1em 2em;
-	margin: .5em 0;
+	background:$colorG5 url("../images/icons/notification.png") no-repeat 1em;
+	border:2px dotted $colorG3;
+	padding: 1em 2em 1em 6em;
+	margin: 1em 0;
+}
+.alert{
+	background:$colorR5 url("../images/icons/alert.png") no-repeat 1em;
+	border:2px dotted $colorR3;
+	padding: 1em 2em 1em 6em;
+	margin: 1em 0;
 }
 .error{
 	background:$colorR;
 	border:1px dotted $colorW;
 	color: $colorW;
 	padding: 1em 2em;
-	margin: .5em 0;
+	margin: 1em 0;
 	position: relative;
 	&.top{
 		&:after {

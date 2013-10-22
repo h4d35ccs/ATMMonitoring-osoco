@@ -16,7 +16,7 @@
                             <div class="txt content_hide">
                                 <span>Mis componentes</span>
                             </div>
-                            <ul class="ocultable">
+                            <ul class="collapsible">
                                 <li class="off">Geo - ATM Mundo</li>
                                 <li>
                                     <a href="#">Proveedores</a>
@@ -80,7 +80,7 @@
                                     <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
-                                    <ul class="ocultable">
+                                    <ul class="collapsible">
                                         <li>
                                             <a href="#">Editar</a>
                                         </li>
@@ -106,7 +106,7 @@
                                     <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
-                                    <ul class="ocultable">
+                                    <ul class="collapsible">
                                         <li>
                                             <a href="#">Editar</a>
                                         </li>
@@ -132,7 +132,7 @@
                                     <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
-                                    <ul class="ocultable">
+                                    <ul class="collapsible">
                                         <li>
                                             <a href="#">Editar</a>
                                         </li>
@@ -158,7 +158,7 @@
                                     <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
-                                    <ul class="ocultable">
+                                    <ul class="collapsible">
                                         <li>
                                             <a href="#">Editar</a>
                                         </li>
@@ -184,7 +184,7 @@
                                     <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
-                                    <ul class="ocultable">
+                                    <ul class="collapsible">
                                         <li>
                                             <a href="#">Editar</a>
                                         </li>
@@ -210,7 +210,7 @@
                                     <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
-                                    <ul class="ocultable">
+                                    <ul class="collapsible">
                                         <li>
                                             <a href="#">Editar</a>
                                         </li>
@@ -236,7 +236,7 @@
                                     <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
-                                    <ul class="ocultable">
+                                    <ul class="collapsible">
                                         <li>
                                             <a href="#">Editar</a>
                                         </li>
@@ -262,7 +262,7 @@
                                     <div class="icon16 config content_hide txt">
                                         <span>Opciones</span>
                                     </div>
-                                    <ul class="ocultable">
+                                    <ul class="collapsible">
                                         <li>
                                             <a href="#">Editar</a>
                                         </li>

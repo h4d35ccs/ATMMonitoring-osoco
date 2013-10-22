@@ -15,6 +15,12 @@ $colorG4: #89ba5b; // 20%
 $colorG5: #f0f6ea; // 10%
 
 $colorR: #E14F3C;
+$colorR1: #e77263; // 80%
+$colorR2: #ed958a; // 60%
+$colorR3: #f3b9b1; // 40%
+$colorR4: #f9dcd8; // 20%
+$colorR5: #fcedeb; // 10%
+
 
 $colorB1: #8080D9;
 $colorB2: #5CD8EE;
@@ -51,6 +57,11 @@ $colorW: #FFFFFF;
   -webkit-box-shadow: 8px 8px 30px $colorK;
     -moz-box-shadow: 8px 8px 30px $colorK;
     box-shadow: 8px 8px 30px $colorK;
+}
+@mixin shadow0(){
+  -webkit-box-shadow: 0 0 0 $colorK;
+    -moz-box-shadow: 0 0 0 $colorK;
+    box-shadow: 0 0 0 $colorK;
 }
 @mixin border-radius($radius){
 	-o-border-radius: $radius;

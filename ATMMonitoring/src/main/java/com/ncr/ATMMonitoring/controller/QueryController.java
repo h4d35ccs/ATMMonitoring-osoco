@@ -122,7 +122,12 @@ public class QueryController {
 
     @RequestMapping("/queries")
     public String redirectToQueries() {
-	return "redirect:/queries/create";
+		return "redirect:/queries/list";
+    }
+
+    @RequestMapping("/queries/list")
+    public String listQueries() {
+		return "queryList";
     }
 
     @RequestMapping(value = "/queries/results", method = RequestMethod.POST)

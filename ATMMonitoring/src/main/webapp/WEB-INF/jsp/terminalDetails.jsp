@@ -26,9 +26,26 @@
 					<h1>Terminal 00:1b:21:01:82:8B</h1>
 					<div class="action_box data desplegable">
 						<h2 class="txt"><spring:message code="label.terminalDetails"/></h2>
-						<div class="ocultable">
+						<div class="collapsible">
 							<div class="photo">
 								<img src="resources/images/terminal.jpg"/>
+								<div class="desplegable">
+									<div class="txt content_hide plus"><span>Más información</span></div>
+									<dl class="collapsible hide">
+										<dt>Nombre: </dt>
+											<dd>campo</dd>
+										<dt>Nombre de campo: </dt>
+											<dd>campo</dd>
+										<dt>Campo: </dt>
+											<dd>campo</dd>
+										<dt>Nombre de campo: </dt>
+											<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </dd>
+										<dt>Nombre de campo: </dt>
+											<dd>campo</dd>
+										<dt>Nombre de campo: </dt>
+											<dd>campo</dd>
+									</dl>
+								</div>
 							</div>
 
 							<c:choose>
@@ -36,7 +53,7 @@
 								<c:when test="${canEdit == true}">
 									<form:form method="post" action="terminals/update" commandName="terminal">
 										<form:hidden path="id"/>
-										<div class="ul_data">
+										<div class="ul_data edit">
 											<ul>
 												<li> <strong><form:label path="mac">
 															<spring:message code="label.terminal.mac"/>
@@ -146,86 +163,6 @@
 
 													<div class="error-td">
 														<form:errors path="branch"/>
-													</div>
-												</li>
-												<li>
-													<strong>
-														<form:label path="geographicAddress">
-
-															<spring:message code="label.terminal.geographicAddress"/>
-
-														</form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="geographicAddress" maxlength="150"/>
-												</li>
-												<li>
-													<strong>
-														<form:label path="address">
-
-															<spring:message code="label.terminal.address"/>
-
-														</form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="address" maxlength="100"/>
-
-													<div class="error-td">
-														<form:errors path="address"/>
-													</div>
-												</li>
-												<li>
-													<strong>
-														<form:label path="city">
-
-															<spring:message code="label.terminal.city"/>
-
-														</form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="city" maxlength="35"/>
-
-													<div class="error-td">
-														<form:errors path="city"/>
-													</div>
-												</li>
-												<li>
-													<strong>
-														<form:label path="zipCode">
-
-															<spring:message code="label.terminal.zipCode"/>
-
-														</form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="zipCode" maxlength="15"/>
-
-													<div class="error-td">
-														<form:errors path="zipCode"/>
-													</div>
-												</li>
-												<li>
-													<strong>
-														<form:label path="area">
-
-															<spring:message code="label.terminal.area"/>
-
-														</form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="area" maxlength="35"/>
-
-													<div class="error-td">
-														<form:errors path="area"/>
-													</div>
-												</li>
-												<li>
-													<strong>
-														<form:label path="country">
-
-															<spring:message code="label.terminal.country"/>
-
-														</form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="country" maxlength="50"/>
-
-													<div class="error-td">
-														<form:errors path="country"/>
 													</div>
 												</li>
 												<li>
@@ -352,42 +289,6 @@
 											</li>
 											<li>
 												<strong>
-													<spring:message code="label.terminal.geographicAddress"/>
-												</strong>
-												${terminal.geographicAddress}
-											</li>
-											<li>
-												<strong>
-													<spring:message code="label.terminal.address"/>
-												</strong>
-												${terminal.address}
-											</li>
-											<li>
-												<strong>
-													<spring:message code="label.terminal.city"/>
-												</strong>
-												${terminal.city}
-											</li>
-											<li>
-												<strong>
-													<spring:message code="label.terminal.zipCode"/>
-												</strong>
-												${terminal.zipCode}
-											</li>
-											<li>
-												<strong>
-													<spring:message code="label.terminal.area"/>
-												</strong>
-												${terminal.area}
-											</li>
-											<li>
-												<strong>
-													<spring:message code="label.terminal.country"/>
-												</strong>
-												${terminal.country}
-											</li>
-											<li>
-												<strong>
 													<spring:message code="label.terminal.manufacturingSite"/>
 												</strong>
 												${terminal.manufacturingSite}
@@ -422,12 +323,12 @@
 								</c:otherwise>
 							</c:choose>
 						</div>
-						<!-- // ocultable -->
+						<!-- // collapsible -->
 					</div>
 					<!-- // /action_box -->
 					<div class="action_box data desplegable">
 						<h2 class="txt">Histórico</h2>
-						<div class="ocultable">
+						<div class="collapsible">
 							<img src="resources/images/historico.png" style="width:100%; margin:1em 0" />
 						</div>
 					</div>
@@ -437,6 +338,9 @@
 					<nav class="sub_nav">
 						<ul>
 							<li class="current">
+								<span>Instalaciones</span>
+							</li>
+							<li>
 								<span>Dispositivos financieros</span>
 							</li>
 							<li>
@@ -456,6 +360,69 @@
 							</li>
 						</ul>
 					</nav>
+					<div class="content_tab">
+						<h2>
+							Instalaciones
+						</h2>
+						<div class="botonera">
+							<a href="#" class="btn">Cambio de oficina</a>
+						</div>
+						<h3>Instalación actual</h3>
+						<table>
+							<tr>
+								<th>Número de oficina</th>
+								<th>Dirección</th>
+								<th>Fecha de Alta</th>
+								<th>IP</th>
+								<th>Tipo de instalación</th>
+							</tr>
+							<tr>
+								<td>4647</td>
+								<td>Avenida de los Andes, 24, 28042 Madrid - España</td>
+								<td>17-08-2013</td>
+								<td>128.128.3.45</td>
+								<td>Lorem Ipsum</td>
+							</tr>
+						</table>
+						<h3>Histórico de instalaciones</h3>
+						<table>
+							<tr>
+								<th>Número de oficina</th>
+								<th>Dirección</th>
+								<th>Fecha de Alta</th>
+								<th>IP</th>
+								<th>Tipo de instalación</th>
+							</tr>
+							<tr>
+								<td>4647</td>
+								<td>Gran Vía, 32, 2001 Madrid - España</td>
+								<td>17-08-2013</td>
+								<td>128.128.3.45</td>
+								<td>Lorem Ipsum</td>
+							</tr>
+							<tr>
+								<td>4647</td>
+								<td>Gran Vía, 32, 2001 Madrid - España</td>
+								<td>17-08-2013</td>
+								<td>128.128.3.45</td>
+								<td>Lorem Ipsum</td>
+							</tr>
+							<tr>
+								<td>4647</td>
+								<td>Gran Vía, 32, 2001 Madrid - España</td>
+								<td>17-08-2013</td>
+								<td>128.128.3.45</td>
+								<td>Lorem Ipsum</td>
+							</tr>
+							<tr>
+								<td>4647</td>
+								<td>Gran Vía, 32, 2001 Madrid - España</td>
+								<td>17-08-2013</td>
+								<td>128.128.3.45</td>
+								<td>Lorem Ipsum</td>
+							</tr>
+						</table>
+					</div>
 					<div class="content_tab">
 						<h2>
 							<spring:message code="label.financialDevices"/>
@@ -1203,7 +1170,6 @@
 					</c:if>
 				</div>
 			</div>
-
 			<div class="content_tab">
 				<h2>
 					<spring:message code="label.internetExplorers"/>

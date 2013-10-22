@@ -1,12 +1,12 @@
 
 $(function() {
-	$('ul.ocultable').hide(); // Cierro todos los menun de las cajas
+	$('ul.collapsible').hide(); // Cierro todos los menun de las cajas
 	$('.desplegable .txt').click(function() {
 		if($(this).hasClass('content_hide')){ // si pulso en uno que está cerrado...
 			$(this).removeClass('content_hide');
-			$(this).next('.ocultable').show();
+			$(this).next('.collapsible').show('slow');
 		}else{
-			$(this).next('.ocultable').hide();
+			$(this).next('.collapsible').hide('slow');
 			$(this).addClass('content_hide');
 		}
 	});
@@ -64,7 +64,6 @@ $(function() {
    });
 // Check all
 	$("input.all_check").change(function(){
-		$("input.all_check").toggle();
 		$('.check input[type=checkbox]').each( function() {			
 			if($("input.all_check:checked").length == 1){
 				this.checked = true;
@@ -75,5 +74,5 @@ $(function() {
 	});
 // Colorbox
 	$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"}); // Iframes
-	$(".photo").colorbox({rel:'group1'}); // Photo
+	$(".colorbox").colorbox({rel:'group1'}); // Photo
 });

@@ -26,40 +26,39 @@
 	<h1><spring:message code="label.queryResults"/></h1>
 	<!-- Pegado de querie.jsp -->
 	<div class="action_box desplegable">
-					<h1 class="txt content_hide">
+					<h1 class="txt last">
 						<spring:message code="label.queryDesigner"/>
 					</h1>
-					<div class="ocultable hide">
-					<div class="query-designer">
-						<form:form method="post" name="userQueriesForm" action="queries/create" commandName="query">
-							<div class="query-submit">
-								<label class="plain-label">
-									<spring:message code="label.query.userQueries"/>
-								</label>
-								<form:select path="id" id="id" size="1" onchange="userQuerySelected()">
-									<form:option value="" label=""/>
-									<c:forEach items="${userQueries}" var="userQuery">
-										<form:option value="${userQuery.id}" label="${userQuery.name}"/>
-									</c:forEach>
-								</form:select>
-							</div>
-							<div class="query-submit">
-								<input type="submit" class="form-submit" name="delete" id="delete" 
-	    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
-						</div>
-					</form:form>
-					<div class="queries-notes">
-						<label>
-							<spring:message code="label.query.dateFormatNote"/>
-							'${datePattern}'
-						</label>
-					</div>
+					<div class="collapsible last">
+							<div class="row td">
+								<form:form method="post" name="userQueriesForm" action="queries/create" commandName="query">
+															
+									<label class="plain-label">
+										<spring:message code="label.query.userQueries"/>
+									</label>
+									<form:select path="id" id="id" size="1" onchange="userQuerySelected()">
+										<form:option value="" label=""/>
+										<c:forEach items="${userQueries}" var="userQuery">
+											<form:option value="${userQuery.id}" label="${userQuery.name}"/>
+										</c:forEach>
+									</form:select>
+								
+									<input type="submit" class="form-submit" name="delete" id="delete" 
+		    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
+							
+						</form:form>
+						
+							<label>
+								<spring:message code="label.query.dateFormatNote"/>
+								'${datePattern}'
+							</label></div>
+						
 					<form:form method="post" target="_blank" action="queries/results" commandName="query">
-						<h2 class="collapsible" id="terminalSection">
+
+						<h2 class="txt content_hide" id="terminalSection">
 							<spring:message code="label.query.terminalSection"/>
-							<span></span>
 						</h2>
-						<div class="container">
+						<div class="collapsible hide">
 							<table class="query-form">
 								<tr>
 									<th>
@@ -109,11 +108,11 @@
 							</c:forEach>
 						</table>
 					</div>
-					<h2 class="collapsible" id="hwSection">
+					<h2 class="txt content_hide" id="hwSection">
 						<spring:message code="label.query.hardwareSection"/>
 						<span></span>
 					</h2>
-					<div class="container">
+					<div class="collapsible hide">
 						<h3>
 							<spring:message code="label.query.hardwareDeviceSection"/>
 						</h3>
@@ -243,11 +242,11 @@
 					</c:forEach>
 				</table>
 			</div>
-			<h2 class="collapsible" id="swSection">
+			<h2 class="txt content_hide" id="swSection">
 				<spring:message code="label.query.softwareGlobalSection"/>
 				<span></span>
 			</h2>
-			<div class="container">
+			<div class="collapsible hide">
 				<h3>
 					<spring:message code="label.query.operatingSystemSection"/>
 				</h3>
@@ -603,22 +602,22 @@
 </c:forEach>
 </table>
 </div>
-<div class="query-submit">
-<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>
-"/>
 </div>
-<div class="query-submit">
-<label class="plain-label">
-<spring:message code="label.query.queryName"/>
-</label>
-<form:input class='thin-border-grey' path="name" id="queryName" maxlength="50" onKeyUp="checkSaveExecute()"/>
-<input type="submit" class="form-submit" name="save_execute" disabled="disabled" id="save_execute" value="<spring:message code="label.query.saveExecute"/>
-"/>
-</div>
+
 </form:form>
+
 <div class="botonera">
-	<a href="#" class="btn">Aplicar Consulta</a>
-	<a href="#" class="btn cancel">Cancelar</a>
+<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
+<input type="reset" class="cancel right" value="Cancelar" />
+</div>
+</div>
+<div class="action_box row td">
+	<h2>Guardar la consulta</h2>
+	<label for="query_name"><spring:message code="label.query.queryName"/>:
+	<input type="text" id="query_name"/></label>
+	<label for="query_description">Descripción:
+	<input type="text" id="query_description"/></label>
+	<a href="#" class="btn label">Guardar Consulta</a>
 </div>
 <script type="text/javascript">
 	    $(document).ready(function(){
@@ -807,13 +806,7 @@
 	    	document.userQueriesForm.submit();
 	    }
     </script>
-</div>
-</div>
-<label for="query_name">Nombre de consulta:
-	<input type="text" id="query_name"/></label>
-	<label for="query_description">Descripción:
-	<input type="text" id="query_description"/></label>
-	<a href="#" class="btn label">Guardar Consulta</a>
+					</div><!-- /collapsible -->
 
 	</div><!-- // pegado de queries.jsp -->
 	<div class="box-tableContainer">

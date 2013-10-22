@@ -109,8 +109,14 @@ strong{
 	}
 }
 .photo{
-	border:5px solid $colorK5;
-	@include shadow();
+	border:5px solid $colorW;
 	padding: .5em;
 	background:$colorW;
+}
+.td{
+	border:none;
+	label, input, select, div, form{
+		display: inline;
+		float: none;
+	}
 }
