@@ -22,10 +22,19 @@
 	.td &{
 		display: block;
 	}
-	padding: 2em;
-	margin: 1em 0;
-	background:$colorG5;
-	border:2px solid $colorG3;
+	background:$colorY21 url("../images/icons/message.png") no-repeat 1em;
+	border:2px dotted $colorY1;
+	padding: 1em 2em 1em 2em;
+	padding: 1em 2em 1em 6em;
+}
+.no_queries{
+	@extend .message;
+	background: transparent;
+	border: none;
+	float: left;
+	padding: 0;
+	margin:0;
+	font-size: 1.2em;
 }
 .error{
 	.td &{

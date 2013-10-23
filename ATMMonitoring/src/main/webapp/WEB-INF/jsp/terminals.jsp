@@ -28,15 +28,25 @@
                     <h1><spring:message code="label.terminals"/></h1>
                     <div class="action_box">
                         <h2>Consultas <div class="info"><span>Más información</span></div></h2>
-                        <div class="row">
+                        <!-- div class="row">
                             <label>Elige tu consulta:</label>
                             <select>
                                 <option value="">Seleccionar</option>
                             </select>
                             <input type="submit" value="Aplicar" class="btn">
                             <a href="queries" class="btn right">Mis consultas</a>
+                        </div -->
+                        <div class="row">
+                           <div class="message no_queries">
+                           	<p>Ahorra tiempo generardo consultas, que las irás aplicando a medida que las vayas
+necesitando.</p>
+                           </div>
+                            <a href="queries" class="btn right">Mis consultas</a>
                         </div>
                     </div>
+                    <div class="message">
+						<p>Sabías que lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, hic, laboriosam ea eaque necessitatibus alias dolor saepe earum et ullam veritatis animi at dignissimos. Consequatur optio cupiditate distinctio quasi amet?</p>
+					</div>
                     <div class="notification">
 						<p>Los cajeros se han priorizado con éxito y sus datos se están actualizando. Esta operación puede llevar un tiempo dependiendo del n´mero de cajeros</p>
 					</div>

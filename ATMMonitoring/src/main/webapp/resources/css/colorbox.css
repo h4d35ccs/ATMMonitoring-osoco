@@ -464,18 +464,28 @@ input:disabled:hover {
 }
 
 /* line 21, ../sass/_messages.scss */
-.message {
-  padding: 2em;
-  margin: 1em 0;
-  background: #f0f6ea;
-  border: 2px solid #89ba5b;
+.message, .no_queries {
+  background: #fbfad6 url("../images/icons/message.png") no-repeat 1em;
+  border: 2px dotted #ccbf9e;
+  padding: 1em 2em 1em 2em;
+  padding: 1em 2em 1em 6em;
 }
 /* line 22, ../sass/_messages.scss */
-.td .message {
+.td .message, .td .no_queries {
   display: block;
 }
 
 /* line 30, ../sass/_messages.scss */
+.no_queries {
+  background: transparent;
+  border: none;
+  float: left;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em;
+}
+
+/* line 39, ../sass/_messages.scss */
 .error {
   background: #e14f3c;
   border: 1px dotted white;
@@ -484,11 +494,11 @@ input:disabled:hover {
   margin: 1em 0;
   position: relative;
 }
-/* line 31, ../sass/_messages.scss */
+/* line 40, ../sass/_messages.scss */
 .td .error {
   display: block;
 }
-/* line 41, ../sass/_messages.scss */
+/* line 50, ../sass/_messages.scss */
 .error.top:after {
   content: "";
   position: absolute;
@@ -500,7 +510,7 @@ input:disabled:hover {
   display: block;
   width: 0;
 }
-/* line 54, ../sass/_messages.scss */
+/* line 63, ../sass/_messages.scss */
 .error.bottom:after {
   content: "";
   position: absolute;
