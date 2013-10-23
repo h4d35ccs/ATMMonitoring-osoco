@@ -17,5 +17,36 @@
 				z-index: 2;
 			}
 		}
+		&.installation{
+			.content{
+				margin-right: 2em;
+			}
+			iframe{
+				border:5px solid $colorK4;
+			}
+			li{
+				overflow: hidden;
+				margin-bottom: .5em;
+			}
+			label{
+				width: 38%;
+				margin-left: 2%;
+				display: block;
+				float: left;
+			}
+			input[type="text"]{
+				width: 47%;
+			}
+			input.withbutton{
+				width: 25%;
+				float: left;
+			}
+			.message{
+				clear: both;
+				float: right;
+				padding: 2%;
+				margin-left: 44%;
+			}
+		}
 	}
 }

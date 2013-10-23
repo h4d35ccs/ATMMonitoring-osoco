@@ -1,16 +1,36 @@
 .notification{
+	.td &{
+		display: block;
+	}
 	background:$colorG5 url("../images/icons/notification.png") no-repeat 1em;
 	border:2px dotted $colorG3;
 	padding: 1em 2em 1em 6em;
 	margin: 1em 0;
+	min-height: 2em;
 }
 .alert{
+	.td &{
+		display: block;
+	}
 	background:$colorR5 url("../images/icons/alert.png") no-repeat 1em;
 	border:2px dotted $colorR3;
 	padding: 1em 2em 1em 6em;
 	margin: 1em 0;
+	min-height: 2em;
+}
+.message{
+	.td &{
+		display: block;
+	}
+	padding: 2em;
+	margin: 1em 0;
+	background:$colorG5;
+	border:2px solid $colorG3;
 }
 .error{
+	.td &{
+		display: block;
+	}
 	background:$colorR;
 	border:1px dotted $colorW;
 	color: $colorW;

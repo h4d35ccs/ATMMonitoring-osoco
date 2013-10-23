@@ -82,39 +82,39 @@
 	}
 }
 .add{
-	background:url("../images/icons/icon_add.png") no-repeat right bottom $colorG;
-	padding-right: 40px;
+	background:url("../images/icons/icon_add.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_add.png") no-repeat right top $colorW;
+		background:url("../images/icons/icon_add.png") no-repeat left top $colorW;
 	}
 }
 .clock{
-	background:url("../images/icons/icon_clock.png") no-repeat right bottom $colorG;
-	padding-right: 40px;
+	background:url("../images/icons/icon_clock.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_clock.png") no-repeat right top $colorW;
+		background:url("../images/icons/icon_clock.png") no-repeat left top $colorW;
 	}
 }
 .next{
-	background:url("../images/icons/icon_next.png") no-repeat right bottom $colorG;
-	padding-right: 40px;
+	background:url("../images/icons/icon_next.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_next.png") no-repeat right top $colorW;
+		background:url("../images/icons/icon_next.png") no-repeat left top $colorW;
 	}
 	
 }
 .info{
 	width: 25px;
 	height: 25px;
-	background:url("../images/icons/icon_info.png") no-repeat top right;
-	padding-right: 2em;
+	background:url("../images/icons/icon_info.png") no-repeat top left;
+	padding-left: 2em;
 	overflow: hidden;
 	position: relative;
 	display: inline;
 	cursor: pointer;
 	cursor: help;
 	&:hover{
-		background:url("../images/icons/icon_info.png") no-repeat bottom right;
+		background:url("../images/icons/icon_info.png") no-repeat bottom left;
 	}
 	span{
 		display: block;
@@ -136,7 +136,7 @@
 		overflow: hidden;
 		display: block;
 		cursor: help;
-		margin-right: 2px;
+		margin-left: 2px;
 		float: left;
 		span{
 			display: block;
@@ -161,16 +161,20 @@
 	}
 }
 .download{
-	background:url("../images/icons/icon_download.png") no-repeat bottom right $colorG;
-	padding-right: 40px;
+	background:url("../images/icons/icon_download.png") no-repeat top left transparent;
+	border: none;
+	color:$colorG;
+	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_download.png") no-repeat top right $colorW;
+		background:url("../images/icons/icon_download.png") no-repeat top left transparent;
+		background-color: transparent;
+		text-decoration: underline;
 	}
 }
 .update, .btn.update{
-	background:url("../images/icons/icon_update.png") no-repeat bottom right $colorG;
-	padding-right: 40px;
+	background:url("../images/icons/icon_update.png") no-repeat bottom left $colorG;
+	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_update.png") no-repeat top right $colorW;
+		background:url("../images/icons/icon_update.png") no-repeat top left $colorW;
 	}
 }

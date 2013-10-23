@@ -19,16 +19,16 @@
                     </nav>
                     <div class="botonera">
                         <ul>
-                            <li><a href="terminales_add_terminal.html" class="btn add">Añadir terminal</a></li>
+                            <li><a href="terminales_add_terminal.html" class="btn add">Nuevo terminal</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="content">
                     <h1><spring:message code="label.terminals"/></h1>
-                    <div class="action_box desplegable">
-                        <h2 class="txt last">Consultas <div class="info"><span>Más información</span></div></h2>
-                        <div class="row collapsible last">
+                    <div class="action_box">
+                        <h2>Consultas <div class="info"><span>Más información</span></div></h2>
+                        <div class="row">
                             <label>Elige tu consulta:</label>
                             <select>
                                 <option value="">Seleccionar</option>
@@ -43,13 +43,14 @@
 					<div class="alert">
 						<p>Se ha producido un error. Inténtelo más tarde.</p>
 					</div>
+					<h2>52.500 terminales</h2>
+					<div class="table_buttons">
                     <div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
-						<a href="#" class="btn left update">Actualizazión Instantanea</a>
+						<a href="#" class="btn left update">Actualizar</a>
 						<a href="#" class="btn left clock">Actualización planificada</a>
 						<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 					</div> 
-					<h2>52.500 terminales</h2>
                     <c:if  test="${empty pagedListHolder.pageList}">
                         <div class="empty-list"><spring:message code="label.terminal.noTerminals"/></div>
                     </c:if>
@@ -65,11 +66,11 @@
                     </c:if>
                     <div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
-						<a href="#" class="btn left update">Actualizazión Instantanea</a>
+						<a href="#" class="btn left update">Actualizar</a>
 						<a href="#" class="btn left clock">Actualización planificada</a>
 						<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 					</div> 
-
+					</div><!-- /table_buttons -->
                     <div class="pagination">
                         <div>${pagedListHolder.pageList.size()} Terminales | Página</div>
                         <ul>

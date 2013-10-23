@@ -24,10 +24,10 @@
                     <h1>Mis Consultas</h1>
                     <div class="botonera">
                         <ul>
-                            <li><a href="queries/create" class="btn next">Nueva Consulta</a></li>
+                            <li><a href="queries/create" class="btn add">Nueva Consulta</a></li>
                         </ul>
                     </div>
-                    <table>
+                    <table class="link">
                     	<tr>
                     		<th>Nombre de la consulta</th>
                     		<th>Fecha de creación</th>
@@ -37,7 +37,6 @@
                     		<td class="editable w33">
                     			<div class="relative">
 								<div class="icons_action">
-									<a href="#" class="edit"><span>Editar</span></a>
 									<a href="#" class="delete"><span>Eliminar</span></a>
 								</div>
                     			Madrid Windows XP consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo s
@@ -50,7 +49,6 @@
                     		<td class="editable w33">
                     			<div class="relative">
 								<div class="icons_action">
-									<a href="#" class="edit"><span>Editar</span></a>
 									<a href="#" class="delete"><span>Eliminar</span></a>
 								</div>
                     			Madrid Windows XP
@@ -63,7 +61,6 @@
                     		<td class="editable w33">
                     			<div class="relative">
 								<div class="icons_action">
-									<a href="#" class="edit"><span>Editar</span></a>
 									<a href="#" class="delete"><span>Eliminar</span></a>
 								</div>
                     			Madrid Windows XP
@@ -76,7 +73,6 @@
                     		<td class="editable w33">
                     			<div class="relative">
 								<div class="icons_action">
-									<a href="#" class="edit"><span>Editar</span></a>
 									<a href="#" class="delete"><span>Eliminar</span></a>
 								</div>
                     			Madrid Windows XP
@@ -89,7 +85,6 @@
                     		<td class="editable w33">
                     			<div class="relative">
 								<div class="icons_action">
-									<a href="#" class="edit"><span>Editar</span></a>
 									<a href="#" class="delete"><span>Eliminar</span></a>
 								</div>
                     			Madrid Windows XP
@@ -102,7 +97,6 @@
                     		<td class="editable w33">
                     			<div class="relative">
 								<div class="icons_action">
-									<a href="#" class="edit"><span>Editar</span></a>
 									<a href="#" class="delete"><span>Eliminar</span></a>
 								</div>
                     			Madrid Windows XP

@@ -1,4 +1,23 @@
-
+.table_buttons{
+	overflow: hidden;
+	@include border-radius(4px);
+	background:$colorK6;
+	border:1px solid $colorK5;
+	table{
+		border-right:none;
+		border-left: none;
+		td:first-child{
+			border-left: none;
+		}
+	}
+	.botonera{
+		padding: 0;
+		margin: .5em 1em .5em 0;
+		label{
+			padding:.5em 1em 0
+		}
+	}
+}
 table{
 	width: 100%;
 	margin: .5em 0;
@@ -6,10 +25,11 @@ table{
 	th{
 		background:$colorG;
 		color:$colorW;
-		border-right: 1px solid $colorW;
 		&.order{
 			background:url("../images/colunm_order.png") $colorG no-repeat right top;
 			padding-right: 2em;
+			border-top: 1px solid $colorW;
+			border-bottom: 1px solid $colorW;
 			&.bottom{
 				background:url("../images/colunm_order.png") $colorK1 no-repeat right -40px;
 			}
@@ -66,6 +86,7 @@ table{
 		}
 	}
 	tr{
+		background: $colorW;
 		&:nth-child(2n+1) {
 			background: $colorK5;
 		}

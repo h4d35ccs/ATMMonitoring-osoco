@@ -6,7 +6,7 @@
 <%@page pageEncoding="UTF-8"%>
 
 <t:osoco-wrapperWoMenu titleCode="label.terminalsManager" section="iframe">
-<div id="main">
+<div id="main" class="installation">
 	<h1>Nueva Instalación</h1>
 	<div id="primary" class="w50 left">
 		<article>
@@ -21,9 +21,9 @@
 						</li>
 						<li class="td">
 							<label for="noff">Numero de oficina</label>
-							<input id="noff" name="noff" type="text">
+							<input id="noff" name="noff" type="text" class="withbutton">
 							<button class="btn">Validar</button>
-							<div class="">
+							<div class="message">
 								La Caixa
 								Oficina Avenida de los Andes, 24, 28042
 								Madrid - España - Teléfono: 91 440 38 90
@@ -32,7 +32,7 @@
 							<div class="error-td"></div>
 						</li>
 						<li> 
-							<spring:message code="label.terminal.ip"/>I.P. 
+							<label for="ip"><spring:message code="label.terminal.ip"/></label>
 							<input id="ip" name="ip" type="text">
 							<div class="error-td">
 							</div>
@@ -66,8 +66,8 @@
 			</div>
 		</article>
 	</div>
-	<div id="secondary" class="w50 right">
-		Secundario
+	<div id="secondary" class="w50 right h100">
+		<iframe width="100%" height="80%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.es/?ie=UTF8&amp;ll=40.525282,-3.81603&amp;spn=3.035322,5.652466&amp;t=m&amp;z=8&amp;output=embed"></iframe>
 	</div>
 </div>
 </t:osoco-wrapperWoMenu>

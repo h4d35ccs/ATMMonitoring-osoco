@@ -33,15 +33,17 @@ p{
 	}
 	h2{
 		@extend h1;
-		font-size: 2em;
+		font-size: 1.7em;
 	}
 	h3{
 		@extend h1;
 		font-size: 1.5em;
+		color: $colorK2;
 	}
 	h4{
 		@extend h1;
 		font-size: 1.2em;
+		color: $colorK2;
 	}
 	h5{
 		@extend h1;
@@ -150,4 +152,7 @@ strong{
 }
 .w75{
 	width: 75%;
+}
+.h100{
+	height: 100%;
 }
