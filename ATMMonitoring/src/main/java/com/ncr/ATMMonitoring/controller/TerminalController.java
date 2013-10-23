@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.controller;
 import java.security.Principal;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.TerminalService;
@@ -120,6 +122,7 @@ public class TerminalController {
 	    String p, HttpServletRequest request) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
+        Set<Query> userQueries = null; 
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
@@ -141,7 +144,9 @@ public class TerminalController {
 			    + "'"))) {
 		canManageScheduled = true;
 	    }
+	    userQueries = loggedUser.getQueries();
 	}
+        map.put("userQueries", userQueries);
 	map.put("userMsg", userMsg);
 	map.put("canAdd", canAdd);
 	map.put("canManageScheduled", canManageScheduled);
@@ -157,6 +162,7 @@ public class TerminalController {
 	    }
 	}
 	pagedListHolder.setPage(page);
+        pagedListHolder.setMaxLinkedPages(3); // TODO remove
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
 

@@ -5,7 +5,7 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<t:wrapper titleCode="label.usersManager" userMsg="${userMsg}">
+<t:osoco-wrapper titleCode="label.usersManager" userMsg="${userMsg}" section="users">
  
 <div class="box">
 <h2><spring:message code="label.userDetails"/></h2>
@@ -183,4 +183,4 @@
 	};
 </script>
 
-</t:wrapper>
+</t:osoco-wrapper>

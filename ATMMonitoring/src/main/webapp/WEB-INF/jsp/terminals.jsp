@@ -5,7 +5,7 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}" section="terminals">
+<t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}"  section="terminals">
 
     <div id="main">
         <div id="primary">
@@ -31,7 +31,10 @@
                         <!-- div class="row">
                             <label>Elige tu consulta:</label>
                             <select>
-                                <option value="">Seleccionar</option>
+                                <option value="" >Seleccionar</option>
+                                <c:forEach items="${userQueries}" var="userQuery">
+                                    <option value="${userQuery.id}"">${userQuery.name}</option>
+                                </c:forEach>
                             </select>
                             <input type="submit" value="Aplicar" class="btn">
                             <a href="queries" class="btn right">Mis consultas</a>
@@ -48,12 +51,13 @@
 						<p>Sabías que lorem ipsum dolor sit amet, <strong>consectetur adipisicing</strong> elit. Voluptatum, hic, laboriosam ea eaque necessitatibus alias dolor saepe earum et ullam veritatis animi at dignissimos. Consequatur optio cupiditate distinctio quasi amet?</p>
 					</div>
                     <div class="notification">
-						<p>Los cajeros <strong>se han priorizado con éxito</strong> y sus datos se están actualizando. Esta operación puede llevar un tiempo dependiendo del n´mero de cajeros</p>
+						<p>Los terminales se han priorizado con éxito y sus datos se están actualizando. Esta operación puede llevar un tiempo dependiendo del número de cajeros</p>
 					</div>
 					<div class="alert">
 						<p><strong>Se ha producido un error</strong>. Inténtelo más tarde.</p>
 					</div>
-					<h2>52.500 terminales <a href="#" class="edit"><span>edit</span></a></h2>
+
+					<h2>${pagedListHolder.source.size()} terminales <a href="#" class="edit"><span>edit</span></a></h2>
 					<div class="table_buttons">
                     <div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
@@ -68,11 +72,9 @@
 
                         <t:terminalsTable terminals="${pagedListHolder.pageList}"/>
 
-<%--
-                      <div class="pagingContainer">
-                        <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/list?p=~"/>
-                      </div>
---%>
+
+                      
+
                     </c:if>
                     <div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
@@ -81,21 +83,11 @@
 						<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 					</div> 
 					</div><!-- /table_buttons -->
-                    <div class="pagination">
-                        <div>${pagedListHolder.pageList.size()} Terminales | Página</div>
-                        <ul>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">...</a></li>
-                        </ul>
-                    </div>
+                    <div>${pagedListHolder.source.size()} Terminales</div>
+                    <div class="pagination"> Página
+                        <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/list?p=~"/>
+                      </div>
+                   
                 </div>
             </article>
         </div>

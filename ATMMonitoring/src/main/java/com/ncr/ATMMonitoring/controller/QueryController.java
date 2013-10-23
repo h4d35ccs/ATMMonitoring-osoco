@@ -7,6 +7,7 @@ import java.io.OutputStreamWriter;
 import java.security.Principal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -38,12 +39,13 @@ import com.ncr.ATMMonitoring.service.UserService;
 @Controller
 public class QueryController {
 
-    @Value("${config.terminalsPageSize}")
+    @Value("${config.queriesPageSize}")
     private int pageSize;
     @Autowired
     private QueryService queryService;
     @Autowired
     private UserService userService;
+
 
     @RequestMapping(value = "/queries/create", method = RequestMethod.GET)
     public String createQuery(Map<String, Object> map,
@@ -126,8 +128,38 @@ public class QueryController {
     }
 
     @RequestMapping("/queries/list")
-    public String listQueries() {
-		return "queryList";
+    public String listQueries(Map<String, Object> map, 
+			      HttpServletRequest request, 
+			      Principal principal,
+                              String p) {
+        Set<Query> userQueries = null;
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userQueries = loggedUser.getQueries();
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	}
+
+	PagedListHolder<Query> pagedListHolder = 
+	    new PagedListHolder<Query>( new ArrayList(userQueries));
+	int page = 0;
+	if (p != null) {
+	    try {
+		page = Integer.parseInt(p);
+	    } catch (NumberFormatException e) {
+		e.printStackTrace();
+	    }
+	}
+	pagedListHolder.setPage(page);
+        pagedListHolder.setMaxLinkedPages(3); // TODO remove
+	pagedListHolder.setPageSize(pageSize);
+	map.put("pagedListHolder", pagedListHolder);
+       
+	//  map.put("userQueries", userQueries);
+        map.put("userMsg", userMsg);
+	return "queryList";
     }
 
     @RequestMapping(value = "/queries/results", method = RequestMethod.POST)

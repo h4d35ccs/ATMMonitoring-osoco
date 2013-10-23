@@ -33,96 +33,30 @@
                     		<th>Fecha de creación</th>
                     		<th>Descripción</th>
                     	</tr>
-                    	<tr>
+
+			 <c:forEach items="${pagedListHolder.pageList}" var="query">
+
+			 <tr>
                     		<td class="editable w33">
                     			<div class="relative">
 								<div class="icons_action">
 									<a href="#" class="delete"><span>Eliminar</span></a>
 								</div>
-                    			Madrid Windows XP consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo s
-		                    		
-		                    		aepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit</div></td>
-                    		<td class="nowrap">21-10-2013</td>
-                    		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
-                    	</tr>
-                    	<tr>
-                    		<td class="editable w33">
-                    			<div class="relative">
-								<div class="icons_action">
-									<a href="#" class="delete"><span>Eliminar</span></a>
-								</div>
-                    			Madrid Windows XP
-		                    		</div>
-		                    	</td>
-                    		<td class="nowrap">21-10-2013</td>
-                    		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
-                    	</tr>
-                    	<tr>
-                    		<td class="editable w33">
-                    			<div class="relative">
-								<div class="icons_action">
-									<a href="#" class="delete"><span>Eliminar</span></a>
-								</div>
-                    			Madrid Windows XP
-		                    		</div>
-		                    	</td>
-                    		<td class="nowrap">21-10-2013</td>
-                    		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
-                    	</tr>
-                    	<tr>
-                    		<td class="editable w33">
-                    			<div class="relative">
-								<div class="icons_action">
-									<a href="#" class="delete"><span>Eliminar</span></a>
-								</div>
-                    			Madrid Windows XP
-		                    		</div>
-		                    	</td>
-                    		<td class="nowrap">21-10-2013</td>
-                    		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
-                    	</tr>
-                    	<tr>
-                    		<td class="editable w33">
-                    			<div class="relative">
-								<div class="icons_action">
-									<a href="#" class="delete"><span>Eliminar</span></a>
-								</div>
-                    			Madrid Windows XP
-		                    		</div>
-		                    	</td>
-                    		<td class="nowrap">21-10-2013</td>
-                    		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
-                    	</tr>
-                    	<tr>
-                    		<td class="editable w33">
-                    			<div class="relative">
-								<div class="icons_action">
-									<a href="#" class="delete"><span>Eliminar</span></a>
-								</div>
-                    			Madrid Windows XP
-		                    		</div>
-		                    	</td>
-                    		<td class="nowrap">21-10-2013</td>
-                    		<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
-                    	</tr>
+                    			${query.name}M</div></td>
+                    		<td class="nowrap">TODO:21-10-2013</td>
+                    		<td>TODO:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
+              
+                        </tr>
+                                </c:forEach>
+                    	
+              
                     	
                     </table>
                 </div>
-                <div class="pagination">
-                        <div class="relative">200 Consultas | Página</div>
-                        <ul>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">...</a></li>
-                        </ul>
-                    </div>
+                <div>${pagedListHolder.source.size()} Consultas</div>
+                    <div class="pagination"> Página
+                        <t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/list?p=~"/>
+                      </div>
             </article>
         </div>
     </div>

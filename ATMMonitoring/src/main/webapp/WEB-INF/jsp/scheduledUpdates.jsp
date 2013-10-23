@@ -5,7 +5,7 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<t:wrapper titleCode="label.scheduledUpdatesManager" userMsg="${userMsg}" >
+<t:osoco-wrapper titleCode="label.scheduledUpdatesManager" userMsg="${userMsg}" section="schedule">
 
 <style type="text/css">
 <c:if  test="${(!empty weeklyScheduledUpdates) || (!empty monthlyScheduledUpdates)}">
@@ -393,4 +393,4 @@ html>body tbody.scrollContent {
 	};
 </script>
 
-</t:wrapper>
+</t:osoco-wrapper>

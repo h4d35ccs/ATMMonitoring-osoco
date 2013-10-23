@@ -43,8 +43,7 @@
                 <span>NCR</span> <strong>HASM</strong>
             </h1>
             <div id="user_info">
-                <div class="wellcome"><spring:message code="label.welcomeMessage"/> <a href="#">${userMsg}</a></div>
-                <div class="date">02/10/13 - 8:30 am</div>
+               ${userMsg}
                 <div id="lang" class="desplegable">
                     <div class="txt content_hide">
                         <span>Castellano</span>

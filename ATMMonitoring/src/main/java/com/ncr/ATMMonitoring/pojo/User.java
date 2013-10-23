@@ -209,14 +209,15 @@ public class User implements UserDetails {
     }
 
     public String getHtmlWelcomeMessage(Locale locale) {
-	DateFormat timeFormatter = new SimpleDateFormat("H:mm");
-	return firstname
-		+ " "
-		+ lastname
-		+ ", "
-		+ role.getName().replace("_", " ")
-		+ "<br>"
-		+ DateFormat.getDateInstance(DateFormat.SHORT, locale).format(
-			lastLogin) + " - " + timeFormatter.format(lastLogin);
+      	DateFormat timeFormatter = new SimpleDateFormat("H:mm");
+        String lastLoginFormatted = "";
+        lastLoginFormatted  = DateFormat.getDateInstance(DateFormat.SHORT, locale).format(lastLogin) + 
+	    " - " + timeFormatter.format(lastLogin);        
+
+       return "<div class=\"wellcome\"><spring:message code=\"label.welcomeMessage\"/> "+ 
+               firstname + " " + lastname + ", " + role.getName().replace("_", " ") +
+               "</div>" +
+	       "<div class=\"date\">" + lastLoginFormatted + "</div>"; 
     }
+
 }
