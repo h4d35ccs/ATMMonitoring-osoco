@@ -712,35 +712,36 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 /* line 9, ../sass/_action_box.scss */
 #main .action_box .txt {
-  background: url("../images/icons/icon_box_show.png") no-repeat top right;
+  background: url("../images/icons/icon_box_show.png") no-repeat top left;
   cursor: pointer;
   margin: 0;
   padding: 3px;
+  padding-left: 1.5em;
   border-bottom: 2px dotted #cccccc;
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 16, ../sass/_action_box.scss */
+/* line 17, ../sass/_action_box.scss */
 #main .action_box .txt:hover {
   background-color: #e6e6e6;
 }
-/* line 19, ../sass/_action_box.scss */
+/* line 20, ../sass/_action_box.scss */
 #main .action_box .txt.content_hide {
-  background-position: bottom right;
+  background-position: left -62px;
   -o-border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-/* line 22, ../sass/_action_box.scss */
+/* line 24, ../sass/_action_box.scss */
 #main .action_box .txt.content_hide.last {
   border-bottom: none;
 }
-/* line 26, ../sass/_action_box.scss */
+/* line 28, ../sass/_action_box.scss */
 #main .action_box .txt.plus {
-  background: url("../images/icons/icon_box_show_plus.png") no-repeat bottom right #6ca932;
+  background: url("../images/icons/icon_box_show_plus.png") no-repeat bottom left #6ca932;
   overflow: hidden;
   -webkit-box-shadow: 2px 2px 5px #b3b3b3;
   -moz-box-shadow: 2px 2px 5px #b3b3b3;
@@ -759,45 +760,45 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 40, ../sass/_action_box.scss */
+/* line 42, ../sass/_action_box.scss */
 #main .action_box .txt.plus span {
   position: absolute;
   top: 40px;
 }
-/* line 44, ../sass/_action_box.scss */
+/* line 46, ../sass/_action_box.scss */
 #main .action_box .txt.plus.content_hide {
-  background: url("../images/icons/icon_box_show_plus.png") no-repeat top right #6ca932;
+  background: url("../images/icons/icon_box_show_plus.png") no-repeat top left #6ca932;
   top: 0;
   right: 0;
   -webkit-box-shadow: 0 0 0 black;
   -moz-box-shadow: 0 0 0 black;
   box-shadow: 0 0 0 black;
 }
-/* line 52, ../sass/_action_box.scss */
+/* line 54, ../sass/_action_box.scss */
 #main .action_box .collapsible {
   border-bottom: 2px dotted #cccccc;
   padding: 1em;
 }
-/* line 55, ../sass/_action_box.scss */
+/* line 57, ../sass/_action_box.scss */
 #main .action_box .collapsible.last {
   border-bottom: none;
 }
-/* line 59, ../sass/_action_box.scss */
+/* line 61, ../sass/_action_box.scss */
 #main .action_box .photo {
   float: left;
 }
-/* line 63, ../sass/_action_box.scss */
+/* line 65, ../sass/_action_box.scss */
 #main .action_box.data .photo {
   margin-top: 2em;
   float: left;
   width: 20%;
   position: relative;
 }
-/* line 68, ../sass/_action_box.scss */
+/* line 70, ../sass/_action_box.scss */
 #main .action_box.data .photo img {
   width: 100%;
 }
-/* line 71, ../sass/_action_box.scss */
+/* line 73, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable {
   position: absolute;
   top: -10px;
@@ -810,39 +811,39 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 4px;
   margin-top: 1em;
 }
-/* line 79, ../sass/_action_box.scss */
+/* line 81, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl {
   margin-top: 1em;
   padding: 1em;
   background: white;
   overflow: hidden;
 }
-/* line 84, ../sass/_action_box.scss */
+/* line 86, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl dt {
   font-weight: bold;
 }
-/* line 87, ../sass/_action_box.scss */
+/* line 89, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl dd {
   border-bottom: 1px solid #cccccc;
   padding: 0.5em 0;
   margin-bottom: .5em;
 }
-/* line 91, ../sass/_action_box.scss */
+/* line 93, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl dd:last-child {
   border: none;
 }
-/* line 98, ../sass/_action_box.scss */
+/* line 100, ../sass/_action_box.scss */
 #main .action_box.data .ul_data {
   margin-top: 2em;
   float: left;
   width: 78%;
 }
-/* line 102, ../sass/_action_box.scss */
+/* line 104, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul {
   overflow: hidden;
   margin-bottom: 2em;
 }
-/* line 105, ../sass/_action_box.scss */
+/* line 107, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li {
   margin-left: 4%;
   padding: 0.5em 0;
@@ -850,15 +851,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 46%;
   border-bottom: 1px solid #b3b3b3;
 }
-/* line 111, ../sass/_action_box.scss */
+/* line 113, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong {
   width: 46%;
   margin-right: 4%;
   float: left;
   display: block;
 }
-/* line 120, ../sass/_action_box.scss */
-#main .action_box.data .ul_data.edit > ul li {
+/* line 122, ../sass/_action_box.scss */
+#main .action_box.data .ul_data.editable > ul li {
   min-height: 3em;
 }
 
@@ -1404,8 +1405,12 @@ nav.sub_nav li.current span:after {
 .td .notification {
   display: block;
 }
+/* line 10, ../sass/_messages.scss */
+.notification strong {
+  color: #6ca932;
+}
 
-/* line 11, ../sass/_messages.scss */
+/* line 14, ../sass/_messages.scss */
 .alert {
   background: #fcedeb url("../images/icons/alert.png") no-repeat 1em;
   border: 2px dotted #f3b9b1;
@@ -1413,34 +1418,55 @@ nav.sub_nav li.current span:after {
   margin: 1em 0;
   min-height: 2em;
 }
-/* line 12, ../sass/_messages.scss */
+/* line 15, ../sass/_messages.scss */
 .td .alert {
   display: block;
 }
+/* line 23, ../sass/_messages.scss */
+.alert strong {
+  color: #e14f3c;
+}
 
-/* line 21, ../sass/_messages.scss */
+/* line 27, ../sass/_messages.scss */
 .message, .no_queries {
   background: #fbfad6 url("../images/icons/message.png") no-repeat 1em;
   border: 2px dotted #ccbf9e;
-  padding: 1em 2em 1em 2em;
   padding: 1em 2em 1em 6em;
 }
-/* line 22, ../sass/_messages.scss */
+/* line 28, ../sass/_messages.scss */
 .td .message, .td .no_queries {
   display: block;
 }
-
-/* line 30, ../sass/_messages.scss */
-.no_queries {
-  background: transparent;
-  border: none;
-  float: left;
-  padding: 0;
-  margin: 0;
-  font-size: 1.2em;
+/* line 34, ../sass/_messages.scss */
+.message strong, .no_queries strong {
+  color: #f4a725;
 }
 
-/* line 39, ../sass/_messages.scss */
+/* line 38, ../sass/_messages.scss */
+.no_queries {
+  background: transparent url("../images/icons/message_24.png") no-repeat 1em;
+  border: none;
+  position: absolute;
+  margin: 0 180px 0 0;
+  padding: 1em;
+  padding-left: 3em;
+  font-size: 1.2em;
+  right: 0;
+  top: 40px;
+  text-align: right;
+}
+/* line 50, ../sass/_messages.scss */
+.no_queries .flecha {
+  background: url("../images/general/flecha.png") no-repeat;
+  width: 200px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -80px;
+}
+
+/* line 60, ../sass/_messages.scss */
 .error {
   background: #e14f3c;
   border: 1px dotted white;
@@ -1449,11 +1475,11 @@ nav.sub_nav li.current span:after {
   margin: 1em 0;
   position: relative;
 }
-/* line 40, ../sass/_messages.scss */
+/* line 61, ../sass/_messages.scss */
 .td .error {
   display: block;
 }
-/* line 50, ../sass/_messages.scss */
+/* line 71, ../sass/_messages.scss */
 .error.top:after {
   content: "";
   position: absolute;
@@ -1465,7 +1491,7 @@ nav.sub_nav li.current span:after {
   display: block;
   width: 0;
 }
-/* line 63, ../sass/_messages.scss */
+/* line 84, ../sass/_messages.scss */
 .error.bottom:after {
   content: "";
   position: absolute;
@@ -2023,6 +2049,20 @@ strong {
 /* line 177, ../sass/_icons.scss */
 .update:hover, .btn.update:hover {
   background: url("../images/icons/icon_update.png") no-repeat top left white;
+}
+
+/* line 181, ../sass/_icons.scss */
+.edit {
+  display: inline;
+  width: 22px;
+  height: 22px;
+  background: url("../images/icons/icon_edit.png") no-repeat transparent;
+  overflow: hidden;
+  font-size: 20px;
+}
+/* line 188, ../sass/_icons.scss */
+.edit span {
+  visibility: hidden;
 }
 
 /* line 1, ../sass/_iframes.scss */

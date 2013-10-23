@@ -7,24 +7,26 @@
 	position: relative;
 	@include border-radius(4px);
 	.txt{
-		background:url("../images/icons/icon_box_show.png") no-repeat top right;
+		background:url("../images/icons/icon_box_show.png") no-repeat top left;
 		cursor: pointer;
 		margin: 0;
 		padding: 3px;
+		padding-left: 1.5em;
 		border-bottom: 2px dotted $colorK4;
 		@include border-radius(4px);
 		&:hover{
 			background-color:$colorK5;
 		}
 		&.content_hide{
-			background-position:bottom right;
+			background-position: left -62px;
+			
 			@include border-radius(0);
 			&.last{
 				border-bottom: none;
 			}
 		}
 		&.plus{
-			background:url("../images/icons/icon_box_show_plus.png") no-repeat bottom right $colorG;
+			background:url("../images/icons/icon_box_show_plus.png") no-repeat bottom left $colorG;
 			overflow: hidden;
 			@include shadow();
 			color: $colorW;
@@ -42,7 +44,7 @@
 				top: 40px;
 			}
 			&.content_hide{
-				background:url("../images/icons/icon_box_show_plus.png") no-repeat top right $colorG;
+				background:url("../images/icons/icon_box_show_plus.png") no-repeat top left $colorG;
 				top: 0;
 				right: 0;
 				@include shadow0();
@@ -116,7 +118,7 @@
 					}
 				}
 			}
-			&.edit{
+			&.editable{
 				&>ul li{
 					min-height: 3em;
 				}

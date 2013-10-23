@@ -53,7 +53,7 @@
 								<c:when test="${canEdit == true}">
 									<form:form method="post" action="terminals/update" commandName="terminal">
 										<form:hidden path="id"/>
-										<div class="ul_data edit">
+										<div class="ul_data editable">
 											<ul>
 												<li> <strong><form:label path="mac">
 															<spring:message code="label.terminal.mac"/>

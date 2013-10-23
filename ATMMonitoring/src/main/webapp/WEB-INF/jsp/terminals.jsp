@@ -38,22 +38,22 @@
                         </div -->
                         <div class="row">
                            <div class="message no_queries">
-                           	<p>Ahorra tiempo generardo consultas, que las irás aplicando a medida que las vayas
-necesitando.</p>
+                           	<p>Ahorra tiempo generardo consultas, que las irás aplicando a medida que las vayas necesitando.</p>
+							<div class="flecha"></div>
                            </div>
                             <a href="queries" class="btn right">Mis consultas</a>
                         </div>
                     </div>
                     <div class="message">
-						<p>Sabías que lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, hic, laboriosam ea eaque necessitatibus alias dolor saepe earum et ullam veritatis animi at dignissimos. Consequatur optio cupiditate distinctio quasi amet?</p>
+						<p>Sabías que lorem ipsum dolor sit amet, <strong>consectetur adipisicing</strong> elit. Voluptatum, hic, laboriosam ea eaque necessitatibus alias dolor saepe earum et ullam veritatis animi at dignissimos. Consequatur optio cupiditate distinctio quasi amet?</p>
 					</div>
                     <div class="notification">
-						<p>Los cajeros se han priorizado con éxito y sus datos se están actualizando. Esta operación puede llevar un tiempo dependiendo del n´mero de cajeros</p>
+						<p>Los cajeros <strong>se han priorizado con éxito</strong> y sus datos se están actualizando. Esta operación puede llevar un tiempo dependiendo del n´mero de cajeros</p>
 					</div>
 					<div class="alert">
-						<p>Se ha producido un error. Inténtelo más tarde.</p>
+						<p><strong>Se ha producido un error</strong>. Inténtelo más tarde.</p>
 					</div>
-					<h2>52.500 terminales</h2>
+					<h2>52.500 terminales <a href="#" class="edit"><span>edit</span></a></h2>
 					<div class="table_buttons">
                     <div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>

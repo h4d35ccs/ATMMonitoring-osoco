@@ -814,11 +814,11 @@
 		<div class="empty-list"><spring:message code="label.query.noResults"/></div>
 		</c:if>
 		<c:if  test="${!empty pagedListHolder.pageList}">
-		<h2>8.000 Resultados</h2>
+		<h2>8.000 Resultados <a href="#" class="edit"><span>edit</span></a></h2>
 		<div class="table_buttons">
 			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
 				<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
-				<a href="#" class="btn left update">Actualizazión Instantanea</a>
+				<a href="#" class="btn left update">Actualizar</a>
 				<a href="#" class="btn left clock">Actualización planificada</a>
 				<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 			</div> 
@@ -915,7 +915,7 @@
 
 				<div class="botonera">
 					<label for="all_check"><input type="checkbox" class="all_check"  name="all_check"/> Marcar todos</label>
-					<a href="#" class="btn left update">Actualizazión Instantanea</a>
+					<a href="#" class="btn left update">Actualizar</a>
 					<a href="#" class="btn left clock">Actualización planificada</a>
 					<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 				</div> 
