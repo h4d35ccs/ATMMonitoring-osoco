@@ -606,6 +606,7 @@
 <div class="botonera">
 	<a href="" class="btn save iframe_s">Guardar consulta</a>
 	<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
+	<input type="reset" class="delete right" value="Eliminar" />
 	<input type="reset" class="cancel right" value="Cancelar" />
 </div>
 </div>
