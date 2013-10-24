@@ -162,7 +162,6 @@ public class TerminalController {
 	    }
 	}
 	pagedListHolder.setPage(page);
-        pagedListHolder.setMaxLinkedPages(3); // TODO remove
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
 

@@ -19,14 +19,15 @@
 								<a href="terminals">Terminales</a>
 							</li>
 							<li><a href="queries/list">Mis consultas</a></li>
-							<li>Nueva consulta</li>
+							<li>Consulta: ${query.name}</li>
 						</ul>
 					</nav>
 				</div>
 
 				<div class="content">
 					<h1>
-						Nueva Consulta
+
+						Consulta:  ${query.name}
 					</h1>
 					<div class="action_box desplegable">
 							
@@ -43,8 +44,7 @@
 										</c:forEach>
 									</form:select>
 								
-									<input type="submit" class="form-submit" name="delete" id="delete" 
-		    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
+									
 							
 						</form:form>
 						
@@ -211,7 +211,7 @@
 						</tr>
 						<c:forEach var="i" begin="1" end="5" varStatus="status">
 							<tr id="financialDeviceRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
-							>
+							
 							<td>
 								<form:select path="financialDeviceCombo${i}1" id="financialDeviceCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('financialDevice', ${i})">
 									<form:option value="" label=""/>
@@ -617,9 +617,15 @@
 </div> -->
 
 <div class="botonera">
+
 <a href="" class="btn save iframe_s">Guardar consulta</a>
 <input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
+<input type="submit" class="cancel right" name="delete" id="delete" 
+		    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
+
+
 <input type="reset" class="cancel right" value="Cancelar" />
+<input type="submit" class="form-submit" name="save_execute" id="save_execute" value="<spring:message code="label.query.saveExecute"/>"/>
 </form:form>
 </div>
 </div>

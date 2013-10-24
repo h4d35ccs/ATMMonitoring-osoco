@@ -58,7 +58,6 @@ public class QueryController {
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
-	    userQueries = loggedUser.getQueries();
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
 
@@ -69,15 +68,83 @@ public class QueryController {
 	    datePattern = datePattern.replace("d", "dd");
 	}
 
+
 	map.put("userMsg", userMsg);
 	map.put("query", new Query());
-	map.put("userQueries", userQueries);
-	map.put("datePattern", datePattern);
+	map.put("values", Query.getComboboxes());
+
+	return "newQuery";
+
+    }
+
+
+
+    @RequestMapping(value = "/queries/show", method = RequestMethod.GET)
+    public String showUserQuery(Integer queryId,
+	    Map<String, Object> map, HttpServletRequest request,
+	    Principal principal) {
+	
+	String userMsg = "";
+        Query query = null;
+	Locale locale = RequestContextUtils.getLocale(request);
+
+	if (queryId != null) {
+	    query = queryService.getQuery(queryId);
+	}
+
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	}
+
+	
+	map.put("userMsg", userMsg);
+	map.put("query", query);
 	map.put("values", Query.getComboboxes());
 
 	return "queries";
 
     }
+
+ @RequestMapping(value = "/queries/delete", method = RequestMethod.GET)
+    public String deleteUserQuery(Integer queryId,
+	    Map<String, Object> map, HttpServletRequest request,
+	    Principal principal) {
+	
+	String userMsg = "";
+        Query query = null;
+        Set<Query> userQueries = null;
+	Locale locale = RequestContextUtils.getLocale(request);
+
+	if (queryId != null) {
+	    query = queryService.getQuery(queryId);
+	    if (query != null) {
+		queryService.deleteQuery(query);
+            }
+	}
+
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+            userQueries = loggedUser.getQueries();
+	}
+
+	PagedListHolder<Query> pagedListHolder = 
+	    new PagedListHolder<Query>( new ArrayList(userQueries));
+	int page = 0;
+
+	pagedListHolder.setPage(page);
+	pagedListHolder.setPageSize(pageSize);
+	map.put("pagedListHolder", pagedListHolder);
+       
+        map.put("userMsg", userMsg);
+	return "queryList";
+
+    }
+
+
 
     @RequestMapping(value = "/queries/create", method = RequestMethod.POST)
     public String selectUserQuery(@ModelAttribute("query") Query query,
@@ -153,7 +220,6 @@ public class QueryController {
 	    }
 	}
 	pagedListHolder.setPage(page);
-        pagedListHolder.setMaxLinkedPages(3); // TODO remove
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
        

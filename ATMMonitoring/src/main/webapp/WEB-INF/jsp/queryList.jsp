@@ -36,13 +36,13 @@
 
 			 <c:forEach items="${pagedListHolder.pageList}" var="query">
 
-			     <tr>
-                    		<td class="editable w33">
-                    			<div class="relative">
-								<div class="icons_action">
-									<a href="#" class="delete"><span>Eliminar</span></a>
-								</div>
-                    			${query.name}M</div></td>
+
+			 <tr>
+				<td class="editable w33">
+                    		    <div class="relative">
+				        <div class="icons_action"><a href="queries/delete?queryId=${query.id}" class="delete" onclick="return confirm('¿Estás seguro que quieres borrar la consulta?')"><span>Eliminar</span></a></div>
+                    			<a href="queries/show?queryId=${query.id}">${query.name}</a></div></td>
+
                     		<td class="nowrap">TODO:21-10-2013</td>
                     		<td>TODO:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
               

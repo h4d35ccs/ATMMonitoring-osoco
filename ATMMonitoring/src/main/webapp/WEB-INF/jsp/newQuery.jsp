@@ -16,43 +16,19 @@
 								<a href="#">inicio</a>
 							</li>
 							<li><a href="terminals">Terminales</a></li>
-							<li><a href="queries/create">Mis consultas</a></li>
-							<li>Nueva consulta</li>
+							<li><a href="queries">Mis consultas</a></li>
+							<li>Nueva Consulta</li>
 						</ul>
 					</nav>
 				</div>
 
 				<div class="content">
+	<h1><spring:message code="label.query.new"/></h1>
 	<!-- Pegado de querie.jsp -->
 	<div class="action_box desplegable">
-					<a href="" class="btn save iframe_s txt_btn">Guardar consulta</a>
-					<h1 class="txt last content_hide">
-						Editar consulta
-					</h1>
-						
-					<div class="collapsible last hide">
+					<div class="collapsible last">
 							<div class="row td">
-								<form:form method="post" name="userQueriesForm" action="queries/create" commandName="query">
-															
-									<label class="plain-label">
-										<spring:message code="label.query.userQueries"/>
-									</label>
-									<form:select path="id" id="id" size="1" onchange="userQuerySelected()">
-										<form:option value="" label=""/>
-										<c:forEach items="${userQueries}" var="userQuery">
-											<form:option value="${userQuery.id}" label="${userQuery.name}"/>
-										</c:forEach>
-									</form:select>
-								
-									<input type="submit" class="form-submit" name="delete" id="delete" 
-		    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
 							
-						</form:form>
-						
-							<label>
-								<spring:message code="label.query.dateFormatNote"/>
-								'${datePattern}'
-							</label></div>
 						
 					<form:form method="post" target="_blank" action="queries/results" commandName="query">
 
@@ -603,17 +579,22 @@
 </c:forEach>
 </table>
 </div>
-<div class="botonera">
-	<a href="" class="btn save iframe_s">Guardar consulta</a>
-	<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
-	<input type="reset" class="delete right" value="Eliminar" />
-	<input type="reset" class="cancel right" value="Cancelar" />
-</div>
 </div>
 
 </form:form>
 
-
+<div class="botonera">
+<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
+<input type="reset" class="cancel right" value="Cancelar" />
+</div>
+</div>
+<div class="action_box row td">
+	<h2>Guardar la consulta</h2>
+	<label for="query_name"><spring:message code="label.query.queryName"/>:
+	<input type="text" id="query_name"/></label>
+	<label for="query_description">Descripción:
+	<input type="text" id="query_description"/></label>
+	<a href="#" class="btn label">Guardar Consulta</a>
 </div>
 <script type="text/javascript">
 	    $(document).ready(function(){
@@ -863,7 +844,7 @@
 					<form:hidden path="internetExplorerCombo${i}2"/>
 					<form:hidden path="internetExplorerField${i}"/>
 				</c:forEach>
-			
+			<t:pagingForm pagedListHolder="${pagedListHolder}" pagedLink="queries/results?p=~" formId="pagingForm"/>
 			</form:form>
 			</div>
 			<form:form id="exportForm" method="post" action="queries/results/export" commandName="query" target="_blank">
@@ -916,12 +897,21 @@
 					<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 				</div> 
 		   </div><!-- /table_buttons -->
-
-			<div class="pagination"> 
-                <div class="t_number"><span class="text">${pagedListHolder.pageList.size()} Terminales</span></div>
-                <div class="p_number"><span class="text">Página</span><t:pagingForm pagedListHolder="${pagedListHolder}" pagedLink="queries/results?p=~" formId="pagingForm"/></div>
-            </div>
-
+				<div class="pagination">
+                        <div>${pagedListHolder.pageList.size()} Terminales | Página</div>
+                        <ul>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">...</a></li>
+                        </ul>
+                    </div>
 			</form:form>
 		</c:if>
 	</div>
