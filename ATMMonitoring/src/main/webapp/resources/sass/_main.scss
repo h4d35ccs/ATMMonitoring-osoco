@@ -61,24 +61,42 @@ p{
 	}
 }
 .pagination{
+	@extend .action_box;
 	overflow: hidden;
-	margin: 2em;
-	div{
+	margin: 2em 0;
+	.t_number{
 		float: left;
-		margin-right: 1em;
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+	.p_number{
+		float: right;
 	}
 	span{
 		float: left;
 		margin-right: .2em;
+		&.text{
+			padding: .3em .5em;
+		}
+		&.pagingItemCurrent{
+			@include border-radius(4px);
+			padding: .3em .5em;
+			background-color: $colorK1;
+			text-decoration: none;
+			color: $colorW;
+		 }
 		a{
+			padding: .3em .5em;
 			display: block;
-			padding: 0 .5em;
+			border: 1px solid $colorK4;
+			@include border-radius(4px);
 			&:hover{
-				background-color: $colorK1;
+				background-color: $colorG;
 				text-decoration: none;
 				color: $colorW;
 			}
 		}
+
 	}
 }
 strong{

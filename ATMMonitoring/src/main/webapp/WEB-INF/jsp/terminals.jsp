@@ -85,8 +85,8 @@
 					</div><!-- /table_buttons -->
                    
                     <div class="pagination"> 
- 						<div class="t_number">${pagedListHolder.source.size()} Terminales</div>
-                    	<div class="p_number">Página <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/list?p=~"/></div>
+ 						<div class="t_number"><span class="text">${pagedListHolder.source.size()} Terminales</span></div>
+                    	<div class="p_number"><span class="text">Página</span><t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/list?p=~"/></div>
                       </div>
                    
                 </div>

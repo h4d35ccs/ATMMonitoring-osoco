@@ -36,7 +36,7 @@
 
 			 <c:forEach items="${pagedListHolder.pageList}" var="query">
 
-			 <tr>
+			     <tr>
                     		<td class="editable w33">
                     			<div class="relative">
 								<div class="icons_action">
@@ -46,17 +46,14 @@
                     		<td class="nowrap">TODO:21-10-2013</td>
                     		<td>TODO:Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
               
-                        </tr>
-                                </c:forEach>
-                    	
-              
-                    	
+                </tr>
+            </c:forEach>
                     </table>
                 </div>
-                <div>${pagedListHolder.source.size()} Consultas</div>
-                    <div class="pagination"> Página
-                        <t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/list?p=~"/>
-                      </div>
+                <div class="pagination"> 
+                    <div class="t_number"><span class="text">${pagedListHolder.source.size()} Consultas</span></div>
+                    <div class="p_number"><span class="text">Página</span><t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/list?p=~"/></div>
+                </div>
             </article>
         </div>
     </div>

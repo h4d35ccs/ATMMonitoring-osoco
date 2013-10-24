@@ -862,7 +862,7 @@
 					<form:hidden path="internetExplorerCombo${i}2"/>
 					<form:hidden path="internetExplorerField${i}"/>
 				</c:forEach>
-			<t:pagingForm pagedListHolder="${pagedListHolder}" pagedLink="queries/results?p=~" formId="pagingForm"/>
+			
 			</form:form>
 			</div>
 			<form:form id="exportForm" method="post" action="queries/results/export" commandName="query" target="_blank">
@@ -915,21 +915,12 @@
 					<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 				</div> 
 		   </div><!-- /table_buttons -->
-				<div class="pagination">
-                        <div>${pagedListHolder.pageList.size()} Terminales | Página</div>
-                        <ul>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">...</a></li>
-                        </ul>
-                    </div>
+
+			<div class="pagination"> 
+                <div class="t_number"><span class="text">${pagedListHolder.pageList.size()} Terminales</span></div>
+                <div class="p_number"><span class="text">Página</span><t:pagingForm pagedListHolder="${pagedListHolder}" pagedLink="queries/results?p=~" formId="pagingForm"/></div>
+            </div>
+
 			</form:form>
 		</c:if>
 	</div>
