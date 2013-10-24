@@ -100,58 +100,6 @@ table{
 	div{
 		position: relative;
 	}
-	// show detail
-	tr.showdetail.open{
-		background:$colorK3;
-		border:1px solid $colorK3;
-		td{
-			border:1px solid $colorK3;
-		}
-		&:hover{
-			background:$colorK3;
-			color: $colorK1;
-		}
-	}
-	tr.detail{
-		background:$colorK3;
-		td{
-			border:1px solid $colorK3;
-		}
-		ul{
-			padding: 1%;
-			background:$colorW;
-			overflow: hidden;
-			li{
-				float: left;
-				width: 32%;
-				margin-right: 1%;
-				padding: .5em 0;
-				border-bottom: 1px solid $colorK3;
-				strong{
-					width: 30%;
-					display: block;
-					float: left;
-					text-align: right;
-					margin-right: 1em;
-				}
-			}
-			&:after {
-		    content: "";
-		    position: absolute;
-		    top: -20px;
-		    left: 45px;
-		    border-width: 0 15px 25px;
-		    border-style: solid;
-		    border-color: $colorW transparent;
-		    display: block;
-		    width: 0;
-		  }
-		}
-		&:hover{
-			background:$colorK3;
-			color:inherit;
-		}
-	}
 	&.query-form{
 		border:1px solid $colorW;
 		margin-bottom: 2em;
@@ -204,11 +152,49 @@ table{
 		tr{
 			cursor: pointer;
 			&:hover{
-				background:$colorK4;
-				color: $colorW;
+				background:$colorG5;
+				color: $colorG;
 			}
-			&:hover	td{
-				border-color: $colorW;
+		}
+		// show detail
+		tr.showdetail.open, tr.showdetail.open:hover{
+			background:$colorG4;
+			color: $colorW;
+		}
+		tr.detail, tr.detail:hover{
+			background:$colorG4;
+			color: $colorK;
+			ul{
+				padding: 1%;
+				background:$colorW;
+				@include shadow();
+				overflow: hidden;
+				cursor: inherit;
+				li{
+					float: left;
+					width: 32%;
+					margin-right: 1%;
+					padding: .5em 0;
+					border-bottom: 1px solid $colorK3;
+					strong{
+						width: 30%;
+						display: block;
+						float: left;
+						text-align: right;
+						margin-right: 1em;
+					}
+				}
+				&:after {
+			    content: "";
+			    position: absolute;
+			    top: -20px;
+			    left: 45px;
+			    border-width: 0 15px 25px;
+			    border-style: solid;
+			    border-color: $colorW transparent;
+			    display: block;
+			    width: 0;
+			  }
 			}
 		}
 	}

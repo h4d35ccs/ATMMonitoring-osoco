@@ -243,9 +243,9 @@ input:disabled:hover {
   background: white;
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid #e6e6e6;
-  -webkit-box-shadow: 2px 2px 5px #b3b3b3;
-  -moz-box-shadow: 2px 2px 5px #b3b3b3;
-  box-shadow: 2px 2px 5px #b3b3b3;
+  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
+  -moz-box-shadow: 0px 0px 8px #b3b3b3;
+  box-shadow: 0px 0px 8px #b3b3b3;
   position: absolute;
   top: 5px;
   right: 5px;
@@ -301,9 +301,9 @@ input:disabled:hover {
   padding: 0.5em 1em;
   border-bottom: 1px solid #cccccc;
   background: #6ca932;
-  -webkit-box-shadow: 2px 2px 5px #b3b3b3;
-  -moz-box-shadow: 2px 2px 5px #b3b3b3;
-  box-shadow: 2px 2px 5px #b3b3b3;
+  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
+  -moz-box-shadow: 0px 0px 8px #b3b3b3;
+  box-shadow: 0px 0px 8px #b3b3b3;
 }
 /* line 52, ../sass/_icons.scss */
 .icons_menu ul a:hover {
@@ -677,9 +677,9 @@ table th.note_detail div, table td.note_detail div {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  -webkit-box-shadow: 2px 2px 5px #b3b3b3;
-  -moz-box-shadow: 2px 2px 5px #b3b3b3;
-  box-shadow: 2px 2px 5px #b3b3b3;
+  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
+  -moz-box-shadow: 0px 0px 8px #b3b3b3;
+  box-shadow: 0px 0px 8px #b3b3b3;
 }
 /* line 65, ../sass/_table.scss */
 table th.note_detail div:after, table td.note_detail div:after {
@@ -722,52 +722,113 @@ table tr.active {
 table div {
   position: relative;
 }
-/* line 104, ../sass/_table.scss */
-table tr.showdetail.open {
-  background: #b3b3b3;
-  border: 1px solid #b3b3b3;
+/* line 103, ../sass/_table.scss */
+table.query-form {
+  border: 1px solid white;
+  margin-bottom: 2em;
 }
-/* line 107, ../sass/_table.scss */
-table tr.showdetail.open td {
-  border: 1px solid #b3b3b3;
+/* line 106, ../sass/_table.scss */
+table.query-form tr {
+  border: 1px solid white;
+  border-bottom: 2px dotted #e6e6e6;
+  background: white;
 }
 /* line 110, ../sass/_table.scss */
-table tr.showdetail.open:hover {
-  background: #b3b3b3;
-  color: #333333;
+table.query-form tr:hover {
+  cursor: inherit;
+  border: 1px solid white;
+  border-bottom: 2px dotted #e6e6e6;
 }
 /* line 115, ../sass/_table.scss */
-table tr.detail {
-  background: #b3b3b3;
+table.query-form tr:nth-child(2n+1) {
+  background: white;
 }
-/* line 117, ../sass/_table.scss */
-table tr.detail td {
-  border: 1px solid #b3b3b3;
+/* line 119, ../sass/_table.scss */
+table.query-form td:first-child {
+  width: 30%;
 }
-/* line 120, ../sass/_table.scss */
-table tr.detail ul {
+/* line 122, ../sass/_table.scss */
+table.query-form td:nth-child(2) {
+  width: 3em;
+}
+/* line 125, ../sass/_table.scss */
+table.query-form th {
+  border: 1px solid white;
+  border-bottom: 2px solid #e6e6e6;
+  color: #6ca932;
+  background: #f0f6ea;
+}
+/* line 130, ../sass/_table.scss */
+table.query-form th:hover {
+  cursor: inherit;
+  border: 1px solid white;
+  border-bottom: 2px solid #e6e6e6;
+}
+/* line 136, ../sass/_table.scss */
+table.query-form td {
+  background: white;
+  border: 1px solid white;
+}
+/* line 139, ../sass/_table.scss */
+table.query-form td:hover {
+  background: white;
+  border: 1px solid white;
+}
+/* line 143, ../sass/_table.scss */
+table.query-form td.btn_add {
+  border: 1px solid white;
+}
+/* line 146, ../sass/_table.scss */
+table.query-form td.btn_add .btn {
+  float: right;
+}
+/* line 152, ../sass/_table.scss */
+table.link tr {
+  cursor: pointer;
+}
+/* line 154, ../sass/_table.scss */
+table.link tr:hover {
+  background: #f0f6ea;
+  color: #6ca932;
+}
+/* line 160, ../sass/_table.scss */
+table.link tr.showdetail.open, table.link tr.showdetail.open:hover {
+  background: #89ba5b;
+  color: white;
+}
+/* line 164, ../sass/_table.scss */
+table.link tr.detail, table.link tr.detail:hover {
+  background: #89ba5b;
+  color: black;
+}
+/* line 167, ../sass/_table.scss */
+table.link tr.detail ul, table.link tr.detail:hover ul {
   padding: 1%;
   background: white;
+  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
+  -moz-box-shadow: 0px 0px 8px #b3b3b3;
+  box-shadow: 0px 0px 8px #b3b3b3;
   overflow: hidden;
+  cursor: inherit;
 }
-/* line 124, ../sass/_table.scss */
-table tr.detail ul li {
+/* line 173, ../sass/_table.scss */
+table.link tr.detail ul li, table.link tr.detail:hover ul li {
   float: left;
   width: 32%;
   margin-right: 1%;
   padding: 0.5em 0;
   border-bottom: 1px solid #b3b3b3;
 }
-/* line 130, ../sass/_table.scss */
-table tr.detail ul li strong {
+/* line 179, ../sass/_table.scss */
+table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   width: 30%;
   display: block;
   float: left;
   text-align: right;
   margin-right: 1em;
 }
-/* line 138, ../sass/_table.scss */
-table tr.detail ul:after {
+/* line 187, ../sass/_table.scss */
+table.link tr.detail ul:after, table.link tr.detail:hover ul:after {
   content: "";
   position: absolute;
   top: -20px;
@@ -777,84 +838,6 @@ table tr.detail ul:after {
   border-color: white transparent;
   display: block;
   width: 0;
-}
-/* line 150, ../sass/_table.scss */
-table tr.detail:hover {
-  background: #b3b3b3;
-  color: inherit;
-}
-/* line 155, ../sass/_table.scss */
-table.query-form {
-  border: 1px solid white;
-  margin-bottom: 2em;
-}
-/* line 158, ../sass/_table.scss */
-table.query-form tr {
-  border: 1px solid white;
-  border-bottom: 2px dotted #e6e6e6;
-  background: white;
-}
-/* line 162, ../sass/_table.scss */
-table.query-form tr:hover {
-  cursor: inherit;
-  border: 1px solid white;
-  border-bottom: 2px dotted #e6e6e6;
-}
-/* line 167, ../sass/_table.scss */
-table.query-form tr:nth-child(2n+1) {
-  background: white;
-}
-/* line 171, ../sass/_table.scss */
-table.query-form td:first-child {
-  width: 30%;
-}
-/* line 174, ../sass/_table.scss */
-table.query-form td:nth-child(2) {
-  width: 3em;
-}
-/* line 177, ../sass/_table.scss */
-table.query-form th {
-  border: 1px solid white;
-  border-bottom: 2px solid #e6e6e6;
-  color: #6ca932;
-  background: #f0f6ea;
-}
-/* line 182, ../sass/_table.scss */
-table.query-form th:hover {
-  cursor: inherit;
-  border: 1px solid white;
-  border-bottom: 2px solid #e6e6e6;
-}
-/* line 188, ../sass/_table.scss */
-table.query-form td {
-  background: white;
-  border: 1px solid white;
-}
-/* line 191, ../sass/_table.scss */
-table.query-form td:hover {
-  background: white;
-  border: 1px solid white;
-}
-/* line 195, ../sass/_table.scss */
-table.query-form td.btn_add {
-  border: 1px solid white;
-}
-/* line 198, ../sass/_table.scss */
-table.query-form td.btn_add .btn {
-  float: right;
-}
-/* line 204, ../sass/_table.scss */
-table.link tr {
-  cursor: pointer;
-}
-/* line 206, ../sass/_table.scss */
-table.link tr:hover {
-  background: #cccccc;
-  color: white;
-}
-/* line 210, ../sass/_table.scss */
-table.link tr:hover td {
-  border-color: white;
 }
 
 /* line 9, ../sass/colorbox.scss */

@@ -31,35 +31,13 @@
 					</h1>
 						
 					<div class="collapsible last hide">
-							<div class="row td">
-								<form:form method="post" name="userQueriesForm" action="queries/create" commandName="query">
-															
-									<label class="plain-label">
-										<spring:message code="label.query.userQueries"/>
-									</label>
-									<form:select path="id" id="id" size="1" onchange="userQuerySelected()">
-										<form:option value="" label=""/>
-										<c:forEach items="${userQueries}" var="userQuery">
-											<form:option value="${userQuery.id}" label="${userQuery.name}"/>
-										</c:forEach>
-									</form:select>
-								
-									<input type="submit" class="form-submit" name="delete" id="delete" 
-		    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
-							
-						</form:form>
-						
-							<label>
-								<spring:message code="label.query.dateFormatNote"/>
-								'${datePattern}'
-							</label></div>
 						
 					<form:form method="post" target="_blank" action="queries/results" commandName="query">
 
 						<h2 class="txt content_hide" id="terminalSection">
 							<spring:message code="label.query.terminalSection"/>
 						</h2>
-						<div class="collapsible hide">
+						<div class="collapsible">
 							<table class="query-form">
 								<tr>
 									<th>

@@ -26,35 +26,29 @@
 	<h1><spring:message code="label.query.new"/></h1>
 	<!-- Pegado de querie.jsp -->
 	<div class="action_box desplegable">
-					<div class="collapsible last">
-							<div class="row td">
-							
-						
-					<form:form method="post" target="_blank" action="queries/results" commandName="query">
-
-						<h2 class="txt content_hide" id="terminalSection">
-							<spring:message code="label.query.terminalSection"/>
-						</h2>
-						<div class="collapsible hide">
-							<table class="query-form">
-								<tr>
-									<th>
-										<spring:message code="label.query.field"/>
-									</th>
-									<th>
-										<spring:message code="label.query.not"/>
-									</th>
-									<th>
-										<spring:message code="label.query.comparison"/>
-									</th>
-									<th>
-										<spring:message code="label.query.value"/>
-									</th>
-									<th></th>
-								</tr>
-								<c:forEach var="i" begin="1" end="5" varStatus="status">
-									<tr id="terminalRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
-									>
+			<form:form method="post" target="_blank" action="queries/results" commandName="query">
+				<h2 class="txt" id="terminalSection">
+					<spring:message code="label.query.terminalSection"/>
+				</h2>
+					<div class="collapsible">
+						<table class="query-form">
+							<tr>
+								<th>
+									<spring:message code="label.query.field"/>
+								</th>
+								<th>
+									<spring:message code="label.query.not"/>
+								</th>
+								<th>
+									<spring:message code="label.query.comparison"/>
+								</th>
+								<th>
+									<spring:message code="label.query.value"/>
+								</th>
+								<th></th>
+							</tr>
+							<c:forEach var="i" begin="1" end="5" varStatus="status">
+								<tr id="terminalRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>>
 									<td>
 										<form:select path="terminalCombo${i}1" id="terminalCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('terminal',${i})">
 											<form:option value="" label=""/>
@@ -75,216 +69,312 @@
 									</td>
 									<td>
 										<form:input class='form-tf-grey' path="terminalField${i}" id="terminalField${i}" disabled="true" maxlength="150"/>
-										<br></td>
+										</td>
 									<c:if test="${!status.last}">
 										<td class="btn_add">
 											<div id="terminalShowButton${i}" onclick="showHiddenRow('terminal', ${i})" class="btn add">Añadir</div>
 										</td>
 									</c:if>
+									<c:if test="${status.last}">
+										<td> </td>
+									</c:if>
 								</tr>
 							</c:forEach>
 						</table>
-					</div>
-					<h2 class="txt content_hide" id="hwSection">
-						<spring:message code="label.query.hardwareSection"/>
-						<span></span>
-					</h2>
-					<div class="collapsible hide">
+					</div><!-- /collapsible -->
+				<h2 class="txt" id="hwSection">
+					<spring:message code="label.query.hardwareSection"/>
+					<span></span>
+				</h2>
+					<div class="collapsible">
 						<h3>
 							<spring:message code="label.query.hardwareDeviceSection"/>
 						</h3>
 						<table class="query-form">
 							<tr>
 								<th>
-
 									<spring:message code="label.query.deviceType"/>
-
 								</th>
 								<th>
-
 									<spring:message code="label.query.field"/>
-
 								</th>
 								<th>
-
 									<spring:message code="label.query.not"/>
-
 								</th>
 								<th>
-
 									<spring:message code="label.query.comparison"/>
-
 								</th>
 								<th>
-
 									<spring:message code="label.query.value"/>
-
 								</th>
 								<th></th>
 							</tr>
 							<c:forEach var="i" begin="1" end="5" varStatus="status">
-								<tr id="hardwareDeviceRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
-								>
-								<td>
-									<form:select path="hardwareDeviceCombo${i}1" id="hardwareDeviceCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue3CB1('hardwareDevice', ${i})">
-										<form:option value="" label=""/>
-										<c:forEach items="${values.get('hardwareDevice').keySet()}" var="value">
-											<form:option value="${value}">
-												<spring:message code="label.hardwareDevice.${value}"/>
-											</form:option>
-										</c:forEach>
-									</form:select>
-								</td>
-								<td>
-									<form:select path="hardwareDeviceCombo${i}2" id="hardwareDeviceCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue3CB2('hardwareDevice', ${i})">
-										<form:option value="" label=""/>
-									</form:select>
-								</td>
-								<td>
-									<form:checkbox path="hardwareDeviceCB${i}" id="hardwareDeviceCB${i}" disabled="true"/>
-								</td>
-								<td>
-									<form:select path="hardwareDeviceCombo${i}3" id="hardwareDeviceCombo${i}3" class="query_selectors" size="1" disabled="true" onchange="ChangeValue3CB3('hardwareDevice', ${i})">
-										<form:option value="" label=""/>
-									</form:select>
-								</td>
-								<td>
-									<form:input class='form-tf-grey' path="hardwareDeviceField${i}" id="hardwareDeviceField${i}" disabled="true" maxlength="150"/>
-									<br></td>
-								<c:if test="${!status.last}">
-									<td class="btn_add">
-										<div id="hardwareDeviceShowButton${i}" onclick="showHiddenRow('hardwareDevice', ${i})" class="btn add">Añadir</div>
+								<tr id="hardwareDeviceRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>>
+									<td>
+										<form:select path="hardwareDeviceCombo${i}1" id="hardwareDeviceCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue3CB1('hardwareDevice', ${i})">
+											<form:option value="" label=""/>
+											<c:forEach items="${values.get('hardwareDevice').keySet()}" var="value">
+												<form:option value="${value}">
+													<spring:message code="label.hardwareDevice.${value}"/>
+												</form:option>
+											</c:forEach>
+										</form:select>
 									</td>
-								</c:if>
+									<td>
+										<form:select path="hardwareDeviceCombo${i}2" id="hardwareDeviceCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue3CB2('hardwareDevice', ${i})">
+											<form:option value="" label=""/>
+										</form:select>
+									</td>
+									<td>
+										<form:checkbox path="hardwareDeviceCB${i}" id="hardwareDeviceCB${i}" disabled="true"/>
+									</td>
+									<td>
+										<form:select path="hardwareDeviceCombo${i}3" id="hardwareDeviceCombo${i}3" class="query_selectors" size="1" disabled="true" onchange="ChangeValue3CB3('hardwareDevice', ${i})">
+											<form:option value="" label=""/>
+										</form:select>
+									</td>
+									<td>
+										<form:input class='form-tf-grey' path="hardwareDeviceField${i}" id="hardwareDeviceField${i}" disabled="true" maxlength="150"/>
+										</td>
+									<c:if test="${!status.last}">
+										<td class="btn_add">
+											<div id="hardwareDeviceShowButton${i}" onclick="showHiddenRow('hardwareDevice', ${i})" class="btn add">Añadir</div>
+										</td>
+									</c:if>
+									<c:if test="${status.last}">
+										<td> </td>
+									</c:if>
+								</tr>
+							</c:forEach>
+						</table>
+						<h3>
+							<spring:message code="label.query.financialDeviceSection"/>
+						</h3>
+						<table class="query-form">
+							<tr>
+								<th>
+									<spring:message code="label.query.field"/>
+								</th>
+								<th>
+									<spring:message code="label.query.not"/>
+								</th>
+								<th>
+									<spring:message code="label.query.comparison"/>
+								</th>
+								<th>
+									<spring:message code="label.query.value"/>
+								</th>
+								<th></th>
 							</tr>
-						</c:forEach>
-					</table>
-					<h3>
-						<spring:message code="label.query.financialDeviceSection"/>
-					</h3>
-					<table class="query-form">
-						<tr>
-							<th>
+							<c:forEach var="i" begin="1" end="5" varStatus="status">
+								<tr id="financialDeviceRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>>
+									<td>
+										<form:select path="financialDeviceCombo${i}1" id="financialDeviceCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('financialDevice', ${i})">
+											<form:option value="" label=""/>
+											<c:forEach items="${values.get('financialDevice').keySet()}" var="value">
+												<form:option value="${value}">
+													<spring:message code="label.financialDevice.${value}"/>
+												</form:option>
+											</c:forEach>
+										</form:select>
+									</td>
+									<td>
+										<form:checkbox path="financialDeviceCB${i}" id="financialDeviceCB${i}" disabled="true"/>
+									</td>
+									<td>
+										<form:select path="financialDeviceCombo${i}2" id="financialDeviceCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('financialDevice', ${i})">
+											<form:option value="" label=""/>
+										</form:select>
+									</td>
+									<td>
+										<form:input class='form-tf-grey' path="financialDeviceField${i}" id="financialDeviceField${i}" disabled="true" maxlength="150"/>
+										</td>
+									<c:if test="${!status.last}">
+										<td class="btn_add">
+											<div id="financialDeviceShowButton${i}" onclick="showHiddenRow('financialDevice', ${i})" class="btn add">Añadir</div>
+										</td>
+									</c:if>
+									<c:if test="${status.last}">
+										<td> </td>
+									</c:if>
+								</tr>
+							</c:forEach>
+						</table>
+					</div><!-- /collapsible -->
+				<h2 class="txt" id="swSection">
+					<spring:message code="label.query.softwareGlobalSection"/>
+				</h2>
+					<div class="collapsible">
+						<h3>
+							<spring:message code="label.query.operatingSystemSection"/>
+						</h3>
+						<table class="query-form">
+							<tr>
+								<th>
+									<spring:message code="label.query.field"/>
+								</th>
+								<th>
+									<spring:message code="label.query.not"/>
+								</th>
+								<th>
+									<spring:message code="label.query.comparison"/>
+								</th>
+								<th>
+									<spring:message code="label.query.value"/>
+								</th>
+								<th></th>
+							</tr>
+							<c:forEach var="i" begin="1" end="5" varStatus="status">
+								<tr id="operatingSystemRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>>
+									<td>
+										<form:select path="operatingSystemCombo${i}1" id="operatingSystemCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('operatingSystem', ${i})">
+											<form:option value="" label=""/>
+											<c:forEach items="${values.get('operatingSystem').keySet()}" var="value">
+												<form:option value="${value}">
+													<spring:message code="label.operatingSystem.${value}"/>
+												</form:option>
+											</c:forEach>
+										</form:select>
+									</td>
+									<td>
+										<form:checkbox path="operatingSystemCB${i}" id="operatingSystemCB${i}" disabled="true"/>
+									</td>
+									<td>
+										<form:select path="operatingSystemCombo${i}2" id="operatingSystemCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('operatingSystem', ${i})">
+											<form:option value="" label=""/>
+										</form:select>
+									</td>
+									<td>
+										<form:input class='form-tf-grey' path="operatingSystemField${i}" id="operatingSystemField${i}" disabled="true" maxlength="150"/>
+										</td>
+									<c:if test="${!status.last}">
+										<td class="btn_add">
+											<div id="operatingSystemShowButton${i}" onclick="showHiddenRow('operatingSystem', ${i})"  class="btn add">Añadir</div>
+										</td>
+									</c:if>
+									<c:if test="${status.last}">
+										<td> </td>
+									</c:if>
+								</tr>
+							</c:forEach>
+						</table>
+						<h3>
+							<spring:message code="label.query.internetExplorerSection"/>
+						</h3>
+						<table class="query-form">
+							<tr>
+								<th>
+									<spring:message code="label.query.field"/>
+								</th>
+								<th>
+									<spring:message code="label.query.not"/>
+								</th>
+								<th>
+									<spring:message code="label.query.comparison"/>
+								</th>
+								<th>
+									<spring:message code="label.query.value"/>
+								</th>
+								<th></th>
+							</tr>
+							<c:forEach var="i" begin="1" end="2" varStatus="status">
+								<tr id="internetExplorerRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>>
+									<td>
+										<form:select path="internetExplorerCombo${i}1" id="internetExplorerCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('internetExplorer', ${i})">
+											<form:option value="" label=""/>
+											<c:forEach items="${values.get('internetExplorer').keySet()}" var="value">
+												<form:option value="${value}">
+													<spring:message code="label.internetExplorer.${value}"/>
+												</form:option>
+											</c:forEach>
+										</form:select>
+									</td>
+									<td>
+										<form:checkbox path="internetExplorerCB${i}" id="internetExplorerCB${i}" disabled="true"/>
+									</td>
+									<td>
+										<form:select path="internetExplorerCombo${i}2" id="internetExplorerCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('internetExplorer', ${i})">
+											<form:option value="" label=""/>
+										</form:select>
+									</td>
+									<td>
+										<form:input class='form-tf-grey' path="internetExplorerField${i}" id="internetExplorerField${i}" disabled="true" maxlength="150"/>
+										</td>
+									<c:if test="${!status.last}">
+										<td class="btn_add">
+											<div id="internetExplorerShowButton${i}" onclick="showHiddenRow('internetExplorer', ${i})" class="btn add">Añadir</div>
+										</td>
+									</c:if>
+									<c:if test="${status.last}">
+										<td> </td>
+									</c:if>
+								</tr>
+							</c:forEach>
+						</table>
+						<h3>
+							<spring:message code="label.query.hotfixSection"/>
+						</h3>
+			<table class="query-form">
+				<tr>
+					<th>
 
-								<spring:message code="label.query.field"/>
+						<spring:message code="label.query.field"/>
 
-							</th>
-							<th>
+					</th>
+					<th>
 
-								<spring:message code="label.query.not"/>
+						<spring:message code="label.query.not"/>
 
-							</th>
-							<th>
+					</th>
+					<th>
 
-								<spring:message code="label.query.comparison"/>
+						<spring:message code="label.query.comparison"/>
 
-							</th>
-							<th>
+					</th>
+					<th>
 
-								<spring:message code="label.query.value"/>
+						<spring:message code="label.query.value"/>
 
-							</th>
-							<th></th>
-						</tr>
-						<c:forEach var="i" begin="1" end="5" varStatus="status">
-							<tr id="financialDeviceRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
-							>
-							<td>
-								<form:select path="financialDeviceCombo${i}1" id="financialDeviceCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('financialDevice', ${i})">
-									<form:option value="" label=""/>
-									<c:forEach items="${values.get('financialDevice').keySet()}" var="value">
-										<form:option value="${value}">
-											<spring:message code="label.financialDevice.${value}"/>
-										</form:option>
-									</c:forEach>
-								</form:select>
-							</td>
-							<td>
-								<form:checkbox path="financialDeviceCB${i}" id="financialDeviceCB${i}" disabled="true"/>
-							</td>
-							<td>
-								<form:select path="financialDeviceCombo${i}2" id="financialDeviceCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('financialDevice', ${i})">
-									<form:option value="" label=""/>
-								</form:select>
-							</td>
-							<td>
-								<form:input class='form-tf-grey' path="financialDeviceField${i}" id="financialDeviceField${i}" disabled="true" maxlength="150"/>
-								<br></td>
-							<c:if test="${!status.last}">
-								<td class="btn_add">
-									<div id="financialDeviceShowButton${i}" onclick="showHiddenRow('financialDevice', ${i})" class="btn add">Añadir</div>
-								</td>
-							</c:if>
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
-			<h2 class="txt content_hide" id="swSection">
-				<spring:message code="label.query.softwareGlobalSection"/>
-				<span></span>
-			</h2>
-			<div class="collapsible hide">
-				<h3>
-					<spring:message code="label.query.operatingSystemSection"/>
-				</h3>
-				<table class="query-form">
-					<tr>
-						<th>
-
-							<spring:message code="label.query.field"/>
-
-						</th>
-						<th>
-
-							<spring:message code="label.query.not"/>
-
-						</th>
-						<th>
-
-							<spring:message code="label.query.comparison"/>
-
-						</th>
-						<th>
-
-							<spring:message code="label.query.value"/>
-
-						</th>
-						<th></th>
-					</tr>
-					<c:forEach var="i" begin="1" end="5" varStatus="status">
-						<tr id="operatingSystemRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
-						>
+					</th>
+					<th></th>
+				</tr>
+				<c:forEach var="i" begin="1" end="5" varStatus="status">
+					<tr id="hotfixRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>>
 						<td>
-							<form:select path="operatingSystemCombo${i}1" id="operatingSystemCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('operatingSystem', ${i})">
+							<form:select path="hotfixCombo${i}1" id="hotfixCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('hotfix', ${i})">
 								<form:option value="" label=""/>
-								<c:forEach items="${values.get('operatingSystem').keySet()}" var="value">
+								<c:forEach items="${values.get('hotfix').keySet()}" var="value">
 									<form:option value="${value}">
-										<spring:message code="label.operatingSystem.${value}"/>
+										<spring:message code="label.hotfix.${value}"/>
 									</form:option>
 								</c:forEach>
 							</form:select>
 						</td>
 						<td>
-							<form:checkbox path="operatingSystemCB${i}" id="operatingSystemCB${i}" disabled="true"/>
+							<form:checkbox path="hotfixCB${i}" id="hotfixCB${i}" disabled="true"/>
 						</td>
 						<td>
-							<form:select path="operatingSystemCombo${i}2" id="operatingSystemCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('operatingSystem', ${i})">
+							<form:select path="hotfixCombo${i}2" id="hotfixCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('hotfix', ${i})">
 								<form:option value="" label=""/>
 							</form:select>
 						</td>
 						<td>
-							<form:input class='form-tf-grey' path="operatingSystemField${i}" id="operatingSystemField${i}" disabled="true" maxlength="150"/>
-							<br></td>
+							<form:input class='form-tf-grey' path="hotfixField${i}" id="hotfixField${i}" disabled="true" maxlength="150"/>
+							</td>
 						<c:if test="${!status.last}">
 							<td class="btn_add">
-								<div id="operatingSystemShowButton${i}" onclick="showHiddenRow('operatingSystem', ${i})"  class="btn add">Añadir</div>
+								<div id="hotfixShowButton${i}" onclick="showHiddenRow('hotfix', ${i})" class="btn add">Añadir</div>
 							</td>
+						</c:if>
+						<c:if test="${status.last}">
+							<td> </td>
 						</c:if>
 					</tr>
 				</c:forEach>
 			</table>
 			<h3>
-				<spring:message code="label.query.internetExplorerSection"/>
+				<spring:message code="label.query.softwareSection"/>
 			</h3>
 			<table class="query-form">
 				<tr>
@@ -310,101 +400,99 @@
 					</th>
 					<th></th>
 				</tr>
-				<c:forEach var="i" begin="1" end="2" varStatus="status">
-					<tr id="internetExplorerRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
+				<c:forEach var="i" begin="1" end="5" varStatus="status">
+					<tr id="softwareRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
 					>
 					<td>
-						<form:select path="internetExplorerCombo${i}1" id="internetExplorerCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('internetExplorer', ${i})">
+						<form:select path="softwareCombo${i}1" id="softwareCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('software', ${i})">
 							<form:option value="" label=""/>
-							<c:forEach items="${values.get('internetExplorer').keySet()}" var="value">
+							<c:forEach items="${values.get('software').keySet()}" var="value">
 								<form:option value="${value}">
-									<spring:message code="label.internetExplorer.${value}"/>
+									<spring:message code="label.software.${value}"/>
 								</form:option>
 							</c:forEach>
 						</form:select>
 					</td>
 					<td>
-						<form:checkbox path="internetExplorerCB${i}" id="internetExplorerCB${i}" disabled="true"/>
+						<form:checkbox path="softwareCB${i}" id="softwareCB${i}" disabled="true"/>
 					</td>
 					<td>
-						<form:select path="internetExplorerCombo${i}2" id="internetExplorerCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('internetExplorer', ${i})">
+						<form:select path="softwareCombo${i}2" id="softwareCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('software', ${i})">
 							<form:option value="" label=""/>
 						</form:select>
 					</td>
 					<td>
-						<form:input class='form-tf-grey' path="internetExplorerField${i}" id="internetExplorerField${i}" disabled="true" maxlength="150"/>
-						<br></td>
+						<form:input class='form-tf-grey' path="softwareField${i}" id="softwareField${i}" disabled="true" maxlength="150"/>
+						</td>
 					<c:if test="${!status.last}">
 						<td class="btn_add">
-							<div id="internetExplorerShowButton${i}" onclick="showHiddenRow('internetExplorer', ${i})" class="btn add">Añadir</div>
+							<div id="softwareShowButton${i}" onclick="showHiddenRow('software', ${i})"  class="btn add">Añadir</div>
 						</td>
+					</c:if>
+					<c:if test="${status.last}">
+						<td> </td>
 					</c:if>
 				</tr>
 			</c:forEach>
 		</table>
 		<h3>
-			<spring:message code="label.query.hotfixSection"/>
+			<spring:message code="label.query.featSwSection"/>
 		</h3>
 		<table class="query-form">
 			<tr>
 				<th>
-
 					<spring:message code="label.query.field"/>
-
 				</th>
 				<th>
-
 					<spring:message code="label.query.not"/>
-
 				</th>
 				<th>
-
 					<spring:message code="label.query.comparison"/>
-
 				</th>
 				<th>
-
 					<spring:message code="label.query.value"/>
-
 				</th>
 				<th></th>
 			</tr>
 			<c:forEach var="i" begin="1" end="5" varStatus="status">
-				<tr id="hotfixRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
+				<tr id="featSwRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
 				>
 				<td>
-					<form:select path="hotfixCombo${i}1" id="hotfixCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('hotfix', ${i})">
+					<form:select path="featSwCombo${i}1" id="featSwCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('featSw', ${i})">
 						<form:option value="" label=""/>
-						<c:forEach items="${values.get('hotfix').keySet()}" var="value">
+						<c:forEach items="${values.get('featSw').keySet()}" var="value">
 							<form:option value="${value}">
-								<spring:message code="label.hotfix.${value}"/>
+								<spring:message code="label.featSw.${value}"/>
 							</form:option>
 						</c:forEach>
 					</form:select>
 				</td>
 				<td>
-					<form:checkbox path="hotfixCB${i}" id="hotfixCB${i}" disabled="true"/>
+					<form:checkbox path="featSwCB${i}" id="featSwCB${i}" disabled="true"/>
 				</td>
 				<td>
-					<form:select path="hotfixCombo${i}2" id="hotfixCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('hotfix', ${i})">
+					<form:select path="featSwCombo${i}2" id="featSwCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('featSw', ${i})">
 						<form:option value="" label=""/>
 					</form:select>
 				</td>
 				<td>
-					<form:input class='form-tf-grey' path="hotfixField${i}" id="hotfixField${i}" disabled="true" maxlength="150"/>
-					<br></td>
+					<form:input class='form-tf-grey' path="featSwField${i}" id="featSwField${i}" disabled="true" maxlength="150"/>
+					</td>
 				<c:if test="${!status.last}">
 					<td class="btn_add">
-						<div id="hotfixShowButton${i}" onclick="showHiddenRow('hotfix', ${i})" class="btn add">Añadir</div>
+						<div id="featSwShowButton${i}" onclick="showHiddenRow('featSw', ${i})" class="btn add">Añadir</div>
 					</td>
+				</c:if>
+				<c:if test="${status.last}">
+					<td> </td>
 				</c:if>
 			</tr>
 		</c:forEach>
-	</table>
-	<h3>
-		<spring:message code="label.query.softwareSection"/>
-	</h3>
-	<table class="query-form">
+		</table>
+		<h3>
+			<spring:message code="label.query.xfsSwSection"/>
+		</h3>
+		<table class="query-form">
 		<tr>
 			<th>
 
@@ -429,178 +517,52 @@
 			<th></th>
 		</tr>
 		<c:forEach var="i" begin="1" end="5" varStatus="status">
-			<tr id="softwareRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
+			<tr id="xfsSwRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
 			>
 			<td>
-				<form:select path="softwareCombo${i}1" id="softwareCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('software', ${i})">
+				<form:select path="xfsSwCombo${i}1" id="xfsSwCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('xfsSw', ${i})">
 					<form:option value="" label=""/>
-					<c:forEach items="${values.get('software').keySet()}" var="value">
+					<c:forEach items="${values.get('xfsSw').keySet()}" var="value">
 						<form:option value="${value}">
-							<spring:message code="label.software.${value}"/>
+							<spring:message code="label.xfsSw.${value}"/>
 						</form:option>
 					</c:forEach>
 				</form:select>
 			</td>
 			<td>
-				<form:checkbox path="softwareCB${i}" id="softwareCB${i}" disabled="true"/>
+				<form:checkbox path="xfsSwCB${i}" id="xfsSwCB${i}" disabled="true"/>
 			</td>
 			<td>
-				<form:select path="softwareCombo${i}2" id="softwareCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('software', ${i})">
+				<form:select path="xfsSwCombo${i}2" id="xfsSwCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('xfsSw', ${i})">
 					<form:option value="" label=""/>
 				</form:select>
 			</td>
 			<td>
-				<form:input class='form-tf-grey' path="softwareField${i}" id="softwareField${i}" disabled="true" maxlength="150"/>
-				<br></td>
+				<form:input class='form-tf-grey' path="xfsSwField${i}" id="xfsSwField${i}" disabled="true" maxlength="150"/>
+				</td>
 			<c:if test="${!status.last}">
 				<td class="btn_add">
-					<div id="softwareShowButton${i}" onclick="showHiddenRow('software', ${i})"  class="btn add">Añadir</div>
+					<div id="xfsSwShowButton${i}" onclick="showHiddenRow('xfsSw', ${i})" class="add btn">Añadir</div>
 				</td>
 			</c:if>
+			<c:if test="${status.last}">
+				<td> </td>
+			</c:if>
 		</tr>
-	</c:forEach>
-</table>
-<h3>
-	<spring:message code="label.query.featSwSection"/>
-</h3>
-<table class="query-form">
-	<tr>
-		<th>
-
-			<spring:message code="label.query.field"/>
-
-		</th>
-		<th>
-
-			<spring:message code="label.query.not"/>
-
-		</th>
-		<th>
-
-			<spring:message code="label.query.comparison"/>
-
-		</th>
-		<th>
-
-			<spring:message code="label.query.value"/>
-
-		</th>
-		<th></th>
-	</tr>
-	<c:forEach var="i" begin="1" end="5" varStatus="status">
-		<tr id="featSwRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
-		>
-		<td>
-			<form:select path="featSwCombo${i}1" id="featSwCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('featSw', ${i})">
-				<form:option value="" label=""/>
-				<c:forEach items="${values.get('featSw').keySet()}" var="value">
-					<form:option value="${value}">
-						<spring:message code="label.featSw.${value}"/>
-					</form:option>
-				</c:forEach>
-			</form:select>
-		</td>
-		<td>
-			<form:checkbox path="featSwCB${i}" id="featSwCB${i}" disabled="true"/>
-		</td>
-		<td>
-			<form:select path="featSwCombo${i}2" id="featSwCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('featSw', ${i})">
-				<form:option value="" label=""/>
-			</form:select>
-		</td>
-		<td>
-			<form:input class='form-tf-grey' path="featSwField${i}" id="featSwField${i}" disabled="true" maxlength="150"/>
-			<br></td>
-		<c:if test="${!status.last}">
-			<td class="btn_add">
-				<div id="featSwShowButton${i}" onclick="showHiddenRow('featSw', ${i})" class="btn add">Añadir</div>
-			</td>
-		</c:if>
-	</tr>
-</c:forEach>
-</table>
-<h3>
-<spring:message code="label.query.xfsSwSection"/>
-</h3>
-<table class="query-form">
-<tr>
-	<th>
-
-		<spring:message code="label.query.field"/>
-
-	</th>
-	<th>
-
-		<spring:message code="label.query.not"/>
-
-	</th>
-	<th>
-
-		<spring:message code="label.query.comparison"/>
-
-	</th>
-	<th>
-
-		<spring:message code="label.query.value"/>
-
-	</th>
-	<th></th>
-</tr>
-<c:forEach var="i" begin="1" end="5" varStatus="status">
-	<tr id="xfsSwRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
-	>
-	<td>
-		<form:select path="xfsSwCombo${i}1" id="xfsSwCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('xfsSw', ${i})">
-			<form:option value="" label=""/>
-			<c:forEach items="${values.get('xfsSw').keySet()}" var="value">
-				<form:option value="${value}">
-					<spring:message code="label.xfsSw.${value}"/>
-				</form:option>
-			</c:forEach>
-		</form:select>
-	</td>
-	<td>
-		<form:checkbox path="xfsSwCB${i}" id="xfsSwCB${i}" disabled="true"/>
-	</td>
-	<td>
-		<form:select path="xfsSwCombo${i}2" id="xfsSwCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('xfsSw', ${i})">
-			<form:option value="" label=""/>
-		</form:select>
-	</td>
-	<td>
-		<form:input class='form-tf-grey' path="xfsSwField${i}" id="xfsSwField${i}" disabled="true" maxlength="150"/>
-		<br></td>
-	<c:if test="${!status.last}">
-		<td class="btn_add">
-			<div id="xfsSwShowButton${i}" onclick="showHiddenRow('xfsSw', ${i})" class="add btn">Añadir</div>
-		</td>
-	</c:if>
-</tr>
-</c:forEach>
-</table>
-</div>
-</div>
+		</c:forEach>
+		</table>
+	</div>
 
 </form:form>
 
-<div class="botonera">
-<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
-<input type="reset" class="cancel right" value="Cancelar" />
-</div>
-</div>
-<div class="action_box row td">
-	<h2>Guardar la consulta</h2>
-	<label for="query_name"><spring:message code="label.query.queryName"/>:
-	<input type="text" id="query_name"/></label>
-	<label for="query_description">Descripción:
-	<input type="text" id="query_description"/></label>
-	<a href="#" class="btn label">Guardar Consulta</a>
+	<div class="botonera">
+		<a href="" class="btn iframe_s">Guardar Consulta</a>
+		<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
+		<input type="reset" class="cancel right" value="Cancelar" />
+	</div>
 </div>
 <script type="text/javascript">
 	    $(document).ready(function(){
-			$('.collapsible').collapsible({
-	            defaultOpen: 'terminalSection'
-	        });
 			<t:queryCbJs query="${query}"/>
 			$('#queryName').val('');
 			displayOnLoad('terminal', 5);

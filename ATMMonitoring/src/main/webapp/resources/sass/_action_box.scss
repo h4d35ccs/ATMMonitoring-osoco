@@ -100,7 +100,7 @@
 		.ul_data{
 			margin-top: 2em;
 			float: left;
-			width: 78%;
+			width: 75%;
 			&>ul{
 				overflow: hidden;
 				margin-bottom: 2em;
@@ -115,6 +115,9 @@
 						margin-right: 4%;
 						float: left;
 						display: block;
+						label{
+							width: 100%
+						}
 					}
 				}
 			}

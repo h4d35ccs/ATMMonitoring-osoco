@@ -30,28 +30,6 @@
 						Consulta:  ${query.name}
 					</h1>
 					<div class="action_box desplegable">
-							
-							<div class="row td">
-								<form:form method="post" name="userQueriesForm" action="queries/create" commandName="query">
-															
-									<label class="plain-label">
-										<spring:message code="label.query.userQueries"/>
-									</label>
-									<form:select path="id" id="id" size="1" onchange="userQuerySelected()">
-										<form:option value="" label=""/>
-										<c:forEach items="${userQueries}" var="userQuery">
-											<form:option value="${userQuery.id}" label="${userQuery.name}"/>
-										</c:forEach>
-									</form:select>
-								
-									
-							
-						</form:form>
-						
-							<label>
-								<spring:message code="label.query.dateFormatNote"/>
-								'${datePattern}'
-							</label></div>
 						
 					<form:form method="post" target="_blank" action="queries/results" commandName="query">
 
@@ -603,31 +581,15 @@
 </table>
 </div>
 
-<!-- BOTONERA ANTIGUA 
-<div class="query-submit">
-	<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>
-"/>
-</div>
-<div class="query-submit">
-	<label class="plain-label">
-	<spring:message code="label.query.queryName"/>
-	</label>
-	<form:input class='thin-border-grey' path="name" id="queryName" maxlength="50" onKeyUp="checkSaveExecute()"/>
-	<input type="submit" class="form-submit" name="save_execute" disabled="disabled" id="save_execute" value="<spring:message code="label.query.saveExecute"/>"/>
-</div> -->
-
-<div class="botonera">
-
-<a href="" class="btn save iframe_s">Guardar consulta</a>
-<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
-<input type="submit" class="cancel right" name="delete" id="delete" 
-		    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
-
-
-<input type="reset" class="cancel right" value="Cancelar" />
-<input type="submit" class="form-submit" name="save_execute" id="save_execute" value="<spring:message code="label.query.saveExecute"/>"/>
-</form:form>
-</div>
+	<div class="botonera">
+		<a href="" class="btn save iframe_s">Guardar consulta</a>
+		<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
+		<input type="submit" class="delete right" name="delete" id="delete" 
+				    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
+		<input type="reset" class="cancel right" value="Cancelar" />
+		<!-- input type="submit" class="form-submit" name="save_execute" id="save_execute" value="<spring:message code="label.query.saveExecute"/>"/ -->
+		</form:form>
+	</div>
 </div>
 
 <script type="text/javascript">
