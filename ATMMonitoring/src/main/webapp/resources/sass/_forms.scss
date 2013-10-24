@@ -11,7 +11,7 @@
 		float: left;
 	}
 }
-.btn, input[type="submit"], input[type="reset"], button{
+ .btn, input[type="submit"], input[type="reset"], button{
 	border:2px solid $colorK4;
 	@include border-radius(4px);
 	@include transitionAll;
@@ -21,6 +21,8 @@
 	background:$colorG;
 	float: left;
 	margin-right: 1em;
+	margin-top: 0;
+	margin-bottom: 0;
 	padding: .5em 1em;
 	display: block;
 	cursor: pointer;
@@ -37,12 +39,20 @@
 		margin-left: 1em;
 	}
 	&.cancel{
-		background:$colorR;
-		color: $colorW;
+		background:transparent;
+		color: $colorG;
+		text-decoration: underline;
+		border: none;
 		&:hover{
 			text-decoration: none;
-			background:$colorK1;
-			color: $colorW;
+		}
+	}
+	&.delete{
+		background: $colorR;
+		color: $colorW;
+		&:hover{
+			background: $colorW;
+			color: $colorR;
 		}
 	}
 	&.left{
@@ -55,6 +65,16 @@
 		margin-left: 1em;
 		margin-right: 0;
 	}
+}
+a.btn{
+	padding-bottom: .6em;
+	padding-top: .6em;
+}
+.txt_btn{
+	margin-right: 0;
+	position: absolute;
+	right: 1em;
+	top: 1em;
 }
 input, select, area, label{
 	font-size: 1em;

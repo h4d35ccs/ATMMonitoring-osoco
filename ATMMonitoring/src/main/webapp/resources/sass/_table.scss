@@ -38,7 +38,7 @@ table{
 			}
 		}
 	}
-	th:last-child{
+	th:last-child, td:last-child{
 		border-right: none;
 	}
 	th,td{
@@ -206,7 +206,9 @@ table{
 			&:hover{
 				background:$colorK4;
 				color: $colorW;
-				border: 1px solid $colorW;
+			}
+			&:hover	td{
+				border-color: $colorW;
 			}
 		}
 	}

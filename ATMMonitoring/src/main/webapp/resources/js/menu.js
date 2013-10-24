@@ -5,9 +5,11 @@ $(function() {
 		if($(this).hasClass('content_hide')){ // si pulso en uno que está cerrado...
 			$(this).removeClass('content_hide');
 			$(this).next('.collapsible').show('slow');
+			$(this).prev('.btn').hide();
 		}else{
 			$(this).next('.collapsible').hide('slow');
 			$(this).addClass('content_hide');
+			$(this).prev('.btn').show();
 		}
 	});
 	$('.close').click(function() {
@@ -74,5 +76,6 @@ $(function() {
 	});
 // Colorbox
 	$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"}); // Iframes
+	$(".iframe_s").colorbox({iframe:true, width:"640", height:"480px"}); // Iframes
 	$(".colorbox").colorbox({rel:'group1'}); // Photo
 });

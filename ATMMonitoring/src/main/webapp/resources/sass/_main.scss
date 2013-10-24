@@ -62,16 +62,12 @@ p{
 }
 .pagination{
 	overflow: hidden;
-	margin: 2em auto;
-	width: 400px;
+	margin: 2em;
 	div{
 		float: left;
 		margin-right: 1em;
 	}
-	ul{
-		float: left;
-	}
-	li{
+	span{
 		float: left;
 		margin-right: .2em;
 		a{

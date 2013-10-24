@@ -33,7 +33,7 @@
                             <select>
                                 <option value="" >Seleccionar</option>
                                 <c:forEach items="${userQueries}" var="userQuery">
-                                    <option value="${userQuery.id}"">${userQuery.name}</option>
+                                    <option value="${userQuery.id}">${userQuery.name}</option>
                                 </c:forEach>
                             </select>
                             <input type="submit" value="Aplicar" class="btn">
@@ -83,9 +83,10 @@
 						<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 					</div> 
 					</div><!-- /table_buttons -->
-                    <div>${pagedListHolder.source.size()} Terminales</div>
-                    <div class="pagination"> Página
-                        <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/list?p=~"/>
+                   
+                    <div class="pagination"> 
+ 						<div class="t_number">${pagedListHolder.source.size()} Terminales</div>
+                    	<div class="p_number">Página <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/list?p=~"/></div>
                       </div>
                    
                 </div>

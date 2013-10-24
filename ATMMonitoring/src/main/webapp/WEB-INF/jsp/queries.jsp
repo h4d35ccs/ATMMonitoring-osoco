@@ -26,7 +26,7 @@
 
 				<div class="content">
 					<h1>
-						<spring:message code="label.queryDesigner"/>
+						Nueva Consulta
 					</h1>
 					<div class="action_box desplegable">
 							
@@ -617,19 +617,13 @@
 </div> -->
 
 <div class="botonera">
+<a href="" class="btn save iframe_s">Guardar consulta</a>
 <input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
 <input type="reset" class="cancel right" value="Cancelar" />
 </form:form>
 </div>
 </div>
-<div class="action_box row td">
-	<h2>Guardar la consulta</h2>
-	<label for="query_name"><spring:message code="label.query.queryName"/>:
-	<input type="text" id="query_name"/></label>
-	<label for="query_description">Descripción:
-	<input type="text" id="query_description"/></label>
-	<a href="#" class="btn label">Guardar Consulta</a>
-</div>
+
 <script type="text/javascript">
 	    $(document).ready(function(){
 			$('.collapsible').collapsible({

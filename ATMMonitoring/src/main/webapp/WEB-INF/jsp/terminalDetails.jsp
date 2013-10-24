@@ -13,10 +13,10 @@
 					<nav id="breadcrumb">
 						<ul>
 							<li>
-								<a href="index.html">inicio</a>
+								<a href="dashboard">inicio</a>
 							</li>
 							<li>
-								<a href="terminales.html">Terminales</a>
+								<a href="terminals">Terminales</a>
 							</li>
 							<li>Terminal 00:1b:21:01:82:8B</li>
 						</ul>
@@ -353,7 +353,7 @@
 								<span>Agregados</span>
 							</li>
 							<li>
-								<span>HotTix</span>
+								<span>HotFix</span>
 							</li>
 							<li>
 								<span>Navegadores</span>
@@ -962,7 +962,7 @@
 													<tr <c:if test="${alt}">class="alt"</c:if>
 													>
 													<td>
-														<a href="terminals/swConfigs/details/${config.id}">
+														<a class="iframe" href="terminals/swConfigs/details/${config.id}">
 															<fmt:formatDate value="${config.startDate}" dateStyle="short" type="both" />
 														</a>
 													</td>
