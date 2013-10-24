@@ -29,6 +29,7 @@
 
 						Consulta:  ${query.name}
 					</h1>
+					<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
 					<div class="action_box desplegable">
 						
 					<form:form method="post" target="_blank" action="queries/results" commandName="query">
@@ -582,14 +583,24 @@
 </div>
 
 	<div class="botonera">
-		<a href="" class="btn save iframe_s">Guardar consulta</a>
-		<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
+		<div class="desplegable saveQuery">
+			<div class="btn txt content_hide">Guardar consulta</div>
+			<div class="hide collapsible">
+				<ul>
+					<li><label for="namequery">Nombre</label> <input type="text"/></li>
+					<li><label for="descriptionquery">Descripción</label> <textarea></textarea></li>
+				</ul>
+				<div class="botonera"><input type="submit" class="save" value="Guardar" /></div>
+			</div>
+		</div><!-- /desplegable -->
+		<input type="submit" class="form-submit play" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
 		<input type="submit" class="delete right" name="delete" id="delete" 
 				    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
 		<input type="reset" class="cancel right" value="Cancelar" />
 		<!-- input type="submit" class="form-submit" name="save_execute" id="save_execute" value="<spring:message code="label.query.saveExecute"/>"/ -->
 		</form:form>
 	</div>
+	
 </div>
 
 <script type="text/javascript">

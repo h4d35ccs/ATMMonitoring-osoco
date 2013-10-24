@@ -375,6 +375,9 @@
 								<th>Fecha de Alta</th>
 								<th>IP</th>
 								<th>Tipo de instalación</th>
+								<th>Puesto</th>
+								<th>Procesado</th>
+								<th>Acceso al público</th>
 							</tr>
 							<tr>
 								<td>4647</td>
@@ -382,6 +385,9 @@
 								<td>17-08-2013</td>
 								<td>128.128.3.45</td>
 								<td>Lorem Ipsum</td>
+								<td></td>
+								<td></td>
+								<td></td>
 							</tr>
 						</table>
 						<h3>Histórico de instalaciones</h3>
@@ -392,6 +398,10 @@
 								<th>Fecha de Alta</th>
 								<th>IP</th>
 								<th>Tipo de instalación</th>
+								<th>Puesto</th>
+								<th>Procesado</th>
+								<th>Acceso al público</th>
+								<th>Fecha de Baja</th>
 							</tr>
 							<tr>
 								<td>4647</td>
@@ -399,6 +409,10 @@
 								<td>17-08-2013</td>
 								<td>128.128.3.45</td>
 								<td>Lorem Ipsum</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td>4647</td>
@@ -406,6 +420,10 @@
 								<td>17-08-2013</td>
 								<td>128.128.3.45</td>
 								<td>Lorem Ipsum</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td>4647</td>
@@ -413,6 +431,10 @@
 								<td>17-08-2013</td>
 								<td>128.128.3.45</td>
 								<td>Lorem Ipsum</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td>4647</td>
@@ -420,6 +442,10 @@
 								<td>17-08-2013</td>
 								<td>128.128.3.45</td>
 								<td>Lorem Ipsum</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
 							</tr>
 						</table>
 					</div>

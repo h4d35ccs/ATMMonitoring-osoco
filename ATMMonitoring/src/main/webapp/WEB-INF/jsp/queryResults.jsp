@@ -23,9 +23,19 @@
 				</div>
 
 				<div class="content">
+				<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
 	<!-- Pegado de querie.jsp -->
-	<div class="action_box desplegable">
-					<a href="" class="btn save iframe_s txt_btn">Guardar consulta</a>
+				<div class="action_box desplegable">
+					<div class="desplegable saveQuery txt_btn">
+						<div class="btn txt content_hide">Guardar consulta</div>
+						<div class="hide collapsible">
+							<ul>
+								<li><label for="namequery">Nombre</label> <input type="text"/></li>
+								<li><label for="descriptionquery">Descripción</label> <textarea></textarea></li>
+							</ul>
+							<div class="botonera"><input type="submit" class="save" value="Guardar" /></div>
+						</div>
+					</div><!-- /desplegable -->
 					<h1 class="txt last content_hide">
 						Editar consulta
 					</h1>
@@ -37,7 +47,7 @@
 						<h2 class="txt content_hide" id="terminalSection">
 							<spring:message code="label.query.terminalSection"/>
 						</h2>
-						<div class="collapsible">
+						<div class="collapsible hide">
 							<table class="query-form">
 								<tr>
 									<th>
@@ -582,7 +592,16 @@
 </table>
 </div>
 <div class="botonera">
-	<a href="" class="btn save iframe_s">Guardar consulta</a>
+	<div class="desplegable saveQuery">
+		<div class="btn txt content_hide">Guardar consulta</div>
+		<div class="hide collapsible">
+			<ul>
+				<li><label for="namequery">Nombre</label> <input type="text"/></li>
+				<li><label for="descriptionquery">Descripción</label> <textarea></textarea></li>
+			</ul>
+			<div class="botonera"><input type="submit" class="save" value="Guardar" /></div>
+		</div>
+	</div><!-- /desplegable -->
 	<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
 	<input type="reset" class="delete right" value="Eliminar" />
 	<input type="reset" class="cancel right" value="Cancelar" />

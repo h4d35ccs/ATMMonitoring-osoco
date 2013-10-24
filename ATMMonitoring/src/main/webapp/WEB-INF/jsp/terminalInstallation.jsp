@@ -7,12 +7,12 @@
 
 <t:osoco-wrapperWoMenu titleCode="label.terminalsManager" section="iframe">
 <div id="main" class="installation">
-	<h1>Nueva Instalación</h1>
 	<div id="primary" class="w50 left">
+		<h1>Nueva Instalación</h1>
 		<article>
 			<div class="content">
 				
-				<div class="ul_data edit">
+				<div class="ul_data editable">
 					<ul>
 						<li>
 							<label for="date">Fecha de alta</label>
@@ -62,6 +62,7 @@
 							<input type="checkbox"/>
 						</li>
 					</ul>
+					<div class="botonera"><a href="" class="save">Guardar</a></div>
 				</div>
 			</div>
 		</article>

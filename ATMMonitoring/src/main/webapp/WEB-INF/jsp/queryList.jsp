@@ -23,9 +23,7 @@
                 <div class="content">
                     <h1>Mis Consultas</h1>
                     <div class="botonera">
-                        <ul>
-                            <li><a href="queries/create" class="btn add">Nueva Consulta</a></li>
-                        </ul>
+                       <a href="queries/create" class="btn right">Nueva consulta</a>
                     </div>
                     <table class="link">
                     	<tr>

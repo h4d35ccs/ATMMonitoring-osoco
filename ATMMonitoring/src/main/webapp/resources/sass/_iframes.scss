@@ -4,17 +4,12 @@
 		border-top: 0;
 		margin-left: 0;
 		.box{
-			padding-top: 5em;
 			position: relative;
 			h1{
-				position: fixed;
 				color: $colorW;
 				background:$colorG;
-				width: 100%;
-				top: 0;
-				left: 0;
 				padding: .5em;
-				z-index: 2;
+				margin-top: 0;
 			}
 		}
 		&.installation{
@@ -37,6 +32,9 @@
 			input[type="text"]{
 				width: 47%;
 			}
+			input[type="checkbox"]{
+				margin: .8em 0;
+			}
 			input.withbutton{
 				width: 25%;
 				float: left;
@@ -44,8 +42,8 @@
 			.message{
 				clear: both;
 				float: right;
-				padding: 2%;
 				margin-left: 44%;
+				margin-right: 1em;
 			}
 		}
 	}

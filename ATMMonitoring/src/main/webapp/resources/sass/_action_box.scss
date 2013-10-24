@@ -19,41 +19,15 @@
 		}
 		&.content_hide{
 			background-position: left -62px;
-			
-			@include border-radius(0);
 			&.last{
 				border-bottom: none;
 			}
 		}
-		&.plus{
-			background:url("../images/icons/icon_box_show_plus.png") no-repeat bottom left $colorG;
-			overflow: hidden;
-			@include shadow();
-			color: $colorW;
-			position: absolute;
-			width: 28px;
-			height: 28px;
-			top:3px;
-			right: 3px;
-			margin: 0;
-			padding: 0;
-			border:none;
-			@include border-radius(4px);
-			span{
-				position: absolute;
-				top: 40px;
-			}
-			&.content_hide{
-				background:url("../images/icons/icon_box_show_plus.png") no-repeat top left $colorG;
-				top: 0;
-				right: 0;
-				@include shadow0();
-			}
-		}
 	}
 	.collapsible{
-		border-bottom: 2px dotted $colorK4;
+		border-bottom: 1px dotted $colorK4;
 		padding: 1em;
+		margin-bottom: 1em;
 		&.last{
 			border-bottom: none;
 		}
@@ -71,13 +45,16 @@
 				width: 100%;
 			}
 			.desplegable{
-				position: absolute;
-				top: -10px;
-				right: 0;
-				background:$colorK4;
 				padding: .5em;
 				@include border-radius(4px);
 				margin-top: 1em;
+				.txt{
+					font-size: 1.2em;
+					padding: .5em;
+					padding-left: 2.5em;
+					font-weight: bold;
+					background-color: $colorK5;
+				}
 				dl{
 					margin-top: 1em;
 					padding: 1em;

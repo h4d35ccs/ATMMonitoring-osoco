@@ -11,6 +11,50 @@
 		float: left;
 	}
 }
+#main .action_box{
+ 	.saveQuery{
+		float: right;
+		.txt{
+			width:180px;
+			min-width: 100px;
+			margin-left: 1em;
+			padding: .5em 1em;
+			padding-left: 2.5em;
+			background:url("../images/icons/icon_collapsible.png") no-repeat $colorK3 left bottom;
+			border: 2px solid $colorK4;
+			&:hover{
+				color: $colorW;
+			}
+			&.content_hide{
+				background:url("../images/icons/icon_collapsible.png") no-repeat $colorK2 left top;
+			}
+		}
+		.txt.content_hide{
+			width: auto;
+		}
+		.collapsible{
+			float: right;
+			clear: both;
+			background:$colorW;
+			width: 200px;
+			border: 1px solid $colorK3;
+			input[type="text"],
+			textarea{
+				padding: 1%;
+				width: 98%;
+				font-size: 1em;
+			}
+			textarea{
+				height: 5em;
+			}
+			label{
+				padding-left: 0;
+				padding-right: 0;
+				font-weight: bold;
+			}
+		}
+	}
+ }
  .btn, input[type="submit"], input[type="reset"], button{
 	border:2px solid $colorK4;
 	@include border-radius(4px);

@@ -156,6 +156,9 @@ table{
 				color: $colorG;
 			}
 		}
+		label{
+			cursor: pointer;
+		}
 		// show detail
 		tr.showdetail.open, tr.showdetail.open:hover{
 			background:$colorG4;

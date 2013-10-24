@@ -24,6 +24,7 @@
 
 				<div class="content">
 	<h1><spring:message code="label.query.new"/></h1>
+	<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
 	<!-- Pegado de querie.jsp -->
 	<div class="action_box desplegable">
 			<form:form method="post" target="_blank" action="queries/results" commandName="query">
@@ -556,8 +557,17 @@
 </form:form>
 
 	<div class="botonera">
-		<a href="" class="btn iframe_s">Guardar Consulta</a>
-		<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
+		<div class="desplegable saveQuery">
+			<div class="btn txt content_hide">Guardar consulta</div>
+			<div class="hide collapsible">
+				<ul>
+					<li><label for="namequery">Nombre</label> <input type="text"/></li>
+					<li><label for="descriptionquery">Descripción</label> <textarea></textarea></li>
+				</ul>
+				<div class="botonera"><input type="submit" class="save" value="Guardar" /></div>
+			</div>
+		</div><!-- /desplegable -->
+		<input type="submit" class="form-submit play" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
 		<input type="reset" class="cancel right" value="Cancelar" />
 	</div>
 </div>

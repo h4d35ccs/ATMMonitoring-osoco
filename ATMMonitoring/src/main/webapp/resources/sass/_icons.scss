@@ -103,6 +103,34 @@
 	}
 	
 }
+.back{
+	background:url("../images/icons/icon_back.png") no-repeat left top transparent;
+	padding-left: 35px;
+	border: none;
+	color:$colorG;
+	&:hover{
+		background:url("../images/icons/icon_back.png") no-repeat left top $colorK6;
+	}
+	
+}
+.save, 
+#main .action_box .save{
+	@extend .btn;
+	background:url("../images/icons/icon_save.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
+	&:hover{
+		background:url("../images/icons/icon_save.png") no-repeat left top $colorW;
+	}
+	
+}
+.play, input.play{
+	background:url("../images/icons/icon_play.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
+	&:hover{
+		background:url("../images/icons/icon_play.png") no-repeat left top $colorW;
+	}
+	
+}
 .info{
 	width: 25px;
 	height: 25px;
