@@ -557,7 +557,7 @@
 </form:form>
 
 	<div class="botonera">
-		<div class="desplegable saveQuery">
+		<div class="desplegable button">
 			<div class="btn txt content_hide">Guardar consulta</div>
 			<div class="hide collapsible">
 				<ul>
