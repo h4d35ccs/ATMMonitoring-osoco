@@ -42,7 +42,7 @@ public class QueryDAOImpl implements QueryDAO {
     @Override
     public List<Query> listQueries() {
 	return sessionFactory.getCurrentSession().createCriteria(Query.class)
-		.addOrder(Order.asc("serialNumber")).list();
+		.addOrder(Order.asc("name")).list();
     }
 
     @Override

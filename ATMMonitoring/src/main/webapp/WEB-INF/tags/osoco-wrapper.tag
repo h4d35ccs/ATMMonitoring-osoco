@@ -15,12 +15,17 @@
         <c:set var="base" value="${fn:substring(url, 0, fn:length(url) - fn:length(req.requestURI))}${req.contextPath}/" />
         <base href="${base}">
         <script src="resources/js/jquery-1.8.3.min.js"></script>
+	    <script type='text/javascript' src="resources/js/jquery-ui.min.js"></script>
+	    <script type='text/javascript' src="resources/js/jquery.ui.touch-punch.min.js"></script>
+	    <script type='text/javascript' src='resources/js/jquery.colorbox-min.js'></script>
         <script src="resources/js/menu.js"></script>
-	<script type='text/javascript' src="resources/js/jquery-ui.min.js"></script>
-	<script type='text/javascript' src="resources/js/jquery.ui.touch-punch.min.js"></script>
-	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-	<script type='text/javascript' src='resources/js/google_charts.js'></script>
-	<script type='text/javascript' src='resources/js/jquery.colorbox-min.js'></script>
+
+        <c:if test="${section == 'dashboard'}">
+	    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+        <script type="text/javascript" src="resources/js/json2html.js"></script>
+        <script type="text/javascript" src="resources/js/jquery.json2html.js"></script>
+	    <script type='text/javascript' src='resources/js/dashboard.js'></script>
+        </c:if>
 
         <title><spring:message code="label.baseTitle"/> - <spring:message code="${titleCode}"/></title>
         <link rel="stylesheet" type="text/css" href="resources/css/ncr_screen.css">

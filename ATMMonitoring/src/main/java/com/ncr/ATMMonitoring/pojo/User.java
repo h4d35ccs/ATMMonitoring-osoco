@@ -19,6 +19,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -73,6 +74,9 @@ public class User implements UserDetails {
     @Cascade(CascadeType.ALL)
     @OrderBy("query_name")
     private Set<Query> queries = new HashSet<Query>();
+
+	@OneToOne
+	private Dashboard dashboard;
 
     // Code with support for Terminal Config AUTHORS
     //
@@ -208,16 +212,24 @@ public class User implements UserDetails {
 	this.lastLogin = lastLogin;
     }
 
+    public Dashboard getDashboard() {
+		return dashboard;
+    }
+
+    public void setDashboard(Dashboard dashboard) {
+		this.dashboard = dashboard;
+    }
+
     public String getHtmlWelcomeMessage(Locale locale) {
       	DateFormat timeFormatter = new SimpleDateFormat("H:mm");
         String lastLoginFormatted = "";
-        lastLoginFormatted  = DateFormat.getDateInstance(DateFormat.SHORT, locale).format(lastLogin) + 
-	    " - " + timeFormatter.format(lastLogin);        
+        lastLoginFormatted  = DateFormat.getDateInstance(DateFormat.SHORT, locale).format(lastLogin) +
+	    " - " + timeFormatter.format(lastLogin);
 
-       return "<div class=\"wellcome\"><spring:message code=\"label.welcomeMessage\"/> "+ 
+       return "<div class=\"wellcome\"><spring:message code=\"label.welcomeMessage\"/> "+
                firstname + " " + lastname + ", " + role.getName().replace("_", " ") +
                "</div>" +
-	       "<div class=\"date\">" + lastLoginFormatted + "</div>"; 
+	       "<div class=\"date\">" + lastLoginFormatted + "</div>";
     }
 
 }

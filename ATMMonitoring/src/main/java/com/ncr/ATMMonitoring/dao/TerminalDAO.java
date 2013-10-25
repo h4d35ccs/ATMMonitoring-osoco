@@ -19,7 +19,10 @@ public interface TerminalDAO {
     public Terminal getTerminal(Integer id);
 
     public List<Terminal> getTerminalsByHQL(List<Object> values,
-	    List<Type> types, String hql);
+											List<Type> types, String hql);
+
+    public List executeQuery(List<Object> values,
+											List<Type> types, String hql);
 
     public void updateTerminal(Terminal terminal);
 

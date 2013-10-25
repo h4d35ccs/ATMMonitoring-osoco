@@ -63,6 +63,23 @@ public class TerminalDAOImpl implements TerminalDAO {
     }
 
     @Override
+    public List executeQuery(List<Object> values, List<Type> types, String hql) {
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setParameters(values.toArray(), types.toArray(new Type[0]));
+		logger.debug("Executing the HQL sentence '" + hql
+					 + "' with the values " + values + "and types " + types);
+		try {
+		    return query.list();
+		} catch (HibernateException e) {
+		    logger.error(
+						 "There was an error while executing the HQL sentence '"
+						 + hql + "' with the values " + values
+						 + "and types " + types, e);
+		    throw e;
+		}
+    }
+
+    @Override
     public Terminal getTerminal(Integer id) {
 	return (Terminal) sessionFactory.getCurrentSession().get(
 		Terminal.class, id);

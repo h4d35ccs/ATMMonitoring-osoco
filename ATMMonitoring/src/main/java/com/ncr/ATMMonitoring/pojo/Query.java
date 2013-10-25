@@ -3499,8 +3499,33 @@ public class Query {
 	return "";
     }
 
+    public String getHQLGroupingBy(List<Object> values, List<Type> types, Locale locale, String groupByEntity, String groupByField) {
+		StringBuffer hql = new StringBuffer("");
+		String groupName = (groupByEntity == null) ?
+			"terminals." + groupByField :
+			groupByEntity + "." + groupByField;
+		hql.append("select new map(" + groupName + " as groupName, count(*) as count) from Terminal terminals");
+		if (groupByEntity != null) {
+			hql.append(" join terminals." + groupByEntity + " " + groupByEntity);
+		}
+		hql.append(" where terminals in (");
+		hql.append(getHQL(values, types, locale, false, false));
+		hql.append(") ");
+		hql.append("group by ");
+		hql.append(groupName);
+		return hql.toString();
+	}
+
     public String getHQL(List<Object> values, List<Type> types, Locale locale) {
-	String hql = "select distinct terminal from Terminal terminal";
+		return getHQL(values, types, locale, true, true);
+	}
+
+    public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean distinct, boolean order) {
+	String hql = "select";
+	if (distinct) {
+		hql += " distinct";
+	}
+	hql += " terminal from Terminal terminal";
 	String terminalConstraints = getTerminalConstraints(values, types,
 		locale);
 	String financialDeviceConstraints = getFinancialDeviceConstraints(
@@ -3567,7 +3592,29 @@ public class Query {
 	if (hql.endsWith(" where ")) {
 	    hql = hql.substring(0, hql.length() - 7);
 	}
-	hql += " order by terminal.serialNumber, terminal.id";
+	if (order) {
+		hql += " order by terminal.serialNumber, terminal.id";
+	}
 	return hql;
     }
+
+	@Override
+	public boolean equals(Object o) {
+		if (o == null) {
+			return false;
+		}
+		if (o instanceof Query) {
+			Query otherQuery = (Query)o;
+			return ((otherQuery.getName().equals(getName())) &&
+					(otherQuery.getUser().equals(getUser())));
+		} else {
+			return false;
+		}
+
+	}
+
+	@Override
+	public int hashCode() {
+		return getName().hashCode() + 13 * getUser().hashCode();
+	}
 }

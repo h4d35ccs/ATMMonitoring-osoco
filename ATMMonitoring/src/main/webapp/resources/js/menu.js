@@ -12,9 +12,6 @@ $(function() {
 			$(this).prev('.btn').show();
 		}
 	});
-	$('.close').click(function() {
-		$(this).parent().parent().parent().hide('slow');
-	});
 // TABS para detalle de terminal
 	$('.tabs .content_tab').hide(); // cierro todas las capas
 	$('.tabs .content_tab:first').show(); // muestro la primera
@@ -22,7 +19,7 @@ $(function() {
 	$('.sub_nav li:first').addClass('current'); // activo el primer tab
 	$('.sub_nav li').click(function() {
 		$('.sub_nav li').removeClass(); // borro estilo current de todos los li
-		$(this).addClass('current'); 
+		$(this).addClass('current');
 		var tab_click =  $('.sub_nav li').index(this);
 		$('.tabs .content_tab').hide();
 		$('.tabs').find( ".content_tab" ).eq( tab_click ).show();
@@ -66,7 +63,7 @@ $(function() {
    });
 // Check all
 	$("input.all_check").change(function(){
-		$('.check input[type=checkbox]').each( function() {			
+		$('.check input[type=checkbox]').each( function() {
 			if($("input.all_check:checked").length == 1){
 				this.checked = true;
 			} else {
