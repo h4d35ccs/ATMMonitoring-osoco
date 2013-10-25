@@ -6,6 +6,15 @@
 		float: right;
 		margin-right: 0;
 		margin-left: 1em;
+		overflow: hidden;
+		span{
+			position: absolute;
+			top: -3em;
+		}
+	}
+	input.btn{
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 	.request{
 		float: left;
@@ -127,6 +136,8 @@ input, select, area, label{
 }
 select{
 	margin: .5em 1em;
+	padding:  .5em 1em;
+	border: 1px solid $colorK3;
 }
 label{
 	display: block;
@@ -136,6 +147,9 @@ label{
 	.colorbox_box &{
 		width: 25%;
 	}
+}
+input[type="checkbox"]{
+	margin: .8em 0;
 }
 .label{
 	margin: .8em;

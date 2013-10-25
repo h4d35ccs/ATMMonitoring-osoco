@@ -1,0 +1,30 @@
+.documentation{
+	.menu{
+		position: fixed;
+		top: 80px;
+		left: 126px;
+		width: 15%;
+		a{
+			display: block;
+			&:hover{
+				text-decoration: none;
+				background:$colorK5;
+			}
+		}
+		li{
+			padding: .5em 0;
+			font-size: 1.2em;
+			li{
+				font-size: .9em;
+				margin-left: 1em;
+				a{
+					color: $colorK3;
+				}
+			}
+		}
+	}
+	.scroll{
+		width: 80%;
+		float: right;
+	}
+}

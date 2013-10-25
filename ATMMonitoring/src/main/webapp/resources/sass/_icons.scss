@@ -103,6 +103,14 @@
 	}
 	
 }
+.import{
+	background:url("../images/icons/icon_import.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
+	&:hover{
+		background:url("../images/icons/icon_import.png") no-repeat left top $colorW;
+	}
+	
+}
 .back{
 	background:url("../images/icons/icon_back.png") no-repeat left top transparent;
 	padding-left: 35px;
@@ -111,7 +119,19 @@
 	&:hover{
 		background:url("../images/icons/icon_back.png") no-repeat left top $colorK6;
 	}
-	
+}
+.calendar{
+	background:url("../images/icons/icon_date.png") no-repeat bottom $colorG;
+	width: 55px;
+	height: 30px;
+	overflow: hidden;
+	&:hover{
+		background:url("../images/icons/icon_date.png") no-repeat top $colorW;
+	}
+	span{
+		position: absolute;
+		top: -3em;
+	}
 }
 .save, 
 #main .action_box .save{

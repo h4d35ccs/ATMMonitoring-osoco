@@ -27,8 +27,8 @@
                 <div class="content">
                     <h1><spring:message code="label.terminals"/></h1>
                     <div class="action_box">
-                        <h2>Consultas <div class="info"><span>Más información</span></div></h2>
-                        <!-- div class="row">
+                        <h2>Consultas <a href="help_sample.jps" class="info iframe"><span>Más información</span></a></h2>
+                        <div class="row">
                             <label>Elige tu consulta:</label>
                             <select>
                                 <option value="" >Seleccionar</option>
@@ -36,16 +36,19 @@
                                     <option value="${userQuery.id}">${userQuery.name}</option>
                                 </c:forEach>
                             </select>
+                        
+                            <input type="text" value="2/11/2013">
+                            <a href="" class="btn calendar"><span>Abrir calendario</span></a>
                             <input type="submit" value="Aplicar" class="btn">
                             <a href="queries" class="btn right">Mis consultas</a>
-                        </div -->
-                        <div class="row">
+                        </div>
+                        <!--div class="row">
                            <div class="message no_queries">
                            	<p>Ahorra tiempo generardo consultas, que las irás aplicando a medida que las vayas necesitando.</p>
 							<div class="flecha"></div>
                            </div>
                             <a href="queries" class="btn right">Mis consultas</a>
-                        </div>
+                        </div -->
                     </div>
                     <div class="message">
 						<p>Sabías que lorem ipsum dolor sit amet, <strong>consectetur adipisicing</strong> elit. Voluptatum, hic, laboriosam ea eaque necessitatibus alias dolor saepe earum et ullam veritatis animi at dignissimos. Consequatur optio cupiditate distinctio quasi amet?</p>

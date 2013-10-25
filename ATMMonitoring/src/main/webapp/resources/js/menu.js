@@ -78,4 +78,9 @@ $(function() {
 	$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"}); // Iframes
 	$(".iframe_s").colorbox({iframe:true, width:"640", height:"480px"}); // Iframes
 	$(".colorbox").colorbox({rel:'group1'}); // Photo
+
+// Instalacion ATM checkbox
+	$('#isAgeSelected').click(function() {
+	    $("#txtAge").toggle(this.checked);
+	});
 });
