@@ -292,31 +292,3 @@ function drawChart(widget) {
     $("#sortable").json2html(widget, transforms.charts);
     onChartDrawed($("#sortable li#" + widget.id));
 }
-
-
-
-
-function initCharts() {
-    $("#sortable").sortable({
-        placeholder: "ui-state-highlight",
-        start: function(event, ui) {
-            $(ui.item).data("startIndex", ui.item.index());
-        },
-        stop: function(event, ui) {
-            updateChartIndex(ui.item);
-        }
-    });
-	$("#sortable").disableSelection();
-    $('#sortable li .close').click(function() {
-        var chart = $(this).parent().parent().parent();
-        var widgetId = $(chart).attr("id");
-        hideWidget(widgetId);
-	});
-}
-
-function initChartsMenu() {
-    $("#myCharts li.on").click(function() {
-        var widgetId = $(this).data("widgetId");
-        showWidget(widgetId);
-    });
-}
