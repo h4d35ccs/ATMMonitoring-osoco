@@ -36,7 +36,7 @@
                         <nav>
                             <ul>
                               <c:forEach items="${columnOptions}" var="option">
-                                <li class="column${option.getColumns()} ${((option.getColumns() == dashboard.getColumns()) ? 'current' : '')}">
+                                <li class="column${option.getColumns()} ${((option.getColumns() == dashboard.getColumns()) ? 'current' : '')}" data-columns="${option.getColumns()}">
                                     <a href="#">
                                         <span>${option.getColumns()} columnas</span>
                                     </a>
@@ -46,7 +46,7 @@
                         </nav>
                     </div>
                 </div>
-                <ul id="sortable" class="ui-sortable column4"></ul>
+                <ul id="sortable" class="ui-sortable column${dashboard.getColumns()}"></ul>
             </article>
         </div>
         <!-- /primary -->

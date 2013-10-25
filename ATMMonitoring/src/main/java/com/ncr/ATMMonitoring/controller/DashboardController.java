@@ -181,6 +181,22 @@ public class DashboardController {
         }
     }
 
+	@RequestMapping(
+	    method = RequestMethod.POST,
+		value ="/dashboard/changeColumns")
+	@ResponseStatus(HttpStatus.OK)
+	public void changeColumns(
+            @RequestParam("columns") int columns,
+			HttpServletRequest request,
+			Principal principal) {
+        if (principal != null) {
+            User loggedUser = userService.getUserByUsername(principal.getName());
+			Dashboard dashboard = loggedUser.getDashboard();
+			dashboard.setColumns(columns);
+			dashboardService.saveDashboard(dashboard);
+        }
+    }
+
 
 	// Private Methods ----------------------------------------------------------------------
 

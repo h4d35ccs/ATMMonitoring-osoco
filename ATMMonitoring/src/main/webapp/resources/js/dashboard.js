@@ -3,6 +3,7 @@ var chartUrl = 'dashboard/chart';
 var updateChartPositionUrl = 'dashboard/updateChartPosition';
 var hideChartUrl = 'dashboard/hideChart';
 var showChartUrl = 'dashboard/showChart';
+var changeDashboardColumnsUrl = 'dashboard/changeColumns';
 
 var googleChartType = {
     'PIE_CHART': 'google.visualization.PieChart',
@@ -19,6 +20,7 @@ google.load('visualization', '1', {'packages': ['corechart', 'geochart']});
 
 $(function() {
     initDashboardModel();
+    initColumnsControl();
 	$(".iframe").colorbox({iframe:true, width:"640px", height:"90%"});
 });
 
@@ -93,6 +95,14 @@ function initDashboardModel() {
     }).done(function(data) {
         dashboardModel = data;
         onLoadDashboard();
+    });
+}
+
+function initColumnsControl() {
+    $("#columns li").click(function(event) {
+        event.preventDefault();
+        var newColumns = $(this).data("columns");
+        onChangedColumns(newColumns);
     });
 }
 
@@ -213,6 +223,23 @@ function onMovedVisibleChart(widgetId, oldPosition, newPosition) {
     drawChartsMenu();
 }
 
+function onChangedColumns(newColumns) {
+    var oldColumns = $("#columns li.current").data("columns");
+    if (oldColumns != newColumns) {
+        $("#sortable").toggleClass("column" + oldColumns);
+        $("#sortable").addClass("column" + newColumns);
+        $("#columns li.current").removeClass("current");
+        $("#columns li.column" + newColumns).addClass("current");
+        drawCharts();
+        $.post(
+            changeDashboardColumnsUrl,
+            {
+                columns: newColumns
+            }
+        );
+    }
+}
+
 // View +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 var transforms = {
@@ -254,6 +281,7 @@ function drawChartsMenu() {
 }
 
 function drawCharts() {
+    $("#sortable").contents().remove();
     for (var i = 0; i < dashboardModel.visibleCharts.length; i++) {
         var widget = dashboardModel.visibleCharts[i];
         drawChart(widget);
