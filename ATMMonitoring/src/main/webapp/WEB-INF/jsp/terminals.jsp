@@ -19,7 +19,7 @@
                     </nav>
                     <div class="botonera">
                         <ul>
-                            <li><a href="terminales_add_terminal.html" class="btn add">Nuevo terminal</a></li>
+                            <li><a href="terminals/new" class="btn add">Nuevo terminal</a></li>
                         </ul>
                     </div>
                 </div>

@@ -218,7 +218,31 @@ public class TerminalController {
 	return "terminalDetails";
     }
 
-    @RequestMapping(value = "/terminals/list", method = RequestMethod.POST)
+    @RequestMapping(value="/terminals/new", method = RequestMethod.GET)
+    public String addTerminal(Map<String, Object> map, HttpServletRequest request, Principal principal) {
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+	boolean canAdd = false;
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    if ((loggedUser.getRole() != null)
+		    && (canAlterTerminalsRoles.contains("'ROLE_"
+			    + loggedUser.getRole().getName().toUpperCase()
+			    + "'"))) {
+		canAdd = true;
+	    }
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	}
+
+	map.put("userMsg", userMsg);
+	map.put("canAdd", canAdd);
+        map.put("terminal", new Terminal());
+
+	return "newTerminal";
+   }
+ 
+   @RequestMapping(value = "/terminals/list", method = RequestMethod.POST)
     public String addTerminal(
 	    @Valid @ModelAttribute("terminal") Terminal terminal,
 	    BindingResult result, Map<String, Object> map,
