@@ -28,30 +28,36 @@
                     <h1><spring:message code="label.terminals"/></h1>
                     <div class="action_box">
                         <h2>Consultas <a href="help_sample.jps" class="info iframe"><span>Más información</span></a></h2>
+
                         <div class="row">
-                            <label>Elige tu consulta:</label>
-                            <select>
-                                <option value="" >Seleccionar</option>
-                                <c:forEach items="${userQueries}" var="userQuery">
-                                    <option value="${userQuery.id}">${userQuery.name}</option>
-                                </c:forEach>
-                            </select>
+                           <c:if test="${userQueries == null}">
+                               <div class="message no_queries">
+                                	<p>Ahorra tiempo generardo consultas, que las irás aplicando a medida que las vayas necesitando.</p>
+					<div class="flecha"></div>
+                               </div>
+                               
+                           </c:if>
+                           <c:if test="${userQueries != null && !userQueries.isEmpty()}">
+                               <form method="post" name="userQueriesForm" action="terminals/byQuery">
+                                   <label>Elige tu consulta:</label>
+                                   <select name="queryId" size="1">
+                                        <option value="" >Seleccionar</option>
+                                	<c:forEach items="${userQueries}" var="userQuery">
+                                    		   <option value="${userQuery.id}" ${query.id == userQuery.id? 'selected': ''}>${userQuery.name}</option>
+                                	</c:forEach>
+                            	    </select>
                         
-                            <input type="text" value="2/11/2013">
-                            <a href="" class="btn calendar"><span>Abrir calendario</span></a>
-                            <input type="submit" value="Aplicar" class="btn">
-                            <a href="queries" class="btn right">Mis consultas</a>
+				<input type="text" value="2/11/2013">
+                            	<a href="" class="btn calendar"><span>Abrir calendario</span></a>
+                            	<input type="submit" value="Aplicar" class="btn">
+                                </form>
+			   </c:if>
+                           <a href="queries" class="btn right">Mis consultas</a>
                         </div>
-                        <!--div class="row">
-                           <div class="message no_queries">
-                           	<p>Ahorra tiempo generardo consultas, que las irás aplicando a medida que las vayas necesitando.</p>
-							<div class="flecha"></div>
-                           </div>
-                            <a href="queries" class="btn right">Mis consultas</a>
-                        </div -->
+                        
                     </div>
                     <div class="message">
-						<p>Sabías que lorem ipsum dolor sit amet, <strong>consectetur adipisicing</strong> elit. Voluptatum, hic, laboriosam ea eaque necessitatibus alias dolor saepe earum et ullam veritatis animi at dignissimos. Consequatur optio cupiditate distinctio quasi amet?</p>
+		        <p>Sabías que lorem ipsum dolor sit amet, <strong>consectetur adipisicing</strong> elit. Voluptatum, hic, laboriosam ea eaque necessitatibus alias dolor saepe earum et ullam veritatis animi at dignissimos. Consequatur optio cupiditate distinctio quasi amet?</p>
 					</div>
                     <div class="notification">
 						<p>Los terminales se han priorizado con éxito y sus datos se están actualizando. Esta operación puede llevar un tiempo dependiendo del número de cajeros</p>
@@ -60,7 +66,14 @@
 						<p><strong>Se ha producido un error</strong>. Inténtelo más tarde.</p>
 					</div>
 
-					<h2>${pagedListHolder.source.size()} terminales <a href="#" class="edit"><span>edit</span></a></h2>
+					<h2>${pagedListHolder.source.size()} terminales
+
+ 						    <c:if test="${query != null}">
+						       de la consulta: ${query.name} <a href="queries/show?queryId=${query.id}" class="edit"><span>edit</span></a>
+						    </c:if>
+				        </h2> 
+
+
 					<div class="table_buttons">
                     <div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
@@ -88,8 +101,15 @@
 					</div><!-- /table_buttons -->
                    
                     <div class="pagination"> 
- 						<div class="t_number"><span class="text">${pagedListHolder.source.size()} Terminales</span></div>
-                    	<div class="p_number"><span class="text">Página</span><t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/list?p=~"/></div>
+ 						<div class="t_number"><span class="text">${pagedListHolder.source.size()} Terminales</span>
+
+                                                </div>
+                        
+                    	<div class="p_number"><c:if test="${pagedListHolder.getPageCount() >1 }">
+			     			    <span class="text">Página</span> 
+				  
+				  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}"/></div>
+				  </c:if>
                       </div>
                    
                 </div>

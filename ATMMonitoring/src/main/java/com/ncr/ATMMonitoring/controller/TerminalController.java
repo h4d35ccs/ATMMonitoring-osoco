@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -23,9 +24,12 @@ import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.TerminalService;
+import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.snmp.SnmpService;
 import com.ncr.ATMMonitoring.snmp.SnmpTimeOutException;
+
+import org.apache.log4j.Logger;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -33,6 +37,8 @@ import com.ncr.ATMMonitoring.snmp.SnmpTimeOutException;
 
 @Controller
 public class TerminalController {
+
+    static private Logger logger = Logger.getLogger(DashboardController.class.getName());
 
     @Value("${security.terminalsManagementAllowedRoles}")
     private String canAlterTerminalsRoles;
@@ -43,6 +49,8 @@ public class TerminalController {
 
     @Autowired
     private TerminalService terminalService;
+    @Autowired
+    private QueryService queryService;
     @Autowired
     private UserService userService;
     @Autowired
@@ -371,6 +379,70 @@ public class TerminalController {
     @RequestMapping("/terminals/installation")
     public String terminalInstallation() {
     	return "terminalInstallation";
+    }
+
+    @RequestMapping(value="terminals/byQuery")
+    public String listTerminalsByQuery(Map<String, Object> map,
+				       Integer queryId,
+				       Principal principal,
+				       String p, HttpServletRequest request) {
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+        Set<Query> userQueries = null; 
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	}
+	boolean canAdd = false, canManageScheduled = false;
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    if ((loggedUser.getRole() != null)
+		    && (canAlterTerminalsRoles.contains("'ROLE_"
+			    + loggedUser.getRole().getName().toUpperCase()
+			    + "'"))) {
+		canAdd = true;
+	    }
+	    if ((loggedUser.getRole() != null)
+		    && (canManageScheduledUpdatesRoles.contains("'ROLE_"
+			    + loggedUser.getRole().getName().toUpperCase()
+			    + "'"))) {
+		canManageScheduled = true;
+	    }
+	    userQueries = loggedUser.getQueries();
+	}
+        map.put("userQueries", userQueries);
+	map.put("userMsg", userMsg);
+	map.put("canAdd", canAdd);
+	map.put("canManageScheduled", canManageScheduled);
+        Query query= null;
+	List<Terminal> terminals = null;
+        logger.debug ("Query ID: " + queryId);
+        if (queryId != null) {
+	    query = queryService.getQuery(queryId);
+	    terminals= queryService.executeQuery(query, locale);
+        }
+        if (terminals == null) {
+            terminals = terminalService.listTerminals();
+   
+        }
+	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
+		terminals);
+	int page = 0;
+	if (p != null) {
+	    try {
+		page = Integer.parseInt(p);
+	    } catch (NumberFormatException e) {
+		e.printStackTrace();
+	    }
+	}
+	pagedListHolder.setPage(page);
+	pagedListHolder.setPageSize(pageSize);
+        map.put("query", query);
+	map.put("pagedListHolder", pagedListHolder);
+
+	return "terminals";
     }
 
 }
