@@ -1,3 +1,4 @@
+
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -26,7 +27,7 @@
 				<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
 	<!-- Pegado de querie.jsp -->
 				<div class="action_box desplegable">
-					<div class="desplegable saveQuery txt_btn">
+					<div class="desplegable button txt_btn">
 						<div class="btn txt content_hide">Guardar consulta</div>
 						<div class="hide collapsible">
 							<ul>
@@ -592,7 +593,7 @@
 </table>
 </div>
 <div class="botonera">
-	<div class="desplegable saveQuery">
+	<div class="desplegable button">
 		<div class="btn txt content_hide">Guardar consulta</div>
 		<div class="hide collapsible">
 			<ul>

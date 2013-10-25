@@ -780,8 +780,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 9, ../sass/_action_box.scss */
-#main .action_box .txt, #main .pagination .txt {
+/* line 14, ../sass/_action_box.scss */
+#main .action_box h1.txt, #main .pagination h1.txt, #main .action_box h2.txt, #main .pagination h2.txt, #main .action_box h3.txt, #main .pagination h3.txt, #main .action_box h4.txt, #main .pagination h4.txt, #main .action_box h5.txt, #main .pagination h5.txt,
+#main .action_box h2.txt,
+#main .pagination h2.txt,
+#main .action_box h3.txt,
+#main .pagination h3.txt,
+#main .action_box h4.txt,
+#main .pagination h4.txt,
+#main .action_box h5.txt,
+#main .pagination h5.txt,
+#main .action_box h6.txt,
+#main .pagination h6.txt {
   background: url("../images/icons/icon_box_show.png") no-repeat top left;
   cursor: pointer;
   margin: 0;
@@ -793,44 +803,74 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 17, ../sass/_action_box.scss */
-#main .action_box .txt:hover, #main .pagination .txt:hover {
+/* line 22, ../sass/_action_box.scss */
+#main .action_box h1.txt:hover, #main .pagination h1.txt:hover, #main .action_box h2.txt:hover, #main .pagination h2.txt:hover, #main .action_box h3.txt:hover, #main .pagination h3.txt:hover, #main .action_box h4.txt:hover, #main .pagination h4.txt:hover, #main .action_box h5.txt:hover, #main .pagination h5.txt:hover,
+#main .action_box h2.txt:hover,
+#main .pagination h2.txt:hover,
+#main .action_box h3.txt:hover,
+#main .pagination h3.txt:hover,
+#main .action_box h4.txt:hover,
+#main .pagination h4.txt:hover,
+#main .action_box h5.txt:hover,
+#main .pagination h5.txt:hover,
+#main .action_box h6.txt:hover,
+#main .pagination h6.txt:hover {
   background-color: #e6e6e6;
 }
-/* line 20, ../sass/_action_box.scss */
-#main .action_box .txt.content_hide, #main .pagination .txt.content_hide {
+/* line 25, ../sass/_action_box.scss */
+#main .action_box h1.txt.content_hide, #main .pagination h1.txt.content_hide, #main .action_box h2.txt.content_hide, #main .pagination h2.txt.content_hide, #main .action_box h3.txt.content_hide, #main .pagination h3.txt.content_hide, #main .action_box h4.txt.content_hide, #main .pagination h4.txt.content_hide, #main .action_box h5.txt.content_hide, #main .pagination h5.txt.content_hide,
+#main .action_box h2.txt.content_hide,
+#main .pagination h2.txt.content_hide,
+#main .action_box h3.txt.content_hide,
+#main .pagination h3.txt.content_hide,
+#main .action_box h4.txt.content_hide,
+#main .pagination h4.txt.content_hide,
+#main .action_box h5.txt.content_hide,
+#main .pagination h5.txt.content_hide,
+#main .action_box h6.txt.content_hide,
+#main .pagination h6.txt.content_hide {
   background-position: left -62px;
 }
-/* line 22, ../sass/_action_box.scss */
-#main .action_box .txt.content_hide.last, #main .pagination .txt.content_hide.last {
+/* line 27, ../sass/_action_box.scss */
+#main .action_box h1.txt.content_hide.last, #main .pagination h1.txt.content_hide.last, #main .action_box h2.txt.content_hide.last, #main .pagination h2.txt.content_hide.last, #main .action_box h3.txt.content_hide.last, #main .pagination h3.txt.content_hide.last, #main .action_box h4.txt.content_hide.last, #main .pagination h4.txt.content_hide.last, #main .action_box h5.txt.content_hide.last, #main .pagination h5.txt.content_hide.last,
+#main .action_box h2.txt.content_hide.last,
+#main .pagination h2.txt.content_hide.last,
+#main .action_box h3.txt.content_hide.last,
+#main .pagination h3.txt.content_hide.last,
+#main .action_box h4.txt.content_hide.last,
+#main .pagination h4.txt.content_hide.last,
+#main .action_box h5.txt.content_hide.last,
+#main .pagination h5.txt.content_hide.last,
+#main .action_box h6.txt.content_hide.last,
+#main .pagination h6.txt.content_hide.last {
   border-bottom: none;
 }
-/* line 27, ../sass/_action_box.scss */
+/* line 32, ../sass/_action_box.scss */
 #main .action_box .collapsible, #main .pagination .collapsible {
   border-bottom: 1px dotted #cccccc;
   padding: 1em;
   margin-bottom: 1em;
 }
-/* line 31, ../sass/_action_box.scss */
+/* line 36, ../sass/_action_box.scss */
 #main .action_box .collapsible.last, #main .pagination .collapsible.last {
   border-bottom: none;
 }
-/* line 35, ../sass/_action_box.scss */
+/* line 40, ../sass/_action_box.scss */
 #main .action_box .photo, #main .pagination .photo {
   float: left;
 }
-/* line 39, ../sass/_action_box.scss */
+/* line 44, ../sass/_action_box.scss */
 #main .action_box.data .photo, #main .data.pagination .photo {
   margin-top: 2em;
   float: left;
   width: 20%;
   position: relative;
 }
-/* line 44, ../sass/_action_box.scss */
+/* line 49, ../sass/_action_box.scss */
 #main .action_box.data .photo img, #main .data.pagination .photo img {
   width: 100%;
 }
-/* line 47, ../sass/_action_box.scss */
+/* line 52, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable, #main .data.pagination .photo .desplegable {
   padding: .5em;
   -o-border-radius: 4px;
@@ -839,47 +879,52 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 4px;
   margin-top: 1em;
 }
-/* line 51, ../sass/_action_box.scss */
+/* line 56, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable .txt, #main .data.pagination .photo .desplegable .txt {
-  font-size: 1.2em;
-  padding: .5em;
-  padding-left: 2.5em;
-  font-weight: bold;
-  background-color: #e6e6e6;
+  cursor: pointer;
+  float: none;
+  padding: 0.5em 1em 0.5em 3em;
+  background: url("../images/icons/icon_collapsible.png") no-repeat gray left bottom;
+  color: white;
+  border: 2px solid #b3b3b3;
 }
-/* line 58, ../sass/_action_box.scss */
+/* line 57, ../sass/_action_box.scss */
+#main .action_box.data .photo .desplegable .txt.content_hide, #main .data.pagination .photo .desplegable .txt.content_hide {
+  background: url("../images/icons/icon_collapsible.png") no-repeat gray left top;
+}
+/* line 67, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl, #main .data.pagination .photo .desplegable dl {
   margin-top: 1em;
   padding: 1em;
   background: white;
   overflow: hidden;
 }
-/* line 63, ../sass/_action_box.scss */
+/* line 72, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl dt, #main .data.pagination .photo .desplegable dl dt {
   font-weight: bold;
 }
-/* line 66, ../sass/_action_box.scss */
+/* line 75, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl dd, #main .data.pagination .photo .desplegable dl dd {
   border-bottom: 1px solid #cccccc;
   padding: 0.5em 0;
   margin-bottom: .5em;
 }
-/* line 70, ../sass/_action_box.scss */
+/* line 79, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl dd:last-child, #main .data.pagination .photo .desplegable dl dd:last-child {
   border: none;
 }
-/* line 77, ../sass/_action_box.scss */
+/* line 86, ../sass/_action_box.scss */
 #main .action_box.data .ul_data, #main .data.pagination .ul_data {
   margin-top: 2em;
   float: right;
   width: 75%;
 }
-/* line 81, ../sass/_action_box.scss */
+/* line 90, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul, #main .data.pagination .ul_data > ul {
   overflow: hidden;
   margin-bottom: 2em;
 }
-/* line 84, ../sass/_action_box.scss */
+/* line 93, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li, #main .data.pagination .ul_data > ul li {
   margin-left: 4%;
   padding: 0.5em 0;
@@ -887,24 +932,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 46%;
   border-bottom: 1px solid #b3b3b3;
 }
-/* line 90, ../sass/_action_box.scss */
+/* line 99, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong, #main .data.pagination .ul_data > ul li strong {
   width: 45%;
   margin-right: 4%;
   float: left;
   display: block;
 }
-/* line 95, ../sass/_action_box.scss */
+/* line 104, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong label, #main .data.pagination .ul_data > ul li strong label {
   width: 100%;
 }
-/* line 102, ../sass/_action_box.scss */
+/* line 111, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable > ul li, #main .data.pagination .ul_data.editable > ul li {
   min-height: 3em;
 }
-/* line 105, ../sass/_action_box.scss */
+/* line 114, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable input[type="text"], #main .data.pagination .ul_data.editable input[type="text"] {
   width: 40%;
+}
+/* line 116, ../sass/_action_box.scss */
+#main .action_box.data .ul_data.editable input[type="text"].num, #main .data.pagination .ul_data.editable input[type="text"].num {
+  width: 2em;
+}
+/* line 121, ../sass/_action_box.scss */
+#main .action_box.data .ul_data .ul_data, #main .data.pagination .ul_data .ul_data {
+  width: auto;
+  float: none;
+  margin-top: 1em;
 }
 
 /* line 1, ../sass/_forms.scss */
@@ -947,60 +1002,61 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   float: left;
 }
 
-/* line 24, ../sass/_forms.scss */
-#main .action_box .saveQuery, #main .pagination .saveQuery {
+/* line 23, ../sass/_forms.scss */
+.desplegable.button {
   float: right;
+  margin-left: 1em;
 }
 /* line 26, ../sass/_forms.scss */
-#main .action_box .saveQuery .txt, #main .pagination .saveQuery .txt {
-  width: 180px;
+.desplegable.button .txt {
+  width: auto;
   min-width: 100px;
-  margin-left: 1em;
   padding: 0.5em 1em;
   padding-left: 2.5em;
   background: url("../images/icons/icon_collapsible.png") no-repeat #b3b3b3 left bottom;
   border: 2px solid #cccccc;
+  margin-left: 0;
 }
 /* line 34, ../sass/_forms.scss */
-#main .action_box .saveQuery .txt:hover, #main .pagination .saveQuery .txt:hover {
+.desplegable.button .txt:hover {
   color: white;
 }
 /* line 37, ../sass/_forms.scss */
-#main .action_box .saveQuery .txt.content_hide, #main .pagination .saveQuery .txt.content_hide {
+.desplegable.button .txt.content_hide {
   background: url("../images/icons/icon_collapsible.png") no-repeat gray left top;
 }
 /* line 41, ../sass/_forms.scss */
-#main .action_box .saveQuery .txt.content_hide, #main .pagination .saveQuery .txt.content_hide {
+.desplegable.button .txt.content_hide {
   width: auto;
 }
 /* line 44, ../sass/_forms.scss */
-#main .action_box .saveQuery .collapsible, #main .pagination .saveQuery .collapsible {
+.desplegable.button .collapsible {
+  padding: 1em;
   float: right;
   clear: both;
+  margin-top: .5em;
   background: white;
-  width: 200px;
   border: 1px solid #b3b3b3;
 }
-/* line 51, ../sass/_forms.scss */
-#main .action_box .saveQuery .collapsible input[type="text"], #main .pagination .saveQuery .collapsible input[type="text"],
-#main .action_box .saveQuery .collapsible textarea,
-#main .pagination .saveQuery .collapsible textarea {
+/* line 52, ../sass/_forms.scss */
+.desplegable.button .collapsible input[type="text"],
+.desplegable.button .collapsible textarea {
   padding: 1%;
   width: 98%;
   font-size: 1em;
 }
-/* line 56, ../sass/_forms.scss */
-#main .action_box .saveQuery .collapsible textarea, #main .pagination .saveQuery .collapsible textarea {
+/* line 57, ../sass/_forms.scss */
+.desplegable.button .collapsible textarea {
   height: 5em;
 }
-/* line 59, ../sass/_forms.scss */
-#main .action_box .saveQuery .collapsible label, #main .pagination .saveQuery .collapsible label {
+/* line 60, ../sass/_forms.scss */
+.desplegable.button .collapsible label {
   padding-left: 0;
   padding-right: 0;
   font-weight: bold;
 }
 
-/* line 67, ../sass/_forms.scss */
+/* line 68, ../sass/_forms.scss */
 .btn, .save,
 #main .action_box .save,
 #main .pagination .save, input[type="submit"], input[type="reset"], button {
@@ -1025,7 +1081,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   cursor: pointer;
   width: inherit;
 }
-/* line 83, ../sass/_forms.scss */
+/* line 84, ../sass/_forms.scss */
 .btn:hover, .save:hover,
 #main .action_box .save:hover,
 #main .pagination .save:hover, input[type="submit"]:hover, input[type="reset"]:hover, button:hover {
@@ -1033,7 +1089,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: white;
   color: #6ca932;
 }
-/* line 88, ../sass/_forms.scss */
+/* line 89, ../sass/_forms.scss */
 .row .btn, .row .save,
 .row #main .action_box .save,
 #main .action_box .row .save,
@@ -1044,7 +1100,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin: 0;
   margin-left: 1em;
 }
-/* line 94, ../sass/_forms.scss */
+/* line 95, ../sass/_forms.scss */
 .btn.cancel, .cancel.save,
 #main .action_box .cancel.save,
 #main .pagination .cancel.save, input[type="submit"].cancel, input[type="reset"].cancel, button.cancel {
@@ -1053,27 +1109,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-decoration: underline;
   border: none;
 }
-/* line 99, ../sass/_forms.scss */
+/* line 100, ../sass/_forms.scss */
 .btn.cancel:hover, .cancel.save:hover,
 #main .action_box .cancel.save:hover,
 #main .pagination .cancel.save:hover, input[type="submit"].cancel:hover, input[type="reset"].cancel:hover, button.cancel:hover {
   text-decoration: none;
 }
-/* line 103, ../sass/_forms.scss */
+/* line 104, ../sass/_forms.scss */
 .btn.delete, .delete.save,
 #main .action_box .delete.save,
 #main .pagination .delete.save, input[type="submit"].delete, input[type="reset"].delete, button.delete {
   background: #e14f3c;
   color: white;
 }
-/* line 106, ../sass/_forms.scss */
+/* line 107, ../sass/_forms.scss */
 .btn.delete:hover, .delete.save:hover,
 #main .action_box .delete.save:hover,
 #main .pagination .delete.save:hover, input[type="submit"].delete:hover, input[type="reset"].delete:hover, button.delete:hover {
   background: white;
   color: #e14f3c;
 }
-/* line 111, ../sass/_forms.scss */
+/* line 112, ../sass/_forms.scss */
 .btn.left, .left.save,
 #main .action_box .left.save,
 #main .pagination .left.save, input[type="submit"].left, input[type="reset"].left, button.left {
@@ -1081,7 +1137,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin-left: 0;
   margin-right: 1em;
 }
-/* line 116, ../sass/_forms.scss */
+/* line 117, ../sass/_forms.scss */
 .btn.right, .right.save,
 #main .action_box .right.save,
 #main .pagination .right.save, input[type="submit"].right, input[type="reset"].right, button.right {
@@ -1090,7 +1146,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin-right: 0;
 }
 
-/* line 122, ../sass/_forms.scss */
+/* line 123, ../sass/_forms.scss */
 a.btn, a.save,
 #main .action_box a.save,
 #main .pagination a.save {
@@ -1098,7 +1154,7 @@ a.btn, a.save,
   padding-top: .6em;
 }
 
-/* line 126, ../sass/_forms.scss */
+/* line 127, ../sass/_forms.scss */
 .txt_btn {
   margin-right: 0;
   position: absolute;
@@ -1106,78 +1162,83 @@ a.btn, a.save,
   top: 1em;
 }
 
-/* line 132, ../sass/_forms.scss */
+/* line 133, ../sass/_forms.scss */
 input, select, area, label {
   font-size: 1em;
   padding: 0.5em 1em;
   vertical-align: middle;
 }
 
-/* line 137, ../sass/_forms.scss */
+/* line 138, ../sass/_forms.scss */
+input.num {
+  width: 2em;
+}
+
+/* line 141, ../sass/_forms.scss */
 select {
   margin: 0.5em 1em;
   padding: 0.5em 1em;
   border: 1px solid #b3b3b3;
 }
 
-/* line 142, ../sass/_forms.scss */
+/* line 146, ../sass/_forms.scss */
 label {
   display: block;
   float: left;
   text-align: right;
   padding: .8em;
 }
-/* line 147, ../sass/_forms.scss */
+/* line 151, ../sass/_forms.scss */
 .colorbox_box label {
   width: 25%;
 }
 
-/* line 151, ../sass/_forms.scss */
+/* line 155, ../sass/_forms.scss */
 input[type="checkbox"] {
   margin: 0.8em 0;
 }
 
-/* line 154, ../sass/_forms.scss */
+/* line 158, ../sass/_forms.scss */
 .label {
   margin: .8em;
 }
 
-/* line 157, ../sass/_forms.scss */
+/* line 161, ../sass/_forms.scss */
 .row {
   margin: 1em 0;
   padding: 1em 0;
   overflow: hidden;
 }
-/* line 161, ../sass/_forms.scss */
+/* line 165, ../sass/_forms.scss */
 .row .left {
   float: left;
 }
-/* line 164, ../sass/_forms.scss */
+/* line 168, ../sass/_forms.scss */
 .row .right {
   float: right;
 }
-/* line 167, ../sass/_forms.scss */
+/* line 171, ../sass/_forms.scss */
 .colorbox_box .row input[type="text"], .row area {
   width: 70%;
 }
-/* line 170, ../sass/_forms.scss */
+/* line 174, ../sass/_forms.scss */
 .row li {
   float: left;
   width: auto;
   white-space: nowrap;
 }
-/* line 174, ../sass/_forms.scss */
+/* line 178, ../sass/_forms.scss */
 .row li label {
   width: auto;
 }
 
-/* line 179, ../sass/_forms.scss */
+/* line 183, ../sass/_forms.scss */
 input:disabled {
   background: #cccccc;
   color: white;
   border: 1px solid #b3b3b3;
 }
-/* line 183, ../sass/_forms.scss */
+/* line 187, ../sass/_forms.scss */
 input:disabled:hover {
   background: #cccccc;
   color: white;
