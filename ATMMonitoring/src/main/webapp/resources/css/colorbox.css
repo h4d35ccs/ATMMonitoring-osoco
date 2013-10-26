@@ -242,7 +242,6 @@ a.btn, a.save,
 /* line 127, ../sass/_forms.scss */
 .txt_btn {
   margin-right: 0;
-  position: absolute;
   right: 1em;
   top: 1em;
 }

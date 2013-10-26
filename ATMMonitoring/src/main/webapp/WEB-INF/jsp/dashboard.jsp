@@ -13,13 +13,6 @@
     <script type="text/javascript" src="resources/js/json2html.js"></script>
     <script type="text/javascript" src="resources/js/jquery.json2html.js"></script>
     <script type='text/javascript' src='resources/js/dashboard.js'></script>
-    <style>
-      .ui-state-highlight {
-        width: 21%;
-        background-color: #efefef;
-        border: 2px dashed #aaaaaa;
-      }
-    </style>
   </jsp:attribute>
 
   <jsp:body>

@@ -296,7 +296,6 @@
 															<input type="checkbox">
 														</li>
 													</ul>
-													<div class="botonera"><a href="" class="save">Guardar</a></div>
 												</div>
 											</div>
 											

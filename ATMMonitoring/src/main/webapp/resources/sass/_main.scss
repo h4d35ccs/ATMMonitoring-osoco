@@ -51,6 +51,13 @@ p{
 		font-weight: bold;
 	}
 }
+#cboxContent{
+	@extend #main;
+	border:none;
+	#help_pop{
+		margin-right: 1em;
+	}
+}
 .left{
 	float: left !important;
 }

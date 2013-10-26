@@ -5,8 +5,8 @@
 			width: 98%;
 		}
 		&>li{
-			padding-right: 4%;
-			padding-top:4%;
+			margin-right: 4%;
+			margin-top:4%;
 			float: left;
 			&.ui-sortable-helper .content{
 				@include shadow;
@@ -16,8 +16,7 @@
 				height: 100%;
 				position: absolute;
 				z-index: 0;
-			}			
-
+			}
 		}
 		&.column1 li.ui-state-default{
 			width: 96%;
@@ -55,6 +54,7 @@
 			}
 		}
 	}
+	
 	#header_g{
 		#components{
 			position: relative;
@@ -108,10 +108,10 @@
 						background:$colorK6;
 						color: $colorK3;
 					}
-					a{
-						padding-right: 2em;
+					&.on{
+						padding-right: 3em;
 						display: block;
-						background:url("../images/icons/ico_add.png") right no-repeat;
+						background:url("../images/icons/ico_add.png") right no-repeat $colorW;
 					}
 				}
 				li:last-child{
@@ -140,9 +140,13 @@
 			}
 			.column1{
 				a{
-					background:url("../images/icons/icons_column.png") no-repeat 0 0;
+					background:url("../images/icons/icons_column.png") no-repeat 0 0 ;
 				}
-			}
+				&.current a{
+						background-position: 0 -20px;
+						
+					}
+				}
 			.column2{ 
 				a{
 					background:url("../images/icons/icons_column.png") no-repeat -20px 0;
