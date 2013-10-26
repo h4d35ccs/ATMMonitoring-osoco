@@ -44,6 +44,7 @@ p{
 		@extend h1;
 		font-size: 1.2em;
 		color: $colorK2;
+		font-weight: bold;
 	}
 	h5{
 		@extend h1;
@@ -176,4 +177,12 @@ strong{
 }
 .h100{
 	height: 100%;
+}
+.column33{
+	width: 33%;
+	float: left;
+}
+.column66{
+	width: 66%;
+	float: left;
 }

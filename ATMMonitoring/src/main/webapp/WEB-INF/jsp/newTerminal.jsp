@@ -302,6 +302,7 @@
 										</div>
 										<div class="botonera">
 											<input type="submit" class="btn save" value="Guardar terminal"/>
+											<a href="terminals" class="btn cancel">Cancelar</a>
 										</div>
 									</form:form>
 						</div>

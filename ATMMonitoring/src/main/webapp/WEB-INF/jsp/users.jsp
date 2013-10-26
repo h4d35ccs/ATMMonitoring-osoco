@@ -7,7 +7,7 @@
 
 <t:osoco-wrapper titleCode="label.queryEngine" userMsg="${userMsg}"  section="users">
 	<div id="main">
-		<div id="primary">
+		<div id="primary" class="documentation">
 			<article>
 				<div id="header_g">
 					<nav id="breadcrumb">
@@ -22,16 +22,57 @@
 						</ul>
 					</nav>
 				</div>
-
-				<div class="content">
+				<div class="menu">
+					<nav>
 					<h1>
 						<spring:message code="label.usersManager"/>
 					</h1>
-					<div class="column33">
 						<h2>Grupos de usuarios</h2>
+						<ul class="user_groups">
+							<li><a href="#" class="current">Grupo 1</a></li>
+							<li><a href="#">Grupo 2</a></li>
+							<li><a href="#">Grupo 3</a></li>
+							<li><a href="#">Grupo 4</a></li>
+							<li><a href="#">Grupo 5</a></li>
+							<li><a href="#">Grupo 6</a></li>
+						</ul>
+					</nav>
+
+					<div class="botonera">
+							<a href="#" class="btn add">Crear nuevo grupo</a>
 					</div>
-					<div class="column66">
+				</div>
+					<div class="scroll">
 						<h2>Funcionalidades</h2>
+						<ul class="features">
+							<li><h3>Terminales</h3>
+								<ul>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+								</ul>
+							</li>
+							<li><h3>Consultas</h3>
+								<ul>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+								</ul>
+							</li>
+							<li><h3>Informes</h3>
+								<ul>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+									<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</article>

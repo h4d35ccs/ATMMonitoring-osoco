@@ -32,13 +32,13 @@
 
 				<div class="content">
         			 <h1>
-					<c:if test="${query.name != null}">
-				 	    ${query.name}
-					</c:if>	
-					<c:if test="${query.name ==  ''}">
-				            Nueva consulta	     
-				        </c:if>
-				</h1>
+						<c:if test="${query.name != null}">
+					 	    ${query.name}
+						</c:if>	
+						<c:if test="${query.name ==  ''}">
+					            Nueva consulta	     
+					        </c:if>
+					</h1>
 				<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
 	<!-- Pegado de querie.jsp -->
 				<div class="action_box desplegable">
@@ -52,17 +52,17 @@
 							<div class="botonera"><input type="submit" class="save" value="Guardar" /></div>
 						</div>
 					</div><!-- /desplegable -->
-					<h1 class="txt last content_hide">
+					<h2 class="txt last content_hide">
 						Editar consulta
-					</h1>
+					</h2>
 						
 					<div class="collapsible last hide">
 						
 					<form:form method="post" action="queries/results" commandName="query">
 						   <form:hidden path="name"/>
-						<h2 class="txt content_hide" id="terminalSection">
+						<h3 class="txt content_hide" id="terminalSection">
 							<spring:message code="label.query.terminalSection"/>
-						</h2>
+						</h3>
 						<div class="collapsible hide">
 							<table class="query-form">
 								<tr>
@@ -113,14 +113,14 @@
 							</c:forEach>
 						</table>
 					</div>
-					<h2 class="txt content_hide" id="hwSection">
+					<h3 class="txt content_hide" id="hwSection">
 						<spring:message code="label.query.hardwareSection"/>
 						<span></span>
-					</h2>
+					</h3>
 					<div class="collapsible hide">
-						<h3>
+						<h4>
 							<spring:message code="label.query.hardwareDeviceSection"/>
-						</h3>
+						</h4>
 						<table class="query-form">
 							<tr>
 								<th>
@@ -187,9 +187,9 @@
 							</tr>
 						</c:forEach>
 					</table>
-					<h3>
+					<h4>
 						<spring:message code="label.query.financialDeviceSection"/>
-					</h3>
+					</h4>
 					<table class="query-form">
 						<tr>
 							<th>
@@ -247,14 +247,14 @@
 					</c:forEach>
 				</table>
 			</div>
-			<h2 class="txt content_hide" id="swSection">
+			<h3 class="txt content_hide" id="swSection">
 				<spring:message code="label.query.softwareGlobalSection"/>
 				<span></span>
-			</h2>
+			</h3>
 			<div class="collapsible hide">
-				<h3>
+				<h4>
 					<spring:message code="label.query.operatingSystemSection"/>
-				</h3>
+				</h4>
 				<table class="query-form">
 					<tr>
 						<th>
@@ -311,9 +311,9 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<h3>
+			<h4>
 				<spring:message code="label.query.internetExplorerSection"/>
-			</h3>
+			</h4>
 			<table class="query-form">
 				<tr>
 					<th>
@@ -370,9 +370,9 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<h3>
+		<h4>
 			<spring:message code="label.query.hotfixSection"/>
-		</h3>
+		</h4>
 		<table class="query-form">
 			<tr>
 				<th>
@@ -429,9 +429,9 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<h3>
+	<h4>
 		<spring:message code="label.query.softwareSection"/>
-	</h3>
+	</h4>
 	<table class="query-form">
 		<tr>
 			<th>
@@ -488,9 +488,9 @@
 		</tr>
 	</c:forEach>
 </table>
-<h3>
+<h4>
 	<spring:message code="label.query.featSwSection"/>
-</h3>
+</h4>
 <table class="query-form">
 	<tr>
 		<th>
@@ -547,9 +547,9 @@
 	</tr>
 </c:forEach>
 </table>
-<h3>
+<h4>
 <spring:message code="label.query.xfsSwSection"/>
-</h3>
+</h4>
 <table class="query-form">
 <tr>
 	<th>

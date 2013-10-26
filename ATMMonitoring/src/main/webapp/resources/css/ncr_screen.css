@@ -733,39 +733,99 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 2, ../sass/_documentation.scss */
+.documentation #header_g {
+  width: 100%;
+  background: white;
+  background-position: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  top: 40px;
+  left: 125px;
+  padding-top: 16px;
+}
+/* line 11, ../sass/_documentation.scss */
 .documentation .menu {
   position: fixed;
   top: 80px;
   left: 126px;
   width: 15%;
 }
-/* line 7, ../sass/_documentation.scss */
-.documentation .menu a {
-  display: block;
+/* line 16, ../sass/_documentation.scss */
+.documentation .menu ul {
+  width: 90%;
 }
-/* line 9, ../sass/_documentation.scss */
-.documentation .menu a:hover {
-  text-decoration: none;
-  background: #e6e6e6;
-}
-/* line 14, ../sass/_documentation.scss */
+/* line 19, ../sass/_documentation.scss */
 .documentation .menu li {
-  padding: 0.5em 0;
-  font-size: 1.2em;
+  border-top: 2px doted #b3b3b3;
 }
-/* line 17, ../sass/_documentation.scss */
-.documentation .menu li li {
-  font-size: .9em;
-  margin-left: 1em;
-}
-/* line 20, ../sass/_documentation.scss */
+/* line 22, ../sass/_documentation.scss */
 .documentation .menu li li a {
+  margin-left: 1em;
   color: #b3b3b3;
 }
-/* line 26, ../sass/_documentation.scss */
+/* line 27, ../sass/_documentation.scss */
+.documentation .menu li a {
+  padding: .5em;
+  display: block;
+}
+/* line 30, ../sass/_documentation.scss */
+.documentation .menu li a:hover {
+  text-decoration: none;
+  background: #e6e6e6;
+  font-size: 1.2em;
+}
+/* line 35, ../sass/_documentation.scss */
+.documentation .menu li a.current {
+  background: #f0f6ea;
+  color: #6ca932;
+  position: relative;
+  font-size: 1.2em;
+}
+/* line 40, ../sass/_documentation.scss */
+.documentation .menu li a.current:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -20px;
+  border-width: 15px 0 15px 20px;
+  border-style: solid;
+  border-color: transparent #f0f6ea;
+  display: block;
+  width: 0;
+}
+/* line 55, ../sass/_documentation.scss */
 .documentation .scroll {
   width: 80%;
   float: right;
+  margin-top: 40px;
+}
+/* line 59, ../sass/_documentation.scss */
+.documentation .scroll ul {
+  overflow: hidden;
+}
+/* line 64, ../sass/_documentation.scss */
+#users .documentation .scroll {
+  margin-top: 80px;
+}
+/* line 65, ../sass/_documentation.scss */
+#users .documentation .scroll h3 {
+  border-bottom: 2px dotted #b3b3b3;
+}
+/* line 69, ../sass/_documentation.scss */
+#users .documentation .scroll li li {
+  float: left;
+  margin-right: 1%;
+  width: 32%;
+  border: none;
+}
+/* line 76, ../sass/_documentation.scss */
+#users .documentation label {
+  float: none;
+  text-align: left;
+}
+/* line 80, ../sass/_documentation.scss */
+#users .documentation input[type="checkbox"] {
+  float: left;
+  margin-right: 1em;
 }
 
 /* line 8, ../sass/_menu_activo.scss */
@@ -1253,83 +1313,83 @@ a.btn, a.save,
   top: 1em;
 }
 
-/* line 133, ../sass/_forms.scss */
+/* line 132, ../sass/_forms.scss */
 input, select, area, label {
   font-size: 1em;
   padding: 0.5em 1em;
   vertical-align: middle;
 }
 
-/* line 138, ../sass/_forms.scss */
+/* line 137, ../sass/_forms.scss */
 input.num {
   width: 2em;
 }
 
-/* line 141, ../sass/_forms.scss */
+/* line 140, ../sass/_forms.scss */
 select {
   margin: 0.5em 1em;
   padding: 0.5em 1em;
   border: 1px solid #b3b3b3;
 }
 
-/* line 146, ../sass/_forms.scss */
+/* line 145, ../sass/_forms.scss */
 label {
   display: block;
   float: left;
   text-align: right;
   padding: .8em;
 }
-/* line 151, ../sass/_forms.scss */
+/* line 150, ../sass/_forms.scss */
 .colorbox_box label {
   width: 25%;
 }
 
-/* line 155, ../sass/_forms.scss */
+/* line 154, ../sass/_forms.scss */
 input[type="checkbox"] {
   margin: 0.8em 0;
 }
 
-/* line 158, ../sass/_forms.scss */
+/* line 157, ../sass/_forms.scss */
 .label {
   margin: .8em;
 }
 
-/* line 161, ../sass/_forms.scss */
+/* line 160, ../sass/_forms.scss */
 .row {
   margin: 1em 0;
   padding: 1em 0;
   overflow: hidden;
 }
-/* line 165, ../sass/_forms.scss */
+/* line 164, ../sass/_forms.scss */
 .row .left {
   float: left;
 }
-/* line 168, ../sass/_forms.scss */
+/* line 167, ../sass/_forms.scss */
 .row .right {
   float: right;
 }
-/* line 171, ../sass/_forms.scss */
+/* line 170, ../sass/_forms.scss */
 .colorbox_box .row input[type="text"], .row area {
   width: 70%;
 }
-/* line 174, ../sass/_forms.scss */
+/* line 173, ../sass/_forms.scss */
 .row li {
   float: left;
   width: auto;
   white-space: nowrap;
 }
-/* line 178, ../sass/_forms.scss */
+/* line 177, ../sass/_forms.scss */
 .row li label {
   width: auto;
 }
 
-/* line 183, ../sass/_forms.scss */
+/* line 182, ../sass/_forms.scss */
 input:disabled {
   background: #cccccc;
   color: white;
   border: 1px solid #b3b3b3;
 }
-/* line 187, ../sass/_forms.scss */
+/* line 186, ../sass/_forms.scss */
 input:disabled:hover {
   background: #cccccc;
   color: white;
@@ -1901,61 +1961,62 @@ p {
 #main h4, #cboxContent h4 {
   font-size: 1.2em;
   color: gray;
+  font-weight: bold;
 }
-/* line 48, ../sass/_main.scss */
+/* line 49, ../sass/_main.scss */
 #main h5, #cboxContent h5 {
   font-size: 1em;
   font-weight: bold;
 }
 
-/* line 54, ../sass/_main.scss */
+/* line 55, ../sass/_main.scss */
 #cboxContent {
   border: none;
 }
-/* line 57, ../sass/_main.scss */
+/* line 58, ../sass/_main.scss */
 #cboxContent #help_pop {
   margin-right: 1em;
 }
 
-/* line 61, ../sass/_main.scss */
+/* line 62, ../sass/_main.scss */
 .left {
   float: left !important;
 }
 
-/* line 64, ../sass/_main.scss */
+/* line 65, ../sass/_main.scss */
 .right {
   float: right !important;
 }
-/* line 66, ../sass/_main.scss */
+/* line 67, ../sass/_main.scss */
 .right.photo {
   margin: 0 0 1em 2em;
 }
 
-/* line 70, ../sass/_main.scss */
+/* line 71, ../sass/_main.scss */
 .pagination {
   overflow: hidden;
   margin: 2em 0;
 }
-/* line 74, ../sass/_main.scss */
+/* line 75, ../sass/_main.scss */
 .pagination .t_number {
   float: left;
   font-size: 1.2em;
   font-weight: bold;
 }
-/* line 79, ../sass/_main.scss */
+/* line 80, ../sass/_main.scss */
 .pagination .p_number {
   float: right;
 }
-/* line 82, ../sass/_main.scss */
+/* line 83, ../sass/_main.scss */
 .pagination span {
   float: left;
   margin-right: .2em;
 }
-/* line 85, ../sass/_main.scss */
+/* line 86, ../sass/_main.scss */
 .pagination span.text {
   padding: 0.3em 0.5em;
 }
-/* line 88, ../sass/_main.scss */
+/* line 89, ../sass/_main.scss */
 .pagination span.pagingItemCurrent {
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1966,7 +2027,7 @@ p {
   text-decoration: none;
   color: white;
 }
-/* line 95, ../sass/_main.scss */
+/* line 96, ../sass/_main.scss */
 .pagination span a {
   padding: 0.3em 0.5em;
   display: block;
@@ -1976,68 +2037,68 @@ p {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 100, ../sass/_main.scss */
+/* line 101, ../sass/_main.scss */
 .pagination span a:hover {
   background-color: #6ca932;
   text-decoration: none;
   color: white;
 }
 
-/* line 109, ../sass/_main.scss */
+/* line 110, ../sass/_main.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 112, ../sass/_main.scss */
+/* line 113, ../sass/_main.scss */
 .hidden, .hide {
   display: none;
 }
 
-/* line 116, ../sass/_main.scss */
+/* line 117, ../sass/_main.scss */
 #help .content {
   border-top: 2px dotted #cccccc;
   padding-bottom: 1em;
   margin-bottom: .5em;
 }
-/* line 120, ../sass/_main.scss */
+/* line 121, ../sass/_main.scss */
 #help .content ul {
   list-style-type: square;
   padding-left: 2em;
 }
-/* line 124, ../sass/_main.scss */
+/* line 125, ../sass/_main.scss */
 #help .content ol {
   list-style-type: decimal;
   padding-left: 2em;
 }
-/* line 128, ../sass/_main.scss */
+/* line 129, ../sass/_main.scss */
 #help .content li {
   padding: .5em;
   padding-left: .5em;
 }
 
-/* line 134, ../sass/_main.scss */
+/* line 135, ../sass/_main.scss */
 .photo {
   border: 5px solid white;
   padding: .5em;
   background: white;
 }
 
-/* line 139, ../sass/_main.scss */
+/* line 140, ../sass/_main.scss */
 .td {
   border: none;
 }
-/* line 141, ../sass/_main.scss */
+/* line 142, ../sass/_main.scss */
 .td label, .td input, .td select, .td div, .td form {
   display: inline;
   float: none;
 }
 
-/* line 147, ../sass/_main.scss */
+/* line 148, ../sass/_main.scss */
 .editable .relative {
   position: relative;
   padding-right: 4em;
 }
-/* line 150, ../sass/_main.scss */
+/* line 151, ../sass/_main.scss */
 .editable .relative .botonera {
   position: absolute;
   right: 0;
@@ -2046,39 +2107,51 @@ strong {
   padding: 0;
 }
 
-/* line 159, ../sass/_main.scss */
+/* line 160, ../sass/_main.scss */
 .nowrap {
   white-space: nowrap;
 }
 
-/* line 162, ../sass/_main.scss */
+/* line 163, ../sass/_main.scss */
 .w33 {
   width: 33%;
 }
 
-/* line 165, ../sass/_main.scss */
+/* line 166, ../sass/_main.scss */
 .w66 {
   width: 66%;
 }
 
-/* line 168, ../sass/_main.scss */
+/* line 169, ../sass/_main.scss */
 .w25 {
   width: 25%;
 }
 
-/* line 171, ../sass/_main.scss */
+/* line 172, ../sass/_main.scss */
 .w50 {
   width: 50%;
 }
 
-/* line 174, ../sass/_main.scss */
+/* line 175, ../sass/_main.scss */
 .w75 {
   width: 75%;
 }
 
-/* line 177, ../sass/_main.scss */
+/* line 178, ../sass/_main.scss */
 .h100 {
   height: 100%;
+}
+
+/* line 181, ../sass/_main.scss */
+.column33 {
+  width: 33%;
+  float: left;
+}
+
+/* line 185, ../sass/_main.scss */
+.column66 {
+  width: 66%;
+  float: left;
 }
 
 /* line 1, ../sass/_login_user.scss */

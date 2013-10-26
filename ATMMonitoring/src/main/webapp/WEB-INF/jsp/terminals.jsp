@@ -113,8 +113,8 @@
                       </div>
                    
                 </div>
-                <div id="help_pop" class="inline">
-			    	<div class="content">
+                <div class="inline hide">
+			    	<div id="help_pop" class="content">
 						<h1>Terminales</h1>
 						<h2>Consultas</h2>
 						<p>Scelerisque montes est et! Sit dignissim, sed, aenean ac scelerisque. Pulvinar ac! Elementum natoque penatibus scelerisque sociis tempor, hac ridiculus ac augue non et. Magna dignissim lundium rhoncus turpis! Porttitor eros dis proin pulvinar sagittis ac, facilisis porta mauris tincidunt scelerisque pulvinar. Arcu augue eu. Penatibus sit phasellus lorem in.</p>

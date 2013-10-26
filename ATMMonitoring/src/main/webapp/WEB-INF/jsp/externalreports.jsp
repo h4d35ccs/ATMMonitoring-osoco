@@ -34,70 +34,70 @@
 					<div class="box_list">
 						<a href="#">
 							<h3>Report Name</h3>
-							<img src="resources/images/ejemplo/grafico.jpg"/>
+							<img src="resources/images/ejemplo/grafico.png"/>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 						</a>
 					</div>
 					<div class="box_list">
 						<a href="#">
 							<h3>Report Name</h3>
-							<img src="resources/images/ejemplo/grafico.jpg"/>
+							<img src="resources/images/ejemplo/grafico.png"/>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 						</a>
 					</div>
 					<div class="box_list">
 						<a href="#">
 							<h3>Report Name</h3>
-							<img src="resources/images/ejemplo/grafico.jpg"/>
+							<img src="resources/images/ejemplo/grafico.png"/>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 						</a>
 					</div>
 					<div class="box_list">
 						<a href="#">
 							<h3>Report Name</h3>
-							<img src="resources/images/ejemplo/grafico.jpg"/>
+							<img src="resources/images/ejemplo/grafico.png"/>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 						</a>
 					</div>
 					<div class="box_list">
 						<a href="#">
 							<h3>Report Name</h3>
-							<img src="resources/images/ejemplo/grafico.jpg"/>
+							<img src="resources/images/ejemplo/grafico.png"/>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 						</a>
 					</div>
 					<div class="box_list">
 						<a href="#">
 							<h3>Report Name</h3>
-							<img src="resources/images/ejemplo/grafico.jpg"/>
+							<img src="resources/images/ejemplo/grafico.png"/>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 						</a>
 					</div>
 					<div class="box_list">
 						<a href="#">
 							<h3>Report Name</h3>
-							<img src="resources/images/ejemplo/grafico.jpg"/>
+							<img src="resources/images/ejemplo/grafico.png"/>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 						</a>
 					</div>
 					<div class="box_list">
 						<a href="#">
 							<h3>Report Name</h3>
-							<img src="resources/images/ejemplo/grafico.jpg"/>
+							<img src="resources/images/ejemplo/grafico.png"/>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 						</a>
 					</div>
 					<div class="box_list">
 						<a href="#">
 							<h3>Report Name</h3>
-							<img src="resources/images/ejemplo/grafico.jpg"/>
+							<img src="resources/images/ejemplo/grafico.png"/>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 						</a>
 					</div>
 					<div class="box_list">
 						<a href="#">
 							<h3>Report Name</h3>
-							<img src="resources/images/ejemplo/grafico.jpg"/>
+							<img src="resources/images/ejemplo/grafico.png"/>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 						</a>
 					</div>

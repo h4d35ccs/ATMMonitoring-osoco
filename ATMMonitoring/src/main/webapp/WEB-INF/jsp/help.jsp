@@ -24,7 +24,7 @@
 						<ul>
 							<li><a href="#dasboard">Dasboard</a>
 								<ul>
-									<li><a href="#">Opcion 1</a></li>
+									<li><a href="#" class="current">Opcion 1</a></li>
 									<li><a href="#">Opcion 2</a></li>
 									<li><a href="#">Opcion 3</a></li>
 									<li><a href="#">Opcion 4</a></li>
