@@ -32,11 +32,13 @@
 					<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
 					<div class="action_box desplegable">
 						
-					<form:form method="post" target="_blank" action="queries/results" commandName="query">
+					<form:form method="post" action="queries/results" commandName="query">
+						   <form:hidden path="name"/>
 
 						<h2 class="txt content_hide" id="terminalSection">
 							<spring:message code="label.query.terminalSection"/>
 						</h2>
+						
 						<div class="collapsible hide">
 							<table class="query-form">
 								<tr>

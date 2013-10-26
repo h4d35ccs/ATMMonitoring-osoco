@@ -17,13 +17,28 @@
 								<a href="#">inicio</a>
 							</li>
 							<li><a href="terminals">Terminales</a></li>
-							<li><a href="queries/create">Mis consultas</a></li>
-							<li>Nueva consulta</li>
+							<li><a href="queries">Mis consultas</a></li>
+							<li>
+						            <c:if test="${query.name != null}">
+				 	   		    	   ${query.name}
+						            </c:if>	
+ 							    <c:if test="${query.name == ''}">
+							        Nueva consulta	     
+						            </c:if>
+							</li>
 						</ul>
 					</nav>
 				</div>
 
 				<div class="content">
+        			 <h1>
+					<c:if test="${query.name != null}">
+				 	    ${query.name}
+					</c:if>	
+					<c:if test="${query.name ==  ''}">
+				            Nueva consulta	     
+				        </c:if>
+				</h1>
 				<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
 	<!-- Pegado de querie.jsp -->
 				<div class="action_box desplegable">
@@ -43,8 +58,8 @@
 						
 					<div class="collapsible last hide">
 						
-					<form:form method="post" target="_blank" action="queries/results" commandName="query">
-
+					<form:form method="post" action="queries/results" commandName="query">
+						   <form:hidden path="name"/>
 						<h2 class="txt content_hide" id="terminalSection">
 							<spring:message code="label.query.terminalSection"/>
 						</h2>
@@ -805,10 +820,12 @@
 	</div><!-- // pegado de queries.jsp -->
 	<div class="box-tableContainer">
 		<c:if  test="${empty pagedListHolder.pageList}">
-		<div class="empty-list"><spring:message code="label.query.noResults"/></div>
+		<div class="message">
+		     <spring:message code="label.query.noResults"/>
+                </div>
 		</c:if>
 		<c:if  test="${!empty pagedListHolder.pageList}">
-		<h2>8.000 Resultados <a href="#" class="edit"><span>edit</span></a></h2>
+		<h2>${pagedListHolder.source.size()} Resultados <a href="#" class="edit"><span>edit</span></a></h2>
 		<div class="table_buttons">
 			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
 				<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
@@ -817,6 +834,8 @@
 				<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 			</div> 
 			<t:terminalsTable terminals="${pagedListHolder.pageList}"/>
+
+
 
 			<div class="pagingContainer">
 			<form:form id="pagingForm" method="post" action="queries/results/export" commandName="query">

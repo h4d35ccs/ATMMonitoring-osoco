@@ -101,7 +101,7 @@ public class QueryController {
 	
 	map.put("userMsg", userMsg);
 	map.put("query", query);
-	map.put("values", Query.getComboboxes());
+	map.put("values", query.getComboboxes());
 
 	return "queries";
 
@@ -267,6 +267,7 @@ public class QueryController {
 	map.put("userMsg", userMsg);
 	map.put("pagedListHolder", pagedListHolder);
 	map.put("query", query);
+        map.put("values", Query.getComboboxes());
 
 	return "queryResults";
     }

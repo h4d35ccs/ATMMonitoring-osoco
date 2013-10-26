@@ -50,7 +50,9 @@
                 </div>
                 <div class="pagination"> 
                     <div class="t_number"><span class="text">${pagedListHolder.source.size()} Consultas</span></div>
+		    <c:if test="${pagedListHolder.getPageCount() >1 }">
                     <div class="p_number"><span class="text">Página</span><t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/list?p=~"/></div>
+                    </c:if>
                 </div>
             </article>
         </div>
