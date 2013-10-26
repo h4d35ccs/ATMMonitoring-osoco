@@ -8,12 +8,16 @@
 <t:osoco-wrapper titleCode="label.scheduledUpdatesManager" userMsg="${userMsg}" section="schedule">
 
 <jsp:attribute name="header">
-
 <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.css"/>
 <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.print.css"/>
 <script type="text/javascript" src="resources/js/fullcalendar.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
+        initSchedulerCalendar();
+        initSchedulerToggle();
+    });
+
+    function initSchedulerCalendar() {
         $("#schedulerCalendar").fullCalendar({
             events: 'terminals/schedules/updates',
             header: {
@@ -24,10 +28,15 @@
             firstDay: 1,
             height: 450,
             allDaySlot: false,
+            allDayDefault: false,
             monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
             monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
             dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
             dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+            timeFormat: {
+                agenda: 'H:mm{ - H:mm}', // 5:00 - 6:30
+                '': 'HH:mm'            // 19:00
+            },
             titleFormat: {
                 month: 'MMMM yyyy',                             // September 2009
                 week: "d[ yyyy] [MMM]{ '&#8212;'d MMM yyyy}", // 7 - 13 Sep 2009
@@ -49,7 +58,15 @@
                 day:      'día'
             }
         });
-    });
+    }
+
+    function initSchedulerToggle() {
+        $("#toggleSchedulerView").click(function (event) {
+            event.preventDefault();
+            $("#schedulerCalendar").fadeToggle();
+            $("#schedulerList").fadeToggle();
+        });
+    }
 </script>
 
 <style type="text/css">
@@ -127,9 +144,12 @@ html>body tbody.scrollContent {
 </jsp:attribute>
 
 <jsp:body>
-<%--
+
 <h1><spring:message code="label.scheduledUpdatesManager"/></h1>
 
+<a id="toggleSchedulerView" href="#">cambiar</a>
+
+<div id="schedulerList" class="scheduler hide">
 <div class="box">
 <h2><spring:message code="label.weeklyScheduledUpdates"/></h2>
 <div class="margin-box">
@@ -267,9 +287,10 @@ html>body tbody.scrollContent {
 </c:if>
 </div>
 </div>
---%>
 
-<div id="schedulerCalendar"></div>
+</div>
+
+<div id="schedulerCalendar" class="scheduler"></div>
 
 <div class="box">
 <h2><spring:message code="label.newScheduledUpdate"/></h2>

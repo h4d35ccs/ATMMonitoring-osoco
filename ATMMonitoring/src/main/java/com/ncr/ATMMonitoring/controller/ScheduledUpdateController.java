@@ -36,7 +36,11 @@ import com.ncr.ATMMonitoring.service.UserService;
 @Controller
 public class ScheduledUpdateController {
 
-    static private Logger logger = Logger.getLogger(ScheduledUpdateController.class.getName());
+    private static Logger logger = Logger.getLogger(ScheduledUpdateController.class.getName());
+	private static SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+	private static SimpleDateFormat weeklyTitleDateFormat = new SimpleDateFormat("EEEE");
+	private static SimpleDateFormat monthlyTitleDateFormat = new SimpleDateFormat("'día' d");
+	private static long EVENT_DURATION_IN_MILLIS = 60 * 60 * 1000;
 
     @Autowired
     private ScheduledUpdateService scheduledUpdateService;
@@ -108,7 +112,7 @@ public class ScheduledUpdateController {
 	map.put("monthlyScheduledUpdates",
 		scheduledUpdateService.listMonthlyScheduledUpdates());
 
-	return "";
+	return "redirect:/terminals/schedules/list";
     }
 
     @RequestMapping("/terminals/schedules")
@@ -125,7 +129,6 @@ public class ScheduledUpdateController {
 
 	private List<Map> toCalendarEventsJSON(List<ScheduledUpdate> updates, long from, long to) {
 		logger.debug("updates: " + updates);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 		List json = new ArrayList();
 		if (updates != null) {
 			for(ScheduledUpdate update: updates) {
@@ -133,9 +136,13 @@ public class ScheduledUpdateController {
 				for (Date eventDate: eventDates) {
 					Map event = new HashMap();
 					event.put("id", update.getId());
-					event.put("title", "Event " + update.getId());
 					event.put("className", (update.isWeekly()) ? "weekly" : "monthly");
-					event.put("start", df.format(eventDate.getTime()));
+					SimpleDateFormat titleDateFormat =
+						(update.isWeekly()) ? weeklyTitleDateFormat : monthlyTitleDateFormat;
+					event.put("title", titleDateFormat.format(eventDate));
+					event.put("start", eventDateFormat.format(eventDate.getTime()));
+					Date endDate = new Date(eventDate.getTime() + EVENT_DURATION_IN_MILLIS);
+					event.put("end", eventDateFormat.format(endDate.getTime()));
 					json.add(event);
 				}
 			}

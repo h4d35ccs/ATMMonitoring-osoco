@@ -141,33 +141,31 @@ public class ScheduledUpdate {
 		logger.debug("fromDate: " + fromDate + ", toDate: " + toDate);
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(fromDate);
+		calendar.set(Calendar.HOUR_OF_DAY, hour);
+		calendar.set(Calendar.MINUTE, minute);
 
 		if (isWeekly()) {
 			calendar.set(Calendar.DAY_OF_WEEK, weekDay);
-			calendar.set(Calendar.HOUR_OF_DAY, hour);
-			calendar.set(Calendar.MINUTE, minute);
-			Date event = calendar.getTime();
-
-			logger.debug("weekly: " + event);
-			events.add(event);
 		} else {
 			calendar.set(Calendar.DAY_OF_MONTH, monthDay);
-			calendar.set(Calendar.HOUR_OF_DAY, hour);
-			calendar.set(Calendar.MINUTE, minute);
 			Date event = calendar.getTime();
-
 			if (event.getTime() < fromDate.getTime()) {
 				calendar.add(Calendar.MONTH, 1);
-				event = calendar.getTime();
 			}
+		}
 
-			logger.debug("monthly: " + event);
+		while(calendar.getTime().getTime() < toDate.getTime()) {
+			Date event = calendar.getTime();
 			events.add(event);
+			if (isWeekly()) {
+				calendar.add(Calendar.DAY_OF_MONTH, 7);
+			} else {
+				calendar.add(Calendar.MONTH, 1);
+			}
 		}
 
 		return events;
 	}
-
 
     public String getCompleteHour() {
 	String completeHour = "";
