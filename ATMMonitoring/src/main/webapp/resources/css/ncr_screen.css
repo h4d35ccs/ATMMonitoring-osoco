@@ -1461,10 +1461,9 @@ table th, table td {
   padding: .8em;
   border: 1px solid #cccccc;
   border-collapse: collapse;
-  position: relative;
   vertical-align: top;
 }
-/* line 50, ../sass/_table.scss */
+/* line 49, ../sass/_table.scss */
 table th.note_detail, table td.note_detail {
   border-bottom: 2px solid #f4a725;
   border-left: 2px solid #f4a725;
@@ -1473,11 +1472,11 @@ table th.note_detail, table td.note_detail {
   float: none;
   padding: 1em;
 }
-/* line 51, ../sass/_table.scss */
+/* line 50, ../sass/_table.scss */
 table th.note_detail:hover, table td.note_detail:hover {
   color: #333333;
 }
-/* line 60, ../sass/_table.scss */
+/* line 59, ../sass/_table.scss */
 table th.note_detail div, table td.note_detail div {
   position: relative;
   background: white;
@@ -1490,7 +1489,7 @@ table th.note_detail div, table td.note_detail div {
   -moz-box-shadow: 0px 0px 8px #b3b3b3;
   box-shadow: 0px 0px 8px #b3b3b3;
 }
-/* line 65, ../sass/_table.scss */
+/* line 64, ../sass/_table.scss */
 table th.note_detail div:after, table td.note_detail div:after {
   content: "";
   position: absolute;
@@ -1502,92 +1501,88 @@ table th.note_detail div:after, table td.note_detail div:after {
   display: block;
   width: 0;
 }
-/* line 77, ../sass/_table.scss */
+/* line 76, ../sass/_table.scss */
 table th.note_detail div li, table td.note_detail div li {
   border-bottom: 2px dotted #cccccc;
   margin-bottom: 1em;
 }
-/* line 81, ../sass/_table.scss */
+/* line 80, ../sass/_table.scss */
 table th.note_detail div li:last-child, table td.note_detail div li:last-child {
   border: none;
   margin-bottom: 0;
 }
-/* line 88, ../sass/_table.scss */
+/* line 87, ../sass/_table.scss */
 table tr {
   background: white;
 }
-/* line 90, ../sass/_table.scss */
+/* line 89, ../sass/_table.scss */
 table tr:nth-child(2n+1) {
   background: #e6e6e6;
 }
-/* line 93, ../sass/_table.scss */
+/* line 92, ../sass/_table.scss */
 table tr.active {
   background: #f4a725;
   border-top: 2px solid #f4a725;
   border-left: 2px solid #f4a725;
   border-right: 2px solid #f4a725;
 }
-/* line 100, ../sass/_table.scss */
-table div {
-  position: relative;
-}
-/* line 103, ../sass/_table.scss */
+/* line 99, ../sass/_table.scss */
 table.query-form {
   border: 1px solid white;
   margin-bottom: 2em;
 }
-/* line 106, ../sass/_table.scss */
+/* line 102, ../sass/_table.scss */
 table.query-form tr {
   border: 1px solid white;
   border-bottom: 2px dotted #e6e6e6;
   background: white;
 }
-/* line 110, ../sass/_table.scss */
+/* line 106, ../sass/_table.scss */
 table.query-form tr:hover {
   cursor: inherit;
   border: 1px solid white;
   border-bottom: 2px dotted #e6e6e6;
 }
-/* line 115, ../sass/_table.scss */
+/* line 111, ../sass/_table.scss */
 table.query-form tr:nth-child(2n+1) {
   background: white;
 }
-/* line 119, ../sass/_table.scss */
+/* line 115, ../sass/_table.scss */
 table.query-form td:first-child {
   width: 30%;
 }
-/* line 122, ../sass/_table.scss */
+/* line 118, ../sass/_table.scss */
 table.query-form td:nth-child(2) {
   width: 3em;
 }
-/* line 125, ../sass/_table.scss */
+/* line 121, ../sass/_table.scss */
 table.query-form th {
   border: 1px solid white;
   border-bottom: 2px solid #e6e6e6;
   color: #6ca932;
   background: #f0f6ea;
 }
-/* line 130, ../sass/_table.scss */
+/* line 126, ../sass/_table.scss */
 table.query-form th:hover {
   cursor: inherit;
   border: 1px solid white;
   border-bottom: 2px solid #e6e6e6;
 }
-/* line 136, ../sass/_table.scss */
+/* line 132, ../sass/_table.scss */
 table.query-form td {
   background: white;
   border: 1px solid white;
 }
-/* line 139, ../sass/_table.scss */
+/* line 135, ../sass/_table.scss */
 table.query-form td:hover {
   background: white;
   border: 1px solid white;
 }
-/* line 143, ../sass/_table.scss */
+/* line 139, ../sass/_table.scss */
 table.query-form td.btn_add {
   border: 1px solid white;
 }
-/* line 146, ../sass/_table.scss */
+/* line 142, ../sass/_table.scss */
 table.query-form td.btn_add .btn, table.query-form td.btn_add .save,
 table.query-form td.btn_add #main .action_box .save,
 #main .action_box table.query-form td.btn_add .save,
@@ -1599,30 +1594,30 @@ table.query-form td.btn_add #cboxContent .pagination .save,
 #cboxContent .pagination table.query-form td.btn_add .save {
   float: right;
 }
-/* line 152, ../sass/_table.scss */
+/* line 148, ../sass/_table.scss */
 table.link tr {
   cursor: pointer;
 }
-/* line 154, ../sass/_table.scss */
+/* line 150, ../sass/_table.scss */
 table.link tr:hover {
   background: #f0f6ea;
   color: #6ca932;
 }
-/* line 159, ../sass/_table.scss */
+/* line 155, ../sass/_table.scss */
 table.link label {
   cursor: pointer;
 }
-/* line 163, ../sass/_table.scss */
+/* line 159, ../sass/_table.scss */
 table.link tr.showdetail.open, table.link tr.showdetail.open:hover {
   background: #89ba5b;
   color: white;
 }
-/* line 167, ../sass/_table.scss */
+/* line 163, ../sass/_table.scss */
 table.link tr.detail, table.link tr.detail:hover {
   background: #89ba5b;
   color: black;
 }
-/* line 170, ../sass/_table.scss */
+/* line 166, ../sass/_table.scss */
 table.link tr.detail ul, table.link tr.detail:hover ul {
   padding: 1%;
   background: white;
@@ -1632,7 +1627,7 @@ table.link tr.detail ul, table.link tr.detail:hover ul {
   overflow: hidden;
   cursor: inherit;
 }
-/* line 176, ../sass/_table.scss */
+/* line 172, ../sass/_table.scss */
 table.link tr.detail ul li, table.link tr.detail:hover ul li {
   float: left;
   width: 32%;
@@ -1640,7 +1635,7 @@ table.link tr.detail ul li, table.link tr.detail:hover ul li {
   padding: 0.5em 0;
   border-bottom: 1px solid #b3b3b3;
 }
-/* line 182, ../sass/_table.scss */
+/* line 178, ../sass/_table.scss */
 table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   width: 30%;
   display: block;
@@ -1648,7 +1643,7 @@ table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   text-align: right;
   margin-right: 1em;
 }
-/* line 190, ../sass/_table.scss */
+/* line 186, ../sass/_table.scss */
 table.link tr.detail ul:after, table.link tr.detail:hover ul:after {
   content: "";
   position: absolute;

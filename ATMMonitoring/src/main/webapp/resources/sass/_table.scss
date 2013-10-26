@@ -45,7 +45,6 @@ table{
 		padding: .8em;
 		border: 1px solid $colorK4;
 		border-collapse: collapse;
-		position: relative;
 		vertical-align: top;
 		&.note_detail{
 			&:hover{
@@ -96,9 +95,6 @@ table{
 			border-left:  2px solid $colorY3;
 			border-right:  2px solid $colorY3;
 		}
-	}
-	div{
-		position: relative;
 	}
 	&.query-form{
 		border:1px solid $colorW;
