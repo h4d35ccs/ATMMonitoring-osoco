@@ -142,7 +142,11 @@ function closeChartsMenu() {
 // Event Handlers++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 function onLoadDashboard() {
-    drawCharts();
+    if (dashboardModel.visibleCharts.length > 0) {
+        drawCharts();
+    } else {
+        drawChartsMenu();
+    }
     initSortableCharts();
 }
 
