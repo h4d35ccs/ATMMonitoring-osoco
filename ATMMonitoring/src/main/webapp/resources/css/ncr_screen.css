@@ -550,7 +550,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 #dashboard #sortable div.content:hover .icons_bg {
   display: block;
 }
-/* line 59, ../sass/_dashboard.scss */
+/* line 57, ../sass/_dashboard.scss */
+#dashboard .message, #dashboard .no_queries {
+  margin-left: 350px;
+  margin-top: 2em;
+}
+/* line 62, ../sass/_dashboard.scss */
 #dashboard #header_g #components {
   position: relative;
   -o-border-radius: 4px;
@@ -559,7 +564,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 4px;
   cursor: pointer;
 }
-/* line 63, ../sass/_dashboard.scss */
+/* line 66, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components, #dashboard #header_g #components #add_components {
   border: 1px solid #cccccc;
   -o-border-radius: 4px;
@@ -569,31 +574,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   float: left;
   margin-right: 1em;
 }
-/* line 68, ../sass/_dashboard.scss */
+/* line 71, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components > a:hover, #dashboard #header_g #components #add_components > a:hover {
   text-decoration: none;
   background: #6ca932;
   color: white;
 }
-/* line 73, ../sass/_dashboard.scss */
+/* line 76, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components > a, #dashboard #header_g #components #add_components > a {
   padding: 8px 20px;
   display: block;
 }
-/* line 78, ../sass/_dashboard.scss */
+/* line 81, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components .content_hide span, #dashboard #header_g #components #add_components .content_hide span {
   background: url("../images/icons/icons_onoff.png") no-repeat right top;
 }
-/* line 84, ../sass/_dashboard.scss */
+/* line 87, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components span {
   background: url("../images/icons/icons_onoff.png") no-repeat right bottom;
 }
-/* line 87, ../sass/_dashboard.scss */
+/* line 90, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components span, #dashboard #header_g #components #my_components > a {
   padding: 8px 40px 8px 8px;
   display: block;
 }
-/* line 92, ../sass/_dashboard.scss */
+/* line 96, ../sass/_dashboard.scss */
 #dashboard #header_g #components ul {
   display: none;
   margin: 0;
@@ -602,6 +607,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   position: absolute;
   z-index: 5;
   border: 1px solid #cccccc;
+  width: 250px;
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -610,29 +616,29 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -moz-box-shadow: 8px 8px 5px #b3b3b3;
   box-shadow: 8px 8px 5px #b3b3b3;
 }
-/* line 102, ../sass/_dashboard.scss */
+/* line 107, ../sass/_dashboard.scss */
 #dashboard #header_g #components ul li {
   background: white;
   padding: 0.5em 1em;
   border-bottom: 1px solid #b3b3b3;
   white-space: nowrap;
 }
-/* line 107, ../sass/_dashboard.scss */
+/* line 112, ../sass/_dashboard.scss */
 #dashboard #header_g #components ul li.off {
   background: #f3f3f3;
   color: #b3b3b3;
 }
-/* line 111, ../sass/_dashboard.scss */
+/* line 116, ../sass/_dashboard.scss */
 #dashboard #header_g #components ul li.on {
   padding-right: 3em;
   display: block;
   background: url("../images/icons/ico_add.png") right no-repeat white;
 }
-/* line 117, ../sass/_dashboard.scss */
+/* line 122, ../sass/_dashboard.scss */
 #dashboard #header_g #components ul li:last-child {
   border: none;
 }
-/* line 123, ../sass/_dashboard.scss */
+/* line 128, ../sass/_dashboard.scss */
 #dashboard #columns {
   position: absolute;
   top: 0;
@@ -645,50 +651,50 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 132, ../sass/_dashboard.scss */
+/* line 137, ../sass/_dashboard.scss */
 #dashboard #columns ul li {
   float: left;
   padding: 4px;
 }
-/* line 136, ../sass/_dashboard.scss */
+/* line 141, ../sass/_dashboard.scss */
 #dashboard #columns ul a {
   display: block;
   width: 20px;
   height: 20px;
 }
-/* line 142, ../sass/_dashboard.scss */
+/* line 147, ../sass/_dashboard.scss */
 #dashboard #columns ul .column1 a {
   background: url("../images/icons/icons_column.png") no-repeat 0 0;
 }
-/* line 145, ../sass/_dashboard.scss */
+/* line 150, ../sass/_dashboard.scss */
 #dashboard #columns ul .column1.current a {
   background-position: 0 -20px;
 }
-/* line 151, ../sass/_dashboard.scss */
+/* line 156, ../sass/_dashboard.scss */
 #dashboard #columns ul .column2 a {
   background: url("../images/icons/icons_column.png") no-repeat -20px 0;
 }
-/* line 154, ../sass/_dashboard.scss */
+/* line 159, ../sass/_dashboard.scss */
 #dashboard #columns ul .column2.current a {
   background-position: -20px -20px;
 }
-/* line 160, ../sass/_dashboard.scss */
+/* line 165, ../sass/_dashboard.scss */
 #dashboard #columns ul .column3 a {
   background: url("../images/icons/icons_column.png") no-repeat -40px 0;
 }
-/* line 163, ../sass/_dashboard.scss */
+/* line 168, ../sass/_dashboard.scss */
 #dashboard #columns ul .column3.current a {
   background-position: -40px -20px;
 }
-/* line 168, ../sass/_dashboard.scss */
+/* line 173, ../sass/_dashboard.scss */
 #dashboard #columns ul .column4 a {
   background: url("../images/icons/icons_column.png") no-repeat -60px 0;
 }
-/* line 171, ../sass/_dashboard.scss */
+/* line 176, ../sass/_dashboard.scss */
 #dashboard #columns ul .column4.current a {
   background-position: -60px -20px;
 }
-/* line 176, ../sass/_dashboard.scss */
+/* line 181, ../sass/_dashboard.scss */
 #dashboard #columns span {
   position: absolute;
   top: 5em;
@@ -1752,17 +1758,30 @@ nav.sub_nav li.current span:after {
   background: #fbfad6 url("../images/icons/message.png") no-repeat 1em;
   border: 2px dotted #ccbf9e;
   padding: 1em 2em 1em 6em;
+  position: relative;
 }
-/* line 28, ../sass/_messages.scss */
+/* line 32, ../sass/_messages.scss */
 .td .message, .td .no_queries {
   display: block;
 }
-/* line 34, ../sass/_messages.scss */
+/* line 35, ../sass/_messages.scss */
 .message strong, .no_queries strong {
   color: #f4a725;
 }
-
 /* line 38, ../sass/_messages.scss */
+.message.left:after, .left.no_queries:after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -32px;
+  border-width: 15px 30px 15px 0;
+  border-style: solid;
+  border-color: transparent #ccbf9e;
+  display: block;
+  width: 0;
+}
+
+/* line 50, ../sass/_messages.scss */
 .no_queries {
   background: transparent url("../images/icons/message_24.png") no-repeat 1em;
   border: none;
@@ -1775,7 +1794,7 @@ nav.sub_nav li.current span:after {
   top: 40px;
   text-align: right;
 }
-/* line 50, ../sass/_messages.scss */
+/* line 62, ../sass/_messages.scss */
 .no_queries .flecha {
   background: url("../images/general/flecha.png") no-repeat;
   width: 200px;
@@ -1786,7 +1805,7 @@ nav.sub_nav li.current span:after {
   right: -80px;
 }
 
-/* line 60, ../sass/_messages.scss */
+/* line 72, ../sass/_messages.scss */
 .error {
   background: #e14f3c;
   border: 1px dotted white;
@@ -1795,11 +1814,11 @@ nav.sub_nav li.current span:after {
   margin: 1em 0;
   position: relative;
 }
-/* line 61, ../sass/_messages.scss */
+/* line 73, ../sass/_messages.scss */
 .td .error {
   display: block;
 }
-/* line 71, ../sass/_messages.scss */
+/* line 83, ../sass/_messages.scss */
 .error.top:after {
   content: "";
   position: absolute;
@@ -1811,7 +1830,7 @@ nav.sub_nav li.current span:after {
   display: block;
   width: 0;
 }
-/* line 84, ../sass/_messages.scss */
+/* line 96, ../sass/_messages.scss */
 .error.bottom:after {
   content: "";
   position: absolute;

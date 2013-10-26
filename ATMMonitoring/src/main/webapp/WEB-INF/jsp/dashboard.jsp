@@ -48,6 +48,10 @@
                     </div>
                 </div>
                 <ul id="sortable" class="ui-sortable column${dashboard.getColumns()}"></ul>
+                <div class="message left">
+                    <p>Desde esta pantalla de inicio, podrás crear y administrar tus componentes, para que te resulte más útil a la
+                    hora de gestionar tus terminales, recoger datos, etc.</p>
+                </div>
             </article>
         </div>
         <!-- /primary -->

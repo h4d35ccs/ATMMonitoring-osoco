@@ -25,14 +25,26 @@
 	}
 }
 .message{
-	.td &{
-		display: block;
-	}
 	background:$colorY21 url("../images/icons/message.png") no-repeat 1em;
 	border:2px dotted $colorY1;
 	padding: 1em 2em 1em 6em;
+	position: relative;
+	.td &{
+		display: block;
+	}
 	strong{
 		color: $colorY3;
+	}
+	&.left:after {
+	    content: "";
+	    position: absolute;
+	    top: 25px;
+	    left: -32px;
+	    border-width: 15px 30px 15px 0;
+	    border-style: solid;
+	    border-color: transparent $colorY1;
+	    display: block;
+	    width: 0;
 	}
 }
 .no_queries{

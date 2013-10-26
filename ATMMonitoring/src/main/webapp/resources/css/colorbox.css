@@ -672,17 +672,30 @@ input:disabled:hover {
   background: #fbfad6 url("../images/icons/message.png") no-repeat 1em;
   border: 2px dotted #ccbf9e;
   padding: 1em 2em 1em 6em;
+  position: relative;
 }
-/* line 28, ../sass/_messages.scss */
+/* line 32, ../sass/_messages.scss */
 .td .message, .td .no_queries {
   display: block;
 }
-/* line 34, ../sass/_messages.scss */
+/* line 35, ../sass/_messages.scss */
 .message strong, .no_queries strong {
   color: #f4a725;
 }
-
 /* line 38, ../sass/_messages.scss */
+.message.left:after, .left.no_queries:after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -32px;
+  border-width: 15px 30px 15px 0;
+  border-style: solid;
+  border-color: transparent #ccbf9e;
+  display: block;
+  width: 0;
+}
+
+/* line 50, ../sass/_messages.scss */
 .no_queries {
   background: transparent url("../images/icons/message_24.png") no-repeat 1em;
   border: none;
@@ -695,7 +708,7 @@ input:disabled:hover {
   top: 40px;
   text-align: right;
 }
-/* line 50, ../sass/_messages.scss */
+/* line 62, ../sass/_messages.scss */
 .no_queries .flecha {
   background: url("../images/general/flecha.png") no-repeat;
   width: 200px;
@@ -706,7 +719,7 @@ input:disabled:hover {
   right: -80px;
 }
 
-/* line 60, ../sass/_messages.scss */
+/* line 72, ../sass/_messages.scss */
 .error {
   background: #e14f3c;
   border: 1px dotted white;
@@ -715,11 +728,11 @@ input:disabled:hover {
   margin: 1em 0;
   position: relative;
 }
-/* line 61, ../sass/_messages.scss */
+/* line 73, ../sass/_messages.scss */
 .td .error {
   display: block;
 }
-/* line 71, ../sass/_messages.scss */
+/* line 83, ../sass/_messages.scss */
 .error.top:after {
   content: "";
   position: absolute;
@@ -731,7 +744,7 @@ input:disabled:hover {
   display: block;
   width: 0;
 }
-/* line 84, ../sass/_messages.scss */
+/* line 96, ../sass/_messages.scss */
 .error.bottom:after {
   content: "";
   position: absolute;

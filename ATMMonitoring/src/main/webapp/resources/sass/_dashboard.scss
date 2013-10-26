@@ -54,7 +54,10 @@
 			}
 		}
 	}
-	
+	.message{
+		margin-left: 350px;
+		margin-top: 2em;
+	}
 	#header_g{
 		#components{
 			position: relative;
@@ -89,6 +92,7 @@
 					display: block;
 				}
 			}
+
 			ul{
 				display: none;
 				margin: 0;
@@ -97,6 +101,7 @@
 				position: absolute;
 				z-index: 5;
 				border:1px solid $colorK4;
+				width: 250px;
 				@include border-radius(4px);
 				@include shadow1;
 				li{
