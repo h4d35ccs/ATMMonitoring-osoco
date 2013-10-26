@@ -86,7 +86,15 @@
             </ul>
         </nav>
 
-        <jsp:doBody/>
+        <div id="main">
+            <div id="primary">
+                <article>
+                    <jsp:doBody/>
+                </article>
+            </div>
+            <!-- /primary -->
+        </div>
+        <!-- /#main -->
 
     </body>
 </html>

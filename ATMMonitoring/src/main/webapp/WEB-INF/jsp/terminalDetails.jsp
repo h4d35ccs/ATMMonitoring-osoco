@@ -6,9 +6,6 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 <t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}" section="terminals">
-	<div id="main">
-		<div id="primary">
-			<article>
 				<div id="header_g">
 					<nav id="breadcrumb">
 						<ul>
@@ -1229,11 +1226,7 @@
 		</div>
 		<!-- /tabs -->
 	</div>
-</article>
-</div>
-<!-- /main -->
-</div>
-<!-- /#main -->
+
 <script type="text/javascript">
 	function requestSnmpUpdate() {
 			$.blockUI({ 

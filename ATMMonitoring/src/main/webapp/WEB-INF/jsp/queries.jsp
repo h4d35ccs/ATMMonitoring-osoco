@@ -6,9 +6,7 @@
 <%@page pageEncoding="UTF-8"%>
 
 <t:osoco-wrapper titleCode="label.queryEngine" userMsg="${userMsg}"  section="terminals">
-	<div id="main">
-		<div id="primary">
-			<article>
+
 				<div id="header_g">
 					<nav id="breadcrumb">
 						<ul>
@@ -793,7 +791,5 @@
 	    }
     </script>
 </div>
-</article>
-</div>
-</div>
+
 </t:osoco-wrapper>

@@ -7,9 +7,6 @@
 
 <t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}" section="query">
 
-    <div id="main">
-        <div id="primary">
-            <article>
                 <div id="header_g">
                     <nav id="breadcrumb">
                         <ul>
@@ -54,9 +51,5 @@
                     <div class="p_number"><span class="text">Página</span><t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/list?p=~"/></div>
                     </c:if>
                 </div>
-            </article>
-        </div>
-    </div>
-
 
 </t:osoco-wrapper>

@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import org.apache.log4j.Logger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,11 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
@@ -20,6 +26,8 @@ import javax.validation.constraints.Min;
 	@UniqueConstraint(columnNames = { "month_day", "hours", "minutes" }),
 	@UniqueConstraint(columnNames = { "week_day", "hours", "minutes" }) })
 public class ScheduledUpdate {
+
+    static private Logger logger = Logger.getLogger(ScheduledUpdate.class.getName());
 
     @Id
     @Column(name = "id")
@@ -121,6 +129,45 @@ public class ScheduledUpdate {
     public void setMinute(Short minute) {
 	this.minute = minute;
     }
+
+	public boolean isWeekly() {
+		return (monthDay == null);
+	}
+
+	public List<Date> getEventDates(long fromUnixTime, long toUnixTime) {
+		List<Date> events = new ArrayList();
+		Date fromDate = new Date(fromUnixTime * 1000L);
+		Date toDate = new Date(toUnixTime * 1000L);
+		logger.debug("fromDate: " + fromDate + ", toDate: " + toDate);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(fromDate);
+
+		if (isWeekly()) {
+			calendar.set(Calendar.DAY_OF_WEEK, weekDay);
+			calendar.set(Calendar.HOUR_OF_DAY, hour);
+			calendar.set(Calendar.MINUTE, minute);
+			Date event = calendar.getTime();
+
+			logger.debug("weekly: " + event);
+			events.add(event);
+		} else {
+			calendar.set(Calendar.DAY_OF_MONTH, monthDay);
+			calendar.set(Calendar.HOUR_OF_DAY, hour);
+			calendar.set(Calendar.MINUTE, minute);
+			Date event = calendar.getTime();
+
+			if (event.getTime() < fromDate.getTime()) {
+				calendar.add(Calendar.MONTH, 1);
+				event = calendar.getTime();
+			}
+
+			logger.debug("monthly: " + event);
+			events.add(event);
+		}
+
+		return events;
+	}
+
 
     public String getCompleteHour() {
 	String completeHour = "";

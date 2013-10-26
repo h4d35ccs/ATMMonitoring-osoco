@@ -108,7 +108,6 @@ function initColumnsControl() {
 
 function initSortableCharts() {
     $("#sortable").sortable({
-        placeholder: "ui-state-highlight",
         start: function(event, ui) {
             $(ui.item).data("startIndex", ui.item.index());
         },
@@ -140,8 +139,16 @@ function openChartsMenu() {
 }
 
 function closeChartsMenu() {
-    $("#myCharts").hide();
+    $("#myCharts").hide('slow');
     $("#myCharts").parent().find("div.txt").addClass("content_hide");
+}
+
+function showNoChartsMessage() {
+    $("#noCharts").show();
+}
+
+function hideNoChartsMessage() {
+    $("#noCharts").hide();
 }
 
 // Event Handlers++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -165,6 +172,9 @@ function onChartsMenuDrawed() {
 
     if (dashboardModel.visibleCharts.length == 0) {
         openChartsMenu();
+        showNoChartsMessage();
+    } else {
+        hideNoChartsMessage();
     }
 }
 
