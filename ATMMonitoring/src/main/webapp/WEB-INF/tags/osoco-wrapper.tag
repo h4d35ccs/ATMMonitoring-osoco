@@ -2,6 +2,8 @@
 <%@attribute name="titleCode" required="true" type="java.lang.String"%>
 <%@attribute name="section" required="true" type="java.lang.String"%>
 <%@attribute name="userMsg" required="false" type="java.lang.String"%>
+<%@attribute name="header" required="false" fragment="true" %>
+
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
@@ -20,13 +22,6 @@
 	    <script type='text/javascript' src='resources/js/jquery.colorbox-min.js'></script>
         <script src="resources/js/menu.js"></script>
 
-        <c:if test="${section == 'dashboard'}">
-	    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
-        <script type="text/javascript" src="resources/js/json2html.js"></script>
-        <script type="text/javascript" src="resources/js/jquery.json2html.js"></script>
-	    <script type='text/javascript' src='resources/js/dashboard.js'></script>
-        </c:if>
-
         <title><spring:message code="label.baseTitle"/> - <spring:message code="${titleCode}"/></title>
         <link rel="stylesheet" type="text/css" href="resources/css/ncr_screen.css">
         <!--[if lt IE 9]>
@@ -40,6 +35,7 @@
             document.createElement("hgroup");
         </script>
         <![endif]-->
+        <jsp:invoke fragment="header"/>
     </head>
     <body id="${section}">
         <header id="main_header">

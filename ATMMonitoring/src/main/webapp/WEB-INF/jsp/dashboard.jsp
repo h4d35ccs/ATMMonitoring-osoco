@@ -5,16 +5,24 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<style>
-  .ui-state-highlight {
-      width: 21%;
-      background-color: #efefef;
-      border: 2px dashed #aaaaaa;
-  }
-</style>
 
 <t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}" section="dashboard">
 
+  <jsp:attribute name="header">
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type="text/javascript" src="resources/js/json2html.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.json2html.js"></script>
+    <script type='text/javascript' src='resources/js/dashboard.js'></script>
+    <style>
+      .ui-state-highlight {
+        width: 21%;
+        background-color: #efefef;
+        border: 2px dashed #aaaaaa;
+      }
+    </style>
+  </jsp:attribute>
+
+  <jsp:body>
     <div id="main">
         <div id="primary">
             <article>
@@ -52,5 +60,7 @@
         <!-- /primary -->
     </div>
     <!-- /#main -->
+
+  </jsp:body>
 
 </t:osoco-wrapper>
