@@ -134,6 +134,11 @@ function showWidget(widgetId) {
     onVisibleWidget(widgetId);
 }
 
+function openChartsMenu() {
+    $("#myCharts").show();
+    $("#myCharts").parent().find("div.txt").removeClass("content_hide");
+}
+
 function closeChartsMenu() {
     $("#myCharts").hide();
     $("#myCharts").parent().find("div.txt").addClass("content_hide");
@@ -157,6 +162,10 @@ function onChartsMenuDrawed() {
         showWidget(widgetId);
         closeChartsMenu();
     });
+
+    if (dashboardModel.visibleCharts.length == 0) {
+        openChartsMenu();
+    }
 }
 
 function onChartDrawed(chart) {
