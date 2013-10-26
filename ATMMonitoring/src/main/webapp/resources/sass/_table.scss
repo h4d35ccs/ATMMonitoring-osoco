@@ -163,6 +163,9 @@ table{
 		tr.detail, tr.detail:hover{
 			background:$colorG4;
 			color: $colorK;
+			div{
+				position: relative;
+			}
 			ul{
 				padding: 1%;
 				background:$colorW;
@@ -183,17 +186,19 @@ table{
 						margin-right: 1em;
 					}
 				}
-				&:after {
-			    content: "";
-			    position: absolute;
-			    top: -20px;
-			    left: 45px;
-			    border-width: 0 15px 25px;
-			    border-style: solid;
-			    border-color: $colorW transparent;
-			    display: block;
-			    width: 0;
-			  }
+				&:before {
+				    content: "";
+				    font-size: 20em;
+				    color: #ff0000;
+				    position: absolute;
+				    top: -20px;
+				    left: 45px;
+				    border-width: 0 15px 25px;
+				    border-style: solid;
+				    border-color: $colorW transparent;
+				    display: block;
+				    width: 0;
+			  	}
 			}
 		}
 	}

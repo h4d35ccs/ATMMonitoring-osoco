@@ -7,9 +7,6 @@
 <%@page pageEncoding="UTF-8"%>
 
 <t:osoco-wrapper titleCode="label.queryEngine" userMsg="${userMsg}"  section="terminals">
-	<div id="main">
-		<div id="primary">
-			<article>
 				<div id="header_g">
 					<nav id="breadcrumb">
 						<ul>
@@ -825,7 +822,7 @@
                 </div>
 		</c:if>
 		<c:if  test="${!empty pagedListHolder.pageList}">
-		<h2>${pagedListHolder.source.size()} Resultados <a href="#" class="edit"><span>edit</span></a></h2>
+		<h2>${pagedListHolder.source.size()} Resultados</h2>
 		<div class="table_buttons">
 			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
 				<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
@@ -942,8 +939,5 @@
 			</form:form>
 		</c:if>
 	</div>
-</div>
-</article>
-</div>
 </div>
 </t:osoco-wrapper>

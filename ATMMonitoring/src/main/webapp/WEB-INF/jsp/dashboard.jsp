@@ -28,7 +28,7 @@
               </div>
 
               <div id="add_components">
-                <a class="iframe cboxElement" href="index_componentes.html">
+                <a class="iframe cboxElement" href="dashboard/newWidget">
                   <span>Nuevo componente</span>
                 </a>
               </div>
@@ -48,7 +48,7 @@
             </div>
           </div>
           <ul id="sortable" class="ui-sortable column${dashboard.getColumns()}"></ul>
-          <div id="noCharts" class="message left">
+          <div id="noCharts" class="message left hide">
             <p>Desde esta pantalla de inicio, podrás crear y administrar tus componentes, para que te resulte más útil a la hora de gestionar tus terminales, recoger datos, etc.</p>
           </div>
 

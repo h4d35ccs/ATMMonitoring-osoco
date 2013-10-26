@@ -255,4 +255,10 @@ public class UserController {
 
 	return "redirect:/users/list";
     }
+
+	@RequestMapping(method = RequestMethod.GET, value = "/users/newGroup")
+    public String newGroup() {
+    	return "newGroup";
+    }
+
 }

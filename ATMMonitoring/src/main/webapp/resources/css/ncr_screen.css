@@ -804,7 +804,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 /* line 64, ../sass/_documentation.scss */
 #users .documentation .scroll {
-  margin-top: 80px;
+  margin-top: 110px;
 }
 /* line 65, ../sass/_documentation.scss */
 #users .documentation .scroll h3 {
@@ -1618,6 +1618,10 @@ table.link tr.detail, table.link tr.detail:hover {
   color: black;
 }
 /* line 166, ../sass/_table.scss */
+table.link tr.detail div, table.link tr.detail:hover div {
+  position: relative;
+}
+/* line 169, ../sass/_table.scss */
 table.link tr.detail ul, table.link tr.detail:hover ul {
   padding: 1%;
   background: white;
@@ -1627,7 +1631,7 @@ table.link tr.detail ul, table.link tr.detail:hover ul {
   overflow: hidden;
   cursor: inherit;
 }
-/* line 172, ../sass/_table.scss */
+/* line 175, ../sass/_table.scss */
 table.link tr.detail ul li, table.link tr.detail:hover ul li {
   float: left;
   width: 32%;
@@ -1635,7 +1639,7 @@ table.link tr.detail ul li, table.link tr.detail:hover ul li {
   padding: 0.5em 0;
   border-bottom: 1px solid #b3b3b3;
 }
-/* line 178, ../sass/_table.scss */
+/* line 181, ../sass/_table.scss */
 table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   width: 30%;
   display: block;
@@ -1643,9 +1647,11 @@ table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   text-align: right;
   margin-right: 1em;
 }
-/* line 186, ../sass/_table.scss */
-table.link tr.detail ul:after, table.link tr.detail:hover ul:after {
+/* line 189, ../sass/_table.scss */
+table.link tr.detail ul:before, table.link tr.detail:hover ul:before {
   content: "";
+  font-size: 20em;
+  color: #ff0000;
   position: absolute;
   top: -20px;
   left: 45px;

@@ -197,6 +197,11 @@ public class DashboardController {
         }
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/dashboard/newWidget")
+    public String newWidget() {
+    	return "newWidget";
+    }
+
 
 	// Private Methods ----------------------------------------------------------------------
 
