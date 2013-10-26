@@ -8,9 +8,6 @@
 
 
 <t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}" section="terminals">
-	<div id="main">
-		<div id="primary">
-			<article>
 				<div id="header_g">
 					<nav id="breadcrumb">
 						<ul>
@@ -312,9 +309,5 @@
 				</div>
 				
 	</div>
-</article>
-</div>
-<!-- /main -->
-</div>
-<!-- /#main -->
+
 </t:osoco-wrapper>

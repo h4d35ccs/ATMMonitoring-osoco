@@ -6,10 +6,6 @@
 <%@page pageEncoding="UTF-8"%>
 
 <t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}"  section="terminals">
-
-    <div id="main">
-        <div id="primary">
-            <article>
                 <div id="header_g">
                     <nav id="breadcrumb">
                         <ul>
@@ -35,7 +31,7 @@
                                 	<p>Ahorra tiempo generardo consultas, que las irás aplicando a medida que las vayas necesitando.</p>
 					<div class="flecha"></div>
                                </div>
-                               
+
                            </c:if>
                            <c:if test="${userQueries != null && !userQueries.isEmpty()}">
                                <form method="post" name="userQueriesForm" action="terminals/byQuery">
@@ -46,7 +42,7 @@
                                     		   <option value="${userQuery.id}" ${query.id == userQuery.id? 'selected': ''}>${userQuery.name}</option>
                                 	</c:forEach>
                             	    </select>
-                        
+
 				<input type="text" value="2/11/2013">
                             	<a href="" class="btn calendar"><span>Abrir calendario</span></a>
                             	<input type="submit" value="Aplicar" class="btn">
@@ -54,7 +50,7 @@
 			   </c:if>
                            <a href="queries" class="btn right">Mis consultas</a>
                         </div>
-                        
+
                     </div>
                     <div class="message">
 		        <p>Sabías que lorem ipsum dolor sit amet, <strong>consectetur adipisicing</strong> elit. Voluptatum, hic, laboriosam ea eaque necessitatibus alias dolor saepe earum et ullam veritatis animi at dignissimos. Consequatur optio cupiditate distinctio quasi amet?</p>
@@ -71,7 +67,7 @@
  						    <c:if test="${query != null}">
 						       de la consulta: ${query.name} <a href="queries/show?queryId=${query.id}" class="edit"><span>edit</span></a>
 						    </c:if>
-				        </h2> 
+				        </h2>
 
 
 					<div class="table_buttons">
@@ -80,7 +76,7 @@
 						<a href="#" class="btn left update">Actualizar</a>
 						<a href="#" class="btn left clock">Actualización planificada</a>
 						<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
-					</div> 
+					</div>
                     <c:if  test="${empty pagedListHolder.pageList}">
                         <div class="empty-list"><spring:message code="label.terminal.noTerminals"/></div>
                     </c:if>
@@ -89,7 +85,7 @@
                         <t:terminalsTable terminals="${pagedListHolder.pageList}"/>
 
 
-                      
+
 
                     </c:if>
                     <div class="botonera"> <!-- Repito botonera antes de la tabla -->
@@ -97,24 +93,25 @@
 						<a href="#" class="btn left update">Actualizar</a>
 						<a href="#" class="btn left clock">Actualización planificada</a>
 						<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
-					</div> 
+					</div>
 					</div><!-- /table_buttons -->
-                   
-                    <div class="pagination"> 
+
+                    <div class="pagination">
  						<div class="t_number"><span class="text">${pagedListHolder.source.size()} Terminales</span>
 
                                                 </div>
-                        
+
                     	<div class="p_number"><c:if test="${pagedListHolder.getPageCount() >1 }">
-			     			    <span class="text">Página</span> 
-				  
+			     			    <span class="text">Página</span>
+
 				  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}"/></div>
 				  </c:if>
                       </div>
-                   
+
                 </div>
-                <div class="inline hide">
-			    	<div id="help_pop" class="content">
+
+                <div id="help_pop" class="inline">
+			    	<div class="content">
 						<h1>Terminales</h1>
 						<h2>Consultas</h2>
 						<p>Scelerisque montes est et! Sit dignissim, sed, aenean ac scelerisque. Pulvinar ac! Elementum natoque penatibus scelerisque sociis tempor, hac ridiculus ac augue non et. Magna dignissim lundium rhoncus turpis! Porttitor eros dis proin pulvinar sagittis ac, facilisis porta mauris tincidunt scelerisque pulvinar. Arcu augue eu. Penatibus sit phasellus lorem in.</p>

@@ -7,6 +7,51 @@
 
 <t:osoco-wrapper titleCode="label.scheduledUpdatesManager" userMsg="${userMsg}" section="schedule">
 
+<jsp:attribute name="header">
+
+<link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.print.css"/>
+<script type="text/javascript" src="resources/js/fullcalendar.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#schedulerCalendar").fullCalendar({
+            events: 'terminals/schedules/updates',
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month, agendaWeek, agendaDay'
+            },
+            firstDay: 1,
+            height: 450,
+            allDaySlot: false,
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+            titleFormat: {
+                month: 'MMMM yyyy',                             // September 2009
+                week: "d[ yyyy] [MMM]{ '&#8212;'d MMM yyyy}", // 7 - 13 Sep 2009
+                day: 'dddd, d MMM yyyy'                  // Tuesday, 8 Sep 2009
+            },
+            columnFormat: {
+                month: 'ddd',    // Mon
+                week: 'ddd d/M', // Mon 20/12
+                day: 'dddd d/M'  // Monday 20/12
+            },
+            buttonText: {
+                prev:     '&lsaquo;', // <
+                next:     '&rsaquo;', // >
+                prevYear: '&laquo;',  // <<
+                nextYear: '&raquo;',  // >>
+                today:    'hoy',
+                month:    'mes',
+                week:     'semana',
+                day:      'día'
+            }
+        });
+    });
+</script>
+
 <style type="text/css">
 <c:if  test="${(!empty weeklyScheduledUpdates) || (!empty monthlyScheduledUpdates)}">
 /* define height and width of scrollable area. Add 16px to width for scrollbar          */
@@ -31,7 +76,58 @@ html>body tbody.scrollContent {
 }
 </c:if>
 </style>
- 
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		<c:if test="${(scheduledUpdate.weekDay == null) && (scheduledUpdate.monthDay == null)}">
+		$('#form-submit').addClass('ui-state-disabled');
+		$('#form-submit').addClass('ui-button-disabled');
+		</c:if>
+		<c:if test="${scheduledUpdate.weekDay != null}">
+		$('#weekly-radiobutton').attr('checked',true);
+		$('#monthly-row').css('display', 'none');
+		$('#weekly-row').css('display', '');
+		</c:if>
+	});
+	function deleteScheduledUpdate(id) {
+		var confirm = window.confirm('<spring:message code="label.scheduledUpdate.confirmDeletion"/>');
+		if (confirm == true) {
+			self.location = 'terminals/schedules/delete/' + id;
+		};
+	};
+	function dayChanged() {
+		if (($('#week-selector').val() != "") || ($('#month-selector').val() != "")) {
+			$('#form-submit').prop('disabled', false);
+			$('#form-submit').removeClass('ui-state-disabled');
+			$('#form-submit').removeClass('ui-button-disabled');
+		} else {
+			$('#form-submit').prop('disabled', true);
+			$('#form-submit').addClass('ui-state-disabled');
+			$('#form-submit').addClass('ui-button-disabled');
+		}
+	};
+	function typeChanged() {
+		if ($('#monthly-radiobutton').is(':checked')) {
+			$('#monthly-row').css('display', '');
+			$('#weekly-row').css('display', 'none');
+			$('#week-selector').val('');
+			$('#form-submit').prop('disabled', true);
+			$('#form-submit').addClass('ui-state-disabled');
+			$('#form-submit').addClass('ui-button-disabled');
+		} else {
+			$('#monthly-row').css('display', 'none');
+			$('#weekly-row').css('display', '');
+			$('#month-selector').val('');
+			$('#form-submit').prop('disabled', true);
+			$('#form-submit').addClass('ui-state-disabled');
+			$('#form-submit').addClass('ui-button-disabled');
+		}
+	};
+</script>
+</jsp:attribute>
+
+<jsp:body>
+<%--
 <h1><spring:message code="label.scheduledUpdatesManager"/></h1>
 
 <div class="box">
@@ -98,7 +194,7 @@ html>body tbody.scrollContent {
         <td width="50px" class="center-cell">${scheduledUpdate.completeHour}</td>
 		<td width="90px" class="center-cell">
 			<button onClick="deleteScheduledUpdate(${scheduledUpdate.id})" class="form-submit"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
-		</td>	
+		</td>
     </tr>
 </c:forEach>
 <c:choose>
@@ -155,7 +251,7 @@ html>body tbody.scrollContent {
         <td width="50px" class="center-cell">${scheduledUpdate.completeHour}</td>
 		<td width="90px" class="center-cell">
 			<button onClick="deleteScheduledUpdate(${scheduledUpdate.id})" class="form-submit"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
-		</td>	
+		</td>
     </tr>
 </c:forEach>
 <c:choose>
@@ -171,6 +267,9 @@ html>body tbody.scrollContent {
 </c:if>
 </div>
 </div>
+--%>
+
+<div id="schedulerCalendar"></div>
 
 <div class="box">
 <h2><spring:message code="label.newScheduledUpdate"/></h2>
@@ -339,58 +438,11 @@ html>body tbody.scrollContent {
 			</form:select>
 		</td>
     </tr>
-</table> 
+</table>
 <input type="submit" id="form-submit" class="form-submit" value="<spring:message code="label.scheduledUpdate.addScheduledUpdate"/>"/>
 </form:form>
 </div>
 </div>
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		<c:if test="${(scheduledUpdate.weekDay == null) && (scheduledUpdate.monthDay == null)}">
-		$('#form-submit').addClass('ui-state-disabled');
-		$('#form-submit').addClass('ui-button-disabled');
-		</c:if>
-		<c:if test="${scheduledUpdate.weekDay != null}">
-		$('#weekly-radiobutton').attr('checked',true);
-		$('#monthly-row').css('display', 'none');
-		$('#weekly-row').css('display', '');
-		</c:if>
-	});
-	function deleteScheduledUpdate(id) {
-		var confirm = window.confirm('<spring:message code="label.scheduledUpdate.confirmDeletion"/>');
-		if (confirm == true) {
-			self.location = 'terminals/schedules/delete/' + id;
-		};
-	};
-	function dayChanged() {
-		if (($('#week-selector').val() != "") || ($('#month-selector').val() != "")) {
-			$('#form-submit').prop('disabled', false);
-			$('#form-submit').removeClass('ui-state-disabled');
-			$('#form-submit').removeClass('ui-button-disabled');
-		} else {
-			$('#form-submit').prop('disabled', true);
-			$('#form-submit').addClass('ui-state-disabled');
-			$('#form-submit').addClass('ui-button-disabled');
-		}
-	};
-	function typeChanged() {
-		if ($('#monthly-radiobutton').is(':checked')) {
-			$('#monthly-row').css('display', '');
-			$('#weekly-row').css('display', 'none');
-			$('#week-selector').val('');
-			$('#form-submit').prop('disabled', true);
-			$('#form-submit').addClass('ui-state-disabled');
-			$('#form-submit').addClass('ui-button-disabled');
-		} else {
-			$('#monthly-row').css('display', 'none');
-			$('#weekly-row').css('display', '');
-			$('#month-selector').val('');
-			$('#form-submit').prop('disabled', true);
-			$('#form-submit').addClass('ui-state-disabled');
-			$('#form-submit').addClass('ui-button-disabled');
-		}
-	};
-</script>
+</jsp:body>
 
 </t:osoco-wrapper>
