@@ -2393,11 +2393,17 @@ strong {
   padding-left: 35px;
 }
 /* line 87, ../sass/_icons.scss */
-.add:hover {
+.add:hover, .link tr:hover .add {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
   background: url("../images/icons/icon_add.png") no-repeat left top white;
 }
-/* line 90, ../sass/_icons.scss */
+/* line 91, ../sass/_icons.scss */
 td .add, th .add {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
   background-color: #6ca932;
   width: 30px;
   height: 30px;
@@ -2408,76 +2414,76 @@ td .add, th .add {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 97, ../sass/_icons.scss */
+/* line 99, ../sass/_icons.scss */
 td .add span, th .add span {
   position: absolute;
   top: 50px;
 }
-/* line 102, ../sass/_icons.scss */
-.add th, th .add:hover {
-  background-color: #6ca932;
+/* line 104, ../sass/_icons.scss */
+.add th, th .add:hover, .link tr:hover th .add {
+  background: url("../images/icons/icon_add.png") no-repeat left bottom;
 }
 
-/* line 106, ../sass/_icons.scss */
+/* line 108, ../sass/_icons.scss */
 .clock {
   background: url("../images/icons/icon_clock.png") no-repeat left bottom #6ca932;
   padding-left: 35px;
 }
-/* line 109, ../sass/_icons.scss */
+/* line 111, ../sass/_icons.scss */
 .clock:hover {
   background: url("../images/icons/icon_clock.png") no-repeat left top white;
 }
 
-/* line 113, ../sass/_icons.scss */
+/* line 115, ../sass/_icons.scss */
 .next {
   background: url("../images/icons/icon_next.png") no-repeat left bottom #6ca932;
   padding-left: 35px;
 }
-/* line 116, ../sass/_icons.scss */
+/* line 118, ../sass/_icons.scss */
 .next:hover {
   background: url("../images/icons/icon_next.png") no-repeat left top white;
 }
 
-/* line 121, ../sass/_icons.scss */
+/* line 123, ../sass/_icons.scss */
 .import {
   background: url("../images/icons/icon_import.png") no-repeat left bottom #6ca932;
   padding-left: 35px;
 }
-/* line 124, ../sass/_icons.scss */
+/* line 126, ../sass/_icons.scss */
 .import:hover {
   background: url("../images/icons/icon_import.png") no-repeat left top white;
 }
 
-/* line 129, ../sass/_icons.scss */
+/* line 131, ../sass/_icons.scss */
 .back {
   background: url("../images/icons/icon_back.png") no-repeat left top transparent;
   padding-left: 35px;
   border: none;
   color: #6ca932;
 }
-/* line 134, ../sass/_icons.scss */
+/* line 136, ../sass/_icons.scss */
 .back:hover {
   background: url("../images/icons/icon_back.png") no-repeat left top #f3f3f3;
 }
 
-/* line 138, ../sass/_icons.scss */
+/* line 140, ../sass/_icons.scss */
 .calendar {
   background: url("../images/icons/icon_date.png") no-repeat bottom #6ca932;
   width: 55px;
   height: 30px;
   overflow: hidden;
 }
-/* line 143, ../sass/_icons.scss */
+/* line 145, ../sass/_icons.scss */
 .calendar:hover {
   background: url("../images/icons/icon_date.png") no-repeat top white;
 }
-/* line 146, ../sass/_icons.scss */
+/* line 148, ../sass/_icons.scss */
 .calendar span {
   position: absolute;
   top: -3em;
 }
 
-/* line 152, ../sass/_icons.scss */
+/* line 154, ../sass/_icons.scss */
 .save,
 #main .action_box .save,
 #cboxContent .action_box .save,
@@ -2486,7 +2492,7 @@ td .add span, th .add span {
   background: url("../images/icons/icon_save.png") no-repeat left bottom #6ca932;
   padding-left: 35px;
 }
-/* line 156, ../sass/_icons.scss */
+/* line 158, ../sass/_icons.scss */
 .save:hover,
 #main .action_box .save:hover,
 #cboxContent .action_box .save:hover,
@@ -2495,17 +2501,17 @@ td .add span, th .add span {
   background: url("../images/icons/icon_save.png") no-repeat left top white;
 }
 
-/* line 161, ../sass/_icons.scss */
+/* line 163, ../sass/_icons.scss */
 .play, input.play {
   background: url("../images/icons/icon_play.png") no-repeat left bottom #6ca932;
   padding-left: 35px;
 }
-/* line 164, ../sass/_icons.scss */
+/* line 166, ../sass/_icons.scss */
 .play:hover, input.play:hover {
   background: url("../images/icons/icon_play.png") no-repeat left top white;
 }
 
-/* line 169, ../sass/_icons.scss */
+/* line 171, ../sass/_icons.scss */
 .info {
   width: 25px;
   height: 25px;
@@ -2517,11 +2523,11 @@ td .add span, th .add span {
   cursor: pointer;
   cursor: help;
 }
-/* line 179, ../sass/_icons.scss */
+/* line 181, ../sass/_icons.scss */
 .info:hover {
   background: url("../images/icons/icon_info.png") no-repeat bottom left;
 }
-/* line 182, ../sass/_icons.scss */
+/* line 184, ../sass/_icons.scss */
 .info span {
   display: block;
   overflow: hidden;
@@ -2530,14 +2536,14 @@ td .add span, th .add span {
   width: 0;
 }
 
-/* line 190, ../sass/_icons.scss */
+/* line 192, ../sass/_icons.scss */
 .icons_action {
   position: absolute;
   top: 0;
   right: 0;
   white-space: nowrap;
 }
-/* line 195, ../sass/_icons.scss */
+/* line 197, ../sass/_icons.scss */
 .icons_action .note, .icons_action .edit, .icons_action .delete {
   background: url("../images/icons/icon_note.png") no-repeat;
   width: 20px;
@@ -2548,7 +2554,7 @@ td .add span, th .add span {
   margin-left: 2px;
   float: left;
 }
-/* line 204, ../sass/_icons.scss */
+/* line 206, ../sass/_icons.scss */
 .icons_action .note span, .icons_action .edit span, .icons_action .delete span {
   display: block;
   overflow: hidden;
@@ -2556,36 +2562,36 @@ td .add span, th .add span {
   height: 0;
   width: 0;
 }
-/* line 211, ../sass/_icons.scss */
+/* line 213, ../sass/_icons.scss */
 .icons_action .note:hover, .icons_action .edit:hover, .icons_action .delete:hover {
   background-position-y: -20px;
 }
-/* line 215, ../sass/_icons.scss */
+/* line 217, ../sass/_icons.scss */
 .icons_action .edit {
   background-position: -40px 0;
   cursor: pointer;
 }
-/* line 220, ../sass/_icons.scss */
+/* line 222, ../sass/_icons.scss */
 .icons_action .delete {
   background-position: -20px 0;
   cursor: pointer;
 }
 
-/* line 226, ../sass/_icons.scss */
+/* line 228, ../sass/_icons.scss */
 .download {
   background: url("../images/icons/icon_download.png") no-repeat top left transparent;
   border: none;
   color: #6ca932;
   padding-left: 35px;
 }
-/* line 231, ../sass/_icons.scss */
+/* line 233, ../sass/_icons.scss */
 .download:hover {
   background: url("../images/icons/icon_download.png") no-repeat top left transparent;
   background-color: transparent;
   text-decoration: underline;
 }
 
-/* line 237, ../sass/_icons.scss */
+/* line 239, ../sass/_icons.scss */
 .update, .btn.update, .update.save,
 #main .action_box .update.save,
 #cboxContent .action_box .update.save,
@@ -2594,7 +2600,7 @@ td .add span, th .add span {
   background: url("../images/icons/icon_update.png") no-repeat bottom left #6ca932;
   padding-left: 35px;
 }
-/* line 240, ../sass/_icons.scss */
+/* line 242, ../sass/_icons.scss */
 .update:hover, .btn.update:hover, .update.save:hover,
 #main .action_box .update.save:hover,
 #cboxContent .action_box .update.save:hover,
@@ -2603,7 +2609,7 @@ td .add span, th .add span {
   background: url("../images/icons/icon_update.png") no-repeat top left white;
 }
 
-/* line 244, ../sass/_icons.scss */
+/* line 246, ../sass/_icons.scss */
 .edit {
   display: inline;
   width: 22px;
@@ -2612,7 +2618,7 @@ td .add span, th .add span {
   overflow: hidden;
   font-size: 20px;
 }
-/* line 251, ../sass/_icons.scss */
+/* line 253, ../sass/_icons.scss */
 .edit span {
   visibility: hidden;
 }

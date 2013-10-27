@@ -84,10 +84,12 @@
 .add{
 	background:url("../images/icons/icon_add.png") no-repeat left bottom;
 	padding-left: 35px;
-	&:hover{
+	&:hover, .link tr:hover &{
+		@include transitionAll;
 		background:url("../images/icons/icon_add.png") no-repeat left top $colorW;
 	}
 	td &, th &{
+		@include transitionAll;
 		background-color: $colorG;
 		width: 30px;
 		height: 30px;
@@ -99,8 +101,8 @@
 			top: 50px;
 		}
 	}
-	th, th &:hover{
-		background-color: $colorG;
+	th, th &:hover, , .link tr:hover th &{
+		background:url("../images/icons/icon_add.png") no-repeat left bottom;
 	}
 }
 .clock{
