@@ -7,50 +7,48 @@
 
 <table class="data subform link">
 <tr>
-	<th><i><label><spring:message code="label.hardwareDevice.name"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.manufacturer"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.caption"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.capacity"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.speed"/></label></i></th>
+	<th><spring:message code="label.hardwareDevice.name"/></th>
+	<th><spring:message code="label.hardwareDevice.manufacturer"/></th>
+	<th><spring:message code="label.hardwareDevice.caption"/></th>
+	<th><spring:message code="label.hardwareDevice.capacity"/></th>
+	<th><spring:message code="label.hardwareDevice.speed"/></th>
 </tr>
-<c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
-    <tr <c:if test="${alt}">class="alt"</c:if>>
+    <tr >
 		<c:if test="${hardwareDevice.name != null}">
-			<td><label>${hardwareDevice.name}</label></td>
+			<td>${hardwareDevice.name}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.manufacturer != null}">
-			<td><label>${hardwareDevice.manufacturer}</label></td>
+			<td>${hardwareDevice.manufacturer}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.manufacturer == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.caption != null}">
-			<td><label>${hardwareDevice.caption}</label></td>
+			<td>${hardwareDevice.caption}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.caption == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.capacity != null}">
-			<td><label>${hardwareDevice.capacity}</label></td>
+			<td>${hardwareDevice.capacity}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.capacity == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.speed != null}">
-			<td><label>${hardwareDevice.speed}</label></td>
+			<td>${hardwareDevice.speed}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.speed == null}">
 			<td/>
 		</c:if>
     </tr>
-	<c:set var="alt" value="${!alt}"/>
 </c:forEach>
 </table>

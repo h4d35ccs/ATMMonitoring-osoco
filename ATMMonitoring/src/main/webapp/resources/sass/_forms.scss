@@ -54,9 +54,6 @@
 			width: 98%;
 			font-size: 1em;
 		}
-		textarea{
-			height: 5em;
-		}
 		label{
 			padding-left: 0;
 			padding-right: 0;
@@ -133,6 +130,9 @@ input, select, textarea, label{
 	font-size: 1em;
 	padding: .5em 1em;
 	vertical-align: middle;
+}
+textarea{
+	height: 5em;
 }
 input.num{
 	width: 2em;

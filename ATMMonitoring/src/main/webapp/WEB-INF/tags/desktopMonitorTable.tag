@@ -7,82 +7,80 @@
 
 <table class="data subform link">
 <tr>
-	<th><i><label><spring:message code="label.hardwareDevice.name"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.caption"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.deviceId"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.displayType"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.monitorManufacturer"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.monitorType"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.pixelsPerXLogicalInch"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.pixelsPerYLogicalInch"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.status"/></label></i></th>
+	<th><spring:message code="label.hardwareDevice.name"/></th>
+	<th><spring:message code="label.hardwareDevice.caption"/></th>
+	<th><spring:message code="label.hardwareDevice.deviceId"/></th>
+	<th><spring:message code="label.hardwareDevice.displayType"/></th>
+	<th><spring:message code="label.hardwareDevice.monitorManufacturer"/></th>
+	<th><spring:message code="label.hardwareDevice.monitorType"/></th>
+	<th><spring:message code="label.hardwareDevice.pixelsPerXLogicalInch"/></th>
+	<th><spring:message code="label.hardwareDevice.pixelsPerYLogicalInch"/></th>
+	<th><spring:message code="label.hardwareDevice.status"/></th>
 </tr>
-<c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
-    <tr <c:if test="${alt}">class="alt"</c:if>>
+    <tr >
     	<c:if test="${hardwareDevice.name != null}">
-			<td><label>${hardwareDevice.name}</label></td>
+			<td>${hardwareDevice.name}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.caption != null}">
-			<td><label>${hardwareDevice.caption}</label></td>
+			<td>${hardwareDevice.caption}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.caption == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.deviceId != null}">
-			<td><label>${hardwareDevice.deviceId}</label></td>
+			<td>${hardwareDevice.deviceId}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.deviceId == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.displayType != null}">
-			<td><label>${hardwareDevice.displayType}</label></td>
+			<td>${hardwareDevice.displayType}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.displayType == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.monitorManufacturer != null}">
-			<td><label>${hardwareDevice.monitorManufacturer}</label></td>
+			<td>${hardwareDevice.monitorManufacturer}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.monitorManufacturer == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.monitorType != null}">
-			<td><label>${hardwareDevice.monitorType}</label></td>
+			<td>${hardwareDevice.monitorType}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.monitorType == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.pixelsPerXLogicalInch != null}">
-			<td><label>${hardwareDevice.pixelsPerXLogicalInch}</label></td>
+			<td>${hardwareDevice.pixelsPerXLogicalInch}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.pixelsPerXLogicalInch == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.pixelsPerYLogicalInch != null}">
-			<td><label>${hardwareDevice.pixelsPerYLogicalInch}</label></td>
+			<td>${hardwareDevice.pixelsPerYLogicalInch}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.pixelsPerYLogicalInch == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.status != null}">
-			<td><label>${hardwareDevice.status}</label></td>
+			<td>${hardwareDevice.status}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.status == null}">
 			<td/>
 		</c:if>
     </tr>
-	<c:set var="alt" value="${!alt}"/>
 </c:forEach>
 </table>

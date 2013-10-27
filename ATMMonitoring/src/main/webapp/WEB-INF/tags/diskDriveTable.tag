@@ -7,154 +7,190 @@
 
 <table class="data subform link">
 <tr>	
-	<th><i><label><spring:message code="label.hardwareDevice.name"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.manufacturer"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.model"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.caption"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.partitions"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.size"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.status"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.description"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.deviceId"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.firmwareRevision"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.serialNumber"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.mediaType"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.maxMediaSize"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.totalCylinders"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.tracksPerCylinder"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.sectorsPerTrack"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.bytesPerSector"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.signature"/></label></i></th>
+	<th><spring:message code="label.hardwareDevice.name"/></th>
+	<th><spring:message code="label.hardwareDevice.manufacturer"/></th>
+	<th><spring:message code="label.hardwareDevice.model"/></th>
+	<th><spring:message code="label.hardwareDevice.caption"/></th>
+	<th><spring:message code="label.hardwareDevice.partitions"/></th>
+	<th><spring:message code="label.hardwareDevice.size"/></th>
+	<th><spring:message code="label.hardwareDevice.status"/></th>
+<%--
+	<th><spring:message code="label.hardwareDevice.description"/></th>
+	<th><spring:message code="label.hardwareDevice.deviceId"/></th>
+	<th><spring:message code="label.hardwareDevice.firmwareRevision"/></th>
+	<th><spring:message code="label.hardwareDevice.serialNumber"/></th>
+	<th><spring:message code="label.hardwareDevice.mediaType"/></th>
+	<th><spring:message code="label.hardwareDevice.maxMediaSize"/></th>
+	<th><spring:message code="label.hardwareDevice.totalCylinders"/></th>
+	<th><spring:message code="label.hardwareDevice.tracksPerCylinder"/></th>
+	<th><spring:message code="label.hardwareDevice.sectorsPerTrack"/></th>
+	<th><spring:message code="label.hardwareDevice.bytesPerSector"/></th>
+	<th><spring:message code="label.hardwareDevice.signature"/></th>
+--%>
+	<th><div class="add"><span>Ver más información</span></div></th>
 </tr>
-<c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
-    <tr <c:if test="${alt}">class="alt"</c:if>>
+    <tr class="showdetail open" >
 		<c:if test="${hardwareDevice.name != null}">
-			<td><label>${hardwareDevice.name}</label></td>
+			<td>${hardwareDevice.name}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.manufacturer != null}">
-			<td><label>${hardwareDevice.manufacturer}</label></td>
+			<td>${hardwareDevice.manufacturer}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.manufacturer == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.model != null}">
-			<td><label>${hardwareDevice.model}</label></td>
+			<td>${hardwareDevice.model}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.model == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.caption != null}">
-			<td><label>${hardwareDevice.caption}</label></td>
+			<td>${hardwareDevice.caption}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.caption == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.partitions != null}">
-			<td><label>${hardwareDevice.partitions}</label></td>
+			<td>${hardwareDevice.partitions}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.partitions == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.size != null}">
-			<td><label>${hardwareDevice.size}</label></td>
+			<td>${hardwareDevice.size}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.size == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.status != null}">
-			<td><label>${hardwareDevice.status}</label></td>
+			<td>${hardwareDevice.status}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.status == null}">
 			<td/>
 		</c:if>
-
+<%--
 		<c:if test="${hardwareDevice.description != null}">
-			<td><label>${hardwareDevice.description}</label></td>
+			<td>${hardwareDevice.description}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.description == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.deviceId != null}">
-			<td><label>${hardwareDevice.deviceId}</label></td>
+			<td>${hardwareDevice.deviceId}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.deviceId == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.firmwareRevision != null}">
-			<td><label>${hardwareDevice.firmwareRevision}</label></td>
+			<td>${hardwareDevice.firmwareRevision}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.firmwareRevision == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.serialNumber != null}">
-			<td><label>${hardwareDevice.serialNumber}</label></td>
+			<td>${hardwareDevice.serialNumber}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.serialNumber == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.mediaType != null}">
-			<td><label>${hardwareDevice.mediaType}</label></td>
+			<td>${hardwareDevice.mediaType}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.mediaType == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.maxMediaSize != null}">
-			<td><label>${hardwareDevice.maxMediaSize}</label></td>
+			<td>${hardwareDevice.maxMediaSize}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.maxMediaSize == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.totalCylinders != null}">
-			<td><label>${hardwareDevice.totalCylinders}</label></td>
+			<td>${hardwareDevice.totalCylinders}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.totalCylinders == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.tracksPerCylinder != null}">
-			<td><label>${hardwareDevice.tracksPerCylinder}</label></td>
+			<td>${hardwareDevice.tracksPerCylinder}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.tracksPerCylinder == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.sectorsPerTrack != null}">
-			<td><label>${hardwareDevice.sectorsPerTrack}</label></td>
+			<td>${hardwareDevice.sectorsPerTrack}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.sectorsPerTrack == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.bytesPerSector != null}">
-			<td><label>${hardwareDevice.bytesPerSector}</label></td>
+			<td>${hardwareDevice.bytesPerSector}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.bytesPerSector == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.signature != null}">
-			<td><label>${hardwareDevice.signature}</label></td>
+			<td>${hardwareDevice.signature}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.signature == null}">
 			<td/>
 		</c:if>
+--%>
+	<td><div class="add"><span>Ver más información</span></div></td>
     </tr>
-	<c:set var="alt" value="${!alt}"/>
+
+ <tr class="detail">
+    <td colspan="8">
+        <ul>
+		<li><strong><spring:message code="label.hardwareDevice.name"/>:</strong>${(hardwareDevice.name != null)? hardwareDevice.name : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.manufacturer"/>:</strong>${(hardwareDevice.manufacturer != null) ? hardwareDevice.manufacturer: ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.model"/>:</strong>${(hardwareDevice.model != null) ? hardwareDevice.model : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.caption"/>:</strong>${(hardwareDevice.caption != null ) ? hardwareDevice.caption : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.partitions"/>:</strong>${(hardwareDevice.partitions != null) ? hardwareDevice.partitions : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.size"/>:</strong>${(hardwareDevice.size != null ) ? hardwareDevice.size : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.status"/>:</strong>${(hardwareDevice.status != null ) ? hardwareDevice.status : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.description"/>:</strong>${(hardwareDevice.description != null )? hardwareDevice.description : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.deviceId"/>:</strong>${(hardwareDevice.deviceId != null) ? hardwareDevice.deviceId : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.firmwareRevision"/>:</strong>${(hardwareDevice.firmwareRevision != null )? hardwareDevice.firmwareRevision : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.serialNumber"/>:</strong>${(hardwareDevice.serialNumber != null )? hardwareDevice.serialNumber : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.mediaType"/>:</strong>${(hardwareDevice.mediaType != null) ? hardwareDevice.mediaType : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.maxMediaSize"/>:</strong>${(hardwareDevice.maxMediaSize != null) ? hardwareDevice.maxMediaSize : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.totalCylinders"/>:</strong>${(hardwareDevice.totalCylinders != null) ? hardwareDevice.totalCylinders : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.tracksPerCylinder"/>:</strong>${(hardwareDevice.tracksPerCylinder != null )? hardwareDevice.tracksPerCylinder : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.sectorsPerTrack"/>:</strong>${(hardwareDevice.sectorsPerTrack != null ) ? hardwareDevice.sectorsPerTrack : ''}</li>
+		<li><strong><spring:message code="label.hardwareDevice.bytesPerSector"/>:</strong>${(hardwareDevice.bytesPerSector != null) ? hardwareDevice.bytesPerSector : '' }</li>
+		<li><strong><spring:message code="label.hardwareDevice.signature"/>:</strong>${(hardwareDevice.signature != null) ? hardwareDevice.signature : '' }</li>
+	</ul>
+    </td>
+</tr>
+	
 </c:forEach>
 </table>
+	
+	
+	
+	
+	
+	
+	

@@ -7,82 +7,80 @@
 
 <table class="data subform link">
 <tr>
-	<th><i><label><spring:message code="label.hardwareDevice.name"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.description"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.videoProcessor"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.adapterRam"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.currentBitsPerPixel"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.currentNumberOfColors"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.currentVerticalResolution"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.currentHorizontalResolution"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.currentRefreshRate"/></label></i></th>
+	<th><spring:message code="label.hardwareDevice.name"/></th>
+	<th><spring:message code="label.hardwareDevice.description"/></th>
+	<th><spring:message code="label.hardwareDevice.videoProcessor"/></th>
+	<th><spring:message code="label.hardwareDevice.adapterRam"/></th>
+	<th><spring:message code="label.hardwareDevice.currentBitsPerPixel"/></th>
+	<th><spring:message code="label.hardwareDevice.currentNumberOfColors"/></th>
+	<th><spring:message code="label.hardwareDevice.currentVerticalResolution"/></th>
+	<th><spring:message code="label.hardwareDevice.currentHorizontalResolution"/></th>
+	<th><spring:message code="label.hardwareDevice.currentRefreshRate"/></th>
 </tr>
-<c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
-    <tr <c:if test="${alt}">class="alt"</c:if>>
+    <tr >
     	<c:if test="${hardwareDevice.name != null}">
-			<td><label>${hardwareDevice.name}</label></td>
+			<td>${hardwareDevice.name}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.description != null}">
-			<td><label>${hardwareDevice.description}</label></td>
+			<td>${hardwareDevice.description}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.description == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.videoProcessor != null}">
-			<td><label>${hardwareDevice.videoProcessor}</label></td>
+			<td>${hardwareDevice.videoProcessor}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.videoProcessor == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.adapterRam != null}">
-			<td><label>${hardwareDevice.adapterRam}</label></td>
+			<td>${hardwareDevice.adapterRam}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.adapterRam == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.currentBitsPerPixel != null}">
-			<td><label>${hardwareDevice.currentBitsPerPixel}</label></td>
+			<td>${hardwareDevice.currentBitsPerPixel}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.currentBitsPerPixel == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.currentNumberOfColors != null}">
-			<td><label>${hardwareDevice.currentNumberOfColors}</label></td>
+			<td>${hardwareDevice.currentNumberOfColors}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.currentNumberOfColors == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.currentHorizontalResolution != null}">
-			<td><label>${hardwareDevice.currentHorizontalResolution}</label></td>
+			<td>${hardwareDevice.currentHorizontalResolution}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.currentHorizontalResolution == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.currentVerticalResolution != null}">
-			<td><label>${hardwareDevice.currentVerticalResolution}</label></td>
+			<td>${hardwareDevice.currentVerticalResolution}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.currentVerticalResolution == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.currentRefreshRate != null}">
-			<td><label>${hardwareDevice.currentRefreshRate}</label></td>
+			<td>${hardwareDevice.currentRefreshRate}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.currentRefreshRate == null}">
 			<td/>
 		</c:if>
     </tr>
-	<c:set var="alt" value="${!alt}"/>
 </c:forEach>
 </table>

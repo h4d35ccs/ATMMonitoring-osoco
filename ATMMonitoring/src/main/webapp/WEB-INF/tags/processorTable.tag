@@ -1,4 +1,4 @@
-<%@tag description="Processor Table" pageEncoding="UTF-8"%>
+ <%@tag description="Processor Table" pageEncoding="UTF-8"%>
 <%@attribute name="hardwareDevices" required="true" type="java.util.Set"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -7,98 +7,96 @@
 
 <table class="data subform link">
 <tr>
-	<th><i><label><spring:message code="label.hardwareDevice.name"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.manufacturer"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.caption"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.architecture"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.addressWidth"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.dataWidth"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.currentClockSpeed"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.extClock"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.stepping"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.maxClockSpeed"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.status"/></label></i></th>
+	<th><spring:message code="label.hardwareDevice.name"/></th>
+	<th><spring:message code="label.hardwareDevice.manufacturer"/></th>
+	<th><spring:message code="label.hardwareDevice.caption"/></th>
+	<th><spring:message code="label.hardwareDevice.architecture"/></th>
+	<th><spring:message code="label.hardwareDevice.addressWidth"/></th>
+	<th><spring:message code="label.hardwareDevice.dataWidth"/></th>
+	<th><spring:message code="label.hardwareDevice.currentClockSpeed"/></th>
+	<th><spring:message code="label.hardwareDevice.extClock"/></th>
+	<th><spring:message code="label.hardwareDevice.stepping"/></th>
+	<th><spring:message code="label.hardwareDevice.maxClockSpeed"/></th>
+	<th><spring:message code="label.hardwareDevice.status"/></th>
 </tr>
-<c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
-    <tr <c:if test="${alt}">class="alt"</c:if>>
+    <tr >
     	<c:if test="${hardwareDevice.name != null}">
-			<td><label>${hardwareDevice.name}</label></td>
+			<td>${hardwareDevice.name}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.manufacturer != null}">
-			<td><label>${hardwareDevice.manufacturer}</label></td>
+			<td>${hardwareDevice.manufacturer}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.manufacturer == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.caption != null}">
-			<td><label>${hardwareDevice.caption}</label></td>
+			<td>${hardwareDevice.caption}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.caption == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.architecture != null}">
-			<td><label>${hardwareDevice.architecture}</label></td>
+			<td>${hardwareDevice.architecture}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.architecture == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.addressWidth != null}">
-			<td><label>${hardwareDevice.addressWidth}</label></td>
+			<td>${hardwareDevice.addressWidth}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.addressWidth == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.dataWidth != null}">
-			<td><label>${hardwareDevice.dataWidth}</label></td>
+			<td>${hardwareDevice.dataWidth}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.dataWidth == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.currentClockSpeed != null}">
-			<td><label>${hardwareDevice.currentClockSpeed}</label></td>
+			<td>${hardwareDevice.currentClockSpeed}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.currentClockSpeed == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.extClock != null}">
-			<td><label>${hardwareDevice.extClock}</label></td>
+			<td>${hardwareDevice.extClock}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.extClock == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.stepping != null}">
-			<td><label>${hardwareDevice.stepping}</label></td>
+			<td>${hardwareDevice.stepping}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.stepping == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.maxClockSpeed != null}">
-			<td><label>${hardwareDevice.maxClockSpeed}</label></td>
+			<td>${hardwareDevice.maxClockSpeed}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.maxClockSpeed == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.status != null}">
-			<td><label>${hardwareDevice.status}</label></td>
+			<td>${hardwareDevice.status}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.status == null}">
 			<td/>
 		</c:if>
     </tr>
-	<c:set var="alt" value="${!alt}"/>
 </c:forEach>
 </table>

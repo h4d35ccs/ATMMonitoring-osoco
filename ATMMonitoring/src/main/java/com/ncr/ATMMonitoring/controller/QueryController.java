@@ -234,7 +234,7 @@ public class QueryController {
 	    Principal principal, String p) throws Exception {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-
+	/*	
 	if (WebUtils.hasSubmitParameter(request, "save_execute")) {
 	    if (principal != null) {
 		User loggedUser = userService.getUserByUsername(principal
@@ -245,6 +245,7 @@ public class QueryController {
 		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	    }
 	}
+	*/
 
 	List<Terminal> terminals = queryService.executeQuery(query, locale);
 

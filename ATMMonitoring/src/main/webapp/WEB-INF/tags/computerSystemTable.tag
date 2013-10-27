@@ -7,106 +7,128 @@
 
 <table class="data subform link">
 <tr>
-	<th><i><label><spring:message code="label.hardwareDevice.name"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.manufacturer"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.model"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.numberOfProcessors"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.caption"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.totalPhysicalMemory"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.description"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.currentTimeZone"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.daylightInEffect"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.domain"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.workgroup"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.status"/></label></i></th>
+	<th><spring:message code="label.hardwareDevice.name"/></th>
+	<th><spring:message code="label.hardwareDevice.manufacturer"/></th>
+	<th><spring:message code="label.hardwareDevice.model"/></th>
+	<th><spring:message code="label.hardwareDevice.numberOfProcessors"/></th>
+	<th><spring:message code="label.hardwareDevice.caption"/></th>
+	<th><spring:message code="label.hardwareDevice.totalPhysicalMemory"/></th>
+<%--	<th><spring:message code="label.hardwareDevice.description"/></th>
+	<th><spring:message code="label.hardwareDevice.currentTimeZone"/></th>
+	<th><spring:message code="label.hardwareDevice.daylightInEffect"/></th>
+	<th><spring:message code="label.hardwareDevice.domain"/></th>
+	<th><spring:message code="label.hardwareDevice.workgroup"/></th>
+--%>
+	<th><spring:message code="label.hardwareDevice.status"/></th>
+	<th><div class="add"><span>Ver más información</span></div></th>
 </tr>
-<c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
-    <tr <c:if test="${alt}">class="alt"</c:if>>
+    <tr class="showdetail open">
 	    <c:if test="${hardwareDevice.name != null}">
-			<td><label>${hardwareDevice.name}</label></td>
+			<td>${hardwareDevice.name}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
 			<td/>
 		</c:if>
 		
 		<c:if test="${hardwareDevice.manufacturer != null}">
-			<td><label>${hardwareDevice.manufacturer}</label></td>
+			<td>${hardwareDevice.manufacturer}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.manufacturer == null}">
 			<td/>
 		</c:if>
 		
 		<c:if test="${hardwareDevice.model != null}">
-			<td><label>${hardwareDevice.model}</label></td>
+			<td>${hardwareDevice.model}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.model == null}">
 			<td/>
 		</c:if>
 		
 		<c:if test="${hardwareDevice.numberOfProcessors != null}">
-			<td><label>${hardwareDevice.numberOfProcessors}</label></td>
+			<td>${hardwareDevice.numberOfProcessors}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.numberOfProcessors == null}">
 			<td/>
 		</c:if>
 		
 		<c:if test="${hardwareDevice.caption != null}">
-			<td><label>${hardwareDevice.caption}</label></td>
+			<td>${hardwareDevice.caption}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.caption == null}">
 			<td/>
 		</c:if>
 		
 		<c:if test="${hardwareDevice.totalPhysicalMemory != null}">
-			<td><label>${hardwareDevice.totalPhysicalMemory}</label></td>
+			<td>${hardwareDevice.totalPhysicalMemory}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.totalPhysicalMemory == null}">
 			<td/>
 		</c:if>
-		
+<%--		
 		<c:if test="${hardwareDevice.description != null}">
-			<td><label>${hardwareDevice.description}</label></td>
+			<td>${hardwareDevice.description}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.description == null}">
 			<td/>
 		</c:if>
 		
 		<c:if test="${hardwareDevice.currentTimeZone != null}">
-			<td><label>${hardwareDevice.currentTimeZone}</label></td>
+			<td>${hardwareDevice.currentTimeZone}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.currentTimeZone == null}">
 			<td/>
 		</c:if>
 		
 		<c:if test="${hardwareDevice.daylightInEffect != null}">
-			<td><label>${hardwareDevice.daylightInEffect}</label></td>
+			<td>${hardwareDevice.daylightInEffect}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.daylightInEffect == null}">
 			<td/>
 		</c:if>
 		
 		<c:if test="${hardwareDevice.domain != null}">
-			<td><label>${hardwareDevice.domain}</label></td>
+			<td>${hardwareDevice.domain}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.domain == null}">
 			<td/>
 		</c:if>
 		
 		<c:if test="${hardwareDevice.workgroup != null}">
-			<td><label>${hardwareDevice.workgroup}</label></td>
+			<td>${hardwareDevice.workgroup}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.workgroup == null}">
 			<td/>
 		</c:if>
 		
+--%>
 		<c:if test="${hardwareDevice.status != null}">
-			<td><label>${hardwareDevice.status}</label></td>
+			<td>${hardwareDevice.status}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.status == null}">
 			<td/>
 		</c:if>
+
+	<td><div class="add"><span>Ver más información</span></div></td>
     </tr>
-	<c:set var="alt" value="${!alt}"/>
+    <tr class="detail">
+       <td colspan="8">
+         <ul>
+	   <li><strong><spring:message code="label.hardwareDevice.name"/>:</strong>${hardwareDevice.name}</li>
+	   <li><strong><spring:message code="label.hardwareDevice.manufacturer"/>:</strong>${hardwareDevice.manufacturer}</li>
+	   <li><strong><spring:message code="label.hardwareDevice.model"/>:</strong>${hardwareDevice.model}</li>
+	   <li><strong><spring:message code="label.hardwareDevice.numberOfProcessors"/>:</strong>${hardwareDevice.numberOfProcessors}</li>
+	   <li><strong><spring:message code="label.hardwareDevice.caption"/>:</strong>${hardwareDevice.caption}</li>
+	   <li><strong><spring:message code="label.hardwareDevice.totalPhysicalMemory"/>:</strong>${hardwareDevice.totalPhysicalMemory}</li>
+	   <li><strong><spring:message code="label.hardwareDevice.description"/>:</strong>${hardwareDevice.description}</li>
+	   <li><strong><spring:message code="label.hardwareDevice.currentTimeZone"/>:</strong>${hardwareDevice.currentTimeZone}</li>	
+	   <li><strong><spring:message code="label.hardwareDevice.daylightInEffect"/>:</strong>${hardwareDevice.daylightInEffect}</li>
+	   <li><strong><spring:message code="label.hardwareDevice.domain"/>:</strong>${hardwareDevice.domain}</li>
+	   <li><strong><spring:message code="label.hardwareDevice.workgroup"/>:</strong>${hardwareDevice.workgroup}</li>	
+	   <li><strong><spring:message code="label.hardwareDevice.status"/>:</strong>${hardwareDevice.status}</li>
+	 </ul>
+	</td>
+    
+    </tr>
 </c:forEach>
 </table>

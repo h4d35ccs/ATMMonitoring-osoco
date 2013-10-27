@@ -7,114 +7,112 @@
 
 <table class="data subform link">
 <tr>
-	<th><i><label><spring:message code="label.hardwareDevice.name"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.manufacturer"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.smbiosVersion"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.smbiosMajorVersion"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.smbiosMinorVersion"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.caption"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.currentLanguage"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.primaryBios"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.releaseDate"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.smbiosPresent"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.serialNumber"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.version"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.status"/></label></i></th>
+	<th><spring:message code="label.hardwareDevice.name"/></th>
+	<th><spring:message code="label.hardwareDevice.manufacturer"/></th>
+	<th><spring:message code="label.hardwareDevice.smbiosVersion"/></th>
+	<th><spring:message code="label.hardwareDevice.smbiosMajorVersion"/></th>
+	<th><spring:message code="label.hardwareDevice.smbiosMinorVersion"/></th>
+	<th><spring:message code="label.hardwareDevice.caption"/></th>
+	<th><spring:message code="label.hardwareDevice.currentLanguage"/></th>
+	<th><spring:message code="label.hardwareDevice.primaryBios"/></th>
+	<th><spring:message code="label.hardwareDevice.releaseDate"/></th>
+	<th><spring:message code="label.hardwareDevice.smbiosPresent"/></th>
+	<th><spring:message code="label.hardwareDevice.serialNumber"/></th>
+	<th><spring:message code="label.hardwareDevice.version"/></th>
+	<th><spring:message code="label.hardwareDevice.status"/></th>
 </tr>
-<c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
-    <tr <c:if test="${alt}">class="alt"</c:if>>
+    <tr >
     	<c:if test="${hardwareDevice.name != null}">
-			<td><label>${hardwareDevice.name}</label></td>
+			<td>${hardwareDevice.name}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.manufacturer != null}">
-			<td><label>${hardwareDevice.manufacturer}</label></td>
+			<td>${hardwareDevice.manufacturer}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.manufacturer == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.smbiosVersion != null}">
-			<td><label>${hardwareDevice.smbiosVersion}</label></td>
+			<td>${hardwareDevice.smbiosVersion}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.smbiosVersion == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.smbiosMajorVersion != null}">
-			<td><label>${hardwareDevice.smbiosMajorVersion}</label></td>
+			<td>${hardwareDevice.smbiosMajorVersion}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.smbiosMajorVersion == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.smbiosMinorVersion != null}">
-			<td><label>${hardwareDevice.smbiosMinorVersion}</label></td>
+			<td>${hardwareDevice.smbiosMinorVersion}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.smbiosMinorVersion == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.caption != null}">
-			<td><label>${hardwareDevice.caption}</label></td>
+			<td>${hardwareDevice.caption}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.caption == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.currentLanguage != null}">
-			<td><label>${hardwareDevice.currentLanguage}</label></td>
+			<td>${hardwareDevice.currentLanguage}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.currentLanguage == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.primaryBios != null}">
-			<td><label>${hardwareDevice.primaryBios}</label></td>
+			<td>${hardwareDevice.primaryBios}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.primaryBios == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.releaseDate != null}">
-			<td><label>${hardwareDevice.releaseDate}</label></td>
+			<td>${hardwareDevice.releaseDate}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.releaseDate == null}">
 			<td/>
 		</c:if>
 
 		<c:if test="${hardwareDevice.smbiosPresent != null}">
-			<td><label>${hardwareDevice.smbiosPresent}</label></td>
+			<td>${hardwareDevice.smbiosPresent}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.smbiosPresent == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.serialNumber != null}">
-			<td><label>${hardwareDevice.serialNumber}</label></td>
+			<td>${hardwareDevice.serialNumber}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.serialNumber == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.version != null}">
-			<td><label>${hardwareDevice.version}</label></td>
+			<td>${hardwareDevice.version}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.version == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.status != null}">
-			<td><label>${hardwareDevice.status}</label></td>
+			<td>${hardwareDevice.status}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.status == null}">
 			<td/>
 		</c:if>
     </tr>
-	<c:set var="alt" value="${!alt}"/>
 </c:forEach>
 </table>
