@@ -1615,9 +1615,8 @@ table.query-form td.btn_add {
 table.query-form td.btn_add div {
   position: relative;
   overflow: hidden;
-  height: 1em;
 }
-/* line 147, ../sass/_table.scss */
+/* line 146, ../sass/_table.scss */
 table.query-form td.btn_add .btn, table.query-form td.btn_add .save,
 table.query-form td.btn_add #main .action_box .save,
 #main .action_box table.query-form td.btn_add .save,
@@ -1629,34 +1628,34 @@ table.query-form td.btn_add #cboxContent .pagination .save,
 #cboxContent .pagination table.query-form td.btn_add .save {
   float: right;
 }
-/* line 153, ../sass/_table.scss */
+/* line 152, ../sass/_table.scss */
 table.link tr {
   cursor: pointer;
 }
-/* line 155, ../sass/_table.scss */
+/* line 154, ../sass/_table.scss */
 table.link tr:hover {
   background: #f0f6ea;
   color: #6ca932;
 }
-/* line 160, ../sass/_table.scss */
+/* line 159, ../sass/_table.scss */
 table.link label {
   cursor: pointer;
 }
-/* line 164, ../sass/_table.scss */
+/* line 163, ../sass/_table.scss */
 table.link tr.showdetail.open, table.link tr.showdetail.open:hover {
   background: #89ba5b;
   color: white;
 }
-/* line 168, ../sass/_table.scss */
+/* line 167, ../sass/_table.scss */
 table.link tr.detail, table.link tr.detail:hover {
   background: #89ba5b;
   color: black;
 }
-/* line 171, ../sass/_table.scss */
+/* line 170, ../sass/_table.scss */
 table.link tr.detail div, table.link tr.detail:hover div {
   position: relative;
 }
-/* line 174, ../sass/_table.scss */
+/* line 173, ../sass/_table.scss */
 table.link tr.detail ul, table.link tr.detail:hover ul {
   padding: 1%;
   background: white;
@@ -1666,7 +1665,7 @@ table.link tr.detail ul, table.link tr.detail:hover ul {
   overflow: hidden;
   cursor: inherit;
 }
-/* line 180, ../sass/_table.scss */
+/* line 179, ../sass/_table.scss */
 table.link tr.detail ul li, table.link tr.detail:hover ul li {
   float: left;
   width: 32%;
@@ -1674,7 +1673,7 @@ table.link tr.detail ul li, table.link tr.detail:hover ul li {
   padding: 0.5em 0;
   border-bottom: 1px solid #b3b3b3;
 }
-/* line 186, ../sass/_table.scss */
+/* line 185, ../sass/_table.scss */
 table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   width: 30%;
   display: block;
@@ -1682,7 +1681,7 @@ table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   text-align: right;
   margin-right: 1em;
 }
-/* line 194, ../sass/_table.scss */
+/* line 193, ../sass/_table.scss */
 table.link tr.detail ul:before, table.link tr.detail:hover ul:before {
   content: "";
   font-size: 20em;
