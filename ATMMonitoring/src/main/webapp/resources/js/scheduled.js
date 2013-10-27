@@ -42,6 +42,9 @@ function initSchedulerCalendar() {
             month:    'mes',
             week:     'semana',
             day:      'día'
+        },
+        eventRender: function(event, element) {
+            element.find(".fc-event-inner").append("<a class='deleteEvent' onclick='deleteScheduledUpdate(" + event.id + "); return false;' href='#'>delete</a>");
         }
     });
 }
