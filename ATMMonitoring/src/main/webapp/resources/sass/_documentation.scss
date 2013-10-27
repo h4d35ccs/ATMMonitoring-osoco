@@ -56,14 +56,21 @@
 		width: 80%;
 		float: right;
 		margin-top: 40px;
-		ul{
+		ul.features{
 			overflow: hidden;
+			padding: 2em;
+			background:$colorG5;
+			@include border-radius(4px);
 		}
 	}
 	#users &{
 		.scroll{
 			h3{
 				border-bottom: 2px dotted $colorK3;
+			}
+			ul{
+				margin-bottom: 1em;
+				overflow: hidden;
 			}
 			margin-top: 110px;
 			li li{

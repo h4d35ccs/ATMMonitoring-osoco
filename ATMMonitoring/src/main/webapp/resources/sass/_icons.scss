@@ -82,10 +82,25 @@
 	}
 }
 .add{
-	background:url("../images/icons/icon_add.png") no-repeat left bottom $colorG;
+	background:url("../images/icons/icon_add.png") no-repeat left bottom;
 	padding-left: 35px;
 	&:hover{
 		background:url("../images/icons/icon_add.png") no-repeat left top $colorW;
+	}
+	td &, th &{
+		background-color: $colorG;
+		width: 30px;
+		height: 30px;
+		padding: 0;
+		float: right;
+		@include border-radius(4px);
+		span{
+			position: absolute;
+			top: 50px;
+		}
+	}
+	th, th &:hover{
+		background-color: $colorG;
 	}
 }
 .clock{

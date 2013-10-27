@@ -13,10 +13,7 @@
 					<li>
 						<a href="dashboard">inicio</a>
 					</li>
-					<li>
-						<a href="terminals">Terminales</a>
-					</li>
-					<li>Mis consultas</li>
+					<li>Usuarios</li>
 				</ul>
 			</nav>
 		</div>
@@ -37,7 +34,7 @@
 			</nav>
 
 			<div class="botonera">
-					<a href="#" class="btn add">Crear nuevo grupo</a>
+					<a href="users/newGroup" class="btn add left">Crear nuevo grupo</a>
 			</div>
 		</div>
 			<div class="scroll">
