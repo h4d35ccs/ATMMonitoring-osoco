@@ -10,7 +10,7 @@
 <jsp:attribute name="header">
 
 <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.css"/>
-<link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.print.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.print.css" media="print"/>
 <link rel="stylesheet" type="text/css" href="resources/css/ncr_fullcalendar.css"/>
 
 <script type="text/javascript" src="resources/js/fullcalendar.min.js"></script>
