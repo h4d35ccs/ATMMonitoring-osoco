@@ -17,10 +17,16 @@
 		</ul>
 	</nav>
 </div>
-
-<div class="content">
-	<h1>Nuevo grupo</h1>
-	<div class="row"><label for="name">Nombre del grupo</label> <input id="name" type="text"></div>
-	<div class="row"><label for="ldapQuery">Consulta LDAP</label> <textarea id="ldapQuery" ></textarea></div>
+<div class="main">
+	<div id="primary">
+		<div class="content">
+			<h1>Nuevo grupo</h1>
+			<div class="form w33">
+				<div class="row"><label for="name">Nombre del grupo</label> <input id="name" type="text"></div>
+				<div class="row"><label for="ldapQuery">Consulta LDAP</label> <textarea id="ldapQuery" ></textarea></div>
+				<div class="botonera"><input type="button" class="btn" value="aplicar"></div>
+			</div>
+		</div>
+	</div>
 </div>
 </t:osoco-wrapper>

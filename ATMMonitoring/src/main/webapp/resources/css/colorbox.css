@@ -65,12 +65,33 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 1, ../sass/_forms.scss */
+.form {
+  padding-right: 4%;
+}
+/* line 3, ../sass/_forms.scss */
+.form .row {
+  padding: 0.5em 3em 0.5em 0;
+}
+/* line 6, ../sass/_forms.scss */
+.form label {
+  clear: right;
+  font-size: 1.2em;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 13, ../sass/_forms.scss */
+.form input[type="text"], .form textarea {
+  width: 100%;
+}
+
+/* line 18, ../sass/_forms.scss */
 .botonera {
   overflow: hidden;
   clear: both;
   margin: 1em 0;
 }
-/* line 5, ../sass/_forms.scss */
+/* line 22, ../sass/_forms.scss */
 .botonera .btn, .botonera .save,
 .botonera #main .action_box .save,
 #main .action_box .botonera .save, .botonera input[type="submit"], .botonera button {
@@ -79,31 +100,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin-left: 1em;
   overflow: hidden;
 }
-/* line 10, ../sass/_forms.scss */
+/* line 27, ../sass/_forms.scss */
 .botonera .btn span, .botonera .save span,
 .botonera #main .action_box .save span,
 #main .action_box .botonera .save span, .botonera input[type="submit"] span, .botonera button span {
   position: absolute;
   top: -3em;
 }
-/* line 15, ../sass/_forms.scss */
+/* line 32, ../sass/_forms.scss */
 .botonera input.btn, .botonera input.save,
 .botonera #main .action_box input.save,
 #main .action_box .botonera input.save {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* line 19, ../sass/_forms.scss */
+/* line 36, ../sass/_forms.scss */
 .botonera .request {
   float: left;
 }
 
-/* line 23, ../sass/_forms.scss */
+/* line 40, ../sass/_forms.scss */
 .desplegable.button {
   float: right;
   margin-left: 1em;
 }
-/* line 26, ../sass/_forms.scss */
+/* line 43, ../sass/_forms.scss */
 .desplegable.button .txt {
   width: auto;
   min-width: 100px;
@@ -113,19 +134,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border: 2px solid #cccccc;
   margin-left: 0;
 }
-/* line 34, ../sass/_forms.scss */
+/* line 51, ../sass/_forms.scss */
 .desplegable.button .txt:hover {
   color: white;
 }
-/* line 37, ../sass/_forms.scss */
+/* line 54, ../sass/_forms.scss */
 .desplegable.button .txt.content_hide {
   background: url("../images/icons/icon_collapsible.png") no-repeat gray left top;
 }
-/* line 41, ../sass/_forms.scss */
+/* line 58, ../sass/_forms.scss */
 .desplegable.button .txt.content_hide {
   width: auto;
 }
-/* line 44, ../sass/_forms.scss */
+/* line 61, ../sass/_forms.scss */
 .desplegable.button .collapsible {
   padding: 1em;
   float: right;
@@ -134,21 +155,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: white;
   border: 1px solid #b3b3b3;
 }
-/* line 52, ../sass/_forms.scss */
+/* line 69, ../sass/_forms.scss */
 .desplegable.button .collapsible input[type="text"],
 .desplegable.button .collapsible textarea {
   padding: 1%;
   width: 98%;
   font-size: 1em;
 }
-/* line 57, ../sass/_forms.scss */
+/* line 74, ../sass/_forms.scss */
 .desplegable.button .collapsible label {
   padding-left: 0;
   padding-right: 0;
   font-weight: bold;
 }
 
-/* line 65, ../sass/_forms.scss */
+/* line 82, ../sass/_forms.scss */
 .btn, .save,
 #main .action_box .save, input[type="submit"], input[type="reset"], button {
   border: 2px solid #cccccc;
@@ -170,16 +191,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   padding: 0.5em 1em;
   display: block;
   cursor: pointer;
-  width: inherit;
+  width: auto;
 }
-/* line 81, ../sass/_forms.scss */
+/* line 98, ../sass/_forms.scss */
 .btn:hover, .save:hover,
 #main .action_box .save:hover, input[type="submit"]:hover, input[type="reset"]:hover, button:hover {
   text-decoration: none;
   background: white;
   color: #6ca932;
 }
-/* line 86, ../sass/_forms.scss */
+/* line 103, ../sass/_forms.scss */
 .row .btn, .row .save,
 .row #main .action_box .save,
 #main .action_box .row .save, .row input[type="submit"], .row input[type="reset"], .row button {
@@ -188,7 +209,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin: 0;
   margin-left: 1em;
 }
-/* line 92, ../sass/_forms.scss */
+/* line 109, ../sass/_forms.scss */
 .btn.cancel, .cancel.save,
 #main .action_box .cancel.save, input[type="submit"].cancel, input[type="reset"].cancel, button.cancel {
   background: transparent;
@@ -196,31 +217,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-decoration: underline;
   border: none;
 }
-/* line 97, ../sass/_forms.scss */
+/* line 114, ../sass/_forms.scss */
 .btn.cancel:hover, .cancel.save:hover,
 #main .action_box .cancel.save:hover, input[type="submit"].cancel:hover, input[type="reset"].cancel:hover, button.cancel:hover {
   text-decoration: none;
 }
-/* line 101, ../sass/_forms.scss */
+/* line 118, ../sass/_forms.scss */
 .btn.delete, .delete.save,
 #main .action_box .delete.save, input[type="submit"].delete, input[type="reset"].delete, button.delete {
   background: #e14f3c;
   color: white;
 }
-/* line 104, ../sass/_forms.scss */
+/* line 121, ../sass/_forms.scss */
 .btn.delete:hover, .delete.save:hover,
 #main .action_box .delete.save:hover, input[type="submit"].delete:hover, input[type="reset"].delete:hover, button.delete:hover {
   background: white;
   color: #e14f3c;
 }
-/* line 109, ../sass/_forms.scss */
+/* line 126, ../sass/_forms.scss */
 .btn.left, .left.save,
 #main .action_box .left.save, input[type="submit"].left, input[type="reset"].left, button.left {
   float: left;
   margin-left: 0;
   margin-right: 1em;
 }
-/* line 114, ../sass/_forms.scss */
+/* line 131, ../sass/_forms.scss */
 .btn.right, .right.save,
 #main .action_box .right.save, input[type="submit"].right, input[type="reset"].right, button.right {
   float: right;
@@ -228,107 +249,130 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin-right: 0;
 }
 
-/* line 120, ../sass/_forms.scss */
+/* line 137, ../sass/_forms.scss */
 a.btn, a.save,
 #main .action_box a.save {
   padding-bottom: .6em;
   padding-top: .6em;
 }
 
-/* line 124, ../sass/_forms.scss */
+/* line 141, ../sass/_forms.scss */
 .txt_btn {
   margin-right: 0;
   right: 1em;
   top: 1em;
 }
 
-/* line 129, ../sass/_forms.scss */
+/* line 146, ../sass/_forms.scss */
 input, select, textarea, label {
   font-size: 1em;
   padding: 0.5em 1em;
   vertical-align: middle;
 }
 
-/* line 134, ../sass/_forms.scss */
+/* line 151, ../sass/_forms.scss */
 textarea {
   height: 5em;
 }
 
-/* line 137, ../sass/_forms.scss */
+/* line 154, ../sass/_forms.scss */
 input.num {
   width: 2em;
 }
 
-/* line 140, ../sass/_forms.scss */
+/* line 157, ../sass/_forms.scss */
 select {
   margin: 0.5em 1em;
   padding: 0.5em 1em;
   border: 1px solid #b3b3b3;
 }
 
-/* line 145, ../sass/_forms.scss */
+/* line 162, ../sass/_forms.scss */
 label {
   display: block;
   float: left;
   text-align: right;
   padding: .8em;
 }
-/* line 150, ../sass/_forms.scss */
+/* line 167, ../sass/_forms.scss */
 .colorbox_box label {
   width: 25%;
 }
 
-/* line 154, ../sass/_forms.scss */
+/* line 171, ../sass/_forms.scss */
 input[type="checkbox"] {
   margin: 0.8em 0;
 }
 
-/* line 157, ../sass/_forms.scss */
+/* line 174, ../sass/_forms.scss */
 .label {
   margin: .8em;
 }
 
-/* line 160, ../sass/_forms.scss */
+/* line 177, ../sass/_forms.scss */
 .row {
   margin: 1em 0;
   padding: 1em 0;
   overflow: hidden;
 }
-/* line 164, ../sass/_forms.scss */
+/* line 181, ../sass/_forms.scss */
 .row .left {
   float: left;
 }
-/* line 167, ../sass/_forms.scss */
+/* line 184, ../sass/_forms.scss */
 .row .right {
   float: right;
 }
-/* line 170, ../sass/_forms.scss */
+/* line 187, ../sass/_forms.scss */
 .colorbox_box .row input[type="text"], .row area {
   width: 70%;
 }
-/* line 173, ../sass/_forms.scss */
+/* line 190, ../sass/_forms.scss */
 .row li {
   float: left;
   width: auto;
   white-space: nowrap;
 }
-/* line 177, ../sass/_forms.scss */
+/* line 194, ../sass/_forms.scss */
 .row li label {
   width: auto;
 }
 
-/* line 182, ../sass/_forms.scss */
+/* line 199, ../sass/_forms.scss */
 input:disabled {
   background: #cccccc;
   color: white;
   border: 1px solid #b3b3b3;
 }
-/* line 186, ../sass/_forms.scss */
+/* line 203, ../sass/_forms.scss */
 input:disabled:hover {
   background: #cccccc;
   color: white;
   border: 1px solid #b3b3b3;
   cursor: inherit;
+}
+
+/* line 210, ../sass/_forms.scss */
+.graph_component {
+  overflow: hidden;
+}
+/* line 212, ../sass/_forms.scss */
+.graph_component label {
+  padding-top: 3em;
+  background-color: #e6e6e6;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  text-align: center;
+  margin: 1%;
+  width: 10%;
+  overflow: hidden;
+}
+/* line 221, ../sass/_forms.scss */
+.graph_component span {
+  display: none;
+  font-size: .8em;
 }
 
 /* line 1, ../sass/_icons.scss */
@@ -474,92 +518,109 @@ td .add span, th .add span {
   background: url("../images/icons/icon_add.png") no-repeat left bottom;
 }
 /* line 107, ../sass/_icons.scss */
-.link .open td .add, .link .open:hover th .add {
+.link .open td .add {
   background: url("../images/icons/icon_less.png") no-repeat left bottom;
 }
+/* line 109, ../sass/_icons.scss */
+.link .open td .add:hover {
+  background: url("../images/icons/icon_less.png") no-repeat left top white;
+}
 
-/* line 111, ../sass/_icons.scss */
+/* line 114, ../sass/_icons.scss */
+.less {
+  background-image: url("../images/icons/icon_next.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  padding-left: 35px;
+}
+/* line 119, ../sass/_icons.scss */
+.less:hover {
+  background-position: left top;
+  background-color: white;
+}
+
+/* line 125, ../sass/_icons.scss */
 .clock {
   background: url("../images/icons/icon_clock.png") no-repeat left bottom #6ca932;
   padding-left: 35px;
 }
-/* line 114, ../sass/_icons.scss */
+/* line 128, ../sass/_icons.scss */
 .clock:hover {
   background: url("../images/icons/icon_clock.png") no-repeat left top white;
 }
 
-/* line 118, ../sass/_icons.scss */
+/* line 132, ../sass/_icons.scss */
 .next {
   background: url("../images/icons/icon_next.png") no-repeat left bottom #6ca932;
   padding-left: 35px;
 }
-/* line 121, ../sass/_icons.scss */
+/* line 135, ../sass/_icons.scss */
 .next:hover {
   background: url("../images/icons/icon_next.png") no-repeat left top white;
 }
 
-/* line 126, ../sass/_icons.scss */
+/* line 140, ../sass/_icons.scss */
 .import {
   background: url("../images/icons/icon_import.png") no-repeat left bottom #6ca932;
   padding-left: 35px;
 }
-/* line 129, ../sass/_icons.scss */
+/* line 143, ../sass/_icons.scss */
 .import:hover {
   background: url("../images/icons/icon_import.png") no-repeat left top white;
 }
 
-/* line 134, ../sass/_icons.scss */
+/* line 148, ../sass/_icons.scss */
 .back {
   background: url("../images/icons/icon_back.png") no-repeat left top transparent;
   padding-left: 35px;
   border: none;
   color: #6ca932;
 }
-/* line 139, ../sass/_icons.scss */
+/* line 153, ../sass/_icons.scss */
 .back:hover {
   background: url("../images/icons/icon_back.png") no-repeat left top #f3f3f3;
 }
 
-/* line 143, ../sass/_icons.scss */
+/* line 157, ../sass/_icons.scss */
 .calendar {
   background: url("../images/icons/icon_date.png") no-repeat bottom #6ca932;
   width: 55px;
   height: 30px;
   overflow: hidden;
 }
-/* line 148, ../sass/_icons.scss */
+/* line 162, ../sass/_icons.scss */
 .calendar:hover {
   background: url("../images/icons/icon_date.png") no-repeat top white;
 }
-/* line 151, ../sass/_icons.scss */
+/* line 165, ../sass/_icons.scss */
 .calendar span {
   position: absolute;
   top: -3em;
 }
 
-/* line 157, ../sass/_icons.scss */
+/* line 171, ../sass/_icons.scss */
 .save,
 #main .action_box .save {
   background: url("../images/icons/icon_save.png") no-repeat left bottom #6ca932;
   padding-left: 35px;
 }
-/* line 161, ../sass/_icons.scss */
+/* line 175, ../sass/_icons.scss */
 .save:hover,
 #main .action_box .save:hover {
   background: url("../images/icons/icon_save.png") no-repeat left top white;
 }
 
-/* line 166, ../sass/_icons.scss */
+/* line 180, ../sass/_icons.scss */
 .play, input.play {
   background: url("../images/icons/icon_play.png") no-repeat left bottom #6ca932;
   padding-left: 35px;
 }
-/* line 169, ../sass/_icons.scss */
+/* line 183, ../sass/_icons.scss */
 .play:hover, input.play:hover {
   background: url("../images/icons/icon_play.png") no-repeat left top white;
 }
 
-/* line 174, ../sass/_icons.scss */
+/* line 188, ../sass/_icons.scss */
 .info {
   width: 25px;
   height: 25px;
@@ -571,11 +632,11 @@ td .add span, th .add span {
   cursor: pointer;
   cursor: help;
 }
-/* line 184, ../sass/_icons.scss */
+/* line 198, ../sass/_icons.scss */
 .info:hover {
   background: url("../images/icons/icon_info.png") no-repeat bottom left;
 }
-/* line 187, ../sass/_icons.scss */
+/* line 201, ../sass/_icons.scss */
 .info span {
   display: block;
   overflow: hidden;
@@ -584,14 +645,14 @@ td .add span, th .add span {
   width: 0;
 }
 
-/* line 195, ../sass/_icons.scss */
+/* line 209, ../sass/_icons.scss */
 .icons_action {
   position: absolute;
   top: 0;
   right: 0;
   white-space: nowrap;
 }
-/* line 200, ../sass/_icons.scss */
+/* line 214, ../sass/_icons.scss */
 .icons_action .note, .icons_action .edit, .icons_action .delete {
   background: url("../images/icons/icon_note.png") no-repeat;
   width: 20px;
@@ -602,7 +663,7 @@ td .add span, th .add span {
   margin-left: 2px;
   float: left;
 }
-/* line 209, ../sass/_icons.scss */
+/* line 223, ../sass/_icons.scss */
 .icons_action .note span, .icons_action .edit span, .icons_action .delete span {
   display: block;
   overflow: hidden;
@@ -610,48 +671,48 @@ td .add span, th .add span {
   height: 0;
   width: 0;
 }
-/* line 216, ../sass/_icons.scss */
+/* line 230, ../sass/_icons.scss */
 .icons_action .note:hover, .icons_action .edit:hover, .icons_action .delete:hover {
   background-position-y: -20px;
 }
-/* line 220, ../sass/_icons.scss */
+/* line 234, ../sass/_icons.scss */
 .icons_action .edit {
   background-position: -40px 0;
   cursor: pointer;
 }
-/* line 225, ../sass/_icons.scss */
+/* line 239, ../sass/_icons.scss */
 .icons_action .delete {
   background-position: -20px 0;
   cursor: pointer;
 }
 
-/* line 231, ../sass/_icons.scss */
+/* line 245, ../sass/_icons.scss */
 .download {
   background: url("../images/icons/icon_download.png") no-repeat top left transparent;
   border: none;
   color: #6ca932;
   padding-left: 35px;
 }
-/* line 236, ../sass/_icons.scss */
+/* line 250, ../sass/_icons.scss */
 .download:hover {
   background: url("../images/icons/icon_download.png") no-repeat top left transparent;
   background-color: transparent;
   text-decoration: underline;
 }
 
-/* line 242, ../sass/_icons.scss */
+/* line 256, ../sass/_icons.scss */
 .update, .btn.update, .update.save,
 #main .action_box .update.save {
   background: url("../images/icons/icon_update.png") no-repeat bottom left #6ca932;
   padding-left: 35px;
 }
-/* line 245, ../sass/_icons.scss */
+/* line 259, ../sass/_icons.scss */
 .update:hover, .btn.update:hover, .update.save:hover,
 #main .action_box .update.save:hover {
   background: url("../images/icons/icon_update.png") no-repeat top left white;
 }
 
-/* line 249, ../sass/_icons.scss */
+/* line 263, ../sass/_icons.scss */
 .edit {
   display: inline;
   width: 22px;
@@ -660,9 +721,39 @@ td .add span, th .add span {
   overflow: hidden;
   font-size: 20px;
 }
-/* line 256, ../sass/_icons.scss */
+/* line 270, ../sass/_icons.scss */
 .edit span {
   visibility: hidden;
+}
+
+/* line 274, ../sass/_icons.scss */
+.graph_01 {
+  background: url("../images/icons/icon_graph_01.png") no-repeat top;
+}
+
+/* line 277, ../sass/_icons.scss */
+.graph_02 {
+  background: url("../images/icons/icon_graph_02.png") no-repeat top;
+}
+
+/* line 280, ../sass/_icons.scss */
+.graph_03 {
+  background: url("../images/icons/icon_graph_03.png") no-repeat top;
+}
+
+/* line 283, ../sass/_icons.scss */
+.graph_04 {
+  background: url("../images/icons/icon_graph_04.png") no-repeat top;
+}
+
+/* line 286, ../sass/_icons.scss */
+.graph_05 {
+  background: url("../images/icons/icon_graph_05.png") no-repeat top;
+}
+
+/* line 289, ../sass/_icons.scss */
+.graph_component label.graph_current {
+  background-color: #6ca932;
 }
 
 /* line 1, ../sass/_messages.scss */

@@ -1,3 +1,20 @@
+.form{
+	padding-right: 4%;
+	.row{
+		padding:.5em 3em .5em 0;
+	}
+	label{
+		clear: right;
+		font-size: 1.2em;
+		text-align: left;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	input[type="text"], textarea{
+		width: 100%;
+	}
+
+}
 .botonera{
 	overflow: hidden;
 	clear: both;
@@ -77,7 +94,7 @@
 	padding: .5em 1em;
 	display: block;
 	cursor: pointer;
-	width: inherit;
+	width: auto;
 	&:hover{
 		text-decoration: none;
 		background:$colorW;
@@ -188,5 +205,21 @@ input:disabled{
 		color: $colorW;
 		border:1px solid $colorK3;
 		cursor: inherit;
+	}
+}
+.graph_component{
+	overflow: hidden;
+	label{
+		padding-top: 3em;
+		background-color:$colorK5;
+		@include border-radius(4px);
+		text-align: center;
+		margin: 1%;
+		width: 10%;
+		overflow: hidden;
+	}
+	span{
+		display: none;
+		font-size: .8em;
 	}
 }

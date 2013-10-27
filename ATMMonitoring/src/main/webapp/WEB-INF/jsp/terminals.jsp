@@ -9,7 +9,7 @@
                 <div id="header_g">
                     <nav id="breadcrumb">
                         <ul>
-                            <li><a href="#">inicio</a></li>
+                            <li><a href="dashboard">inicio</a></li>
                             <li>Terminales</li>
                         </ul>
                     </nav>

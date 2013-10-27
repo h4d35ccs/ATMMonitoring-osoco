@@ -104,9 +104,23 @@
 	th, th &:hover, .link tr:hover th &{
 		background:url("../images/icons/icon_add.png") no-repeat left bottom;
 	}
-	.link .open td &, .link .open:hover th & {
+	.link .open td &{
 		background:url("../images/icons/icon_less.png") no-repeat left bottom;
+		&:hover{
+			background:url("../images/icons/icon_less.png") no-repeat left top $colorW;
+		}
 	}
+}
+.less{
+	background-image: url("../images/icons/icon_next.png");
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	padding-left: 35px;
+	&:hover{
+		background-position: left top;
+		background-color: $colorW;
+	}
+	
 }
 .clock{
 	background:url("../images/icons/icon_clock.png") no-repeat left bottom $colorG;
@@ -256,4 +270,22 @@
 	span{
 		visibility: hidden;
 	}
+}
+.graph_01{
+	background:url("../images/icons/icon_graph_01.png") no-repeat top;
+}
+.graph_02{
+	background:url("../images/icons/icon_graph_02.png") no-repeat top;
+}
+.graph_03{
+	background:url("../images/icons/icon_graph_03.png") no-repeat top;
+}
+.graph_04{
+	background:url("../images/icons/icon_graph_04.png") no-repeat top;
+}
+.graph_05{
+	background:url("../images/icons/icon_graph_05.png") no-repeat top;
+}
+.graph_component label.graph_current{
+	background-color: $colorG;
 }
