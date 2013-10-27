@@ -1,6 +1,8 @@
 <%@tag description="Simple Wrapper Tag" pageEncoding="UTF-8"%>
 <%@attribute name="titleCode" %>
 <%@attribute name="section" required="true" type="java.lang.String"%>
+<%@attribute name="header" required="false" fragment="true" %>
+
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
@@ -17,6 +19,8 @@
 
         <title><spring:message code="label.baseTitle"/> - <spring:message code="${titleCode}"/></title>
         <link rel="stylesheet" type="text/css" media="all" href="resources/css/ncr_screen.css" />
+
+        <jsp:invoke fragment="header"/>
     </head>
     <body id="${section}">
 

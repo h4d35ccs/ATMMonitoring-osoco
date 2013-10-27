@@ -5,6 +5,19 @@
 <%@page pageEncoding="UTF-8"%>
 
 <t:osoco-wrapperWoMenu titleCode="label.login" section="login_user">
+
+<jsp:attribute name="header">
+    <script type="text/javascript">
+      $(function() {
+        window.setTimeout(function(){
+          $("#login_box").addClass("flipped");
+        }, 1000);
+        $("#username").focus();
+      });
+    </script>
+</jsp:attribute>
+
+<jsp:body>
     <div id="scene">
       <div id="login_box" >
         <h1><img src="resources/images/general/logo.png"/><span>NCR</span> <strong>HASM</strong></h1>
@@ -31,13 +44,6 @@
         </form>
       </div>
     </div>
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-        window.setTimeout(function(){
-          $("#login_box").addClass("flipped");
-        }, 1000);
-      });
-    </script>
+</jsp:body>
 
 </t:osoco-wrapperWoMenu>
