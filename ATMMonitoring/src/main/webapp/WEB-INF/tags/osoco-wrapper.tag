@@ -15,7 +15,8 @@
         <c:set var="req" value="${pageContext.request}" />
         <c:set var="url">${req.requestURL}</c:set>
         <c:set var="base" value="${fn:substring(url, 0, fn:length(url) - fn:length(req.requestURI))}${req.contextPath}/" />
-        <base href="${base}">
+        <c:set var="currentUrl" value='${req.getAttribute("javax.servlet.forward.request_uri")}'/>
+        <base href="${base}"/>
         <script src="resources/js/jquery-1.8.3.min.js"></script>
 	    <script type='text/javascript' src="resources/js/jquery-ui.min.js"></script>
 	    <script type='text/javascript' src="resources/js/jquery.ui.touch-punch.min.js"></script>
@@ -38,6 +39,7 @@
         <jsp:invoke fragment="header"/>
     </head>
     <body id="${section}">
+
         <header id="main_header">
             <h1>
                 <a href="dashboard"><img src="resources/images/general/logo.png"/></a>
@@ -47,11 +49,11 @@
                ${userMsg}
                 <div id="lang" class="desplegable">
                     <div class="txt content_hide">
-                        <span>Castellano</span>
+                        <span><spring:message code="language.${pageContext.response.locale}"/></span>
                     </div>
                     <ul class="collapsible">
-                        <li><a href="#">Castellano</a></li>
-                        <li><a href="#">English</a></li>
+                        <li><a href="${currentUrl}?lang=es"><spring:message code="language.es"/></a></li>
+                        <li><a href="${currentUrl}?lang=en"><spring:message code="language.en"/></a></li>
                     </ul>
                 </div>
                 <sec:authorize access="isAuthenticated()">

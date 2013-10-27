@@ -16,8 +16,6 @@
   </jsp:attribute>
 
   <jsp:body>
-
-
           <div id="header_g">
             <div id="components">
               <div id="my_components" class="desplegable">
@@ -51,7 +49,6 @@
           <div id="noCharts" class="message left hide">
             <p>Desde esta pantalla de inicio, podrás crear y administrar tus componentes, para que te resulte más útil a la hora de gestionar tus terminales, recoger datos, etc.</p>
           </div>
-
   </jsp:body>
 
 </t:osoco-wrapper>
