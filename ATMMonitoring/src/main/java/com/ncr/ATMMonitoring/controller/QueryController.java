@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.support.RequestContextUtils;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.WebUtils;
 
 import com.ncr.ATMMonitoring.pojo.Query;
@@ -31,6 +32,7 @@ import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.UserService;
+import org.apache.log4j.Logger;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -38,6 +40,8 @@ import com.ncr.ATMMonitoring.service.UserService;
 
 @Controller
 public class QueryController {
+    
+    static private Logger logger = Logger.getLogger(DashboardController.class.getName());
 
     @Value("${config.queriesPageSize}")
     private int pageSize;
@@ -110,7 +114,7 @@ public class QueryController {
  @RequestMapping(value = "/queries/delete", method = RequestMethod.GET)
     public String deleteUserQuery(Integer queryId,
 	    Map<String, Object> map, HttpServletRequest request,
-	    Principal principal) {
+				  Principal principal) {
 	
 	String userMsg = "";
         Query query = null;
@@ -120,7 +124,12 @@ public class QueryController {
 	if (queryId != null) {
 	    query = queryService.getQuery(queryId);
 	    if (query != null) {
-		queryService.deleteQuery(query);
+		try {
+		    queryService.deleteQuery(query);
+		    map.put("success", "success.deletingNewQuery");
+	        }catch (Exception e) {
+		    map.put("error", "error.deletingQuery");
+		}
             }
 	}
 
@@ -228,49 +237,76 @@ public class QueryController {
 	return "queryList";
     }
 
+
     @RequestMapping(value = "/queries/results", method = RequestMethod.POST)
-    public String executeQuery(@ModelAttribute("query") Query query,
+    public String saveOrUpdateQuery(@ModelAttribute("query") Query query,
 	    Map<String, Object> map, HttpServletRequest request,
-	    Principal principal, String p) throws Exception {
-	String userMsg = "";
+				    Principal principal, RedirectAttributes redirectAttributes, String p) throws Exception {
+
 	Locale locale = RequestContextUtils.getLocale(request);
-	/*	
-	if (WebUtils.hasSubmitParameter(request, "save_execute")) {
+	User loggedUser = null;	
+	 if (principal != null) {
+		loggedUser = userService.getUserByUsername(principal.getName());
+	 }
+	 
+	if (WebUtils.hasSubmitParameter(request, "save")) {
 	    if (principal != null) {
-		User loggedUser = userService.getUserByUsername(principal
-			.getName());
 		query.setUser(loggedUser);
-		query.setId(null);
-		queryService.addQuery(query);
-		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		if (query.getId() != null) {
+		    try {
+			logger.debug("Updating query - " + query.getName());
+			queryService.updateQuery(query);
+			redirectAttributes.addFlashAttribute("success", "success.updatingQuery");
+		    } catch (Exception e) {
+			redirectAttributes.addFlashAttribute("error", "error.updatingQuery");
+		    }
+		} else {
+		
+		    query.setId(null);
+		    try {
+			logger.debug("Guardando nueva query- " + query.getName());
+			queryService.addQuery(query);
+			redirectAttributes.addFlashAttribute("success", "success.savingNewQuery");
+		    } catch (Exception e) {
+			redirectAttributes.addFlashAttribute("error", "error.savingNewQuery");
+		    }
+		}
 	    }
+	    return "redirect:/queries/list";
+	} else if (WebUtils.hasSubmitParameter(request, "execute")) {
+	    logger.debug("Executing query " + query.getName());
+	    	List<Terminal> terminals = queryService.executeQuery(query, locale);
+
+		if (terminals == null) {
+		    throw new Exception("Query execution returned a NULL list.");
+		}
+
+		PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
+											  terminals);
+		int page = 0;
+		if (p != null) {
+		    try {
+			page = Integer.parseInt(p);
+		    } catch (NumberFormatException e) {
+			e.printStackTrace();
+		    }
+		}
+		pagedListHolder.setPage(page);
+		pagedListHolder.setPageSize(pageSize);
+		map.put("userMsg", loggedUser.getHtmlWelcomeMessage(locale));
+		map.put("pagedListHolder", pagedListHolder);
+		map.put("query", query);
+		map.put("values", Query.getComboboxes());
+
+		
+	   
+
+	}  else if (WebUtils.hasSubmitParameter(request, "delete")) {
+	   logger.debug("Deleting query -" + query.getName());
+	    return "redirect:/queries/delete?queryId="+query.getId();
 	}
-	*/
-
-	List<Terminal> terminals = queryService.executeQuery(query, locale);
-
-	if (terminals == null) {
-	    throw new Exception("Query execution returned a NULL list.");
-	}
-
-	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
-		terminals);
-	int page = 0;
-	if (p != null) {
-	    try {
-		page = Integer.parseInt(p);
-	    } catch (NumberFormatException e) {
-		e.printStackTrace();
-	    }
-	}
-	pagedListHolder.setPage(page);
-	pagedListHolder.setPageSize(pageSize);
-	map.put("userMsg", userMsg);
-	map.put("pagedListHolder", pagedListHolder);
-	map.put("query", query);
-        map.put("values", Query.getComboboxes());
-
 	return "queryResults";
+	
     }
 
     @RequestMapping(value = "/queries/results", method = RequestMethod.GET)

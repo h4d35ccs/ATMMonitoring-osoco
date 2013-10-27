@@ -31,7 +31,7 @@
 					<div class="action_box desplegable">
 						
 					<form:form method="post" action="queries/results" commandName="query">
-						   <form:hidden path="name"/>
+						   <form:hidden path="id"/>			   
 
 						<h2 class="txt content_hide" id="terminalSection">
 							<spring:message code="label.query.terminalSection"/>
@@ -587,17 +587,16 @@
 			<div class="btn txt content_hide">Guardar consulta</div>
 			<div class="hide collapsible">
 				<ul>
-					<li><label for="namequery">Nombre</label> <input type="text"/></li>
+					<li><label for="namequery">Nombre</label> <form:input type="text" path="name"/></li>
 					<li><label for="descriptionquery">Descripción</label> <textarea></textarea></li>
 				</ul>
-				<div class="botonera"><input type="submit" class="save" value="Guardar" /></div>
+				<div class="botonera"><input type="submit" class="save" id="save" name="save" value="Guardar" /></div>
 			</div>
 		</div><!-- /desplegable -->
 		<input type="submit" class="form-submit play" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
-		<input type="submit" class="delete right" name="delete" id="delete" 
+		<input type="submit" class="delete right" name="delete" id="delete" onclick="return confirm('¿Estás seguro que quieres borrar la consulta?')"
 				    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
 		<input type="reset" class="cancel right" value="Cancelar" />
-		<!-- input type="submit" class="form-submit" name="save_execute" id="save_execute" value="<spring:message code="label.query.saveExecute"/>"/ -->
 		</form:form>
 	</div>
 	

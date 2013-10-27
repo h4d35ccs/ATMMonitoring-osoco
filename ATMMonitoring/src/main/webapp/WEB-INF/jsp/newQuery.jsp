@@ -556,10 +556,10 @@
 			<div class="btn txt content_hide">Guardar consulta</div>
 			<div class="hide collapsible">
 				<ul>
-					<li><label for="namequery">Nombre</label> <input type="text"/></li>
+					<li><label for="namequery">Nombre</label> <form:input type="text" path="name"/></li>
 					<li><label for="descriptionquery">Descripción</label> <textarea></textarea></li>
 				</ul>
-				<div class="botonera"><input type="submit" class="save" value="Guardar" /></div>
+				<div class="botonera"><input type="submit" id="save" name="save" class="save" value="Guardar" /></div>
 			</div>
 		</div><!-- /desplegable -->
 
@@ -757,136 +757,6 @@
     </script>
 					</div><!-- /collapsible -->
 
-	</div><!-- // pegado de queries.jsp -->
-	<div class="box-tableContainer">
-		<c:if  test="${empty pagedListHolder.pageList}">
-		<div class="empty-list"><spring:message code="label.query.noResults"/></div>
-		</c:if>
-		<c:if  test="${!empty pagedListHolder.pageList}">
-		<h2>8.000 Resultados <a href="#" class="edit"><span>edit</span></a></h2>
-		<div class="table_buttons">
-			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
-				<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
-				<a href="#" class="btn left update">Actualizar</a>
-				<a href="#" class="btn left clock">Actualización planificada</a>
-				<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
-			</div> 
-			<t:terminalsTable terminals="${pagedListHolder.pageList}"/>
-
-			<div class="pagingContainer">
-			<form:form id="pagingForm" method="post" action="queries/results/export" commandName="query">
-				<c:forEach var="i" begin="1" end="5">
-					<form:hidden path="terminalCombo${i}1"/>
-					<form:hidden path="terminalCB${i}"/>
-					<form:hidden path="terminalCombo${i}2"/>
-					<form:hidden path="terminalField${i}"/>
-					<form:hidden path="hardwareDeviceCombo${i}1"/>
-					<form:hidden path="hardwareDeviceCB${i}"/>
-					<form:hidden path="hardwareDeviceCombo${i}2"/>
-					<form:hidden path="hardwareDeviceCombo${i}3"/>
-					<form:hidden path="hardwareDeviceField${i}"/>
-					<form:hidden path="financialDeviceCombo${i}1"/>
-					<form:hidden path="financialDeviceCB${i}"/>
-					<form:hidden path="financialDeviceCombo${i}2"/>
-					<form:hidden path="financialDeviceField${i}"/>
-					<form:hidden path="operatingSystemCombo${i}1"/>
-					<form:hidden path="operatingSystemCB${i}"/>
-					<form:hidden path="operatingSystemCombo${i}2"/>
-					<form:hidden path="operatingSystemField${i}"/>
-					<form:hidden path="hotfixCombo${i}1"/>
-					<form:hidden path="hotfixCB${i}"/>
-					<form:hidden path="hotfixCombo${i}2"/>
-					<form:hidden path="hotfixField${i}"/>
-					<form:hidden path="softwareCombo${i}1"/>
-					<form:hidden path="softwareCB${i}"/>
-					<form:hidden path="softwareCombo${i}2"/>
-					<form:hidden path="softwareField${i}"/>
-					<form:hidden path="featSwCombo${i}1"/>
-					<form:hidden path="featSwCB${i}"/>
-					<form:hidden path="featSwCombo${i}2"/>
-					<form:hidden path="featSwField${i}"/>
-					<form:hidden path="xfsSwCombo${i}1"/>
-					<form:hidden path="xfsSwCB${i}"/>
-					<form:hidden path="xfsSwCombo${i}2"/>
-					<form:hidden path="xfsSwField${i}"/>
-				</c:forEach>
-				<c:forEach var="i" begin="1" end="2">
-					<form:hidden path="internetExplorerCombo${i}1"/>
-					<form:hidden path="internetExplorerCB${i}"/>
-					<form:hidden path="internetExplorerCombo${i}2"/>
-					<form:hidden path="internetExplorerField${i}"/>
-				</c:forEach>
-			<t:pagingForm pagedListHolder="${pagedListHolder}" pagedLink="queries/results?p=~" formId="pagingForm"/>
-			</form:form>
-			</div>
-			<form:form id="exportForm" method="post" action="queries/results/export" commandName="query" target="_blank">
-				<c:forEach var="i" begin="1" end="5">
-					<form:hidden path="terminalCombo${i}1"/>
-					<form:hidden path="terminalCB${i}"/>
-					<form:hidden path="terminalCombo${i}2"/>
-					<form:hidden path="terminalField${i}"/>
-					<form:hidden path="hardwareDeviceCombo${i}1"/>
-					<form:hidden path="hardwareDeviceCB${i}"/>
-					<form:hidden path="hardwareDeviceCombo${i}2"/>
-					<form:hidden path="hardwareDeviceCombo${i}3"/>
-					<form:hidden path="hardwareDeviceField${i}"/>
-					<form:hidden path="financialDeviceCombo${i}1"/>
-					<form:hidden path="financialDeviceCB${i}"/>
-					<form:hidden path="financialDeviceCombo${i}2"/>
-					<form:hidden path="financialDeviceField${i}"/>
-					<form:hidden path="operatingSystemCombo${i}1"/>
-					<form:hidden path="operatingSystemCB${i}"/>
-					<form:hidden path="operatingSystemCombo${i}2"/>
-					<form:hidden path="operatingSystemField${i}"/>
-					<form:hidden path="hotfixCombo${i}1"/>
-					<form:hidden path="hotfixCB${i}"/>
-					<form:hidden path="hotfixCombo${i}2"/>
-					<form:hidden path="hotfixField${i}"/>
-					<form:hidden path="softwareCombo${i}1"/>
-					<form:hidden path="softwareCB${i}"/>
-					<form:hidden path="softwareCombo${i}2"/>
-					<form:hidden path="softwareField${i}"/>
-					<form:hidden path="featSwCombo${i}1"/>
-					<form:hidden path="featSwCB${i}"/>
-					<form:hidden path="featSwCombo${i}2"/>
-					<form:hidden path="featSwField${i}"/>
-					<form:hidden path="xfsSwCombo${i}1"/>
-					<form:hidden path="xfsSwCB${i}"/>
-					<form:hidden path="xfsSwCombo${i}2"/>
-					<form:hidden path="xfsSwField${i}"/>
-				</c:forEach>
-				<c:forEach var="i" begin="1" end="2">
-					<form:hidden path="internetExplorerCombo${i}1"/>
-					<form:hidden path="internetExplorerCB${i}"/>
-					<form:hidden path="internetExplorerCombo${i}2"/>
-					<form:hidden path="internetExplorerField${i}"/>
-				</c:forEach>
-
-				<div class="botonera">
-					<label for="all_check"><input type="checkbox" class="all_check"  name="all_check"/> Marcar todos</label>
-					<a href="#" class="btn left update">Actualizar</a>
-					<a href="#" class="btn left clock">Actualización planificada</a>
-					<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
-				</div> 
-		   </div><!-- /table_buttons -->
-				<div class="pagination">
-                        <div>${pagedListHolder.pageList.size()} Terminales | Página</div>
-                        <ul>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">...</a></li>
-                        </ul>
-                    </div>
-			</form:form>
-		</c:if>
-	</div>
 </div>
 
 </t:osoco-wrapper>

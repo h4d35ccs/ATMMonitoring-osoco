@@ -7,6 +7,27 @@
 <%@page pageEncoding="UTF-8"%>
 
 <t:osoco-wrapper titleCode="label.queryEngine" userMsg="${userMsg}"  section="terminals">
+
+<jsp:attribute name="header">
+    <script type="text/javascript">
+        $(function() {
+	    $("#editQuery").click(function(event) {
+		if ($(this).hasClass('content_hide')) {
+	            $(this).removeClass('content_hide');
+	            $("#submits").prepend($("#saveQuery"));
+	            $(this).next('.collapsible').show('slow');
+		} else {
+	            $(this).next('.collapsible').hide('slow');
+	            $(this).parent().prepend($("#saveQuery"));
+	            $(this).addClass('content_hide');
+		}
+	    });
+	});
+  </script>
+</jsp:attribute>
+
+<jsp:body>
+
 				<div id="header_g">
 					<nav id="breadcrumb">
 						<ul>
@@ -38,25 +59,28 @@
 					</h1>
 				<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
 	<!-- Pegado de querie.jsp -->
+	     	    	<form:form method="post" action="queries/results" commandName="query">
 				<div class="action_box desplegable">
-					<div class="desplegable button txt_btn">
+
+					<div id="saveQuery" class="desplegable button txt_btn">
 						<div class="btn txt content_hide">Guardar consulta</div>
 						<div class="hide collapsible">
 							<ul>
-								<li><label for="namequery">Nombre</label> <input type="text"/></li>
+								<li><label for="namequery">Nombre</label> <form:input type="text" path="name"/></li>
 								<li><label for="descriptionquery">Descripción</label> <textarea></textarea></li>
 							</ul>
-							<div class="botonera"><input type="submit" class="save" value="Guardar" /></div>
+                                                         <form:hidden path="id" value="${query.id}"/>
+							<div class="botonera"><input type="submit" id="save" name="save" class="save" value="Guardar"/></div>
 						</div>
 					</div><!-- /desplegable -->
-					<h2 class="txt last content_hide">
+
+					<h2 id="editQuery" class="last content_hide">
 						Editar consulta
 					</h2>
 						
 					<div class="collapsible last hide">
 						
-					<form:form method="post" action="queries/results" commandName="query">
-						   <form:hidden path="name"/>
+
 						<h3 class="txt content_hide" id="terminalSection">
 							<spring:message code="label.query.terminalSection"/>
 						</h3>
@@ -604,19 +628,9 @@
 </c:forEach>
 </table>
 </div>
-<div class="botonera">
-	<div class="desplegable button">
-		<div class="btn txt content_hide">Guardar consulta</div>
-		<div class="hide collapsible">
-			<ul>
-				<li><label for="namequery">Nombre</label> <input type="text"/></li>
-				<li><label for="descriptionquery">Descripción</label> <textarea></textarea></li>
-			</ul>
-			<div class="botonera"><input type="submit" class="save" value="Guardar" /></div>
-		</div>
-	</div><!-- /desplegable -->
+<div id="submits" class="botonera">
 	<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
-	<input type="reset" class="delete right" value="Eliminar" />
+	<input type="submit" class="delete right" name="delete" id="delete" value="Eliminar" onclick="return confirm('¿Estás seguro que quieres borrar la consulta?')"/>
 	<input type="reset" class="cancel right" value="Cancelar" />
 </div>
 </div>
@@ -932,7 +946,7 @@
 		   </div><!-- /table_buttons -->
 
 			<div class="pagination"> 
-                <div class="t_number"><span class="text">${pagedListHolder.pageList.size()} Terminales</span></div>
+                <div class="t_number"><span class="text">${pagedListHolder.source.size()} Terminales</span></div>
                 <div class="p_number"><span class="text">Página</span><t:pagingForm pagedListHolder="${pagedListHolder}" pagedLink="queries/results?p=~" formId="pagingForm"/></div>
             </div>
 
@@ -940,4 +954,7 @@
 		</c:if>
 	</div>
 </div>
+
+</jsp:body>
+
 </t:osoco-wrapper>
