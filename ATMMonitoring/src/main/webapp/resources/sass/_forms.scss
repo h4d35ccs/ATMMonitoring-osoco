@@ -2,6 +2,7 @@
 	padding-right: 4%;
 	.row{
 		padding:.5em 3em .5em 0;
+		margin: 0;
 	}
 	label{
 		clear: right;
@@ -224,9 +225,27 @@ input:disabled{
 	}
 }
 .users_list{
+	margin: 1em 0;
 	overflow: hidden;
 	li{
 		float: left;
 		width: 33%;
+	}
+}
+.weekDay{
+	li{
+		width: 33%;
+		margin: 0;
+		padding: 0;
+	}
+	overflow: hidden;
+	display: block;
+	clear: both;
+	label{
+		float: none;
+	}
+	input[type="radio"]{
+		float: left;
+		margin: 1em .5em;
 	}
 }

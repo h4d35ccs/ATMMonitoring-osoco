@@ -9,7 +9,7 @@
 
 <jsp:attribute name="header">
     <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.css"/>
-    <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.print.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.print.css" media="print"/>
     <link rel="stylesheet" type="text/css" href="resources/css/ncr_fullcalendar.css"/>
     <script type="text/javascript" src="resources/js/fullcalendar.min.js"></script>
     <script type="text/javascript" src="resources/js/scheduled.js"></script>
@@ -28,7 +28,7 @@
 <div id="header_g">
   <nav id="breadcrumb">
     <ul>
-      <li><a href="#">inicio</a></li>
+      <li><a href="dashboard">inicio</a></li>
       <li>Planificador</li>
     </ul>
   </nav>
@@ -41,17 +41,19 @@
 
 <h1><spring:message code="label.scheduledUpdatesManager"/></h1>
 
-<div id="toggleSchedulerView">
-  <nav>
-    <ul>
-        <li class="calendario current">
-          <a href="#"><span>Calendario</span></a>
-        </li>
-        <li class="lista">
-          <a href="#"><span>Lista</span></a>
-        </li>
-    </ul>
-  </nav>
+<div id="header_g">
+	<div id="toggleSchedulerView" class="columns_botonera">
+	  <nav>
+	    <ul>
+	        <li class="calendario current">
+	          <a href="#"><span>Calendario</span></a>
+	        </li>
+	        <li class="lista">
+	          <a href="#"><span>Lista</span></a>
+	        </li>
+	    </ul>
+	  </nav>
+	</div>
 </div>
 
 <div id="schedulerList" class="scheduler hide">
@@ -118,7 +120,7 @@
         </td>
         <td width="50px" class="center-cell">${scheduledUpdate.completeHour}</td>
 		<td width="90px" class="center-cell">
-			<button onClick="deleteScheduledUpdate(${scheduledUpdate.id})" class="form-submit"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
+			<button onClick="deleteScheduledUpdate(${scheduledUpdate.id})" class="form-submit delete right"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
 		</td>
     </tr>
 </c:forEach>
@@ -175,7 +177,7 @@
         <td width="100px" class="center-cell">${scheduledUpdate.monthDay}</td>
         <td width="50px" class="center-cell">${scheduledUpdate.completeHour}</td>
 		<td width="90px" class="center-cell">
-			<button onClick="deleteScheduledUpdate(${scheduledUpdate.id})" class="form-submit"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
+			<button onClick="deleteScheduledUpdate(${scheduledUpdate.id})" class="form-submit delete right"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
 		</td>
     </tr>
 </c:forEach>

@@ -44,7 +44,7 @@ function initSchedulerCalendar() {
             day:      'día'
         },
         eventRender: function(event, element) {
-            element.find(".fc-event-inner").append("<a class='deleteEvent' onclick='deleteScheduledUpdate(" + event.id + "); return false;' href='#'>delete</a>");
+            element.find(".fc-event-inner").append("<a class='close' onclick='deleteScheduledUpdate(" + event.id + "); return false;' href='#'><span>delete</span></a>");
         }
     });
 }

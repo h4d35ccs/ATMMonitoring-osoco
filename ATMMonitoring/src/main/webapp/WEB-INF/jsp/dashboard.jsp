@@ -24,14 +24,12 @@
                 </div>
                 <ul id="myCharts" class="collapsible"></ul>
               </div>
+              <a class="iframe cboxElement btn add" href="dashboard/newWidget">
+                Nuevo componente
+              </a>
 
-              <div id="add_components">
-                <a class="iframe cboxElement" href="dashboard/newWidget">
-                  <span>Nuevo componente</span>
-                </a>
-              </div>
             </div>
-            <div id="columns">
+            <div id="columns" class="columns_botonera">
               <nav>
                 <ul>
                   <c:forEach items="${columnOptions}" var="option">

@@ -31,54 +31,60 @@
   </nav>
 </div>
 
-<h1><spring:message code="label.scheduledUpdatesManager"/></h1>
-
+<h1>Nueva Planificación</h1>
+<div class="content">
+<div class="form w33">
 <c:if test="${duplicatedScheduledUpdate == true}">
     <div class="alert">
-	    <p><spring:message code="label.scheduledUpdate.duplicatedScheduledUpdate"/></p>
+      <p><spring:message code="label.scheduledUpdate.duplicatedScheduledUpdate"/></p>
     </div>
 </c:if>
 
 <form:form method="post" action="terminals/schedules/list" commandName="scheduledUpdate">
 
-<label for="query">Elegir consulta:</label>
+<div class="row"><label for="query"><strong>Elegir consulta:</strong></label>
 <select name="queryId" size="1">
   <option value="" >Seleccionar</option>
   <c:forEach items="${userQueries}" var="userQuery">
     <option value="${userQuery.id}">${userQuery.name}</option>
   </c:forEach>
-</select>
+</select></div>
 
-<label for="name">Nombre de la planificación</label>
-<input type="text" id="name"/>
-
-<label for="description">Descripción</label>
-<textarea id="description"></textarea>
-
-<label for="periodicity">Se repite:</label>
-<select id="periodicity">
-  <option value=""></option>
-  <option value="weekly">Cada semana</option>
-  <option value="monthly">Cada mes</option>
-</select>
-
-
-
-<div id="weekly" class="periodicity hide">
-
-<form:label path="weekDay">Elige días:</form:label>
-
-<form:radiobutton id="monday" path="weekDay" value="2"/><label for="monday"><spring:message code="label.scheduledUpdate.weekDay.monday"/></label>
-<form:radiobutton id="tuesday" path="weekDay" value="3"/><label for="tuesday"><spring:message code="label.scheduledUpdate.weekDay.tuesday"/></label>
-<form:radiobutton id="wednesday" path="weekDay" value="4"/><label for="wednesday"><spring:message code="label.scheduledUpdate.weekDay.wednesday"/></label>
-<form:radiobutton id="thursday" path="weekDay" value="5"/><label for="thursday"><spring:message code="label.scheduledUpdate.weekDay.thursday"/></label>
-<form:radiobutton id="friday" path="weekDay" value="6"/><label for="friday"><spring:message code="label.scheduledUpdate.weekDay.friday"/></label>
-<form:radiobutton id="saturday" path="weekDay" value="7"/><label for="saturday"><spring:message code="label.scheduledUpdate.weekDay.saturday"/></label>
-<form:radiobutton id="sunday" path="weekDay" value="1"/><label for="sunday"><spring:message code="label.scheduledUpdate.weekDay.sunday"/></label>
-
+<div class="row">
+  <label for="name"><strong>Nombre de la planificación</strong></label>
+  <input type="text" id="name"/>
 </div>
 
-<div id="monthly" class="periodicity hide">
+<div class="row">
+  <label for="description"><strong>Descripción</strong></label>
+  <textarea id="description"></textarea>
+</div>
+
+<div class="row">
+  <label for="periodicity"><strong>Se repite:</strong></label>
+  <select id="periodicity">
+    <option value=""></option>
+    <option value="weekly">Cada semana</option>
+    <option value="monthly">Cada mes</option>
+  </select>
+</div>
+
+
+<div id="weekly" class="periodicity hide row">
+
+<form:label path="weekDay"><strong>Elige días:</strong></form:label>
+<ul class="weekDay">
+  <li><form:radiobutton id="monday" path="weekDay" value="2"/><label for="monday"><spring:message code="label.scheduledUpdate.weekDay.monday"/></label></li>
+  <li><form:radiobutton id="tuesday" path="weekDay" value="3"/><label for="tuesday"><spring:message code="label.scheduledUpdate.weekDay.tuesday"/></label></li>
+  <li><form:radiobutton id="wednesday" path="weekDay" value="4"/><label for="wednesday"><spring:message code="label.scheduledUpdate.weekDay.wednesday"/></label></li>
+  <li><form:radiobutton id="thursday" path="weekDay" value="5"/><label for="thursday"><spring:message code="label.scheduledUpdate.weekDay.thursday"/></label></li>
+  <li><form:radiobutton id="friday" path="weekDay" value="6"/><label for="friday"><spring:message code="label.scheduledUpdate.weekDay.friday"/></label></li>
+  <li><form:radiobutton id="saturday" path="weekDay" value="7"/><label for="saturday"><spring:message code="label.scheduledUpdate.weekDay.saturday"/></label></li>
+  <li><form:radiobutton id="sunday" path="weekDay" value="1"/><label for="sunday"><spring:message code="label.scheduledUpdate.weekDay.sunday"/></label></li>
+</ul>
+</div>
+
+<div id="monthly" class="periodicity hide row">
 
 <form:label path="monthDay">Día del mes:</form:label>
 
@@ -103,12 +109,12 @@
     <form:option value="${minute}">${minute < 10 ? '0' : ''}${minute}</form:option>
   </c:forEach>
 </form:select>
-
-<a href="terminals/schedules/list">Cancelar</a>
-
-<input type="submit" id="form-submit" class="form-submit" value="<spring:message code="label.scheduledUpdate.addScheduledUpdate"/>"/>
-
-</form:form>
+<div class="botonera">
+  <input type="submit" id="form-submit" class="form-submit" value="<spring:message code="label.scheduledUpdate.addScheduledUpdate"/>"/>
+  <a href="terminals/schedules/list" class="btn cancel">Cancelar</a>
+</div>
+</div>
+</form:form></div>
 
 </jsp:body>
 
