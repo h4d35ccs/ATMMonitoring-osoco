@@ -452,7 +452,7 @@
 						</h2>
 						<div class="margin-box">
 							<c:if  test="${empty terminal.financialDevices}">
-								<div class="empty-list notification">
+								<div class="empty-list message">
 									<spring:message code="label.terminal.noFinancialDevices"/>
 								</div>
 							</c:if>
@@ -503,6 +503,7 @@
 														<spring:message code="label.financialDevice.deviceStatus"/>
 
 													</th>
+<%--
 													<th>
 
 														<spring:message code="label.financialDevice.pmStatus"/>
@@ -548,13 +549,16 @@
 														<spring:message code="label.financialDevice.xfsComponents"/>
 
 													</th>
+
+--%>
+													<th><div class="add"><span>Ver más información</span></div></th>
 												</tr>
 											</thead>
 										</c:when>
 										<c:otherwise>
 											<table class="data subform link">
 												<thead>
-													<tr>
+													<tr class="showDetail open">
 														<th width="125px">
 
 															<spring:message code="label.financialDevice.name"/>
@@ -600,6 +604,7 @@
 															<spring:message code="label.financialDevice.pmStatus"/>
 
 														</th>
+<%--
 														<th width="45px">
 
 															<spring:message code="label.financialDevice.model"/>
@@ -639,16 +644,17 @@
 
 															<spring:message code="label.financialDevice.xfsComponents"/>
 
-														</th>
+--%>														</th>
+
+														<th><div class="add"><span>Ver más información</span></div></th>
 													</tr>
 												</thead>
 											</c:otherwise>
 										</c:choose>
 										<tbody>
-											<c:set var="alt" value="${false}"/>
+										
 											<c:forEach items="${terminal.financialDevices}" var="financialDevice">
-												<tr <c:if test="${alt}">class="alt"</c:if>
-												>
+												<tr class="showdetail open">
 												<td>
 													<label>${financialDevice.name}</label>
 												</td>
@@ -673,6 +679,7 @@
 												<td>
 													<label>${financialDevice.deviceStatus}</label>
 												</td>
+<%--
 												<td>
 													<label>${financialDevice.pmStatus}</label>
 												</td>
@@ -702,8 +709,81 @@
 														<a class="iframe" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.serviceProvider}</a>
 														</c:forEach>
 												</td>
+--%>
+												<td><div class="add"><span>Ver más información</span></div></td>
 											</tr>
-											<c:set var="alt" value="${!alt}"/>
+
+
+
+
+
+
+
+
+
+
+
+											<tr class="detail">
+										          <td colspan="9">
+										             <ul>
+												<li>
+												  <strong><spring:message code="label.financialDevice.name"/>:</strong>${financialDevice.name}											 </li>
+												<li>
+												  <strong><spring:message code="label.financialDevice.majorVersion"/>:</strong>${financialDevice.version}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.serialNumber"/>:</strong>${financialDevice.serialNumber}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.caption"/>:</strong>${financialDevice.caption}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.description"/>:</strong>${financialDevice.description}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.universalId"/>:</strong>${financialDevice.universalId}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.deviceInstance"/>:</strong>${financialDevice.deviceInstance}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.deviceStatus"/>:</strong>${financialDevice.deviceStatus}
+												</li>
+
+												<li>
+													<strong><spring:message code="label.financialDevice.pmStatus"/>:</strong>${financialDevice.pmStatus}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.model"/>:</strong>${financialDevice.model}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.variant"/>:</strong>${financialDevice.variant}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.manufacturer"/>:</strong>${financialDevice.manufacturer}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.firmwareMajorVersion"/>:</strong>${financialDevice.firmwareVersion}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.removable"/>:</strong>${financialDevice.removable}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.replaceable"/>:</strong>${financialDevice.replaceable}
+												</li>
+												<li>
+													<strong><spring:message code="label.financialDevice.hotSwappable"/>:</strong>${financialDevice.hotSwappable}
+												</li>
+												<li>
+													<c:forEach items="${financialDevice.xfsComponents}" var="xfsComponent">
+														<strong><spring:message code="label.financialDevice.xfsComponents"/>:</strong><a class="iframe" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.serviceProvider}</a>
+														</c:forEach>
+												</li>
+												</ul>
+											</td>
+											</tr>
+
+
 										</c:forEach>
 									</tbody>
 								</table>
@@ -716,7 +796,7 @@
 							<spring:message code="label.hardwareDevices"/>
 						</h2>
 						<c:if  test="${empty terminal.hardwareDevices}">
-							<div class="empty-list notification">
+							<div class="empty-list message">
 								<spring:message code="label.terminal.noHwDevices"/>
 							</div>
 						</c:if>
@@ -857,7 +937,7 @@
 						</h2>
 
 						<c:if  test="${empty terminal.configs}">
-							<div class="empty-list notification">
+							<div class="empty-list message">
 								<spring:message code="label.terminal.noConfigs"/>
 							</div>
 						</c:if>
@@ -1019,7 +1099,7 @@
 				</h2>
 				<div class="margin-box">
 					<c:if  test="${empty terminal.softwareAggregates}">
-						<div class="empty-list notification">
+						<div class="empty-list message">
 							<spring:message code="label.terminal.noSwAggregates"/>
 						</div>
 					</c:if>
@@ -1105,7 +1185,7 @@
 				</h2>
 				<div class="margin-box">
 					<c:if  test="${empty terminal.hotfixes}">
-						<div class="empty-list notification">
+						<div class="empty-list message">
 							<spring:message code="label.terminal.noHotfixes"/>
 						</div>
 					</c:if>
@@ -1199,7 +1279,7 @@
 				</h2>
 				<div class="margin-box">
 					<c:if  test="${empty terminal.internetExplorers}">
-						<div class="empty-list notification">
+						<div class="empty-list message">
 							<spring:message code="label.terminal.noIEs"/>
 						</div>
 					</c:if>
@@ -1266,3 +1346,7 @@
 	});
 </script>
 </t:osoco-wrapper>
+
+
+
+

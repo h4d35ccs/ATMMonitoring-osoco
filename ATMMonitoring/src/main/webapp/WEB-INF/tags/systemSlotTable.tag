@@ -7,74 +7,72 @@
 
 <table class="data subform link">
 <tr>
-	<th><i><label><spring:message code="label.hardwareDevice.name"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.manufacturer"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.caption"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.currentUsage"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.serialNumber"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.slotDesignation"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.tag"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.version"/></label></i></th>
+	<th><spring:message code="label.hardwareDevice.name"/></th>
+	<th><spring:message code="label.hardwareDevice.manufacturer"/></th>
+	<th><spring:message code="label.hardwareDevice.caption"/></th>
+	<th><spring:message code="label.hardwareDevice.currentUsage"/></th>
+	<th><spring:message code="label.hardwareDevice.serialNumber"/></th>
+	<th><spring:message code="label.hardwareDevice.slotDesignation"/></th>
+	<th><spring:message code="label.hardwareDevice.tag"/></th>
+	<th><spring:message code="label.hardwareDevice.version"/></th>
 </tr>
-<c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
-    <tr <c:if test="${alt}">class="alt"</c:if>>
+    <tr >
     	<c:if test="${hardwareDevice.name != null}">
-			<td><label>${hardwareDevice.name}</label></td>
+			<td>${hardwareDevice.name}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.manufacturer != null}">
-			<td><label>${hardwareDevice.manufacturer}</label></td>
+			<td>${hardwareDevice.manufacturer}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.manufacturer == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.caption != null}">
-			<td><label>${hardwareDevice.caption}</label></td>
+			<td>${hardwareDevice.caption}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.caption == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.currentUsage != null}">
-			<td><label>${hardwareDevice.currentUsage}</label></td>
+			<td>${hardwareDevice.currentUsage}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.currentUsage == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.serialNumber != null}">
-			<td><label>${hardwareDevice.serialNumber}</label></td>
+			<td>${hardwareDevice.serialNumber}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.serialNumber == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.slotDesignation != null}">
-			<td><label>${hardwareDevice.slotDesignation}</label></td>
+			<td>${hardwareDevice.slotDesignation}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.slotDesignation == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.tag != null}">
-			<td><label>${hardwareDevice.tag}</label></td>
+			<td>${hardwareDevice.tag}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.tag == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.version != null}">
-			<td><label>${hardwareDevice.version}</label></td>
+			<td>${hardwareDevice.version}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.version == null}">
 			<td/>
 		</c:if>
     </tr>
-	<c:set var="alt" value="${!alt}"/>
 </c:forEach>
 </table>

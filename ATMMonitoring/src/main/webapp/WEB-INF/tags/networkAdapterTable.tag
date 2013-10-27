@@ -1,4 +1,4 @@
-<%@tag description="Network Adapter Table" pageEncoding="UTF-8"%>
+ <%@tag description="Network Adapter Table" pageEncoding="UTF-8"%>
 <%@attribute name="hardwareDevices" required="true" type="java.util.Set"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -7,136 +7,135 @@
 
 <table class="data subform link">
 <tr>
-	<th><i><label><spring:message code="label.hardwareDevice.name"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.manufacturer"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.adapterType"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.caption"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.description"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.dhcpEnabled"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.dhcpServer"/></label></i></th>
-	<th><i><label><div class="add"><span>Ver más información</span></div></label></i></th>
+	<th><spring:message code="label.hardwareDevice.name"/></th>
+	<th><spring:message code="label.hardwareDevice.manufacturer"/></th>
+	<th><spring:message code="label.hardwareDevice.adapterType"/></th>
+	<th><spring:message code="label.hardwareDevice.caption"/></th>
+	<th><spring:message code="label.hardwareDevice.description"/></th>
+	<th><spring:message code="label.hardwareDevice.dhcpEnabled"/></th>
+	<th><spring:message code="label.hardwareDevice.dhcpServer"/></th>
+	<th><div class="add"><span>Ver más información</span></div></th>
 <!--
-	<th><i><label><spring:message code="label.hardwareDevice.ipAddress"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.ipSubnet"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.defaultIpGateway"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.macAddress"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.speed"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.netConnectionId"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.netConnectionStatus"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.interfaceIndex"/></label></i></th>
-	<th><i><label><spring:message code="label.hardwareDevice.status"/></label></i></th>
+	<th><spring:message code="label.hardwareDevice.ipAddress"/></th>
+	<th><spring:message code="label.hardwareDevice.ipSubnet"/></th>
+	<th><spring:message code="label.hardwareDevice.defaultIpGateway"/></th>
+	<th><spring:message code="label.hardwareDevice.macAddress"/></th>
+	<th><spring:message code="label.hardwareDevice.speed"/></th>
+	<th><spring:message code="label.hardwareDevice.netConnectionId"/></th>
+	<th><spring:message code="label.hardwareDevice.netConnectionStatus"/></th>
+	<th><spring:message code="label.hardwareDevice.interfaceIndex"/></th>
+	<th><spring:message code="label.hardwareDevice.status"/></th>
 -->
 </tr>
-<c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
     <tr class="showdetail open">
     	<c:if test="${hardwareDevice.name != null}">
-			<td>${hardwareDevice.name}</label></td>
+			<td>${hardwareDevice.name}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.manufacturer != null}">
-			<td>${hardwareDevice.manufacturer}</label></td>
+			<td>${hardwareDevice.manufacturer}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.manufacturer == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.adapterType != null}">
-			<td>${hardwareDevice.adapterType}</label></td>
+			<td>${hardwareDevice.adapterType}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.adapterType == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.caption != null}">
-			<td>${hardwareDevice.caption}</label></td>
+			<td>${hardwareDevice.caption}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.caption == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.description != null}">
-			<td>${hardwareDevice.description}</label></td>
+			<td>${hardwareDevice.description}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.description == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.dhcpEnabled != null}">
-			<td>${hardwareDevice.dhcpEnabled}</label></td>
+			<td>${hardwareDevice.dhcpEnabled}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.dhcpEnabled == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.dhcpServer != null}">
-			<td>${hardwareDevice.dhcpServer}</label></td>
+			<td>${hardwareDevice.dhcpServer}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.dhcpServer == null}">
 			<td/>
 		</c:if>
 <%--		
     	<c:if test="${hardwareDevice.ipAddress != null}">
-			<td>${hardwareDevice.ipAddress}</label></td>
+			<td>${hardwareDevice.ipAddress}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.ipAddress == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.ipSubnet != null}">
-			<td>${hardwareDevice.ipSubnet}</label></td>
+			<td>${hardwareDevice.ipSubnet}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.ipSubnet == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.defaultIpGateway != null}">
-			<td>${hardwareDevice.defaultIpGateway}</label></td>
+			<td>${hardwareDevice.defaultIpGateway}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.defaultIpGateway == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.macAddress != null}">
-			<td>${hardwareDevice.macAddress}</label></td>
+			<td>${hardwareDevice.macAddress}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.macAddress == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.speed != null}">
-			<td>${hardwareDevice.speed}</label></td>
+			<td>${hardwareDevice.speed}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.speed == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.netConnectionId != null}">
-			<td>${hardwareDevice.netConnectionId}</label></td>
+			<td>${hardwareDevice.netConnectionId}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.netConnectionId == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.netConnectionStatus != null}">
-			<td>${hardwareDevice.netConnectionStatus}</label></td>
+			<td>${hardwareDevice.netConnectionStatus}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.netConnectionStatus == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.interfaceIndex != null}">
-			<td>${hardwareDevice.interfaceIndex}</label></td>
+			<td>${hardwareDevice.interfaceIndex}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.interfaceIndex == null}">
 			<td/>
 		</c:if>
 		
     	<c:if test="${hardwareDevice.status != null}">
-			<td>${hardwareDevice.status}</label></td>
+			<td>${hardwareDevice.status}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.status == null}">
 			<td/>
@@ -264,6 +263,5 @@
 			</div>
 		</td>
     </tr>
-	<c:set var="alt" value="${!alt}"/>
 </c:forEach>
 </table>
