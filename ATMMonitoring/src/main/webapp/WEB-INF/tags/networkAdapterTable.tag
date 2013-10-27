@@ -14,6 +14,8 @@
 	<th><i><label><spring:message code="label.hardwareDevice.description"/></label></i></th>
 	<th><i><label><spring:message code="label.hardwareDevice.dhcpEnabled"/></label></i></th>
 	<th><i><label><spring:message code="label.hardwareDevice.dhcpServer"/></label></i></th>
+	<th><i><label><div class="add"><span>Ver más información</span></div></label></i></th>
+<!--
 	<th><i><label><spring:message code="label.hardwareDevice.ipAddress"/></label></i></th>
 	<th><i><label><spring:message code="label.hardwareDevice.ipSubnet"/></label></i></th>
 	<th><i><label><spring:message code="label.hardwareDevice.defaultIpGateway"/></label></i></th>
@@ -23,6 +25,7 @@
 	<th><i><label><spring:message code="label.hardwareDevice.netConnectionStatus"/></label></i></th>
 	<th><i><label><spring:message code="label.hardwareDevice.interfaceIndex"/></label></i></th>
 	<th><i><label><spring:message code="label.hardwareDevice.status"/></label></i></th>
+-->
 </tr>
 <c:set var="alt" value="${false}"/>
 <c:forEach items="${hardwareDevices}" var="hardwareDevice">
@@ -75,7 +78,7 @@
 		<c:if test="${hardwareDevice.dhcpServer == null}">
 			<td/>
 		</c:if>
-		
+<%--		
     	<c:if test="${hardwareDevice.ipAddress != null}">
 			<td>${hardwareDevice.ipAddress}</label></td>
 		</c:if>
@@ -138,9 +141,12 @@
 		<c:if test="${hardwareDevice.status == null}">
 			<td/>
 		</c:if>
+		
+--%>
+	<td><div class="add"><span>Ver más información</span></div></td>
     </tr>
     <tr class="detail">
-    	<td colspan="16">
+    	<td colspan="8">
 	    	<div>
 		    	<ul>
 		    	<c:if test="${hardwareDevice.name != null}">
