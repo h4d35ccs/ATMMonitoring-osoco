@@ -8,66 +8,13 @@
 <t:osoco-wrapper titleCode="label.scheduledUpdatesManager" userMsg="${userMsg}" section="schedule">
 
 <jsp:attribute name="header">
+
 <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.css"/>
 <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.print.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/ncr_fullcalendar.css"/>
+
 <script type="text/javascript" src="resources/js/fullcalendar.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        initSchedulerCalendar();
-        initSchedulerToggle();
-    });
-
-    function initSchedulerCalendar() {
-        $("#schedulerCalendar").fullCalendar({
-            events: 'terminals/schedules/updates',
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month, agendaWeek, agendaDay'
-            },
-            firstDay: 1,
-            height: 450,
-            allDaySlot: false,
-            allDayDefault: false,
-            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
-            timeFormat: {
-                agenda: 'H:mm{ - H:mm}', // 5:00 - 6:30
-                '': 'HH:mm'            // 19:00
-            },
-            titleFormat: {
-                month: 'MMMM yyyy',                             // September 2009
-                week: "d[ yyyy] [MMM]{ '&#8212;'d MMM yyyy}", // 7 - 13 Sep 2009
-                day: 'dddd, d MMM yyyy'                  // Tuesday, 8 Sep 2009
-            },
-            columnFormat: {
-                month: 'ddd',    // Mon
-                week: 'ddd d/M', // Mon 20/12
-                day: 'dddd d/M'  // Monday 20/12
-            },
-            buttonText: {
-                prev:     '&lsaquo;', // <
-                next:     '&rsaquo;', // >
-                prevYear: '&laquo;',  // <<
-                nextYear: '&raquo;',  // >>
-                today:    'hoy',
-                month:    'mes',
-                week:     'semana',
-                day:      'día'
-            }
-        });
-    }
-
-    function initSchedulerToggle() {
-        $("#toggleSchedulerView").click(function (event) {
-            event.preventDefault();
-            $("#schedulerCalendar").fadeToggle();
-            $("#schedulerList").fadeToggle();
-        });
-    }
-</script>
+<script type="text/javascript" src="resources/js/scheduled.js"></script>
 
 <style type="text/css">
 <c:if  test="${(!empty weeklyScheduledUpdates) || (!empty monthlyScheduledUpdates)}">
@@ -147,7 +94,18 @@ html>body tbody.scrollContent {
 
 <h1><spring:message code="label.scheduledUpdatesManager"/></h1>
 
-<a id="toggleSchedulerView" href="#">cambiar</a>
+<div id="toggleSchedulerView">
+  <nav>
+    <ul>
+        <li class="calendario current">
+          <a href="#"><span>Calendario</span></a>
+        </li>
+        <li class="lista">
+          <a href="#"><span>Lista</span></a>
+        </li>
+    </ul>
+  </nav>
+</div>
 
 <div id="schedulerList" class="scheduler hide">
 <div class="box">
