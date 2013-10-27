@@ -1453,6 +1453,16 @@ input:disabled:hover {
   font-size: .8em;
 }
 
+/* line 226, ../sass/_forms.scss */
+.users_list {
+  overflow: hidden;
+}
+/* line 228, ../sass/_forms.scss */
+.users_list li {
+  float: left;
+  width: 33%;
+}
+
 /* line 1, ../sass/_table.scss */
 .table_buttons {
   overflow: hidden;

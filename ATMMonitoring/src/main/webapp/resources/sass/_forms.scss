@@ -223,3 +223,10 @@ input:disabled{
 		font-size: .8em;
 	}
 }
+.users_list{
+	overflow: hidden;
+	li{
+		float: left;
+		width: 33%;
+	}
+}
