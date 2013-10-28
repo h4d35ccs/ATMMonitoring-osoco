@@ -64,8 +64,17 @@ public class UserController {
     }
 
     @RequestMapping("/users")
-    public String redirectToUsers() {
-	return "redirect:/users/list";
+    public String redirectToUsers(Map<String, Object> map,
+		    HttpServletRequest request, Principal principal) {
+		String userMsg = "";
+		Locale locale = RequestContextUtils.getLocale(request);
+		if (principal != null) {
+			User loggedUser = userService
+				.getUserByUsername(principal.getName());
+			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		}
+		map.put("userMsg", userMsg);
+		return "newUsers";
     }
 
     @RequestMapping("/users/details/{userId}")
