@@ -25,7 +25,7 @@
 						<h2 class="txt last"><spring:message code="label.terminalDetails"/></h2>
 						<div class="collapsible last">
 							<div class="photo">
-								<img src="resources/images/terminal.jpg"/>
+								<img src="resources/images/ejemplo/terminal.jpg"/>
 								<div class="desplegable">
 									<div class="txt content_hide"><span>Más información</span></div>
 									<dl class="collapsible hide">
@@ -326,7 +326,7 @@
 					<div class="action_box data desplegable">
 						<h2 class="txt last">Histórico</h2>
 						<div class="collapsible last">
-							<img src="resources/images/historico.png" style="width:100%; margin:1em 0" />
+							<img src="resources/images/ejemplo/historico.png" style="width:100%; margin:1em 0" />
 						</div>
 					</div>
 				</div>

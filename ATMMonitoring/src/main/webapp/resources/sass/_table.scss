@@ -26,15 +26,15 @@ table{
 		background:$colorG;
 		color:$colorW;
 		&.order{
-			background:url("../images/colunm_order.png") $colorG no-repeat right top;
+			background:url("../images/icons/colunm_order.png") $colorG no-repeat right top;
 			padding-right: 2em;
 			border-top: 1px solid $colorW;
 			border-bottom: 1px solid $colorW;
 			&.bottom{
-				background:url("../images/colunm_order.png") $colorK1 no-repeat right -40px;
+				background:url("../images/icons/colunm_order.png") $colorK1 no-repeat right -40px;
 			}
 			&.top{
-				background:url("../images/colunm_order.png") $colorK1 no-repeat right -80px;
+				background:url("../images/icons/colunm_order.png") $colorK1 no-repeat right -80px;
 			}
 		}
 	}

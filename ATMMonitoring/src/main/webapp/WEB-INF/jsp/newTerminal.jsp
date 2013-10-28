@@ -39,7 +39,7 @@
 						</div>
 						<div class="collapsible last">
 							<div class="photo">
-								<img src="resources/images/terminal.jpg"/>
+								<img src="resources/images/ejemplo/terminal.jpg"/>
 								<div class="desplegable">
 									<div class="txt content_hide"><span>Más información</span></div>
 									<dl class="collapsible hide">
