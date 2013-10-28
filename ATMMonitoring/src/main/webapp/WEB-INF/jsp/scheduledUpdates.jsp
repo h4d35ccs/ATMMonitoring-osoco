@@ -77,6 +77,7 @@
 <tr>
     <th width="100px"><i><spring:message code="label.scheduledUpdate.weekDay"/></i></th>
     <th width="50px"><i><spring:message code="label.scheduledUpdate.time"/></i></th>
+    <th width="100px"><i><spring:message code="label.scheduledUpdate.query"/></i></th>
 	<c:choose>
 	<c:when  test="${weeklyScheduledUpdates.size() > 10}">
 	<th width="106px">
@@ -119,6 +120,7 @@
         </c:choose>
         </td>
         <td width="50px" class="center-cell">${scheduledUpdate.completeHour}</td>
+        <td width="100px" class="center-cell">${scheduledUpdate.query.name}</td>
 		<td width="90px" class="center-cell">
 			<button onClick="deleteScheduledUpdate(${scheduledUpdate.id})" class="form-submit delete right"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
 		</td>
@@ -158,6 +160,7 @@
 <tr>
     <th width="100px"><i><spring:message code="label.scheduledUpdate.monthDay"/></i></th>
     <th width="50px"><i><spring:message code="label.scheduledUpdate.time"/></i></th>
+    <th width="100px"><i><spring:message code="label.scheduledUpdate.query"/></i></th>
 	<c:choose>
 	<c:when  test="${monthlyScheduledUpdates.size() > 10}">
 	<th width="106px">
@@ -176,6 +179,7 @@
     <tr>
         <td width="100px" class="center-cell">${scheduledUpdate.monthDay}</td>
         <td width="50px" class="center-cell">${scheduledUpdate.completeHour}</td>
+        <td width="100px" class="center-cell">${scheduledUpdate.query.name}</td>
 		<td width="90px" class="center-cell">
 			<button onClick="deleteScheduledUpdate(${scheduledUpdate.id})" class="form-submit delete right"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
 		</td>

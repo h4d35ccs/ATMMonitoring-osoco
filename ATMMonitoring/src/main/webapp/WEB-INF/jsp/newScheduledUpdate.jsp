@@ -43,12 +43,17 @@
 <form:form method="post" action="terminals/schedules/list" commandName="scheduledUpdate">
 
 <div class="row"><label for="query"><strong>Elegir consulta:</strong></label>
-<select name="queryId" size="1">
+<select name="queryId" size="1" path="query.id">
   <option value="" >Seleccionar</option>
   <c:forEach items="${userQueries}" var="userQuery">
     <option value="${userQuery.id}">${userQuery.name}</option>
   </c:forEach>
 </select></div>
+
+<c:if test="${nullQuery == true}">
+  <spring:message code="label.scheduledUpdate.nullQuery"/>
+</c:if>
+
 
 <div class="row">
   <label for="name"><strong>Nombre de la planificación</strong></label>

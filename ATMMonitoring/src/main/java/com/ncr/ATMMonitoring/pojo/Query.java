@@ -1,21 +1,27 @@
 package com.ncr.ATMMonitoring.pojo;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.type.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
@@ -55,6 +61,13 @@ public class Query {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(mappedBy = "query", fetch = FetchType.LAZY)
+    @Cascade(CascadeType.ALL)
+    private Set<ScheduledUpdate> scheduledUpdates = new HashSet<ScheduledUpdate>();
+
+    @Column(name = "locale", length = 10)
+    private String locale;
 
     @Column(name = "terminal_c11", length = 50)
     private String terminalCombo11 = "";
@@ -3598,6 +3611,34 @@ public class Query {
 	return hql;
     }
 
+    public String getLocale() {
+	return locale;
+    }
+
+    public void setLocale(String locale) {
+	this.locale = locale;
+    }
+
+    public Locale getTrueLocale() {
+	String[] localeSplit = locale.split("-");
+	if (locale.length() == 2) {
+	    return new Locale(localeSplit[0], localeSplit[1]);
+	}
+	return null;
+    }
+
+    public void setTrueLocale(Locale locale) {
+	this.locale = locale.getLanguage() + "-" + locale.getCountry();
+    }
+
+    public Set<ScheduledUpdate> getScheduledUpdates() {
+	return scheduledUpdates;
+    }
+
+    public void setScheduledUpdates(Set<ScheduledUpdate> scheduledUpdates) {
+	this.scheduledUpdates = scheduledUpdates;
+    }
+
 	@Override
 	public boolean equals(Object o) {
 		if (o == null) {
@@ -3617,4 +3658,5 @@ public class Query {
 	public int hashCode() {
 		return getName().hashCode() + 13 * getUser().hashCode();
 	}
+
 }

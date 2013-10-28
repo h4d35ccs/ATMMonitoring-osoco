@@ -1,9 +1,11 @@
 package com.ncr.ATMMonitoring.service;
 
 import java.util.List;
+import java.util.Set;
 
 import ncr.inventory.data.ATM;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 
 /**
@@ -17,6 +19,10 @@ public interface TerminalService {
     public Terminal getTerminal(Integer id);
 
     public void updateTerminal(Terminal terminal);
+
+    public List<Terminal> listTerminalsByBankCompany(BankCompany bank);
+
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks);
 
     public List<Terminal> listTerminals();
 

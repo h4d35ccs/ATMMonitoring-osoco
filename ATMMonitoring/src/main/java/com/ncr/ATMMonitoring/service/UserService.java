@@ -1,10 +1,12 @@
 package com.ncr.ATMMonitoring.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.User;
 
 /**
@@ -24,6 +26,10 @@ public interface UserService extends UserDetailsService {
     public User getUserByUsername(String username);
 
     public List<User> listUsers();
+
+    public List<User> listUsersByBankCompany(BankCompany bank);
+
+    public List<User> listUsersByBankCompanies(Set<BankCompany> banks);
 
     public void removeUser(Integer id);
 

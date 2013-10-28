@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.snmp;
 
 import java.text.DateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -75,5 +76,15 @@ public class SnmpServiceImpl implements SnmpService {
 		if ((ip != null) && (ip.split("\\.").length >= 4)) {
 		    snmpListener.requestTerminalUpdate(ip);
 		}
+    }
+
+    @Override
+    public void updateTerminalSnmp(String ip) {
+    	logger.info("MOCK updateTerminalsSnmp" + ip);
+    }
+
+    @Override
+    public void updateTerminalsSnmp(Collection<String> ips) {
+    	logger.info("MOCK updateTerminalsSnmp" + ips.toString());
     }
 }

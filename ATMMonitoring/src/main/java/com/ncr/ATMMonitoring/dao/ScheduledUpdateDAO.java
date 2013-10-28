@@ -21,11 +21,9 @@ public interface ScheduledUpdateDAO {
 
     public void removeScheduledUpdate(Integer id);
 
+    public List<ScheduledUpdate> listValidScheduledUpdates(Calendar date);
+
     public boolean existsMonthlyScheduledUpdate(ScheduledUpdate scheduledUpdate);
 
     public boolean existsWeeklyScheduledUpdate(ScheduledUpdate scheduledUpdate);
-
-    public boolean existsMonthlyScheduledUpdate(Calendar date);
-
-    public boolean existsWeeklyScheduledUpdate(Calendar date);
 }

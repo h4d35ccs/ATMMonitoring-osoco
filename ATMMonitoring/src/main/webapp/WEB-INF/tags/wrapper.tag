@@ -19,7 +19,6 @@
 		<script src="resources/js/jquery.blockUI.js"></script>
 		<script src="resources/js/spin.min.js"></script>
 		<script src="resources/js/jquery.spin.js"></script>
-		<script src="resources/js/jquery.chromatable.js"></script>
 	    <title><spring:message code="label.baseTitle"/> - <spring:message code="${titleCode}"/></title>
 		<link rel="stylesheet" type="text/css" href="resources/css/black-tie/jquery-ui-1.9.2.custom.css">
 		<link rel="stylesheet" type="text/css" href="resources/css/collapsible.css">
@@ -46,26 +45,35 @@
 						<a id="ui-id-1" class="menu-item ui-corner-all" href="terminals" role="menuitem"><spring:message code="label.menu.terminals"/></a>
 						</li>
 						<li class="ui-menu-item ui-vertical-menu-item" role="presentation">
-						<a id="ui-id-3" class="menu-item ui-corner-all" href="queries" role="menuitem"><spring:message code="label.menu.queries"/></a>
+						<a id="ui-id-2" class="menu-item ui-corner-all" href="terminals/models" role="menuitem"><spring:message code="label.menu.terminalModels"/></a>
 						</li>
-						
+						<li class="ui-menu-item ui-vertical-menu-item" role="presentation">
+						<a id="ui-id-3" class="menu-item ui-corner-all" href="terminals/installations" role="menuitem"><spring:message code="label.menu.installations"/></a>
+						</li>
+						<li class="ui-menu-item ui-vertical-menu-item" role="presentation">
+						<a id="ui-id-4" class="menu-item ui-corner-all" href="terminals/locations" role="menuitem"><spring:message code="label.menu.locations"/></a>
+						</li>
 						<!-- href="http://localhost:8080/externalreports.jsp"-->
 						<li class="ui-menu-item ui-vertical-menu-item" role="presentation">
-						<a id="ui-id-5" class="menu-item ui-corner-all"  href="externalreports" role="menuitem"><spring:message code="label.menu.externalreports"/></a>
+						<a id="ui-id-10" class="menu-item ui-corner-all" href="externalreports" role="menuitem"><spring:message code="label.menu.externalreports"/></a>
 						</li>
-						
+						<li class="ui-menu-item ui-vertical-menu-item" role="presentation">
+						<a id="ui-id-5" class="menu-item ui-corner-all" href="queries" role="menuitem"><spring:message code="label.menu.queries"/></a>
+						</li>
 						<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
 							<li class="ui-menu-item ui-vertical-menu-item" role="presentation">
-							<a id="ui-id-2" class="menu-item ui-corner-all" href="users" role="menuitem"><spring:message code="label.menu.users"/></a>
+							<a id="ui-id-6" class="menu-item ui-corner-all" href="users" role="menuitem"><spring:message code="label.menu.users"/></a>
 							</li>
-							
+							<li class="ui-menu-item ui-vertical-menu-item" role="presentation">
+							<a id="ui-id-7" class="menu-item ui-corner-all" href="banks" role="menuitem"><spring:message code="label.menu.bankCompanies"/></a>
+							</li>
 						</sec:authorize>
 						<li class="ui-menu-item ui-vertical-menu-item" style="float:right;" role="presentation">
 						<sec:authorize access="isAnonymous()">
-							<a id="ui-id-4" class="menu-item ui-corner-all" href="login" role="menuitem"><spring:message code="label.menu.login"/></a>
+							<a id="ui-id-8" class="menu-item ui-corner-all" href="login" role="menuitem"><spring:message code="label.menu.login"/></a>
 						</sec:authorize>
 				    	<sec:authorize access="isAuthenticated()">
-							<a id="ui-id-4" class="menu-item ui-corner-all" href="logout" role="menuitem"><spring:message code="label.menu.logout"/></a>
+							<a id="ui-id-9" class="menu-item ui-corner-all" href="logout" role="menuitem"><spring:message code="label.menu.logout"/></a>
 						</sec:authorize>
 						</li>
 					</ul>

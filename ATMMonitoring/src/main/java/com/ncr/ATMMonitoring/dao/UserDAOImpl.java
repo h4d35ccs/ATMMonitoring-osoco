@@ -1,15 +1,18 @@
 package com.ncr.ATMMonitoring.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.User;
 
 /**
@@ -42,6 +45,28 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public List<User> listUsers() {
 	return sessionFactory.getCurrentSession().createCriteria(User.class)
+		.addOrder(Order.asc("lastname"))
+		.addOrder(Order.asc("username")).list();
+    }
+
+    @Override
+    public List<User> listUsersByBankCompanies(Set<BankCompany> banks) {
+	Criterion restriction = (banks.size() > 0) ? Restrictions.or(
+		Restrictions.in("bankCompany", banks),
+		Restrictions.isNull("bankCompany")) : Restrictions
+		.isNull("bankCompany");
+	return sessionFactory.getCurrentSession().createCriteria(User.class)
+		.add(restriction).addOrder(Order.asc("lastname"))
+		.addOrder(Order.asc("username")).list();
+    }
+
+    @Override
+    public List<User> listUsersByBankCompany(BankCompany bank) {
+	return sessionFactory
+		.getCurrentSession()
+		.createCriteria(User.class)
+		.add(Restrictions.or(Restrictions.eq("bankCompany", bank),
+			Restrictions.isNull("bankCompany")))
 		.addOrder(Order.asc("lastname"))
 		.addOrder(Order.asc("username")).list();
     }

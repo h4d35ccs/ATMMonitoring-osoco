@@ -40,7 +40,7 @@ import org.apache.log4j.Logger;
 
 @Controller
 public class QueryController {
-    
+
     static private Logger logger = Logger.getLogger(DashboardController.class.getName());
 
     @Value("${config.queriesPageSize}")
@@ -87,7 +87,7 @@ public class QueryController {
     public String showUserQuery(Integer queryId,
 	    Map<String, Object> map, HttpServletRequest request,
 	    Principal principal) {
-	
+
 	String userMsg = "";
         Query query = null;
 	Locale locale = RequestContextUtils.getLocale(request);
@@ -102,7 +102,7 @@ public class QueryController {
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
 
-	
+
 	map.put("userMsg", userMsg);
 	map.put("query", query);
 	map.put("values", query.getComboboxes());
@@ -115,7 +115,7 @@ public class QueryController {
     public String deleteUserQuery(Integer queryId,
 	    Map<String, Object> map, HttpServletRequest request,
 				  Principal principal) {
-	
+
 	String userMsg = "";
         Query query = null;
         Set<Query> userQueries = null;
@@ -140,14 +140,14 @@ public class QueryController {
             userQueries = loggedUser.getQueries();
 	}
 
-	PagedListHolder<Query> pagedListHolder = 
+	PagedListHolder<Query> pagedListHolder =
 	    new PagedListHolder<Query>( new ArrayList(userQueries));
 	int page = 0;
 
 	pagedListHolder.setPage(page);
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
-       
+
         map.put("userMsg", userMsg);
 	return "queryList";
 
@@ -204,13 +204,14 @@ public class QueryController {
     }
 
     @RequestMapping("/queries/list")
-    public String listQueries(Map<String, Object> map, 
-			      HttpServletRequest request, 
+    public String listQueries(Map<String, Object> map,
+			      HttpServletRequest request,
 			      Principal principal,
                               String p) {
         Set<Query> userQueries = null;
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
+
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
@@ -218,7 +219,7 @@ public class QueryController {
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
 
-	PagedListHolder<Query> pagedListHolder = 
+	PagedListHolder<Query> pagedListHolder =
 	    new PagedListHolder<Query>( new ArrayList(userQueries));
 	int page = 0;
 	if (p != null) {
@@ -231,7 +232,7 @@ public class QueryController {
 	pagedListHolder.setPage(page);
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
-       
+
 	//  map.put("userQueries", userQueries);
         map.put("userMsg", userMsg);
 	return "queryList";
@@ -244,11 +245,11 @@ public class QueryController {
 				    Principal principal, RedirectAttributes redirectAttributes, String p) throws Exception {
 
 	Locale locale = RequestContextUtils.getLocale(request);
-	User loggedUser = null;	
+	User loggedUser = null;
 	 if (principal != null) {
 		loggedUser = userService.getUserByUsername(principal.getName());
 	 }
-	 
+
 	if (WebUtils.hasSubmitParameter(request, "save")) {
 	    if (principal != null) {
 		query.setUser(loggedUser);
@@ -261,8 +262,8 @@ public class QueryController {
 			redirectAttributes.addFlashAttribute("error", "error.updatingQuery");
 		    }
 		} else {
-		
 		    query.setId(null);
+			query.setTrueLocale(locale);n
 		    try {
 			logger.debug("Guardando nueva query- " + query.getName());
 			queryService.addQuery(query);
@@ -283,7 +284,7 @@ public class QueryController {
 
 		PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
 											  terminals);
-		int page = 0;
+		int page = 0;p
 		if (p != null) {
 		    try {
 			page = Integer.parseInt(p);
@@ -298,15 +299,15 @@ public class QueryController {
 		map.put("query", query);
 		map.put("values", Query.getComboboxes());
 
-		
-	   
+
+
 
 	}  else if (WebUtils.hasSubmitParameter(request, "delete")) {
 	   logger.debug("Deleting query -" + query.getName());
 	    return "redirect:/queries/delete?queryId="+query.getId();
 	}
 	return "queryResults";
-	
+
     }
 
     @RequestMapping(value = "/queries/results", method = RequestMethod.GET)

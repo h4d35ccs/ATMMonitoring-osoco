@@ -1,9 +1,11 @@
 package com.ncr.ATMMonitoring.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.type.Type;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 
 /**
@@ -13,6 +15,10 @@ import com.ncr.ATMMonitoring.pojo.Terminal;
 public interface TerminalDAO {
 
     public void addTerminal(Terminal terminal);
+
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank);
+
+    public List<Terminal> listTerminalsByBankCompany(BankCompany bank);
 
     public List<Terminal> listTerminals();
 

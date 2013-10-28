@@ -48,14 +48,14 @@ public class User implements UserDetails {
     @SequenceGenerator(name = "users_id_seq", sequenceName = "users_id_seq", allocationSize = 1)
     private Integer id;
 
-    @Column(name = "firstname", length = 50)
+    @Column(name = "firstname", length = 30)
     private String firstname;
 
     @Column(name = "lastname", length = 60)
     private String lastname;
 
     @NotEmpty
-    @Column(name = "username", unique = true, nullable = false, length = 50)
+    @Column(name = "username", unique = true, nullable = false, length = 20)
     private String username;
 
     @NotEmpty
@@ -69,6 +69,10 @@ public class User implements UserDetails {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "bank_id")
+    private BankCompany bankCompany;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
@@ -153,6 +157,21 @@ public class User implements UserDetails {
 	this.role = role;
     }
 
+    /**
+     * @return the bankCompany
+     */
+    public BankCompany getBankCompany() {
+	return bankCompany;
+    }
+
+    /**
+     * @param bankCompany
+     *            the bankCompany to set
+     */
+    public void setBankCompany(BankCompany bankCompany) {
+	this.bankCompany = bankCompany;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 	List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>(1);
@@ -221,6 +240,10 @@ public class User implements UserDetails {
     }
 
     public String getHtmlWelcomeMessage(Locale locale) {
+
+		/*
+		// TODO: Previous to Merge with jlopez-branch:
+
       	DateFormat timeFormatter = new SimpleDateFormat("H:mm");
         String lastLoginFormatted = "";
         lastLoginFormatted  = DateFormat.getDateInstance(DateFormat.SHORT, locale).format(lastLogin) +
@@ -230,6 +253,62 @@ public class User implements UserDetails {
                firstname + " " + lastname + ", " + role.getName().replace("_", " ") +
                "</div>" +
 	       "<div class=\"date\">" + lastLoginFormatted + "</div>";
+		*/
+
+		DateFormat timeFormatter = new SimpleDateFormat("H:mm");
+		String userMsg;
+		if (bankCompany != null) {
+			userMsg = firstname
+				+ " "
+				+ lastname
+				+ ", "
+				+ role.getName().replace("_", " ")
+				+ ", <i>"
+				+ bankCompany.getName()
+				+ "</i><br>"
+				+ DateFormat.getDateInstance(DateFormat.SHORT, locale)
+			    .format(lastLogin) + " - "
+				+ timeFormatter.format(lastLogin);
+		} else {
+			userMsg = firstname
+				+ " "
+				+ lastname
+				+ ", "
+				+ role.getName().replace("_", " ")
+				+ "<br>"
+				+ DateFormat.getDateInstance(DateFormat.SHORT, locale)
+			    .format(lastLogin) + " - "
+				+ timeFormatter.format(lastLogin);
+		}
+		return userMsg;
     }
 
+    public Set<BankCompany> getManageableBankCompanies() {
+	return (bankCompany != null) ? bankCompany.getManageableBankCompanies()
+		: new HashSet<BankCompany>();
+    }
+
+    public List<ScheduledUpdate> getWeeklyScheduledUpdates() {
+	List<ScheduledUpdate> updates = new ArrayList<ScheduledUpdate>();
+	for (Query query : queries) {
+	    for (ScheduledUpdate update : query.getScheduledUpdates()) {
+		if (update.getWeekDay() != null) {
+		    updates.add(update);
+		}
+	    }
+	}
+	return updates;
+    }
+
+    public List<ScheduledUpdate> getMonthlyScheduledUpdates() {
+	List<ScheduledUpdate> updates = new ArrayList<ScheduledUpdate>();
+	for (Query query : queries) {
+	    for (ScheduledUpdate update : query.getScheduledUpdates()) {
+		if (update.getMonthDay() != null) {
+		    updates.add(update);
+		}
+	    }
+	}
+	return updates;
+    }
 }

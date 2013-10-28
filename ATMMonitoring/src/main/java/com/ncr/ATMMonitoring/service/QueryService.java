@@ -23,6 +23,8 @@ public interface QueryService {
 
     public List<Terminal> executeQuery(Query query, Locale locale);
 
+    public List<Terminal> executeQuery(Query query);
+
     public List<Query> listQueries();
 
 	public Query findOrCreateQuery(Query query);

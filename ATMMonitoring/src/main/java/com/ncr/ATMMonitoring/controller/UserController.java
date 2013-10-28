@@ -1,8 +1,12 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -20,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.controller.propertyEditor.RolePropertyEditor;
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Role;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.RoleService;
@@ -48,14 +53,19 @@ public class UserController {
 	    HttpServletRequest request, Principal principal) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
+	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
+	List<User> users = new ArrayList<User>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    bankCompanies = loggedUser.getManageableBankCompanies();
+	    users = userService.listUsersByBankCompanies(bankCompanies);
 	}
+	map.put("banksList", bankCompanies);
 	map.put("userMsg", userMsg);
 	map.put("user", new User());
-	map.put("usersList", userService.listUsers());
+	map.put("usersList", users);
 	map.put("manageableRolesList", roleService.listManageableRoles());
 	// DEBUG CODE FOR SHOWING THE ROLES
 	// map.put("rolesList", roleService.listRoles());
@@ -88,6 +98,7 @@ public class UserController {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
 	boolean sameUser = false;
+	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
@@ -96,7 +107,13 @@ public class UserController {
 		sameUser = true;
 	    }
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    bankCompanies = loggedUser.getManageableBankCompanies();
+	    if ((user.getBankCompany() != null)
+		    && (!bankCompanies.contains(user.getBankCompany()))) {
+		return "redirect:/users/list";
+	    }
 	}
+	map.put("banksList", bankCompanies);
 	map.put("userMsg", userMsg);
 	map.put("sameUser", sameUser);
 	map.put("manageableRolesList", roleService.listManageableRoles());
@@ -109,19 +126,33 @@ public class UserController {
     public String addUser(@Valid @ModelAttribute("user") User user,
 	    BindingResult result, Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
+	if ((user.getBankCompany() != null)
+		&& (user.getBankCompany().getId() == null)) {
+	    user.setBankCompany(null);
+	}
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
+	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
+	List<User> users = new ArrayList<User>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    bankCompanies = loggedUser.getManageableBankCompanies();
+	    if ((user.getBankCompany() != null)
+		    && (!bankCompanies.contains(user.getBankCompany()))) {
+		return "redirect:/users/list";
+	    }
+	    users = userService.listUsersByBankCompanies(bankCompanies);
 	}
+	map.put("banksList", bankCompanies);
+	map.put("usersList", users);
 
 	if (result.hasErrors()) {
 	    map.put("userMsg", userMsg);
 	    map.put("manageableRolesList", roleService.listManageableRoles());
-	    map.put("rolesList", roleService.listRoles());
-	    map.put("usersList", userService.listUsers());
+	    // DEBUG CODE FOR SHOWING THE ROLES
+	    // map.put("rolesList", roleService.listRoles());
 	    return "users";
 	}
 
@@ -130,9 +161,9 @@ public class UserController {
 		map.put("userMsg", userMsg);
 		map.put("manageableRolesList",
 			roleService.listManageableRoles());
-		map.put("rolesList", roleService.listRoles());
 		map.put("duplicatedUsername", true);
-		map.put("usersList", userService.listUsers());
+		// DEBUG CODE FOR SHOWING THE ROLES
+		// map.put("rolesList", roleService.listRoles());
 		return "users";
 	    }
 	} catch (UsernameNotFoundException e) {
@@ -151,13 +182,20 @@ public class UserController {
     public String updateUser(@Valid @ModelAttribute("user") User user,
 	    BindingResult result, Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
+	if ((user.getBankCompany() != null)
+		&& (user.getBankCompany().getId() == null)) {
+	    user.setBankCompany(null);
+	}
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
+	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    bankCompanies = loggedUser.getManageableBankCompanies();
 	}
+	map.put("banksList", bankCompanies);
 	map.put("userMsg", userMsg);
 
 	user.setRole(roleService.getRole(user.getRole().getId()));
@@ -212,11 +250,18 @@ public class UserController {
 	    HttpServletRequest request, Principal principal) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
+	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    bankCompanies = loggedUser.getManageableBankCompanies();
+	    if ((user.getBankCompany() != null)
+		    && (!bankCompanies.contains(user.getBankCompany()))) {
+		return "redirect:/users/list";
+	    }
 	}
+	map.put("banksList", bankCompanies);
 	map.put("userMsg", userMsg);
 
 	user.setRole(roleService.getRole(user.getRole().getId()));
@@ -255,8 +300,19 @@ public class UserController {
     }
 
     @RequestMapping("/users/delete/{userId}")
-    public String deleteUser(@PathVariable("userId") Integer userId) {
+    public String deleteUser(@PathVariable("userId") Integer userId,
+	    Principal principal) {
 	User user = userService.getUser(userId);
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    Set<BankCompany> bankCompanies = loggedUser
+		    .getManageableBankCompanies();
+	    if ((user.getBankCompany() != null)
+		    && (!bankCompanies.contains(user.getBankCompany()))) {
+		return "redirect:/users/list";
+	    }
+	}
 	if ((user != null) && (user.getRole() != null)
 		&& (user.getRole().getManageable())) {
 	    userService.removeUser(userId);

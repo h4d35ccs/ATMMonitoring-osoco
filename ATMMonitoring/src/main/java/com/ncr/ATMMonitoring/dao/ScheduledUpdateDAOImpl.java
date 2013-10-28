@@ -72,7 +72,8 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 		.createCriteria(ScheduledUpdate.class)
 		.add(Restrictions.eq("hour", scheduledUpdate.getHour()))
 		.add(Restrictions.eq("minute", scheduledUpdate.getMinute()))
-		.add(Restrictions.eq("monthDay", scheduledUpdate.getMonthDay()));
+		.add(Restrictions.eq("monthDay", scheduledUpdate.getMonthDay()))
+		.add(Restrictions.eq("query", scheduledUpdate.getQuery()));
 	return (query.uniqueResult() != null);
     }
 
@@ -82,39 +83,31 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 		.createCriteria(ScheduledUpdate.class)
 		.add(Restrictions.eq("hour", scheduledUpdate.getHour()))
 		.add(Restrictions.eq("minute", scheduledUpdate.getMinute()))
-		.add(Restrictions.eq("weekDay", scheduledUpdate.getWeekDay()));
+		.add(Restrictions.eq("weekDay", scheduledUpdate.getWeekDay()))
+		.add(Restrictions.eq("query", scheduledUpdate.getQuery()));
 	return (query.uniqueResult() != null);
     }
 
     @Override
-    public boolean existsMonthlyScheduledUpdate(Calendar date) {
-	Criteria query = sessionFactory
+    public List<ScheduledUpdate> listValidScheduledUpdates(Calendar date) {
+	return sessionFactory
 		.getCurrentSession()
 		.createCriteria(ScheduledUpdate.class)
-		.add(Restrictions.eq("hour",
+		.add(Restrictions.or(Restrictions.and(Restrictions.eq("hour",
 			new Integer(date.get(Calendar.HOUR_OF_DAY))
-				.shortValue()))
-		.add(Restrictions.eq("minute",
-			new Integer(date.get(Calendar.MINUTE)).shortValue()))
-		.add(Restrictions.eq("monthDay",
-			new Integer(date.get(Calendar.DAY_OF_MONTH))
-				.shortValue()));
-	return (query.uniqueResult() != null);
-    }
-
-    @Override
-    public boolean existsWeeklyScheduledUpdate(Calendar date) {
-	Criteria query = sessionFactory
-		.getCurrentSession()
-		.createCriteria(ScheduledUpdate.class)
-		.add(Restrictions.eq("hour",
-			new Integer(date.get(Calendar.HOUR_OF_DAY))
-				.shortValue()))
-		.add(Restrictions.eq("minute",
-			new Integer(date.get(Calendar.MINUTE)).shortValue()))
-		.add(Restrictions.eq("weekDay",
-			new Integer(date.get(Calendar.DAY_OF_WEEK))
-				.shortValue()));
-	return (query.uniqueResult() != null);
+				.shortValue()), Restrictions.eq("minute",
+			new Integer(date.get(Calendar.MINUTE)).shortValue()),
+			Restrictions.eq("monthDay",
+				new Integer(date.get(Calendar.DAY_OF_MONTH))
+					.shortValue())), Restrictions.and(
+			Restrictions.eq("hour",
+				new Integer(date.get(Calendar.HOUR_OF_DAY))
+					.shortValue()), Restrictions.eq(
+				"minute",
+				new Integer(date.get(Calendar.MINUTE))
+					.shortValue()), Restrictions.eq(
+				"weekDay",
+				new Integer(date.get(Calendar.DAY_OF_WEEK))
+					.shortValue())))).list();
     }
 }

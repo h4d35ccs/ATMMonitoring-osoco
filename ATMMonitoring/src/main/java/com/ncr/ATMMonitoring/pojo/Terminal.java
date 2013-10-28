@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
@@ -70,6 +71,18 @@ public class Terminal {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "terminals_id_seq")
     @SequenceGenerator(name = "terminals_id_seq", sequenceName = "terminals_id_seq", allocationSize = 1)
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "installation_id")
+    private Installation installation;
+
+    @ManyToOne
+    @JoinColumn(name = "bank_id")
+    private BankCompany bankCompany;
+
+    @ManyToOne
+    @JoinColumn(name = "terminal_model_id")
+    private TerminalModel terminalModel;
 
     @Column(name = "terminal_type", length = 100)
     private String terminalType;
@@ -249,6 +262,9 @@ public class Terminal {
 		this.terminalVendor = terminal.terminalVendor;
 		this.tracerNumber = terminal.tracerNumber;
 		this.zipCode = terminal.zipCode;
+		this.bankCompany = terminal.bankCompany;
+		this.installation = terminal.installation;
+		this.terminalModel = terminal.terminalModel;
     }
 
     /**
@@ -264,6 +280,21 @@ public class Terminal {
      */
     public void setId(Integer id) {
     	this.id = id;
+    }
+
+    /**
+     * @return the bankCompany
+     */
+    public BankCompany getBankCompany() {
+	return bankCompany;
+    }
+
+    /**
+     * @param bankCompany
+     *            the bankCompany to set
+     */
+    public void setBankCompany(BankCompany bankCompany) {
+	this.bankCompany = bankCompany;
     }
 
     /**
@@ -838,5 +869,21 @@ public class Terminal {
      */
     public void setMac(String mac) {
     	this.mac = mac;
+    }
+
+    public TerminalModel getTerminalModel() {
+	return terminalModel;
+    }
+
+    public void setTerminalModel(TerminalModel terminalModel) {
+	this.terminalModel = terminalModel;
+    }
+
+    public Installation getInstallation() {
+	return installation;
+    }
+
+    public void setInstallation(Installation installation) {
+	this.installation = installation;
     }
 }

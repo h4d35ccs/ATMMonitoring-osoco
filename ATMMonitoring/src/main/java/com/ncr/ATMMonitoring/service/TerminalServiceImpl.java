@@ -38,6 +38,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ncr.ATMMonitoring.dao.TerminalDAO;
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 import com.ncr.ATMMonitoring.pojo.HardwareDevice;
 import com.ncr.ATMMonitoring.pojo.Hotfix;
@@ -85,6 +86,16 @@ public class TerminalServiceImpl implements TerminalService {
     @Override
     public void updateTerminal(Terminal terminal) {
     	terminalDAO.updateTerminal(terminal);
+    }
+
+    @Override
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks) {
+	return terminalDAO.listTerminalsByBankCompanies(banks);
+    }
+
+    @Override
+    public List<Terminal> listTerminalsByBankCompany(BankCompany bank) {
+	return terminalDAO.listTerminalsByBankCompany(bank);
     }
 
     @Override

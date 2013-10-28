@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -54,6 +56,10 @@ public class ScheduledUpdate {
     @Min(0)
     @Max(59)
     private Short minute = 0;
+
+    @ManyToOne
+    @JoinColumn(name = "query_id")
+    private Query query;
 
     /**
      * @return the id
@@ -130,6 +136,14 @@ public class ScheduledUpdate {
 	this.minute = minute;
     }
 
+    public Query getQuery() {
+		return query;
+    }
+
+    public void setQuery(Query query) {
+		this.query = query;
+    }
+
 	public boolean isWeekly() {
 		return (monthDay == null);
 	}
@@ -179,4 +193,5 @@ public class ScheduledUpdate {
 	completeHour += minute.toString();
 	return completeHour;
     }
+
 }

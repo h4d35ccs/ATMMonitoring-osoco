@@ -25,7 +25,12 @@ import com.ncr.ATMMonitoring.pojo.Terminal;
 @Transactional
 public class QueryServiceImpl implements QueryService {
 
+<<<<<<< HEAD
 	static private Logger logger = Logger.getLogger(QueryServiceImpl.class.getName());
+=======
+    static private Logger logger = Logger.getLogger(QueryServiceImpl.class
+	    .getName());
+>>>>>>> jlopez-branch
 
     @Autowired
     private QueryDAO queryDAO;
@@ -56,6 +61,23 @@ public class QueryServiceImpl implements QueryService {
     @Override
     public Query getQuery(Integer id) {
 	return queryDAO.getQuery(id);
+    }
+
+    @Override
+    public List<Terminal> executeQuery(Query query) {
+		Locale locale = query.getTrueLocale();
+		if (locale == null) {
+			logger.warn("No stored locale for query with id '" + query.getId()
+						+ "'. Will try to execute with default Locale.");
+			locale = Locale.getDefault();
+		}
+		List<Object> values = new ArrayList<Object>();
+		List<Type> types = new ArrayList<Type>();
+		String hql = query.getHQL(values, types, locale);
+		if ((hql == null) || (hql.equals(""))) {
+			return null;
+		}
+		return terminalDAO.getTerminalsByHQL(values, types, hql);
     }
 
     @Override

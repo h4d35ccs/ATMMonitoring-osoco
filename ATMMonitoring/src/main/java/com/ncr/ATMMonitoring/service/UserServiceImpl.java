@@ -2,6 +2,7 @@ package com.ncr.ATMMonitoring.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ncr.ATMMonitoring.dao.UserDAO;
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.User;
 
 /**
@@ -45,6 +47,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> listUsers() {
 	return userDAO.listUsers();
+    }
+
+    @Override
+    public List<User> listUsersByBankCompanies(Set<BankCompany> banks) {
+	return userDAO.listUsersByBankCompanies(banks);
+    }
+
+    @Override
+    public List<User> listUsersByBankCompany(BankCompany bank) {
+	return userDAO.listUsersByBankCompany(bank);
     }
 
     @Override

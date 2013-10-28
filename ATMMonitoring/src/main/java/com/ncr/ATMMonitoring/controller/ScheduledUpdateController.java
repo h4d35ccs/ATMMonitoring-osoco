@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.ScheduledUpdateService;
@@ -60,9 +62,9 @@ public class ScheduledUpdateController {
 			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 			map.put("userMsg", userMsg);
 			map.put("weeklyScheduledUpdates",
-					scheduledUpdateService.listWeeklyScheduledUpdates());
+					loggedUser.listWeeklyScheduledUpdates());
 			map.put("monthlyScheduledUpdates",
-					scheduledUpdateService.listMonthlyScheduledUpdates());
+					loggedUser.listMonthlyScheduledUpdates());
 		}
 		return "scheduledUpdates";
     }
@@ -91,9 +93,10 @@ public class ScheduledUpdateController {
 		logger.debug("update events from " + start + " to " + end);
 		List updates = null;
 		if (principal != null) {
+			User loggedUser = userService.getUserByUsername(principal.getName());
 			updates = new ArrayList();
-			List<ScheduledUpdate> weeklyUpdates = scheduledUpdateService.listWeeklyScheduledUpdates();
-			List<ScheduledUpdate> monthlyUpdates = scheduledUpdateService.listMonthlyScheduledUpdates();
+			List<ScheduledUpdate> weeklyUpdates = loggedUser.listWeeklyScheduledUpdates();
+			List<ScheduledUpdate> monthlyUpdates = loggedUser.listMonthlyScheduledUpdates();
 			updates = new ArrayList();
 			updates.addAll(weeklyUpdates);
 			updates.addAll(monthlyUpdates);
@@ -103,6 +106,7 @@ public class ScheduledUpdateController {
 
     @RequestMapping(value = "/terminals/schedules/list", method = RequestMethod.POST)
     public String addScheduledUpdate(
+<<<<<<< HEAD
             @Valid @ModelAttribute("scheduledUpdate") ScheduledUpdate scheduledUpdate,
 			BindingResult result, Map<String, Object> map,
 			HttpServletRequest request, Principal principal) {

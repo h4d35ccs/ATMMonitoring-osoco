@@ -1,17 +1,20 @@
 package com.ncr.ATMMonitoring.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.type.Type;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 
 /**
@@ -37,6 +40,27 @@ public class TerminalDAOImpl implements TerminalDAO {
     public void updateTerminal(Terminal terminal) {
 		sessionFactory.getCurrentSession().update(sessionFactory.getCurrentSession().merge(terminal));
 		logger.info("Updated terminal with id " + terminal.getId() + " and IP " + terminal.getIp());
+    }
+
+    @Override
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks) {
+	Criterion restriction = (banks.size() > 0) ? Restrictions.or(
+		Restrictions.in("bankCompany", banks),
+		Restrictions.isNull("bankCompany")) : Restrictions
+		.isNull("bankCompany");
+	return sessionFactory.getCurrentSession()
+		.createCriteria(Terminal.class).add(restriction)
+		.addOrder(Order.asc("serialNumber")).list();
+    }
+
+    @Override
+    public List<Terminal> listTerminalsByBankCompany(BankCompany bank) {
+	return sessionFactory
+		.getCurrentSession()
+		.createCriteria(Terminal.class)
+		.add(Restrictions.or(Restrictions.eq("bankCompany", bank),
+			Restrictions.isNull("bankCompany")))
+		.addOrder(Order.asc("serialNumber")).list();
     }
 
     @Override

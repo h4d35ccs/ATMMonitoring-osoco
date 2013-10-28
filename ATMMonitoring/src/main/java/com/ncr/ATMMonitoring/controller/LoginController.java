@@ -25,17 +25,12 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
-
 	return "login";
-
     }
 
     @RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
     public String loginFailed(Map<String, Object> map) {
-
 	map.put("error", true);
-
 	return "login";
-
     }
 }

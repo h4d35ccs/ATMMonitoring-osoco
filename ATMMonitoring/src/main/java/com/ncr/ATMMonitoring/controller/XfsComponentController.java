@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.XfsComponent;
 import com.ncr.ATMMonitoring.service.UserService;
@@ -64,6 +65,13 @@ public class XfsComponentController {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    BankCompany aux = xfsComponent.getFinancialDevice().getTerminal()
+		    .getBankCompany();
+	    if ((aux != null)
+		    && (!loggedUser.getManageableBankCompanies().contains(aux))) {
+		map.clear();
+		return "redirect:/terminals/list";
+	    }
 	}
 	map.put("userMsg", userMsg);
 	map.put("xfsComponent", xfsComponent);
