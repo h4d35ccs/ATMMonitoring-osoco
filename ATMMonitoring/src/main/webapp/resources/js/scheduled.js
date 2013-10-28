@@ -52,9 +52,11 @@ function initSchedulerCalendar() {
 function initSchedulerToggle() {
     $("#toggleSchedulerView li").click(function (event) {
         event.preventDefault();
-        $("#schedulerCalendar").fadeToggle();
-        $("#schedulerList").fadeToggle();
-        $("#toggleSchedulerView li.current").removeClass("current");
+        var current = $(".scheduler:visible");
+        var hide = $(".scheduler:hidden");
+        current.hide();
+        hide.fadeIn();
         $(this).addClass("current");
+        $(this).siblings().removeClass("current");
     });
 }
