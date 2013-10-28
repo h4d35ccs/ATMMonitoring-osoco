@@ -5,11 +5,9 @@ $(function() {
 		if($(this).hasClass('content_hide')){ // si pulso en uno que está cerrado...
 			$(this).removeClass('content_hide');
 			$(this).next('.collapsible').show('slow');
-			$(this).prev('.txt_btn').hide();
 		}else{
 			$(this).next('.collapsible').hide('slow');
 			$(this).addClass('content_hide');
-			$(this).prev('.txt_btn').show();
 		}
 	});
 // TABS para detalle de terminal

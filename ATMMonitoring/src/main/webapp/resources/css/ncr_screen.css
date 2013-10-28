@@ -808,8 +808,80 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 14, ../sass/_action_box.scss */
-#main .action_box h1.txt, #cboxContent .action_box h1.txt, #main .pagination h1.txt, #cboxContent .pagination h1.txt, #main .action_box h2.txt, #cboxContent .action_box #main h2.txt, #main #cboxContent .action_box h2.txt, #main .pagination h2.txt, #cboxContent .pagination #main h2.txt, #main #cboxContent .pagination h2.txt, #main .action_box #cboxContent h2.txt, #cboxContent #main .action_box h2.txt, #cboxContent .action_box h2.txt, #main .pagination #cboxContent h2.txt, #cboxContent #main .pagination h2.txt, #cboxContent .pagination h2.txt, #main .action_box h3.txt, #cboxContent .action_box #main h3.txt, #main #cboxContent .action_box h3.txt, #main .pagination h3.txt, #cboxContent .pagination #main h3.txt, #main #cboxContent .pagination h3.txt, #main .action_box #cboxContent h3.txt, #cboxContent #main .action_box h3.txt, #cboxContent .action_box h3.txt, #main .pagination #cboxContent h3.txt, #cboxContent #main .pagination h3.txt, #cboxContent .pagination h3.txt, #main .action_box h4.txt, #cboxContent .action_box #main h4.txt, #main #cboxContent .action_box h4.txt, #main .pagination h4.txt, #cboxContent .pagination #main h4.txt, #main #cboxContent .pagination h4.txt, #main .action_box #cboxContent h4.txt, #cboxContent #main .action_box h4.txt, #cboxContent .action_box h4.txt, #main .pagination #cboxContent h4.txt, #cboxContent #main .pagination h4.txt, #cboxContent .pagination h4.txt, #main .action_box h5.txt, #cboxContent .action_box #main h5.txt, #main #cboxContent .action_box h5.txt, #main .pagination h5.txt, #cboxContent .pagination #main h5.txt, #main #cboxContent .pagination h5.txt, #main .action_box #cboxContent h5.txt, #cboxContent #main .action_box h5.txt, #cboxContent .action_box h5.txt, #main .pagination #cboxContent h5.txt, #cboxContent #main .pagination h5.txt, #cboxContent .pagination h5.txt,
+/* line 20, ../sass/_action_box.scss */
+#main .action_box h1#editQuery, #cboxContent .action_box h1#editQuery, #main .pagination h1#editQuery, #cboxContent .pagination h1#editQuery, #main .action_box h2#editQuery, #cboxContent .action_box #main h2#editQuery, #main #cboxContent .action_box h2#editQuery, #main .pagination h2#editQuery, #cboxContent .pagination #main h2#editQuery, #main #cboxContent .pagination h2#editQuery, #main .action_box #cboxContent h2#editQuery, #cboxContent #main .action_box h2#editQuery, #cboxContent .action_box h2#editQuery, #main .pagination #cboxContent h2#editQuery, #cboxContent #main .pagination h2#editQuery, #cboxContent .pagination h2#editQuery, #main .action_box h3#editQuery, #cboxContent .action_box #main h3#editQuery, #main #cboxContent .action_box h3#editQuery, #main .pagination h3#editQuery, #cboxContent .pagination #main h3#editQuery, #main #cboxContent .pagination h3#editQuery, #main .action_box #cboxContent h3#editQuery, #cboxContent #main .action_box h3#editQuery, #cboxContent .action_box h3#editQuery, #main .pagination #cboxContent h3#editQuery, #cboxContent #main .pagination h3#editQuery, #cboxContent .pagination h3#editQuery, #main .action_box h4#editQuery, #cboxContent .action_box #main h4#editQuery, #main #cboxContent .action_box h4#editQuery, #main .pagination h4#editQuery, #cboxContent .pagination #main h4#editQuery, #main #cboxContent .pagination h4#editQuery, #main .action_box #cboxContent h4#editQuery, #cboxContent #main .action_box h4#editQuery, #cboxContent .action_box h4#editQuery, #main .pagination #cboxContent h4#editQuery, #cboxContent #main .pagination h4#editQuery, #cboxContent .pagination h4#editQuery, #main .action_box h5#editQuery, #cboxContent .action_box #main h5#editQuery, #main #cboxContent .action_box h5#editQuery, #main .pagination h5#editQuery, #cboxContent .pagination #main h5#editQuery, #main #cboxContent .pagination h5#editQuery, #main .action_box #cboxContent h5#editQuery, #cboxContent #main .action_box h5#editQuery, #cboxContent .action_box h5#editQuery, #main .pagination #cboxContent h5#editQuery, #cboxContent #main .pagination h5#editQuery, #cboxContent .pagination h5#editQuery,
+#main .action_box h2#editQuery,
+#cboxContent .action_box h2#editQuery,
+#main .pagination h2#editQuery,
+#cboxContent .pagination h2#editQuery,
+#main .action_box h3#editQuery,
+#cboxContent .action_box h3#editQuery,
+#main .pagination h3#editQuery,
+#cboxContent .pagination h3#editQuery,
+#main .action_box h4#editQuery,
+#cboxContent .action_box h4#editQuery,
+#main .pagination h4#editQuery,
+#cboxContent .pagination h4#editQuery,
+#main .action_box h5#editQuery,
+#cboxContent .action_box h5#editQuery,
+#main .pagination h5#editQuery,
+#cboxContent .pagination h5#editQuery,
+#main .action_box h6#editQuery,
+#cboxContent .action_box h6#editQuery,
+#main .pagination h6#editQuery,
+#cboxContent .pagination h6#editQuery,
+#main .action_box h1.txt,
+#cboxContent .action_box h1.txt,
+#main .pagination h1.txt,
+#cboxContent .pagination h1.txt,
+#main .action_box h2.txt,
+#cboxContent .action_box #main h2.txt,
+#main #cboxContent .action_box h2.txt,
+#main .pagination h2.txt,
+#cboxContent .pagination #main h2.txt,
+#main #cboxContent .pagination h2.txt,
+#main .action_box #cboxContent h2.txt,
+#cboxContent #main .action_box h2.txt,
+#cboxContent .action_box h2.txt,
+#main .pagination #cboxContent h2.txt,
+#cboxContent #main .pagination h2.txt,
+#cboxContent .pagination h2.txt,
+#main .action_box h3.txt,
+#cboxContent .action_box #main h3.txt,
+#main #cboxContent .action_box h3.txt,
+#main .pagination h3.txt,
+#cboxContent .pagination #main h3.txt,
+#main #cboxContent .pagination h3.txt,
+#main .action_box #cboxContent h3.txt,
+#cboxContent #main .action_box h3.txt,
+#cboxContent .action_box h3.txt,
+#main .pagination #cboxContent h3.txt,
+#cboxContent #main .pagination h3.txt,
+#cboxContent .pagination h3.txt,
+#main .action_box h4.txt,
+#cboxContent .action_box #main h4.txt,
+#main #cboxContent .action_box h4.txt,
+#main .pagination h4.txt,
+#cboxContent .pagination #main h4.txt,
+#main #cboxContent .pagination h4.txt,
+#main .action_box #cboxContent h4.txt,
+#cboxContent #main .action_box h4.txt,
+#cboxContent .action_box h4.txt,
+#main .pagination #cboxContent h4.txt,
+#cboxContent #main .pagination h4.txt,
+#cboxContent .pagination h4.txt,
+#main .action_box h5.txt,
+#cboxContent .action_box #main h5.txt,
+#main #cboxContent .action_box h5.txt,
+#main .pagination h5.txt,
+#cboxContent .pagination #main h5.txt,
+#main #cboxContent .pagination h5.txt,
+#main .action_box #cboxContent h5.txt,
+#cboxContent #main .action_box h5.txt,
+#cboxContent .action_box h5.txt,
+#main .pagination #cboxContent h5.txt,
+#cboxContent #main .pagination h5.txt,
+#cboxContent .pagination h5.txt,
 #main .action_box h2.txt,
 #cboxContent .action_box h2.txt,
 #main .pagination h2.txt,
@@ -841,8 +913,80 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 22, ../sass/_action_box.scss */
-#main .action_box h1.txt:hover, #cboxContent .action_box h1.txt:hover, #main .pagination h1.txt:hover, #cboxContent .pagination h1.txt:hover, #main .action_box h2.txt:hover, #cboxContent .action_box #main h2.txt:hover, #main #cboxContent .action_box h2.txt:hover, #main .pagination h2.txt:hover, #cboxContent .pagination #main h2.txt:hover, #main #cboxContent .pagination h2.txt:hover, #main .action_box #cboxContent h2.txt:hover, #cboxContent #main .action_box h2.txt:hover, #cboxContent .action_box h2.txt:hover, #main .pagination #cboxContent h2.txt:hover, #cboxContent #main .pagination h2.txt:hover, #cboxContent .pagination h2.txt:hover, #main .action_box h3.txt:hover, #cboxContent .action_box #main h3.txt:hover, #main #cboxContent .action_box h3.txt:hover, #main .pagination h3.txt:hover, #cboxContent .pagination #main h3.txt:hover, #main #cboxContent .pagination h3.txt:hover, #main .action_box #cboxContent h3.txt:hover, #cboxContent #main .action_box h3.txt:hover, #cboxContent .action_box h3.txt:hover, #main .pagination #cboxContent h3.txt:hover, #cboxContent #main .pagination h3.txt:hover, #cboxContent .pagination h3.txt:hover, #main .action_box h4.txt:hover, #cboxContent .action_box #main h4.txt:hover, #main #cboxContent .action_box h4.txt:hover, #main .pagination h4.txt:hover, #cboxContent .pagination #main h4.txt:hover, #main #cboxContent .pagination h4.txt:hover, #main .action_box #cboxContent h4.txt:hover, #cboxContent #main .action_box h4.txt:hover, #cboxContent .action_box h4.txt:hover, #main .pagination #cboxContent h4.txt:hover, #cboxContent #main .pagination h4.txt:hover, #cboxContent .pagination h4.txt:hover, #main .action_box h5.txt:hover, #cboxContent .action_box #main h5.txt:hover, #main #cboxContent .action_box h5.txt:hover, #main .pagination h5.txt:hover, #cboxContent .pagination #main h5.txt:hover, #main #cboxContent .pagination h5.txt:hover, #main .action_box #cboxContent h5.txt:hover, #cboxContent #main .action_box h5.txt:hover, #cboxContent .action_box h5.txt:hover, #main .pagination #cboxContent h5.txt:hover, #cboxContent #main .pagination h5.txt:hover, #cboxContent .pagination h5.txt:hover,
+/* line 28, ../sass/_action_box.scss */
+#main .action_box h1#editQuery:hover, #cboxContent .action_box h1#editQuery:hover, #main .pagination h1#editQuery:hover, #cboxContent .pagination h1#editQuery:hover, #main .action_box h2#editQuery:hover, #cboxContent .action_box #main h2#editQuery:hover, #main #cboxContent .action_box h2#editQuery:hover, #main .pagination h2#editQuery:hover, #cboxContent .pagination #main h2#editQuery:hover, #main #cboxContent .pagination h2#editQuery:hover, #main .action_box #cboxContent h2#editQuery:hover, #cboxContent #main .action_box h2#editQuery:hover, #cboxContent .action_box h2#editQuery:hover, #main .pagination #cboxContent h2#editQuery:hover, #cboxContent #main .pagination h2#editQuery:hover, #cboxContent .pagination h2#editQuery:hover, #main .action_box h3#editQuery:hover, #cboxContent .action_box #main h3#editQuery:hover, #main #cboxContent .action_box h3#editQuery:hover, #main .pagination h3#editQuery:hover, #cboxContent .pagination #main h3#editQuery:hover, #main #cboxContent .pagination h3#editQuery:hover, #main .action_box #cboxContent h3#editQuery:hover, #cboxContent #main .action_box h3#editQuery:hover, #cboxContent .action_box h3#editQuery:hover, #main .pagination #cboxContent h3#editQuery:hover, #cboxContent #main .pagination h3#editQuery:hover, #cboxContent .pagination h3#editQuery:hover, #main .action_box h4#editQuery:hover, #cboxContent .action_box #main h4#editQuery:hover, #main #cboxContent .action_box h4#editQuery:hover, #main .pagination h4#editQuery:hover, #cboxContent .pagination #main h4#editQuery:hover, #main #cboxContent .pagination h4#editQuery:hover, #main .action_box #cboxContent h4#editQuery:hover, #cboxContent #main .action_box h4#editQuery:hover, #cboxContent .action_box h4#editQuery:hover, #main .pagination #cboxContent h4#editQuery:hover, #cboxContent #main .pagination h4#editQuery:hover, #cboxContent .pagination h4#editQuery:hover, #main .action_box h5#editQuery:hover, #cboxContent .action_box #main h5#editQuery:hover, #main #cboxContent .action_box h5#editQuery:hover, #main .pagination h5#editQuery:hover, #cboxContent .pagination #main h5#editQuery:hover, #main #cboxContent .pagination h5#editQuery:hover, #main .action_box #cboxContent h5#editQuery:hover, #cboxContent #main .action_box h5#editQuery:hover, #cboxContent .action_box h5#editQuery:hover, #main .pagination #cboxContent h5#editQuery:hover, #cboxContent #main .pagination h5#editQuery:hover, #cboxContent .pagination h5#editQuery:hover,
+#main .action_box h2#editQuery:hover,
+#cboxContent .action_box h2#editQuery:hover,
+#main .pagination h2#editQuery:hover,
+#cboxContent .pagination h2#editQuery:hover,
+#main .action_box h3#editQuery:hover,
+#cboxContent .action_box h3#editQuery:hover,
+#main .pagination h3#editQuery:hover,
+#cboxContent .pagination h3#editQuery:hover,
+#main .action_box h4#editQuery:hover,
+#cboxContent .action_box h4#editQuery:hover,
+#main .pagination h4#editQuery:hover,
+#cboxContent .pagination h4#editQuery:hover,
+#main .action_box h5#editQuery:hover,
+#cboxContent .action_box h5#editQuery:hover,
+#main .pagination h5#editQuery:hover,
+#cboxContent .pagination h5#editQuery:hover,
+#main .action_box h6#editQuery:hover,
+#cboxContent .action_box h6#editQuery:hover,
+#main .pagination h6#editQuery:hover,
+#cboxContent .pagination h6#editQuery:hover,
+#main .action_box h1.txt:hover,
+#cboxContent .action_box h1.txt:hover,
+#main .pagination h1.txt:hover,
+#cboxContent .pagination h1.txt:hover,
+#main .action_box h2.txt:hover,
+#cboxContent .action_box #main h2.txt:hover,
+#main #cboxContent .action_box h2.txt:hover,
+#main .pagination h2.txt:hover,
+#cboxContent .pagination #main h2.txt:hover,
+#main #cboxContent .pagination h2.txt:hover,
+#main .action_box #cboxContent h2.txt:hover,
+#cboxContent #main .action_box h2.txt:hover,
+#cboxContent .action_box h2.txt:hover,
+#main .pagination #cboxContent h2.txt:hover,
+#cboxContent #main .pagination h2.txt:hover,
+#cboxContent .pagination h2.txt:hover,
+#main .action_box h3.txt:hover,
+#cboxContent .action_box #main h3.txt:hover,
+#main #cboxContent .action_box h3.txt:hover,
+#main .pagination h3.txt:hover,
+#cboxContent .pagination #main h3.txt:hover,
+#main #cboxContent .pagination h3.txt:hover,
+#main .action_box #cboxContent h3.txt:hover,
+#cboxContent #main .action_box h3.txt:hover,
+#cboxContent .action_box h3.txt:hover,
+#main .pagination #cboxContent h3.txt:hover,
+#cboxContent #main .pagination h3.txt:hover,
+#cboxContent .pagination h3.txt:hover,
+#main .action_box h4.txt:hover,
+#cboxContent .action_box #main h4.txt:hover,
+#main #cboxContent .action_box h4.txt:hover,
+#main .pagination h4.txt:hover,
+#cboxContent .pagination #main h4.txt:hover,
+#main #cboxContent .pagination h4.txt:hover,
+#main .action_box #cboxContent h4.txt:hover,
+#cboxContent #main .action_box h4.txt:hover,
+#cboxContent .action_box h4.txt:hover,
+#main .pagination #cboxContent h4.txt:hover,
+#cboxContent #main .pagination h4.txt:hover,
+#cboxContent .pagination h4.txt:hover,
+#main .action_box h5.txt:hover,
+#cboxContent .action_box #main h5.txt:hover,
+#main #cboxContent .action_box h5.txt:hover,
+#main .pagination h5.txt:hover,
+#cboxContent .pagination #main h5.txt:hover,
+#main #cboxContent .pagination h5.txt:hover,
+#main .action_box #cboxContent h5.txt:hover,
+#cboxContent #main .action_box h5.txt:hover,
+#cboxContent .action_box h5.txt:hover,
+#main .pagination #cboxContent h5.txt:hover,
+#cboxContent #main .pagination h5.txt:hover,
+#cboxContent .pagination h5.txt:hover,
 #main .action_box h2.txt:hover,
 #cboxContent .action_box h2.txt:hover,
 #main .pagination h2.txt:hover,
@@ -865,8 +1009,80 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 #cboxContent .pagination h6.txt:hover {
   background-color: #e6e6e6;
 }
-/* line 25, ../sass/_action_box.scss */
-#main .action_box h1.txt.content_hide, #cboxContent .action_box h1.txt.content_hide, #main .pagination h1.txt.content_hide, #cboxContent .pagination h1.txt.content_hide, #main .action_box h2.txt.content_hide, #cboxContent .action_box #main h2.txt.content_hide, #main #cboxContent .action_box h2.txt.content_hide, #main .pagination h2.txt.content_hide, #cboxContent .pagination #main h2.txt.content_hide, #main #cboxContent .pagination h2.txt.content_hide, #main .action_box #cboxContent h2.txt.content_hide, #cboxContent #main .action_box h2.txt.content_hide, #cboxContent .action_box h2.txt.content_hide, #main .pagination #cboxContent h2.txt.content_hide, #cboxContent #main .pagination h2.txt.content_hide, #cboxContent .pagination h2.txt.content_hide, #main .action_box h3.txt.content_hide, #cboxContent .action_box #main h3.txt.content_hide, #main #cboxContent .action_box h3.txt.content_hide, #main .pagination h3.txt.content_hide, #cboxContent .pagination #main h3.txt.content_hide, #main #cboxContent .pagination h3.txt.content_hide, #main .action_box #cboxContent h3.txt.content_hide, #cboxContent #main .action_box h3.txt.content_hide, #cboxContent .action_box h3.txt.content_hide, #main .pagination #cboxContent h3.txt.content_hide, #cboxContent #main .pagination h3.txt.content_hide, #cboxContent .pagination h3.txt.content_hide, #main .action_box h4.txt.content_hide, #cboxContent .action_box #main h4.txt.content_hide, #main #cboxContent .action_box h4.txt.content_hide, #main .pagination h4.txt.content_hide, #cboxContent .pagination #main h4.txt.content_hide, #main #cboxContent .pagination h4.txt.content_hide, #main .action_box #cboxContent h4.txt.content_hide, #cboxContent #main .action_box h4.txt.content_hide, #cboxContent .action_box h4.txt.content_hide, #main .pagination #cboxContent h4.txt.content_hide, #cboxContent #main .pagination h4.txt.content_hide, #cboxContent .pagination h4.txt.content_hide, #main .action_box h5.txt.content_hide, #cboxContent .action_box #main h5.txt.content_hide, #main #cboxContent .action_box h5.txt.content_hide, #main .pagination h5.txt.content_hide, #cboxContent .pagination #main h5.txt.content_hide, #main #cboxContent .pagination h5.txt.content_hide, #main .action_box #cboxContent h5.txt.content_hide, #cboxContent #main .action_box h5.txt.content_hide, #cboxContent .action_box h5.txt.content_hide, #main .pagination #cboxContent h5.txt.content_hide, #cboxContent #main .pagination h5.txt.content_hide, #cboxContent .pagination h5.txt.content_hide,
+/* line 31, ../sass/_action_box.scss */
+#main .action_box h1#editQuery.content_hide, #cboxContent .action_box h1#editQuery.content_hide, #main .pagination h1#editQuery.content_hide, #cboxContent .pagination h1#editQuery.content_hide, #main .action_box h2#editQuery.content_hide, #cboxContent .action_box #main h2#editQuery.content_hide, #main #cboxContent .action_box h2#editQuery.content_hide, #main .pagination h2#editQuery.content_hide, #cboxContent .pagination #main h2#editQuery.content_hide, #main #cboxContent .pagination h2#editQuery.content_hide, #main .action_box #cboxContent h2#editQuery.content_hide, #cboxContent #main .action_box h2#editQuery.content_hide, #cboxContent .action_box h2#editQuery.content_hide, #main .pagination #cboxContent h2#editQuery.content_hide, #cboxContent #main .pagination h2#editQuery.content_hide, #cboxContent .pagination h2#editQuery.content_hide, #main .action_box h3#editQuery.content_hide, #cboxContent .action_box #main h3#editQuery.content_hide, #main #cboxContent .action_box h3#editQuery.content_hide, #main .pagination h3#editQuery.content_hide, #cboxContent .pagination #main h3#editQuery.content_hide, #main #cboxContent .pagination h3#editQuery.content_hide, #main .action_box #cboxContent h3#editQuery.content_hide, #cboxContent #main .action_box h3#editQuery.content_hide, #cboxContent .action_box h3#editQuery.content_hide, #main .pagination #cboxContent h3#editQuery.content_hide, #cboxContent #main .pagination h3#editQuery.content_hide, #cboxContent .pagination h3#editQuery.content_hide, #main .action_box h4#editQuery.content_hide, #cboxContent .action_box #main h4#editQuery.content_hide, #main #cboxContent .action_box h4#editQuery.content_hide, #main .pagination h4#editQuery.content_hide, #cboxContent .pagination #main h4#editQuery.content_hide, #main #cboxContent .pagination h4#editQuery.content_hide, #main .action_box #cboxContent h4#editQuery.content_hide, #cboxContent #main .action_box h4#editQuery.content_hide, #cboxContent .action_box h4#editQuery.content_hide, #main .pagination #cboxContent h4#editQuery.content_hide, #cboxContent #main .pagination h4#editQuery.content_hide, #cboxContent .pagination h4#editQuery.content_hide, #main .action_box h5#editQuery.content_hide, #cboxContent .action_box #main h5#editQuery.content_hide, #main #cboxContent .action_box h5#editQuery.content_hide, #main .pagination h5#editQuery.content_hide, #cboxContent .pagination #main h5#editQuery.content_hide, #main #cboxContent .pagination h5#editQuery.content_hide, #main .action_box #cboxContent h5#editQuery.content_hide, #cboxContent #main .action_box h5#editQuery.content_hide, #cboxContent .action_box h5#editQuery.content_hide, #main .pagination #cboxContent h5#editQuery.content_hide, #cboxContent #main .pagination h5#editQuery.content_hide, #cboxContent .pagination h5#editQuery.content_hide,
+#main .action_box h2#editQuery.content_hide,
+#cboxContent .action_box h2#editQuery.content_hide,
+#main .pagination h2#editQuery.content_hide,
+#cboxContent .pagination h2#editQuery.content_hide,
+#main .action_box h3#editQuery.content_hide,
+#cboxContent .action_box h3#editQuery.content_hide,
+#main .pagination h3#editQuery.content_hide,
+#cboxContent .pagination h3#editQuery.content_hide,
+#main .action_box h4#editQuery.content_hide,
+#cboxContent .action_box h4#editQuery.content_hide,
+#main .pagination h4#editQuery.content_hide,
+#cboxContent .pagination h4#editQuery.content_hide,
+#main .action_box h5#editQuery.content_hide,
+#cboxContent .action_box h5#editQuery.content_hide,
+#main .pagination h5#editQuery.content_hide,
+#cboxContent .pagination h5#editQuery.content_hide,
+#main .action_box h6#editQuery.content_hide,
+#cboxContent .action_box h6#editQuery.content_hide,
+#main .pagination h6#editQuery.content_hide,
+#cboxContent .pagination h6#editQuery.content_hide,
+#main .action_box h1.txt.content_hide,
+#cboxContent .action_box h1.txt.content_hide,
+#main .pagination h1.txt.content_hide,
+#cboxContent .pagination h1.txt.content_hide,
+#main .action_box h2.txt.content_hide,
+#cboxContent .action_box #main h2.txt.content_hide,
+#main #cboxContent .action_box h2.txt.content_hide,
+#main .pagination h2.txt.content_hide,
+#cboxContent .pagination #main h2.txt.content_hide,
+#main #cboxContent .pagination h2.txt.content_hide,
+#main .action_box #cboxContent h2.txt.content_hide,
+#cboxContent #main .action_box h2.txt.content_hide,
+#cboxContent .action_box h2.txt.content_hide,
+#main .pagination #cboxContent h2.txt.content_hide,
+#cboxContent #main .pagination h2.txt.content_hide,
+#cboxContent .pagination h2.txt.content_hide,
+#main .action_box h3.txt.content_hide,
+#cboxContent .action_box #main h3.txt.content_hide,
+#main #cboxContent .action_box h3.txt.content_hide,
+#main .pagination h3.txt.content_hide,
+#cboxContent .pagination #main h3.txt.content_hide,
+#main #cboxContent .pagination h3.txt.content_hide,
+#main .action_box #cboxContent h3.txt.content_hide,
+#cboxContent #main .action_box h3.txt.content_hide,
+#cboxContent .action_box h3.txt.content_hide,
+#main .pagination #cboxContent h3.txt.content_hide,
+#cboxContent #main .pagination h3.txt.content_hide,
+#cboxContent .pagination h3.txt.content_hide,
+#main .action_box h4.txt.content_hide,
+#cboxContent .action_box #main h4.txt.content_hide,
+#main #cboxContent .action_box h4.txt.content_hide,
+#main .pagination h4.txt.content_hide,
+#cboxContent .pagination #main h4.txt.content_hide,
+#main #cboxContent .pagination h4.txt.content_hide,
+#main .action_box #cboxContent h4.txt.content_hide,
+#cboxContent #main .action_box h4.txt.content_hide,
+#cboxContent .action_box h4.txt.content_hide,
+#main .pagination #cboxContent h4.txt.content_hide,
+#cboxContent #main .pagination h4.txt.content_hide,
+#cboxContent .pagination h4.txt.content_hide,
+#main .action_box h5.txt.content_hide,
+#cboxContent .action_box #main h5.txt.content_hide,
+#main #cboxContent .action_box h5.txt.content_hide,
+#main .pagination h5.txt.content_hide,
+#cboxContent .pagination #main h5.txt.content_hide,
+#main #cboxContent .pagination h5.txt.content_hide,
+#main .action_box #cboxContent h5.txt.content_hide,
+#cboxContent #main .action_box h5.txt.content_hide,
+#cboxContent .action_box h5.txt.content_hide,
+#main .pagination #cboxContent h5.txt.content_hide,
+#cboxContent #main .pagination h5.txt.content_hide,
+#cboxContent .pagination h5.txt.content_hide,
 #main .action_box h2.txt.content_hide,
 #cboxContent .action_box h2.txt.content_hide,
 #main .pagination h2.txt.content_hide,
@@ -889,8 +1105,80 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 #cboxContent .pagination h6.txt.content_hide {
   background-position: left -62px;
 }
-/* line 27, ../sass/_action_box.scss */
-#main .action_box h1.txt.content_hide.last, #cboxContent .action_box h1.txt.content_hide.last, #main .pagination h1.txt.content_hide.last, #cboxContent .pagination h1.txt.content_hide.last, #main .action_box h2.txt.content_hide.last, #cboxContent .action_box #main h2.txt.content_hide.last, #main #cboxContent .action_box h2.txt.content_hide.last, #main .pagination h2.txt.content_hide.last, #cboxContent .pagination #main h2.txt.content_hide.last, #main #cboxContent .pagination h2.txt.content_hide.last, #main .action_box #cboxContent h2.txt.content_hide.last, #cboxContent #main .action_box h2.txt.content_hide.last, #cboxContent .action_box h2.txt.content_hide.last, #main .pagination #cboxContent h2.txt.content_hide.last, #cboxContent #main .pagination h2.txt.content_hide.last, #cboxContent .pagination h2.txt.content_hide.last, #main .action_box h3.txt.content_hide.last, #cboxContent .action_box #main h3.txt.content_hide.last, #main #cboxContent .action_box h3.txt.content_hide.last, #main .pagination h3.txt.content_hide.last, #cboxContent .pagination #main h3.txt.content_hide.last, #main #cboxContent .pagination h3.txt.content_hide.last, #main .action_box #cboxContent h3.txt.content_hide.last, #cboxContent #main .action_box h3.txt.content_hide.last, #cboxContent .action_box h3.txt.content_hide.last, #main .pagination #cboxContent h3.txt.content_hide.last, #cboxContent #main .pagination h3.txt.content_hide.last, #cboxContent .pagination h3.txt.content_hide.last, #main .action_box h4.txt.content_hide.last, #cboxContent .action_box #main h4.txt.content_hide.last, #main #cboxContent .action_box h4.txt.content_hide.last, #main .pagination h4.txt.content_hide.last, #cboxContent .pagination #main h4.txt.content_hide.last, #main #cboxContent .pagination h4.txt.content_hide.last, #main .action_box #cboxContent h4.txt.content_hide.last, #cboxContent #main .action_box h4.txt.content_hide.last, #cboxContent .action_box h4.txt.content_hide.last, #main .pagination #cboxContent h4.txt.content_hide.last, #cboxContent #main .pagination h4.txt.content_hide.last, #cboxContent .pagination h4.txt.content_hide.last, #main .action_box h5.txt.content_hide.last, #cboxContent .action_box #main h5.txt.content_hide.last, #main #cboxContent .action_box h5.txt.content_hide.last, #main .pagination h5.txt.content_hide.last, #cboxContent .pagination #main h5.txt.content_hide.last, #main #cboxContent .pagination h5.txt.content_hide.last, #main .action_box #cboxContent h5.txt.content_hide.last, #cboxContent #main .action_box h5.txt.content_hide.last, #cboxContent .action_box h5.txt.content_hide.last, #main .pagination #cboxContent h5.txt.content_hide.last, #cboxContent #main .pagination h5.txt.content_hide.last, #cboxContent .pagination h5.txt.content_hide.last,
+/* line 33, ../sass/_action_box.scss */
+#main .action_box h1#editQuery.content_hide.last, #cboxContent .action_box h1#editQuery.content_hide.last, #main .pagination h1#editQuery.content_hide.last, #cboxContent .pagination h1#editQuery.content_hide.last, #main .action_box h2#editQuery.content_hide.last, #cboxContent .action_box #main h2#editQuery.content_hide.last, #main #cboxContent .action_box h2#editQuery.content_hide.last, #main .pagination h2#editQuery.content_hide.last, #cboxContent .pagination #main h2#editQuery.content_hide.last, #main #cboxContent .pagination h2#editQuery.content_hide.last, #main .action_box #cboxContent h2#editQuery.content_hide.last, #cboxContent #main .action_box h2#editQuery.content_hide.last, #cboxContent .action_box h2#editQuery.content_hide.last, #main .pagination #cboxContent h2#editQuery.content_hide.last, #cboxContent #main .pagination h2#editQuery.content_hide.last, #cboxContent .pagination h2#editQuery.content_hide.last, #main .action_box h3#editQuery.content_hide.last, #cboxContent .action_box #main h3#editQuery.content_hide.last, #main #cboxContent .action_box h3#editQuery.content_hide.last, #main .pagination h3#editQuery.content_hide.last, #cboxContent .pagination #main h3#editQuery.content_hide.last, #main #cboxContent .pagination h3#editQuery.content_hide.last, #main .action_box #cboxContent h3#editQuery.content_hide.last, #cboxContent #main .action_box h3#editQuery.content_hide.last, #cboxContent .action_box h3#editQuery.content_hide.last, #main .pagination #cboxContent h3#editQuery.content_hide.last, #cboxContent #main .pagination h3#editQuery.content_hide.last, #cboxContent .pagination h3#editQuery.content_hide.last, #main .action_box h4#editQuery.content_hide.last, #cboxContent .action_box #main h4#editQuery.content_hide.last, #main #cboxContent .action_box h4#editQuery.content_hide.last, #main .pagination h4#editQuery.content_hide.last, #cboxContent .pagination #main h4#editQuery.content_hide.last, #main #cboxContent .pagination h4#editQuery.content_hide.last, #main .action_box #cboxContent h4#editQuery.content_hide.last, #cboxContent #main .action_box h4#editQuery.content_hide.last, #cboxContent .action_box h4#editQuery.content_hide.last, #main .pagination #cboxContent h4#editQuery.content_hide.last, #cboxContent #main .pagination h4#editQuery.content_hide.last, #cboxContent .pagination h4#editQuery.content_hide.last, #main .action_box h5#editQuery.content_hide.last, #cboxContent .action_box #main h5#editQuery.content_hide.last, #main #cboxContent .action_box h5#editQuery.content_hide.last, #main .pagination h5#editQuery.content_hide.last, #cboxContent .pagination #main h5#editQuery.content_hide.last, #main #cboxContent .pagination h5#editQuery.content_hide.last, #main .action_box #cboxContent h5#editQuery.content_hide.last, #cboxContent #main .action_box h5#editQuery.content_hide.last, #cboxContent .action_box h5#editQuery.content_hide.last, #main .pagination #cboxContent h5#editQuery.content_hide.last, #cboxContent #main .pagination h5#editQuery.content_hide.last, #cboxContent .pagination h5#editQuery.content_hide.last,
+#main .action_box h2#editQuery.content_hide.last,
+#cboxContent .action_box h2#editQuery.content_hide.last,
+#main .pagination h2#editQuery.content_hide.last,
+#cboxContent .pagination h2#editQuery.content_hide.last,
+#main .action_box h3#editQuery.content_hide.last,
+#cboxContent .action_box h3#editQuery.content_hide.last,
+#main .pagination h3#editQuery.content_hide.last,
+#cboxContent .pagination h3#editQuery.content_hide.last,
+#main .action_box h4#editQuery.content_hide.last,
+#cboxContent .action_box h4#editQuery.content_hide.last,
+#main .pagination h4#editQuery.content_hide.last,
+#cboxContent .pagination h4#editQuery.content_hide.last,
+#main .action_box h5#editQuery.content_hide.last,
+#cboxContent .action_box h5#editQuery.content_hide.last,
+#main .pagination h5#editQuery.content_hide.last,
+#cboxContent .pagination h5#editQuery.content_hide.last,
+#main .action_box h6#editQuery.content_hide.last,
+#cboxContent .action_box h6#editQuery.content_hide.last,
+#main .pagination h6#editQuery.content_hide.last,
+#cboxContent .pagination h6#editQuery.content_hide.last,
+#main .action_box h1.txt.content_hide.last,
+#cboxContent .action_box h1.txt.content_hide.last,
+#main .pagination h1.txt.content_hide.last,
+#cboxContent .pagination h1.txt.content_hide.last,
+#main .action_box h2.txt.content_hide.last,
+#cboxContent .action_box #main h2.txt.content_hide.last,
+#main #cboxContent .action_box h2.txt.content_hide.last,
+#main .pagination h2.txt.content_hide.last,
+#cboxContent .pagination #main h2.txt.content_hide.last,
+#main #cboxContent .pagination h2.txt.content_hide.last,
+#main .action_box #cboxContent h2.txt.content_hide.last,
+#cboxContent #main .action_box h2.txt.content_hide.last,
+#cboxContent .action_box h2.txt.content_hide.last,
+#main .pagination #cboxContent h2.txt.content_hide.last,
+#cboxContent #main .pagination h2.txt.content_hide.last,
+#cboxContent .pagination h2.txt.content_hide.last,
+#main .action_box h3.txt.content_hide.last,
+#cboxContent .action_box #main h3.txt.content_hide.last,
+#main #cboxContent .action_box h3.txt.content_hide.last,
+#main .pagination h3.txt.content_hide.last,
+#cboxContent .pagination #main h3.txt.content_hide.last,
+#main #cboxContent .pagination h3.txt.content_hide.last,
+#main .action_box #cboxContent h3.txt.content_hide.last,
+#cboxContent #main .action_box h3.txt.content_hide.last,
+#cboxContent .action_box h3.txt.content_hide.last,
+#main .pagination #cboxContent h3.txt.content_hide.last,
+#cboxContent #main .pagination h3.txt.content_hide.last,
+#cboxContent .pagination h3.txt.content_hide.last,
+#main .action_box h4.txt.content_hide.last,
+#cboxContent .action_box #main h4.txt.content_hide.last,
+#main #cboxContent .action_box h4.txt.content_hide.last,
+#main .pagination h4.txt.content_hide.last,
+#cboxContent .pagination #main h4.txt.content_hide.last,
+#main #cboxContent .pagination h4.txt.content_hide.last,
+#main .action_box #cboxContent h4.txt.content_hide.last,
+#cboxContent #main .action_box h4.txt.content_hide.last,
+#cboxContent .action_box h4.txt.content_hide.last,
+#main .pagination #cboxContent h4.txt.content_hide.last,
+#cboxContent #main .pagination h4.txt.content_hide.last,
+#cboxContent .pagination h4.txt.content_hide.last,
+#main .action_box h5.txt.content_hide.last,
+#cboxContent .action_box #main h5.txt.content_hide.last,
+#main #cboxContent .action_box h5.txt.content_hide.last,
+#main .pagination h5.txt.content_hide.last,
+#cboxContent .pagination #main h5.txt.content_hide.last,
+#main #cboxContent .pagination h5.txt.content_hide.last,
+#main .action_box #cboxContent h5.txt.content_hide.last,
+#cboxContent #main .action_box h5.txt.content_hide.last,
+#cboxContent .action_box h5.txt.content_hide.last,
+#main .pagination #cboxContent h5.txt.content_hide.last,
+#cboxContent #main .pagination h5.txt.content_hide.last,
+#cboxContent .pagination h5.txt.content_hide.last,
 #main .action_box h2.txt.content_hide.last,
 #cboxContent .action_box h2.txt.content_hide.last,
 #main .pagination h2.txt.content_hide.last,
@@ -913,32 +1201,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 #cboxContent .pagination h6.txt.content_hide.last {
   border-bottom: none;
 }
-/* line 32, ../sass/_action_box.scss */
+/* line 38, ../sass/_action_box.scss */
 #main .action_box .collapsible, #cboxContent .action_box .collapsible, #main .pagination .collapsible, #cboxContent .pagination .collapsible {
   border-bottom: 1px dotted #cccccc;
   padding: 1em;
   margin-bottom: 1em;
 }
-/* line 36, ../sass/_action_box.scss */
+/* line 42, ../sass/_action_box.scss */
 #main .action_box .collapsible.last, #cboxContent .action_box .collapsible.last, #main .pagination .collapsible.last, #cboxContent .pagination .collapsible.last {
   border-bottom: none;
 }
-/* line 40, ../sass/_action_box.scss */
+/* line 46, ../sass/_action_box.scss */
 #main .action_box .photo, #cboxContent .action_box .photo, #main .pagination .photo, #cboxContent .pagination .photo {
   float: left;
 }
-/* line 44, ../sass/_action_box.scss */
+/* line 50, ../sass/_action_box.scss */
 #main .action_box.data .photo, #cboxContent .action_box.data .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo {
   margin-top: 2em;
   float: left;
   width: 20%;
   position: relative;
 }
-/* line 49, ../sass/_action_box.scss */
+/* line 55, ../sass/_action_box.scss */
 #main .action_box.data .photo img, #cboxContent .action_box.data .photo img, #main .data.pagination .photo img, #cboxContent .data.pagination .photo img {
   width: 100%;
 }
-/* line 52, ../sass/_action_box.scss */
+/* line 58, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable, #cboxContent .action_box.data .photo .desplegable, #main .data.pagination .photo .desplegable, #cboxContent .data.pagination .photo .desplegable {
   padding: .5em;
   -o-border-radius: 4px;
@@ -947,7 +1235,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 4px;
   margin-top: 1em;
 }
-/* line 56, ../sass/_action_box.scss */
+/* line 62, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable .txt, #cboxContent .action_box.data .photo .desplegable .txt, #main .data.pagination .photo .desplegable .txt, #cboxContent .data.pagination .photo .desplegable .txt {
   cursor: pointer;
   float: none;
@@ -956,43 +1244,43 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   color: white;
   border: 2px solid #b3b3b3;
 }
-/* line 57, ../sass/_action_box.scss */
+/* line 63, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable .txt.content_hide, #cboxContent .action_box.data .photo .desplegable .txt.content_hide, #main .data.pagination .photo .desplegable .txt.content_hide, #cboxContent .data.pagination .photo .desplegable .txt.content_hide {
   background: url("../images/icons/icon_collapsible.png") no-repeat gray left top;
 }
-/* line 67, ../sass/_action_box.scss */
+/* line 73, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl, #cboxContent .action_box.data .photo .desplegable dl, #main .data.pagination .photo .desplegable dl, #cboxContent .data.pagination .photo .desplegable dl {
   margin-top: 1em;
   padding: 1em;
   background: white;
   overflow: hidden;
 }
-/* line 72, ../sass/_action_box.scss */
+/* line 78, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl dt, #cboxContent .action_box.data .photo .desplegable dl dt, #main .data.pagination .photo .desplegable dl dt, #cboxContent .data.pagination .photo .desplegable dl dt {
   font-weight: bold;
 }
-/* line 75, ../sass/_action_box.scss */
+/* line 81, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl dd, #cboxContent .action_box.data .photo .desplegable dl dd, #main .data.pagination .photo .desplegable dl dd, #cboxContent .data.pagination .photo .desplegable dl dd {
   border-bottom: 1px solid #cccccc;
   padding: 0.5em 0;
   margin-bottom: .5em;
 }
-/* line 79, ../sass/_action_box.scss */
+/* line 85, ../sass/_action_box.scss */
 #main .action_box.data .photo .desplegable dl dd:last-child, #cboxContent .action_box.data .photo .desplegable dl dd:last-child, #main .data.pagination .photo .desplegable dl dd:last-child, #cboxContent .data.pagination .photo .desplegable dl dd:last-child {
   border: none;
 }
-/* line 86, ../sass/_action_box.scss */
+/* line 92, ../sass/_action_box.scss */
 #main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
   margin-top: 2em;
   float: right;
   width: 75%;
 }
-/* line 90, ../sass/_action_box.scss */
+/* line 96, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul, #cboxContent .action_box.data .ul_data > ul, #main .data.pagination .ul_data > ul, #cboxContent .data.pagination .ul_data > ul {
   overflow: hidden;
   margin-bottom: 2em;
 }
-/* line 93, ../sass/_action_box.scss */
+/* line 99, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li {
   margin-left: 4%;
   padding: 0.5em 0;
@@ -1000,30 +1288,30 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 46%;
   border-bottom: 1px solid #b3b3b3;
 }
-/* line 99, ../sass/_action_box.scss */
+/* line 105, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong, #cboxContent .action_box.data .ul_data > ul li strong, #main .data.pagination .ul_data > ul li strong, #cboxContent .data.pagination .ul_data > ul li strong {
   width: 45%;
   margin-right: 4%;
   float: left;
   display: block;
 }
-/* line 104, ../sass/_action_box.scss */
+/* line 110, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong label, #cboxContent .action_box.data .ul_data > ul li strong label, #main .data.pagination .ul_data > ul li strong label, #cboxContent .data.pagination .ul_data > ul li strong label {
   width: 100%;
 }
-/* line 111, ../sass/_action_box.scss */
+/* line 117, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable > ul li, #cboxContent .action_box.data .ul_data.editable > ul li, #main .data.pagination .ul_data.editable > ul li, #cboxContent .data.pagination .ul_data.editable > ul li {
   min-height: 3em;
 }
-/* line 114, ../sass/_action_box.scss */
+/* line 120, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable input[type="text"], #cboxContent .action_box.data .ul_data.editable input[type="text"], #main .data.pagination .ul_data.editable input[type="text"], #cboxContent .data.pagination .ul_data.editable input[type="text"] {
   width: 40%;
 }
-/* line 116, ../sass/_action_box.scss */
+/* line 122, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable input[type="text"].num, #cboxContent .action_box.data .ul_data.editable input[type="text"].num, #main .data.pagination .ul_data.editable input[type="text"].num, #cboxContent .data.pagination .ul_data.editable input[type="text"].num {
   width: 2em;
 }
-/* line 121, ../sass/_action_box.scss */
+/* line 127, ../sass/_action_box.scss */
 #main .action_box.data .ul_data .ul_data, #cboxContent .action_box.data .ul_data .ul_data, #main .data.pagination .ul_data .ul_data, #cboxContent .data.pagination .ul_data .ul_data {
   width: auto;
   float: none;
