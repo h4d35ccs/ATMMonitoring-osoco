@@ -240,10 +240,6 @@ public class User implements UserDetails {
     }
 
     public String getHtmlWelcomeMessage(Locale locale) {
-
-		/*
-		// TODO: Previous to Merge with jlopez-branch:
-
       	DateFormat timeFormatter = new SimpleDateFormat("H:mm");
         String lastLoginFormatted = "";
         lastLoginFormatted  = DateFormat.getDateInstance(DateFormat.SHORT, locale).format(lastLogin) +
@@ -253,34 +249,6 @@ public class User implements UserDetails {
                firstname + " " + lastname + ", " + role.getName().replace("_", " ") +
                "</div>" +
 	       "<div class=\"date\">" + lastLoginFormatted + "</div>";
-		*/
-
-		DateFormat timeFormatter = new SimpleDateFormat("H:mm");
-		String userMsg;
-		if (bankCompany != null) {
-			userMsg = firstname
-				+ " "
-				+ lastname
-				+ ", "
-				+ role.getName().replace("_", " ")
-				+ ", <i>"
-				+ bankCompany.getName()
-				+ "</i><br>"
-				+ DateFormat.getDateInstance(DateFormat.SHORT, locale)
-			    .format(lastLogin) + " - "
-				+ timeFormatter.format(lastLogin);
-		} else {
-			userMsg = firstname
-				+ " "
-				+ lastname
-				+ ", "
-				+ role.getName().replace("_", " ")
-				+ "<br>"
-				+ DateFormat.getDateInstance(DateFormat.SHORT, locale)
-			    .format(lastLogin) + " - "
-				+ timeFormatter.format(lastLogin);
-		}
-		return userMsg;
     }
 
     public Set<BankCompany> getManageableBankCompanies() {
