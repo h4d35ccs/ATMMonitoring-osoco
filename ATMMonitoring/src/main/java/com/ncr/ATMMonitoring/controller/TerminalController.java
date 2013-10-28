@@ -20,17 +20,24 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.controller.propertyEditor.DatePropertyEditor;
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
+import com.ncr.ATMMonitoring.pojo.TerminalModel;
 import com.ncr.ATMMonitoring.pojo.User;
+import com.ncr.ATMMonitoring.service.InstallationService;
+import com.ncr.ATMMonitoring.service.TerminalModelService;
 import com.ncr.ATMMonitoring.service.TerminalService;
 import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.UserService;
@@ -294,7 +301,7 @@ public class TerminalController {
     public String addTerminal(
 	    @Valid @ModelAttribute("terminal") Terminal terminal,
 	    BindingResult result, Map<String, Object> map,
-	    HttpServletRequest request, Principal principal) {
+	    HttpServletRequest request, Principal principal, String p) {
 	if ((terminal.getBankCompany() != null)
 		&& (terminal.getBankCompany().getId() == null)) {
 	    terminal.setBankCompany(null);
@@ -341,7 +348,7 @@ public class TerminalController {
 	    }
 	}
 	pagedListHolder.setPage(page);
-	pagedListHolder.setPageSize(terminalsPageSize);
+	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
 	map.put("banksList", bankCompanies);
 	map.put("terminalModelsList", terminalModelService.listTerminalModels());

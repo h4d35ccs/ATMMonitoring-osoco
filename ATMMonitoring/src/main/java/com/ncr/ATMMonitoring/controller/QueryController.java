@@ -263,7 +263,7 @@ public class QueryController {
 		    }
 		} else {
 		    query.setId(null);
-			query.setTrueLocale(locale);n
+			query.setTrueLocale(locale);
 		    try {
 			logger.debug("Guardando nueva query- " + query.getName());
 			queryService.addQuery(query);
@@ -284,7 +284,7 @@ public class QueryController {
 
 		PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
 											  terminals);
-		int page = 0;p
+		int page = 0;
 		if (p != null) {
 		    try {
 			page = Integer.parseInt(p);

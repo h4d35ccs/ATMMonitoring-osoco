@@ -25,12 +25,7 @@ import com.ncr.ATMMonitoring.pojo.Terminal;
 @Transactional
 public class QueryServiceImpl implements QueryService {
 
-<<<<<<< HEAD
 	static private Logger logger = Logger.getLogger(QueryServiceImpl.class.getName());
-=======
-    static private Logger logger = Logger.getLogger(QueryServiceImpl.class
-	    .getName());
->>>>>>> jlopez-branch
 
     @Autowired
     private QueryDAO queryDAO;

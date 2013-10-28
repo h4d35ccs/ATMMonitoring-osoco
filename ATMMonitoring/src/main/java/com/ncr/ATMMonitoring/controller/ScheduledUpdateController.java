@@ -62,9 +62,9 @@ public class ScheduledUpdateController {
 			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 			map.put("userMsg", userMsg);
 			map.put("weeklyScheduledUpdates",
-					loggedUser.listWeeklyScheduledUpdates());
+					loggedUser.getWeeklyScheduledUpdates());
 			map.put("monthlyScheduledUpdates",
-					loggedUser.listMonthlyScheduledUpdates());
+					loggedUser.getMonthlyScheduledUpdates());
 		}
 		return "scheduledUpdates";
     }
@@ -95,8 +95,8 @@ public class ScheduledUpdateController {
 		if (principal != null) {
 			User loggedUser = userService.getUserByUsername(principal.getName());
 			updates = new ArrayList();
-			List<ScheduledUpdate> weeklyUpdates = loggedUser.listWeeklyScheduledUpdates();
-			List<ScheduledUpdate> monthlyUpdates = loggedUser.listMonthlyScheduledUpdates();
+			List<ScheduledUpdate> weeklyUpdates = loggedUser.getWeeklyScheduledUpdates();
+			List<ScheduledUpdate> monthlyUpdates = loggedUser.getMonthlyScheduledUpdates();
 			updates = new ArrayList();
 			updates.addAll(weeklyUpdates);
 			updates.addAll(monthlyUpdates);
@@ -106,7 +106,6 @@ public class ScheduledUpdateController {
 
     @RequestMapping(value = "/terminals/schedules/list", method = RequestMethod.POST)
     public String addScheduledUpdate(
-<<<<<<< HEAD
             @Valid @ModelAttribute("scheduledUpdate") ScheduledUpdate scheduledUpdate,
 			BindingResult result, Map<String, Object> map,
 			HttpServletRequest request, Principal principal) {
