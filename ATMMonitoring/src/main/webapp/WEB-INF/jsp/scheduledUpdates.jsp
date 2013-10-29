@@ -41,6 +41,12 @@
 
 <h1><spring:message code="label.scheduledUpdatesManager"/></h1>
 
+<c:if test="${success != null}">
+  <div class="message">
+    <p>${success}</p>
+  </div>
+</c:if>
+
 <div id="header_g">
 	<div id="toggleSchedulerView" class="columns_botonera">
 	  <nav>
