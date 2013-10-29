@@ -77,13 +77,18 @@ public class QueryServiceImpl implements QueryService {
 
     @Override
     public List<Terminal> executeQuery(Query query, Locale locale) {
+		return executeQuery(query, locale, null, null);
+    }
+
+    @Override
+    public List<Terminal> executeQuery(Query query, Locale locale, String sort, String order) {
 		List<Object> values = new ArrayList<Object>();
 		List<Type> types = new ArrayList<Type>();
 		String hql = query.getHQL(values, types, locale);
 		if ((hql == null) || (hql.equals(""))) {
 			return null;
 		}
-		return terminalDAO.getTerminalsByHQL(values, types, hql);
+		return terminalDAO.getTerminalsByHQL(values, types, hql, sort, order);
     }
 
 	@Override

@@ -43,6 +43,10 @@ public class QueryController {
 
     static private Logger logger = Logger.getLogger(DashboardController.class.getName());
 
+	public static final String DEFAULT_SORT = "serialNumber";
+
+	public static final String DEFAULT_ORDER = "asc";
+
     @Value("${config.queriesPageSize}")
     private int pageSize;
     @Autowired
@@ -120,26 +124,12 @@ public class QueryController {
         Query query = null;
         Set<Query> userQueries = null;
 	Locale locale = RequestContextUtils.getLocale(request);
-
-	if (queryId != null) {
-	    query = queryService.getQuery(queryId);
-	    if (query != null) {
-		try {
-		    queryService.deleteQuery(query);
-		    map.put("success", "success.deletingNewQuery");
-	        }catch (Exception e) {
-		    map.put("error", "error.deletingQuery");
-		}
-            }
-	}
-
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
             userQueries = loggedUser.getQueries();
 	}
-
 	PagedListHolder<Query> pagedListHolder =
 	    new PagedListHolder<Query>( new ArrayList(userQueries));
 	int page = 0;
@@ -149,6 +139,19 @@ public class QueryController {
 	map.put("pagedListHolder", pagedListHolder);
 
         map.put("userMsg", userMsg);
+
+	if (queryId != null) {
+	    query = queryService.getQuery(queryId);
+	    if (query != null) {
+		try {
+		    queryService.deleteQuery(query);
+		    map.put("success", "success.deletingNewQuery");
+	        }catch (Throwable e) {
+		    map.put("error", "error.deletingQuery");
+		}
+            }
+	}	
+	
 	return "queryList";
 
     }
@@ -242,7 +245,8 @@ public class QueryController {
     @RequestMapping(value = "/queries/results", method = RequestMethod.POST)
     public String saveOrUpdateQuery(@ModelAttribute("query") Query query,
 	    Map<String, Object> map, HttpServletRequest request,
-				    Principal principal, RedirectAttributes redirectAttributes, String p) throws Exception {
+		Principal principal, RedirectAttributes redirectAttributes,
+        String p, String sort, String order) throws Exception {
 
 	Locale locale = RequestContextUtils.getLocale(request);
 	User loggedUser = null;
@@ -276,7 +280,9 @@ public class QueryController {
 	    return "redirect:/queries/list";
 	} else if (WebUtils.hasSubmitParameter(request, "execute")) {
 	    logger.debug("Executing query " + query.getName());
-	    	List<Terminal> terminals = queryService.executeQuery(query, locale);
+		String sortValue = (sort == null) ? DEFAULT_SORT : sort;
+		String orderValue = (order == null) ? DEFAULT_ORDER : order;
+		List<Terminal> terminals = queryService.executeQuery(query, locale, sortValue, orderValue);
 
 		if (terminals == null) {
 		    throw new Exception("Query execution returned a NULL list.");
@@ -298,9 +304,8 @@ public class QueryController {
 		map.put("pagedListHolder", pagedListHolder);
 		map.put("query", query);
 		map.put("values", Query.getComboboxes());
-
-
-
+		map.put("sort", sortValue);
+		map.put("order", orderValue);
 
 	}  else if (WebUtils.hasSubmitParameter(request, "delete")) {
 	   logger.debug("Deleting query -" + query.getName());
@@ -343,4 +348,5 @@ public class QueryController {
 	}
 
     }
+
 }

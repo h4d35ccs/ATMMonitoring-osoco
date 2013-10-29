@@ -11,7 +11,6 @@
   <script type="text/javascript">
     $(function() {
         $("tr.queryRow").click(function(event) {
-            console.log("queryRow")
             event.preventDefault();
             var queryId = $(this).data('queryId');
             document.location.href = "queries/show?queryId=" + queryId;
@@ -22,13 +21,12 @@
             event.preventDefault();
             var queryId= $(this).data('queryId');
             if (confirm('¿Estás seguro que quieres borrar la consulta?')) {
-                document.location.href = "queries/delete/queryId=" + queryId;
+                document.location.href = "queries/delete?queryId=" + queryId;
             }
         });
     });
   </script>
 </jsp:attribute>
-
 <jsp:body>
 
   <div id="header_g">
@@ -46,38 +44,43 @@
     <div class="botonera">
       <a href="queries/create" class="btn right">Nueva consulta</a>
     </div>
-     <c:if test="${success != null}">
-		        <div class="notification"><p>${success}</p></div>
-		    </c:if>
-		    <c:if test="${error != null}">
-		        <div class="alert"><p>${error}</p></div>
-		    </c:if>
-    <table class="link">
-      <tr>
-        <th>Nombre de la consulta</th>
-        <th>Fecha de creación</th>
-        <th>Descripción</th>
-      </tr>
-
-	  <c:forEach items="${pagedListHolder.pageList}" var="query">
-		<tr class="queryRow" data-query-id="${query.id}">
-		  <td class="editable w33">
-            <div class="relative">
-			  <div class="icons_action"><a href="#" class="delete" data-query-id="${query.id}"><span>Eliminar</span></a></div>
-              <a href="queries/show?queryId=${query.id}">${query.name}</a></div></td>
-
-          <td class="nowrap">21-10-2013</td>
-          <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
-
+    <c:if test="${success != null}">
+       <div class="notification"><p>${success}</p></div>
+    </c:if>
+    <c:if test="${error != null}">
+      <div class="alert"><p>${error}</p></div>
+    </c:if>
+    <c:if test="${!empty pagedListHolder.pageList}">
+      <table class="link">
+	<tr>
+          <th>Nombre de la consulta</th>
+          <th>Fecha de creación</th>
+          <th>Descripción</th>
+	</tr>
+	
+	<c:forEach items="${pagedListHolder.pageList}" var="query">
+	  <tr class="queryRow" data-query-id="${query.id}">
+	    <td class="editable w33">
+              <div class="relative">
+		<div class="icons_action"><a href="#" class="delete" data-query-id="${query.id}"><span>Eliminar</span></a></div>
+		<a href="queries/show?queryId=${query.id}">${query.name}</a></div></td>
+	    
+            <td class="nowrap">21-10-2013</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
+	    
         </tr>
-      </c:forEach>
-
-    </table>
-  </div>
-  <div class="pagination">
-    <div class="t_number"><span class="text">${pagedListHolder.source.size()} Consultas</span></div>
+	</c:forEach>
+	
+      </table>
+      <div class="pagination">
+	<div class="t_number"><span class="text">${pagedListHolder.source.size()} Consultas</span></div>
 	<c:if test="${pagedListHolder.getPageCount() >1 }">
-      <div class="p_number"><span class="text">Página</span><t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/list?p=~"/></div>
+	  <div class="p_number"><span class="text">Página</span><t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/list?p=~"/></div>
+	</c:if>
+      </div>
+    </c:if>
+    <c:if test="${empty pagedListHolder.pageList}">
+      <div class="message"><p> No tienes ninguna consulta </p></div>
     </c:if>
   </div>
 
