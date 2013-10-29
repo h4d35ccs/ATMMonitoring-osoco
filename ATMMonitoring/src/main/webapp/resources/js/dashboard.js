@@ -202,7 +202,7 @@ function onChartDrawed(chart) {
         googleChart.draw(chartData, options);
     });
 
-    $(chart).find(".ocultable").hide();
+    $(chart).find(".collapsible").hide();
     $(chart).find(".close").click(function() {
         hideWidget(widgetId);
 	});
@@ -279,7 +279,7 @@ var transforms = {
                                   { tag: 'nav', class: 'icons_menu desplegable',
                                     children: [ { tag: 'div', class: 'icon16 config content_hide txt',
                                                   children: [ { tag: 'span', html: 'Opciones' } ] },
-                                                { tag: 'ul', class: 'ocultable',
+                                                { tag: 'ul', class: 'collapsible',
                                                   children: [ { tag: 'li', children: [ { tag: 'a', href: '#', html: 'Editar'} ] },
                                                               { tag: 'li', children: [ { tag: 'a', href: '#', html: 'Compartir'} ] },
                                                             ]
