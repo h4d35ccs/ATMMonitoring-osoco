@@ -2,6 +2,7 @@ package com.ncr.ATMMonitoring.dao;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
@@ -71,6 +72,7 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 		.getCurrentSession()
 		.createCriteria(ScheduledUpdate.class)
 		.add(Restrictions.eq("hour", scheduledUpdate.getHour()))
+		.add(Restrictions.eq("timeZone", scheduledUpdate.getTimeZone()))
 		.add(Restrictions.eq("minute", scheduledUpdate.getMinute()))
 		.add(Restrictions.eq("monthDay", scheduledUpdate.getMonthDay()))
 		.add(Restrictions.eq("query", scheduledUpdate.getQuery()));
@@ -82,6 +84,7 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 	Criteria query = sessionFactory.getCurrentSession()
 		.createCriteria(ScheduledUpdate.class)
 		.add(Restrictions.eq("hour", scheduledUpdate.getHour()))
+		.add(Restrictions.eq("timeZone", scheduledUpdate.getTimeZone()))
 		.add(Restrictions.eq("minute", scheduledUpdate.getMinute()))
 		.add(Restrictions.eq("weekDay", scheduledUpdate.getWeekDay()))
 		.add(Restrictions.eq("query", scheduledUpdate.getQuery()));
@@ -90,17 +93,18 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 
     @Override
     public List<ScheduledUpdate> listValidScheduledUpdates(Calendar date) {
+	date.setTimeZone(TimeZone.getTimeZone("GMT"));
 	return sessionFactory
 		.getCurrentSession()
 		.createCriteria(ScheduledUpdate.class)
-		.add(Restrictions.or(Restrictions.and(Restrictions.eq("hour",
-			new Integer(date.get(Calendar.HOUR_OF_DAY))
+		.add(Restrictions.or(Restrictions.and(Restrictions.eq(
+			"gmtHour", new Integer(date.get(Calendar.HOUR_OF_DAY))
 				.shortValue()), Restrictions.eq("minute",
 			new Integer(date.get(Calendar.MINUTE)).shortValue()),
 			Restrictions.eq("monthDay",
 				new Integer(date.get(Calendar.DAY_OF_MONTH))
 					.shortValue())), Restrictions.and(
-			Restrictions.eq("hour",
+			Restrictions.eq("gmtHour",
 				new Integer(date.get(Calendar.HOUR_OF_DAY))
 					.shortValue()), Restrictions.eq(
 				"minute",

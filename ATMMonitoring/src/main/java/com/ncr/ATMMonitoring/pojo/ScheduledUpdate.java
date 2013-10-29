@@ -1,6 +1,11 @@
 package com.ncr.ATMMonitoring.pojo;
 
-import org.apache.log4j.Logger;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.TimeZone;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,10 +19,8 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import org.apache.log4j.Logger;
+import org.hibernate.annotations.Formula;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -29,7 +32,8 @@ import java.util.List;
 	@UniqueConstraint(columnNames = { "week_day", "hours", "minutes" }) })
 public class ScheduledUpdate {
 
-    static private Logger logger = Logger.getLogger(ScheduledUpdate.class.getName());
+    static private Logger logger = Logger.getLogger(ScheduledUpdate.class
+	    .getName());
 
     @Id
     @Column(name = "id")
@@ -56,6 +60,15 @@ public class ScheduledUpdate {
     @Min(0)
     @Max(59)
     private Short minute = 0;
+
+    @Column(name = "time_zone")
+    @Min(-12)
+    @Max(12)
+    private Short timeZone = new Double(
+	    TimeZone.getDefault().getRawOffset() / (3600000)).shortValue();
+
+    @Formula("hours - time_zone")
+    private Short gmtHour;
 
     @ManyToOne
     @JoinColumn(name = "query_id")
@@ -137,49 +150,49 @@ public class ScheduledUpdate {
     }
 
     public Query getQuery() {
-		return query;
+	return query;
     }
 
     public void setQuery(Query query) {
-		this.query = query;
+	this.query = query;
     }
 
-	public boolean isWeekly() {
-		return (monthDay == null);
+    public boolean isWeekly() {
+	return (monthDay == null);
+    }
+
+    public List<Date> getEventDates(long fromUnixTime, long toUnixTime) {
+	List<Date> events = new ArrayList();
+	Date fromDate = new Date(fromUnixTime * 1000L);
+	Date toDate = new Date(toUnixTime * 1000L);
+	logger.debug("fromDate: " + fromDate + ", toDate: " + toDate);
+	Calendar calendar = Calendar.getInstance();
+	calendar.setTime(fromDate);
+	calendar.set(Calendar.HOUR_OF_DAY, hour);
+	calendar.set(Calendar.MINUTE, minute);
+
+	if (isWeekly()) {
+	    calendar.set(Calendar.DAY_OF_WEEK, weekDay);
+	} else {
+	    calendar.set(Calendar.DAY_OF_MONTH, monthDay);
+	    Date event = calendar.getTime();
+	    if (event.getTime() < fromDate.getTime()) {
+		calendar.add(Calendar.MONTH, 1);
+	    }
 	}
 
-	public List<Date> getEventDates(long fromUnixTime, long toUnixTime) {
-		List<Date> events = new ArrayList();
-		Date fromDate = new Date(fromUnixTime * 1000L);
-		Date toDate = new Date(toUnixTime * 1000L);
-		logger.debug("fromDate: " + fromDate + ", toDate: " + toDate);
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(fromDate);
-		calendar.set(Calendar.HOUR_OF_DAY, hour);
-		calendar.set(Calendar.MINUTE, minute);
-
-		if (isWeekly()) {
-			calendar.set(Calendar.DAY_OF_WEEK, weekDay);
-		} else {
-			calendar.set(Calendar.DAY_OF_MONTH, monthDay);
-			Date event = calendar.getTime();
-			if (event.getTime() < fromDate.getTime()) {
-				calendar.add(Calendar.MONTH, 1);
-			}
-		}
-
-		while(calendar.getTime().getTime() < toDate.getTime()) {
-			Date event = calendar.getTime();
-			events.add(event);
-			if (isWeekly()) {
-				calendar.add(Calendar.DAY_OF_MONTH, 7);
-			} else {
-				calendar.add(Calendar.MONTH, 1);
-			}
-		}
-
-		return events;
+	while (calendar.getTime().getTime() < toDate.getTime()) {
+	    Date event = calendar.getTime();
+	    events.add(event);
+	    if (isWeekly()) {
+		calendar.add(Calendar.DAY_OF_MONTH, 7);
+	    } else {
+		calendar.add(Calendar.MONTH, 1);
+	    }
 	}
+
+	return events;
+    }
 
     public String getCompleteHour() {
 	String completeHour = "";
@@ -194,4 +207,27 @@ public class ScheduledUpdate {
 	return completeHour;
     }
 
+    public Short getTimeZone() {
+	return timeZone;
+    }
+
+    public String getTimeZoneName() {
+	String name = "GMT ";
+	if (timeZone > 0) {
+	    name += "+";
+	}
+	return (name + timeZone);
+    }
+
+    public void setTimeZone(Short timeZone) {
+	this.timeZone = timeZone;
+    }
+
+    public Short getGmtHour() {
+	return gmtHour;
+    }
+
+    public void setGmtHour(Short gmtHour) {
+	this.gmtHour = gmtHour;
+    }
 }
