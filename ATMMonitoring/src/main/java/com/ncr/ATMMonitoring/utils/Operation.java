@@ -26,7 +26,7 @@ public abstract class Operation {
     }
 
     public static enum DataType {
-    	NUMBER, STRING, DATE, VERSION, BOOLEAN
+    	NUMBER, STRING, DATE, VERSION, BOOLEAN, ALL
     }
 
     private static final Type integerType = new IntegerType();
@@ -118,6 +118,14 @@ public abstract class Operation {
 		values.put("date_greater", b_true);
 		values.put("is_null", b_false);
 		operations.put(DataType.DATE, values);
+		values = new TreeMap<String, Boolean>();
+		for (DataType dataType : operations.keySet()) {
+			Map<String, Boolean> aux = operations.get(dataType);
+			for (String name: aux.keySet()) {
+				values.put(name, aux.get(name));
+			}
+		}
+		operations.put(DataType.ALL, values);
 	    }
 	
 	    public static Map<String, Map> getOperationsByType(DataType type) {

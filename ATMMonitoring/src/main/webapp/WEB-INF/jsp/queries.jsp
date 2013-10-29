@@ -73,6 +73,11 @@
 									<td>
 										<form:select path="terminalCombo${i}2" id="terminalCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('terminal',${i})">
 											<form:option value="" label=""/>
+											<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+												<form:option value="${value}">
+													<spring:message code="label.query.operation.${value}"/>
+												</form:option>
+											</c:forEach>
 										</form:select>
 									</td>
 									<td>
@@ -131,15 +136,22 @@
 									<form:select path="hardwareDeviceCombo${i}1" id="hardwareDeviceCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue3CB1('hardwareDevice', ${i})">
 										<form:option value="" label=""/>
 										<c:forEach items="${values.get('hardwareDevice').keySet()}" var="value">
-											<form:option value="${value}">
-												<spring:message code="label.hardwareDevice.${value}"/>
-											</form:option>
+											<c:if test="${value != 'allHwDevices'}">
+												<form:option value="${value}">
+													<spring:message code="label.hardwareDevice.${value}"/>
+												</form:option>
+											</c:if>
 										</c:forEach>
 									</form:select>
 								</td>
 								<td>
 									<form:select path="hardwareDeviceCombo${i}2" id="hardwareDeviceCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue3CB2('hardwareDevice', ${i})">
 										<form:option value="" label=""/>
+										<c:forEach items="${values.get('hardwareDevice').get('allHwDevices').keySet()}" var="value">
+											<form:option value="${value}">
+												<spring:message code="label.hardwareDevice.${value}"/>
+											</form:option>
+										</c:forEach>
 									</form:select>
 								</td>
 								<td>
@@ -148,6 +160,11 @@
 								<td>
 									<form:select path="hardwareDeviceCombo${i}3" id="hardwareDeviceCombo${i}3" class="query_selectors" size="1" disabled="true" onchange="ChangeValue3CB3('hardwareDevice', ${i})">
 										<form:option value="" label=""/>
+										<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+											<form:option value="${value}">
+												<spring:message code="label.query.operation.${value}"/>
+											</form:option>
+										</c:forEach>
 									</form:select>
 								</td>
 								<td>
@@ -189,8 +206,7 @@
 							<th></th>
 						</tr>
 						<c:forEach var="i" begin="1" end="5" varStatus="status">
-							<tr id="financialDeviceRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>
-							
+							<tr id="financialDeviceRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>>
 							<td>
 								<form:select path="financialDeviceCombo${i}1" id="financialDeviceCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('financialDevice', ${i})">
 									<form:option value="" label=""/>
@@ -207,6 +223,11 @@
 							<td>
 								<form:select path="financialDeviceCombo${i}2" id="financialDeviceCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('financialDevice', ${i})">
 									<form:option value="" label=""/>
+									<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+										<form:option value="${value}">
+											<spring:message code="label.query.operation.${value}"/>
+										</form:option>
+									</c:forEach>
 								</form:select>
 							</td>
 							<td>
@@ -272,6 +293,11 @@
 						<td>
 							<form:select path="operatingSystemCombo${i}2" id="operatingSystemCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('operatingSystem', ${i})">
 								<form:option value="" label=""/>
+								<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+									<form:option value="${value}">
+										<spring:message code="label.query.operation.${value}"/>
+									</form:option>
+								</c:forEach>
 							</form:select>
 						</td>
 						<td>
@@ -331,6 +357,11 @@
 					<td>
 						<form:select path="internetExplorerCombo${i}2" id="internetExplorerCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('internetExplorer', ${i})">
 							<form:option value="" label=""/>
+							<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+								<form:option value="${value}">
+									<spring:message code="label.query.operation.${value}"/>
+								</form:option>
+							</c:forEach>
 						</form:select>
 					</td>
 					<td>
@@ -390,6 +421,11 @@
 				<td>
 					<form:select path="hotfixCombo${i}2" id="hotfixCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('hotfix', ${i})">
 						<form:option value="" label=""/>
+						<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+							<form:option value="${value}">
+								<spring:message code="label.query.operation.${value}"/>
+							</form:option>
+						</c:forEach>
 					</form:select>
 				</td>
 				<td>
@@ -449,6 +485,11 @@
 			<td>
 				<form:select path="softwareCombo${i}2" id="softwareCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('software', ${i})">
 					<form:option value="" label=""/>
+					<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+						<form:option value="${value}">
+							<spring:message code="label.query.operation.${value}"/>
+						</form:option>
+					</c:forEach>
 				</form:select>
 			</td>
 			<td>
@@ -508,6 +549,11 @@
 		<td>
 			<form:select path="featSwCombo${i}2" id="featSwCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('featSw', ${i})">
 				<form:option value="" label=""/>
+				<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+					<form:option value="${value}">
+						<spring:message code="label.query.operation.${value}"/>
+					</form:option>
+				</c:forEach>
 			</form:select>
 		</td>
 		<td>
@@ -567,6 +613,11 @@
 	<td>
 		<form:select path="xfsSwCombo${i}2" id="xfsSwCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('xfsSw', ${i})">
 			<form:option value="" label=""/>
+			<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+				<form:option value="${value}">
+					<spring:message code="label.query.operation.${value}"/>
+				</form:option>
+			</c:forEach>
 		</form:select>
 	</td>
 	<td>
@@ -604,9 +655,6 @@
 
 <script type="text/javascript">
 	    $(document).ready(function(){
-			$('.collapsible').collapsible({
-	            defaultOpen: 'terminalSection'
-	        });
 			<t:queryCbJs query="${query}"/>
 			$('#queryName').val('');
 			displayOnLoad('terminal', 5);
@@ -618,6 +666,15 @@
 			displayOnLoad('software', 5);
 			displayOnLoad('featSw', 5);
 			displayOnLoad('xfsSw', 5);
+			onLoadValueCB2('terminal', 5);
+			onLoadValueCB2('financialDevice', 5);
+			onLoadValueCB2('operatingSystem', 5);
+			onLoadValueCB2('hotfix', 5);
+			onLoadValueCB2('software', 5);
+			onLoadValueCB2('featSw', 5);
+			onLoadValueCB2('xfsSw', 5);
+			onLoadValueCB2('internetExplorer', 2);
+			onLoadValueCB3('hardwareDevice', 5);
 		});
 	    var valuesTree = {
 	        	<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
@@ -627,14 +684,14 @@
 		        		<c:set var="subvalue" value="${value.get(subkey)}"/>
 						'${subkey}': 
 							{
-								label: '<spring:message code="label.${key}.${subkey}"/>',
+								label: <c:if test="${(key != 'allOperations') && (subkey != 'allHwDevices')}">'<spring:message code="label.${key}.${subkey}"/>'</c:if><c:if test="${(key == 'allOperations') || (subkey == 'allHwDevices')}">''</c:if>,
 								values: {
 									<c:forEach items="${subvalue.keySet()}" var="subsubkey" varStatus="status3">
 					        		<c:set var="subsubvalue" value="${subvalue.get(subsubkey)}"/>
 									'${subsubkey}': 
 										{
 											<c:if test="${subsubvalue.getClass().getSimpleName() == 'TreeMap'}">
-											label: '<spring:message code="label.${key}.${subsubkey}"/>',
+											label: <c:if test="${key != 'allOperations'}">'<spring:message code="label.${key}.${subsubkey}"/>'</c:if><c:if test="${key == 'allOperations'}">''</c:if>,
 											values: {
 												<c:forEach items="${subsubvalue.keySet()}" var="subsubsubkey" varStatus="status4">
 								        		<c:set var="subsubsubvalue" value="${subsubvalue.get(subsubsubkey)}"/>
@@ -666,6 +723,61 @@
 	    			}
 	    			break;
 	    		}
+	    	}
+	    };
+	    function onLoadValueCB2(entity, maxNumber){
+	    	for (var number = 1; number <= maxNumber; number++) {
+		    	var value = $('#' + entity + 'Combo' + number + '1').val();
+		    	var $cb = $('#' + entity + 'Combo' + number + '2');
+		    	if (value == '') {
+		    		$cb.empty();
+					$cb.append($('<option selected="selected"></option>'));
+		    	} else {
+		    		$cb.prop('disabled', false);
+		    		var values = valuesTree[entity][value].values;
+		    		$cb.each(function()
+							{
+								if (!($(this).val() in values)) {
+									$(this).remove();
+								}
+							});
+		    	}
+	    	}
+	    };
+	    function onLoadValueCB3(entity, maxNumber){
+	    	for (var number = 1; number <= maxNumber; number++) {
+		    	var value1 = $('#' + entity + 'Combo' + number + '1').val();
+		    	var $cb2 = $('#' + entity + 'Combo' + number + '2');
+		    	var $cb3 = $('#' + entity + 'Combo' + number + '3');
+		    	if (value1 == '') {
+		    		$cb2.empty();
+					$cb2.append($('<option selected="selected"></option>'));
+		    		$cb3.empty();
+					$cb3.append($('<option selected="selected"></option>'));
+		    	} else {
+		    		$cb2.prop('disabled', false);
+		    		var values = valuesTree[entity][value1].values;
+		    		$cb2.each(function()
+							{
+								if (!($(this).val() in values)) {
+									$(this).remove();
+								}
+							});
+			    	var value2 = $cb2.val();
+			    	if (value2 == '') {
+			    		$cb3.empty();
+						$cb3.append($('<option selected="selected"></option>'));
+			    	} else {
+			    		$cb3.prop('disabled', false);
+			    		values = values[value2].values;
+			    		$cb3.each(function()
+								{
+									if (!($(this).val() in values)) {
+										$(this).remove();
+									}
+								});
+			    	}
+		    	}
 	    	}
 	    };
 	    function ChangeValue2CB1(entity, number){

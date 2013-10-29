@@ -49,6 +49,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import com.ncr.ATMMonitoring.utils.Operation;
+import com.ncr.ATMMonitoring.utils.Operation.DataType;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -326,6 +327,14 @@ public class HardwareDevice {
 	values.put("currentVerticalResolution", numberOperations);
 	values.put("currentRefreshRate", numberOperations);
 	comboboxes.put("Win32_VideoController", values);
+	values = new TreeMap<String, Map>();
+	for (String hwDevice : comboboxes.keySet()) {
+		Map<String, Map> aux = comboboxes.get(hwDevice);
+		for (String name: aux.keySet()) {
+			values.put(name, aux.get(name));
+		}
+	}
+	comboboxes.put("allHwDevices", values);
     }
 
     private static final char separator = ';';

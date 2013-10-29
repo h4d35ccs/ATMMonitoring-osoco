@@ -25,6 +25,7 @@ import org.hibernate.annotations.CascadeType;
 import org.hibernate.type.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
+import com.ncr.ATMMonitoring.utils.Operation.DataType;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -47,6 +48,9 @@ public class Query {
 	comboboxes.put("xfsSw", Software.getComboboxes());
 	comboboxes.put("featSw", Software.getComboboxes());
 	comboboxes.put("hardwareDevice", HardwareDevice.getComboboxes());
+	Map<String, Map> aux = new HashMap<String, Map>();
+	aux.put("allOperations", Operation.getOperationsByType(DataType.ALL));
+	comboboxes.put("allOperations", aux);
     }
 
     @Id

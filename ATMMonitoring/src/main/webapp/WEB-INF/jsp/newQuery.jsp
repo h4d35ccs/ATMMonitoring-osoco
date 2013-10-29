@@ -114,9 +114,11 @@
 										<form:select path="hardwareDeviceCombo${i}1" id="hardwareDeviceCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue3CB1('hardwareDevice', ${i})">
 											<form:option value="" label=""/>
 											<c:forEach items="${values.get('hardwareDevice').keySet()}" var="value">
-												<form:option value="${value}">
-													<spring:message code="label.hardwareDevice.${value}"/>
-												</form:option>
+												<c:if test="${value != 'allHwDevices'}">
+													<form:option value="${value}">
+														<spring:message code="label.hardwareDevice.${value}"/>
+													</form:option>
+												</c:if>
 											</c:forEach>
 										</form:select>
 									</td>
@@ -593,14 +595,14 @@
 		        		<c:set var="subvalue" value="${value.get(subkey)}"/>
 						'${subkey}': 
 							{
-								label: '<spring:message code="label.${key}.${subkey}"/>',
+								label: <c:if test="${(key != 'allOperations') && (subkey != 'allHwDevices')}">'<spring:message code="label.${key}.${subkey}"/>'</c:if><c:if test="${(key == 'allOperations') || (subkey == 'allHwDevices')}">''</c:if>,
 								values: {
 									<c:forEach items="${subvalue.keySet()}" var="subsubkey" varStatus="status3">
 					        		<c:set var="subsubvalue" value="${subvalue.get(subsubkey)}"/>
 									'${subsubkey}': 
 										{
 											<c:if test="${subsubvalue.getClass().getSimpleName() == 'TreeMap'}">
-											label: '<spring:message code="label.${key}.${subsubkey}"/>',
+											label: <c:if test="${key != 'allOperations'}">'<spring:message code="label.${key}.${subsubkey}"/>'</c:if><c:if test="${key == 'allOperations'}">''</c:if>,
 											values: {
 												<c:forEach items="${subsubvalue.keySet()}" var="subsubsubkey" varStatus="status4">
 								        		<c:set var="subsubsubvalue" value="${subsubvalue.get(subsubsubkey)}"/>
