@@ -12,6 +12,11 @@
 			$(this).closest(".content").hide();
 			$('.graph_content').show();
 		});
+		// Cambio de estilo en tipo de grafica nuevo componente
+		$(".inputGraph").change(function() { 
+	            $(".inputGraph").parent().removeClass("current");
+	            $(this).parent().addClass("current");
+	    }); 
 	});
 </script>
 <div id="main">
@@ -32,12 +37,12 @@
 					<input type="text" id="name">
 				</div>
 				<h2>Modelo gráfica</h2>
-				<div class="graph_component">
-					<label  class="graph graph_01"><span>Tabla</span><input type="radio" name="graph"></label>
-					<label  class="graph graph_02"><span>Línea tiempo</span><input type="radio" name="graph"></label>
-					<label  class="graph graph_03"><span>Circular</span><input type="radio" name="graph"></label>
-					<label  class="graph graph_04"><span>Barras</span><input type="radio" name="graph"></label>
-					<label  class="graph graph_05"><span>Geográfico</span><input type="radio" name="graph"></label>
+				<div id="inputGraph" class="graph_component">
+					<label  class="graph graph_01"><span>Tabla</span><input type="radio" name="graph" class="inputGraph"></label>
+					<label  class="graph graph_02"><span>Línea tiempo</span><input type="radio" name="graph" class="inputGraph"></label>
+					<label  class="graph graph_03"><span>Circular</span><input type="radio" name="graph" class="inputGraph"></label>
+					<label  class="graph graph_04"><span>Barras</span><input type="radio" name="graph" class="inputGraph"></label>
+					<label  class="graph graph_05"><span>Geográfico</span><input type="radio" name="graph" class="inputGraph"></label>
 				</div>
 				<div class="row">
 					<label for="apquery">Aplicar Consulta</label><select><option>Seleccionar</option></select>

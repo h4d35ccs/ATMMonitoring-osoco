@@ -245,7 +245,7 @@ public class User implements UserDetails {
         lastLoginFormatted  = DateFormat.getDateInstance(DateFormat.SHORT, locale).format(lastLogin) +
 	    " - " + timeFormatter.format(lastLogin);
 
-       return "<div class=\"wellcome\"><spring:message code=\"label.welcomeMessage\"/> "+
+       return "<div class=\"welcome\"><spring:message code=\"label.welcomeMessage\"/> "+
                firstname + " " + lastname + ", " + role.getName().replace("_", " ") +
                "</div>" +
 	       "<div class=\"date\">" + lastLoginFormatted + "</div>";

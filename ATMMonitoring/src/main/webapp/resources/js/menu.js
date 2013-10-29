@@ -79,4 +79,17 @@ $(function() {
 	$('#isAgeSelected').click(function() {
 	    $("#txtAge").toggle(this.checked);
 	});
+
+// Responsive menu
+	$('#rButton').click(function() {
+		if($(this).hasClass("btn_close")){
+			$('#main_nav').show();
+			$('#main').add().css("margin-left","90px");
+			$(this).removeClass("btn_close");
+		}else{
+			$('#main_nav').hide();
+			$('#main').add().css("margin-left","0px");
+			$(this).addClass("btn_close");
+		}
+	});
 });

@@ -1,6 +1,7 @@
 #dashboard{
 	#sortable{
 		overflow: hidden;
+		clear: both;
 		&.one_column li{
 			width: 98%;
 		}

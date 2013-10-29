@@ -11,6 +11,8 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <c:set var="req" value="${pageContext.request}" />
         <c:set var="url">${req.requestURL}</c:set>
         <c:set var="base" value="${fn:substring(url, 0, fn:length(url) - fn:length(req.requestURI))}${req.contextPath}/" />
