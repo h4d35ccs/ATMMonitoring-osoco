@@ -11,7 +11,6 @@
   <script type="text/javascript">
     $(function() {
         $("tr.queryRow").click(function(event) {
-            console.log("queryRow")
             event.preventDefault();
             var queryId = $(this).data('queryId');
             document.location.href = "queries/show?queryId=" + queryId;

@@ -43,6 +43,10 @@ public class QueryController {
 
     static private Logger logger = Logger.getLogger(DashboardController.class.getName());
 
+	public static final String DEFAULT_SORT = "serialNumber";
+
+	public static final String DEFAULT_ORDER = "asc";
+
     @Value("${config.queriesPageSize}")
     private int pageSize;
     @Autowired
@@ -242,7 +246,8 @@ public class QueryController {
     @RequestMapping(value = "/queries/results", method = RequestMethod.POST)
     public String saveOrUpdateQuery(@ModelAttribute("query") Query query,
 	    Map<String, Object> map, HttpServletRequest request,
-				    Principal principal, RedirectAttributes redirectAttributes, String p) throws Exception {
+		Principal principal, RedirectAttributes redirectAttributes,
+        String p, String sort, String order) throws Exception {
 
 	Locale locale = RequestContextUtils.getLocale(request);
 	User loggedUser = null;
@@ -276,7 +281,9 @@ public class QueryController {
 	    return "redirect:/queries/list";
 	} else if (WebUtils.hasSubmitParameter(request, "execute")) {
 	    logger.debug("Executing query " + query.getName());
-	    	List<Terminal> terminals = queryService.executeQuery(query, locale);
+		String sortValue = (sort == null) ? DEFAULT_SORT : sort;
+		String orderValue = (order == null) ? DEFAULT_ORDER : order;
+		List<Terminal> terminals = queryService.executeQuery(query, locale, sortValue, orderValue);
 
 		if (terminals == null) {
 		    throw new Exception("Query execution returned a NULL list.");
@@ -298,9 +305,8 @@ public class QueryController {
 		map.put("pagedListHolder", pagedListHolder);
 		map.put("query", query);
 		map.put("values", Query.getComboboxes());
-
-
-
+		map.put("sort", sortValue);
+		map.put("order", orderValue);
 
 	}  else if (WebUtils.hasSubmitParameter(request, "delete")) {
 	   logger.debug("Deleting query -" + query.getName());

@@ -4,32 +4,43 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
+<%
+    String[] terminalColumns = { "mac" , "ip", "serialNumber", "terminalType", "terminalVendor",
+        "geographicAddress", "model", "productClass", "tracerNumber"};
+    request.setAttribute("terminalColumns", terminalColumns);
+%>
 
 <table class="link">
-<tr>
+  <thead>
+  <tr>
     <th></th>
-    <th class="order top"><spring:message code="label.terminal.mac"/></th>
-    <th class="order bottom"><spring:message code="label.terminal.ip"/></th>
-    <th class="order"><spring:message code="label.terminal.serialNumber"/></th>
-    <th class="order"><spring:message code="label.terminal.terminalType"/></th>
-    <th class="order"><spring:message code="label.terminal.terminalVendor"/></th>
-    <th class="order"><spring:message code="label.terminal.geographicAddress"/></th>
-    <th class="order"><spring:message code="label.terminal.model"/></th>
-    <th class="order"><spring:message code="label.terminal.productClass"/></th>
-	<th class="order"><spring:message code="label.terminal.tracerNumber"/></th>
-</tr>
-<c:forEach items="${terminals}" var="terminal">
+    <c:forEach items="${terminalColumns}" var="column">
+      <c:set var="isColumnSorted" value="${column.equals(sort)}"/>
+      <c:set var="orderValue" value="${(isColumnSorted && 'asc'.equals(order)) ? 'desc' : 'asc'}"/>
+      <c:if test="${isColumnSorted}">
+        <c:set var="sortClass" value="${('asc'.equals(order)) ? 'top' : 'bottom'}"/>
+      </c:if>
+      <c:if test="${!isColumnSorted}">
+        <c:set var="sortClass" value=""/>
+      </c:if>
+      <th class="order ${sortClass}"><a href="terminals/${(query != null)?'byQuery':'list'}?p=${pagedListHolder.page}&queryId=${query.id}&sort=${column}&order=${orderValue}"><spring:message code="label.terminal.${column}"/></a></th>
+    </c:forEach>
+  </tr>
+  </thead>
+  <tbody>
+  <c:forEach items="${terminals}" var="terminal">
     <tr>
-        <td class="check"><input type="checkbox"/></td>
-        <td><a href="terminals/details/${terminal.id}">${terminal.mac}</a></td>
-        <td>${terminal.ip}</td>
-	    <td>${terminal.serialNumber}</td>
-        <td>${terminal.terminalType}</td>
-        <td>${terminal.terminalVendor}</td>
-        <td>${terminal.geographicAddress}</td>
-        <td>${terminal.model}</td>
-        <td>${terminal.productClass}</td>
-        <td>${terminal.tracerNumber}</td>
+      <td class="check"><input type="checkbox"/></td>
+      <td><a href="terminals/details/${terminal.id}">${terminal.mac}</a></td>
+      <td>${terminal.ip}</td>
+	  <td>${terminal.serialNumber}</td>
+      <td>${terminal.terminalType}</td>
+      <td>${terminal.terminalVendor}</td>
+      <td>${terminal.geographicAddress}</td>
+      <td>${terminal.model}</td>
+      <td>${terminal.productClass}</td>
+      <td>${terminal.tracerNumber}</td>
     </tr>
-</c:forEach>
+  </c:forEach>
+  </tbody>
 </table>

@@ -55,6 +55,10 @@ public class TerminalController {
 
     static private Logger logger = Logger.getLogger(DashboardController.class.getName());
 
+	public static final String DEFAULT_SORT = "serialNumber";
+
+	public static final String DEFAULT_ORDER = "asc";
+
     @Value("${security.terminalsManagementAllowedRoles}")
     private String canAlterTerminalsRoles;
     @Value("${security.scheduledUpdatesAccessAllowedRoles}")
@@ -157,60 +161,70 @@ public class TerminalController {
     }
 
     @RequestMapping(value = "/terminals/list", method = RequestMethod.GET)
-    public String listTerminals(Map<String, Object> map, Principal principal,
-	    String p, HttpServletRequest request) {
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-	boolean canAdd = false, canManageScheduled = false;
-	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
-	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
-	Set<Query> userQueries = null;
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    if ((loggedUser.getRole() != null)
-		    && (canAlterTerminalsRoles.contains("'ROLE_"
-			    + loggedUser.getRole().getName().toUpperCase()
-			    + "'"))) {
-		canAdd = true;
-	    }
-	    if ((loggedUser.getRole() != null)
-		    && (canManageScheduledUpdatesRoles.contains("'ROLE_"
-			    + loggedUser.getRole().getName().toUpperCase()
-			    + "'"))) {
-		canManageScheduled = true;
-	    }
-	    pagedListHolder = new PagedListHolder<Terminal>(
-		    terminalService.listTerminalsByBankCompanies(loggedUser.getManageableBankCompanies()));
-	    bankCompanies = loggedUser.getManageableBankCompanies();
-	    userQueries = loggedUser.getQueries();
-	}
-	map.put("banksList", bankCompanies);
-	map.put("terminalModelsList", terminalModelService.listTerminalModels());
-	map.put("installationsList", installationService.listInstallations());
-	map.put("userQueries", userQueries);
-	map.put("userMsg", userMsg);
-	map.put("canAdd", canAdd);
-	map.put("canManageScheduled", canManageScheduled);
-	map.put("terminal", new Terminal());
-	int page = 0;
-	if (p != null) {
-	    try {
-		page = Integer.parseInt(p);
-	    } catch (NumberFormatException e) {
-		e.printStackTrace();
-	    }
-	}
-	pagedListHolder.setPage(page);
-	pagedListHolder.setPageSize(pageSize);
-	map.put("pagedListHolder", pagedListHolder);
+    public String listTerminals(
+            Map<String, Object> map,
+			Principal principal,
+			String p,
+			String sort,
+			String order,
+			HttpServletRequest request) {
+		String userMsg = "";
+		Locale locale = RequestContextUtils.getLocale(request);
+		if (principal != null) {
+			User loggedUser = userService
+				.getUserByUsername(principal.getName());
+			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		}
+		boolean canAdd = false, canManageScheduled = false;
+		PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
+		Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
+		Set<Query> userQueries = null;
+		String sortValue = (sort == null) ? DEFAULT_SORT : sort;
+		String orderValue = (order == null) ? DEFAULT_ORDER : order;
+		if (principal != null) {
+			User loggedUser = userService
+				.getUserByUsername(principal.getName());
+			if ((loggedUser.getRole() != null)
+				&& (canAlterTerminalsRoles.contains("'ROLE_"
+													+ loggedUser.getRole().getName().toUpperCase()
+													+ "'"))) {
+				canAdd = true;
+			}
+			if ((loggedUser.getRole() != null)
+				&& (canManageScheduledUpdatesRoles.contains("'ROLE_"
+															+ loggedUser.getRole().getName().toUpperCase()
+															+ "'"))) {
+				canManageScheduled = true;
+			}
+			pagedListHolder = new PagedListHolder<Terminal>(
+			    terminalService.listTerminalsByBankCompanies(
+				   loggedUser.getManageableBankCompanies(), sortValue, orderValue));
+			bankCompanies = loggedUser.getManageableBankCompanies();
+			userQueries = loggedUser.getQueries();
+		}
+		map.put("banksList", bankCompanies);
+		map.put("terminalModelsList", terminalModelService.listTerminalModels());
+		map.put("installationsList", installationService.listInstallations());
+		map.put("userQueries", userQueries);
+		map.put("userMsg", userMsg);
+		map.put("canAdd", canAdd);
+		map.put("canManageScheduled", canManageScheduled);
+		map.put("terminal", new Terminal());
+		map.put("sort", sortValue);
+		map.put("order", orderValue);
+		int page = 0;
+		if (p != null) {
+			try {
+				page = Integer.parseInt(p);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+		}
+		pagedListHolder.setPage(page);
+		pagedListHolder.setPageSize(pageSize);
+		map.put("pagedListHolder", pagedListHolder);
 
-	return "terminals";
+		return "terminals";
     }
 
     @RequestMapping(value = { "/terminals" })
@@ -475,10 +489,14 @@ public class TerminalController {
     }
 
     @RequestMapping(value="terminals/byQuery")
-    public String listTerminalsByQuery(Map<String, Object> map,
-				       Integer queryId,
-				       Principal principal,
-				       String p, HttpServletRequest request) {
+    public String listTerminalsByQuery(
+	        Map<String, Object> map,
+			Integer queryId,
+			Principal principal,
+			String p,
+			String sort,
+			String order,
+			HttpServletRequest request) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
         Set<Query> userQueries = null;
@@ -487,6 +505,8 @@ public class TerminalController {
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
+	String sortValue = (sort == null) ? DEFAULT_SORT : sort;
+	String orderValue = (order == null) ? DEFAULT_ORDER : order;
 	boolean canAdd = false, canManageScheduled = false;
 	if (principal != null) {
 	    User loggedUser = userService
@@ -514,7 +534,7 @@ public class TerminalController {
         logger.debug ("Query ID: " + queryId);
         if (queryId != null) {
 	    query = queryService.getQuery(queryId);
-	    terminals= queryService.executeQuery(query, locale);
+	    terminals= queryService.executeQuery(query, locale, sortValue, orderValue);
         }
         if (terminals == null) {
             terminals = terminalService.listTerminals();
@@ -532,8 +552,10 @@ public class TerminalController {
 	}
 	pagedListHolder.setPage(page);
 	pagedListHolder.setPageSize(pageSize);
-        map.put("query", query);
+	map.put("query", query);
 	map.put("pagedListHolder", pagedListHolder);
+	map.put("sort", sortValue);
+	map.put("order", orderValue);
 
 	return "terminals";
     }

@@ -90,7 +90,12 @@ public class TerminalServiceImpl implements TerminalService {
 
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks) {
-	return terminalDAO.listTerminalsByBankCompanies(banks);
+		return listTerminalsByBankCompanies(banks, null, null);
+    }
+
+    @Override
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks, String sort, String order) {
+		return terminalDAO.listTerminalsByBankCompanies(banks, sort, order);
     }
 
     @Override
@@ -129,13 +134,13 @@ public class TerminalServiceImpl implements TerminalService {
 		    hardwareDeviceService.removeHardwareDevice(hw.getId());
 		}
 		logger.debug("Deleted Hardware Devices for Terminal with IP "+ terminal.getIp());
-		
+
 		Set<FinancialDevice> financialDevs = terminal.getFinancialDevices();
 		for (FinancialDevice fd : financialDevs) {
 		    financialDeviceService.removeFinancialDevice(fd.getId());
 		}
 		logger.debug("Deleted Financial Devices for Terminal with IP "+ terminal.getIp());
-		
+
 		Set<Hotfix> hotfixes = terminal.getHotfixes();
 		for (Hotfix hotfix : hotfixes) {
 		    hotfixService.removeHotfix(hotfix.getId());
@@ -146,13 +151,13 @@ public class TerminalServiceImpl implements TerminalService {
     private void addNewEntities(Terminal terminal, ATM snmpTerminal) {
 
     	 logger.debug("Adding new Entities");
-    	 
+
     	//********************************
     	//Hardware, Financial and Hotfixes
 		terminal.setHardwareDevices(getHwDevs(terminal, snmpTerminal));
 		terminal.setFinancialDevices(getFinancialDevs(terminal, snmpTerminal));
 		terminal.setHotfixes(getHotfixes(terminal, snmpTerminal));
-	
+
 		//**********
 		//Aggregates
 		Set<SoftwareAggregate> swAggregates = getSwAggregates(snmpTerminal);
@@ -174,7 +179,7 @@ public class TerminalServiceImpl implements TerminalService {
 		//terminal.setSoftwareAggregates(swAggregates);
 		//Eva - 13/03/2013 - Updates should be made by using swAggregatesAux that contains the current data
 		terminal.setSoftwareAggregates(swAggregatesAux);
-		
+
 		//*****************
 		//Internet Explorer
 		Set<InternetExplorer> ies = getInternetExplorers(snmpTerminal);
@@ -190,11 +195,11 @@ public class TerminalServiceImpl implements TerminalService {
 		    }
 		}
 		terminal.setInternetExplorers(iesAux);
-	
+
 		//********************************************
 		//Terminal Config: Software + Operating System
 		TerminalConfig newConfig = new TerminalConfig();
-		
+
 		Set<Software> sws = getSoftware(snmpTerminal);
 		Set<Software> swsAux = new HashSet<Software>();
 		for (Software sw : sws) {
@@ -206,7 +211,7 @@ public class TerminalServiceImpl implements TerminalService {
 		    }
 		}
 		newConfig.setSoftware(swsAux);
-	
+
 		Set<OperatingSystem> oss = getOperatingSystems(snmpTerminal);
 		Set<OperatingSystem> ossAux = new HashSet<OperatingSystem>();
 		for (OperatingSystem os : oss) {
@@ -218,7 +223,7 @@ public class TerminalServiceImpl implements TerminalService {
 		    }
 		}
 		newConfig.setOperatingSystems(ossAux);
-	
+
 		if ((terminal.getCurrentConfig() == null) || (!terminal.getCurrentConfig().equals(newConfig))) {
 		    terminal.getConfigs().add(newConfig);
 		    newConfig.setTerminal(terminal);
@@ -245,7 +250,7 @@ public class TerminalServiceImpl implements TerminalService {
 		    addNewEntities(terminal, snmpTerminal);
 		    terminalDAO.updateTerminal(terminal);
 		    logger.debug("Created all new devices and software for Terminal with IP" + terminal.getIp());
-		} 
+		}
 		catch (SnmpWrongDataException e) {
 		    logger.error("Couldn't persist ATM with IP " + snmpTerminal.getIp() + "due to error: ", e);
 		}

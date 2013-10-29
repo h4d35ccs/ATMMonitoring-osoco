@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -44,13 +45,28 @@ public class TerminalDAOImpl implements TerminalDAO {
 
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks) {
-	Criterion restriction = (banks.size() > 0) ? Restrictions.or(
-		Restrictions.in("bankCompany", banks),
-		Restrictions.isNull("bankCompany")) : Restrictions
-		.isNull("bankCompany");
-	return sessionFactory.getCurrentSession()
-		.createCriteria(Terminal.class).add(restriction)
-		.addOrder(Order.asc("serialNumber")).list();
+		return listTerminalsByBankCompanies(banks, "serialNumber", "asc");
+    }
+
+    @Override
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks, String order, String sort) {
+		Criterion restriction = (banks.size() > 0) ?
+			Restrictions.or(
+		        Restrictions.in("bankCompany", banks),
+				Restrictions.isNull("bankCompany")) :
+			Restrictions.isNull("bankCompany");
+
+		Criteria criteria =
+			sessionFactory.getCurrentSession().
+			    createCriteria(Terminal.class).add(restriction);
+		if ((order != null) && (sort != null)) {
+			if ("asc".equals(sort)) {
+				criteria.addOrder(Order.asc(order));
+			} else {
+				criteria.addOrder(Order.desc(order));
+			}
+		}
+		return criteria.list();
     }
 
     @Override
@@ -68,21 +84,33 @@ public class TerminalDAOImpl implements TerminalDAO {
     	return sessionFactory.getCurrentSession().createCriteria(Terminal.class).addOrder(Order.asc("serialNumber")).list();
     }
 
-    @Override
+	@Override
     public List<Terminal> getTerminalsByHQL(List<Object> values,
-	    List<Type> types, String hql) {
+											List<Type> types, String hql) {
+		return getTerminalsByHQL(values, types, hql, null, null);
+    }
+
+	@Override
+    public List<Terminal> getTerminalsByHQL(List<Object> values,
+		    List<Type> types, String hql, String sort, String order) {
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		if (sort != null) {
+			hql += " order by terminal." + sort;
+			if (order != null) {
+				hql += " " + order;
+			}
+		}
 		query.setParameters(values.toArray(), types.toArray(new Type[0]));
 		logger.debug("Executing the HQL sentence '" + hql
-			+ "' with the values " + values + "and types " + types);
+					 + "' with the values " + values + "and types " + types);
 		try {
-		    return query.list();
+			return query.list();
 		} catch (HibernateException e) {
-		    logger.error(
-			    "There was an error while executing the HQL sentence '"
-				    + hql + "' with the values " + values
-				    + "and types " + types, e);
-		    throw e;
+			logger.error(
+						 "There was an error while executing the HQL sentence '"
+						 + hql + "' with the values " + values
+						 + "and types " + types, e);
+			throw e;
 		}
     }
 
@@ -93,13 +121,13 @@ public class TerminalDAOImpl implements TerminalDAO {
 		logger.debug("Executing the HQL sentence '" + hql
 					 + "' with the values " + values + "and types " + types);
 		try {
-		    return query.list();
+			return query.list();
 		} catch (HibernateException e) {
-		    logger.error(
+			logger.error(
 						 "There was an error while executing the HQL sentence '"
 						 + hql + "' with the values " + values
 						 + "and types " + types, e);
-		    throw e;
+			throw e;
 		}
     }
 

@@ -24,6 +24,8 @@ public interface TerminalService {
 
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks);
 
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks, String sort, String order);
+
     public List<Terminal> listTerminals();
 
     public Terminal loadTerminalBySerialNumber(String serialNumber);

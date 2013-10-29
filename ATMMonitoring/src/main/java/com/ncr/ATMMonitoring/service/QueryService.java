@@ -21,6 +21,8 @@ public interface QueryService {
 
     public void updateQuery(Query query);
 
+    public List<Terminal> executeQuery(Query query, Locale locale, String sort, String order);
+
     public List<Terminal> executeQuery(Query query, Locale locale);
 
     public List<Terminal> executeQuery(Query query);

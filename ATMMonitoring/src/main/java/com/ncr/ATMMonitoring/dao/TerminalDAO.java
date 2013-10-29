@@ -18,6 +18,8 @@ public interface TerminalDAO {
 
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank);
 
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank, String sort, String order);
+
     public List<Terminal> listTerminalsByBankCompany(BankCompany bank);
 
     public List<Terminal> listTerminals();
@@ -26,6 +28,9 @@ public interface TerminalDAO {
 
     public List<Terminal> getTerminalsByHQL(List<Object> values,
 											List<Type> types, String hql);
+
+    public List<Terminal> getTerminalsByHQL(List<Object> values,
+	    List<Type> types, String hql, String sort, String order);
 
     public List executeQuery(List<Object> values,
 											List<Type> types, String hql);
