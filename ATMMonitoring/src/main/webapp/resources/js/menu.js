@@ -1,7 +1,7 @@
 
 $(function() {
 	$('ul.collapsible').hide(); // Cierro todos los menun de las cajas
-	$('.desplegable .txt').click(function() {
+	$(document).on("click", ".desplegable .txt", function() {
 		if($(this).hasClass('content_hide')){ // si pulso en uno que está cerrado...
 			$(this).removeClass('content_hide');
 			$(this).next('.collapsible').show('slow');
