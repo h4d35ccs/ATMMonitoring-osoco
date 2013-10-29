@@ -10,6 +10,11 @@
 <jsp:attribute name="header">
     <script type="text/javascript">
         $(function() {
+            $("#queryDate").datepicker();
+            $("#queryDateButton").click(function(event) {
+                event.preventDefault();
+                $("#queryDate").datepicker("show");
+            });
             $("thead th.order").click(function(event) {
                 var headerUrl = $(this).find("a").attr("href");
                 document.location.href = headerUrl;
@@ -60,8 +65,8 @@
                                 	</c:forEach>
                             	    </select>
 
-				<input type="text" value="2/11/2013">
-                            	<a href="" class="btn calendar"><span>Abrir calendario</span></a>
+				<input id="queryDate" type="text" value="2/11/2013">
+                            	<a href="" id="queryDateButton" class="btn calendar"><span>Abrir calendario</span></a>
                             	<input type="submit" value="Aplicar" class="btn">
                                 </form>
 			   </c:if>
@@ -87,7 +92,7 @@
 				        </h2>
 
 
-					
+
                     <c:if  test="${empty pagedListHolder.pageList}">
                        <div class="message"><p><spring:message code="label.terminal.noTerminals"/></p></div>
                     </c:if>
@@ -98,36 +103,14 @@
 						<a href="#" class="btn left update">Actualizar</a>
 						<a href="#" class="btn left clock">Actualización planificada</a>
 					<c:if test="${query == null}">
-						  
-						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
-						</c:if>
-						<c:if test="${query != null}">
-						  
-						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
-						</c:if>	
-					</div>
-<<<<<<< Updated upstream
 
- <c:if  test="${empty pagedListHolder.pageList}">
-                       <div class="message"><p><spring:message code="label.terminal.noTerminals"/></p></div>
-                    </c:if>
-                    <c:if  test="${!empty pagedListHolder.pageList}">
-		      <div class="table_buttons">
-			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
-						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
-						<a href="#" class="btn left update">Actualizar</a>
-						<a href="#" class="btn left clock">Actualización planificada</a>
-					<c:if test="${query == null}">
-						  
 						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 						<c:if test="${query != null}">
-						  
+
 						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
-						</c:if>	
+						</c:if>
 					</div>
-=======
->>>>>>> Stashed changes
 
                         <t:terminalsTable terminals="${pagedListHolder.pageList}"/>
 
@@ -136,13 +119,13 @@
 						<a href="#" class="btn left update">Actualizar</a>
 						<a href="#" class="btn left clock">Actualización planificada</a>
 						<c:if test="${query == null}">
-						  
+
 						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 						<c:if test="${query != null}">
-						  
+
 						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
-						</c:if>																			     
+						</c:if>
 					</div>
 					</div><!-- /table_buttons -->
 
@@ -162,11 +145,6 @@
 
 
                     </c:if>
-<<<<<<< Updated upstream
-
-=======
-                    
->>>>>>> Stashed changes
 
                 <div class="hide">
                 	<div id="help_pop" class="inline">
@@ -301,7 +279,7 @@ p    							</ol>
 	        <td><form:input class='form-tf-grey' path="manufacturingSite" maxlength="20"/></td>
 	    </tr>
 	    <tr>
-	        <td class="header"><form:label path="model"><i><spring:message code="label.terminal.model"/></i></form:label></td>
+	        <td class="header"><form:label path="model"><i><spring:message code="label.terminal.model"/p></i></form:label></td>
 	        <td><form:input class='form-tf-grey' path="model" maxlength="20"/></td>
 	        <td class="error-td"><form:errors path="model"/></td>
 	    </tr>
