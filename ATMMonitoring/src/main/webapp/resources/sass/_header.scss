@@ -1,45 +1,43 @@
 #main_header{
-	background:$colorW;
-	background:rgba(255,255,255,0.9);
-	border-bottom: 1px solid $colorK6;
-	height: 50px;
+	background:$colorK;
+	background:rgba(51,51,51,0.9);
+	height: 40px;
 	position: fixed;
 	width: 100%;
 	z-index: 999;
 	h1{
 		position: absolute;
 		font-size: 16px;
-		color: $colorB;
+		color: $colorW;
 		height: 40px;
 		top: 0;
 		left: 0;
 		img{
 			position: absolute;
-			top: 5px;
-			left: 5px;
+			top: 0;
+			left: 0;
 		}
 		span{
 			position: absolute;
 			top: -200px;
 		}
 		strong{
-			top: 12px;
-			left: 85px;
+			top: 5px;
+			left: 125px;
 			position: absolute;
 			font-weight: normal;
 			font-size: 1.8em;
-			padding: 6px 0 6px 40px;
 		}
 	}
 	#user_info{
 		text-transform: uppercase;
 		font-size: .8em;
-		color: $colorB3;
+		color: $colorW;
 		margin-left: 20em;
 		padding-top: 1.8em;
 		position: absolute;
 		right: 45px;
-		top: 15px;
+		top: 0;
 		&>div, &>nav{
 			float: left;
 			margin-left: 2em;
@@ -48,7 +46,7 @@
 	#lang{
 		display: inline;
 		cursor: pointer;
-		color: $colorB3;
+		color: $colorW;
 		text-transform: uppercase;
 		text-align: right;
 		.txt{
@@ -64,10 +62,10 @@
 		li{
 			@include shadow;
 			background:$colorW;
-			color: $colorB;
+			color: $colorG;
 			a{
 				padding: .5em 1em;
-				border-bottom: 1px solid $colorB;
+				border-bottom: 1px solid $colorG;
 				text-align: left;
 				display: block;
 			}
@@ -75,7 +73,7 @@
 	}
 	#exit{
 		a{
-			color: $colorB3;
+			color: $colorW;
 		}
 	}
 }

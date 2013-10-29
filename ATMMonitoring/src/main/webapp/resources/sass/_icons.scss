@@ -2,7 +2,7 @@
 	display: none;
 	background: $colorW;
 	background:rgba(255, 255, 255, .75);
-	border:1px solid $colorW1;
+	border:1px solid $colorK5;
 	@include shadow();
 	position: absolute;
 	top: 5px;
@@ -28,7 +28,7 @@
 		top: 2em;
 	}
 	.fc-event &{
-		background:url("../images/icons/icon_note.png") no-repeat -20px 0;
+		background:url("../images/icons/close_w.png") no-repeat;
 		top: 1px;
 		right: 1px;
 	}
@@ -52,7 +52,7 @@
 			color: $colorW;
 			padding: .5em 1em;
 			border-bottom: 1px solid $colorK4;
-			background:$colorB;
+			background:$colorG;
 			@include shadow;
 			&:hover{
 				text-decoration: none;
@@ -87,16 +87,15 @@
 	}
 }
 .add{
-	background:url("../images/icons/icon_add.png") no-repeat left bottom;
-	background-color: $colorB2;
+	background:url("../images/icons/icon_add.png") no-repeat left bottom $colorG;
 	padding-left: 35px;
 	&:hover, .link tr:hover &{
 		@include transitionAll;
-		background:url("../images/icons/icon_add.png") no-repeat left top $colorB;
+		background:url("../images/icons/icon_add.png") no-repeat left top $colorW;
 	}
 	td &, th &{
 		@include transitionAll;
-		background-color: $colorB2;
+		background-color: $colorG;
 		width: 30px;
 		height: 30px;
 		padding: 0;
@@ -113,8 +112,7 @@
 	.link .open td &{
 		background:url("../images/icons/icon_less.png") no-repeat left bottom;
 		&:hover{
-			background:url("../images/icons/icon_less.png") no-repeat left top $colorB;
-			color: $colorW;
+			background:url("../images/icons/icon_less.png") no-repeat left top $colorW;
 		}
 	}
 }
@@ -130,31 +128,25 @@
 	
 }
 .clock{
-	background:url("../images/icons/icon_clock.png") no-repeat left bottom;
-	background-color: $colorB2;
+	background:url("../images/icons/icon_clock.png") no-repeat left bottom $colorG;
 	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_clock.png") no-repeat left top;
-		background-color: $colorB;
+		background:url("../images/icons/icon_clock.png") no-repeat left top $colorW;
 	}
 }
 .next{
-	background:url("../images/icons/icon_next.png") no-repeat left bottom;
-	background-color: $colorB3;
+	background:url("../images/icons/icon_next.png") no-repeat left bottom $colorG;
 	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_next.png") no-repeat left top;
-		background-color: $colorB;
+		background:url("../images/icons/icon_next.png") no-repeat left top $colorW;
 	}
 	
 }
 .import{
-	background:url("../images/icons/icon_import.png") no-repeat left bottom;
-	background-color: $colorB3;
+	background:url("../images/icons/icon_import.png") no-repeat left bottom $colorG;
 	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_import.png") no-repeat left top;
-		background-color: $colorB;
+		background:url("../images/icons/icon_import.png") no-repeat left top $colorW;
 	}
 	
 }
@@ -162,20 +154,18 @@
 	background:url("../images/icons/icon_back.png") no-repeat left top transparent;
 	padding-left: 35px;
 	border: none;
-	color:$colorB2;
+	color:$colorG;
 	&:hover{
-		background:url("../images/icons/icon_back.png") no-repeat left top $colorW1;
+		background:url("../images/icons/icon_back.png") no-repeat left top $colorK6;
 	}
 }
 .calendar{
-	background:url("../images/icons/icon_date.png") no-repeat bottom;
-	background-color: $colorB2;
+	background:url("../images/icons/icon_date.png") no-repeat bottom $colorG;
 	width: 55px;
 	height: 30px;
 	overflow: hidden;
 	&:hover{
-		background:url("../images/icons/icon_date.png") no-repeat top;
-		background-color: $colorB;
+		background:url("../images/icons/icon_date.png") no-repeat top $colorW;
 	}
 	span{
 		position: absolute;
@@ -185,22 +175,18 @@
 .save, 
 #main .action_box .save{
 	@extend .btn;
-	background:url("../images/icons/icon_save.png") no-repeat left bottom;
-	background-color: $colorB2;
+	background:url("../images/icons/icon_save.png") no-repeat left bottom $colorG;
 	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_save.png") no-repeat left top;
-		background-color: $colorB;
+		background:url("../images/icons/icon_save.png") no-repeat left top $colorW;
 	}
 	
 }
 .play, input.play{
-	background:url("../images/icons/icon_play.png") no-repeat left bottom;
-	background-color: $colorB2;
+	background:url("../images/icons/icon_play.png") no-repeat left bottom $colorG;
 	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_play.png") no-repeat left top;
-		background-color: $colorB;
+		background:url("../images/icons/icon_play.png") no-repeat left top $colorW;
 	}
 	
 }
@@ -264,7 +250,7 @@
 .download{
 	background:url("../images/icons/icon_download.png") no-repeat top left transparent;
 	border: none;
-	color:$colorB3;
+	color:$colorG;
 	padding-left: 35px;
 	&:hover{
 		background:url("../images/icons/icon_download.png") no-repeat top left transparent;
@@ -273,12 +259,10 @@
 	}
 }
 .update, .btn.update{
-	background:url("../images/icons/icon_update.png") no-repeat bottom left;
-	background-color: $colorB2;
+	background:url("../images/icons/icon_update.png") no-repeat bottom left $colorG;
 	padding-left: 35px;
 	&:hover{
-		background:url("../images/icons/icon_update.png") no-repeat top left;
-		background-color: $colorB;
+		background:url("../images/icons/icon_update.png") no-repeat top left $colorW;
 	}
 }
 .edit{
@@ -307,8 +291,8 @@
 .graph_05{
 	background:url("../images/icons/icon_graph_05.png") no-repeat top;
 }
-.graph_component label.graph_current{
-	background-color: $colorB;
+.graph_component label.current{
+	background-color: $colorG;
 }
 .columns_botonera{
 		position: absolute;

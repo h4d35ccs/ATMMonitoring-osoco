@@ -14,7 +14,7 @@
     padding: 2em;
     h1{
 		font-size: 2.2em;
-		color: $colorB;
+		color: $colorG;
 		margin-bottom: 1em;
 		font-weight: normal;
 	}
@@ -28,7 +28,7 @@
 	}
 	a{
 		@include transitionAll;
-		color:$colorB;
+		color:$colorG;
 		text-decoration: none;
 	}
 	.botonera{

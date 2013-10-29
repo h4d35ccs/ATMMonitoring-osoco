@@ -20,7 +20,7 @@
 					</nav>
 				</div>
 				<div class="content">
-					<h1>Terminal 00:1b:21:01:82:8B</h1>
+					<h1>Terminal 00:1b:21:01:82:8B <a href="#" class="btn edit"><span>Editar</span></a></h1>
 					<div class="action_box data desplegable">
 						<h2 class="txt last"><spring:message code="label.terminalDetails"/></h2>
 						<div class="collapsible last">

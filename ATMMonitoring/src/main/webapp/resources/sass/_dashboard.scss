@@ -64,15 +64,13 @@
 			@include border-radius(4px);
 			cursor: pointer;
 			#my_components, #add_components{
-				border:2px solid $colorB3;
-				background-color: $colorB;
-				color: $colorW;
+				border:1px solid $colorK4;
 				@include border-radius(4px);
 				float: left;
 				margin-right: 1em;
 				&>a:hover{
 					text-decoration: none;
-					background:$colorB;
+					background:$colorG;
 					color: $colorW;
 				}
 				&>a{
@@ -81,7 +79,7 @@
 				}
 				.content_hide{
 					span{
-						background:url("../images/icons/icons_onoff.png") no-repeat right top $colorB2;
+						background:url("../images/icons/icons_onoff.png") no-repeat right top;
 					}
 				}
 			}
@@ -112,11 +110,10 @@
 					border-bottom: 1px solid $colorK3;
 					white-space: nowrap;
 					&.off{
-						background:$colorW1;
+						background:$colorK6;
 						color: $colorK3;
 					}
 					&.on{
-						color: $colorB3;
 						padding-right: 3em;
 						display: block;
 						background:url("../images/icons/ico_add.png") right no-repeat $colorW;

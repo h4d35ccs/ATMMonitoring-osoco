@@ -29,12 +29,12 @@
 			display: block;
 			&:hover{
 				text-decoration: none;
-				background:$colorW1;
+				background:$colorK5;
 				font-size: 1.2em;
 			}
 			&.current{
-				background:$colorB5;
-				color: $colorB;
+				background:$colorG5;
+				color: $colorG;
 				position: relative;
 				font-size: 1.2em;
 				&:after {
@@ -44,7 +44,7 @@
 				    right: -20px;
 				    border-width: 15px 0 15px 20px;
 				    border-style: solid;
-				    border-color: transparent $colorB5;
+				    border-color: transparent $colorG5;
 				    display: block;
 				    width: 0;
 				}
@@ -59,7 +59,7 @@
 		ul.features{
 			overflow: hidden;
 			padding: 2em;
-			background:$colorB6;
+			background:$colorG5;
 			@include border-radius(4px);
 		}
 	}

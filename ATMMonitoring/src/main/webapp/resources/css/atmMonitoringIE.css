@@ -1,0 +1,8 @@
+div.tableContainer {
+	overflow: auto;
+	padding-right: 17px;
+}
+.fixedHeader tr {
+	position:relative;
+    top: expression(offsetParent.scrollTop);
+}

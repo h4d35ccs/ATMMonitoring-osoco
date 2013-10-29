@@ -58,7 +58,6 @@
             overflow: hidden;
             &:hover{
                 @include transitionAll;
-                background-color: $colorK1;
             }
             span{
                 position: absolute;

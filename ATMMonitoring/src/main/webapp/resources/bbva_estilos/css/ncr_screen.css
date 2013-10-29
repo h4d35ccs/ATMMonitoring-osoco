@@ -2508,14 +2508,6 @@ strong {
   float: left;
 }
 
-/* line 1, ../sass/_login_user.scss */
-#login_user {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #4d4d4f url(../images/general/login_bg.jpg) no-repeat;
-  background-size: cover;
-}
 /* line 2, ../sass/_login_user.scss */
 #login_user #scene {
   position: absolute;
@@ -2525,8 +2517,10 @@ strong {
   height: 100%;
   perspective: 800px;
   -webkit-perspective: 800px;
+  background: #4d4d4f url(../images/general/login_bg.jpg) no-repeat;
+  background-size: cover;
 }
-/* line 11, ../sass/_login_user.scss */
+/* line 13, ../sass/_login_user.scss */
 #login_user #login_box {
   transition: transform 1s;
   -webkit-transition: -webkit-transform 1s;
@@ -2539,12 +2533,12 @@ strong {
   transform: translateX(30%) translateZ(-250px) rotateY(90deg);
   -webkit-transform: translateX(30%) translateZ(-250px) rotateY(90deg);
 }
-/* line 23, ../sass/_login_user.scss */
+/* line 25, ../sass/_login_user.scss */
 #login_user #login_box.flipped {
   transform: translateX(0) translateZ(0) rotateY(0deg);
   -webkit-transform: translateX(0) translateZ(0) rotateY(0deg);
 }
-/* line 32, ../sass/_login_user.scss */
+/* line 34, ../sass/_login_user.scss */
 #login_user #login_box {
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -2565,56 +2559,56 @@ strong {
   margin-left: -250px;
   padding-bottom: 1em;
 }
-/* line 33, ../sass/_login_user.scss */
+/* line 35, ../sass/_login_user.scss */
 #login_user #login_box h1, #login_user #login_box #main h2, #main #login_user #login_box h2, #login_user #login_box #cboxContent h2, #cboxContent #login_user #login_box h2, #login_user #login_box #main h3, #main #login_user #login_box h3, #login_user #login_box #cboxContent h3, #cboxContent #login_user #login_box h3, #login_user #login_box #main h4, #main #login_user #login_box h4, #login_user #login_box #cboxContent h4, #cboxContent #login_user #login_box h4, #login_user #login_box #main h5, #main #login_user #login_box h5, #login_user #login_box #cboxContent h5, #cboxContent #login_user #login_box h5 {
-  color: white;
-  background: #094fa4;
+  color: #094fa4;
+  background: white;
   padding: 0.5em 1.2em;
   text-align: right;
 }
-/* line 38, ../sass/_login_user.scss */
+/* line 40, ../sass/_login_user.scss */
 #login_user #login_box h1 span, #login_user #login_box #main h2 span, #main #login_user #login_box h2 span, #login_user #login_box #cboxContent h2 span, #cboxContent #login_user #login_box h2 span, #login_user #login_box #main h3 span, #main #login_user #login_box h3 span, #login_user #login_box #cboxContent h3 span, #cboxContent #login_user #login_box h3 span, #login_user #login_box #main h4 span, #main #login_user #login_box h4 span, #login_user #login_box #cboxContent h4 span, #cboxContent #login_user #login_box h4 span, #login_user #login_box #main h5 span, #main #login_user #login_box h5 span, #login_user #login_box #cboxContent h5 span, #cboxContent #login_user #login_box h5 span {
   position: absolute;
   top: -300px;
 }
-/* line 42, ../sass/_login_user.scss */
+/* line 44, ../sass/_login_user.scss */
 #login_user #login_box h1 img, #login_user #login_box #main h2 img, #main #login_user #login_box h2 img, #login_user #login_box #cboxContent h2 img, #cboxContent #login_user #login_box h2 img, #login_user #login_box #main h3 img, #main #login_user #login_box h3 img, #login_user #login_box #cboxContent h3 img, #cboxContent #login_user #login_box h3 img, #login_user #login_box #main h4 img, #main #login_user #login_box h4 img, #login_user #login_box #cboxContent h4 img, #cboxContent #login_user #login_box h4 img, #login_user #login_box #main h5 img, #main #login_user #login_box h5 img, #login_user #login_box #cboxContent h5 img, #cboxContent #login_user #login_box h5 img {
   float: left;
 }
-/* line 45, ../sass/_login_user.scss */
+/* line 47, ../sass/_login_user.scss */
 #login_user #login_box h1 strong, #login_user #login_box #main h2 strong, #main #login_user #login_box h2 strong, #login_user #login_box #cboxContent h2 strong, #cboxContent #login_user #login_box h2 strong, #login_user #login_box #main h3 strong, #main #login_user #login_box h3 strong, #login_user #login_box #cboxContent h3 strong, #cboxContent #login_user #login_box h3 strong, #login_user #login_box #main h4 strong, #main #login_user #login_box h4 strong, #login_user #login_box #cboxContent h4 strong, #cboxContent #login_user #login_box h4 strong, #login_user #login_box #main h5 strong, #main #login_user #login_box h5 strong, #login_user #login_box #cboxContent h5 strong, #cboxContent #login_user #login_box h5 strong {
   font-size: 2em;
   font-weight: normal;
 }
-/* line 63, ../sass/_login_user.scss */
+/* line 65, ../sass/_login_user.scss */
 #login_user #login_box label {
   width: 30%;
   text-align: right;
 }
-/* line 67, ../sass/_login_user.scss */
+/* line 69, ../sass/_login_user.scss */
 #login_user #login_box .row {
   border: none;
   padding: 0.5em 0 0 0;
 }
-/* line 70, ../sass/_login_user.scss */
+/* line 72, ../sass/_login_user.scss */
 #login_user #login_box .row input {
   width: 50%;
   color: #6d6e71;
 }
-/* line 75, ../sass/_login_user.scss */
+/* line 77, ../sass/_login_user.scss */
 #login_user #login_box .botonera {
   padding-right: .5em;
   border-top: 2px dotted #939598;
   padding-top: .5em;
   margin-bottom: 0;
 }
-/* line 80, ../sass/_login_user.scss */
+/* line 82, ../sass/_login_user.scss */
 #login_user #login_box .botonera .btn, #login_user #login_box .botonera .save,
 #login_user #login_box .botonera #cboxContent .pagination .save,
 #cboxContent .pagination #login_user #login_box .botonera .save {
   float: right;
 }
-/* line 84, ../sass/_login_user.scss */
+/* line 86, ../sass/_login_user.scss */
 #login_user #login_box .error {
   margin: .5em;
   -webkit-transition: all 0.5s;
@@ -3197,8 +3191,8 @@ td .add span, th .add span {
 }
 /* line 66, ../sass/_iframes.scss */
 #iframe .row label {
-  width: 29%;
-  text-align: right;
+  width: 30%;
+  text-align: left;
   margin-right: 1em;
 }
 

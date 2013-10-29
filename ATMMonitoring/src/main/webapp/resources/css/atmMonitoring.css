@@ -1,0 +1,432 @@
+select.query_selectors {
+    border:1px solid;
+    font-size:12px;
+    margin-bottom:4px;
+    margin-right:4px;
+    margin-top:4px;
+    width:175px;
+    height:21px;
+}
+.welcome-msg-table {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+.welcome-msg-table td{
+	padding-right: 10px;
+}
+.welcome-msg {
+	color: white;
+	font-size: 12px;
+}
+.hidden {
+	display: none;
+}
+.empty-list {
+	font-size: 14px;
+	font-style: italic;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin: 5px;
+}
+.ui-vertical-menu:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+}
+.ui-vertical-menu .ui-vertical-menu-item {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 85px;
+    text-align: center;
+}
+.menu-item {
+	border: 2.5px solid transparent;
+}
+h3 {
+	font-size: 20px;
+}
+h4 {
+	font-size: 18px;
+}
+h3, h4, h5 {
+	font-style: italic;
+}
+h1, h2, h3, h4, h5 {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	margin-left: 8px;
+}
+.plain-label {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+table {
+	border-collapse: collapse;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin: 5px auto;
+}
+table td, table th {
+	padding: 3;
+}
+td.center-cell {
+	text-align: center;
+}
+.data {
+    border:2.5px solid #A4A4A4;
+    border-color: #A4A4A4;
+    margin: 0px auto;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.data td, .data th {
+	font-size: 0.7em;
+    padding: 3px 7px 2px 7px;
+    border-right: 1px solid #A4A4A4;
+    border-color: #A4A4A4;
+}
+.data th {
+    font-size:0.8em;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 4px;
+	behavior: url(resources/css/PIE.htc);
+	background: #F0F0F0;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#F0F0F0), to(#CECECE));
+	background: -webkit-linear-gradient(#F0F0F0, #CECECE);
+	background: -moz-linear-gradient(#F0F0F0, #CECECE);
+	background: -ms-linear-gradient(#F0F0F0, #CECECE);
+	background: -o-linear-gradient(#F0F0F0, #CECECE);
+	background: linear-gradient(#F0F0F0, #CECECE);
+	/* For Internet Explorer 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F0F0F0, endColorstr=#CECECE);
+	/* For Internet Explorer 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F0F0F0, endColorstr=#CECECE)";
+    border-bottom:2px solid #A4A4A4;
+    position: relative;
+    /*z-index: -1;*/
+}
+
+.form td, .form-disabled td, .form-disabled-generic td {
+	text-align: left;
+}
+.form .header, .form-disabled .header, .form-disabled-generic .header {
+	border-left: 2px solid #A4A4A4;
+	border-right: 2px solid #A4A4A4;
+	border-bottom: 1px solid #A4A4A4;
+	border-color: #A4A4A4;
+    font-size:0.8em;
+    font-weight: bold;
+    padding: 3px;
+	behavior: url(resources/css/PIE.htc);
+	background: #F0F0F0;
+	background: -webkit-gradient(linear, left top, right top, from(#F0F0F0), to(#CECECE));
+	background: -webkit-linear-gradient(left, #F0F0F0, #CECECE);
+	background: -moz-linear-gradient(left, #F0F0F0, #CECECE);
+	background: -ms-linear-gradient(left, #F0F0F0, #CECECE);
+	background: -o-linear-gradient(left, #F0F0F0, #CECECE);
+	background: linear-gradient(to-right, #F0F0F0, #CECECE);
+	/* For Internet Explorer 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F0F0F0, endColorstr=#CECECE, GradientType=1);
+	/* For Internet Explorer 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F0F0F0, endColorstr=#CECECE, GradientType=1)";
+    position: relative;
+    z-index: -1;
+}
+.form-disabled-generic, .form-disabled-generic td {
+	border-top: 1px solid #A4A4A4;
+	border-bottom: 1px solid #A4A4A4;
+	border-right: 2px solid #A4A4A4;
+	border-color: #A4A4A4;
+	padding: 2px;
+	font-size: 14px;
+}
+.form-disabled td {
+	border-left: 2px solid #A4A4A4;
+	border-right: 2px solid #A4A4A4;
+	border-bottom: 1px solid #A4A4A4;
+	border-color: #A4A4A4;
+}
+.subform td, .subform .header, .subform th {
+	font-size: 0.6em;
+	padding: 1px;
+}
+.form .first-header, .form-disabled .first-header {
+	border-top: 2px solid #A4A4A4;
+}
+.form .last-header, .form-disabled .last-header {
+	border-bottom: 2px solid #A4A4A4;
+}
+.form-submit {
+	margin: 2px;
+}
+.query-submit {
+	text-align: right;
+	margin-top: 5px;
+}
+.query-submit #queryName {
+	margin-right: 5px;
+	margin-left: 5px;
+}
+td form {
+	margin-bottom: 0;
+}
+.query-designer {
+	width: 840px;
+	margin: 5px auto;
+}
+.query-form {
+	margin: 0px auto;
+}
+.queries-notes {
+	font-weight: bold;
+	font-size: 14px;
+	margin: 10px;
+}
+.query-csv-export {
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	margin: 4px;
+}
+.error-td {
+	color: red;
+}
+.error-message {
+	font-family: "Courier New", Courier, monospace;
+}
+/* Terence Ordona, portal[AT]imaputz[DOT]com         */
+/* http://creativecommons.org/licenses/by-sa/2.0/    */
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+div.tableContainer {
+	clear: both;
+	border: 1px solid #A4A4A4;
+	border-color: #A4A4A4;
+	overflow: hidden;
+	margin: 0px auto;
+}
+.data tr.alt td {
+    background: #E6E6E6;
+    z-index: -1;
+}
+
+/* define width of table. IE browsers only                 */
+div.tableContainer table {
+	margin: 0px;
+	float: left;
+}
+
+/* set table header to a fixed position. WinIE 6.x only                                       */
+/* In WinIE 6.x, any element with a position property set to relative and is a child of       */
+/* an element that has an overflow property set, the relative value translates into fixed.    */
+/* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
+thead.fixedHeader tr {
+	position: relative
+}
+
+/* set THEAD element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+html>body thead.fixedHeader tr {
+	display: block
+}
+
+/* define the table content to be scrollable                                              */
+/* set TBODY element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* induced side effect is that child TDs no longer accept width: auto                     */
+html>body tbody.scrollContent {
+	display: block;
+	overflow: auto;
+	width: 100%
+}
+
+/* Paging components */
+.pagingContainer {
+	margin: 5px auto 0px auto;
+}
+.pagingItem {
+	font-weight: normal;
+	text-decoration: none;
+	color: #747474;
+	margin: 0 2px;
+	padding: 0 2px;
+	background: #eeeeee;
+	border: 1px solid #bababa;
+	border-color: #bababa;
+	font-size: 0.9em;
+	line-height: 1.5em;
+}
+.pagingItemCurrent {
+	padding: 0 2px;
+	margin: 0 2px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background: #bfbfbf;
+	border: 1px solid #bfbfbf;
+	border-color: #bfbfbf;
+	font-size: 0.9em;
+}
+.thin-border-green {
+    border: 1.5px solid #42A50D;
+	border-color: #42A50D;
+}
+.thick-border-green {
+    border: 2.5px solid #42A50D;
+	border-color: #42A50D;
+}
+.thin-border-grey {
+    border: 1.5px solid #A4A4A4;
+	border-color: #A4A4A4;
+}
+.thick-border-grey {
+    border: 2.5px solid #A4A4A4;
+	border-color: #A4A4A4;
+}
+.form-tf-green {
+    border: 1.5px solid #42A50D;
+	width: 100%;
+	border-color: #42A50D;
+}
+.form-tf-grey {
+    border: 1.5px solid #A4A4A4;
+	width: 100%;
+	border-color: #A4A4A4;
+}
+.home-box {
+    display: inline-block;
+    margin: 10px auto 15px auto;
+    padding-right: 10px;
+    padding-left: 10px;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    -khtml-border-radius: 7px;
+    border-radius: 7px;
+}
+.wide-horizontal {
+	width: 1060px;
+}
+.margin-box {
+	margin: 10px;
+}
+.box {
+    border:2px solid #848484;
+    border-color: #848484;
+    display: table;
+    *position: absolute;
+    margin: 20px auto 5px auto;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border-radius: 7px 7px 7px 7px;
+    -khtml-border-radius: 7px 7px 7px 7px;
+    border-radius: 7px 7px 7px 7px;
+}
+h5 {
+	font-size: 11px;
+	color: #757575;
+	margin: 10px auto 5px auto;
+}
+h1 {
+    padding:5px;
+    margin: 0px auto;
+    width: 100%;
+    font-family:Verdana;
+    font-size:20px;
+    font-style:normal;
+    font-weight:bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+.box h2 {
+    text-indent: 0.5em;
+    border-bottom:2px solid #848484;
+    background:#088A29;
+    color:white;
+    padding:5px 0px;
+    margin: 0px;
+    margin-right: 5px;
+    width: 100%;
+    font-family:Verdana;
+    font-size:12px;
+    font-style:normal;
+    font-weight:bold;
+    text-align: left;
+    background: #66CB63;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#66CB63), to(#4A8B48));
+	background: -webkit-linear-gradient(#66CB63, #4A8B48);
+	background: -moz-linear-gradient(#66CB63, #4A8B48);
+	background: -ms-linear-gradient(#66CB63, #4A8B48);
+	background: -o-linear-gradient(#66CB63, #4A8B48);
+	background: linear-gradient(#66CB63, #4A8B48);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66CB63, endColorstr=#4A8B48, GradientType=0);
+	/* For Internet Explorer 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66CB63, endColorstr=#4A8B48, GradientType=0)";
+    -moz-border-radius:4.5px 4.5px 0px 0px;
+    -webkit-border-radius:4.5px 4.5px 0px 0px;
+    -khtml-border-radius:4.5px 4.5px 0px 0px;
+    border-radius: 4.5px 4.5px 0px 0px;
+}
+.box h3 {
+    text-indent: 0.5em;
+    border-bottom:2px solid #848484;
+    background:#088A29;
+    color:white;
+    padding:5px 0px;
+    margin: 0px;
+    width: 100%;
+    font-family:Verdana;
+    font-size:9px;
+    font-style:normal;
+    font-weight:bold;
+    text-align: left;
+    background: #66CB63;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#66CB63), to(#4A8B48));
+	background: -webkit-linear-gradient(#66CB63, #4A8B48);
+	background: -moz-linear-gradient(#66CB63, #4A8B48);
+	background: -ms-linear-gradient(#66CB63, #4A8B48);
+	background: -o-linear-gradient(#66CB63, #4A8B48);
+	background: linear-gradient(#66CB63, #4A8B48);
+	-pie-background: linear-gradient(#66CB63, #4A8B48);
+    -moz-border-radius:4.5px 4.5px 0px 0px;
+    -webkit-border-radius:4.5px 4.5px 0px 0px;
+    -khtml-border-radius:4.5px 4.5px 0px 0px;
+    border-radius: 4.5px 4.5px 0px 0px;
+}
+.container h3 {
+    padding:5px;
+    margin: 5px auto;
+    width: 100%;
+    font-family:Verdana;
+    font-size:12px;
+    font-style:normal;
+    font-weight:bold;  
+    text-align: center;
+    text-transform: uppercase;
+}
+.queries-notes {
+    font-family:Verdana;
+    font-size: 11px;
+    margin-top: 10px;
+}
+.box .box-tableContainer {
+    margin:5px;
+    display: inline-block;
+}
+.box form {
+    margin:5px;
+}
+.atm-top-menu {
+	background: #F0F0F0;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#F0F0F0), to(#CECECE));
+	background: -webkit-linear-gradient(#F0F0F0, #CECECE);
+	background: -moz-linear-gradient(#F0F0F0, #CECECE);
+	background: -ms-linear-gradient(#F0F0F0, #CECECE);
+	background: -o-linear-gradient(#F0F0F0, #CECECE);
+	background: linear-gradient(#F0F0F0, #CECECE);
+	/* For Internet Explorer 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F0F0F0, endColorstr=#CECECE);
+	/* For Internet Explorer 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F0F0F0, endColorstr=#CECECE)";
+}

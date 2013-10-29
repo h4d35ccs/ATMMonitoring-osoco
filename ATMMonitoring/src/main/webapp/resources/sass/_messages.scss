@@ -2,21 +2,21 @@
 	.td &{
 		display: block;
 	}
-	background:$colorW1 url("../images/icons/notification.png") no-repeat 1em;
-	border:2px dotted $colorG;
+	background:$colorG5 url("../images/icons/notification.png") no-repeat 1em;
+	border:2px dotted $colorG3;
 	padding: 1em 2em 1em 6em;
 	margin: 1em 0;
 	min-height: 2em;
 	strong{
-		color: $colorB;
+		color: $colorG;
 	}
 }
 .alert{
 	.td &{
 		display: block;
 	}
-	background:$colorR2 url("../images/icons/alert.png") no-repeat 1em;
-	border:2px dotted $colorR;
+	background:$colorR5 url("../images/icons/alert.png") no-repeat 1em;
+	border:2px dotted $colorR3;
 	padding: 1em 2em 1em 6em;
 	margin: 1em 0;
 	min-height: 2em;
@@ -25,8 +25,8 @@
 	}
 }
 .message{
-	background:$colorW1 url("../images/icons/message.png") no-repeat 1em;
-	border:2px dotted $colorO;
+	background:$colorY21 url("../images/icons/message.png") no-repeat 1em;
+	border:2px dotted $colorY1;
 	padding: 1em 2em 1em 6em;
 	position: relative;
 	min-height: 2em;
@@ -34,7 +34,7 @@
 		display: block;
 	}
 	strong{
-		color: $colorB2;
+		color: $colorY3;
 	}
 	&.left:after {
 	    content: "";
