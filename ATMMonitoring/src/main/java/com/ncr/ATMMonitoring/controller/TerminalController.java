@@ -2,6 +2,8 @@ package com.ncr.ATMMonitoring.controller;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -292,6 +294,7 @@ public class TerminalController {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
 	boolean canAdd = false;
+	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
@@ -301,10 +304,12 @@ public class TerminalController {
 			    + "'"))) {
 		canAdd = true;
 	    }
+	    bankCompanies = loggedUser.getManageableBankCompanies();
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
 
-	map.put("userMsg", userMsg);
+        map.put("terminalModelsList", terminalModelService.listTerminalModels());
+        map.put("banksList", bankCompanies);
 	map.put("canAdd", canAdd);
         map.put("terminal", new Terminal());
 
@@ -738,6 +743,64 @@ public class TerminalController {
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
+    }
+    @RequestMapping(value ="/terminals/export/{queryId}", method = RequestMethod.GET)
+    public void downloadResultsCsvForQuery(
+				   @PathVariable("queryId") Integer queryId,
+				   HttpServletResponse response, HttpServletRequest request) {
+	try {
+	    response.setContentType("text/csv;charset=utf-8");
+	    response.setHeader("Content-Disposition",
+		    "attachment; filename=\"terminals.csv\"");
+	    OutputStream resOs = response.getOutputStream();
+	    OutputStream buffOs = new BufferedOutputStream(resOs);
+	    OutputStreamWriter outputwriter = new OutputStreamWriter(buffOs);
+	    outputwriter.write(Terminal.getCsvHeader());
+	    List<Terminal> terminals = null;
+	    if (queryId != null) {
+		Query query = queryService.getQuery(queryId);
+		    if (query != null) {
+			logger.debug("Retriving terminals from query ${query.id} for csv export");
+			 terminals= queryService.executeQuery(query,RequestContextUtils.getLocale(request));
+		    }
+	    }
+	    for (Terminal terminal : terminals) {
+			    outputwriter.write("\n" + terminal.getCsvDescription());
+	   }
+	    outputwriter.flush();
+	    outputwriter.close();
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
+
+    }
+
+    @RequestMapping(value ="/terminals/exportAll", method = RequestMethod.GET)
+    public void downloadResultsCsv(
+				   HttpServletResponse response, HttpServletRequest request, Principal principal) {
+	try {
+	    response.setContentType("text/csv;charset=utf-8");
+	    response.setHeader("Content-Disposition",
+		    "attachment; filename=\"terminals.csv\"");
+	    OutputStream resOs = response.getOutputStream();
+	    OutputStream buffOs = new BufferedOutputStream(resOs);
+	    OutputStreamWriter outputwriter = new OutputStreamWriter(buffOs);
+	    outputwriter.write(Terminal.getCsvHeader());
+	    User loggedUser = userService.getUserByUsername(principal.getName());
+	    List<Terminal> terminals = null;
+	    logger.debug ("Exporting to CSV all terminals");
+	    terminals = 
+		terminalService.listTerminalsByBankCompanies(loggedUser.getManageableBankCompanies());
+
+	    for (Terminal terminal : terminals) {
+			    outputwriter.write("\n" + terminal.getCsvDescription());
+	   }
+	    outputwriter.flush();
+	    outputwriter.close();
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
+
     }
 
 }

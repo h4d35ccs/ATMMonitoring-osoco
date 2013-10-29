@@ -42,7 +42,7 @@
 <h1><spring:message code="label.scheduledUpdatesManager"/></h1>
 
 <c:if test="${success != null}">
-  <div class="message">
+  <div class="notification">
     <p>${success}</p>
   </div>
 </c:if>
@@ -67,7 +67,7 @@
 <h2><spring:message code="label.weeklyScheduledUpdates"/></h2>
 <div class="margin-box">
 <c:if  test="${empty weeklyScheduledUpdates}">
-<div class="empty-list"><spring:message code="label.scheduledUpdates.noWeeklyScheduledUpdates"/></div>
+<div class="message"><spring:message code="label.scheduledUpdates.noWeeklyScheduledUpdates"/></div>
 </c:if>
 <c:if  test="${!empty weeklyScheduledUpdates}">
 <c:choose>
@@ -150,7 +150,7 @@
 <h2><spring:message code="label.monthlyScheduledUpdates"/></h2>
 <div class="margin-box">
 <c:if  test="${empty monthlyScheduledUpdates}">
-<div class="empty-list"><spring:message code="label.scheduledUpdates.noMonthlyScheduledUpdates"/></div>
+<div class="message"><spring:message code="label.scheduledUpdates.noMonthlyScheduledUpdates"/></div>
 </c:if>
 <c:if  test="${!empty monthlyScheduledUpdates}">
 <c:choose>

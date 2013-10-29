@@ -124,26 +124,12 @@ public class QueryController {
         Query query = null;
         Set<Query> userQueries = null;
 	Locale locale = RequestContextUtils.getLocale(request);
-
-	if (queryId != null) {
-	    query = queryService.getQuery(queryId);
-	    if (query != null) {
-		try {
-		    queryService.deleteQuery(query);
-		    map.put("success", "success.deletingNewQuery");
-	        }catch (Exception e) {
-		    map.put("error", "error.deletingQuery");
-		}
-            }
-	}
-
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
             userQueries = loggedUser.getQueries();
 	}
-
 	PagedListHolder<Query> pagedListHolder =
 	    new PagedListHolder<Query>( new ArrayList(userQueries));
 	int page = 0;
@@ -153,6 +139,19 @@ public class QueryController {
 	map.put("pagedListHolder", pagedListHolder);
 
         map.put("userMsg", userMsg);
+
+	if (queryId != null) {
+	    query = queryService.getQuery(queryId);
+	    if (query != null) {
+		try {
+		    queryService.deleteQuery(query);
+		    map.put("success", "success.deletingNewQuery");
+	        }catch (Throwable e) {
+		    map.put("error", "error.deletingQuery");
+		}
+            }
+	}	
+	
 	return "queryList";
 
     }
@@ -349,4 +348,5 @@ public class QueryController {
 	}
 
     }
+
 }

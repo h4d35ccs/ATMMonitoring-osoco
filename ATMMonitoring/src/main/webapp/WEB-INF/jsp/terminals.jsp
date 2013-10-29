@@ -87,24 +87,62 @@
 				        </h2>
 
 
-					<div class="table_buttons">
-                    <div class="botonera"> <!-- Repito botonera antes de la tabla -->
-						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
-						<a href="#" class="btn left update">Actualizar</a>
-						<a href="#" class="btn left clock">Actualización planificada</a>
-						<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
-					</div>
+					
                     <c:if  test="${empty pagedListHolder.pageList}">
-                        <div class="empty-list"><spring:message code="label.terminal.noTerminals"/></div>
+                       <div class="message"><p><spring:message code="label.terminal.noTerminals"/></p></div>
                     </c:if>
                     <c:if  test="${!empty pagedListHolder.pageList}">
-                        <t:terminalsTable terminals="${pagedListHolder.pageList}"/>
-                    </c:if>
-                    <div class="botonera"> <!-- Repito botonera antes de la tabla -->
+		      <div class="table_buttons">
+			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
 						<a href="#" class="btn left update">Actualizar</a>
 						<a href="#" class="btn left clock">Actualización planificada</a>
-						<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
+					<c:if test="${query == null}">
+						  
+						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
+						</c:if>
+						<c:if test="${query != null}">
+						  
+						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
+						</c:if>	
+					</div>
+<<<<<<< Updated upstream
+
+ <c:if  test="${empty pagedListHolder.pageList}">
+                       <div class="message"><p><spring:message code="label.terminal.noTerminals"/></p></div>
+                    </c:if>
+                    <c:if  test="${!empty pagedListHolder.pageList}">
+		      <div class="table_buttons">
+			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
+						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
+						<a href="#" class="btn left update">Actualizar</a>
+						<a href="#" class="btn left clock">Actualización planificada</a>
+					<c:if test="${query == null}">
+						  
+						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
+						</c:if>
+						<c:if test="${query != null}">
+						  
+						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
+						</c:if>	
+					</div>
+=======
+>>>>>>> Stashed changes
+
+                        <t:terminalsTable terminals="${pagedListHolder.pageList}"/>
+
+			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
+						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
+						<a href="#" class="btn left update">Actualizar</a>
+						<a href="#" class="btn left clock">Actualización planificada</a>
+						<c:if test="${query == null}">
+						  
+						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
+						</c:if>
+						<c:if test="${query != null}">
+						  
+						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
+						</c:if>																			     
 					</div>
 					</div><!-- /table_buttons -->
 
@@ -116,11 +154,19 @@
                     	<div class="p_number"><c:if test="${pagedListHolder.getPageCount() >1 }">
 			     			    <span class="text">Página</span>
 
-				  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}&sort=${sort}&order=${order}"/></div>
+				  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}"/></div>
 				  </c:if>
                       </div>
 
                 </div>
+
+
+                    </c:if>
+<<<<<<< Updated upstream
+
+=======
+                    
+>>>>>>> Stashed changes
 
                 <div class="hide">
                 	<div id="help_pop" class="inline">
