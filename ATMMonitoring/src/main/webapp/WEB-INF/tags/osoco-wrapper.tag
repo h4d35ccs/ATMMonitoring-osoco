@@ -12,6 +12,8 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <c:set var="req" value="${pageContext.request}" />
         <c:set var="url">${req.requestURL}</c:set>
         <c:set var="base" value="${fn:substring(url, 0, fn:length(url) - fn:length(req.requestURI))}${req.contextPath}/" />
@@ -41,6 +43,9 @@
     <body id="${section}">
 
         <header id="main_header">
+            <div id="rButton" class="hide btn_close">
+
+            </div>
             <h1>
                 <a href="dashboard"><img src="resources/images/general/logo.png"/></a>
                 <span>NCR</span> <strong>HASM</strong>
@@ -58,7 +63,7 @@
                 </div>
                 <sec:authorize access="isAuthenticated()">
                     <div id="exit">
-                        <a href="logout"><spring:message code="label.menu.logout"/></a>
+                        <a href="logout"><span><spring:message code="label.menu.logout"/></span></a>
                     </div>
                 </sec:authorize>
             </div>

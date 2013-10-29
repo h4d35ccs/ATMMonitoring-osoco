@@ -363,9 +363,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   height: 40px;
   position: fixed;
   width: 100%;
-  z-index: 999;
+  z-index: 1000;
 }
 /* line 8, ../sass/_header.scss */
+#main_header #rButton {
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  background: url("../images/general/rButton.png") no-repeat;
+}
+/* line 14, ../sass/_header.scss */
 #main_header h1, #main_header #main h2, #main #main_header h2, #main_header #cboxContent h2, #cboxContent #main_header h2, #main_header #main h3, #main #main_header h3, #main_header #cboxContent h3, #cboxContent #main_header h3, #main_header #main h4, #main #main_header h4, #main_header #cboxContent h4, #cboxContent #main_header h4, #main_header #main h5, #main #main_header h5, #main_header #cboxContent h5, #cboxContent #main_header h5 {
   position: absolute;
   font-size: 16px;
@@ -374,18 +381,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   top: 0;
   left: 0;
 }
-/* line 15, ../sass/_header.scss */
+/* line 21, ../sass/_header.scss */
 #main_header h1 img, #main_header #main h2 img, #main #main_header h2 img, #main_header #cboxContent h2 img, #cboxContent #main_header h2 img, #main_header #main h3 img, #main #main_header h3 img, #main_header #cboxContent h3 img, #cboxContent #main_header h3 img, #main_header #main h4 img, #main #main_header h4 img, #main_header #cboxContent h4 img, #cboxContent #main_header h4 img, #main_header #main h5 img, #main #main_header h5 img, #main_header #cboxContent h5 img, #cboxContent #main_header h5 img {
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 20, ../sass/_header.scss */
+/* line 26, ../sass/_header.scss */
 #main_header h1 span, #main_header #main h2 span, #main #main_header h2 span, #main_header #cboxContent h2 span, #cboxContent #main_header h2 span, #main_header #main h3 span, #main #main_header h3 span, #main_header #cboxContent h3 span, #cboxContent #main_header h3 span, #main_header #main h4 span, #main #main_header h4 span, #main_header #cboxContent h4 span, #cboxContent #main_header h4 span, #main_header #main h5 span, #main #main_header h5 span, #main_header #cboxContent h5 span, #cboxContent #main_header h5 span {
   position: absolute;
   top: -200px;
 }
-/* line 24, ../sass/_header.scss */
+/* line 30, ../sass/_header.scss */
 #main_header h1 strong, #main_header #main h2 strong, #main #main_header h2 strong, #main_header #cboxContent h2 strong, #cboxContent #main_header h2 strong, #main_header #main h3 strong, #main #main_header h3 strong, #main_header #cboxContent h3 strong, #cboxContent #main_header h3 strong, #main_header #main h4 strong, #main #main_header h4 strong, #main_header #cboxContent h4 strong, #cboxContent #main_header h4 strong, #main_header #main h5 strong, #main #main_header h5 strong, #main_header #cboxContent h5 strong, #cboxContent #main_header h5 strong {
   top: 5px;
   left: 125px;
@@ -393,23 +400,30 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: normal;
   font-size: 1.8em;
 }
-/* line 32, ../sass/_header.scss */
+/* line 38, ../sass/_header.scss */
 #main_header #user_info {
   text-transform: uppercase;
   font-size: .8em;
   color: white;
-  margin-left: 20em;
-  padding-top: 1.8em;
   position: absolute;
-  right: 45px;
+  right: 5px;
   top: 0;
 }
-/* line 41, ../sass/_header.scss */
+/* line 45, ../sass/_header.scss */
 #main_header #user_info > div, #main_header #user_info > nav {
   float: left;
-  margin-left: 2em;
+  margin-left: .5em;
+  margin-top: 17px;
 }
-/* line 46, ../sass/_header.scss */
+/* line 50, ../sass/_header.scss */
+#main_header #user_info .date {
+  margin-right: 1em;
+}
+/* line 53, ../sass/_header.scss */
+#main_header #user_info #exit {
+  margin-top: 0;
+}
+/* line 57, ../sass/_header.scss */
 #main_header #lang {
   display: inline;
   cursor: pointer;
@@ -417,19 +431,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-transform: uppercase;
   text-align: right;
 }
-/* line 52, ../sass/_header.scss */
+/* line 63, ../sass/_header.scss */
 #main_header #lang .txt {
   display: block;
-  padding-right: 2em;
+  padding-right: 1.5em;
   background: url("../images/icons/icons_onoff_w.png") no-repeat right top;
 }
-/* line 57, ../sass/_header.scss */
+/* line 68, ../sass/_header.scss */
 #main_header #lang ul {
   display: none;
   padding-top: 1em;
   position: absolute;
 }
-/* line 62, ../sass/_header.scss */
+/* line 73, ../sass/_header.scss */
 #main_header #lang li {
   -webkit-box-shadow: 0px 0px 8px #b3b3b3;
   -moz-box-shadow: 0px 0px 8px #b3b3b3;
@@ -437,46 +451,56 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: white;
   color: #6ca932;
 }
-/* line 66, ../sass/_header.scss */
+/* line 77, ../sass/_header.scss */
 #main_header #lang li a {
   padding: 0.5em 1em;
   border-bottom: 1px solid #6ca932;
   text-align: left;
   display: block;
 }
-/* line 75, ../sass/_header.scss */
+/* line 86, ../sass/_header.scss */
 #main_header #exit a {
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  display: block;
+  background: url("../images/general/exit.png") no-repeat;
+}
+/* line 93, ../sass/_header.scss */
+#main_header #exit a span {
   color: white;
+  position: absolute;
+  top: -100px;
 }
 
-/* line 80, ../sass/_header.scss */
+/* line 101, ../sass/_header.scss */
 #header_g {
   position: relative;
   clear: both;
   height: 3em;
   position: relative;
 }
-/* line 86, ../sass/_header.scss */
+/* line 107, ../sass/_header.scss */
 #header_g #breadcrumb li {
   float: left;
   margin-right: .5em;
 }
-/* line 89, ../sass/_header.scss */
+/* line 110, ../sass/_header.scss */
 #header_g #breadcrumb li a:after {
   content: " > ";
 }
-/* line 94, ../sass/_header.scss */
+/* line 115, ../sass/_header.scss */
 #header_g .botonera {
   position: absolute;
   right: 0;
   top: 3em;
 }
-/* line 98, ../sass/_header.scss */
+/* line 119, ../sass/_header.scss */
 #header_g .botonera li {
   float: left;
   margin-left: .5em;
 }
-/* line 102, ../sass/_header.scss */
+/* line 123, ../sass/_header.scss */
 #header_g .botonera .btn, #header_g .botonera .save,
 #header_g .botonera #cboxContent .action_box .save,
 #cboxContent .action_box #header_g .botonera .save,
@@ -491,47 +515,48 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 2, ../sass/_dashboard.scss */
 #dashboard #sortable {
   overflow: hidden;
+  clear: both;
 }
-/* line 4, ../sass/_dashboard.scss */
+/* line 5, ../sass/_dashboard.scss */
 #dashboard #sortable.one_column li {
   width: 98%;
 }
-/* line 7, ../sass/_dashboard.scss */
+/* line 8, ../sass/_dashboard.scss */
 #dashboard #sortable > li {
   margin-right: 4%;
   margin-top: 4%;
   float: left;
 }
-/* line 11, ../sass/_dashboard.scss */
+/* line 12, ../sass/_dashboard.scss */
 #dashboard #sortable > li.ui-sortable-helper .content {
   -webkit-box-shadow: 0px 0px 8px #b3b3b3;
   -moz-box-shadow: 0px 0px 8px #b3b3b3;
   box-shadow: 0px 0px 8px #b3b3b3;
 }
-/* line 14, ../sass/_dashboard.scss */
+/* line 15, ../sass/_dashboard.scss */
 #dashboard #sortable > li > div {
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: 0;
 }
-/* line 21, ../sass/_dashboard.scss */
+/* line 22, ../sass/_dashboard.scss */
 #dashboard #sortable.column1 li.ui-state-default {
   width: 96%;
 }
-/* line 24, ../sass/_dashboard.scss */
+/* line 25, ../sass/_dashboard.scss */
 #dashboard #sortable.column2 li.ui-state-default {
   width: 46%;
 }
-/* line 27, ../sass/_dashboard.scss */
+/* line 28, ../sass/_dashboard.scss */
 #dashboard #sortable.column3 li.ui-state-default {
   width: 29%;
 }
-/* line 30, ../sass/_dashboard.scss */
+/* line 31, ../sass/_dashboard.scss */
 #dashboard #sortable.column4 li.ui-state-default {
   width: 21%;
 }
-/* line 33, ../sass/_dashboard.scss */
+/* line 34, ../sass/_dashboard.scss */
 #dashboard #sortable div.content {
   position: relative;
   border: 1px solid #b3b3b3;
@@ -543,7 +568,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   overflow: hidden;
   margin-bottom: 1em;
 }
-/* line 43, ../sass/_dashboard.scss */
+/* line 44, ../sass/_dashboard.scss */
 #dashboard #sortable div.content .graph {
   position: absolute;
   top: 0;
@@ -551,16 +576,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 100%;
   height: 100%;
 }
-/* line 51, ../sass/_dashboard.scss */
+/* line 52, ../sass/_dashboard.scss */
 #dashboard #sortable div.content:hover .icons_bg {
   display: block;
 }
-/* line 57, ../sass/_dashboard.scss */
+/* line 58, ../sass/_dashboard.scss */
 #dashboard .message, #dashboard .no_queries {
   margin-left: 350px;
   margin-top: 2em;
 }
-/* line 62, ../sass/_dashboard.scss */
+/* line 63, ../sass/_dashboard.scss */
 #dashboard #header_g #components {
   position: relative;
   -o-border-radius: 4px;
@@ -569,7 +594,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 4px;
   cursor: pointer;
 }
-/* line 66, ../sass/_dashboard.scss */
+/* line 67, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components, #dashboard #header_g #components #add_components {
   border: 1px solid #cccccc;
   -o-border-radius: 4px;
@@ -579,31 +604,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   float: left;
   margin-right: 1em;
 }
-/* line 71, ../sass/_dashboard.scss */
+/* line 72, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components > a:hover, #dashboard #header_g #components #add_components > a:hover {
   text-decoration: none;
   background: #6ca932;
   color: white;
 }
-/* line 76, ../sass/_dashboard.scss */
+/* line 77, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components > a, #dashboard #header_g #components #add_components > a {
   padding: 8px 20px;
   display: block;
 }
-/* line 81, ../sass/_dashboard.scss */
+/* line 82, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components .content_hide span, #dashboard #header_g #components #add_components .content_hide span {
   background: url("../images/icons/icons_onoff.png") no-repeat right top;
 }
-/* line 87, ../sass/_dashboard.scss */
+/* line 88, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components span {
   background: url("../images/icons/icons_onoff.png") no-repeat right bottom;
 }
-/* line 90, ../sass/_dashboard.scss */
+/* line 91, ../sass/_dashboard.scss */
 #dashboard #header_g #components #my_components span, #dashboard #header_g #components #my_components > a {
   padding: 8px 40px 8px 8px;
   display: block;
 }
-/* line 96, ../sass/_dashboard.scss */
+/* line 97, ../sass/_dashboard.scss */
 #dashboard #header_g #components ul {
   display: none;
   margin: 0;
@@ -621,25 +646,25 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -moz-box-shadow: 8px 8px 5px #b3b3b3;
   box-shadow: 8px 8px 5px #b3b3b3;
 }
-/* line 107, ../sass/_dashboard.scss */
+/* line 108, ../sass/_dashboard.scss */
 #dashboard #header_g #components ul li {
   background: white;
   padding: 0.5em 1em;
   border-bottom: 1px solid #b3b3b3;
   white-space: nowrap;
 }
-/* line 112, ../sass/_dashboard.scss */
+/* line 113, ../sass/_dashboard.scss */
 #dashboard #header_g #components ul li.off {
   background: #f3f3f3;
   color: #b3b3b3;
 }
-/* line 116, ../sass/_dashboard.scss */
+/* line 117, ../sass/_dashboard.scss */
 #dashboard #header_g #components ul li.on {
   padding-right: 3em;
   display: block;
   background: url("../images/icons/ico_add.png") right no-repeat white;
 }
-/* line 122, ../sass/_dashboard.scss */
+/* line 123, ../sass/_dashboard.scss */
 #dashboard #header_g #components ul li:last-child {
   border: none;
 }
@@ -3156,184 +3181,73 @@ td .add span, th .add span {
 }
 
 @media screen and (max-width: 1200px) {
-  /* line 3, ../sass/_responsive.scss */
-  #dashboard #sortable {
-    overflow: hidden;
+  /* line 4, ../sass/_responsive.scss */
+  #dashboard #columns .column4 {
+    display: none;
   }
-  /* line 5, ../sass/_responsive.scss */
-  #dashboard #sortable > li {
+  /* line 8, ../sass/_responsive.scss */
+  #dashboard #sortable.column4 li.ui-state-default {
     width: 29%;
   }
 }
-@media screen and (max-width: 960px) {
-  /* line 13, ../sass/_responsive.scss */
-  #dashboard #sortable {
-    overflow: hidden;
+@media screen and (max-width: 800px) {
+  /* line 18, ../sass/_responsive.scss */
+  #rButton {
+    display: block;
+    cursor: pointer;
   }
-  /* line 15, ../sass/_responsive.scss */
-  #dashboard #sortable > li {
-    width: 46%;
-    height: 250px;
-  }
-}
-@media screen and (max-width: 530px) {
+
   /* line 23, ../sass/_responsive.scss */
-  #columns {
-    display: none;
+  #main_header h1, #main_header #main h2, #main #main_header h2, #main_header #cboxContent h2, #cboxContent #main_header h2, #main_header #main h3, #main #main_header h3, #main_header #cboxContent h3, #cboxContent #main_header h3, #main_header #main h4, #main #main_header h4, #main_header #cboxContent h4, #cboxContent #main_header h4, #main_header #main h5, #main #main_header h5, #main_header #cboxContent h5, #cboxContent #main_header h5 {
+    left: 40px;
   }
-
-  /* line 26, ../sass/_responsive.scss */
-  #main_header {
-    height: 130px;
-  }
-  /* line 28, ../sass/_responsive.scss */
-  #main_header #lang {
-    right: 1em;
-  }
-
-  /* line 32, ../sass/_responsive.scss */
-  #main, #cboxContent {
+  /* line 25, ../sass/_responsive.scss */
+  #main_header h1 strong, #main_header #main h2 strong, #main #main_header h2 strong, #main_header #cboxContent h2 strong, #cboxContent #main_header h2 strong, #main_header #main h3 strong, #main #main_header h3 strong, #main_header #cboxContent h3 strong, #cboxContent #main_header h3 strong, #main_header #main h4 strong, #main #main_header h4 strong, #main_header #cboxContent h4 strong, #cboxContent #main_header h4 strong, #main_header #main h5 strong, #main #main_header h5 strong, #main_header #cboxContent h5 strong, #cboxContent #main_header h5 strong {
+    left: 85px;
     font-size: 1.2em;
-    padding: 16px;
+    top: 10px;
+  }
+  /* line 31, ../sass/_responsive.scss */
+  #main_header #user_info {
+    right: 5px;
+    margin-left: 0;
+  }
+  /* line 34, ../sass/_responsive.scss */
+  #main_header #user_info .welcome, #main_header #user_info .date {
+    display: none;
+  }
+  /* line 38, ../sass/_responsive.scss */
+  #main_header #lang ul {
+    right: 0;
+  }
+  /* line 40, ../sass/_responsive.scss */
+  #main_header #lang ul a {
+    font-size: 1.5em;
   }
 
-  /* line 37, ../sass/_responsive.scss */
-  #dashboard #sortable {
-    overflow: hidden;
-  }
-  /* line 39, ../sass/_responsive.scss */
-  #dashboard #sortable > li {
-    width: 99%;
-    height: 240px;
-    margin-top: 3em;
-  }
-
-  /* line 46, ../sass/_responsive.scss */
-  #main #components #my_components, #cboxContent #components #my_components {
-    margin-right: .5em;
-  }
-  /* line 48, ../sass/_responsive.scss */
-  #main #components #my_components span, #cboxContent #components #my_components span {
-    padding-right: 30px;
-  }
-
-  /* line 53, ../sass/_responsive.scss */
-  #main #components #add_components a, #cboxContent #components #add_components a {
-    overflow: hidden;
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    background: url("../images/icons/icon_add.png") no-repeat top;
-  }
-  /* line 59, ../sass/_responsive.scss */
-  #main #components #add_components a:hover, #cboxContent #components #add_components a:hover {
-    background: url("../images/icons/icon_add.png") no-repeat bottom #6ca932;
-  }
-  /* line 62, ../sass/_responsive.scss */
-  #main #components #add_components a span, #cboxContent #components #add_components a span {
+  /* line 45, ../sass/_responsive.scss */
+  #main_nav {
     display: none;
   }
 
-  /* line 67, ../sass/_responsive.scss */
-  #account_nav {
-    margin-bottom: 25px;
-  }
-
-  /* line 70, ../sass/_responsive.scss */
-  #user_info {
-    top: 105px;
-    left: 0;
-    width: 100%;
-  }
-  /* line 74, ../sass/_responsive.scss */
-  #user_info .welcome {
-    float: left;
-    margin-left: 1em;
-  }
-  /* line 78, ../sass/_responsive.scss */
-  #user_info .date {
-    float: right;
-    margin-right: 1em;
-  }
-
-  /* line 83, ../sass/_responsive.scss */
-  #main_header nav#account_nav {
-    right: 1em;
-  }
-
-  /* line 86, ../sass/_responsive.scss */
-  nav#main_nav {
-    padding-left: 0;
-  }
-  /* line 88, ../sass/_responsive.scss */
-  nav#main_nav li {
-    margin-left: 1em;
-  }
-  /* line 90, ../sass/_responsive.scss */
-  nav#main_nav li a {
-    width: 32px;
-    height: 32px;
-    overflow: hidden;
-    display: block;
-    position: relative;
-    padding: 0;
-    margin: .5em;
-  }
-  /* line 98, ../sass/_responsive.scss */
-  nav#main_nav li a span {
+  /* line 48, ../sass/_responsive.scss */
+  #main, #cboxContent {
+    font-size: 1.5em;
     position: absolute;
-    top: -2em;
-  }
-  /* line 103, ../sass/_responsive.scss */
-  nav#main_nav li.dashboard a {
-    background: url("../images/icons/icons_main.png") no-repeat 0 0;
-  }
-  /* line 106, ../sass/_responsive.scss */
-  nav#main_nav li.dashboard.current a {
-    background: url("../images/icons/icons_main.png") no-repeat 0 -32px;
-  }
-  /* line 109, ../sass/_responsive.scss */
-  nav#main_nav li.terminals a {
-    background: url("../images/icons/icons_main.png") no-repeat -32px 0;
-  }
-  /* line 112, ../sass/_responsive.scss */
-  nav#main_nav li.terminals.current a {
-    background: url("../images/icons/icons_main.png") no-repeat -32px -32px;
-  }
-  /* line 115, ../sass/_responsive.scss */
-  nav#main_nav li.queries a {
-    background: url("../images/icons/icons_main.png") no-repeat -64px 0;
-  }
-  /* line 118, ../sass/_responsive.scss */
-  nav#main_nav li.queries.current a {
-    background: url("../images/icons/icons_main.png") no-repeat -64px -32px;
-  }
-  /* line 121, ../sass/_responsive.scss */
-  nav#main_nav li.users a {
-    background: url("../images/icons/icons_main.png") no-repeat -96px 0;
-  }
-  /* line 124, ../sass/_responsive.scss */
-  nav#main_nav li.users.current a {
-    background: url("../images/icons/icons_main.png") no-repeat -96px -32px;
-  }
-  /* line 127, ../sass/_responsive.scss */
-  nav#main_nav li.reports a {
-    background: url("../images/icons/icons_main.png") no-repeat -128px 0;
-  }
-  /* line 130, ../sass/_responsive.scss */
-  nav#main_nav li.reports.current a {
-    background: url("../images/icons/icons_main.png") no-repeat -128px -32px;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 5%;
+    width: 90%;
+    z-index: 999;
   }
 
-  /* line 135, ../sass/_responsive.scss */
-  .icons_bg {
-    width: 83px;
-    height: 42px;
+  /* line 61, ../sass/_responsive.scss */
+  #dashboard #columns .column3 {
+    display: none;
   }
-
-  /* line 140, ../sass/_responsive.scss */
-  #main_footer li, #main_footer #copy {
-    padding-bottom: 1em;
-    display: block;
+  /* line 65, ../sass/_responsive.scss */
+  #dashboard #sortable.column3 li.ui-state-default, #dashboard #sortable.column4 li.ui-state-default {
+    width: 46%;
   }
 }
