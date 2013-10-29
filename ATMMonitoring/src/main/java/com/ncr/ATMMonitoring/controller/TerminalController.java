@@ -718,4 +718,9 @@ public class TerminalController {
 	}
     }
 
+    @RequestMapping(value = { "terminals/installation" })
+    public String newInstallation() {
+    	return "terminalInstallation";
+    }
+
 }

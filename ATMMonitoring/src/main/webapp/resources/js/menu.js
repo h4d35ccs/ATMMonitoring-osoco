@@ -70,8 +70,8 @@ $(function() {
 		});
 	});
 // Colorbox
-	$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"}); // Iframes
-	$(".iframe_s").colorbox({iframe:true, width:"640", height:"480px"}); // Iframes
+	$(".iframe").colorbox({iframe:true, width:"90%", height:"90%"}); // Iframes
+	$(".iframe_s").colorbox({iframe:true, width:"640", height:"480px", maxWidth:"100%", maxHeight:"100%"}); // Iframes
 	$(".colorbox").colorbox({rel:'group1'}); // Photo
 	$(".inline").colorbox({inline:true,  width:"640", height:"480px"}); // pop-ups en la misma pagina
 
@@ -83,11 +83,12 @@ $(function() {
 // Responsive menu
 	$('#rButton').click(function() {
 		if($(this).hasClass("btn_close")){
-			$('#main_nav').show();
+			$('#main_nav').removeClass("hide");
+			$('#main_nav').add().css("display","block");
 			$('#main').add().css("margin-left","90px");
 			$(this).removeClass("btn_close");
 		}else{
-			$('#main_nav').hide();
+			$('#main_nav').addClass("hide");
 			$('#main').add().css("margin-left","0px");
 			$(this).addClass("btn_close");
 		}

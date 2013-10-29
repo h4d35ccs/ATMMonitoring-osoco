@@ -47,9 +47,10 @@
                             	<a href="" class="btn calendar"><span>Abrir calendario</span></a>
                             	<input type="submit" value="Aplicar" class="btn">
                                 </form>
-			   </c:if>
-                           <a href="queries" class="btn right">Mis consultas</a>
-                        </div>
+			   </c:if> 
+						</div>
+                           <div class="botonera"><a href="queries" class="btn right">Mis consultas</a></div>
+                       
 
                     </div>
                     <div class="message">
