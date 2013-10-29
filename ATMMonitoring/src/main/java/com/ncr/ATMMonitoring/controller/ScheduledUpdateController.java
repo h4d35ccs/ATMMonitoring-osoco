@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.pojo.Query;
@@ -82,7 +83,6 @@ public class ScheduledUpdateController {
 			map.put("userQueries", userQueries);
 			map.put("userMsg", userMsg);
 			map.put("scheduledUpdate", new ScheduledUpdate());
-			map.put("duplicatedScheduledUpdate", false);
 		}
 		return "newScheduledUpdate";
     }
@@ -106,29 +106,41 @@ public class ScheduledUpdateController {
 
     @RequestMapping(value = "/terminals/schedules/list", method = RequestMethod.POST)
     public String addScheduledUpdate(
-            @Valid @ModelAttribute("scheduledUpdate") ScheduledUpdate scheduledUpdate,
-			BindingResult result, Map<String, Object> map,
-			HttpServletRequest request, Principal principal) {
+            @Valid @ModelAttribute("scheduledUpdate")
+			ScheduledUpdate scheduledUpdate,
+			BindingResult result,
+			Map<String, Object> map,
+			HttpServletRequest request,
+			Principal principal,
+		    RedirectAttributes redirectAttributes) {
 		String userMsg = "";
 		Locale locale = RequestContextUtils.getLocale(request);
 		if (principal != null) {
 			User loggedUser = userService
 				.getUserByUsername(principal.getName());
 			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+			Set userQueries = loggedUser.getQueries();
+			map.put("userQueries", userQueries);
+			map.put("userMsg", userMsg);
 		}
 
-		map.put("userMsg", userMsg);
+		logger.debug("update's query': " + scheduledUpdate.getQuery().getId());
 
-	    logger.debug("update: " + scheduledUpdate);
+		if ((scheduledUpdate.getQuery() == null) || (scheduledUpdate.getQuery().getId() == null)) {
+			map.put("error", "scheduledUpdate.nullQuery");
+		} else if ((scheduledUpdate.getWeekDay() == null) && (scheduledUpdate.getMonthDay() == null)) {
+			map.put("error", "scheduledUpdate.missing.mandatory.fields");
+		} else if (scheduledUpdateService.existsScheduledUpdate(scheduledUpdate)) {
+			map.put("error", "duplicated.scheduledUpdate");
+		}
 
-		if (scheduledUpdateService.existsScheduledUpdate(scheduledUpdate)) {
-			boolean duplicatedScheduledUpdate = true;
+		if (map.get("error") != null) {
 			ScheduledUpdate newScheduledUpdate = scheduledUpdate;
 			map.put("scheduledUpdate", newScheduledUpdate);
-			map.put("duplicatedScheduledUpdate", duplicatedScheduledUpdate);
 			return "newScheduledUpdate";
 		} else {
 			scheduledUpdateService.addScheduledUpdate(scheduledUpdate);
+			redirectAttributes.addFlashAttribute("success", "label.new.scheduledUpdate.created");
 			return "redirect:/terminals/schedules/list";
 		}
 	}
@@ -140,9 +152,11 @@ public class ScheduledUpdateController {
 
     @RequestMapping("/terminals/schedules/delete/{scheduledUpdateId}")
     public String deleteScheduledUpdate(
-	    @PathVariable("scheduledUpdateId") Integer scheduledUpdateId) {
-	scheduledUpdateService.removeScheduledUpdate(scheduledUpdateId);
-	return "redirect:/terminals/schedules/list";
+		    @PathVariable("scheduledUpdateId") Integer scheduledUpdateId,
+			RedirectAttributes redirectAttributes) {
+		scheduledUpdateService.removeScheduledUpdate(scheduledUpdateId);
+		redirectAttributes.addFlashAttribute("success", "label.new.scheduledUpdate.deleted");
+		return "redirect:/terminals/schedules/list";
     }
 
 	private List<Map> toCalendarEventsJSON(List<ScheduledUpdate> updates, long from, long to) {

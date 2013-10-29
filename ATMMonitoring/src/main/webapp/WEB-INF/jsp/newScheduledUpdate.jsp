@@ -34,26 +34,21 @@
 <h1>Nueva Planificación</h1>
 <div class="content">
 <div class="form w33">
-<c:if test="${duplicatedScheduledUpdate == true}">
+<c:if test="${error != null}">
     <div class="alert">
-      <p><spring:message code="label.scheduledUpdate.duplicatedScheduledUpdate"/></p>
+      <p><spring:message code="label.${error}"/></p>
     </div>
 </c:if>
 
 <form:form method="post" action="terminals/schedules/list" commandName="scheduledUpdate">
 
 <div class="row"><label for="query"><strong>Elegir consulta:</strong></label>
-<select name="queryId" size="1" path="query.id">
+<form:select name="query" size="1" path="query.id">
   <option value="" >Seleccionar</option>
   <c:forEach items="${userQueries}" var="userQuery">
-    <option value="${userQuery.id}">${userQuery.name}</option>
+    <form:option value="${userQuery.id}" label="${userQuery.name}"/>
   </c:forEach>
-</select></div>
-
-<c:if test="${nullQuery == true}">
-  <spring:message code="label.scheduledUpdate.nullQuery"/>
-</c:if>
-
+</form:select></div>
 
 <div class="row">
   <label for="name"><strong>Nombre de la planificación</strong></label>
