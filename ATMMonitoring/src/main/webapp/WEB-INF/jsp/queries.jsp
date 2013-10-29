@@ -85,7 +85,7 @@
 										<br></td>
 									<c:if test="${!status.last}">
 										<td class="btn_add">
-											<div id="terminalShowButton${i}" onclick="showHiddenRow('terminal', ${i})" class="btn add">Añadir</div>
+											<div id="terminalShowButton${i}" onclick="showHiddenRow('terminal', ${i})" class="btn add"><span>Añadir</span></div>
 										</td>
 									</c:if>
 								</tr>
@@ -172,7 +172,7 @@
 									<br></td>
 								<c:if test="${!status.last}">
 									<td class="btn_add">
-										<div id="hardwareDeviceShowButton${i}" onclick="showHiddenRow('hardwareDevice', ${i})" class="btn add">Añadir</div>
+										<div id="hardwareDeviceShowButton${i}" onclick="showHiddenRow('hardwareDevice', ${i})" class="btn add"><span>Añadir</span></div>
 									</td>
 								</c:if>
 							</tr>
@@ -235,7 +235,7 @@
 								<br></td>
 							<c:if test="${!status.last}">
 								<td class="btn_add">
-									<div id="financialDeviceShowButton${i}" onclick="showHiddenRow('financialDevice', ${i})" class="btn add">Añadir</div>
+									<div id="financialDeviceShowButton${i}" onclick="showHiddenRow('financialDevice', ${i})" class="btn add"><span>Añadir</span></div>
 								</td>
 							</c:if>
 						</tr>
@@ -305,7 +305,7 @@
 							<br></td>
 						<c:if test="${!status.last}">
 							<td class="btn_add">
-								<div id="operatingSystemShowButton${i}" onclick="showHiddenRow('operatingSystem', ${i})"  class="btn add">Añadir</div>
+								<div id="operatingSystemShowButton${i}" onclick="showHiddenRow('operatingSystem', ${i})"  class="btn add"><span>Añadir</span></div>
 							</td>
 						</c:if>
 					</tr>
@@ -369,7 +369,7 @@
 						<br></td>
 					<c:if test="${!status.last}">
 						<td class="btn_add">
-							<div id="internetExplorerShowButton${i}" onclick="showHiddenRow('internetExplorer', ${i})" class="btn add">Añadir</div>
+							<div id="internetExplorerShowButton${i}" onclick="showHiddenRow('internetExplorer', ${i})" class="btn add"><span>Añadir</span></div>
 						</td>
 					</c:if>
 				</tr>
@@ -433,7 +433,7 @@
 					<br></td>
 				<c:if test="${!status.last}">
 					<td class="btn_add">
-						<div id="hotfixShowButton${i}" onclick="showHiddenRow('hotfix', ${i})" class="btn add">Añadir</div>
+						<div id="hotfixShowButton${i}" onclick="showHiddenRow('hotfix', ${i})" class="btn add"><span>Añadir</span></div>
 					</td>
 				</c:if>
 			</tr>
@@ -497,7 +497,7 @@
 				<br></td>
 			<c:if test="${!status.last}">
 				<td class="btn_add">
-					<div id="softwareShowButton${i}" onclick="showHiddenRow('software', ${i})"  class="btn add">Añadir</div>
+					<div id="softwareShowButton${i}" onclick="showHiddenRow('software', ${i})"  class="btn add"><span>Añadir</span></div>
 				</td>
 			</c:if>
 		</tr>
@@ -561,7 +561,7 @@
 			<br></td>
 		<c:if test="${!status.last}">
 			<td class="btn_add">
-				<div id="featSwShowButton${i}" onclick="showHiddenRow('featSw', ${i})" class="btn add">Añadir</div>
+				<div id="featSwShowButton${i}" onclick="showHiddenRow('featSw', ${i})" class="btn add"><span>Añadir</span></div>
 			</td>
 		</c:if>
 	</tr>
@@ -625,7 +625,7 @@
 		<br></td>
 	<c:if test="${!status.last}">
 		<td class="btn_add">
-			<div id="xfsSwShowButton${i}" onclick="showHiddenRow('xfsSw', ${i})" class="add btn">Añadir</div>
+			<div id="xfsSwShowButton${i}" onclick="showHiddenRow('xfsSw', ${i})" class="add btn"><span>Añadir</span></div>
 		</td>
 	</c:if>
 </tr>

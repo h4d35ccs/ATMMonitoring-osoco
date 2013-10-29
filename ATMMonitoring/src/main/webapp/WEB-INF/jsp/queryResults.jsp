@@ -621,7 +621,7 @@
 		<br></td>
 	<c:if test="${!status.last}">
 		<td class="btn_add">
-			<div id="xfsSwShowButton${i}" onclick="showHiddenRow('xfsSw', ${i})" class="add btn">Añadir</div>
+			<div id="xfsSwShowButton${i}" onclick="showHiddenRow('xfsSw', ${i})" class="add btn"><span>Añadir</span></div>
 		</td>
 	</c:if>
 </tr>
