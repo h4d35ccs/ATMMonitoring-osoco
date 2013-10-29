@@ -20,7 +20,7 @@
 			<h1>Nuevo componente</h1>
 			<div class="content fixed">
 					<label><input type="radio" name="component" checked="checked"> Crear nuevo componente</label>
-					<label><input type="radio" name="component"  disabled > Elegir de la bibliotecaq de componentes</label>
+					<label><input type="radio" name="component"  disabled > Elegir de la biblioteca de componentes</label>
 				<div class="botonera">
 					<input id="next" type="button" class="btn next" value="Continuar">
 					<input type="button" class="btn cancel" value="Cancelar">
@@ -28,7 +28,7 @@
 			</div><!-- /content -->
 			<div class="content graph_content fixed hide">
 				<div class="row">
-					<label for="name">Nombre componente</label>
+					<label for="name">Nombre</label>
 					<input type="text" id="name">
 				</div>
 				<h2>Modelo gráfica</h2>

@@ -7,6 +7,8 @@
         height: 100%;
         perspective: 800px;
         -webkit-perspective: 800px;
+        background: $colorK1 url(../images/general/login_bg.jpg) no-repeat;
+        background-size: cover;
     }
     #login_box {
         transition: transform 1s;
@@ -24,15 +26,15 @@
         transform: translateX(0) translateZ(0) rotateY(0deg);
         -webkit-transform: translateX(0) translateZ(0) rotateY(0deg);
     }
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: $colorK1 url(../images/general/login_bg.jpg) no-repeat;
-    background-size: cover;
+    //width: 100%;
+    //height: 100%;
+    // overflow: hidden;
+    // background: $colorK1 url(../images/general/login_bg.jpg) no-repeat;
+    // background-size: cover;
     #login_box {
         h1 {
             color: $colorW;
-            background: url("../images/general/livinggreen.jpg") no-repeat $colorG;
+            background:$colorB;
             padding: 0.5em 1.2em;
             text-align: right;
             span {

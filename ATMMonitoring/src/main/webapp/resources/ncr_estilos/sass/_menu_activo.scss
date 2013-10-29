@@ -1,0 +1,23 @@
+#main_nav, #footer_nav{
+	li{
+		#dashboard &.dashboard a,
+		#terminals &.terminals a,
+		#users &.users a,
+		#reports &.reports,
+		#schedule &.schedule,
+		#help &.help{
+			background-color: $colorK1;
+			&:after {
+			    content: "";
+			    position: absolute;
+			    top: 25px;
+			    left: 90px;
+			    border-width: 15px 0 15px 20px;
+			    border-style: solid;
+			    border-color: transparent $colorK1;
+			    display: block;
+			    width: 0;
+			  }
+		}
+	}
+}

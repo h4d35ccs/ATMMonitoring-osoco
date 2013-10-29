@@ -6,7 +6,18 @@
 	overflow: hidden;
 	position: relative;
 	@include border-radius(4px);
-	.txt{
+	h1#editQuery,
+	h2#editQuery,
+	h3#editQuery,
+	h4#editQuery,
+	h5#editQuery,
+	h6#editQuery,
+	h1.txt,
+	h2.txt,
+	h3.txt,
+	h4.txt,
+	h5.txt,
+	h6.txt{
 		background:url("../images/icons/icon_box_show.png") no-repeat top left;
 		cursor: pointer;
 		margin: 0;
@@ -49,11 +60,15 @@
 				@include border-radius(4px);
 				margin-top: 1em;
 				.txt{
-					font-size: 1.2em;
-					padding: .5em;
-					padding-left: 2.5em;
-					font-weight: bold;
-					background-color: $colorK5;
+					&.content_hide{
+						background:url("../images/icons/icon_collapsible.png") no-repeat $colorK2 left top;
+					}
+					cursor: pointer;
+					float: none;
+					padding: .5em 1em .5em 3em;
+					background:url("../images/icons/icon_collapsible.png") no-repeat $colorK2 left bottom;
+					color: $colorW;
+					border: 2px solid $colorK3;
 				}
 				dl{
 					margin-top: 1em;
@@ -76,7 +91,7 @@
 		}
 		.ul_data{
 			margin-top: 2em;
-			float: left;
+			float: right;
 			width: 75%;
 			&>ul{
 				overflow: hidden;
@@ -88,7 +103,7 @@
 					width: 46%;
 					border-bottom: 1px solid $colorK3;
 					strong{
-						width: 46%;
+						width: 45%;
 						margin-right: 4%;
 						float: left;
 						display: block;
@@ -102,6 +117,17 @@
 				&>ul li{
 					min-height: 3em;
 				}
+				input[type="text"]{
+					width: 40%;
+					&.num{
+						width: 2em;
+					}
+				}
+			}
+			.ul_data{
+				width: auto;
+				float: none;
+				margin-top: 1em;
 			}
 		}
 	}

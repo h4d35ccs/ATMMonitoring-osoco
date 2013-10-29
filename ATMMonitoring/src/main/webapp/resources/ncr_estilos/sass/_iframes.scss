@@ -1,0 +1,72 @@
+#iframe{
+	background:$colorW;
+	#main{
+		height: 100%;
+		border-top: 0;
+		margin-left: 0;
+		.box{
+			position: relative;
+			h1{
+				color: $colorW;
+				background:$colorG;
+				padding: .5em;
+				margin-top: 0;
+			}
+		}
+		&.installation{
+			.content{
+				margin-right: 2em;
+			}
+			iframe{
+				border:5px solid $colorK4;
+			}
+			li{
+				overflow: hidden;
+				margin-bottom: .5em;
+			}
+			label{
+				width: 38%;
+				margin-left: 2%;
+				display: block;
+				float: left;
+			}
+			input[type="text"]{
+				width: 47%;
+			}
+			input[type="checkbox"]{
+				margin: .8em 0;
+			}
+			input.withbutton{
+				width: 25%;
+				float: left;
+			}
+			.message{
+				clear: both;
+				float: right;
+				margin-left: 44%;
+				margin-right: 1em;
+			}
+		}
+	}
+	.content.fixed{
+		margin-bottom: 3em;
+		.botonera{
+			border-top: 1px solid $colorK3;
+			margin: 0;
+			background:$colorW;
+			padding-top: .5em;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+	}
+	.row{
+		padding: 0;
+		label{
+			width: 30%;
+			text-align: left;
+			margin-right: 1em;
+		}
+	}
+}

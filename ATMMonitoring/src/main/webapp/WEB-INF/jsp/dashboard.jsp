@@ -24,7 +24,7 @@
                 </div>
                 <ul id="myCharts" class="collapsible"></ul>
               </div>
-              <a class="iframe cboxElement btn add" href="dashboard/newWidget">
+              <a class="iframe_s cboxElement btn add" href="dashboard/newWidget">
                 Nuevo componente
               </a>
 
