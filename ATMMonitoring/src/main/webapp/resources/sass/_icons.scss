@@ -89,6 +89,7 @@
 .add{
 	background:url("../images/icons/icon_add.png") no-repeat left bottom $colorG;
 	padding-left: 35px;
+	position: relative;
 	&:hover, .link tr:hover &{
 		@include transitionAll;
 		background:url("../images/icons/icon_add.png") no-repeat left top $colorW;
@@ -102,8 +103,7 @@
 		float: right;
 		@include border-radius(4px);
 		span{
-			position: absolute;
-			top: 50px;
+			display: none;
 		}
 	}
 	th, th &:hover, .link tr:hover th &{

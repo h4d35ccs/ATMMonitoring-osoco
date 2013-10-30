@@ -44,10 +44,10 @@
 			}
 		}
 	}
-	#main_nav{
+	#main_nav.btn_close{
 		display: none;
 	}
-	#main{
+	#main.btn_close{
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -93,5 +93,17 @@
 	}
 	table.link tr.detail ul li, table.link tr.detail:hover ul li {
 		width: 49%;
+	}
+// IFRAMES
+	#iframe{
+		.installation{
+			.w50, .left, .right{
+				width: 100%;
+				float: none !important;
+			}
+			#secondary{
+				width: 90%;
+			}
+		}
 	}
 }

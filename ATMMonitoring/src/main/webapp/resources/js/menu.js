@@ -83,13 +83,12 @@ $(function() {
 // Responsive menu
 	$('#rButton').click(function() {
 		if($(this).hasClass("btn_close")){
-			$('#main_nav').removeClass("hide");
-			$('#main_nav').add().css("display","block");
-			$('#main').add().css("margin-left","90px");
+			$("#main").removeClass("btn_close")
+			$("#main_nav").removeClass("btn_close")
 			$(this).removeClass("btn_close");
 		}else{
-			$('#main_nav').addClass("hide");
-			$('#main').add().css("margin-left","0px");
+			$("#main").addClass("btn_close")
+			$("#main_nav").addClass("btn_close")
 			$(this).addClass("btn_close");
 		}
 	});

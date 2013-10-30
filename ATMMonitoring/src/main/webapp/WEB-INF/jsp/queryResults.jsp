@@ -844,10 +844,7 @@
 				<a href="#" class="btn left clock">Actualización planificada</a>
 				<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 			</div> 
-			<t:terminalsTable terminals="${pagedListHolder.pageList}"/>
-
-
-
+			<div class="margin-box"><t:terminalsTable terminals="${pagedListHolder.pageList}"/></div>
 			<div class="pagingContainer">
 			<form:form id="pagingForm" method="post" action="queries/results/export" commandName="query">
 				<c:forEach var="i" begin="1" end="5">

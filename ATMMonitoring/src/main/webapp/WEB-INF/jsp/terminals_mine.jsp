@@ -90,7 +90,7 @@
 						</c:if>	
 					</div>
 
-                        <t:terminalsTable terminals="${pagedListHolder.pageList}"/>
+                        <div class="margin-box"><t:terminalsTable terminals="${pagedListHolder.pageList}"/></div>
 
 			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>

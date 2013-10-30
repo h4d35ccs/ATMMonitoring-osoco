@@ -1,3 +1,6 @@
+.margin-box {
+  overflow: auto;
+}
 .table_buttons{
 	overflow: hidden;
 	@include border-radius(4px);

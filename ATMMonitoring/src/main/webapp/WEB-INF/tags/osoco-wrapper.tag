@@ -68,7 +68,7 @@
                 </sec:authorize>
             </div>
         </header>
-        <nav id="main_nav">
+        <nav id="main_nav" class="btn_close">
             <ul>
                 <li class="dashboard">
                     <a href="dashboard"><span><spring:message code="label.menu.dashboard"/></span></a>
@@ -93,7 +93,7 @@
             </ul>
         </nav>
 
-        <div id="main">
+        <div id="main" class="btn_close">
             <div id="primary">
                 <article>
                     <jsp:doBody/>

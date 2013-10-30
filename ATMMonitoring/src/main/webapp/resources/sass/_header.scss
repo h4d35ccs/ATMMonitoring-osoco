@@ -9,7 +9,10 @@
 		height: 40px;
 		width: 40px;
 		overflow: hidden;
-		background:url("../images/general/rButton.png") no-repeat;
+		background:url("../images/general/rButton.png") no-repeat bottom;
+		&.btn_close{
+			background:url("../images/general/rButton.png") no-repeat top;
+		}
 	}
 	h1{
 		position: absolute;
