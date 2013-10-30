@@ -1,145 +1,112 @@
+@media screen and (max-height: 600px) {
+	nav#main_nav #nav_icons a{
+		padding-top: 25px;
+		padding-bottom: 25px;
+		background:none;
+	}
+	nav#main_nav #nav_icons .help{
+		position: relative;
+	}
+}
+@media screen and (min-width: 801px) {
+	#main{
+		margin-left: 90px;
+	}
+}
 @media screen and (max-width: 1200px) {
 	#dashboard{
-		#sortable{
-			overflow: hidden;
-			&>li{
-				width: 29%;
-			}
-		}
-	}
-}
-@media screen and (max-width: 960px) {
-	#dashboard{
-		#sortable{
-			overflow: hidden;
-			&>li{
-				width: 46%;
-				height: 250px;
-			}
-		}
-	}
-}
-@media screen and (max-width: 530px) {
-	#columns{
-		display: none;
-	}
-	#main_header{
-		height: 130px;
-		#lang{
-			right: 1em;
-		}
-	}
-	#main{
-		font-size: 1.2em;
-		padding: 16px;
-	}
-	#dashboard{
-		#sortable{
-			overflow: hidden;
-			&>li{
-				width: 99%;
-				height: 240px;
-				margin-top: 3em;
-			}
-		}
-	}
-	#main #components #my_components{
-		margin-right: .5em;
-		 span{
-			padding-right: 30px;
-		}
-	}
-	#main #components #add_components{
-		a{
-			overflow: hidden;
-			width: 28px;
-			height: 28px;
-			padding: 0;
-			background:url("../images/icons/icon_add.png") no-repeat top;
-			&:hover{
-				background:url("../images/icons/icon_add.png") no-repeat bottom #6ca932;
-			}
-			span{
+		#columns{
+			.column4{
 				display: none;
 			}
 		}
-	}
-	#account_nav{
-		margin-bottom: 25px;
-	}
-	#user_info{
-		top: 105px;
-		left: 0;
-		width: 100%;
-		.welcome{
-			float: left;
-			margin-left: 1em;
-		}
-		.date{
-			float: right;
-			margin-right: 1em;
+		#sortable.column4 li.ui-state-default{
+			width:29%;
 		}
 	}
-	#main_header nav#account_nav{
-		right: 1em;
+}
+@media screen and (max-width: 800px) {
+// Generales
+	#rButton{
+		display: block;
+		cursor: pointer;
 	}
-	nav#main_nav{
-		padding-left: 0;
-		li{
-			margin-left: 1em;
+	#main_header{ 
+		h1{
+			left: 40px;
+			strong{
+				left: 85px;
+				font-size: 1.2em;
+				top: 10px;
+			}
+		}
+		#user_info{
+			right: 5px;
+			margin-left: 0;
+			.welcome, .date{
+				display: none;
+			}
+		}
+		#lang ul{
+			right: 0;
 			a{
-				width: 32px;
-				height: 32px;
-				overflow: hidden;
-				display: block;
-				position: relative;
-				padding: 0;
-				margin: .5em;
-				span{
-					position: absolute;
-					top: -2em;
-				}
-			}
-			&.dashboard a{
-				background:url("../images/icons/icons_main.png") no-repeat 0 0;
-			}
-			&.dashboard.current a{
-				background:url("../images/icons/icons_main.png") no-repeat 0 -32px;	
-			}
-			&.terminals a{
-				background:url("../images/icons/icons_main.png") no-repeat -32px 0;
-			}
-			&.terminals.current a{
-				background:url("../images/icons/icons_main.png") no-repeat -32px -32px;	
-			}
-			&.queries a{
-				background:url("../images/icons/icons_main.png") no-repeat -64px 0;
-			}
-			&.queries.current a{
-				background:url("../images/icons/icons_main.png") no-repeat -64px -32px;	
-			}
-			&.users a{
-				background:url("../images/icons/icons_main.png") no-repeat -96px 0;
-			}
-			&.users.current a{
-				background:url("../images/icons/icons_main.png") no-repeat -96px -32px;	
-			}
-			&.reports a{
-				background:url("../images/icons/icons_main.png") no-repeat -128px 0;
-			}
-			&.reports.current a{
-				background:url("../images/icons/icons_main.png") no-repeat -128px -32px;	
+				font-size: 1.5em;
 			}
 		}
 	}
-	.icons_bg{
-		width: 83px;
-		height: 42px;
+	#main_nav.btn_close{
+		display: none;
 	}
-	#main_footer{
-		li, #copy{
-			padding-bottom: 1em;
-			display: block;
+	#main{
+		margin-left: 90px;
+		padding-top: 5%;
+		width: 101%;
+	}
+	#main.btn_close{
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 5%;
+		width: 90%;
+		z-index: 999;
+		min-height: 100%;
+	}
+	#cboxClose{
+		top: 0;
+		right: 0;
+	}
+// por SECCION
+	#dashboard{
+		#columns{
+			.column3{
+				display: none;
+			}
 		}
+		#header_g #components ul li{
+			font-size: 1.5em;
+		}
+		#sortable.column3 li.ui-state-default, #sortable.column4 li.ui-state-default{
+			width:46%;
+		}
+	}
+// detalle TERMINAL
+	#main .action_box.data .photo, #cboxContent .action_box.data .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo {
+		width: 35%;
+	}
+	#main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
+		width: 60%;
+	}
+	#main .action_box.data .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li {
+		width: 96%;
+		li strong{
+			width: 40%;
+		}
+	}
+	nav.sub_nav {
+		font-size: .9em;
+	}
+	table.link tr.detail ul li, table.link tr.detail:hover ul li {
+		width: 49%;
 	}
 }

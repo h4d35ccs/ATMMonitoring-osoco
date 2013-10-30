@@ -808,7 +808,7 @@ td .add span, th .add span {
 }
 
 /* line 310, ../sass/_icons.scss */
-.graph_component label.graph_current {
+.graph_component label.current {
   background-color: #094fa4;
 }
 
