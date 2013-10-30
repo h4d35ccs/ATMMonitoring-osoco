@@ -2,6 +2,7 @@ package com.ncr.ATMMonitoring.snmp;
 
 import java.util.Collection;
 
+import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 
 /**
@@ -20,4 +21,6 @@ public interface SnmpService {
     public void updateTerminalSnmp(String ip);
 
     public void updateTerminalsSnmp(Collection<String> ips);
+
+    public void updateTerminalsSnmp(Query query);
 }

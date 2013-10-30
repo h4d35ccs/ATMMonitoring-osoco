@@ -19,6 +19,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import com.ncr.ATMMonitoring.controller.propertyEditor.DatePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 import com.ncr.ATMMonitoring.pojo.User;
@@ -51,6 +54,11 @@ public class ScheduledUpdateController {
 
     @Autowired
     private UserService userService;
+
+    @InitBinder
+    protected void binder(WebDataBinder binder) throws Exception {
+    	binder.registerCustomEditor(Date.class, new DatePropertyEditor(true));
+    }
 
     @RequestMapping(value = "/terminals/schedules/list", method = RequestMethod.GET)
     public String listSchedules(Map<String, Object> map,

@@ -12,7 +12,13 @@ import java.util.Locale;
 
 public class DatePropertyEditor extends PropertyEditorSupport {
 
+    private boolean nowAsDefault = false;
+
     public DatePropertyEditor() {
+    }
+
+    public DatePropertyEditor(boolean nowAsDefault) {
+	this.nowAsDefault = nowAsDefault;
     }
 
     @Override
@@ -21,7 +27,11 @@ public class DatePropertyEditor extends PropertyEditorSupport {
 	    setValue(DateFormat.getDateInstance(DateFormat.SHORT,
 		    Locale.getDefault()).parse(date));
 	} catch (ParseException e) {
-	    e.printStackTrace();
+	    if (nowAsDefault) {
+		setValue(new Date());
+	    } else {
+		e.printStackTrace();
+	    }
 	}
     }
 

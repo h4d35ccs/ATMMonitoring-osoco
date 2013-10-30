@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.dao;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -81,7 +82,8 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 
     @Override
     public boolean existsWeeklyScheduledUpdate(ScheduledUpdate scheduledUpdate) {
-	Criteria query = sessionFactory.getCurrentSession()
+	Criteria query = sessionFactory
+		.getCurrentSession()
 		.createCriteria(ScheduledUpdate.class)
 		.add(Restrictions.eq("hour", scheduledUpdate.getHour()))
 		.add(Restrictions.eq("timeZone", scheduledUpdate.getTimeZone()))
@@ -97,21 +99,22 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 	return sessionFactory
 		.getCurrentSession()
 		.createCriteria(ScheduledUpdate.class)
-		.add(Restrictions.or(Restrictions.and(Restrictions.eq(
-			"gmtHour", new Integer(date.get(Calendar.HOUR_OF_DAY))
-				.shortValue()), Restrictions.eq("minute",
-			new Integer(date.get(Calendar.MINUTE)).shortValue()),
-			Restrictions.eq("monthDay",
-				new Integer(date.get(Calendar.DAY_OF_MONTH))
-					.shortValue())), Restrictions.and(
+		.add(Restrictions.and(Restrictions.le("startDate", new Date()),
 			Restrictions.eq("gmtHour",
 				new Integer(date.get(Calendar.HOUR_OF_DAY))
 					.shortValue()), Restrictions.eq(
 				"minute",
 				new Integer(date.get(Calendar.MINUTE))
-					.shortValue()), Restrictions.eq(
-				"weekDay",
-				new Integer(date.get(Calendar.DAY_OF_WEEK))
-					.shortValue())))).list();
+					.shortValue()), Restrictions.or(
+				Restrictions.eq(
+					"gmtMonthDay",
+					new Integer(date
+						.get(Calendar.DAY_OF_MONTH))
+						.shortValue()),
+				Restrictions.eq(
+					"gmtWeekDay",
+					new Integer(date
+						.get(Calendar.DAY_OF_WEEK))
+						.shortValue())))).list();
     }
 }
