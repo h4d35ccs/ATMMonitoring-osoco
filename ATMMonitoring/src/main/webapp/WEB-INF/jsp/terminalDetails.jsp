@@ -235,8 +235,8 @@
 												</li>
 											</ul>
 										<div class="botonera">
-											<input type="submit" class="btn update" value="<spring:message code="label.terminal.updateTerminal"/>"/>
-											<button class="btn request" onclick="requestSnmpUpdate()">
+											<input type="submit" class="btn" value="<spring:message code="label.terminal.updateTerminal"/>"/>
+											<button class="btn update" onclick="requestSnmpUpdate()">
 												<spring:message code="label.terminal.requestSingleSnmpUpdate"/>
 											</button>
 										</div>
