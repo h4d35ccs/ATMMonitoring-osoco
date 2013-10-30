@@ -5,8 +5,22 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
+
 <t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}" section="terminals">
-				<div id="header_g">
+
+<jsp:attribute name="header">
+    <script type="text/javascript">
+        $(function() {
+            $("#editTerminalButton").click(function(event) {
+                $("#showTerminal").hide();
+                $("#editForm").show();
+	    });
+	});
+    </script>
+</jsp:attribute>
+
+<jsp:body>
+			<div id="header_g">
 					<nav id="breadcrumb">
 						<ul>
 							<li>
@@ -20,7 +34,7 @@
 					</nav>
 				</div>
 				<div class="content">
-					<h1>Terminal 00:1b:21:01:82:8B <a href="#" class="edit"><span>Editar</span></a></h1>
+					<h1>Terminal 00:1b:21:01:82:8B</h1>
 					<div class="action_box data desplegable">
 						<h2 class="txt last"><spring:message code="label.terminalDetails"/></h2>
 						<div class="collapsible last">
@@ -45,9 +59,8 @@
 								</div>
 							</div>
 
-							<c:choose>
-
-								<c:when test="${canEdit == true}">
+								<c:if test="${canEdit == true}">
+							            <div id="editForm" class="hide">
 									<form:form method="post" action="terminals/update" commandName="terminal">
 										<form:hidden path="id"/>
 										<div class="ul_data editable">
@@ -221,20 +234,19 @@
 
 												</li>
 											</ul>
-										</div>
 										<div class="botonera">
 											<input type="submit" class="btn update" value="<spring:message code="label.terminal.updateTerminal"/>"/>
+											<button class="btn request" onclick="requestSnmpUpdate()">
+												<spring:message code="label.terminal.requestSingleSnmpUpdate"/>
+											</button>
+										</div>
+
 										</div>
 									</form:form>
-									<div class="botonera">
-										<button class="btn request" onclick="requestSnmpUpdate()">
-											<spring:message code="label.terminal.requestSingleSnmpUpdate"/>
-										</button>
-									</div>
-								</c:when>
-								<c:otherwise>
+							            </div>
+								</c:if>
 
-									<div class="ul_data">
+									<div id="showTerminal" class="ul_data">
 										<ul>
 											<li>
 												<strong>
@@ -315,10 +327,19 @@
 												${terminal.tracerNumber}
 											</li>
 										</ul>
+
+									<c:if test="${canEdit == 'true'}">
+										<div class="botonera">
+											<button id="editTerminalButton" class="btn">Editar Terminal</button>
+											<button class="btn request" onclick="requestSnmpUpdate()">
+												<spring:message code="label.terminal.requestSingleSnmpUpdate"/>
+											</button>
+										</div>
+									</c:if>
+
 									</div>
 									<!-- //ul-data -->
-								</c:otherwise>
-							</c:choose>
+									
 						</div>
 						<!-- // collapsible -->
 					</div>
@@ -1345,6 +1366,9 @@
 		
 	});
 </script>
+
+</jsp:body>
+
 </t:osoco-wrapper>
 
 
