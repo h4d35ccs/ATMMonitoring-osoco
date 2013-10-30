@@ -1,3 +1,10 @@
+@media screen and (max-height: 600px) {
+	nav#main_nav ul li a{
+		padding-top: 20px;
+		padding-bottom: 20px;
+		background: transparent;
+	}
+}
 @media screen and (min-width: 801px) {
 	#main{
 		margin-left: 90px;
@@ -94,6 +101,8 @@
 	table.link tr.detail ul li, table.link tr.detail:hover ul li {
 		width: 49%;
 	}
+}
+@media screen and (max-width: 700px){
 // IFRAMES
 	#iframe{
 		.installation{

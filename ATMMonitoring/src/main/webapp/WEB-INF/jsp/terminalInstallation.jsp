@@ -67,7 +67,7 @@
 		</article>
 	</div>
 	<div id="secondary" class="w50 right h100">
-		<iframe width="100%" height="80%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.es/?ie=UTF8&amp;ll=40.525282,-3.81603&amp;spn=3.035322,5.652466&amp;t=m&amp;z=8&amp;output=embed"></iframe>
+		<iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.es/?ie=UTF8&amp;ll=40.525282,-3.81603&amp;spn=3.035322,5.652466&amp;t=m&amp;z=8&amp;output=embed"></iframe>
 		<div class="botonera"><a href="" class="save">Guardar</a></div>
 	</div>
 </div>
