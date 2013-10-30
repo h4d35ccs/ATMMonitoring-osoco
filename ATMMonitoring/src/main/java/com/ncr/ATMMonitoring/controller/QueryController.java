@@ -41,7 +41,7 @@ import org.apache.log4j.Logger;
 @Controller
 public class QueryController {
 
-    static private Logger logger = Logger.getLogger(DashboardController.class.getName());
+    static private Logger logger = Logger.getLogger(QueryController.class.getName());
 
 	public static final String DEFAULT_SORT = "serialNumber";
 
@@ -150,8 +150,8 @@ public class QueryController {
 		    map.put("error", "error.deletingQuery");
 		}
             }
-	}	
-	
+	}
+
 	return "queryList";
 
     }
@@ -279,10 +279,12 @@ public class QueryController {
 	    }
 	    return "redirect:/queries/list";
 	} else if (WebUtils.hasSubmitParameter(request, "execute")) {
-	    logger.debug("Executing query " + query.getName());
+	    logger.debug("Executing query... " + query.getName());
 		String sortValue = (sort == null) ? DEFAULT_SORT : sort;
 		String orderValue = (order == null) ? DEFAULT_ORDER : order;
 		List<Terminal> terminals = queryService.executeQuery(query, locale, sortValue, orderValue);
+
+		logger.debug("terminals " + terminals);
 
 		if (terminals == null) {
 		    throw new Exception("Query execution returned a NULL list.");
@@ -300,10 +302,14 @@ public class QueryController {
 		}
 		pagedListHolder.setPage(page);
 		pagedListHolder.setPageSize(pageSize);
+
+		logger.debug("pageListHolder " + pagedListHolder);
+
 		map.put("userMsg", loggedUser.getHtmlWelcomeMessage(locale));
 		map.put("pagedListHolder", pagedListHolder);
 		map.put("query", query);
 		map.put("values", Query.getComboboxes());
+		map.put("p", page);
 		map.put("sort", sortValue);
 		map.put("order", orderValue);
 

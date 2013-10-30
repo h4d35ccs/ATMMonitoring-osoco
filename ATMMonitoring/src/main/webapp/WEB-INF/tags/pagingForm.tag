@@ -3,9 +3,10 @@
 <%@ attribute name="pagedListHolder" required="true" type="org.springframework.beans.support.PagedListHolder" %>
 <%@ attribute name="pagedLink" required="true" type="java.lang.String" %>
 <%@ attribute name="formId" required="true" type="java.lang.String" %>
+
 <c:if test="${pagedListHolder.pageCount > 1}">
 <c:if test="${!pagedListHolder.firstPage}">
-<span class="pagingItem"><a href="#" onclick="submitPagingForm('<%= StringUtils.replace(pagedLink, 
+<span class="pagingItem"><a href="#" onclick="submitPagingForm('<%= StringUtils.replace(pagedLink,
 		   "~", String.valueOf(pagedListHolder.getPage()-1)) %>'); return false;"><</a></span>
 </c:if>
 <c:if test="${pagedListHolder.firstLinkedPage > 0}">
@@ -20,7 +21,7 @@
 <span class="pagingItemCurrent">${i+1}</span>
 </c:when>
 <c:otherwise>
-<span class="pagingItem"><a href="#" onclick="submitPagingForm('<%= StringUtils.replace(pagedLink, 
+<span class="pagingItem"><a href="#" onclick="submitPagingForm('<%= StringUtils.replace(pagedLink,
 		   "~", String.valueOf(jspContext.getAttribute("i"))) %>'); return false;">${i+1}</a></span>
 </c:otherwise>
 </c:choose>
@@ -29,11 +30,11 @@
 <span class="pagingDots">...</span>
 </c:if>
 <c:if test="${pagedListHolder.lastLinkedPage < pagedListHolder.pageCount - 1}">
-<span class="pagingItem"><a href="#" onclick="submitPagingForm('<%= StringUtils.replace(pagedLink, 
+<span class="pagingItem"><a href="#" onclick="submitPagingForm('<%= StringUtils.replace(pagedLink,
 		   "~", String.valueOf(pagedListHolder.getPageCount()-1)) %>'); return false;">${pagedListHolder.pageCount}</a></span>
 </c:if>
 <c:if test="${!pagedListHolder.lastPage}">
-<span class="pagingItem"><a href="#" onclick="submitPagingForm('<%= StringUtils.replace(pagedLink, 
+<span class="pagingItem"><a href="#" onclick="submitPagingForm('<%= StringUtils.replace(pagedLink,
 		   "~", String.valueOf(pagedListHolder.getPage()+1)) %>'); return false;">></a></span>
 </c:if>
 <script type="text/javascript">

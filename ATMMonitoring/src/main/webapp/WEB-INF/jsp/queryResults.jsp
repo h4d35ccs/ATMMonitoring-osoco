@@ -9,20 +9,52 @@
 <t:osoco-wrapper titleCode="label.queryEngine" userMsg="${userMsg}"  section="terminals">
 
 <jsp:attribute name="header">
+    <script type="text/javascript" src="resources/js/purl.js"></script>
     <script type="text/javascript">
         $(function() {
-	    $("#editQuery").click(function(event) {
-		if ($(this).hasClass('content_hide')) {
-	            $(this).removeClass('content_hide');
-	            $("#submits").prepend($("#saveQuery"));
-	            $(this).next('.collapsible').show('slow');
-		} else {
-	            $(this).next('.collapsible').hide('slow');
-	            $(this).parent().prepend($("#saveQuery"));
-	            $(this).addClass('content_hide');
-		}
+	        $("#editQuery").click(function(event) {
+		        if ($(this).hasClass('content_hide')) {
+	                $(this).removeClass('content_hide');
+	                $("#submits").prepend($("#saveQuery"));
+	                $(this).next('.collapsible').show('slow');
+		        } else {
+	                $(this).next('.collapsible').hide('slow');
+	                $(this).parent().prepend($("#saveQuery"));
+	                $(this).addClass('content_hide');
+		        }
+	        });
+            $(".pagingItem").click(function(event) {
+                executeQuery(event);
+            });
+            $(".order").click(function(event) {
+                executeQuery(event);
+            });
 	    });
-	});
+
+        function executeQuery(event) {
+            event.preventDefault();
+            var url = $(event.target).attr("href") ?
+                $(event.target).attr("href") :
+                $(event.target).find("a").attr("href")
+            var page = $.url(url).param("p");
+            var sort = $.url(url).param("sort");
+            var order = $.url(url).param("order");
+            populateHiddenFields(page, sort, order);
+            submitExecuteQuery();
+        }
+
+        function populateHiddenFields(page, sort, order) {
+            console.log("field " + $("#queryForm input[name='p']").val());
+            $("#queryForm input[name='p']").val(page);
+            $("#queryForm input[name='sort']").val(sort);
+            $("#queryForm input[name='order']").val(order);
+        }
+
+        function submitExecuteQuery() {
+            var nameElement = $("<input type='hidden' name='execute'/>");
+            $("#queryForm").append(nameElement);
+            $("#queryForm").submit();
+        }
   </script>
 </jsp:attribute>
 
@@ -39,9 +71,9 @@
 							<li>
 						            <c:if test="${query.name != null}">
 				 	   		    	   ${query.name}
-						            </c:if>	
+						            </c:if>
  							    <c:if test="${query.name == ''}">
-							        Nueva consulta	     
+							        Nueva consulta
 						            </c:if>
 							</li>
 						</ul>
@@ -52,14 +84,17 @@
         			 <h1>
 						<c:if test="${query.name != null}">
 					 	    ${query.name}
-						</c:if>	
+						</c:if>
 						<c:if test="${query.name ==  ''}">
-					            Nueva consulta	     
+					            Nueva consulta
 					        </c:if>
 					</h1>
 				<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
 	<!-- Pegado de querie.jsp -->
-	     	    	<form:form method="post" action="queries/results" commandName="query">
+	<form:form id="queryForm" method="post" action="queries/results" commandName="query">
+      <input type="hidden" name="p" value="${p}"/>
+      <input type="hidden" name="sort" value="${sort}"/>
+      <input type="hidden" name="order" value="${order}"/>
 				<div class="action_box desplegable">
 
 					<div id="saveQuery" class="desplegable button txt_btn">
@@ -70,16 +105,17 @@
 								<li><label for="descriptionquery">Descripción</label> <textarea></textarea></li>
 							</ul>
                                                          <form:hidden path="id" value="${query.id}"/>
-							<div class="botonera"><input type="submit" id="save" name="save" class="save" value="Guardar"/></div>
-						</div>
-					</div><!-- /desplegable -->
 
-					<h2 id="editQuery" class="last content_hide">
-						Editar consulta
-					</h2>
-						
+							<div class="botonera">
+                              <input type="submit" id="save" name="save" class="save" value="Guardar"/>
+                            </div>
+                        </div>
+                        </div>
+
+                        <h2 id="editQuery" class="last content_hide">Editar consulta</h2>
+
 					<div class="collapsible last hide">
-						
+
 
 						<h3 class="txt content_hide" id="terminalSection">
 							<spring:message code="label.query.terminalSection"/>
@@ -662,20 +698,20 @@
 	       	 '${key}': {
 					<c:forEach items="${value.keySet()}" var="subkey" varStatus="status2">
 		        		<c:set var="subvalue" value="${value.get(subkey)}"/>
-						'${subkey}': 
+						'${subkey}':
 							{
 								label: '<spring:message code="label.${key}.${subkey}"/>',
 								values: {
 									<c:forEach items="${subvalue.keySet()}" var="subsubkey" varStatus="status3">
 					        		<c:set var="subsubvalue" value="${subvalue.get(subsubkey)}"/>
-									'${subsubkey}': 
+									'${subsubkey}':
 										{
 											<c:if test="${subsubvalue.getClass().getSimpleName() == 'TreeMap'}">
 											label: '<spring:message code="label.${key}.${subsubkey}"/>',
 											values: {
 												<c:forEach items="${subsubvalue.keySet()}" var="subsubsubkey" varStatus="status4">
 								        		<c:set var="subsubsubvalue" value="${subsubvalue.get(subsubsubkey)}"/>
-												'${subsubsubkey}': 
+												'${subsubsubkey}':
 												{
 													label: '<spring:message code="label.query.operation.${subsubsubkey}"/>',
 													values: ${subsubsubvalue}
@@ -843,8 +879,10 @@
 				<a href="#" class="btn left update">Actualizar</a>
 				<a href="#" class="btn left clock">Actualización planificada</a>
 				<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
-			</div> 
-			<div class="margin-box"><t:terminalsTable terminals="${pagedListHolder.pageList}"/></div>
+			</div>
+			<div class="margin-box">
+              <t:terminalsTable baseUrl="queries/results" terminals="${pagedListHolder.pageList}"/>
+            </div>
 			<div class="pagingContainer">
 			<form:form id="pagingForm" method="post" action="queries/results/export" commandName="query">
 				<c:forEach var="i" begin="1" end="5">
@@ -888,7 +926,7 @@
 					<form:hidden path="internetExplorerCombo${i}2"/>
 					<form:hidden path="internetExplorerField${i}"/>
 				</c:forEach>
-			
+
 			</form:form>
 			</div>
 			<form:form id="exportForm" method="post" action="queries/results/export" commandName="query" target="_blank">
@@ -939,13 +977,15 @@
 					<a href="#" class="btn left update">Actualizar</a>
 					<a href="#" class="btn left clock">Actualización planificada</a>
 					<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
-				</div> 
+				</div>
 		   </div><!-- /table_buttons -->
 
-			<div class="pagination"> 
+			<div class="pagination">
                 <div class="t_number"><span class="text">${pagedListHolder.source.size()} Terminales</span></div>
-                <div class="p_number"><span class="text">Página</span><t:pagingForm pagedListHolder="${pagedListHolder}" pagedLink="queries/results?p=~" formId="pagingForm"/></div>
-            </div>
+                <div class="p_number">
+                  <span class="text">Página</span>
+                  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/results?p=~&queryId=${query.id}&sort=${sort}&order=${order}"/>
+                </div>
 
 			</form:form>
 		</c:if>
