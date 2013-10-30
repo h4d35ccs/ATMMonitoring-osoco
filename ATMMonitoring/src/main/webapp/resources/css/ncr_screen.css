@@ -2236,16 +2236,17 @@ nav.sub_nav li.current span:after {
   padding: 1em 2em 1em 6em;
   position: relative;
   min-height: 2em;
+  margin: 1em 0;
 }
-/* line 33, ../sass/_messages.scss */
+/* line 34, ../sass/_messages.scss */
 .td .message, .td .no_queries {
   display: block;
 }
-/* line 36, ../sass/_messages.scss */
+/* line 37, ../sass/_messages.scss */
 .message strong, .no_queries strong {
   color: #f4a725;
 }
-/* line 39, ../sass/_messages.scss */
+/* line 40, ../sass/_messages.scss */
 .message.left:after, .left.no_queries:after {
   content: "";
   position: absolute;
@@ -2258,7 +2259,7 @@ nav.sub_nav li.current span:after {
   width: 0;
 }
 
-/* line 51, ../sass/_messages.scss */
+/* line 52, ../sass/_messages.scss */
 .no_queries {
   background: transparent url("../images/icons/message_24.png") no-repeat 1em;
   border: none;
@@ -2271,7 +2272,7 @@ nav.sub_nav li.current span:after {
   top: 40px;
   text-align: right;
 }
-/* line 63, ../sass/_messages.scss */
+/* line 64, ../sass/_messages.scss */
 .no_queries .flecha {
   background: url("../images/general/flecha.png") no-repeat;
   width: 200px;
@@ -2282,7 +2283,7 @@ nav.sub_nav li.current span:after {
   right: -80px;
 }
 
-/* line 73, ../sass/_messages.scss */
+/* line 74, ../sass/_messages.scss */
 .error {
   background: #e14f3c;
   border: 1px dotted white;
@@ -2291,11 +2292,11 @@ nav.sub_nav li.current span:after {
   margin: 1em 0;
   position: relative;
 }
-/* line 74, ../sass/_messages.scss */
+/* line 75, ../sass/_messages.scss */
 .td .error {
   display: block;
 }
-/* line 84, ../sass/_messages.scss */
+/* line 85, ../sass/_messages.scss */
 .error.top:after {
   content: "";
   position: absolute;
@@ -2307,7 +2308,7 @@ nav.sub_nav li.current span:after {
   display: block;
   width: 0;
 }
-/* line 97, ../sass/_messages.scss */
+/* line 98, ../sass/_messages.scss */
 .error.bottom:after {
   content: "";
   position: absolute;
@@ -3168,62 +3169,64 @@ td .add span, th .add span {
   margin-left: 0;
   padding: 0;
   width: 98%;
+  position: relative;
+  left: 0;
 }
-/* line 9, ../sass/_iframes.scss */
+/* line 11, ../sass/_iframes.scss */
 #iframe #main .box, #iframe #cboxContent .box {
   position: relative;
 }
-/* line 11, ../sass/_iframes.scss */
+/* line 13, ../sass/_iframes.scss */
 #iframe #main .box h1, #iframe #cboxContent .box h1, #iframe #main .box h2, #iframe #cboxContent .box #main h2, #main #iframe #cboxContent .box h2, #iframe #main .box #cboxContent h2, #cboxContent #iframe #main .box h2, #iframe #cboxContent .box h2, #iframe #main .box h3, #iframe #cboxContent .box #main h3, #main #iframe #cboxContent .box h3, #iframe #main .box #cboxContent h3, #cboxContent #iframe #main .box h3, #iframe #cboxContent .box h3, #iframe #main .box h4, #iframe #cboxContent .box #main h4, #main #iframe #cboxContent .box h4, #iframe #main .box #cboxContent h4, #cboxContent #iframe #main .box h4, #iframe #cboxContent .box h4, #iframe #main .box h5, #iframe #cboxContent .box #main h5, #main #iframe #cboxContent .box h5, #iframe #main .box #cboxContent h5, #cboxContent #iframe #main .box h5, #iframe #cboxContent .box h5 {
   color: white;
   background: #6ca932;
   padding: .5em;
   margin-top: 0;
 }
-/* line 19, ../sass/_iframes.scss */
+/* line 21, ../sass/_iframes.scss */
 #iframe #main.installation .content, #iframe .installation#cboxContent .content {
   margin-right: 2em;
 }
-/* line 22, ../sass/_iframes.scss */
+/* line 24, ../sass/_iframes.scss */
 #iframe #main.installation iframe, #iframe .installation#cboxContent iframe {
   border: 5px solid #cccccc;
 }
-/* line 25, ../sass/_iframes.scss */
+/* line 27, ../sass/_iframes.scss */
 #iframe #main.installation li, #iframe .installation#cboxContent li {
   overflow: hidden;
   margin-bottom: .5em;
 }
-/* line 29, ../sass/_iframes.scss */
+/* line 31, ../sass/_iframes.scss */
 #iframe #main.installation label, #iframe .installation#cboxContent label {
   width: 33%;
   margin-left: 2%;
   display: block;
   float: left;
 }
-/* line 35, ../sass/_iframes.scss */
+/* line 37, ../sass/_iframes.scss */
 #iframe #main.installation input[type="text"], #iframe .installation#cboxContent input[type="text"] {
   width: 45%;
 }
-/* line 38, ../sass/_iframes.scss */
+/* line 40, ../sass/_iframes.scss */
 #iframe #main.installation input[type="checkbox"], #iframe .installation#cboxContent input[type="checkbox"] {
   margin: 0.8em 0;
 }
-/* line 41, ../sass/_iframes.scss */
+/* line 43, ../sass/_iframes.scss */
 #iframe #main.installation input.withbutton, #iframe .installation#cboxContent input.withbutton {
   width: 25%;
   float: left;
 }
-/* line 45, ../sass/_iframes.scss */
+/* line 47, ../sass/_iframes.scss */
 #iframe #main.installation .message, #iframe .installation#cboxContent .message, #iframe #main.installation .no_queries, #iframe .installation#cboxContent .no_queries {
   clear: both;
   float: right;
   margin: 1em;
 }
-/* line 52, ../sass/_iframes.scss */
+/* line 54, ../sass/_iframes.scss */
 #iframe .content.fixed {
   margin-bottom: 3em;
 }
-/* line 54, ../sass/_iframes.scss */
+/* line 56, ../sass/_iframes.scss */
 #iframe .content.fixed .botonera {
   border-top: 1px solid #b3b3b3;
   margin: 0;
@@ -3234,11 +3237,11 @@ td .add span, th .add span {
   left: 0;
   width: 100%;
 }
-/* line 65, ../sass/_iframes.scss */
+/* line 67, ../sass/_iframes.scss */
 #iframe .row {
   padding: 0;
 }
-/* line 67, ../sass/_iframes.scss */
+/* line 69, ../sass/_iframes.scss */
 #iframe .row label {
   width: 30%;
   text-align: left;
@@ -3247,69 +3250,81 @@ td .add span, th .add span {
 
 @media screen and (max-height: 600px) {
   /* line 2, ../sass/_responsive.scss */
-  nav#main_nav ul li a {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background: transparent;
+  nav#main_nav #nav_icons a {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background: none;
+  }
+
+  /* line 7, ../sass/_responsive.scss */
+  nav#main_nav #nav_icons .help {
+    position: relative;
   }
 }
 @media screen and (min-width: 801px) {
-  /* line 9, ../sass/_responsive.scss */
+  /* line 12, ../sass/_responsive.scss */
   #main, #cboxContent {
     margin-left: 90px;
   }
 }
 @media screen and (max-width: 1200px) {
-  /* line 16, ../sass/_responsive.scss */
+  /* line 19, ../sass/_responsive.scss */
   #dashboard #columns .column4 {
     display: none;
   }
-  /* line 20, ../sass/_responsive.scss */
+  /* line 23, ../sass/_responsive.scss */
   #dashboard #sortable.column4 li.ui-state-default {
     width: 29%;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 27, ../sass/_responsive.scss */
+  /* line 30, ../sass/_responsive.scss */
   #rButton {
     display: block;
     cursor: pointer;
   }
 
-  /* line 32, ../sass/_responsive.scss */
+  /* line 35, ../sass/_responsive.scss */
   #main_header h1, #main_header #main h2, #main #main_header h2, #main_header #cboxContent h2, #cboxContent #main_header h2, #main_header #main h3, #main #main_header h3, #main_header #cboxContent h3, #cboxContent #main_header h3, #main_header #main h4, #main #main_header h4, #main_header #cboxContent h4, #cboxContent #main_header h4, #main_header #main h5, #main #main_header h5, #main_header #cboxContent h5, #cboxContent #main_header h5 {
     left: 40px;
   }
-  /* line 34, ../sass/_responsive.scss */
+  /* line 37, ../sass/_responsive.scss */
   #main_header h1 strong, #main_header #main h2 strong, #main #main_header h2 strong, #main_header #cboxContent h2 strong, #cboxContent #main_header h2 strong, #main_header #main h3 strong, #main #main_header h3 strong, #main_header #cboxContent h3 strong, #cboxContent #main_header h3 strong, #main_header #main h4 strong, #main #main_header h4 strong, #main_header #cboxContent h4 strong, #cboxContent #main_header h4 strong, #main_header #main h5 strong, #main #main_header h5 strong, #main_header #cboxContent h5 strong, #cboxContent #main_header h5 strong {
     left: 85px;
     font-size: 1.2em;
     top: 10px;
   }
-  /* line 40, ../sass/_responsive.scss */
+  /* line 43, ../sass/_responsive.scss */
   #main_header #user_info {
     right: 5px;
     margin-left: 0;
   }
-  /* line 43, ../sass/_responsive.scss */
+  /* line 46, ../sass/_responsive.scss */
   #main_header #user_info .welcome, #main_header #user_info .date {
     display: none;
   }
-  /* line 47, ../sass/_responsive.scss */
+  /* line 50, ../sass/_responsive.scss */
   #main_header #lang ul {
     right: 0;
   }
-  /* line 49, ../sass/_responsive.scss */
+  /* line 52, ../sass/_responsive.scss */
   #main_header #lang ul a {
     font-size: 1.5em;
   }
 
-  /* line 54, ../sass/_responsive.scss */
+  /* line 57, ../sass/_responsive.scss */
   #main_nav.btn_close {
     display: none;
   }
 
-  /* line 57, ../sass/_responsive.scss */
+  /* line 60, ../sass/_responsive.scss */
+  #main, #cboxContent {
+    margin-left: 90px;
+    padding-top: 5%;
+    width: 101%;
+  }
+
+  /* line 65, ../sass/_responsive.scss */
   #main.btn_close, .btn_close#cboxContent {
     position: absolute;
     top: 0;
@@ -3321,62 +3336,51 @@ td .add span, th .add span {
     min-height: 100%;
   }
 
-  /* line 67, ../sass/_responsive.scss */
+  /* line 75, ../sass/_responsive.scss */
   #cboxClose {
     top: 0;
     right: 0;
   }
 
-  /* line 74, ../sass/_responsive.scss */
+  /* line 82, ../sass/_responsive.scss */
   #dashboard #columns .column3 {
     display: none;
   }
-  /* line 78, ../sass/_responsive.scss */
+  /* line 86, ../sass/_responsive.scss */
   #dashboard #header_g #components ul li {
     font-size: 1.5em;
   }
-  /* line 81, ../sass/_responsive.scss */
+  /* line 89, ../sass/_responsive.scss */
   #dashboard #sortable.column3 li.ui-state-default, #dashboard #sortable.column4 li.ui-state-default {
     width: 46%;
   }
 
-  /* line 86, ../sass/_responsive.scss */
+  /* line 94, ../sass/_responsive.scss */
   #main .action_box.data .photo, #cboxContent .action_box.data .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo, #cboxContent .action_box.data .photo, #cboxContent .data.pagination .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo, #cboxContent .data.pagination .photo {
     width: 35%;
   }
 
-  /* line 89, ../sass/_responsive.scss */
+  /* line 97, ../sass/_responsive.scss */
   #main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .action_box.data .ul_data, #cboxContent .data.pagination .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
     width: 60%;
   }
 
-  /* line 92, ../sass/_responsive.scss */
+  /* line 100, ../sass/_responsive.scss */
   #main .action_box.data .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li {
     width: 96%;
   }
-  /* line 94, ../sass/_responsive.scss */
+  /* line 102, ../sass/_responsive.scss */
   #main .action_box.data .ul_data > ul li li strong, #cboxContent .action_box.data .ul_data > ul li li strong, #main .data.pagination .ul_data > ul li li strong, #cboxContent .data.pagination .ul_data > ul li li strong, #cboxContent .action_box.data .ul_data > ul li li strong, #cboxContent .data.pagination .ul_data > ul li li strong, #main .data.pagination .ul_data > ul li li strong, #cboxContent .data.pagination .ul_data > ul li li strong, #cboxContent .data.pagination .ul_data > ul li li strong {
     width: 40%;
   }
 
-  /* line 98, ../sass/_responsive.scss */
+  /* line 106, ../sass/_responsive.scss */
   nav.sub_nav {
     font-size: .9em;
   }
 
-  /* line 101, ../sass/_responsive.scss */
+  /* line 109, ../sass/_responsive.scss */
   table.link tr.detail ul li, table.link tr.detail:hover ul li {
     width: 49%;
-  }
-}
-@media screen and (max-width: 700px) {
-  /* line 109, ../sass/_responsive.scss */
-  #iframe .installation .w50, #iframe .installation .left, #iframe .installation .right {
-    width: 100%;
-    float: none !important;
-  }
-  /* line 113, ../sass/_responsive.scss */
-  #iframe .installation #secondary {
-    width: 90%;
   }
 }

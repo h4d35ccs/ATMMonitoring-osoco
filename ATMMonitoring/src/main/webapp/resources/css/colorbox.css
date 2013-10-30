@@ -920,16 +920,17 @@ td .add span, th .add span {
   padding: 1em 2em 1em 6em;
   position: relative;
   min-height: 2em;
+  margin: 1em 0;
 }
-/* line 33, ../sass/_messages.scss */
+/* line 34, ../sass/_messages.scss */
 .td .message, .td .no_queries {
   display: block;
 }
-/* line 36, ../sass/_messages.scss */
+/* line 37, ../sass/_messages.scss */
 .message strong, .no_queries strong {
   color: #f4a725;
 }
-/* line 39, ../sass/_messages.scss */
+/* line 40, ../sass/_messages.scss */
 .message.left:after, .left.no_queries:after {
   content: "";
   position: absolute;
@@ -942,7 +943,7 @@ td .add span, th .add span {
   width: 0;
 }
 
-/* line 51, ../sass/_messages.scss */
+/* line 52, ../sass/_messages.scss */
 .no_queries {
   background: transparent url("../images/icons/message_24.png") no-repeat 1em;
   border: none;
@@ -955,7 +956,7 @@ td .add span, th .add span {
   top: 40px;
   text-align: right;
 }
-/* line 63, ../sass/_messages.scss */
+/* line 64, ../sass/_messages.scss */
 .no_queries .flecha {
   background: url("../images/general/flecha.png") no-repeat;
   width: 200px;
@@ -966,7 +967,7 @@ td .add span, th .add span {
   right: -80px;
 }
 
-/* line 73, ../sass/_messages.scss */
+/* line 74, ../sass/_messages.scss */
 .error {
   background: #e14f3c;
   border: 1px dotted white;
@@ -975,11 +976,11 @@ td .add span, th .add span {
   margin: 1em 0;
   position: relative;
 }
-/* line 74, ../sass/_messages.scss */
+/* line 75, ../sass/_messages.scss */
 .td .error {
   display: block;
 }
-/* line 84, ../sass/_messages.scss */
+/* line 85, ../sass/_messages.scss */
 .error.top:after {
   content: "";
   position: absolute;
@@ -991,7 +992,7 @@ td .add span, th .add span {
   display: block;
   width: 0;
 }
-/* line 97, ../sass/_messages.scss */
+/* line 98, ../sass/_messages.scss */
 .error.bottom:after {
   content: "";
   position: absolute;

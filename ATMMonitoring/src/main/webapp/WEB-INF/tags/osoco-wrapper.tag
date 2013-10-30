@@ -69,7 +69,7 @@
             </div>
         </header>
         <nav id="main_nav" class="btn_close">
-            <ul>
+            <ul id="nav_icons">
                 <li class="dashboard">
                     <a href="dashboard"><span><spring:message code="label.menu.dashboard"/></span></a>
                 </li>
