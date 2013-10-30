@@ -52,6 +52,9 @@ html>body tbody.scrollContent {
 </c:otherwise>
 </c:choose>
 <tr>
+    <th width="100px"><i><spring:message code="label.scheduledUpdate.name"/></i></th>
+    <th width="100px"><i><spring:message code="label.scheduledUpdate.description"/></i></th>
+    <th width="100px"><i><spring:message code="label.scheduledUpdate.startDate"/></i></th>
     <th width="100px"><i><spring:message code="label.scheduledUpdate.weekDay"/></i></th>
     <th width="100px"><i><spring:message code="label.scheduledUpdate.time"/></i></th>
     <th width="100px"><i><spring:message code="label.scheduledUpdate.query"/></i></th>
@@ -71,6 +74,9 @@ html>body tbody.scrollContent {
 </c:if>
 <c:forEach items="${weeklyScheduledUpdates}" var="scheduledUpdate">
     <tr>
+        <td width="100px" class="center-cell">${scheduledUpdate.name}</td>
+        <td width="100px" class="center-cell">${scheduledUpdate.description}</td>
+        <td width="100px" class="center-cell">${scheduledUpdate.startDateShort}</td>
         <td width="100px" class="center-cell">
         <c:choose>
 	        <c:when test="${scheduledUpdate.weekDay == 1}">
@@ -135,6 +141,9 @@ html>body tbody.scrollContent {
 </c:otherwise>
 </c:choose>
 <tr>
+    <th width="100px"><i><spring:message code="label.scheduledUpdate.name"/></i></th>
+    <th width="100px"><i><spring:message code="label.scheduledUpdate.description"/></i></th>
+    <th width="100px"><i><spring:message code="label.scheduledUpdate.startDate"/></i></th>
     <th width="100px"><i><spring:message code="label.scheduledUpdate.monthDay"/></i></th>
     <th width="100px"><i><spring:message code="label.scheduledUpdate.time"/></i></th>
     <th width="100px"><i><spring:message code="label.scheduledUpdate.query"/></i></th>
@@ -154,6 +163,9 @@ html>body tbody.scrollContent {
 </c:if>
 <c:forEach items="${monthlyScheduledUpdates}" var="scheduledUpdate">
     <tr>
+        <td width="100px" class="center-cell">${scheduledUpdate.name}</td>
+        <td width="100px" class="center-cell">${scheduledUpdate.description}</td>
+        <td width="100px" class="center-cell">${scheduledUpdate.startDateShort}</td>
         <td width="100px" class="center-cell">${scheduledUpdate.monthDay}</td>
         <td width="100px" class="center-cell">${scheduledUpdate.completeHour} (${scheduledUpdate.timeZoneName})</td>
         <td width="100px" class="center-cell">${scheduledUpdate.query.name}</td>
@@ -199,15 +211,39 @@ html>body tbody.scrollContent {
     <table class="form">
     <tr>
     <td class="header first-header">
+    	<label class="plain-label"><spring:message code="label.scheduledUpdate.name"/> </label>
+    </td>
+    <td>
+    	<form:input class='form-tf-grey' path="name" maxlength="50"/>
+    </td>
+    </tr>
+    <tr>
+    <td class="header">
+    	<label class="plain-label"><spring:message code="label.scheduledUpdate.description"/> </label>
+    </td>
+    <td>
+    	<form:input class='form-tf-grey' path="description" maxlength="200"/>
+    </td>
+    </tr>
+    <tr>
+    <td class="header">
     	<label class="plain-label"><spring:message code="label.scheduledUpdate.query"/> </label>
     </td>
     <td>
-		<form:select path="query.id" style="width: 100%;">
-	    	<form:option value="" label=""/>
-		    <c:forEach items="${userQueries}" var="userQuery">
-		    	<form:option value="${userQuery.id}" label="${userQuery.name}"/>
-		    </c:forEach>
-	    </form:select>
+        <form:select path="query.id" style="width: 100%;">
+        	<form:option value="" label=""/>
+           	<c:forEach items="${userQueries}" var="userQuery">
+            	<form:option value="${userQuery.id}" label="${userQuery.name}"/>
+            </c:forEach>
+        </form:select>
+    </td>
+    </tr>
+    <tr>
+    <td class="header">
+    	<label class="plain-label"><spring:message code="label.scheduledUpdate.startDate"/> </label>
+    </td>
+    <td>
+    	<form:input class='form-tf-grey' path="startDate" maxlength="10"/>
     </td>
     <td class="error-td"><form:errors path="query"/>
 		<c:if test="${nullQuery == true}">

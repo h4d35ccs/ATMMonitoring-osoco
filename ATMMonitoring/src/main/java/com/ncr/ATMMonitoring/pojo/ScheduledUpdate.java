@@ -1,9 +1,11 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import javax.persistence.Column;
@@ -67,8 +69,23 @@ public class ScheduledUpdate {
     private Short timeZone = new Double(
 	    TimeZone.getDefault().getRawOffset() / (3600000)).shortValue();
 
-    @Formula("hours - time_zone")
+    @Formula("(hours - time_zone + 24) % 24")
     private Short gmtHour;
+
+    @Formula("((week_day + 7 + floor((hours - time_zone) / 24.0) - 1) % 7) + 1")
+    private Short gmtWeekDay;
+
+    @Formula("((month_day + 30 + floor((hours - time_zone) / 24.0) - 1) % 30) + 1")
+    private Short gmtMonthDay;
+
+    @Column(name = "name", length = 50)
+    private String name;
+
+    @Column(name = "description", length = 200)
+    private String description;
+
+    @Column(name = "start_date")
+    private Date startDate;
 
     @ManyToOne
     @JoinColumn(name = "query_id")
@@ -229,5 +246,50 @@ public class ScheduledUpdate {
 
     public void setGmtHour(Short gmtHour) {
 	this.gmtHour = gmtHour;
+    }
+
+    public String getName() {
+	return name;
+    }
+
+    public void setName(String name) {
+	this.name = name;
+    }
+
+    public String getDescription() {
+	return description;
+    }
+
+    public void setDescription(String description) {
+	this.description = description;
+    }
+
+    public Date getStartDate() {
+	return startDate;
+    }
+
+    public String getStartDateShort() {
+	return (startDate != null) ? DateFormat.getDateInstance(
+		DateFormat.SHORT, Locale.getDefault()).format(startDate) : "";
+    }
+
+    public void setStartDate(Date startDate) {
+	this.startDate = startDate;
+    }
+
+    public Short getGmtWeekDay() {
+	return gmtWeekDay;
+    }
+
+    public void setGmtWeekDay(Short gmtWeekDay) {
+	this.gmtWeekDay = gmtWeekDay;
+    }
+
+    public Short getGmtMonthDay() {
+	return gmtMonthDay;
+    }
+
+    public void setGmtMonthDay(Short gmtMonthDay) {
+	this.gmtMonthDay = gmtMonthDay;
     }
 }
