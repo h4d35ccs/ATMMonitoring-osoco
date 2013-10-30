@@ -69,21 +69,11 @@
                             	<a href="" id="queryDateButton" class="btn calendar"><span>Abrir calendario</span></a>
                             	<input type="submit" value="Aplicar" class="btn">
                                 </form>
-			   </c:if> 
+			   </c:if>
 						</div>
                            <div class="botonera"><a href="queries" class="btn right">Mis consultas</a></div>
-                       
 
                     </div>
-                    <div class="message">
-		        <p>Sabías que lorem ipsum dolor sit amet, <strong>consectetur adipisicing</strong> elit. Voluptatum, hic, laboriosam ea eaque necessitatibus alias dolor saepe earum et ullam veritatis animi at dignissimos. Consequatur optio cupiditate distinctio quasi amet?</p>
-					</div>
-                    <div class="notification">
-						<p>Los terminales se han priorizado con éxito y sus datos se están actualizando. Esta operación puede llevar un tiempo dependiendo del número de cajeros</p>
-					</div>
-					<div class="alert">
-						<p><strong>Se ha producido un error</strong>. Inténtelo más tarde.</p>
-					</div>
 
 					<h2>${pagedListHolder.source.size()} terminales
 
@@ -138,7 +128,7 @@
                     	<div class="p_number"><c:if test="${pagedListHolder.getPageCount() >1 }">
 			     			    <span class="text">Página</span>
 
-				  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}"/></div>
+				  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}&sort=${sort}&order=${order}"/></div>
 				  </c:if>
                       </div>
 

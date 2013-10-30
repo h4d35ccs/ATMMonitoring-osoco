@@ -55,7 +55,7 @@ import org.apache.log4j.Logger;
 @Controller
 public class TerminalController {
 
-    static private Logger logger = Logger.getLogger(DashboardController.class.getName());
+    static private Logger logger = Logger.getLogger(TerminalController.class.getName());
 
 	public static final String DEFAULT_SORT = "serialNumber";
 
@@ -536,7 +536,6 @@ public class TerminalController {
 	map.put("canManageScheduled", canManageScheduled);
         Query query= null;
 	List<Terminal> terminals = null;
-        logger.debug ("Query ID: " + queryId);
         if (queryId != null) {
 	    query = queryService.getQuery(queryId);
 	    terminals= queryService.executeQuery(query, locale, sortValue, orderValue);
@@ -789,7 +788,7 @@ public class TerminalController {
 	    User loggedUser = userService.getUserByUsername(principal.getName());
 	    List<Terminal> terminals = null;
 	    logger.debug ("Exporting to CSV all terminals");
-	    terminals = 
+	    terminals =
 		terminalService.listTerminalsByBankCompanies(loggedUser.getManageableBankCompanies());
 
 	    for (Terminal terminal : terminals) {
