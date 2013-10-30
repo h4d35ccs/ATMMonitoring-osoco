@@ -103,7 +103,10 @@
 						</c:if>
 					</div>
 
-                       <div class="margin-box"> <t:terminalsTable terminals="${pagedListHolder.pageList}"/></div>
+                       <div class="margin-box">
+                         <t:terminalsTable terminals="${pagedListHolder.pageList}"
+                                           baseUrl="${query != null ? 'terminals/byQuery' : 'terminals/list'}"/>
+                       </div>
 
 			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
@@ -128,7 +131,8 @@
                     	<div class="p_number"><c:if test="${pagedListHolder.getPageCount() >1 }">
 			     			    <span class="text">Página</span>
 
-				  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}&sort=${sort}&order=${order}"/></div>
+				  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}&sort=${sort}&order=${order}"/>
+                        </div>
 				  </c:if>
                       </div>
 

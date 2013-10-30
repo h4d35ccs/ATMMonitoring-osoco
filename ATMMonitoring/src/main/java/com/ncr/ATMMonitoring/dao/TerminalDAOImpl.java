@@ -94,13 +94,13 @@ public class TerminalDAOImpl implements TerminalDAO {
 	@Override
     public List<Terminal> getTerminalsByHQL(List<Object> values,
 		    List<Type> types, String hql, String sort, String order) {
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		if (sort != null) {
 			hql += " order by terminal." + sort;
 			if (order != null) {
 				hql += " " + order;
 			}
 		}
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setParameters(values.toArray(), types.toArray(new Type[0]));
 		logger.debug("Executing the HQL sentence '" + hql
 					 + "' with the values " + values + "and types " + types);
