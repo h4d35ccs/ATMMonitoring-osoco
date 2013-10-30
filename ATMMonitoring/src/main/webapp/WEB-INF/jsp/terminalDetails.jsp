@@ -250,10 +250,11 @@
 										<ul>
 											<li>
 												<strong>
-													<spring:message code="label.terminal.serialNumber"/>
+													<spring:message code="label.terminal.mac"/>
 												</strong>
-												${terminal.serialNumber}
+												${terminal.mac}
 											</li>
+											
 											<li>
 												<strong>
 													<spring:message code="label.terminal.ip"/>
@@ -262,9 +263,9 @@
 											</li>
 											<li>
 												<strong>
-													<spring:message code="label.terminal.mac"/>
+													<spring:message code="label.terminal.serialNumber"/>
 												</strong>
-												${terminal.mac}
+												${terminal.serialNumber}
 											</li>
 											<li>
 												<strong>
@@ -331,7 +332,7 @@
 									<c:if test="${canEdit == 'true'}">
 										<div class="botonera">
 											<button id="editTerminalButton" class="btn">Editar Terminal</button>
-											<button class="btn request" onclick="requestSnmpUpdate()">
+											<button class="btn update" onclick="requestSnmpUpdate()">
 												<spring:message code="label.terminal.requestSingleSnmpUpdate"/>
 											</button>
 										</div>
