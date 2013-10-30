@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.controller.propertyEditor.DatePropertyEditor;
@@ -92,9 +93,12 @@ public class TerminalController {
     }
 
     @RequestMapping(value = "/terminals/request", method = RequestMethod.GET)
-    public String requestTerminalsUpdate(Map<String, Object> map, HttpServletRequest request, Principal principal) {
+    public String requestTerminalsUpdate(Map<String, Object> map, HttpServletRequest request, 
+					 Principal principal,
+					  RedirectAttributes redirectAttributes) {
 		try {
 		    snmpService.updateAllTerminalsSnmp();
+		    redirectAttributes.addFlashAttribute("success", "success.snmpUpdateAll");
 		} catch (SnmpTimeOutException e) {
 		    String userMsg = "";
 		    Locale locale = RequestContextUtils.getLocale(request);
@@ -102,10 +106,11 @@ public class TerminalController {
 			User loggedUser = userService.getUserByUsername(principal
 				.getName());
 			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+
 		    }
 		    map.put("userMsg", userMsg);
 		    map.put("ips", e.getIpsHtmlList());
-		    return "snmpTimeOut";
+		    redirectAttributes.addFlashAttribute("timeout", "timeout.snmpUpdateAll");
 		}
 
 		try {
@@ -123,6 +128,7 @@ public class TerminalController {
     public String requestTerminalUpdate(
 	    @PathVariable("terminalId") Integer terminalId,
 	    Map<String, Object> map, HttpServletRequest request,
+	    RedirectAttributes redirectAttributes,
 	    Principal principal)
     {
 		Terminal terminal = terminalService.getTerminal(terminalId);
@@ -131,7 +137,9 @@ public class TerminalController {
 			return "redirect:/terminals/list";
 		}
 		try {
+		    logger.debug("request snmp update for terminal" + terminalId);
 			snmpService.updateTerminalSnmp(terminal);
+			redirectAttributes.addFlashAttribute("success", "success.snmpUpdateTerminal");
 		} catch (SnmpTimeOutException e) {
 			String userMsg = "";
 			Locale locale = RequestContextUtils.getLocale(request);
@@ -148,7 +156,8 @@ public class TerminalController {
 			}
 			map.put("userMsg", userMsg);
 			map.put("ips", e.getIpsHtmlList());
-			return "snmpTimeOut";
+			redirectAttributes.addFlashAttribute("timeout", "timeout.snmpUpdateTerminal");
+			return "redirect:/terminals/details/" + terminalId;
 		}
 
 		try {
@@ -348,6 +357,9 @@ public class TerminalController {
 		canAdd = true;
 	    }
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    Set<Query> userQueries = loggedUser.getQueries();
+
+	    map.put("userQueries", userQueries);
 	    pagedListHolder = new PagedListHolder<Terminal>(
 		    terminalService.listTerminalsByBankCompanies(loggedUser
 			    .getManageableBankCompanies()));
@@ -416,6 +428,7 @@ public class TerminalController {
     public String updateTerminal(
 	    @Valid @ModelAttribute("terminal") Terminal terminal,
 	    BindingResult result, Map<String, Object> map,
+	    	    RedirectAttributes redirectAttributes,
 	    HttpServletRequest request, Principal principal) {
 	if ((terminal.getBankCompany() != null)
 		&& (terminal.getBankCompany().getId() == null)) {
@@ -455,6 +468,7 @@ public class TerminalController {
 	map.put("userMsg", userMsg);
 	map.put("canEdit", canEdit);
 	if (result.hasErrors()) {
+	    map.put("errors", true);
 	    return "terminalDetails";
 	}
 
@@ -463,25 +477,28 @@ public class TerminalController {
 	if ((auxTerminal != null)
 		&& (!auxTerminal.getId().equals(terminal.getId()))) {
 	    map.put("duplicatedSerialNumber", true);
+	    map.put("errors", true);
 	    return "terminalDetails";
 	}
 	auxTerminal = terminalService.loadTerminalByIp(terminal.getIp());
 	if ((auxTerminal != null)
 		&& (!auxTerminal.getId().equals(terminal.getId()))) {
 	    map.put("duplicatedIp", true);
+	    map.put("errors", true);
 	    return "terminalDetails";
 	}
 	auxTerminal = terminalService.loadTerminalByMac(terminal.getMac());
 	if ((auxTerminal != null)
 		&& (!auxTerminal.getId().equals(terminal.getId()))) {
 	    map.put("duplicatedMac", true);
+	    map.put("errors", true);
 	    return "terminalDetails";
 	}
 
 	auxTerminal = terminalService.getTerminal(terminal.getId());
 	auxTerminal.replaceTerminalData(terminal);
 	terminalService.updateTerminal(auxTerminal);
-
+	redirectAttributes.addFlashAttribute("success", "success.updatingTerminal");
 	try {
 	    // We wait to avoid not loading the recently added DB data
 	    Thread.sleep(500);

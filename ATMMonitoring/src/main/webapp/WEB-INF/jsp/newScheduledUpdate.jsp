@@ -43,10 +43,10 @@
 <form:form method="post" action="terminals/schedules/list" commandName="scheduledUpdate">
 
 <div class="row"><label for="query"><strong>Elegir consulta:</strong></label>
-<form:select name="query" size="1" path="query.id">
+<form:select name="query.id" size="1" path="query.id" >
   <option value="" >Seleccionar</option>
   <c:forEach items="${userQueries}" var="userQuery">
-    <form:option value="${userQuery.id}" label="${userQuery.name}"/>
+    <form:option value="${userQuery.id}" label="${userQuery.name}" selected="${(query.id == userQuery.id)? 'selected' :''}"/>
   </c:forEach>
 </form:select></div>
 

@@ -80,7 +80,8 @@ public class ScheduledUpdateController {
 
     @RequestMapping(value = "/terminals/schedules/new", method = RequestMethod.GET)
     public String newScheduledUpdate(Map<String, Object> map,
-								HttpServletRequest request, Principal principal) {
+				     String queryId,
+				     HttpServletRequest request, Principal principal) {
 		String userMsg = "";
 		Locale locale = RequestContextUtils.getLocale(request);
 		if (principal != null) {
@@ -91,6 +92,12 @@ public class ScheduledUpdateController {
 			map.put("userQueries", userQueries);
 			map.put("userMsg", userMsg);
 			map.put("scheduledUpdate", new ScheduledUpdate());
+		}
+		if (queryId != null) {
+
+		    Query query = new Query();
+		    query.setId(Integer.parseInt(queryId));
+		    map.put("query", query);
 		}
 		return "newScheduledUpdate";
     }

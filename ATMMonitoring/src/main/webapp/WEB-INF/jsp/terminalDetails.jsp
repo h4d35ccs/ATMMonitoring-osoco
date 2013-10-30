@@ -35,6 +35,19 @@
 				</div>
 				<div class="content">
 					<h1>Terminal 00:1b:21:01:82:8B</h1>
+					<c:if test="${success != null}">
+					      <div class="notification"><p>${success}</p></div>
+					</c:if>
+
+					<c:if test="${errors != null}">
+					      <div class="alert"><p>Se ha producido un error. Revise los campos</p></div>
+					</c:if>
+     					
+					<c:if test="${timeout != null}">
+					      <div class="message"><p>${timeout}</p></div>
+					</c:if>
+     					
+                                       
 					<div class="action_box data desplegable">
 						<h2 class="txt last"><spring:message code="label.terminalDetails"/></h2>
 						<div class="collapsible last">
@@ -60,7 +73,7 @@
 							</div>
 
 								<c:if test="${canEdit == true}">
-							            <div id="editForm" class="hide">
+							            <div id="editForm" class="${errors != null ? '': 'hide'}">
 									<form:form method="post" action="terminals/update" commandName="terminal">
 										<form:hidden path="id"/>
 										<div class="ul_data editable">
@@ -72,24 +85,27 @@
 
 													<form:input class='form-tf-grey' path="mac" maxlength="17"/>
 
-													<div class="error-td">
-														<form:errors path="mac"/>
+												
+														<form:errors path="mac" element="div" cssClass="error top"/>
 														<c:if test="${duplicatedMac == true}">
+														   	<div class="error top">
 															<spring:message code="label.terminal.duplicatedMac"/>
+															</div>
 														</c:if>
-													</div>
+													
 												</li>
 												<li> <strong><form:label path="ip">
 															<spring:message code="label.terminal.ip"/>
 															*
 														</form:label></strong> 
-													<form:input class='form-tf-grey' path="ip" maxlength="23"/>
-													<div class="error-td">
-														<form:errors path="ip"/>
+													        <form:input class='form-tf-grey' path="ip" maxlength="23"/>
+													
+														<form:errors path="ip"  element="div" cssClass="error top"/>
 														<c:if test="${duplicatedIp == true}">
+														<div class="error top">
 															<spring:message code="label.terminal.duplicatedIp"/>
+												                </div>
 														</c:if>
-													</div>
 												</li>
 												<li>
 													<strong>
@@ -100,13 +116,10 @@
 														</form:label>
 													</strong>
 													<form:input class='form-tf-grey' path="serialNumber" maxlength="50"/>
-
-													<div class="error-td">
-														<form:errors path="serialNumber"/>
-														<c:if test="${duplicatedSerialNumber == true}">
-															<spring:message code="label.terminal.duplicatedSerialNumber"/>
-														</c:if>
-													</div>
+													<form:errors path="serialNumber"  element="div" cssClass="error top"/>
+													<c:if test="${duplicatedSerialNumber == true}">
+														<div class="error top"><spring:message code="label.terminal.duplicatedSerialNumber"/></div>
+													</c:if>
 												</li>
 												<li>
 													<strong>
@@ -117,10 +130,7 @@
 														</form:label>
 													</strong>
 													<form:input class='form-tf-grey' path="terminalType" maxlength="50"/>
-
-													<div class="error-td">
-														<form:errors path="terminalType"/>
-													</div>
+													<form:errors path="terminalType"  element="div" cssClass="error top"/>
 												</li>
 												<li>
 													<strong>
@@ -131,10 +141,7 @@
 														</form:label>
 													</strong>
 													<form:input class='form-tf-grey' path="terminalVendor" maxlength="50"/>
-
-													<div class="error-td">
-														<form:errors path="terminalVendor"/>
-													</div>
+													<form:errors path="terminalVendor"  element="div" cssClass="error top"/>
 												</li>
 												<li>
 													<strong>
@@ -156,10 +163,7 @@
 														</form:label>
 													</strong>
 													<form:input class='form-tf-grey' path="bank" maxlength="50"/>
-
-													<div class="error-td">
-														<form:errors path="bank"/>
-													</div>
+													<form:errors path="bank"  element="div" cssClass="error top"/>
 												</li>
 												<li>
 													<strong>
@@ -170,10 +174,7 @@
 														</form:label>
 													</strong>
 													<form:input class='form-tf-grey' path="branch" maxlength="50"/>
-
-													<div class="error-td">
-														<form:errors path="branch"/>
-													</div>
+													<form:errors path="branch"  element="div" cssClass="error top"/>
 												</li>
 												<li>
 													<strong>
@@ -194,9 +195,7 @@
 														</form:label>
 													</strong>
 													<form:input class='form-tf-grey' path="model" maxlength="20"/>
-													<div class="error-td">
-														<form:errors path="model"/>
-													</div>
+												        <form:errors path="model"  element="div" cssClass="error top"/>
 												</li>
 												<li>
 													<strong>
@@ -207,9 +206,7 @@
 														</form:label>
 													</strong>
 													<form:input class='form-tf-grey' path="productClass" maxlength="20"/>
-													<div class="error-td">
-														<form:errors path="productClass"/>
-													</div>
+													<form:errors path="productClass"  element="div" cssClass="error top"/>
 												</li>
 												<li>
 													<strong>
@@ -236,9 +233,7 @@
 											</ul>
 										<div class="botonera">
 											<input type="submit" class="btn" value="<spring:message code="label.terminal.updateTerminal"/>"/>
-											<button class="btn update" onclick="requestSnmpUpdate()">
-												<spring:message code="label.terminal.requestSingleSnmpUpdate"/>
-											</button>
+											<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>  							
 										</div>
 
 										</div>
@@ -246,7 +241,7 @@
 							            </div>
 								</c:if>
 
-									<div id="showTerminal" class="ul_data">
+									<div id="showTerminal"  class="ul_data ${errors  != null ? 'hide': ''}">
 										<ul>
 											<li>
 												<strong>
@@ -332,9 +327,7 @@
 									<c:if test="${canEdit == 'true'}">
 										<div class="botonera">
 											<button id="editTerminalButton" class="btn">Editar Terminal</button>
-											<button class="btn update" onclick="requestSnmpUpdate()">
-												<spring:message code="label.terminal.requestSingleSnmpUpdate"/>
-											</button>
+											<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>  							
 										</div>
 									</c:if>
 
@@ -1303,16 +1296,7 @@
 
 <script type="text/javascript">
 	function requestSnmpUpdate() {
-			$.blockUI({ 
-	            theme:     true, 
-	            title:    '<spring:message code="label.terminal.requestSnmpUpdateFrameTitle"/>', 
-	            message:  '<p><spring:message code="label.terminal.requestSnmpUpdateFrameMessage"/></p><div id="spinner"',
-	            themedCSS: { 
-	                width: '275px',
-	                height: '150px'
-	            }
-	        });
-			$("#spinner").spin("small");
+
 			window.location.href = "terminals/request/${terminal.id}";
 	}
 </script>

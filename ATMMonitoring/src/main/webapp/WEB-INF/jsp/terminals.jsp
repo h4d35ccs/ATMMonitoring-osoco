@@ -74,6 +74,12 @@
                            <div class="botonera"><a href="queries" class="btn right">Mis consultas</a></div>
 
                     </div>
+		    <c:if test="${timeout}">
+		    	  <div class="message"><p>${timeout}</p></div>
+		    </c:if>
+		    <c:if test="${success}">
+		        <div class="notification"><p>${success}</p></div>
+		    </c:if>
 
 					<h2>${pagedListHolder.source.size()} terminales
 
@@ -91,14 +97,14 @@
 		      <div class="table_buttons">
 			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
-						<a href="#" class="btn left update">Actualizar</a>
-						<a href="#" class="btn left clock">Actualización planificada</a>
-					<c:if test="${query == null}">
+						<c:if test="${query == null}">
+					          <a href="terminals/request" class="btn left update">Actualizar</a>
+						  <a href="terminals/schedules/new" class="btn left clock">Actualización planificada</a>
 
 						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 						<c:if test="${query != null}">
-
+						  <a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock">Actualización planificada</a>
 						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 					</div>
@@ -110,14 +116,14 @@
 
 			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
 						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
-						<a href="#" class="btn left update">Actualizar</a>
-						<a href="#" class="btn left clock">Actualización planificada</a>
-						<c:if test="${query == null}">
+												<c:if test="${query == null}">
+					          <a href="terminals/request" class="btn left update">Actualizar</a>
+						  <a href="terminals/schedules/new" class="btn left clock">Actualización planificada</a>
 
 						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 						<c:if test="${query != null}">
-
+						  <a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock">Actualización planificada</a>
 						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 					</div>
