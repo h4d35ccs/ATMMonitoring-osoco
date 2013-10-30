@@ -3542,7 +3542,11 @@ public class Query {
     }
 
     public String getHQL(List<Object> values, List<Type> types, Locale locale) {
-	return getHQL(values, types, locale, true, true);
+		return getHQL(values, types, locale, true, true);
+    }
+
+    public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean order) {
+		return getHQL(values, types, locale, true, order);
     }
 
     public String getHQL(List<Object> values, List<Type> types, Locale locale,

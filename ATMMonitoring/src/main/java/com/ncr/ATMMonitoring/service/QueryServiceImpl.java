@@ -84,7 +84,7 @@ public class QueryServiceImpl implements QueryService {
     public List<Terminal> executeQuery(Query query, Locale locale, String sort, String order) {
 		List<Object> values = new ArrayList<Object>();
 		List<Type> types = new ArrayList<Type>();
-		String hql = query.getHQL(values, types, locale);
+		String hql = query.getHQL(values, types, locale, false);
 		if ((hql == null) || (hql.equals(""))) {
 			return null;
 		}

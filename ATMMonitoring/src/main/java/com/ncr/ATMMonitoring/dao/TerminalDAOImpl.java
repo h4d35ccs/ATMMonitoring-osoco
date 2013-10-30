@@ -59,6 +59,7 @@ public class TerminalDAOImpl implements TerminalDAO {
 		Criteria criteria =
 			sessionFactory.getCurrentSession().
 			    createCriteria(Terminal.class).add(restriction);
+
 		if ((order != null) && (sort != null)) {
 			if ("asc".equals(sort)) {
 				criteria.addOrder(Order.asc(order));
