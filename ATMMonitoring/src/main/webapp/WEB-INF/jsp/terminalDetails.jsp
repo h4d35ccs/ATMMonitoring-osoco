@@ -387,86 +387,90 @@
 							<a href="terminals/installation" class="btn iframe">Nueva instalación</a>
 						</div>
 						<h3>Instalación actual</h3>
-						<table>
-							<tr>
-								<th>Número de oficina</th>
-								<th>Dirección</th>
-								<th>Fecha de Alta</th>
-								<th>IP</th>
-								<th>Tipo de instalación</th>
-								<th>Puesto</th>
-								<th>Procesado</th>
-								<th>Acceso al público</th>
-							</tr>
-							<tr>
-								<td>4647</td>
-								<td>Avenida de los Andes, 24, 28042 Madrid - España</td>
-								<td>17-08-2013</td>
-								<td>128.128.3.45</td>
-								<td>Lorem Ipsum</td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</table>
+						<div class="margin-box">
+							<table>
+								<tr>
+									<th>Número de oficina</th>
+									<th>Dirección</th>
+									<th>Fecha de Alta</th>
+									<th>IP</th>
+									<th>Tipo de instalación</th>
+									<th>Puesto</th>
+									<th>Procesado</th>
+									<th>Acceso al público</th>
+								</tr>
+								<tr>
+									<td>4647</td>
+									<td>Avenida de los Andes, 24, 28042 Madrid - España</td>
+									<td>17-08-2013</td>
+									<td>128.128.3.45</td>
+									<td>Lorem Ipsum</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</table>
+						</div>
 						<h3>Histórico de instalaciones</h3>
-						<table>
-							<tr>
-								<th>Número de oficina</th>
-								<th>Dirección</th>
-								<th>Fecha de Alta</th>
-								<th>IP</th>
-								<th>Tipo de instalación</th>
-								<th>Puesto</th>
-								<th>Procesado</th>
-								<th>Acceso al público</th>
-								<th>Fecha de Baja</th>
-							</tr>
-							<tr>
-								<td>4647</td>
-								<td>Gran Vía, 32, 2001 Madrid - España</td>
-								<td>17-08-2013</td>
-								<td>128.128.3.45</td>
-								<td>Lorem Ipsum</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>4647</td>
-								<td>Gran Vía, 32, 2001 Madrid - España</td>
-								<td>17-08-2013</td>
-								<td>128.128.3.45</td>
-								<td>Lorem Ipsum</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>4647</td>
-								<td>Gran Vía, 32, 2001 Madrid - España</td>
-								<td>17-08-2013</td>
-								<td>128.128.3.45</td>
-								<td>Lorem Ipsum</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>4647</td>
-								<td>Gran Vía, 32, 2001 Madrid - España</td>
-								<td>17-08-2013</td>
-								<td>128.128.3.45</td>
-								<td>Lorem Ipsum</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</table>
+						<div class="margin-box">
+							<table>
+								<tr>
+									<th>Número de oficina</th>
+									<th>Dirección</th>
+									<th>Fecha de Alta</th>
+									<th>IP</th>
+									<th>Tipo de instalación</th>
+									<th>Puesto</th>
+									<th>Procesado</th>
+									<th>Acceso al público</th>
+									<th>Fecha de Baja</th>
+								</tr>
+								<tr>
+									<td>4647</td>
+									<td>Gran Vía, 32, 2001 Madrid - España</td>
+									<td>17-08-2013</td>
+									<td>128.128.3.45</td>
+									<td>Lorem Ipsum</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>4647</td>
+									<td>Gran Vía, 32, 2001 Madrid - España</td>
+									<td>17-08-2013</td>
+									<td>128.128.3.45</td>
+									<td>Lorem Ipsum</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>4647</td>
+									<td>Gran Vía, 32, 2001 Madrid - España</td>
+									<td>17-08-2013</td>
+									<td>128.128.3.45</td>
+									<td>Lorem Ipsum</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>4647</td>
+									<td>Gran Vía, 32, 2001 Madrid - España</td>
+									<td>17-08-2013</td>
+									<td>128.128.3.45</td>
+									<td>Lorem Ipsum</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</table>
+						</div>
 					</div>
 					<div class="content_tab">
 						<h2>
@@ -479,6 +483,7 @@
 								</div>
 							</c:if>
 							<c:if test="${!empty terminal.financialDevices}">
+							<div class="margin-box">
 								<c:choose>
 									<c:when  test="${terminal.financialDevices.size() >
 										5}">
@@ -734,17 +739,6 @@
 --%>
 												<td><div class="add"><span>Ver más información</span></div></td>
 											</tr>
-
-
-
-
-
-
-
-
-
-
-
 											<tr class="detail">
 										          <td colspan="9">
 										             <ul>
@@ -809,6 +803,7 @@
 										</c:forEach>
 									</tbody>
 								</table>
+								</div><!-- /margin-box -->
 							</c:if>
 						</div>
 					</div>
@@ -965,7 +960,7 @@
 						</c:if>
 						<c:if  test="${!empty terminal.configs}">
 
-							<div>
+							
 								<h3>
 									<spring:message code="label.currentTerminalConfig"/>
 								</h3>
@@ -1022,56 +1017,33 @@
 								</table>
 							</div>
 							<t:listSoftware config="${terminal.currentConfig}"/>
-						</div>
+						
 
-						<div class="">
+						
 							<h3>
 								<spring:message code="label.terminalConfigsHistory"/>
 							</h3>
 							<div class="margin-box">
 								<c:choose>
-									<c:when  test="${terminal.configs.size() >
-										10}">
-										<style type="text/css">
-										/* define height and width of scrollable area. Add 16px to width for scrollbar          */
-										div.tableContainerTc {
-											height: 287px;
-											width: 159px;
-										}
-
-										/* define width of table. IE browsers only                 */
-										div.tableContainerTc table {
-											width: 159px
-										}
-
-										/* define width of table. Add 16px to width for scrollbar.           */
-										/* All other non-IE browsers.                                        */
-										html>body div.tableContainerTc table {
-											width: 159px;
-										}
-
-										html>body tbody.scrollContentTc {
-											height: 261px;
-										}
-										</style>
+									<c:when  test="${terminal.configs.size() > 10}">
 										<div id="tableContainer" class="tableContainer tableContainerTc">
 											<table class="data link">
 												<thead class="fixedHeader"></c:when>
+									<c:otherwise>
+										<table class="data link"></c:otherwise>
+								</c:choose>
+									<tr>
+										<c:choose>
+											<c:when  test="${terminal.configs.size() >
+												10}">
+												<th width="151px"></c:when>
 												<c:otherwise>
-													<table class="data link"></c:otherwise>
+										<th></c:otherwise>
 												</c:choose>
-												<tr>
-													<c:choose>
-														<c:when  test="${terminal.configs.size() >
-															10}">
-															<th width="151px"></c:when>
-															<c:otherwise>
-																<th></c:otherwise>
-															</c:choose>
 
-															<spring:message code="label.terminalConfig.startDate"/>
+												<spring:message code="label.terminalConfig.startDate"/>
 
-														</th>
+										</th>
 														<%--Code with support for Terminal Config AUTHORS --%>
 														<%-- <th>
 
@@ -1079,13 +1051,12 @@
 
 													</th>
 													--%>
-												</tr>
-												<c:if  test="${terminal.configs.size() >10}"></thead>
-												<tbody class="scrollContent scrollContentTc"></c:if>
-												<c:set var="alt" value="${false}"/>
-												<c:forEach items="${terminal.configs}" var="config">
-													<tr <c:if test="${alt}">class="alt"</c:if>
-													>
+									</tr>
+									<c:if  test="${terminal.configs.size() >10}"></thead>
+									<tbody class="scrollContent scrollContentTc"></c:if>
+									<c:set var="alt" value="${false}"/>
+									<c:forEach items="${terminal.configs}" var="config">
+									<tr <c:if test="${alt}">class="alt"</c:if> >
 													<td>
 														<a class="iframe" href="terminals/swConfigs/details/${config.id}">
 															<fmt:formatDate value="${config.startDate}" dateStyle="short" type="both" />
@@ -1101,31 +1072,31 @@
 													</c:otherwise>
 												</c:choose>
 												--%>
-											</tr>
+									</tr>
 											<c:set var="alt" value="${!alt}"/>
 										</c:forEach>
 										<c:choose>
 											<c:when  test="${terminal.configs.size() >10}"></tbody>
-										</table>
-									</c:when>
-									<c:otherwise></table>
-								</c:otherwise>
-							</c:choose>
+								</table>
+											</c:when>
+											<c:otherwise></table>
+										</c:otherwise>
+										</c:choose>
 						</c:if>
-					</div>
 				</div>
 			</div>
 			<div class="content_tab">
 				<h2>
 					<spring:message code="label.softwareAggregates"/>
 				</h2>
-				<div class="margin-box">
+				
 					<c:if  test="${empty terminal.softwareAggregates}">
 						<div class="empty-list message">
 							<spring:message code="label.terminal.noSwAggregates"/>
 						</div>
 					</c:if>
 					<c:if test="${!empty terminal.softwareAggregates}">
+					<div class="margin-box">
 						<c:choose>
 							<c:when  test="${terminal.softwareAggregates.size() >
 								5}">
@@ -1197,8 +1168,9 @@
 								<c:set var="alt" value="${!alt}"/>
 							</c:forEach>
 						</table>
+					</div><!-- / margin-box -->
 					</c:if>
-				</div>
+				
 			</div>
 
 			<div class="content_tab">

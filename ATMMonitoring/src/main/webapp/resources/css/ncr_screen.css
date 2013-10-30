@@ -358,6 +358,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 85, ../sass/_js.scss */
 #ui-datepicker-div {
+  display: none;
   -webkit-box-shadow: 0px 0px 8px #b3b3b3;
   -moz-box-shadow: 0px 0px 8px #b3b3b3;
   box-shadow: 0px 0px 8px #b3b3b3;
@@ -365,11 +366,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   padding: 1em;
   background: white;
 }
-/* line 90, ../sass/_js.scss */
+/* line 91, ../sass/_js.scss */
 #ui-datepicker-div .ui-datepicker-title {
   text-align: center;
 }
-/* line 93, ../sass/_js.scss */
+/* line 94, ../sass/_js.scss */
 #ui-datepicker-div .ui-datepicker-prev {
   cursor: pointer;
   position: absolute;
@@ -377,7 +378,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   right: 0;
   padding: 0.5em 1em;
 }
-/* line 100, ../sass/_js.scss */
+/* line 101, ../sass/_js.scss */
 #ui-datepicker-div .ui-datepicker-next {
   cursor: pointer;
   position: absolute;
@@ -385,12 +386,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   left: 0;
   padding: 0.5em 1em;
 }
-/* line 107, ../sass/_js.scss */
+/* line 108, ../sass/_js.scss */
 #ui-datepicker-div table a {
   display: block;
   text-align: right;
 }
-/* line 110, ../sass/_js.scss */
+/* line 111, ../sass/_js.scss */
 #ui-datepicker-div table a:hover {
   color: black;
   text-decoration: none;

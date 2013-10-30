@@ -83,6 +83,7 @@
 }
 // CALENDARIO
 #ui-datepicker-div{
+    display: none;
     @include shadow();
     position: relative;
     padding: 1em;
