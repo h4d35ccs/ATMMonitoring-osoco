@@ -606,6 +606,10 @@
 </div>
 <div class="query-submit">
 <label class="plain-label">
+<spring:message code="label.query.description"/>
+</label>
+<form:input class='thin-border-grey' path="description" id="queryDescription" maxlength="200"/>
+<label class="plain-label">
 <spring:message code="label.query.queryName"/>
 </label>
 <form:input class='thin-border-grey' path="name" id="queryName" maxlength="50" onKeyUp="checkSaveExecute()"/>

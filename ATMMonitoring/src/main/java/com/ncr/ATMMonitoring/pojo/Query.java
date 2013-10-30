@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -61,6 +62,12 @@ public class Query {
 
     @Column(name = "query_name", length = 50, nullable = false)
     private String name = "";
+
+    @Column(name = "description", length = 200)
+    private String description = "";
+
+    @Column(name = "query_date")
+    private Date queryDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -3516,31 +3523,33 @@ public class Query {
 	return "";
     }
 
-    public String getHQLGroupingBy(List<Object> values, List<Type> types, Locale locale, String groupByEntity, String groupByField) {
-		StringBuffer hql = new StringBuffer("");
-		String groupName = (groupByEntity == null) ?
-			"terminals." + groupByField :
-			groupByEntity + "." + groupByField;
-		hql.append("select new map(" + groupName + " as groupName, count(*) as count) from Terminal terminals");
-		if (groupByEntity != null) {
-			hql.append(" join terminals." + groupByEntity + " " + groupByEntity);
-		}
-		hql.append(" where terminals in (");
-		hql.append(getHQL(values, types, locale, false, false));
-		hql.append(") ");
-		hql.append("group by ");
-		hql.append(groupName);
-		return hql.toString();
+    public String getHQLGroupingBy(List<Object> values, List<Type> types,
+	    Locale locale, String groupByEntity, String groupByField) {
+	StringBuffer hql = new StringBuffer("");
+	String groupName = (groupByEntity == null) ? "terminals."
+		+ groupByField : groupByEntity + "." + groupByField;
+	hql.append("select new map(" + groupName
+		+ " as groupName, count(*) as count) from Terminal terminals");
+	if (groupByEntity != null) {
+	    hql.append(" join terminals." + groupByEntity + " " + groupByEntity);
 	}
+	hql.append(" where terminals in (");
+	hql.append(getHQL(values, types, locale, false, false));
+	hql.append(") ");
+	hql.append("group by ");
+	hql.append(groupName);
+	return hql.toString();
+    }
 
     public String getHQL(List<Object> values, List<Type> types, Locale locale) {
-		return getHQL(values, types, locale, true, true);
-	}
+	return getHQL(values, types, locale, true, true);
+    }
 
-    public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean distinct, boolean order) {
+    public String getHQL(List<Object> values, List<Type> types, Locale locale,
+	    boolean distinct, boolean order) {
 	String hql = "select";
 	if (distinct) {
-		hql += " distinct";
+	    hql += " distinct";
 	}
 	hql += " terminal from Terminal terminal";
 	String terminalConstraints = getTerminalConstraints(values, types,
@@ -3610,7 +3619,7 @@ public class Query {
 	    hql = hql.substring(0, hql.length() - 7);
 	}
 	if (order) {
-		hql += " order by terminal.serialNumber, terminal.id";
+	    hql += " order by terminal.serialNumber, terminal.id";
 	}
 	return hql;
     }
@@ -3643,24 +3652,40 @@ public class Query {
 	this.scheduledUpdates = scheduledUpdates;
     }
 
-	@Override
-	public boolean equals(Object o) {
-		if (o == null) {
-			return false;
-		}
-		if (o instanceof Query) {
-			Query otherQuery = (Query)o;
-			return ((otherQuery.getName().equals(getName())) &&
-					(otherQuery.getUser().equals(getUser())));
-		} else {
-			return false;
-		}
-
+    @Override
+    public boolean equals(Object o) {
+	if (o == null) {
+	    return false;
+	}
+	if (o instanceof Query) {
+	    Query otherQuery = (Query) o;
+	    return ((otherQuery.getName().equals(getName())) && (otherQuery
+		    .getUser().equals(getUser())));
+	} else {
+	    return false;
 	}
 
-	@Override
-	public int hashCode() {
-		return getName().hashCode() + 13 * getUser().hashCode();
-	}
+    }
+
+    @Override
+    public int hashCode() {
+	return getName().hashCode() + 13 * getUser().hashCode();
+    }
+
+    public String getDescription() {
+	return description;
+    }
+
+    public void setDescription(String description) {
+	this.description = description;
+    }
+
+    public Date getQueryDate() {
+	return queryDate;
+    }
+
+    public void setQueryDate(Date queryDate) {
+	this.queryDate = queryDate;
+    }
 
 }
