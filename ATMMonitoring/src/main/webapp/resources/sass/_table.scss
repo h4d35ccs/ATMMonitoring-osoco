@@ -37,6 +37,12 @@ table{
 				background:url("../images/icons/colunm_order.png") $colorK1 no-repeat right -80px;
 			}
 		}
+		a{
+			color: $colorW;
+			&:hover{
+				text-decoration: none;
+			}
+		}
 	}
 	th:last-child, td:last-child{
 		border-right: none;

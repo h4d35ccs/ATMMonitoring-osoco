@@ -81,3 +81,35 @@
 .cboxIE #cboxMiddleRight {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
 }
+// CALENDARIO
+#ui-datepicker-div{
+    @include shadow();
+    position: relative;
+    padding: 1em;
+    background: $colorW;
+    .ui-datepicker-title{
+        text-align: center;
+    }
+    .ui-datepicker-prev{
+        cursor: pointer;
+        position: absolute;
+        top: 5px;
+        right: 0;
+        padding: .5em 1em;
+    }
+    .ui-datepicker-next{
+        cursor: pointer;
+        position: absolute;
+        top: 5px;
+        left: 0;
+        padding: .5em 1em;
+    }
+    table a{
+        display: block;
+        text-align: right;
+        &:hover{
+            color: $colorK;
+            text-decoration: none;
+        }
+    }
+}
