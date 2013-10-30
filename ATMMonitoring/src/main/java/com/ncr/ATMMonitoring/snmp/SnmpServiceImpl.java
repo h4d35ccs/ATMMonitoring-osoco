@@ -14,7 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ncr.ATMMonitoring.dao.TerminalDAO;
+import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
+import com.ncr.ATMMonitoring.service.QueryService;
+import com.ncr.ATMMonitoring.service.TerminalService;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -31,9 +34,11 @@ public class SnmpServiceImpl implements SnmpService {
 	    .getName());
 
     @Autowired
-    private TerminalDAO terminalDAO;
+    private TerminalService terminalService;
     @Autowired
     private SnmpListener snmpListener;
+    @Autowired
+    private QueryService queryService;
 
     @Override
     @Async
@@ -52,7 +57,7 @@ public class SnmpServiceImpl implements SnmpService {
     @Override
     public void updateAllTerminalsSnmp() throws SnmpTimeOutException {
 		Set<String> errorIps = new HashSet<String>();
-		List<Terminal> terminals = terminalDAO.listTerminals();
+		List<Terminal> terminals = terminalService.listTerminals();
 		for (Terminal terminal : terminals) {
 		    try {
 		    	updateTerminalSnmp(terminal);
@@ -86,5 +91,17 @@ public class SnmpServiceImpl implements SnmpService {
     @Override
     public void updateTerminalsSnmp(Collection<String> ips) {
     	logger.info("MOCK updateTerminalsSnmp" + ips.toString());
+    }
+
+    @Override
+    public void updateTerminalsSnmp(Query query) {
+	if (query != null) {
+	    Set<String> ips = new HashSet<String>();
+	    List<Terminal> terminals = queryService.executeQuery(query);
+	    for (Terminal terminal : terminals) {
+		ips.add(terminal.getIp());
+	    }
+	    updateTerminalsSnmp(ips);
+	}
     }
 }
