@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -66,8 +67,8 @@ public class Query {
     @Column(name = "description", length = 200)
     private String description = "";
 
-    @Column(name = "query_date")
-    private Date queryDate;
+    @Column(name = "creation_date")
+    private Date creationDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -3684,12 +3685,17 @@ public class Query {
 	this.description = description;
     }
 
-    public Date getQueryDate() {
-	return queryDate;
+    public Date getCreationDate() {
+	return creationDate;
     }
 
-    public void setQueryDate(Date queryDate) {
-	this.queryDate = queryDate;
+    public void setCreationDate(Date creationDate) {
+	this.creationDate = creationDate;
+    }
+
+    public String getCreationDateShort() {
+	return (creationDate != null) ? DateFormat.getDateInstance(
+		DateFormat.SHORT, Locale.getDefault()).format(creationDate) : "";
     }
 
 }

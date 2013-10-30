@@ -559,7 +559,7 @@
 			<div class="hide collapsible">
 				<ul>
 					<li><label for="namequery">Nombre</label> <form:input type="text" path="name"/></li>
-					<li><label for="descriptionquery">Descripción</label> <textarea></textarea></li>
+					<li><label for="descriptionquery">Descripción</label> <form:textarea path="description"/></li>
 				</ul>
 				<div class="botonera"><input type="submit" id="save" name="save" class="save" value="Guardar" /></div>
 			</div>

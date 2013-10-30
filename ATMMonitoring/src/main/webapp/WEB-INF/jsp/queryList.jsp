@@ -65,8 +65,8 @@
 		<div class="icons_action"><a href="#" class="delete" data-query-id="${query.id}"><span>Eliminar</span></a></div>
 		<a href="queries/show?queryId=${query.id}">${query.name}</a></div></td>
 	    
-            <td class="nowrap">21-10-2013</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, suscipit, debitis, quis quasi eum quo saepe quibusdam dolorem nesciunt iure alias a possimus facere laborum totam architecto animi? Eos, velit!</td>
+            <td class="nowrap">${query.creationDateShort}</td>
+            <td>${query.description}</td>
 	    
         </tr>
 	</c:forEach>
