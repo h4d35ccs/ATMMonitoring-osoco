@@ -38,6 +38,7 @@ public class TerminalModelServiceImpl implements TerminalModelService {
 	return terminalModelDAO.listTerminalModels();
     }
 
+    @Override
     public Map<String, List<TerminalModel>> listTerminalModelsByManufacturer() {
     	Map<String, List<TerminalModel>> data = new HashMap<String, List<TerminalModel>>();
     	List<TerminalModel> terminalModels = terminalModelDAO.listTerminalModels();
