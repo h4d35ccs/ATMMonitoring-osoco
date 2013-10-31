@@ -6,7 +6,20 @@
 <%@page pageEncoding="UTF-8"%>
 
 <t:osoco-wrapper titleCode="label.queryEngine" userMsg="${userMsg}"  section="reports">
-
+<script type="text/javascript">
+	$(document).ready(function(){
+        $("#toggleReportView").find("li").click(function(event) {
+        	event.preventDefault();
+            if (!$(this).hasClass("current")) {
+            	$(this).parent().find("li").removeClass("current");
+            	var active = $(this).attr('class');
+            	$(".content.reportView").removeClass("column3 lista");
+            	$(".content.reportView").addClass(active);
+            	$(this).addClass("current");
+            };
+        });
+	});
+</script>
 <div id="header_g">
 	<nav id="breadcrumb">
 		<ul>
@@ -19,7 +32,7 @@
 	</nav>
 </div>
 
-<div class="content">
+<div class="content reportView column3">
 	<h1>
 		<spring:message code="label.externalreportsMan"/>
 	</h1>
@@ -27,6 +40,20 @@
 	<h2>
 		<spring:message code="label.externalreports"/>
 	</h2>
+	<div id="header_g">
+		<div id="toggleReportView" class="columns_botonera">
+		  <nav>
+		    <ul>
+		        <li class="column3 current">
+		          <a href="#"><span>Columnas</span></a>
+		        </li>
+		        <li class="lista">
+		          <a href="#"><span>Lista</span></a>
+		        </li>
+		    </ul>
+		  </nav>
+		</div>
+	</div>
 	<div class="box_list">
 		<a href="#">
 			<h3><spring:message code="label.report.name"/></h3>
@@ -46,6 +73,8 @@
 		<a href="#">
 			<h3>Report Name</h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 		</a>
 	</div>

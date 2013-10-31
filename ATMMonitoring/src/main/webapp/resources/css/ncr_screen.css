@@ -716,7 +716,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 1, ../sass/_list.scss */
 .box_list {
-  margin: 1em 0;
+  margin: 1% 0 0 1%;
 }
 /* line 3, ../sass/_list.scss */
 .box_list a {
@@ -725,25 +725,38 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border: 1px solid #b3b3b3;
   background: white;
   overflow: hidden;
+  min-height: 5em;
+  color: black;
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 11, ../sass/_list.scss */
+/* line 13, ../sass/_list.scss */
 .box_list a img {
   width: 150px;
   float: left;
   margin: 0 1em 1em 0;
   border: 1px solid #b3b3b3;
 }
-/* line 17, ../sass/_list.scss */
+/* line 19, ../sass/_list.scss */
 .box_list a:hover {
   background: #f0f6ea;
   text-decoration: none;
   -webkit-box-shadow: 0px 0px 8px #b3b3b3;
   -moz-box-shadow: 0px 0px 8px #b3b3b3;
   box-shadow: 0px 0px 8px #b3b3b3;
+}
+
+/* line 26, ../sass/_list.scss */
+.column3 .box_list {
+  float: left;
+  width: 32%;
+}
+/* line 29, ../sass/_list.scss */
+.column3 .box_list a {
+  height: 17em;
+  overflow-y: auto;
 }
 
 /* line 2, ../sass/_documentation.scss */
