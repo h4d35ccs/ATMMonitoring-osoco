@@ -52,8 +52,8 @@ nav#main_nav{
 		}
 	}
 }
-.tabs{
-	min-height: 300px;
+#tabs{
+	min-height: 1080px;
 	.margin-box{
 		margin-bottom: 2em;
 		overflow: auto;
@@ -67,7 +67,7 @@ nav.sub_nav{
 		float: left;
 		border-right: 1px solid $colorW1;
 		position: relative;
-		span{
+		a{
 			display: block;
 			cursor: pointer;
 			padding: 1em;
@@ -79,7 +79,7 @@ nav.sub_nav{
 			}
 		}
 	}
-	li.current span{
+	li.current a{
 		text-decoration: none;
 		color: $colorW;
 		background-color: $colorK1;

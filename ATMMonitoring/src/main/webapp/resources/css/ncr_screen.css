@@ -358,15 +358,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 1, ../sass/_header.scss */
-#headName {
-  height: 30px;
-  width: 110px;
-  background: url("../images/general/name.png") no-repeat;
-  margin-left: 120px;
-  margin-top: 10px;
-}
-
-/* line 8, ../sass/_header.scss */
 #main_header {
   background: white;
   background: rgba(255, 255, 255, 0.9);
@@ -376,18 +367,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 100%;
   z-index: 1000;
 }
-/* line 16, ../sass/_header.scss */
+/* line 9, ../sass/_header.scss */
 #main_header #rButton {
   height: 40px;
   width: 40px;
   overflow: hidden;
   background: url("../images/general/rButton.png") no-repeat bottom;
 }
-/* line 21, ../sass/_header.scss */
+/* line 14, ../sass/_header.scss */
 #main_header #rButton.btn_close {
   background: url("../images/general/rButton.png") no-repeat top;
 }
-/* line 25, ../sass/_header.scss */
+/* line 18, ../sass/_header.scss */
 #main_header h1, #main_header #main h2, #main #main_header h2, #main_header #cboxContent h2, #cboxContent #main_header h2, #main_header #main h3, #main #main_header h3, #main_header #cboxContent h3, #cboxContent #main_header h3, #main_header #main h4, #main #main_header h4, #main_header #cboxContent h4, #cboxContent #main_header h4, #main_header #main h5, #main #main_header h5, #main_header #cboxContent h5, #cboxContent #main_header h5 {
   position: absolute;
   font-size: 16px;
@@ -396,18 +387,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   top: 0;
   left: 0;
 }
-/* line 32, ../sass/_header.scss */
+/* line 25, ../sass/_header.scss */
 #main_header h1 img, #main_header #main h2 img, #main #main_header h2 img, #main_header #cboxContent h2 img, #cboxContent #main_header h2 img, #main_header #main h3 img, #main #main_header h3 img, #main_header #cboxContent h3 img, #cboxContent #main_header h3 img, #main_header #main h4 img, #main #main_header h4 img, #main_header #cboxContent h4 img, #cboxContent #main_header h4 img, #main_header #main h5 img, #main #main_header h5 img, #main_header #cboxContent h5 img, #cboxContent #main_header h5 img {
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: 0;
+  left: 0;
 }
-/* line 37, ../sass/_header.scss */
+/* line 30, ../sass/_header.scss */
 #main_header h1 span, #main_header #main h2 span, #main #main_header h2 span, #main_header #cboxContent h2 span, #cboxContent #main_header h2 span, #main_header #main h3 span, #main #main_header h3 span, #main_header #cboxContent h3 span, #cboxContent #main_header h3 span, #main_header #main h4 span, #main #main_header h4 span, #main_header #cboxContent h4 span, #cboxContent #main_header h4 span, #main_header #main h5 span, #main #main_header h5 span, #main_header #cboxContent h5 span, #cboxContent #main_header h5 span {
   position: absolute;
   top: -200px;
 }
-/* line 41, ../sass/_header.scss */
+/* line 34, ../sass/_header.scss */
 #main_header h1 strong, #main_header #main h2 strong, #main #main_header h2 strong, #main_header #cboxContent h2 strong, #cboxContent #main_header h2 strong, #main_header #main h3 strong, #main #main_header h3 strong, #main_header #cboxContent h3 strong, #cboxContent #main_header h3 strong, #main_header #main h4 strong, #main #main_header h4 strong, #main_header #cboxContent h4 strong, #cboxContent #main_header h4 strong, #main_header #main h5 strong, #main #main_header h5 strong, #main_header #cboxContent h5 strong, #cboxContent #main_header h5 strong {
   top: 12px;
   left: 85px;
@@ -416,7 +407,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-size: 1.8em;
   padding: 6px 0 6px 40px;
 }
-/* line 50, ../sass/_header.scss */
+/* line 43, ../sass/_header.scss */
 #main_header #user_info {
   text-transform: uppercase;
   font-size: .8em;
@@ -426,22 +417,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   right: 5px;
   top: 0;
 }
-/* line 59, ../sass/_header.scss */
+/* line 52, ../sass/_header.scss */
 #main_header #user_info > div, #main_header #user_info > nav {
   float: left;
   margin-left: 2em;
   margin-top: 1.8em;
 }
-/* line 65, ../sass/_header.scss */
+/* line 58, ../sass/_header.scss */
 #main_header #user_info .date {
   margin-right: 1em;
 }
-/* line 68, ../sass/_header.scss */
+/* line 61, ../sass/_header.scss */
 #main_header #user_info #exit {
   margin-top: 0;
   padding-top: 0;
 }
-/* line 73, ../sass/_header.scss */
+/* line 66, ../sass/_header.scss */
 #main_header #lang {
   display: inline;
   cursor: pointer;
@@ -449,19 +440,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   text-transform: uppercase;
   text-align: right;
 }
-/* line 79, ../sass/_header.scss */
+/* line 72, ../sass/_header.scss */
 #main_header #lang .txt {
   display: block;
   padding-right: 2em;
   background: url("../images/icons/icons_onoff_w.png") no-repeat right top;
 }
-/* line 84, ../sass/_header.scss */
+/* line 77, ../sass/_header.scss */
 #main_header #lang ul {
   display: none;
   padding-top: 1em;
   position: absolute;
 }
-/* line 89, ../sass/_header.scss */
+/* line 82, ../sass/_header.scss */
 #main_header #lang li {
   -webkit-box-shadow: 0px 0px 8px #6d6e71;
   -moz-box-shadow: 0px 0px 8px #6d6e71;
@@ -469,14 +460,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: white;
   color: #094fa4;
 }
-/* line 93, ../sass/_header.scss */
+/* line 86, ../sass/_header.scss */
 #main_header #lang li a {
   padding: 0.5em 1em;
   border-bottom: 1px solid #094fa4;
   text-align: left;
   display: block;
 }
-/* line 102, ../sass/_header.scss */
+/* line 95, ../sass/_header.scss */
 #main_header #exit a {
   margin-top: 0;
   overflow: hidden;
@@ -485,41 +476,41 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
   background: url("../images/general/exit.png") no-repeat;
 }
-/* line 110, ../sass/_header.scss */
+/* line 103, ../sass/_header.scss */
 #main_header #exit a span {
   color: white;
   position: absolute;
   top: -100px;
 }
 
-/* line 118, ../sass/_header.scss */
+/* line 111, ../sass/_header.scss */
 #header_g {
   position: relative;
   clear: both;
   height: 3em;
   position: relative;
 }
-/* line 124, ../sass/_header.scss */
+/* line 117, ../sass/_header.scss */
 #header_g #breadcrumb li {
   float: left;
   margin-right: .5em;
 }
-/* line 127, ../sass/_header.scss */
+/* line 120, ../sass/_header.scss */
 #header_g #breadcrumb li a:after {
   content: " > ";
 }
-/* line 132, ../sass/_header.scss */
+/* line 125, ../sass/_header.scss */
 #header_g .botonera {
   position: absolute;
   right: 0;
   top: 3em;
 }
-/* line 136, ../sass/_header.scss */
+/* line 129, ../sass/_header.scss */
 #header_g .botonera li {
   float: left;
   margin-left: .5em;
 }
-/* line 140, ../sass/_header.scss */
+/* line 133, ../sass/_header.scss */
 #header_g .botonera .btn, #header_g .botonera .save,
 #header_g .botonera #cboxContent .action_box .save,
 #cboxContent .action_box #header_g .botonera .save,
@@ -1273,27 +1264,54 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   float: left;
 }
 /* line 50, ../sass/_action_box.scss */
-#main .action_box.data .photo, #cboxContent .action_box.data .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo {
+#main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model {
   margin-top: 2em;
   float: left;
   width: 20%;
   position: relative;
 }
 /* line 55, ../sass/_action_box.scss */
-#main .action_box.data .photo img, #cboxContent .action_box.data .photo img, #main .data.pagination .photo img, #cboxContent .data.pagination .photo img {
+#main .action_box.data .model .photo, #cboxContent .action_box.data .model .photo, #main .data.pagination .model .photo, #cboxContent .data.pagination .model .photo {
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  border: 1px solid #bcbec0;
+  background: white;
+  height: 0;
   width: 100%;
+  margin: 0;
+  margin-bottom: .5em;
+  padding: 0;
+  padding-top: 60%;
+  overflow: hidden;
+  position: relative;
 }
-/* line 58, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable, #cboxContent .action_box.data .photo .desplegable, #main .data.pagination .photo .desplegable, #cboxContent .data.pagination .photo .desplegable {
-  padding: .5em;
+/* line 68, ../sass/_action_box.scss */
+#main .action_box.data .model .photo img, #cboxContent .action_box.data .model .photo img, #main .data.pagination .model .photo img, #cboxContent .data.pagination .model .photo img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+/* line 73, ../sass/_action_box.scss */
+#main .action_box.data .model .photo:hover, #cboxContent .action_box.data .model .photo:hover, #main .data.pagination .model .photo:hover, #cboxContent .data.pagination .model .photo:hover {
+  padding-top: 100%;
+}
+/* line 77, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable, #cboxContent .action_box.data .model .desplegable, #main .data.pagination .model .desplegable, #cboxContent .data.pagination .model .desplegable {
+  background: white;
+  clear: both;
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   margin-top: 1em;
 }
-/* line 62, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable .txt, #cboxContent .action_box.data .photo .desplegable .txt, #main .data.pagination .photo .desplegable .txt, #cboxContent .data.pagination .photo .desplegable .txt {
+/* line 82, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable .txt, #cboxContent .action_box.data .model .desplegable .txt, #main .data.pagination .model .desplegable .txt, #cboxContent .data.pagination .model .desplegable .txt {
   cursor: pointer;
   float: none;
   padding: 0.5em 1em 0.5em 3em;
@@ -1301,43 +1319,43 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   color: white;
   border: 2px solid #6d6e71;
 }
-/* line 63, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable .txt.content_hide, #cboxContent .action_box.data .photo .desplegable .txt.content_hide, #main .data.pagination .photo .desplegable .txt.content_hide, #cboxContent .data.pagination .photo .desplegable .txt.content_hide {
+/* line 83, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable .txt.content_hide, #cboxContent .action_box.data .model .desplegable .txt.content_hide, #main .data.pagination .model .desplegable .txt.content_hide, #cboxContent .data.pagination .model .desplegable .txt.content_hide {
   background: url("../images/icons/icon_collapsible.png") no-repeat #6d6e71 left top;
 }
-/* line 73, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable dl, #cboxContent .action_box.data .photo .desplegable dl, #main .data.pagination .photo .desplegable dl, #cboxContent .data.pagination .photo .desplegable dl {
+/* line 93, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable dl, #cboxContent .action_box.data .model .desplegable dl, #main .data.pagination .model .desplegable dl, #cboxContent .data.pagination .model .desplegable dl {
   margin-top: 1em;
   padding: 1em;
   background: white;
   overflow: hidden;
 }
-/* line 78, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable dl dt, #cboxContent .action_box.data .photo .desplegable dl dt, #main .data.pagination .photo .desplegable dl dt, #cboxContent .data.pagination .photo .desplegable dl dt {
+/* line 98, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable dl dt, #cboxContent .action_box.data .model .desplegable dl dt, #main .data.pagination .model .desplegable dl dt, #cboxContent .data.pagination .model .desplegable dl dt {
   font-weight: bold;
 }
-/* line 81, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable dl dd, #cboxContent .action_box.data .photo .desplegable dl dd, #main .data.pagination .photo .desplegable dl dd, #cboxContent .data.pagination .photo .desplegable dl dd {
+/* line 101, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable dl dd, #cboxContent .action_box.data .model .desplegable dl dd, #main .data.pagination .model .desplegable dl dd, #cboxContent .data.pagination .model .desplegable dl dd {
   border-bottom: 1px solid #939598;
   padding: 0.5em 0;
   margin-bottom: .5em;
 }
-/* line 85, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable dl dd:last-child, #cboxContent .action_box.data .photo .desplegable dl dd:last-child, #main .data.pagination .photo .desplegable dl dd:last-child, #cboxContent .data.pagination .photo .desplegable dl dd:last-child {
+/* line 105, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable dl dd:last-child, #cboxContent .action_box.data .model .desplegable dl dd:last-child, #main .data.pagination .model .desplegable dl dd:last-child, #cboxContent .data.pagination .model .desplegable dl dd:last-child {
   border: none;
 }
-/* line 92, ../sass/_action_box.scss */
+/* line 112, ../sass/_action_box.scss */
 #main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
   margin-top: 2em;
   float: right;
   width: 75%;
 }
-/* line 96, ../sass/_action_box.scss */
+/* line 116, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul, #cboxContent .action_box.data .ul_data > ul, #main .data.pagination .ul_data > ul, #cboxContent .data.pagination .ul_data > ul {
   overflow: hidden;
   margin-bottom: 2em;
 }
-/* line 99, ../sass/_action_box.scss */
+/* line 119, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li {
   margin-left: 4%;
   padding: 0.5em 0;
@@ -1345,30 +1363,30 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 46%;
   border-bottom: 1px solid #6d6e71;
 }
-/* line 105, ../sass/_action_box.scss */
+/* line 125, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong, #cboxContent .action_box.data .ul_data > ul li strong, #main .data.pagination .ul_data > ul li strong, #cboxContent .data.pagination .ul_data > ul li strong {
   width: 45%;
   margin-right: 4%;
   float: left;
   display: block;
 }
-/* line 110, ../sass/_action_box.scss */
+/* line 130, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong label, #cboxContent .action_box.data .ul_data > ul li strong label, #main .data.pagination .ul_data > ul li strong label, #cboxContent .data.pagination .ul_data > ul li strong label {
   width: 100%;
 }
-/* line 117, ../sass/_action_box.scss */
+/* line 137, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable > ul li, #cboxContent .action_box.data .ul_data.editable > ul li, #main .data.pagination .ul_data.editable > ul li, #cboxContent .data.pagination .ul_data.editable > ul li {
   min-height: 3em;
 }
-/* line 120, ../sass/_action_box.scss */
+/* line 140, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable input[type="text"], #cboxContent .action_box.data .ul_data.editable input[type="text"], #main .data.pagination .ul_data.editable input[type="text"], #cboxContent .data.pagination .ul_data.editable input[type="text"] {
   width: 40%;
 }
-/* line 122, ../sass/_action_box.scss */
+/* line 142, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable input[type="text"].num, #cboxContent .action_box.data .ul_data.editable input[type="text"].num, #main .data.pagination .ul_data.editable input[type="text"].num, #cboxContent .data.pagination .ul_data.editable input[type="text"].num {
   width: 2em;
 }
-/* line 127, ../sass/_action_box.scss */
+/* line 147, ../sass/_action_box.scss */
 #main .action_box.data .ul_data .ul_data, #cboxContent .action_box.data .ul_data .ul_data, #main .data.pagination .ul_data .ul_data, #cboxContent .data.pagination .ul_data .ul_data {
   width: auto;
   float: none;
@@ -2117,11 +2135,11 @@ nav#main_nav a:hover {
 }
 
 /* line 55, ../sass/_nav.scss */
-.tabs {
-  min-height: 300px;
+#tabs {
+  min-height: 1080px;
 }
 /* line 57, ../sass/_nav.scss */
-.tabs .margin-box {
+#tabs .margin-box {
   margin-bottom: 2em;
   overflow: auto;
 }
@@ -2139,26 +2157,26 @@ nav.sub_nav li {
   position: relative;
 }
 /* line 70, ../sass/_nav.scss */
-nav.sub_nav li span {
+nav.sub_nav li a {
   display: block;
   cursor: pointer;
   padding: 1em;
   color: #4d4d4f;
 }
 /* line 75, ../sass/_nav.scss */
-nav.sub_nav li span:hover {
+nav.sub_nav li a:hover {
   text-decoration: none;
   color: white;
   background-color: #4d4d4f;
 }
 /* line 82, ../sass/_nav.scss */
-nav.sub_nav li.current span {
+nav.sub_nav li.current a {
   text-decoration: none;
   color: white;
   background-color: #4d4d4f;
 }
 /* line 86, ../sass/_nav.scss */
-nav.sub_nav li.current span:after {
+nav.sub_nav li.current a:after {
   content: "";
   position: absolute;
   top: 100%;
@@ -2606,50 +2624,51 @@ strong {
   background: white;
   padding: 0.5em 1.2em;
   text-align: right;
+  overflow: hidden;
 }
-/* line 40, ../sass/_login_user.scss */
+/* line 41, ../sass/_login_user.scss */
 #login_user #login_box h1 span, #login_user #login_box #main h2 span, #main #login_user #login_box h2 span, #login_user #login_box #cboxContent h2 span, #cboxContent #login_user #login_box h2 span, #login_user #login_box #main h3 span, #main #login_user #login_box h3 span, #login_user #login_box #cboxContent h3 span, #cboxContent #login_user #login_box h3 span, #login_user #login_box #main h4 span, #main #login_user #login_box h4 span, #login_user #login_box #cboxContent h4 span, #cboxContent #login_user #login_box h4 span, #login_user #login_box #main h5 span, #main #login_user #login_box h5 span, #login_user #login_box #cboxContent h5 span, #cboxContent #login_user #login_box h5 span {
   position: absolute;
   top: -300px;
 }
-/* line 44, ../sass/_login_user.scss */
+/* line 45, ../sass/_login_user.scss */
 #login_user #login_box h1 img, #login_user #login_box #main h2 img, #main #login_user #login_box h2 img, #login_user #login_box #cboxContent h2 img, #cboxContent #login_user #login_box h2 img, #login_user #login_box #main h3 img, #main #login_user #login_box h3 img, #login_user #login_box #cboxContent h3 img, #cboxContent #login_user #login_box h3 img, #login_user #login_box #main h4 img, #main #login_user #login_box h4 img, #login_user #login_box #cboxContent h4 img, #cboxContent #login_user #login_box h4 img, #login_user #login_box #main h5 img, #main #login_user #login_box h5 img, #login_user #login_box #cboxContent h5 img, #cboxContent #login_user #login_box h5 img {
   float: left;
 }
-/* line 47, ../sass/_login_user.scss */
+/* line 48, ../sass/_login_user.scss */
 #login_user #login_box h1 strong, #login_user #login_box #main h2 strong, #main #login_user #login_box h2 strong, #login_user #login_box #cboxContent h2 strong, #cboxContent #login_user #login_box h2 strong, #login_user #login_box #main h3 strong, #main #login_user #login_box h3 strong, #login_user #login_box #cboxContent h3 strong, #cboxContent #login_user #login_box h3 strong, #login_user #login_box #main h4 strong, #main #login_user #login_box h4 strong, #login_user #login_box #cboxContent h4 strong, #cboxContent #login_user #login_box h4 strong, #login_user #login_box #main h5 strong, #main #login_user #login_box h5 strong, #login_user #login_box #cboxContent h5 strong, #cboxContent #login_user #login_box h5 strong {
   font-size: 2em;
   font-weight: normal;
 }
-/* line 65, ../sass/_login_user.scss */
+/* line 66, ../sass/_login_user.scss */
 #login_user #login_box label {
   width: 30%;
   text-align: right;
 }
-/* line 69, ../sass/_login_user.scss */
+/* line 70, ../sass/_login_user.scss */
 #login_user #login_box .row {
   border: none;
   padding: 0.5em 0 0 0;
 }
-/* line 72, ../sass/_login_user.scss */
+/* line 73, ../sass/_login_user.scss */
 #login_user #login_box .row input {
   width: 50%;
   color: #6d6e71;
 }
-/* line 77, ../sass/_login_user.scss */
+/* line 78, ../sass/_login_user.scss */
 #login_user #login_box .botonera {
   padding-right: .5em;
   border-top: 2px dotted #939598;
   padding-top: .5em;
   margin-bottom: 0;
 }
-/* line 82, ../sass/_login_user.scss */
+/* line 83, ../sass/_login_user.scss */
 #login_user #login_box .botonera .btn, #login_user #login_box .botonera .save,
 #login_user #login_box .botonera #cboxContent .pagination .save,
 #cboxContent .pagination #login_user #login_box .botonera .save {
   float: right;
 }
-/* line 86, ../sass/_login_user.scss */
+/* line 87, ../sass/_login_user.scss */
 #login_user #login_box .error {
   margin: .5em;
   -webkit-transition: all 0.5s;
@@ -2854,30 +2873,42 @@ td .add span, th .add span {
 }
 
 /* line 151, ../sass/_icons.scss */
+.zoom {
+  position: absolute;
+  bottom: .5em;
+  right: .5em;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  background: url("../images/icons/zoom.png") no-repeat;
+}
+
+/* line 161, ../sass/_icons.scss */
 .import {
   background: url("../images/icons/icon_import.png") no-repeat left bottom;
   background-color: #52bcec;
   padding-left: 35px;
 }
-/* line 155, ../sass/_icons.scss */
+/* line 165, ../sass/_icons.scss */
 .import:hover {
   background: url("../images/icons/icon_import.png") no-repeat left top;
   background-color: #094fa4;
 }
 
-/* line 161, ../sass/_icons.scss */
+/* line 171, ../sass/_icons.scss */
 .back {
   background: url("../images/icons/icon_back.png") no-repeat left top transparent;
   padding-left: 35px;
   border: none;
   color: #009ee5;
 }
-/* line 166, ../sass/_icons.scss */
+/* line 176, ../sass/_icons.scss */
 .back:hover {
   background: url("../images/icons/icon_back.png") no-repeat left top #eeeeee;
 }
 
-/* line 170, ../sass/_icons.scss */
+/* line 180, ../sass/_icons.scss */
 .calendar {
   background: url("../images/icons/icon_date.png") no-repeat bottom;
   background-color: #009ee5;
@@ -2885,18 +2916,18 @@ td .add span, th .add span {
   height: 30px;
   overflow: hidden;
 }
-/* line 176, ../sass/_icons.scss */
+/* line 186, ../sass/_icons.scss */
 .calendar:hover {
   background: url("../images/icons/icon_date.png") no-repeat top;
   background-color: #094fa4;
 }
-/* line 180, ../sass/_icons.scss */
+/* line 190, ../sass/_icons.scss */
 .calendar span {
   position: absolute;
   top: -3em;
 }
 
-/* line 186, ../sass/_icons.scss */
+/* line 196, ../sass/_icons.scss */
 .save,
 #main .action_box .save,
 #cboxContent .action_box .save,
@@ -2906,7 +2937,7 @@ td .add span, th .add span {
   background-color: #009ee5;
   padding-left: 35px;
 }
-/* line 191, ../sass/_icons.scss */
+/* line 201, ../sass/_icons.scss */
 .save:hover,
 #main .action_box .save:hover,
 #cboxContent .action_box .save:hover,
@@ -2916,19 +2947,19 @@ td .add span, th .add span {
   background-color: #094fa4;
 }
 
-/* line 197, ../sass/_icons.scss */
+/* line 207, ../sass/_icons.scss */
 .play, input.play {
   background: url("../images/icons/icon_play.png") no-repeat left bottom;
   background-color: #009ee5;
   padding-left: 35px;
 }
-/* line 201, ../sass/_icons.scss */
+/* line 211, ../sass/_icons.scss */
 .play:hover, input.play:hover {
   background: url("../images/icons/icon_play.png") no-repeat left top;
   background-color: #094fa4;
 }
 
-/* line 207, ../sass/_icons.scss */
+/* line 217, ../sass/_icons.scss */
 .info {
   width: 25px;
   height: 25px;
@@ -2940,11 +2971,11 @@ td .add span, th .add span {
   cursor: pointer;
   cursor: help;
 }
-/* line 217, ../sass/_icons.scss */
+/* line 227, ../sass/_icons.scss */
 .info:hover {
   background: url("../images/icons/icon_info.png") no-repeat bottom left;
 }
-/* line 220, ../sass/_icons.scss */
+/* line 230, ../sass/_icons.scss */
 .info span {
   display: block;
   overflow: hidden;
@@ -2953,14 +2984,14 @@ td .add span, th .add span {
   width: 0;
 }
 
-/* line 228, ../sass/_icons.scss */
+/* line 238, ../sass/_icons.scss */
 .icons_action {
   position: absolute;
   top: 0;
   right: 0;
   white-space: nowrap;
 }
-/* line 233, ../sass/_icons.scss */
+/* line 243, ../sass/_icons.scss */
 .icons_action .note, .icons_action .edit, .icons_action .delete {
   background: url("../images/icons/icon_note.png") no-repeat;
   width: 20px;
@@ -2971,7 +3002,7 @@ td .add span, th .add span {
   margin-left: 2px;
   float: left;
 }
-/* line 242, ../sass/_icons.scss */
+/* line 252, ../sass/_icons.scss */
 .icons_action .note span, .icons_action .edit span, .icons_action .delete span {
   display: block;
   overflow: hidden;
@@ -2979,36 +3010,36 @@ td .add span, th .add span {
   height: 0;
   width: 0;
 }
-/* line 249, ../sass/_icons.scss */
+/* line 259, ../sass/_icons.scss */
 .icons_action .note:hover, .icons_action .edit:hover, .icons_action .delete:hover {
   background-position-y: -20px;
 }
-/* line 253, ../sass/_icons.scss */
+/* line 263, ../sass/_icons.scss */
 .icons_action .edit {
   background-position: -40px 0;
   cursor: pointer;
 }
-/* line 258, ../sass/_icons.scss */
+/* line 268, ../sass/_icons.scss */
 .icons_action .delete {
   background-position: -20px 0;
   cursor: pointer;
 }
 
-/* line 264, ../sass/_icons.scss */
+/* line 274, ../sass/_icons.scss */
 .download {
   background: url("../images/icons/icon_download.png") no-repeat top left transparent;
   border: none;
   color: #52bcec;
   padding-left: 35px;
 }
-/* line 269, ../sass/_icons.scss */
+/* line 279, ../sass/_icons.scss */
 .download:hover {
   background: url("../images/icons/icon_download.png") no-repeat top left transparent;
   background-color: transparent;
   text-decoration: underline;
 }
 
-/* line 275, ../sass/_icons.scss */
+/* line 285, ../sass/_icons.scss */
 .update, .btn.update, .update.save,
 #main .action_box .update.save,
 #cboxContent .action_box .update.save,
@@ -3018,7 +3049,7 @@ td .add span, th .add span {
   background-color: #009ee5;
   padding-left: 35px;
 }
-/* line 279, ../sass/_icons.scss */
+/* line 289, ../sass/_icons.scss */
 .update:hover, .btn.update:hover, .update.save:hover,
 #main .action_box .update.save:hover,
 #cboxContent .action_box .update.save:hover,
@@ -3028,7 +3059,7 @@ td .add span, th .add span {
   background-color: #094fa4;
 }
 
-/* line 284, ../sass/_icons.scss */
+/* line 294, ../sass/_icons.scss */
 .edit {
   display: inline;
   width: 22px;
@@ -3037,42 +3068,42 @@ td .add span, th .add span {
   overflow: hidden;
   font-size: 20px;
 }
-/* line 291, ../sass/_icons.scss */
+/* line 301, ../sass/_icons.scss */
 .edit span {
   visibility: hidden;
 }
 
-/* line 295, ../sass/_icons.scss */
+/* line 305, ../sass/_icons.scss */
 .graph_01 {
   background: url("../images/icons/icon_graph_01.png") no-repeat top;
 }
 
-/* line 298, ../sass/_icons.scss */
+/* line 308, ../sass/_icons.scss */
 .graph_02 {
   background: url("../images/icons/icon_graph_02.png") no-repeat top;
 }
 
-/* line 301, ../sass/_icons.scss */
+/* line 311, ../sass/_icons.scss */
 .graph_03 {
   background: url("../images/icons/icon_graph_03.png") no-repeat top;
 }
 
-/* line 304, ../sass/_icons.scss */
+/* line 314, ../sass/_icons.scss */
 .graph_04 {
   background: url("../images/icons/icon_graph_04.png") no-repeat top;
 }
 
-/* line 307, ../sass/_icons.scss */
+/* line 317, ../sass/_icons.scss */
 .graph_05 {
   background: url("../images/icons/icon_graph_05.png") no-repeat top;
 }
 
-/* line 310, ../sass/_icons.scss */
+/* line 320, ../sass/_icons.scss */
 .graph_component label.current {
   background-color: #094fa4;
 }
 
-/* line 313, ../sass/_icons.scss */
+/* line 323, ../sass/_icons.scss */
 .columns_botonera {
   position: absolute;
   top: 0;
@@ -3085,66 +3116,66 @@ td .add span, th .add span {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 322, ../sass/_icons.scss */
+/* line 332, ../sass/_icons.scss */
 .columns_botonera ul li {
   float: left;
   padding: 4px;
 }
-/* line 326, ../sass/_icons.scss */
+/* line 336, ../sass/_icons.scss */
 .columns_botonera ul a {
   display: block;
   width: 20px;
   height: 20px;
 }
-/* line 332, ../sass/_icons.scss */
+/* line 342, ../sass/_icons.scss */
 .columns_botonera ul .column1 a {
   background: url("../images/icons/icons_column.png") no-repeat 0 0;
 }
-/* line 335, ../sass/_icons.scss */
+/* line 345, ../sass/_icons.scss */
 .columns_botonera ul .column1.current a {
   background-position: 0 -20px;
 }
-/* line 341, ../sass/_icons.scss */
+/* line 351, ../sass/_icons.scss */
 .columns_botonera ul .column2 a {
   background: url("../images/icons/icons_column.png") no-repeat -20px 0;
 }
-/* line 344, ../sass/_icons.scss */
+/* line 354, ../sass/_icons.scss */
 .columns_botonera ul .column2.current a {
   background-position: -20px -20px;
 }
-/* line 350, ../sass/_icons.scss */
+/* line 360, ../sass/_icons.scss */
 .columns_botonera ul .column3 a {
   background: url("../images/icons/icons_column.png") no-repeat -40px 0;
 }
-/* line 353, ../sass/_icons.scss */
+/* line 363, ../sass/_icons.scss */
 .columns_botonera ul .column3.current a {
   background-position: -40px -20px;
 }
-/* line 358, ../sass/_icons.scss */
+/* line 368, ../sass/_icons.scss */
 .columns_botonera ul .column4 a {
   background: url("../images/icons/icons_column.png") no-repeat -60px 0;
 }
-/* line 361, ../sass/_icons.scss */
+/* line 371, ../sass/_icons.scss */
 .columns_botonera ul .column4.current a {
   background-position: -60px -20px;
 }
-/* line 366, ../sass/_icons.scss */
+/* line 376, ../sass/_icons.scss */
 .columns_botonera ul .lista a {
   background: url("../images/icons/icons_column.png") no-repeat -80px 0;
 }
-/* line 369, ../sass/_icons.scss */
+/* line 379, ../sass/_icons.scss */
 .columns_botonera ul .lista.current a {
   background-position: -80px -20px;
 }
-/* line 374, ../sass/_icons.scss */
+/* line 384, ../sass/_icons.scss */
 .columns_botonera ul .calendario a {
   background: url("../images/icons/icons_column.png") no-repeat -100px 0;
 }
-/* line 377, ../sass/_icons.scss */
+/* line 387, ../sass/_icons.scss */
 .columns_botonera ul .calendario.current a {
   background-position: -100px -20px;
 }
-/* line 384, ../sass/_icons.scss */
+/* line 394, ../sass/_icons.scss */
 .columns_botonera span {
   position: absolute;
   top: 5em;

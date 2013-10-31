@@ -48,6 +48,7 @@
                         <h2><spring:message code="label.queries"/> <a href="#help_pop" class="info inline"><span><spring:message code="label.moreInfo"/></span></a></h2>
 
                         <div class="row">
+                        <a href="queries" class="btn right"><spring:message code="label.queries.mine"/></a>
                            <c:if test="${userQueries == null}">
                                <div class="message no_queries">
                                 	<p><spring:message code="label.queries.tip"/></p>
@@ -71,8 +72,6 @@
                                 </form>
 			   </c:if>
 						</div>
-                           <div class="botonera"><a href="queries" class="btn right"><spring:message code="label.queries.mine"/></a></div>
-
                     </div>
 		    <c:if test="${timeout}">
 		    	  <div class="message"><p>${timeout}</p></div>

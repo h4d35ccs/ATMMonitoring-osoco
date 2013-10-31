@@ -606,30 +606,42 @@ td .add span, th .add span {
 }
 
 /* line 151, ../sass/_icons.scss */
+.zoom {
+  position: absolute;
+  bottom: .5em;
+  right: .5em;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  background: url("../images/icons/zoom.png") no-repeat;
+}
+
+/* line 161, ../sass/_icons.scss */
 .import {
   background: url("../images/icons/icon_import.png") no-repeat left bottom;
   background-color: #52bcec;
   padding-left: 35px;
 }
-/* line 155, ../sass/_icons.scss */
+/* line 165, ../sass/_icons.scss */
 .import:hover {
   background: url("../images/icons/icon_import.png") no-repeat left top;
   background-color: #094fa4;
 }
 
-/* line 161, ../sass/_icons.scss */
+/* line 171, ../sass/_icons.scss */
 .back {
   background: url("../images/icons/icon_back.png") no-repeat left top transparent;
   padding-left: 35px;
   border: none;
   color: #009ee5;
 }
-/* line 166, ../sass/_icons.scss */
+/* line 176, ../sass/_icons.scss */
 .back:hover {
   background: url("../images/icons/icon_back.png") no-repeat left top #eeeeee;
 }
 
-/* line 170, ../sass/_icons.scss */
+/* line 180, ../sass/_icons.scss */
 .calendar {
   background: url("../images/icons/icon_date.png") no-repeat bottom;
   background-color: #009ee5;
@@ -637,44 +649,44 @@ td .add span, th .add span {
   height: 30px;
   overflow: hidden;
 }
-/* line 176, ../sass/_icons.scss */
+/* line 186, ../sass/_icons.scss */
 .calendar:hover {
   background: url("../images/icons/icon_date.png") no-repeat top;
   background-color: #094fa4;
 }
-/* line 180, ../sass/_icons.scss */
+/* line 190, ../sass/_icons.scss */
 .calendar span {
   position: absolute;
   top: -3em;
 }
 
-/* line 186, ../sass/_icons.scss */
+/* line 196, ../sass/_icons.scss */
 .save,
 #main .action_box .save {
   background: url("../images/icons/icon_save.png") no-repeat left bottom;
   background-color: #009ee5;
   padding-left: 35px;
 }
-/* line 191, ../sass/_icons.scss */
+/* line 201, ../sass/_icons.scss */
 .save:hover,
 #main .action_box .save:hover {
   background: url("../images/icons/icon_save.png") no-repeat left top;
   background-color: #094fa4;
 }
 
-/* line 197, ../sass/_icons.scss */
+/* line 207, ../sass/_icons.scss */
 .play, input.play {
   background: url("../images/icons/icon_play.png") no-repeat left bottom;
   background-color: #009ee5;
   padding-left: 35px;
 }
-/* line 201, ../sass/_icons.scss */
+/* line 211, ../sass/_icons.scss */
 .play:hover, input.play:hover {
   background: url("../images/icons/icon_play.png") no-repeat left top;
   background-color: #094fa4;
 }
 
-/* line 207, ../sass/_icons.scss */
+/* line 217, ../sass/_icons.scss */
 .info {
   width: 25px;
   height: 25px;
@@ -686,11 +698,11 @@ td .add span, th .add span {
   cursor: pointer;
   cursor: help;
 }
-/* line 217, ../sass/_icons.scss */
+/* line 227, ../sass/_icons.scss */
 .info:hover {
   background: url("../images/icons/icon_info.png") no-repeat bottom left;
 }
-/* line 220, ../sass/_icons.scss */
+/* line 230, ../sass/_icons.scss */
 .info span {
   display: block;
   overflow: hidden;
@@ -699,14 +711,14 @@ td .add span, th .add span {
   width: 0;
 }
 
-/* line 228, ../sass/_icons.scss */
+/* line 238, ../sass/_icons.scss */
 .icons_action {
   position: absolute;
   top: 0;
   right: 0;
   white-space: nowrap;
 }
-/* line 233, ../sass/_icons.scss */
+/* line 243, ../sass/_icons.scss */
 .icons_action .note, .icons_action .edit, .icons_action .delete {
   background: url("../images/icons/icon_note.png") no-repeat;
   width: 20px;
@@ -717,7 +729,7 @@ td .add span, th .add span {
   margin-left: 2px;
   float: left;
 }
-/* line 242, ../sass/_icons.scss */
+/* line 252, ../sass/_icons.scss */
 .icons_action .note span, .icons_action .edit span, .icons_action .delete span {
   display: block;
   overflow: hidden;
@@ -725,50 +737,50 @@ td .add span, th .add span {
   height: 0;
   width: 0;
 }
-/* line 249, ../sass/_icons.scss */
+/* line 259, ../sass/_icons.scss */
 .icons_action .note:hover, .icons_action .edit:hover, .icons_action .delete:hover {
   background-position-y: -20px;
 }
-/* line 253, ../sass/_icons.scss */
+/* line 263, ../sass/_icons.scss */
 .icons_action .edit {
   background-position: -40px 0;
   cursor: pointer;
 }
-/* line 258, ../sass/_icons.scss */
+/* line 268, ../sass/_icons.scss */
 .icons_action .delete {
   background-position: -20px 0;
   cursor: pointer;
 }
 
-/* line 264, ../sass/_icons.scss */
+/* line 274, ../sass/_icons.scss */
 .download {
   background: url("../images/icons/icon_download.png") no-repeat top left transparent;
   border: none;
   color: #52bcec;
   padding-left: 35px;
 }
-/* line 269, ../sass/_icons.scss */
+/* line 279, ../sass/_icons.scss */
 .download:hover {
   background: url("../images/icons/icon_download.png") no-repeat top left transparent;
   background-color: transparent;
   text-decoration: underline;
 }
 
-/* line 275, ../sass/_icons.scss */
+/* line 285, ../sass/_icons.scss */
 .update, .btn.update, .update.save,
 #main .action_box .update.save {
   background: url("../images/icons/icon_update.png") no-repeat bottom left;
   background-color: #009ee5;
   padding-left: 35px;
 }
-/* line 279, ../sass/_icons.scss */
+/* line 289, ../sass/_icons.scss */
 .update:hover, .btn.update:hover, .update.save:hover,
 #main .action_box .update.save:hover {
   background: url("../images/icons/icon_update.png") no-repeat top left;
   background-color: #094fa4;
 }
 
-/* line 284, ../sass/_icons.scss */
+/* line 294, ../sass/_icons.scss */
 .edit {
   display: inline;
   width: 22px;
@@ -777,42 +789,42 @@ td .add span, th .add span {
   overflow: hidden;
   font-size: 20px;
 }
-/* line 291, ../sass/_icons.scss */
+/* line 301, ../sass/_icons.scss */
 .edit span {
   visibility: hidden;
 }
 
-/* line 295, ../sass/_icons.scss */
+/* line 305, ../sass/_icons.scss */
 .graph_01 {
   background: url("../images/icons/icon_graph_01.png") no-repeat top;
 }
 
-/* line 298, ../sass/_icons.scss */
+/* line 308, ../sass/_icons.scss */
 .graph_02 {
   background: url("../images/icons/icon_graph_02.png") no-repeat top;
 }
 
-/* line 301, ../sass/_icons.scss */
+/* line 311, ../sass/_icons.scss */
 .graph_03 {
   background: url("../images/icons/icon_graph_03.png") no-repeat top;
 }
 
-/* line 304, ../sass/_icons.scss */
+/* line 314, ../sass/_icons.scss */
 .graph_04 {
   background: url("../images/icons/icon_graph_04.png") no-repeat top;
 }
 
-/* line 307, ../sass/_icons.scss */
+/* line 317, ../sass/_icons.scss */
 .graph_05 {
   background: url("../images/icons/icon_graph_05.png") no-repeat top;
 }
 
-/* line 310, ../sass/_icons.scss */
+/* line 320, ../sass/_icons.scss */
 .graph_component label.current {
   background-color: #094fa4;
 }
 
-/* line 313, ../sass/_icons.scss */
+/* line 323, ../sass/_icons.scss */
 .columns_botonera {
   position: absolute;
   top: 0;
@@ -825,66 +837,66 @@ td .add span, th .add span {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 322, ../sass/_icons.scss */
+/* line 332, ../sass/_icons.scss */
 .columns_botonera ul li {
   float: left;
   padding: 4px;
 }
-/* line 326, ../sass/_icons.scss */
+/* line 336, ../sass/_icons.scss */
 .columns_botonera ul a {
   display: block;
   width: 20px;
   height: 20px;
 }
-/* line 332, ../sass/_icons.scss */
+/* line 342, ../sass/_icons.scss */
 .columns_botonera ul .column1 a {
   background: url("../images/icons/icons_column.png") no-repeat 0 0;
 }
-/* line 335, ../sass/_icons.scss */
+/* line 345, ../sass/_icons.scss */
 .columns_botonera ul .column1.current a {
   background-position: 0 -20px;
 }
-/* line 341, ../sass/_icons.scss */
+/* line 351, ../sass/_icons.scss */
 .columns_botonera ul .column2 a {
   background: url("../images/icons/icons_column.png") no-repeat -20px 0;
 }
-/* line 344, ../sass/_icons.scss */
+/* line 354, ../sass/_icons.scss */
 .columns_botonera ul .column2.current a {
   background-position: -20px -20px;
 }
-/* line 350, ../sass/_icons.scss */
+/* line 360, ../sass/_icons.scss */
 .columns_botonera ul .column3 a {
   background: url("../images/icons/icons_column.png") no-repeat -40px 0;
 }
-/* line 353, ../sass/_icons.scss */
+/* line 363, ../sass/_icons.scss */
 .columns_botonera ul .column3.current a {
   background-position: -40px -20px;
 }
-/* line 358, ../sass/_icons.scss */
+/* line 368, ../sass/_icons.scss */
 .columns_botonera ul .column4 a {
   background: url("../images/icons/icons_column.png") no-repeat -60px 0;
 }
-/* line 361, ../sass/_icons.scss */
+/* line 371, ../sass/_icons.scss */
 .columns_botonera ul .column4.current a {
   background-position: -60px -20px;
 }
-/* line 366, ../sass/_icons.scss */
+/* line 376, ../sass/_icons.scss */
 .columns_botonera ul .lista a {
   background: url("../images/icons/icons_column.png") no-repeat -80px 0;
 }
-/* line 369, ../sass/_icons.scss */
+/* line 379, ../sass/_icons.scss */
 .columns_botonera ul .lista.current a {
   background-position: -80px -20px;
 }
-/* line 374, ../sass/_icons.scss */
+/* line 384, ../sass/_icons.scss */
 .columns_botonera ul .calendario a {
   background: url("../images/icons/icons_column.png") no-repeat -100px 0;
 }
-/* line 377, ../sass/_icons.scss */
+/* line 387, ../sass/_icons.scss */
 .columns_botonera ul .calendario.current a {
   background-position: -100px -20px;
 }
-/* line 384, ../sass/_icons.scss */
+/* line 394, ../sass/_icons.scss */
 .columns_botonera span {
   position: absolute;
   top: 5em;

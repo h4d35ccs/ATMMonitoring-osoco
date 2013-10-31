@@ -52,9 +52,14 @@
 							
 						  </div>
 						  <div class="collapsible last">
+						  	<div class="model">
 							<div class="photo">
-								<img id="photo_model" src="resources/images/ejemplo/terminal.jpg"/>
-								<div class="desplegable">
+								<a href="resources/images/ejemplo/terminal.jpg" class="colorbox">
+									<img src="resources/images/ejemplo/terminal.jpg"/>
+									<div class="zoom"></div>
+								</a>
+							</div>
+							<div class="desplegable">
 									<div class="txt content_hide"><span>Más información</span></div>
 									<dl class="collapsible hide">
 										<dt>Modelo: </dt>
@@ -72,7 +77,6 @@
 									</dl>
 								</div>
 							</div>
-
 							
 							<div class="ul_data editable">
 							  <ul>
