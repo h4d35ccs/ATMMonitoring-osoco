@@ -28,13 +28,13 @@
 <div id="header_g">
   <nav id="breadcrumb">
     <ul>
-      <li><a href="dashboard">inicio</a></li>
-      <li>Planificador</li>
+      <li><a href="dashboard"><spring:message code="breadcrumb.home"/></a></li>
+      <li><spring:message code="label.scheduler"/></li>
     </ul>
   </nav>
   <div class="botonera">
     <ul>
-      <li><a href="terminals/schedules/new" class="btn add">Nueva planificación</a></li>
+      <li><a href="terminals/schedules/new" class="btn add"><spring:message code="label.schedule.new"/></a></li>
     </ul>
   </div>
 </div>
@@ -52,10 +52,10 @@
 	  <nav>
 	    <ul>
 	        <li class="calendario current">
-	          <a href="#"><span>Calendario</span></a>
+	          <a href="#"><span><spring:message code="label.calendar"/></span></a>
 	        </li>
 	        <li class="lista">
-	          <a href="#"><span>Lista</span></a>
+	          <a href="#"><span><spring:message code="label.list"/></span></a>
 	        </li>
 	    </ul>
 	  </nav>

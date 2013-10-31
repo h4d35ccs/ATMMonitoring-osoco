@@ -24,14 +24,14 @@
 <div id="header_g">
   <nav id="breadcrumb">
     <ul>
-      <li><a href="#">inicio</a></li>
-      <li><a href="terminals/schedules/list">Planificador</a></li>
-      <li>Nueva planificación</li>
+      <li><a href="#"><spring:message code="breadcrumb.home"/></a></li>
+      <li><a href="terminals/schedules/list"><spring:message code="label.scheduler"/></a></li>
+      <li><spring:message code="label.schedule.new"/></li>
     </ul>
   </nav>
 </div>
 
-<h1>Nueva Planificación</h1>
+<h1><spring:message code="label.schedule.new"/></h1>
 <div class="content">
 <div class="form w33">
 <c:if test="${error != null}">
@@ -42,37 +42,37 @@
 
 <form:form method="post" action="terminals/schedules/list" commandName="scheduledUpdate">
 
-<div class="row"><label for="query"><strong>Elegir consulta:</strong></label>
+<div class="row"><label for="query"><strong><spring:message code="label.choose.query"/>:</strong></label>
 <form:select name="query.id" size="1" path="query.id" >
-  <option value="" >Seleccionar</option>
+  <option value="" ><spring:message code="label.select.default"/></option>
   <c:forEach items="${userQueries}" var="userQuery">
     <form:option value="${userQuery.id}" label="${userQuery.name}" selected="${(query.id == userQuery.id)? 'selected' :''}"/>
   </c:forEach>
 </form:select></div>
 
 <div class="row">
-  <label for="name"><strong>Nombre de la planificación</strong></label>
+  <label for="name"><strong><spring:message code="label.schedule.name"/></strong></label>
   <form:input id="name" type="text" path="name"/>
 </div>
 
 <div class="row">
-  <label for="description"><strong>Descripción</strong></label>
+  <label for="description"><strong><spring:message code="label.description"/></strong></label>
   <form:textarea id="description" path="description"/>
 </div>
 
 <div class="row">
-  <label for="periodicity"><strong>Se repite:</strong></label>
+  <label for="periodicity"><strong><spring:message code="label.repeat.each"/>:</strong></label>
   <select id="periodicity">
     <option value=""></option>
-    <option value="weekly">Cada semana</option>
-    <option value="monthly">Cada mes</option>
+    <option value="weekly"><spring:message code="label.weekly"/></option>
+    <option value="monthly"><spring:message code="label.monthly"/></option>
   </select>
 </div>
 
 
 <div id="weekly" class="periodicity hide row">
 
-<form:label path="weekDay"><strong>Elige días:</strong></form:label>
+<form:label path="weekDay"><strong><spring:message code="label.choose.days"/>:</strong></form:label>
 <ul class="weekDay">
   <li><form:radiobutton id="monday" path="weekDay" value="2"/><label for="monday"><spring:message code="label.scheduledUpdate.weekDay.monday"/></label></li>
   <li><form:radiobutton id="tuesday" path="weekDay" value="3"/><label for="tuesday"><spring:message code="label.scheduledUpdate.weekDay.tuesday"/></label></li>
@@ -86,7 +86,7 @@
 
 <div id="monthly" class="periodicity hide row">
 
-<form:label path="monthDay">Día del mes:</form:label>
+<form:label path="monthDay"><spring:message code="label.dayOfMonth"/>:</form:label>
 
 <form:select path="monthDay" id="month-selector">
   <form:option value=""/>
@@ -116,7 +116,7 @@
  </form:select>
 <div class="botonera">
   <input type="submit" id="form-submit" class="form-submit" value="<spring:message code="label.scheduledUpdate.addScheduledUpdate"/>"/>
-  <a href="terminals/schedules/list" class="btn cancel">Cancelar</a>
+  <a href="terminals/schedules/list" class="btn cancel"><spring:message code="label.cancel"/></a>
 </div>
 </form:form></div></div>
 

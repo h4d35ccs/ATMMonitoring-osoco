@@ -77,7 +77,6 @@
 							</p>
 							<div class="flecha"></div>
 						</div>
-
 					</c:if>
 					<c:if test="${userQueries != null && !userQueries.isEmpty()}">
 						<form method="post" name="userQueriesForm" action="terminals/byQuery">

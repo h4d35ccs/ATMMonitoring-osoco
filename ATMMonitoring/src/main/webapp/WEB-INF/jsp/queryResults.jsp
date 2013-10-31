@@ -64,16 +64,16 @@
 					<nav id="breadcrumb">
 						<ul>
 							<li>
-								<a href="#">inicio</a>
+								<a href="#"><spring:message code="breadcrumb.home"/></a>
 							</li>
-							<li><a href="terminals">Terminales</a></li>
-							<li><a href="queries">Mis consultas</a></li>
+							<li><a href="terminals"><spring:message code="breadcrumb.terminals"/></a></li>
+							<li><a href="queries"><spring:message code="label.queries.mine"/></a></li>
 							<li>
 						            <c:if test="${query.name != null}">
 				 	   		    	   ${query.name}
 						            </c:if>
  							    <c:if test="${query.name == ''}">
-							        Nueva consulta
+							        <spring:message code="label.query.new"/>
 						            </c:if>
 							</li>
 						</ul>
@@ -86,10 +86,10 @@
 					 	    ${query.name}
 						</c:if>
 						<c:if test="${query.name ==  ''}">
-					            Nueva consulta
+					            <spring:message code="label.query.new"/>
 					        </c:if>
 					</h1>
-				<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
+				<div class="botonera"><a href="queries" class="btn back left"><spring:message code="label.query.return"/></a></div>
 	<!-- Pegado de querie.jsp -->
 	<form:form id="queryForm" method="post" action="queries/results" commandName="query">
       <input type="hidden" name="p" value="${p}"/>
@@ -98,21 +98,21 @@
 				<div class="action_box desplegable">
 
 					<div id="saveQuery" class="desplegable button txt_btn">
-						<div class="btn txt content_hide">Guardar consulta</div>
+						<div class="btn txt content_hide"><spring:message code="label.query.save"/></div>
 						<div class="hide collapsible">
 							<ul>
-								<li><label for="namequery">Nombre</label> <form:input type="text" path="name"/></li>
-								<li><label for="descriptionquery">Descripción</label> <form:textarea path="description"/></li>
+								<li><label for="namequery"><spring:message code="label.name"/></label> <form:input type="text" path="name"/></li>
+								<li><label for="descriptionquery"><spring:message code="label.description"/></label> <form:textarea path="description"/></li>
 							</ul>
                                                          <form:hidden path="id" value="${query.id}"/>
 
 							<div class="botonera">
-                              <input type="submit" id="save" name="save" class="save" value="Guardar"/>
+                              <input type="submit" id="save" name="save" class="save" value="<spring:message code="label.save"/>"/>
                             </div>
                         </div>
                         </div>
 
-                        <h2 id="editQuery" class="last content_hide">Editar consulta</h2>
+                        <h2 id="editQuery" class="last content_hide"><spring:message code="label.query.edit"/></h2>
 
 					<div class="collapsible last hide">
 
@@ -708,7 +708,7 @@
 		<br></td>
 	<c:if test="${!status.last}">
 		<td class="btn_add">
-			<div id="xfsSwShowButton${i}" onclick="showHiddenRow('xfsSw', ${i})" class="add btn"><span>Añadir</span></div>
+			<div id="xfsSwShowButton${i}" onclick="showHiddenRow('xfsSw', ${i})" class="add btn"><span><spring:message code="label.add"/></span></div>
 		</td>
 	</c:if>
 </tr>
@@ -717,8 +717,8 @@
 </div>
 <div id="submits" class="botonera">
 	<input type="submit" class="form-submit" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
-	<input type="submit" class="delete right" name="delete" id="delete" value="Eliminar" onclick="return confirm('¿Estás seguro que quieres borrar la consulta?')"/>
-	<input type="reset" class="cancel right" value="Cancelar" />
+	<input type="submit" class="delete right" name="delete" id="delete" value="<spring:message code="label.delete"/>" onclick="return confirm('¿Estás seguro que quieres borrar la consulta?')"/>
+	<input type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
 </div>
 </div>
 
@@ -984,17 +984,20 @@
                 </div>
 		</c:if>
 		<c:if  test="${!empty pagedListHolder.pageList}">
-		<h2>${pagedListHolder.source.size()} Resultados</h2>
+		<h2>${pagedListHolder.source.size()} <spring:message code="label.results"/></h2>
 		<div class="table_buttons">
-			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
+		<!--
+			<div class="botonera"> 
 				<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
 				<a href="#" class="btn left update">Actualizar</a>
 				<a href="#" class="btn left clock">Actualización planificada</a>
 				<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 			</div>
+                  -->
 			<div class="margin-box">
-              <t:terminalsTable baseUrl="queries/results" terminals="${pagedListHolder.pageList}"/>
-            </div>
+                
+			<t:terminalsTable baseUrl="queries/results" terminals="${pagedListHolder.pageList}"/>
+            		</div>
 			<div class="pagingContainer">
 			<form:form id="pagingForm" method="post" action="queries/results/export" commandName="query">
 				<c:forEach var="i" begin="1" end="5">
@@ -1083,19 +1086,20 @@
 					<form:hidden path="internetExplorerCombo${i}2"/>
 					<form:hidden path="internetExplorerField${i}"/>
 				</c:forEach>
-
-				<div class="botonera">
+<!--
+				<div class="botonera ">
 					<label for="all_check"><input type="checkbox" class="all_check"  name="all_check"/> Marcar todos</label>
 					<a href="#" class="btn left update">Actualizar</a>
 					<a href="#" class="btn left clock">Actualización planificada</a>
 					<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 				</div>
+-->
 		   </div><!-- /table_buttons -->
 
 			<div class="pagination">
-                <div class="t_number"><span class="text">${pagedListHolder.source.size()} Terminales</span></div>
+                <div class="t_number"><span class="text">${pagedListHolder.source.size()} <spring:message code="label.terminals"/></span></div>
                 <div class="p_number">
-                  <span class="text">Página</span>
+                  <span class="text"><spring:message code="label.page"/></span>
                   <t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/results?p=~&queryId=${query.id}&sort=${sort}&order=${order}"/>
                 </div>
 

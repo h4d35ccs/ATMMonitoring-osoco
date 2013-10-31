@@ -11,13 +11,13 @@
 					<nav id="breadcrumb">
 						<ul>
 							<li>
-								<a href="dashboard">inicio</a>
+								<a href="dashboard"><spring:message code="breadcrumb.home"/></a>
 							</li>
 							<li>
-								<a href="terminals">Terminales</a>
+								<a href="terminals"><spring:message code="breadcrumb.terminals"/></a>
 							</li>
-							<li><a href="queries/list">Mis consultas</a></li>
-							<li>Consulta: ${query.name}</li>
+							<li><a href="queries/list"><spring:message code="label.queries.mine"/></a></li>
+							<li><spring:message code="label.query"/>: ${query.name}</li>
 						</ul>
 					</nav>
 				</div>
@@ -25,9 +25,9 @@
 				<div class="content">
 					<h1>
 
-						Consulta:  ${query.name}
+						<spring:message code="label.query"/>:  ${query.name}
 					</h1>
-					<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
+					<div class="botonera"><a href="queries" class="btn back left"><spring:message code="label.query.return"/></a></div>
 					<div class="action_box desplegable">
 						
 					<form:form method="post" action="queries/results" commandName="query">
@@ -635,19 +635,19 @@
 
 	<div class="botonera">
 		<div class="desplegable button">
-			<div class="btn txt content_hide">Guardar consulta</div>
+			<div class="btn txt content_hide"><spring:message code="label.query.save"/></div>
 			<div class="hide collapsible">
 				<ul>
-					<li><label for="namequery">Nombre</label> <form:input type="text" path="name"/></li>
-					<li><label for="descriptionquery">Descripción</label> <form:textarea path="description"/></li>
+					<li><label for="namequery"><spring:message code="label.name"/></label> <form:input type="text" path="name"/></li>
+					<li><label for="descriptionquery"><spring:message code="label.description"/></label> <form:textarea path="description"/></li>
 				</ul>
-				<div class="botonera"><input type="submit" class="save" id="save" name="save" value="Guardar" /></div>
+				<div class="botonera"><input type="submit" class="save" id="save" name="save" value="<spring:message code="label.save"/>" /></div>
 			</div>
 		</div><!-- /desplegable -->
 		<input type="submit" class="form-submit play" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
 		<input type="submit" class="delete right" name="delete" id="delete" onclick="return confirm('¿Estás seguro que quieres borrar la consulta?')"
 				    <c:if test="${query.id == null}">disabled="disabled"</c:if> value="<spring:message code="label.query.delete"/> "/>
-		<input type="reset" class="cancel right" value="Cancelar" />
+		<input type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
 		</form:form>
 	</div>
 	

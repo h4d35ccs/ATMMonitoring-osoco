@@ -12,23 +12,23 @@
 					<nav id="breadcrumb">
 						<ul>
 							<li>
-								<a href="dashboard">inicio</a>
+								<a href="dashboard"><spring:message code="breadcrumb.home"/></a>
 							</li>
 							<li>
-								<a href="terminals">Terminales</a>
+								<a href="terminals"><spring:message code="breadcrumb.terminals"/></a>
 							</li>
-							<li>Nuevo terminal</li>
+							<li><spring:message code="label.terminal.new"/></li>
 						</ul>
 					</nav>
 				</div>
 				<div class="content">
-					<h1>Nuevo Terminal</h1>
+					<h1><spring:message code="label.terminal.new"/></h1>
 					<div class=" botonera">
 						<div class="desplegable button">
-							<div class="btn txt import content_hide">Importar fichero</div>
+							<div class="btn txt import content_hide"><spring:message code="label.import.file"/></div>
 							<div class="hide collapsible" style="display: none;">
 								<input type="file">
-								<div class="botonera"><input type="button" class="btn" value="Subir"></div>
+								<div class="botonera"><input type="button" class="btn" value="<spring:message code="label.upload"/>"></div>
 							</div>
 						</div>
 					</div>
@@ -36,16 +36,16 @@
 						<h2><spring:message code="label.terminalDetails"/></h2>
 						<form:form method="post" action="terminals/list" commandName="terminal">
 						  <div class="row td">
-							<label for="proveedor">Proveedor:</label>
+							<label for="proveedor"><spring:message code="label.manufacturer"/>:</label>
 							<select id="ManufacturerCombo" onchange="ChangeManufacturer()"> 
-								<option value="">Seleccionar</option>
+								<option value=""><spring:message code="label.select.default"/></option>
 								<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
 								  <c:if test="${key != 'allManufacturers'}">
 									<option value="${key}">${key}</option>
 								  </c:if>
 								</c:forEach>
 							</select> 
-							<label for="modelo">Modelo ATM:</label> 
+							<label for="modelo"><spring:message code="label.terminal.model"/>:</label> 
 							<form:select id="ModelsCombo" path="terminalModel" onchange="ChangeModel()">
 							  <option value="" ></option>
                             </form:select>
@@ -60,12 +60,13 @@
 								</a>
 							</div>
 							<div class="desplegable">
-									<div class="txt content_hide"><span>Más información</span></div>
+									<div class="txt content_hide"><span><spring:message code="label.moreInfo"/></span></div>
 									<dl class="collapsible hide">
-										<dt>Modelo: </dt>
+										<dt><spring:message code="label.name"/>: </dt>
 											<dd id="field_model"></dd>
-										<dt>Fabricante: </dt>
+										<dt><spring:message code="label.manufacturer"/> : </dt>
 											<dd id="field_manufacturer"></dd>
+										
 										<dt>Campo: </dt>
 											<dd>campo</dd>
 										<dt>Nombre de campo: </dt>
@@ -254,25 +255,25 @@
 												</li>
 												<li>
 													<strong>
-														<label>Crear instalación</label>
+														<label><spring:message code="label.installation.create"/></label>
 													</strong>
 														<input type="checkbox" id="isAgeSelected"/>
 												</li>
 											</ul>
 											<div id="txtAge" style="display:none">
-											<h3>Datos de la instalación</h3>
+											<h3><spring:message code="label.installation.data"/></h3>
 												<div class="ul_data editable">
 													<ul>
 														<li>
-															<strong><label for="date">Fecha de alta</label></strong>
+															<strong><label for="date"><spring:message code="label.installation.startDate"/></label></strong>
 															<input id="date" name="date" type="text" value="22/10/2013">
 															<div class="error-td"></div>
 														</li>
 														<li class="td">
-															<strong><label for="noff">Numero de oficina</label></strong>
+															<strong><label for="noff"><spring:message code="label.location.office"/></label></strong>
 															<div class="row">
 																<input id="noff" name="noff" type="text" class="num">
-																<button class="btn">Validar</button>
+																<button class="btn"><spring:message code="label.validate"/></button>
 															</div>
 															<div class="message">
 																La Caixa
@@ -283,33 +284,33 @@
 															<div class="error-td"></div>
 														</li>
 														<li> 
-															<strong><label for="ip">IP</label></strong>
+															<strong><label for="ip"><spring:message code="label.location.ip"/></label></strong>
 															<input id="ip" name="ip" type="text">
 															<div class="error-td">
 															</div>
 														</li>
 														<li>
-															<strong><label for="type">Tipo de instalación</label></strong>
+															<strong><label for="type"><spring:message code="label.installation.type"/></label></strong>
 															<input id="type" name="type" type="text">
 															<div class="error-td"></div>
 														</li>
 														<li>
-															<strong><label for="puesto">Puesto</label></strong>
+															<strong><label for="puesto"><spring:message code="label.location.position"/></label></strong>
 															<input id="puesto" name="puesto" type="text">
 															<div class="error-td"></div>
 														</li>
 														<li>
-															<strong><label for="date_off">Fecha baja</label></strong>
+															<strong><label for="date_off"><spring:message code="label.installation.endDate"/></label></strong>
 															<input id="date_off" name="date_off" type="text">
 															<div class="error-td"></div>
 														</li>
 														<li>
-															<strong><label for="procesado">Procesado</label></strong>
+															<strong><label for="procesado"><spring:message code="label.location.processed"/></label></strong>
 															<input id="procesado" name="procesado" type="text">
 															<div class="error-td"></div>
 														</li>
 														<li>
-															<strong><label for="date_off">Acceso al público</label></strong>
+															<strong><label for="date_off"><spring:message code="label.location.publicAccess"/></label></strong>
 															<input type="checkbox">
 														</li>
 													</ul>
@@ -318,8 +319,8 @@
 											
 										</div>
 										<div class="botonera">
-											<input type="submit" class="btn save" value="Guardar terminal"/>
-											<a href="terminals" class="btn cancel">Cancelar</a>
+											<input type="submit" class="btn save" value="<spring:message code="label.terminal.save"/>"/>
+											<a href="terminals" class="btn cancel"><spring:message code="label.cancel"/></a>
 										</div>
 									</form:form>
 						</div>

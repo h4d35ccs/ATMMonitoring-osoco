@@ -11,18 +11,18 @@
 					<nav id="breadcrumb">
 						<ul>
 							<li>
-								<a href="#">inicio</a>
+								<a href="#"><spring:message code="breadcrumb.home"/></a>
 							</li>
-							<li><a href="terminals">Terminales</a></li>
-							<li><a href="queries">Mis consultas</a></li>
-							<li>Nueva Consulta</li>
+							<li><a href="terminals"><spring:message code="breadcrumb.terminals"/></a></li>
+							<li><a href="queries"><spring:message code="label.queries.mine"/></a></li>
+							<li><spring:message code="label.query.new"/></li>
 						</ul>
 					</nav>
 				</div>
 
 				<div class="content">
 	<h1><spring:message code="label.query.new"/></h1>
-	<div class="botonera"><a href="queries" class="btn back left">Volver a mis consultas</a></div>
+	<div class="botonera"><a href="queries" class="btn back left"><spring:message code="label.query.return"/></a></div>
 	<!-- Pegado de querie.jsp -->
 	<div class="action_box desplegable">
 			<form:form method="post" action="queries/results" commandName="query">
@@ -555,18 +555,18 @@
 	</div>
 	<div class="botonera">
 		<div class="desplegable button">
-			<div class="btn txt content_hide">Guardar consulta</div>
+			<div class="btn txt content_hide"><spring:message code="label.query.save"/></div>
 			<div class="hide collapsible">
 				<ul>
 					<li><label for="namequery">Nombre</label> <form:input type="text" path="name"/></li>
 					<li><label for="descriptionquery">Descripción</label> <form:textarea path="description"/></li>
 				</ul>
-				<div class="botonera"><input type="submit" id="save" name="save" class="save" value="Guardar" /></div>
+				<div class="botonera"><input type="submit" id="save" name="save" class="save" value="<spring:message code="label.save"/>" /></div>
 			</div>
 		</div><!-- /desplegable -->
 
 		<input type="submit" class="form-submit play" name="execute" id="execute" value="<spring:message code="label.query.execute"/>"/>
-		<input type="reset" class="cancel right" value="Cancelar" />
+		<input type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
 	</div>
 
 </form:form>

@@ -32,17 +32,17 @@
   <div id="header_g">
     <nav id="breadcrumb">
       <ul>
-        <li><a href="dasthboard">inicio</a></li>
-        <li><a href="terminals">Terminales</a></li>
-        <li>Mis Consultas</li>
+        <li><a href="dasthboard"><spring:message code="breadcrumb.home"/></a></li>
+        <li><a href="terminals"><spring:message code="breadcrumb.terminals"/></a></li>
+        <li><spring:message code="label.queries.mine"/></li>
       </ul>
     </nav>
   </div>
 
   <div class="content">
-    <h1>Mis Consultas</h1>
+    <h1><spring:message code="label.queries.mine"/></h1>
     <div class="botonera">
-      <a href="queries/create" class="btn right">Nueva consulta</a>
+      <a href="queries/create" class="btn right"><spring:message code="label.query.new"/></a>
     </div>
     <c:if test="${success != null}">
        <div class="notification"><p>${success}</p></div>
@@ -53,16 +53,16 @@
     <c:if test="${!empty pagedListHolder.pageList}">
       <table class="link">
 	<tr>
-          <th>Nombre de la consulta</th>
-          <th>Fecha de creación</th>
-          <th>Descripción</th>
+          <th><spring:message code="label.query.name"/></th>
+          <th><spring:message code="label.creationDate"/></th>
+          <th><spring:message code="label.description"/></th>
 	</tr>
 	
 	<c:forEach items="${pagedListHolder.pageList}" var="query">
 	  <tr class="queryRow" data-query-id="${query.id}">
 	    <td class="editable w33">
               <div class="relative">
-		<div class="icons_action"><a href="#" class="delete" data-query-id="${query.id}"><span>Eliminar</span></a></div>
+		<div class="icons_action"><a href="#" class="delete" data-query-id="${query.id}"><span><spring:message code="label.delete"/></span></a></div>
 		<a href="queries/show?queryId=${query.id}">${query.name}</a></div></td>
 	    
             <td class="nowrap">${query.creationDateShort}</td>
@@ -73,14 +73,14 @@
 	
       </table>
       <div class="pagination">
-	<div class="t_number"><span class="text">${pagedListHolder.source.size()} Consultas</span></div>
+	<div class="t_number"><span class="text">${pagedListHolder.source.size()} <spring:message code="label.queries"/></span></div>
 	<c:if test="${pagedListHolder.getPageCount() >1 }">
-	  <div class="p_number"><span class="text">Página</span><t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/list?p=~"/></div>
+	  <div class="p_number"><span class="text"><spring:message code="label.page"/></span><t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/list?p=~"/></div>
 	</c:if>
       </div>
     </c:if>
     <c:if test="${empty pagedListHolder.pageList}">
-      <div class="message"><p> No tienes ninguna consulta </p></div>
+      <div class="message"><p> <spring:message code="label.queries.none"/> </p></div>
     </c:if>
   </div>
 

@@ -48,33 +48,31 @@
 
 <jsp:body>
 			<div id="header_g">
-
 					<nav id="breadcrumb">
 						<ul>
 							<li>
-								<a href="dashboard">inicio</a>
+								<a href="dashboard"><spring:message code="breadcrumb.home"/></a>
 							</li>
 							<li>
-								<a href="terminals">Terminales</a>
+								<a href="terminals"><spring:message code="breadcrumb.terminals"/></a>
 							</li>
-							<li>Terminal 00:1b:21:01:82:8B</li>
+							<li><spring:message code="label.terminal"/> ${terminal.mac}</li>
 						</ul>
 					</nav>
 				</div>
 				<div class="content">
-					<h1>Terminal 00:1b:21:01:82:8B</h1>
+					<h1><spring:message code="label.terminal"/> ${terminal.mac}</h1>
 					<c:if test="${success != null}">
 					      <div class="notification"><p>${success}</p></div>
 					</c:if>
 
 					<c:if test="${errors != null}">
-					      <div class="alert"><p>Se ha producido un error. Revise los campos</p></div>
+					      <div class="alert"><p><spring:message code="label.error.form"/></p></div>
 					</c:if>
 
 					<c:if test="${timeout != null}">
 					      <div class="message"><p>${timeout}</p></div>
 					</c:if>
-
 
 					<div class="action_box data desplegable">
 						<h2 class="txt last"><spring:message code="label.terminalDetails"/></h2>
@@ -87,22 +85,22 @@
 									</a>
 								</div>
 								<div class="desplegable">
-										<div class="txt content_hide"><span>Más información</span></div>
-										<dl class="collapsible hide">
-											<dt>Nombre: </dt>
-												<dd>campo</dd>
-											<dt>Nombre de campo: </dt>
-												<dd>campo</dd>
-											<dt>Campo: </dt>
-												<dd>campo</dd>
-											<dt>Nombre de campo: </dt>
-												<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </dd>
-											<dt>Nombre de campo: </dt>
-												<dd>campo</dd>
-											<dt>Nombre de campo: </dt>
-												<dd>campo</dd>
-										</dl>
-									</div>
+									<div class="txt content_hide"><span><spring:message code="label.moreInfo"/></span></div>
+									<dl class="collapsible hide">
+										<dt><spring:message code="label.name"/>: </dt>
+											<dd id="field_model"></dd>
+										<dt><spring:message code="label.manufacturer"/> : </dt>
+											<dd>campo</dd>
+										<dt>Campo: </dt>
+											<dd>campo</dd>
+										<dt>Nombre de campo: </dt>
+											<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </dd>
+										<dt>Nombre de campo: </dt>
+											<dd>campo</dd>
+										<dt>Nombre de campo: </dt>
+											<dd>campo</dd>
+									</dl>
+								</div>
 							</div>
 								<c:if test="${canEdit == true}">
 							            <div id="editForm" class="${errors != null ? '': 'hide'}">
@@ -371,7 +369,7 @@
 					</div>
 					<!-- // /action_box -->
 					<div class="action_box data desplegable">
-						<h2 class="txt last content_hide">Histórico</h2>
+						<h2 class="txt last"><spring:message code="label.terminal.history"/></h2>
 						<div class="collapsible last hide">
 							<img src="resources/images/ejemplo/historico.png" style="width:100%; margin:1em 0" />
 						</div>
@@ -382,125 +380,62 @@
 					<nav class="sub_nav">
 						<ul>
 							<li class="current">
-							  <a href="${currentUrl}#features">Instalaciones</a>
+							  <a href="${currentUrl}#features"><spring:message code="label.installations"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features">Dispositivos financieros</a>
+								<a href="${currentUrl}#features"><spring:message code="label.financialDevices"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features">Hardware</a>
+								<a href="${currentUrl}#features"><spring:message code="label.hardwareDevices"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features">Software</a>
+								<a href="${currentUrl}#features"><spring:message code="label.software"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features">Agregados</a>
+								<a href="${currentUrl}#features"><spring:message code="label.softwareAggregates"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features">HotFix</a>
+								<a href="${currentUrl}#features"><spring:message code="label.hotfixes"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features">Navegadores</a>
+								<a href="${currentUrl}#features"><spring:message code="label.browsers"/></a>
 							</li>
 						</ul>
 					</nav>
 					<div class="content_tab">
-						<h2>
-							Instalaciones
-						</h2>
 						<div class="botonera">
-							<a href="terminals/installation" class="btn iframe">Nueva instalación</a>
+							<a href="terminals/installation" class="btn iframe"><spring:message code="label.installation.new"/></a>
 						</div>
-						<h3>Instalación actual</h3>
+                                                <c:if test="${terminal.installation != null}">
+						<h3><spring:message code="label.installation.current"/></h3>
 						<div class="margin-box">
 							<table>
 								<tr>
-									<th>Número de oficina</th>
-									<th>Dirección</th>
-									<th>Fecha de Alta</th>
-									<th>IP</th>
-									<th>Tipo de instalación</th>
-									<th>Puesto</th>
-									<th>Procesado</th>
-									<th>Acceso al público</th>
+									<th><spring:message code="label.location.office"/></th>
+									<th><spring:message code="label.location.address"/></th>
+									<th><spring:message code="label.creationDate"/></th>
+									<th><spring:message code="label.location.ip"/></th>
+									<th><spring:message code="label.location.type"/></th>
+									<th><spring:message code="label.location.position"/></th>
+									<th><spring:message code="label.location.processed"/></th>
+									<th><spring:message code="label.location.publicAccess"/></th>
 								</tr>
 								<tr>
-									<td>4647</td>
-									<td>Avenida de los Andes, 24, 28042 Madrid - España</td>
-									<td>17-08-2013</td>
-									<td>128.128.3.45</td>
-									<td>Lorem Ipsum</td>
-									<td></td>
-									<td></td>
+									<td>${terminal.installation.location.office}</td>
+									<td>${terminal.installation.location.address}</td>
+									<td>${terminal.installation.startDate}</td>
+									<td>${terminal.installation.location.ip}</td>
+									<td>${terminal.installation.type}</td>
+									<td>${terminal.installation.processed}</td>
+									<td>${terminal.installation.location.publicAccess}</td>
 									<td></td>
 								</tr>
 							</table>
 						</div>
-						<h3>Histórico de instalaciones</h3>
-						<div class="margin-box">
-							<table>
-								<tr>
-									<th>Número de oficina</th>
-									<th>Dirección</th>
-									<th>Fecha de Alta</th>
-									<th>IP</th>
-									<th>Tipo de instalación</th>
-									<th>Puesto</th>
-									<th>Procesado</th>
-									<th>Acceso al público</th>
-									<th>Fecha de Baja</th>
-								</tr>
-								<tr>
-									<td>4647</td>
-									<td>Gran Vía, 32, 2001 Madrid - España</td>
-									<td>17-08-2013</td>
-									<td>128.128.3.45</td>
-									<td>Lorem Ipsum</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>4647</td>
-									<td>Gran Vía, 32, 2001 Madrid - España</td>
-									<td>17-08-2013</td>
-									<td>128.128.3.45</td>
-									<td>Lorem Ipsum</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>4647</td>
-									<td>Gran Vía, 32, 2001 Madrid - España</td>
-									<td>17-08-2013</td>
-									<td>128.128.3.45</td>
-									<td>Lorem Ipsum</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>4647</td>
-									<td>Gran Vía, 32, 2001 Madrid - España</td>
-									<td>17-08-2013</td>
-									<td>128.128.3.45</td>
-									<td>Lorem Ipsum</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-							</table>
-						</div>
+						</c:if>
+							
 					</div>
 					<div class="content_tab">
-						<h2>
-							<spring:message code="label.financialDevices"/>
-						</h2>
 						<div class="margin-box">
 							<c:if  test="${empty terminal.financialDevices}">
 								<div class="empty-list message">
@@ -834,11 +769,6 @@
 					</div>
 
 					<div class="content_tab">
-					<!--
-						<h2>
-							<spring:message code="label.hardwareDevices"/>
-						</h2>
-					-->
 						<c:if  test="${empty terminal.hardwareDevices}">
 							<div class="empty-list message">
 								<spring:message code="label.terminal.noHwDevices"/>
@@ -981,11 +911,6 @@
 					</div>
 
 					<div class="content_tab">
-<!--
-                        <h2>
-							<spring:message code="label.terminalConfigs"/>
-						</h2>
--->
 						<c:if  test="${empty terminal.configs}">
 							<div class="empty-list message">
 								<spring:message code="label.terminal.noConfigs"/>
@@ -1118,10 +1043,6 @@
 </div>
 			</div>
 			<div class="content_tab">
-				<h2>
-					<spring:message code="label.softwareAggregates"/>
-				</h2>
-
 					<c:if  test="${empty terminal.softwareAggregates}">
 						<div class="empty-list message">
 							<spring:message code="label.terminal.noSwAggregates"/>
@@ -1206,9 +1127,6 @@
 			</div>
 
 			<div class="content_tab">
-				<h2>
-					<spring:message code="label.hotfixes"/>
-				</h2>
 				<div class="margin-box">
 					<c:if  test="${empty terminal.hotfixes}">
 						<div class="empty-list message">
@@ -1300,9 +1218,6 @@
 				</div>
 			</div>
 			<div class="content_tab">
-				<h2>
-					<spring:message code="label.internetExplorers"/>
-				</h2>
 				<div class="margin-box">
 					<c:if  test="${empty terminal.internetExplorers}">
 						<div class="empty-list message">
