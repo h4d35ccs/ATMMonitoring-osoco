@@ -1531,7 +1531,7 @@ input:disabled:hover {
 /* line 13, ../sass/_table.scss */
 .table_buttons .botonera {
   padding: 0;
-  margin: 0.5em 1em 0.5em 0;
+  margin: 0.5em 1em;
 }
 /* line 16, ../sass/_table.scss */
 .table_buttons .botonera label {
