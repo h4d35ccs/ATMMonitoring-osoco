@@ -48,6 +48,7 @@
 
 <jsp:body>
 			<div id="header_g">
+
 					<nav id="breadcrumb">
 						<ul>
 							<li>
@@ -833,9 +834,11 @@
 					</div>
 
 					<div class="content_tab">
+					<!--
 						<h2>
 							<spring:message code="label.hardwareDevices"/>
 						</h2>
+					-->
 						<c:if  test="${empty terminal.hardwareDevices}">
 							<div class="empty-list message">
 								<spring:message code="label.terminal.noHwDevices"/>
@@ -843,7 +846,7 @@
 						</c:if>
 						<c:if test="${!empty terminal.hardwareDevices}">
 
-                          <div class="action_box data desplegable">
+                                                <div class="action_box data desplegable">
 
 							<div class="margin-box">
 								<c:if test="${!empty terminal.computerSystems}">
@@ -971,9 +974,10 @@
 								</c:if>
 							</div>
 
-                            </div>
+						</div>
 
 						</c:if>
+					</div>
 					</div>
 
 					<div class="content_tab">
