@@ -11,9 +11,9 @@
 			<nav id="breadcrumb">
 				<ul>
 					<li>
-						<a href="dashboard">inicio</a>
+						<a href="dashboard"><spring:message code="breadcrumb.home"/></a>
 					</li>
-					<li>Usuarios</li>
+					<li><spring:message code="breadcrumb.users"/></li>
 				</ul>
 			</nav>
 		</div>
@@ -22,25 +22,25 @@
 			<h1>
 				<spring:message code="label.usersManager"/>
 			</h1>
-				<h2>Grupos de usuarios</h2>
+				<h2><spring:message code="label.user.groups"/></h2>
 				<ul class="user_groups">
-					<li><a href="#" class="current">Grupo 1</a></li>
-					<li><a href="#">Grupo 2</a></li>
-					<li><a href="#">Grupo 3</a></li>
-					<li><a href="#">Grupo 4</a></li>
-					<li><a href="#">Grupo 5</a></li>
-					<li><a href="#">Grupo 6</a></li>
+					<li><a href="#" class="current"><spring:message code="label.group"/> 1</a></li>
+					<li><a href="#"><spring:message code="label.group"/> 2</a></li>
+					<li><a href="#"><spring:message code="label.group"/> 3</a></li>
+					<li><a href="#"><spring:message code="label.group"/> 4</a></li>
+					<li><a href="#"><spring:message code="label.group"/> 5</a></li>
+					<li><a href="#"><spring:message code="label.group"/> 6</a></li>
 				</ul>
 			</nav>
 
 			<div class="botonera">
-					<a href="users/newGroup" class="btn add left">Crear nuevo grupo</a>
+					<a href="users/newGroup" class="btn add left"><spring:message code="label.group.new.create"/></a>
 			</div>
 		</div>
 			<div class="scroll">
-				<h2>Funcionalidades</h2>
+				<h2><spring:message code="label.features"/></h2>
 				<ul class="features">
-					<li><h3>Terminales</h3>
+					<li><h3><spring:message code="label.terminals"/></h3>
 						<ul>
 							<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
 							<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
@@ -49,7 +49,7 @@
 							<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
 						</ul>
 					</li>
-					<li><h3>Consultas</h3>
+					<li><h3><spring:message code="label.queries"/></h3>
 						<ul>
 							<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
 							<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
@@ -58,7 +58,7 @@
 							<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
 						</ul>
 					</li>
-					<li><h3>Informes</h3>
+					<li><h3><spring:message code="label.reports"/></h3>
 						<ul>
 							<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>
 							<li><input type="checkbox" checked="checked"><label>Lorem ipsum</label></li>

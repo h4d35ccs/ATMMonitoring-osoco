@@ -11,12 +11,10 @@
 	<nav id="breadcrumb">
 		<ul>
 			<li>
-				<a href="dashboard">inicio</a>
+				<a href="dashboard"><spring:message code="breadcrumb.home"/></a>
 			</li>
-			<li>
-				<a href="terminals">Terminales</a>
-			</li>
-			<li>Mis consultas</li>
+		
+			<li><spring:message code="breadcrumb.reports"/></li>
 		</ul>
 	</nav>
 </div>
@@ -31,9 +29,17 @@
 	</h2>
 	<div class="box_list">
 		<a href="#">
-			<h3>Report Name</h3>
+			<h3><spring:message code="label.report.name"/></h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
+			<p><spring:message code="label.report.description"/></p>
+		</a>
+	</div>
+	<div class="box_list">
+		<a href="#">
+			<h3><spring:message code="label.report.name"/></h3>
+			<img src="resources/images/ejemplo/grafico.png"/>
+			<p><spring:message code="label.report.description"/></p>
+		</a>
 		</a>
 	</div>
 	<div class="box_list">
@@ -59,9 +65,16 @@
 	</div>
 	<div class="box_list">
 		<a href="#">
-			<h3>Report Name</h3>
+			<h3><spring:message code="label.report.name"/></h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
+			<p><spring:message code="label.report.description"/></p>
+		</a>
+	</div>
+	<div class="box_list">
+		<a href="#">
+			<h3><spring:message code="label.report.name"/></h3>
+			<img src="resources/images/ejemplo/grafico.png"/>
+			<p><spring:message code="label.report.description"/></p>
 		</a>
 	</div>
 	<div class="box_list">
@@ -72,31 +85,17 @@
 		</a>
 	</div>
 	<div class="box_list">
-		<a href="#">
-			<h3>Report Name</h3>
+			<a href="#">
+			<h3><spring:message code="label.report.name"/></h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
+			<p><spring:message code="label.report.description"/></p>
 		</a>
 	</div>
 	<div class="box_list">
 		<a href="#">
-			<h3>Report Name</h3>
+			<h3><spring:message code="label.report.name"/></h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
-		</a>
-	</div>
-	<div class="box_list">
-		<a href="#">
-			<h3>Report Name</h3>
-			<img src="resources/images/ejemplo/grafico.png"/>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
-		</a>
-	</div>
-	<div class="box_list">
-		<a href="#">
-			<h3>Report Name</h3>
-			<img src="resources/images/ejemplo/grafico.png"/>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
+			<p><spring:message code="label.report.description"/></p>
 		</a>
 	</div>
 </div>

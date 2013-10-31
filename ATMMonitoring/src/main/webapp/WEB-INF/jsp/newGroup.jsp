@@ -18,40 +18,40 @@
 		<nav id="breadcrumb">
 			<ul>
 				<li>
-					<a href="dashboard">inicio</a>
+					<a href="dashboard"><spring:message code="breadcrumb.home"/></a>
 				</li>
 				<li>
-					<a href="users">Usuarios</a>
+					<a href="users"><spring:message code="label.users"/></a>
 				</li>
-				<li>Nuevo grupo</li>
+				<li><spring:message code="breadcrumb.group.new"/></li>
 			</ul>
 		</nav>
 	</div>
 	<div class="main">
 		<div id="primary">
-			<h1>Nuevo grupo</h1>
+			<h1><spring:message code="breadcrumb.group.new"/></h1>
 			<div class="content">
 				<div class="form w33">
 					<div class="row">
-						<label for="name">Nombre del grupo</label>
+						<label for="name"><spring:message code="label.group.name"/></label>
 						<input id="name" type="text"></div>
 					<div class="row">
-						<label for="ldapQuery">Consulta LDAP</label>
+						<label for="ldapQuery"><spring:message code="label.query.ldap"/></label>
 						<textarea id="ldapQuery" ></textarea>
 					</div>
 					<div class="botonera">
-						<input type="button" class="btn next" id="" value="Aplicar">
-						<a href="users" class="btn cancel">Cancelar</a>
+						<input type="button" class="btn next" id="" value="<spring:message code="label.apply"/>">
+						<a href="users" class="btn cancel"><spring:message code="label.cancel"/></a>
 					</div>
 				</div>
 			</div>
 <div id="aplicada" class="content hide">
 				<div class="form w33">
 					<div class="row">
-						<label for="name">Nombre del grupo</label>
+						<label for="name"><spring:message code="label.group.name"/></label>
 						<input id="name" type="text"></div>
 					<div class="row">
-						<label for="ldapQuery">Consulta LDAP</label>
+						<label for="ldapQuery"><spring:message code="label.query.ldap"/></label>
 						<textarea id="ldapQuery" ></textarea>
 					</div>
 					<ul class="users_list">
@@ -117,8 +117,8 @@
 						<li>Chantal Carini</li>
 					</ul>
 					<div class="botonera">
-						<input type="button" class="btn" value="Guardar grupo">
-						<a href="users" class="btn cancel">Cancelar</a>
+						<input type="button" class="btn" value="<spring:message code="label.group.save"/>">
+						<a href="users" class="btn cancel"><spring:message code="label.cancel"/></a>
 					</div>
 				</div>
 			</div>

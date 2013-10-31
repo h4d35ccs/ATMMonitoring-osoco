@@ -15,7 +15,7 @@
 <table class="link">
   <thead>
   <tr>
-    <th></th>
+    <!--th></th-->
     <c:forEach items="${terminalColumns}" var="column">
       <c:set var="isColumnSorted" value="${column.equals(sort)}"/>
       <c:set var="orderValue" value="${(isColumnSorted && 'asc'.equals(order)) ? 'desc' : 'asc'}"/>
@@ -32,7 +32,7 @@
   <tbody>
   <c:forEach items="${terminals}" var="terminal">
     <tr>
-      <td class="check"><input type="checkbox"/></td>
+      <!--td class="check"><input type="checkbox"/></td-->
       <td><a href="terminals/details/${terminal.id}">${terminal.mac}</a></td>
       <td>${terminal.ip}</td>
 	  <td>${terminal.serialNumber}</td>

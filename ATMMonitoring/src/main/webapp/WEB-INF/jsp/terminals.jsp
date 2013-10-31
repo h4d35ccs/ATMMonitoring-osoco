@@ -31,13 +31,13 @@
                 <div id="header_g">
                     <nav id="breadcrumb">
                         <ul>
-                            <li><a href="dashboard">inicio</a></li>
-                            <li>Terminales</li>
+                            <li><a href="dashboard"><spring:message code="breadcrumb.home"/></a></li>
+                            <li><spring:message code="breadcrumb.terminals"/></li>
                         </ul>
                     </nav>
                     <div class="botonera">
                         <ul>
-                            <li><a href="terminals/new" class="btn add">Nuevo terminal</a></li>
+                            <li><a href="terminals/new" class="btn add"><spring:message code="label.terminal.new"/></a></li>
                         </ul>
                     </div>
                 </div>
@@ -45,33 +45,33 @@
                 <div class="content">
                     <h1><spring:message code="label.terminals"/></h1>
                     <div class="action_box">
-                        <h2>Consultas <a href="#help_pop" class="info inline"><span>Más información</span></a></h2>
+                        <h2><spring:message code="label.queries"/> <a href="#help_pop" class="info inline"><span><spring:message code="label.moreInfo"/></span></a></h2>
 
                         <div class="row">
                            <c:if test="${userQueries == null}">
                                <div class="message no_queries">
-                                	<p>Ahorra tiempo generardo consultas, que las irás aplicando a medida que las vayas necesitando.</p>
+                                	<p><spring:message code="label.queries.tip"/></p>
 					<div class="flecha"></div>
                                </div>
 
                            </c:if>
                            <c:if test="${userQueries != null && !userQueries.isEmpty()}">
                                <form method="post" name="userQueriesForm" action="terminals/byQuery">
-                                   <label>Elige tu consulta:</label>
+                                   <label><spring:message code="label.choose.query"/>:</label>
                                    <select name="queryId" size="1">
-                                        <option value="" >Seleccionar</option>
+                                        <option value="" ><spring:message code="label.select.default"/></option>
                                 	<c:forEach items="${userQueries}" var="userQuery">
                                     		   <option value="${userQuery.id}" ${query.id == userQuery.id? 'selected': ''}>${userQuery.name}</option>
                                 	</c:forEach>
                             	    </select>
 
 				<input id="queryDate" type="text" value="2/11/2013">
-                            	<a href="" id="queryDateButton" class="btn calendar"><span>Abrir calendario</span></a>
-                            	<input type="submit" value="Aplicar" class="btn">
+                            	<a href="" id="queryDateButton" class="btn calendar"><span><spring:message code="label.calendar.open"/></span></a>
+                            	<input type="submit" value="<spring:message code="label.apply"/>" class="btn">
                                 </form>
 			   </c:if>
 						</div>
-                           <div class="botonera"><a href="queries" class="btn right">Mis consultas</a></div>
+                           <div class="botonera"><a href="queries" class="btn right"><spring:message code="label.queries.mine"/></a></div>
 
                     </div>
 		    <c:if test="${timeout}">
@@ -81,10 +81,10 @@
 		        <div class="notification"><p>${success}</p></div>
 		    </c:if>
 
-					<h2>${pagedListHolder.source.size()} terminales
+					<h2>${pagedListHolder.source.size()} <spring:message code="label.terminals"/>
 
  						    <c:if test="${query != null}">
-						       de la consulta: ${query.name} <a href="queries/show?queryId=${query.id}" class="edit"><span>edit</span></a>
+						       <spring:message code="label.forquery"/>: ${query.name} <a href="queries/show?queryId=${query.id}" class="edit"><span><g:message code="label.edit"/></span></a>
 						    </c:if>
 				        </h2>
 
@@ -96,15 +96,15 @@
                     <c:if  test="${!empty pagedListHolder.pageList}">
 		      <div class="table_buttons">
 			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
-						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
+						<label for="all_check"><!--input type="checkbox" class="all_check" name="all_check"/--> </label>
 						<c:if test="${query == null}">
-					          <a href="terminals/request" class="btn left update">Actualizar</a>
-						  <a href="terminals/schedules/new" class="btn left clock">Actualización planificada</a>
+					          <a href="terminals/request" class="btn left update"> <spring:message code="label.update"/></a>
+						  <a href="terminals/schedules/new" class="btn left clock"><spring:message code="label.update.schedule"/></a>
 
 						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 						<c:if test="${query != null}">
-						  <a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock">Actualización planificada</a>
+						  <a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock"><spring:message code="label.update.schedule"/></a>
 						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 					</div>
@@ -115,27 +115,27 @@
                        </div>
 
 			<div class="botonera"> <!-- Repito botonera antes de la tabla -->
-						<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
-												<c:if test="${query == null}">
-					          <a href="terminals/request" class="btn left update">Actualizar</a>
-						  <a href="terminals/schedules/new" class="btn left clock">Actualización planificada</a>
+						<label for="all_check"><!--input type="checkbox" class="all_check" name="all_check"/--> </label>
+						<c:if test="${query == null}">
+					          <a href="terminals/request" class="btn left update"><spring:message code="label.update"/></a>
+						  <a href="terminals/schedules/new" class="btn left clock"><spring:message code="label.update.schedule"/></a>
 
 						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 						<c:if test="${query != null}">
-						  <a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock">Actualización planificada</a>
+						  <a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock"><spring:message code="label.update.schedule"/></a>
 						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 					</div>
 					</div><!-- /table_buttons -->
 
                     <div class="pagination">
- 						<div class="t_number"><span class="text">${pagedListHolder.source.size()} Terminales</span>
+ 						<div class="t_number"><span class="text">${pagedListHolder.source.size()} <spring:message code="label.terminals"/></span>
 
                                                 </div>
 
                     	<div class="p_number"><c:if test="${pagedListHolder.getPageCount() >1 }">
-			     			    <span class="text">Página</span>
+			     			    <span class="text"><spring:message code="label.page"/></span>
 
 				  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}&sort=${sort}&order=${order}"/>
                         </div>
@@ -150,8 +150,8 @@
                 <div class="hide">
                 	<div id="help_pop" class="inline">
     			    	<div class="content">
-    						<h1>Terminales</h1>
-    						<h2>Consultas</h2>
+    						<h1><spring:message code="label.terminals"/></h1>
+    						<h2><spring:message code="label.queries"/></h2>
     						<p>Scelerisque montes est et! Sit dignissim, sed, aenean ac scelerisque. Pulvinar ac! Elementum natoque penatibus scelerisque sociis tempor, hac ridiculus ac augue non et. Magna dignissim lundium rhoncus turpis! Porttitor eros dis proin pulvinar sagittis ac, facilisis porta mauris tincidunt scelerisque pulvinar. Arcu augue eu. Penatibus sit phasellus lorem in.</p>
 
     							<p>Ultrices! A, nisi. Parturient amet ac ut et, phasellus odio aenean montes tincidunt eu. Aliquet? Turpis augue? Porta ultrices dignissim enim, sed sit arcu ac porttitor dapibus augue? Turpis nec dignissim augue scelerisque. Dignissim tempor amet sed turpis aliquet, arcu vel in diam? In, in, scelerisque montes eu, velit.</p>
