@@ -1,6 +1,9 @@
 package com.ncr.ATMMonitoring.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +36,23 @@ public class TerminalModelServiceImpl implements TerminalModelService {
     @Override
     public List<TerminalModel> listTerminalModels() {
 	return terminalModelDAO.listTerminalModels();
+    }
+
+    public Map<String, List<TerminalModel>> listTerminalModelsByManufacturer() {
+    	Map<String, List<TerminalModel>> data = new HashMap<String, List<TerminalModel>>();
+    	List<TerminalModel> terminalModels = terminalModelDAO.listTerminalModels();
+    	String manufacturer;
+    	for (TerminalModel terminalModel : terminalModels) {
+    		manufacturer = terminalModel.getManufacturer();
+    		if (manufacturer != null) {
+    			if (!data.containsKey(manufacturer)) {
+    				data.put(manufacturer, new ArrayList<TerminalModel>());
+    			}
+				data.get(manufacturer).add(terminalModel);
+    		}
+    	}
+    	data.put("allManufacturers", terminalModels);
+    	return data;
     }
 
     @Override
