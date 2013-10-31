@@ -1108,7 +1108,7 @@ table th:last-child, table td:last-child {
 }
 /* line 61, ../sass/_table.scss */
 table th, table td {
-  padding: .8em;
+  padding: 0.5em 0.8em;
   border: 1px solid #bcbec0;
   border-collapse: collapse;
   vertical-align: top;

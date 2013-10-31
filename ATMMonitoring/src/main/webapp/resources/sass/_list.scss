@@ -1,5 +1,5 @@
 .box_list{
-	margin: 1em 0;
+	margin: 1% 0 0 1%;
 	a{
 		display: block;
 		padding: 1em;
@@ -22,5 +22,13 @@
 		p{
 			color: $colorK1;
 		}
+	}
+}
+.column3 .box_list{
+	float: left;
+	width: 32%;
+	a{
+		height: 17em;
+		overflow-y:auto;
 	}
 }
