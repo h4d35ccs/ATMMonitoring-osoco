@@ -36,26 +36,31 @@
 						<h2><spring:message code="label.terminalDetails"/></h2>
 						<form:form method="post" action="terminals/list" commandName="terminal">
 						  <div class="row td">
-							<label for="proveedor">Proveedor:</label><select> <option value>Seleccionar</option></select> 
+							<label for="proveedor">Proveedor:</label>
+							<select id="ManufacturerCombo" onchange="ChangeManufacturer()"> 
+								<option value="">Seleccionar</option>
+								<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
+								  <c:if test="${key != 'allManufacturers'}">
+									<option value="${key}">${key}</option>
+								  </c:if>
+								</c:forEach>
+							</select> 
 							<label for="modelo">Modelo ATM:</label> 
-							<select name="modelId" size="1">
-							  <option value="" >Seleccionar</option>
-                                			  <c:forEach items="${terminalModelsList}" var="model">
-                                    			    <option value="${model.id}"}>${model.model}</option>
-                                			  </c:forEach>
-                            				</select>
+							<form:select id="ModelsCombo" path="terminalModel" onchange="ChangeModel()">
+							  <option value="" ></option>
+                            </form:select>
 							
 						  </div>
 						  <div class="collapsible last">
 							<div class="photo">
-								<img src="resources/images/ejemplo/terminal.jpg"/>
+								<img id="photo_model" src="resources/images/ejemplo/terminal.jpg"/>
 								<div class="desplegable">
 									<div class="txt content_hide"><span>Más información</span></div>
 									<dl class="collapsible hide">
-										<dt>Nombre: </dt>
-											<dd>campo</dd>
-										<dt>Nombre de campo: </dt>
-											<dd>campo</dd>
+										<dt>Modelo: </dt>
+											<dd id="field_model"></dd>
+										<dt>Fabricante: </dt>
+											<dd id="field_manufacturer"></dd>
 										<dt>Campo: </dt>
 											<dd>campo</dd>
 										<dt>Nombre de campo: </dt>
@@ -320,5 +325,57 @@
 				</div>
 				
 	</div>
+	<script type="text/javascript">
+	    var valuesTree = {
+	        	<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
+	        		<c:set var="value" value="${values.get(key)}"/>
+	       	 '${key}': {
+					<c:forEach items="${value}" var="model" varStatus="status2">
+						'${model.id}': {
+							'model' : '${model.model}',
+							'manufacturer' : '${model.manufacturer}'
+						}${not status2.last ? ',' : ''}
+					</c:forEach>
+	       	 			}${not status1.last ? ',' : ''}
+	       		</c:forEach>
+	    };
+	    function ChangeManufacturer(){
+			var $cb1 = $('#ModelsCombo');
+			var $cb2 = $('#ManufacturerCombo');
+			$cb1.empty();
+			$cb1.append($('<option selected="selected"></option>'));
+			if ($cb2.val() != '') {
+				var values = valuesTree[$cb2.val()];
+				var keys = $.map(values, function(v, i){
+					  return i;
+					});
+				keys.sort(function(a,b){
+				    var compA = values[a].label;
+				    var compB = values[b].label;
+				    return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+				  });
+				$.each(keys, function(index, key) {
+					  $cb1.append($('<option/>')
+					     .attr("value", key).text(values[key]['model']));
+				});
+				$cb1.prop('disabled', false);
+			} else {
+				$cb1.prop('disabled', true);
+			};
+			$('#field_model').text('');
+			$('#field_manufacturer').text('');
+			$('#photo_model').attr("src", '');
+	    };
+	    function ChangeModel(){
+			var $cb1 = $('#ModelsCombo');
+			var $cb2 = $('#ManufacturerCombo');
+			if (($cb1.val() != '') && ($cb2.val() != '')) {
+				var values = valuesTree[$cb2.val()][$cb1.val()];
+				$('#field_model').text(values.model);
+				$('#field_manufacturer').text(values.manufacturer);
+				$('#photo_model').attr("src", 'terminals/models/image/' + $cb1.val());
+			};
+	    };
+    </script>
 
 </t:osoco-wrapper>

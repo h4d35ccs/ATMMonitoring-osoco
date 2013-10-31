@@ -326,7 +326,7 @@ public class TerminalController {
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
 
-        map.put("terminalModelsList", terminalModelService.listTerminalModels());
+        map.put("values", terminalModelService.listTerminalModelsByManufacturer());
         map.put("banksList", bankCompanies);
 	map.put("canAdd", canAdd);
         map.put("terminal", new Terminal());
