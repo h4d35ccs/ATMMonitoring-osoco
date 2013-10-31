@@ -973,22 +973,22 @@
 					</div>
 
 					<div class="content_tab">
-						<h2>
+<!--
+                        <h2>
 							<spring:message code="label.terminalConfigs"/>
 						</h2>
-
+-->
 						<c:if  test="${empty terminal.configs}">
 							<div class="empty-list message">
 								<spring:message code="label.terminal.noConfigs"/>
 							</div>
 						</c:if>
 						<c:if  test="${!empty terminal.configs}">
-
-
-								<h3>
+                          <div class="action_box data desplegable">
+								<h3 class="txt content_hide">
 									<spring:message code="label.currentTerminalConfig"/>
 								</h3>
-								<div class="margin-box">
+								<div class="margin-box collapsible">
 									<table class="form-disabled">
 										<tr>
 											<td class="header first-header last-header">
@@ -1040,14 +1040,13 @@
 									--%>
 								</table>
 							</div>
+
 							<t:listSoftware config="${terminal.currentConfig}"/>
 
-
-
-							<h3>
+							<h3 class="txt content_hide">
 								<spring:message code="label.terminalConfigsHistory"/>
 							</h3>
-							<div class="margin-box">
+							<div class="margin-box collapsible hide">
 								<c:choose>
 									<c:when  test="${terminal.configs.size() > 10}">
 										<div id="tableContainer" class="tableContainer tableContainerTc">
@@ -1108,6 +1107,7 @@
 										</c:choose>
 						</c:if>
 				</div>
+
 			</div>
 			<div class="content_tab">
 				<h2>

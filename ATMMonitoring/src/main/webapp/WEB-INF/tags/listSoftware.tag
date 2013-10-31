@@ -4,9 +4,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<h3><spring:message code="label.operatingSystems"/></h3>
+
+<h3 class="txt content_hide"><spring:message code="label.operatingSystems"/></h3>
 <c:if  test="${!empty config.operatingSystems}">
-<div class="margin-box"><table class="data subform link">
+<div class="margin-box collapsible hide"><table class="data subform link">
 	<tr>
 	    <th width="80px"><i><spring:message code="label.operatingSystem.name"/> + <spring:message code="label.operatingSystem.majorVersion"/></i></th>
 	    <th width="40px"><i><spring:message code="label.operatingSystem.osType"/></i></th>
@@ -32,8 +33,10 @@
 </table></div>
 </c:if>
 
-<h3><spring:message code="label.otherSoftware"/></h3>
-<div class="margin-box">
+
+
+<h3 clasS="txt content_hide"><spring:message code="label.otherSoftware"/></h3>
+<div class="margin-box collapsible hide">
 <c:if  test="${!empty config.software}">
 <c:choose>
 <c:when  test="${config.software.size() > 7}">
@@ -93,12 +96,13 @@
 </table>
 </c:if>
 </div>
+
 <script type="text/javascript">
-	$(document).ready(function(){	
+	$(document).ready(function(){
 		$("#SoftwareChromatable").chromatable({
 				width: "950px",
 				height: "220px",
-				scrolling: "yes"		
+				scrolling: "yes"
 		});
-	});		
+	});
 </script>
