@@ -51,27 +51,31 @@
 					<div class="action_box data desplegable">
 						<h2 class="txt last"><spring:message code="label.terminalDetails"/></h2>
 						<div class="collapsible last">
-							<div class="photo">
-								<img src="resources/images/ejemplo/terminal.jpg"/>
-								<div class="desplegable">
-									<div class="txt content_hide"><span>Más información</span></div>
-									<dl class="collapsible hide">
-										<dt>Nombre: </dt>
-											<dd>campo</dd>
-										<dt>Nombre de campo: </dt>
-											<dd>campo</dd>
-										<dt>Campo: </dt>
-											<dd>campo</dd>
-										<dt>Nombre de campo: </dt>
-											<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </dd>
-										<dt>Nombre de campo: </dt>
-											<dd>campo</dd>
-										<dt>Nombre de campo: </dt>
-											<dd>campo</dd>
-									</dl>
+							<div class="model">
+								<div class="photo">
+									<a href="resources/images/ejemplo/terminal.jpg" class="colorbox">
+										<img src="resources/images/ejemplo/terminal.jpg"/>
+										<div class="zoom"></div>
+									</a>
 								</div>
+								<div class="desplegable">
+										<div class="txt content_hide"><span>Más información</span></div>
+										<dl class="collapsible hide">
+											<dt>Nombre: </dt>
+												<dd>campo</dd>
+											<dt>Nombre de campo: </dt>
+												<dd>campo</dd>
+											<dt>Campo: </dt>
+												<dd>campo</dd>
+											<dt>Nombre de campo: </dt>
+												<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </dd>
+											<dt>Nombre de campo: </dt>
+												<dd>campo</dd>
+											<dt>Nombre de campo: </dt>
+												<dd>campo</dd>
+										</dl>
+									</div>
 							</div>
-
 								<c:if test="${canEdit == true}">
 							            <div id="editForm" class="${errors != null ? '': 'hide'}">
 									<form:form method="post" action="terminals/update" commandName="terminal">
@@ -339,8 +343,8 @@
 					</div>
 					<!-- // /action_box -->
 					<div class="action_box data desplegable">
-						<h2 class="txt last">Histórico</h2>
-						<div class="collapsible last">
+						<h2 class="txt last content_hide">Histórico</h2>
+						<div class="collapsible last hide">
 							<img src="resources/images/ejemplo/historico.png" style="width:100%; margin:1em 0" />
 						</div>
 					</div>

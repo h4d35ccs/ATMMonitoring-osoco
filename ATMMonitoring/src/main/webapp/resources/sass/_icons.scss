@@ -276,6 +276,16 @@
 		visibility: hidden;
 	}
 }
+.zoom{
+	position: absolute;
+	bottom: .5em;
+	right: .5em;
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	display: block;
+	background:url("../images/icons/zoom.png") no-repeat;
+}
 .graph_01{
 	background:url("../images/icons/icon_graph_01.png") no-repeat top;
 }

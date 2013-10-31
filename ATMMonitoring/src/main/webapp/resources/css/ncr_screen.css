@@ -1304,27 +1304,54 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   float: left;
 }
 /* line 50, ../sass/_action_box.scss */
-#main .action_box.data .photo, #cboxContent .action_box.data .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo {
+#main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model {
   margin-top: 2em;
   float: left;
   width: 20%;
   position: relative;
 }
 /* line 55, ../sass/_action_box.scss */
-#main .action_box.data .photo img, #cboxContent .action_box.data .photo img, #main .data.pagination .photo img, #cboxContent .data.pagination .photo img {
+#main .action_box.data .model .photo, #cboxContent .action_box.data .model .photo, #main .data.pagination .model .photo, #cboxContent .data.pagination .model .photo {
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  border: 1px solid #e6e6e6;
+  background: white;
+  height: 0;
   width: 100%;
+  margin: 0;
+  margin-bottom: .5em;
+  padding: 0;
+  padding-top: 60%;
+  overflow: hidden;
+  position: relative;
 }
-/* line 58, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable, #cboxContent .action_box.data .photo .desplegable, #main .data.pagination .photo .desplegable, #cboxContent .data.pagination .photo .desplegable {
-  padding: .5em;
+/* line 68, ../sass/_action_box.scss */
+#main .action_box.data .model .photo img, #cboxContent .action_box.data .model .photo img, #main .data.pagination .model .photo img, #cboxContent .data.pagination .model .photo img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+/* line 73, ../sass/_action_box.scss */
+#main .action_box.data .model .photo:hover, #cboxContent .action_box.data .model .photo:hover, #main .data.pagination .model .photo:hover, #cboxContent .data.pagination .model .photo:hover {
+  padding-top: 100%;
+}
+/* line 77, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable, #cboxContent .action_box.data .model .desplegable, #main .data.pagination .model .desplegable, #cboxContent .data.pagination .model .desplegable {
+  background: white;
+  clear: both;
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   margin-top: 1em;
 }
-/* line 62, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable .txt, #cboxContent .action_box.data .photo .desplegable .txt, #main .data.pagination .photo .desplegable .txt, #cboxContent .data.pagination .photo .desplegable .txt {
+/* line 82, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable .txt, #cboxContent .action_box.data .model .desplegable .txt, #main .data.pagination .model .desplegable .txt, #cboxContent .data.pagination .model .desplegable .txt {
   cursor: pointer;
   float: none;
   padding: 0.5em 1em 0.5em 3em;
@@ -1332,43 +1359,43 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   color: white;
   border: 2px solid #b3b3b3;
 }
-/* line 63, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable .txt.content_hide, #cboxContent .action_box.data .photo .desplegable .txt.content_hide, #main .data.pagination .photo .desplegable .txt.content_hide, #cboxContent .data.pagination .photo .desplegable .txt.content_hide {
+/* line 83, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable .txt.content_hide, #cboxContent .action_box.data .model .desplegable .txt.content_hide, #main .data.pagination .model .desplegable .txt.content_hide, #cboxContent .data.pagination .model .desplegable .txt.content_hide {
   background: url("../images/icons/icon_collapsible.png") no-repeat gray left top;
 }
-/* line 73, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable dl, #cboxContent .action_box.data .photo .desplegable dl, #main .data.pagination .photo .desplegable dl, #cboxContent .data.pagination .photo .desplegable dl {
+/* line 93, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable dl, #cboxContent .action_box.data .model .desplegable dl, #main .data.pagination .model .desplegable dl, #cboxContent .data.pagination .model .desplegable dl {
   margin-top: 1em;
   padding: 1em;
   background: white;
   overflow: hidden;
 }
-/* line 78, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable dl dt, #cboxContent .action_box.data .photo .desplegable dl dt, #main .data.pagination .photo .desplegable dl dt, #cboxContent .data.pagination .photo .desplegable dl dt {
+/* line 98, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable dl dt, #cboxContent .action_box.data .model .desplegable dl dt, #main .data.pagination .model .desplegable dl dt, #cboxContent .data.pagination .model .desplegable dl dt {
   font-weight: bold;
 }
-/* line 81, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable dl dd, #cboxContent .action_box.data .photo .desplegable dl dd, #main .data.pagination .photo .desplegable dl dd, #cboxContent .data.pagination .photo .desplegable dl dd {
+/* line 101, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable dl dd, #cboxContent .action_box.data .model .desplegable dl dd, #main .data.pagination .model .desplegable dl dd, #cboxContent .data.pagination .model .desplegable dl dd {
   border-bottom: 1px solid #cccccc;
   padding: 0.5em 0;
   margin-bottom: .5em;
 }
-/* line 85, ../sass/_action_box.scss */
-#main .action_box.data .photo .desplegable dl dd:last-child, #cboxContent .action_box.data .photo .desplegable dl dd:last-child, #main .data.pagination .photo .desplegable dl dd:last-child, #cboxContent .data.pagination .photo .desplegable dl dd:last-child {
+/* line 105, ../sass/_action_box.scss */
+#main .action_box.data .model .desplegable dl dd:last-child, #cboxContent .action_box.data .model .desplegable dl dd:last-child, #main .data.pagination .model .desplegable dl dd:last-child, #cboxContent .data.pagination .model .desplegable dl dd:last-child {
   border: none;
 }
-/* line 92, ../sass/_action_box.scss */
+/* line 112, ../sass/_action_box.scss */
 #main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
   margin-top: 2em;
   float: right;
   width: 75%;
 }
-/* line 96, ../sass/_action_box.scss */
+/* line 116, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul, #cboxContent .action_box.data .ul_data > ul, #main .data.pagination .ul_data > ul, #cboxContent .data.pagination .ul_data > ul {
   overflow: hidden;
   margin-bottom: 2em;
 }
-/* line 99, ../sass/_action_box.scss */
+/* line 119, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li {
   margin-left: 4%;
   padding: 0.5em 0;
@@ -1376,30 +1403,30 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 46%;
   border-bottom: 1px solid #b3b3b3;
 }
-/* line 105, ../sass/_action_box.scss */
+/* line 125, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong, #cboxContent .action_box.data .ul_data > ul li strong, #main .data.pagination .ul_data > ul li strong, #cboxContent .data.pagination .ul_data > ul li strong {
   width: 45%;
   margin-right: 4%;
   float: left;
   display: block;
 }
-/* line 110, ../sass/_action_box.scss */
+/* line 130, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong label, #cboxContent .action_box.data .ul_data > ul li strong label, #main .data.pagination .ul_data > ul li strong label, #cboxContent .data.pagination .ul_data > ul li strong label {
   width: 90%;
 }
-/* line 117, ../sass/_action_box.scss */
+/* line 137, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable > ul li, #cboxContent .action_box.data .ul_data.editable > ul li, #main .data.pagination .ul_data.editable > ul li, #cboxContent .data.pagination .ul_data.editable > ul li {
   min-height: 3em;
 }
-/* line 120, ../sass/_action_box.scss */
+/* line 140, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable input[type="text"], #cboxContent .action_box.data .ul_data.editable input[type="text"], #main .data.pagination .ul_data.editable input[type="text"], #cboxContent .data.pagination .ul_data.editable input[type="text"] {
   width: 40%;
 }
-/* line 122, ../sass/_action_box.scss */
+/* line 142, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable input[type="text"].num, #cboxContent .action_box.data .ul_data.editable input[type="text"].num, #main .data.pagination .ul_data.editable input[type="text"].num, #cboxContent .data.pagination .ul_data.editable input[type="text"].num {
   width: 2em;
 }
-/* line 127, ../sass/_action_box.scss */
+/* line 147, ../sass/_action_box.scss */
 #main .action_box.data .ul_data .ul_data, #cboxContent .action_box.data .ul_data .ul_data, #main .data.pagination .ul_data .ul_data, #cboxContent .data.pagination .ul_data .ul_data {
   width: auto;
   float: none;
@@ -3065,36 +3092,48 @@ td .add span, th .add span {
 }
 
 /* line 279, ../sass/_icons.scss */
+.zoom {
+  position: absolute;
+  bottom: .5em;
+  right: .5em;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  background: url("../images/icons/zoom.png") no-repeat;
+}
+
+/* line 289, ../sass/_icons.scss */
 .graph_01 {
   background: url("../images/icons/icon_graph_01.png") no-repeat top;
 }
 
-/* line 282, ../sass/_icons.scss */
+/* line 292, ../sass/_icons.scss */
 .graph_02 {
   background: url("../images/icons/icon_graph_02.png") no-repeat top;
 }
 
-/* line 285, ../sass/_icons.scss */
+/* line 295, ../sass/_icons.scss */
 .graph_03 {
   background: url("../images/icons/icon_graph_03.png") no-repeat top;
 }
 
-/* line 288, ../sass/_icons.scss */
+/* line 298, ../sass/_icons.scss */
 .graph_04 {
   background: url("../images/icons/icon_graph_04.png") no-repeat top;
 }
 
-/* line 291, ../sass/_icons.scss */
+/* line 301, ../sass/_icons.scss */
 .graph_05 {
   background: url("../images/icons/icon_graph_05.png") no-repeat top;
 }
 
-/* line 294, ../sass/_icons.scss */
+/* line 304, ../sass/_icons.scss */
 .graph_component label.current {
   background-color: #6ca932;
 }
 
-/* line 297, ../sass/_icons.scss */
+/* line 307, ../sass/_icons.scss */
 .columns_botonera {
   position: absolute;
   top: 0;
@@ -3107,66 +3146,66 @@ td .add span, th .add span {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 306, ../sass/_icons.scss */
+/* line 316, ../sass/_icons.scss */
 .columns_botonera ul li {
   float: left;
   padding: 4px;
 }
-/* line 310, ../sass/_icons.scss */
+/* line 320, ../sass/_icons.scss */
 .columns_botonera ul a {
   display: block;
   width: 20px;
   height: 20px;
 }
-/* line 316, ../sass/_icons.scss */
+/* line 326, ../sass/_icons.scss */
 .columns_botonera ul .column1 a {
   background: url("../images/icons/icons_column.png") no-repeat 0 0;
 }
-/* line 319, ../sass/_icons.scss */
+/* line 329, ../sass/_icons.scss */
 .columns_botonera ul .column1.current a {
   background-position: 0 -20px;
 }
-/* line 325, ../sass/_icons.scss */
+/* line 335, ../sass/_icons.scss */
 .columns_botonera ul .column2 a {
   background: url("../images/icons/icons_column.png") no-repeat -20px 0;
 }
-/* line 328, ../sass/_icons.scss */
+/* line 338, ../sass/_icons.scss */
 .columns_botonera ul .column2.current a {
   background-position: -20px -20px;
 }
-/* line 334, ../sass/_icons.scss */
+/* line 344, ../sass/_icons.scss */
 .columns_botonera ul .column3 a {
   background: url("../images/icons/icons_column.png") no-repeat -40px 0;
 }
-/* line 337, ../sass/_icons.scss */
+/* line 347, ../sass/_icons.scss */
 .columns_botonera ul .column3.current a {
   background-position: -40px -20px;
 }
-/* line 342, ../sass/_icons.scss */
+/* line 352, ../sass/_icons.scss */
 .columns_botonera ul .column4 a {
   background: url("../images/icons/icons_column.png") no-repeat -60px 0;
 }
-/* line 345, ../sass/_icons.scss */
+/* line 355, ../sass/_icons.scss */
 .columns_botonera ul .column4.current a {
   background-position: -60px -20px;
 }
-/* line 350, ../sass/_icons.scss */
+/* line 360, ../sass/_icons.scss */
 .columns_botonera ul .lista a {
   background: url("../images/icons/icons_column.png") no-repeat -80px 0;
 }
-/* line 353, ../sass/_icons.scss */
+/* line 363, ../sass/_icons.scss */
 .columns_botonera ul .lista.current a {
   background-position: -80px -20px;
 }
-/* line 358, ../sass/_icons.scss */
+/* line 368, ../sass/_icons.scss */
 .columns_botonera ul .calendario a {
   background: url("../images/icons/icons_column.png") no-repeat -100px 0;
 }
-/* line 361, ../sass/_icons.scss */
+/* line 371, ../sass/_icons.scss */
 .columns_botonera ul .calendario.current a {
   background-position: -100px -20px;
 }
-/* line 368, ../sass/_icons.scss */
+/* line 378, ../sass/_icons.scss */
 .columns_botonera span {
   position: absolute;
   top: 5em;
@@ -3356,7 +3395,7 @@ td .add span, th .add span {
   }
 
   /* line 82, ../sass/_responsive.scss */
-  #main .action_box.data .photo, #cboxContent .action_box.data .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo, #cboxContent .action_box.data .photo, #cboxContent .data.pagination .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo, #cboxContent .data.pagination .photo {
+  #main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .action_box.data .model, #cboxContent .data.pagination .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .data.pagination .model {
     width: 35%;
   }
 
@@ -3417,7 +3456,7 @@ td .add span, th .add span {
   }
 
   /* line 131, ../sass/_responsive.scss */
-  #main .action_box.data .photo, #cboxContent .action_box.data .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo, #cboxContent .action_box.data .photo, #cboxContent .data.pagination .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo, #cboxContent .data.pagination .photo {
+  #main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .action_box.data .model, #cboxContent .data.pagination .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .data.pagination .model {
     width: 96%;
   }
 

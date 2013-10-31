@@ -47,16 +47,36 @@
 		float: left;
 	}
 	&.data{
-		.photo{
-			margin-top: 2em;
-			float: left;
-			width: 20%;
-			position: relative;
-			img{
+		.model{
+				margin-top: 2em;
+				float: left;
+				width: 20%;
+				position: relative;
+			.photo{
+				@include border-radius(4px);
+				@include transitionAll;
+				border: 1px solid $colorK5;
+				background:$colorW;
+				height: 0;
 				width: 100%;
+				margin: 0;
+				margin-bottom: .5em;
+				padding: 0;
+				padding-top: 60%;
+				overflow: hidden;
+				position: relative;
+				img{
+					width: 100%;
+					position: absolute;
+					top: 0;
+				}
+				&:hover{
+					padding-top:100%;
+				}
 			}
 			.desplegable{
-				padding: .5em;
+				background:$colorW;
+				clear: both;
 				@include border-radius(4px);
 				margin-top: 1em;
 				.txt{
