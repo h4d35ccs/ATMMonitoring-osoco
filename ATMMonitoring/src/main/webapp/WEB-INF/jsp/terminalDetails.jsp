@@ -1107,7 +1107,7 @@
 										</c:choose>
 						</c:if>
 				</div>
-
+</div>
 			</div>
 			<div class="content_tab">
 				<h2>
