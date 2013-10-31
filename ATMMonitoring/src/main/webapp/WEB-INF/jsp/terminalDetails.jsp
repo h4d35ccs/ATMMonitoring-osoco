@@ -14,8 +14,35 @@
             $("#editTerminalButton").click(function(event) {
                 $("#showTerminal").hide();
                 $("#editForm").show();
+	        });
+            initTabs();
 	    });
-	});
+
+        function initTabs() {
+	        $('#tabs .content_tab').hide(); // cierro todas las capas
+	        $('#tabs .content_tab:first').show(); // muestro la primera
+	        $('.sub_nav li').removeClass();
+	        $('.sub_nav li:first').addClass('current'); // activo el primer tab
+	        $('.sub_nav li').click(function(event) {
+		        $('.sub_nav li').removeClass(); // borro estilo current de todos los li
+		        $(this).addClass('current');
+		        var tab_click =  $('.sub_nav li').index(this);
+		        $('#tabs .content_tab').hide();
+		        $('#tabs').find( ".content_tab" ).eq( tab_click ).show();
+            });
+            $('a[href*=#]').click(function() {
+                if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+                    && location.hostname == this.hostname) {
+
+                    var $target = $(this.hash);
+                    $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']');
+                    if ($target.length) {
+                        var targetOffset = $target.offset().top - 50;
+                        $('html,body').animate({scrollTop: targetOffset}, 1000);
+                    }
+                }
+            });
+        }
     </script>
 </jsp:attribute>
 
@@ -42,12 +69,12 @@
 					<c:if test="${errors != null}">
 					      <div class="alert"><p>Se ha producido un error. Revise los campos</p></div>
 					</c:if>
-     					
+
 					<c:if test="${timeout != null}">
 					      <div class="message"><p>${timeout}</p></div>
 					</c:if>
-     					
-                                       
+
+
 					<div class="action_box data desplegable">
 						<h2 class="txt last"><spring:message code="label.terminalDetails"/></h2>
 						<div class="collapsible last">
@@ -85,25 +112,25 @@
 												<li> <strong><form:label path="mac">
 															<spring:message code="label.terminal.mac"/>
 															*
-														</form:label></strong> 
+														</form:label></strong>
 
 													<form:input class='form-tf-grey' path="mac" maxlength="17"/>
 
-												
+
 														<form:errors path="mac" element="div" cssClass="error top"/>
 														<c:if test="${duplicatedMac == true}">
 														   	<div class="error top">
 															<spring:message code="label.terminal.duplicatedMac"/>
 															</div>
 														</c:if>
-													
+
 												</li>
 												<li> <strong><form:label path="ip">
 															<spring:message code="label.terminal.ip"/>
 															*
-														</form:label></strong> 
+														</form:label></strong>
 													        <form:input class='form-tf-grey' path="ip" maxlength="23"/>
-													
+
 														<form:errors path="ip"  element="div" cssClass="error top"/>
 														<c:if test="${duplicatedIp == true}">
 														<div class="error top">
@@ -237,7 +264,7 @@
 											</ul>
 										<div class="botonera">
 											<input type="submit" class="btn" value="<spring:message code="label.terminal.updateTerminal"/>"/>
-											<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>  							
+											<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>
 										</div>
 
 										</div>
@@ -253,7 +280,7 @@
 												</strong>
 												${terminal.mac}
 											</li>
-											
+
 											<li>
 												<strong>
 													<spring:message code="label.terminal.ip"/>
@@ -331,13 +358,13 @@
 									<c:if test="${canEdit == 'true'}">
 										<div class="botonera">
 											<button id="editTerminalButton" class="btn">Editar Terminal</button>
-											<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>  							
+											<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>
 										</div>
 									</c:if>
 
 									</div>
 									<!-- //ul-data -->
-									
+
 						</div>
 						<!-- // collapsible -->
 					</div>
@@ -349,30 +376,30 @@
 						</div>
 					</div>
 				</div>
-				<h2>Características</h2>
+				<h2 id="features">Características</h2>
 				<div id="tabs">
 					<nav class="sub_nav">
 						<ul>
 							<li class="current">
-								<a href="#tabs">Instalaciones</a>
+							  <a href="${currentUrl}#features">Instalaciones</a>
 							</li>
 							<li>
-								<a href="#tabs">Dispositivos financieros</a>
+								<a href="${currentUrl}#features">Dispositivos financieros</a>
 							</li>
 							<li>
-								<a href="#tabs">Hardware</a>
+								<a href="${currentUrl}#features">Hardware</a>
 							</li>
 							<li>
-								<a href="#tabs">Software</a>
+								<a href="${currentUrl}#features">Software</a>
 							</li>
 							<li>
-								<a href="#tabs">Agregados</a>
+								<a href="${currentUrl}#features">Agregados</a>
 							</li>
 							<li>
-								<a href="#tabs">HotFix</a>
+								<a href="${currentUrl}#features">HotFix</a>
 							</li>
 							<li>
-								<a href="#tabs">Navegadores</a>
+								<a href="${currentUrl}#features">Navegadores</a>
 							</li>
 						</ul>
 					</nav>
@@ -676,7 +703,7 @@
 											</c:otherwise>
 										</c:choose>
 										<tbody>
-										
+
 											<c:forEach items="${terminal.financialDevices}" var="financialDevice">
 												<tr class="showdetail open">
 												<td>
@@ -957,7 +984,7 @@
 						</c:if>
 						<c:if  test="${!empty terminal.configs}">
 
-							
+
 								<h3>
 									<spring:message code="label.currentTerminalConfig"/>
 								</h3>
@@ -1014,9 +1041,9 @@
 								</table>
 							</div>
 							<t:listSoftware config="${terminal.currentConfig}"/>
-						
 
-						
+
+
 							<h3>
 								<spring:message code="label.terminalConfigsHistory"/>
 							</h3>
@@ -1086,7 +1113,7 @@
 				<h2>
 					<spring:message code="label.softwareAggregates"/>
 				</h2>
-				
+
 					<c:if  test="${empty terminal.softwareAggregates}">
 						<div class="empty-list message">
 							<spring:message code="label.terminal.noSwAggregates"/>
@@ -1167,7 +1194,7 @@
 						</table>
 					</div><!-- / margin-box -->
 					</c:if>
-				
+
 			</div>
 
 			<div class="content_tab">
@@ -1306,32 +1333,28 @@
 </script>
 
 <script type="text/javascript">
-	$(document).ready(function(){	
+	$(document).ready(function(){
 		$("#TestChromatable").chromatable({
 				width: "1015px",
 				height: "170px",
-				scrolling: "yes"		
+				scrolling: "yes"
 		});
-		
+
 		$("#AggregateChromatable").chromatable({
 				width: "800px",
 				height: "150px",
 				scrolling: "yes"
 		});
-		
+
 		$("#HotfixChromatable").chromatable({
 				width: "800px",
 				height: "150px",
 				scrolling: "yes"
 		});
-		
+
 	});
 </script>
 
 </jsp:body>
 
 </t:osoco-wrapper>
-
-
-
-
