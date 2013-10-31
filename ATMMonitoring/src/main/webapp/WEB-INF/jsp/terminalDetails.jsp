@@ -350,29 +350,29 @@
 					</div>
 				</div>
 				<h2>Características</h2>
-				<div class="tabs">
+				<div id="tabs">
 					<nav class="sub_nav">
 						<ul>
 							<li class="current">
-								<span>Instalaciones</span>
+								<a href="#tabs">Instalaciones</a>
 							</li>
 							<li>
-								<span>Dispositivos financieros</span>
+								<a href="#tabs">Dispositivos financieros</a>
 							</li>
 							<li>
-								<span>Hardware</span>
+								<a href="#tabs">Hardware</a>
 							</li>
 							<li>
-								<span>Software</span>
+								<a href="#tabs">Software</a>
 							</li>
 							<li>
-								<span>Agregados</span>
+								<a href="#tabs">Agregados</a>
 							</li>
 							<li>
-								<span>HotFix</span>
+								<a href="#tabs">HotFix</a>
 							</li>
 							<li>
-								<span>Navegadores</span>
+								<a href="#tabs">Navegadores</a>
 							</li>
 						</ul>
 					</nav>

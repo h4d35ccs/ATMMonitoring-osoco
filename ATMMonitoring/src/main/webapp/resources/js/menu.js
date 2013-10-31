@@ -38,7 +38,7 @@ $(function() {
 	});
 // SCroll ancla
      $('a[href*=#]').click(function() {
-
+		//event.preventDefault();
      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
          && location.hostname == this.hostname) {
 

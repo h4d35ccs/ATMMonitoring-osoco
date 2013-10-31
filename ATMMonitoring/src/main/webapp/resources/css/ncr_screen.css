@@ -2183,11 +2183,11 @@ nav#main_nav a:hover {
 }
 
 /* line 53, ../sass/_nav.scss */
-.tabs {
+#tabs {
   min-height: 300px;
 }
 /* line 55, ../sass/_nav.scss */
-.tabs .margin-box {
+#tabs .margin-box {
   margin-bottom: 2em;
   overflow: auto;
 }
@@ -2205,26 +2205,26 @@ nav.sub_nav li {
   position: relative;
 }
 /* line 68, ../sass/_nav.scss */
-nav.sub_nav li span {
+nav.sub_nav li a {
   display: block;
   cursor: pointer;
   padding: 1em;
   color: #333333;
 }
 /* line 73, ../sass/_nav.scss */
-nav.sub_nav li span:hover {
+nav.sub_nav li a:hover {
   text-decoration: none;
   color: white;
   background-color: #333333;
 }
 /* line 80, ../sass/_nav.scss */
-nav.sub_nav li.current span {
+nav.sub_nav li.current a {
   text-decoration: none;
   color: white;
   background-color: #333333;
 }
 /* line 84, ../sass/_nav.scss */
-nav.sub_nav li.current span:after {
+nav.sub_nav li.current a:after {
   content: "";
   position: absolute;
   top: 100%;
