@@ -843,6 +843,8 @@
 						</c:if>
 						<c:if test="${!empty terminal.hardwareDevices}">
 
+                          <div class="action_box data desplegable">
+
 							<div class="margin-box">
 								<c:if test="${!empty terminal.computerSystems}">
 									<t:computerSystemTable hardwareDevices="${terminal.computerSystems}"/>
@@ -968,6 +970,8 @@
 									<t:videoControllerTable hardwareDevices="${terminal.videoControllers}"/>
 								</c:if>
 							</div>
+
+                            </div>
 
 						</c:if>
 					</div>

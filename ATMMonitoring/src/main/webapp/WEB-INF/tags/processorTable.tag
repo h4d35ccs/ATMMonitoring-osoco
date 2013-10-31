@@ -3,7 +3,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<h3><spring:message code="label.processors"/></h3>
+<h3 class="txt content_hide"><spring:message code="label.processors"/></h3>
+
+<div class="margin-box collapsible">
 
 <table class="data subform link">
 <tr>
@@ -100,3 +102,5 @@
     </tr>
 </c:forEach>
 </table>
+
+</div>
