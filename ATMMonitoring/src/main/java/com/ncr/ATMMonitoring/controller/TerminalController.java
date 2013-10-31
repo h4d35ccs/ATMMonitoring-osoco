@@ -93,9 +93,17 @@ public class TerminalController {
     }
 
     @RequestMapping(value = "/terminals/request", method = RequestMethod.GET)
-    public String requestTerminalsUpdate(Map<String, Object> map, HttpServletRequest request, 
+    public String requestTerminalsUpdate(Map<String, Object> map, String queryId, HttpServletRequest request, 
 					 Principal principal,
 					  RedirectAttributes redirectAttributes) {
+    	if ((queryId != null) && (principal != null)) {
+			User loggedUser = userService
+					.getUserByUsername(principal.getName());
+    		Query query = queryService.getQuery(Integer.parseInt(queryId));
+    		if (query.getUser().getId().equals(loggedUser.getId())) {
+    			snmpService.updateTerminalsSnmp(query);
+    		}
+    	} else {
 		try {
 		    snmpService.updateAllTerminalsSnmp();
 		    redirectAttributes.addFlashAttribute("success", "success.snmpUpdateAll");
@@ -112,6 +120,7 @@ public class TerminalController {
 		    map.put("ips", e.getIpsHtmlList());
 		    redirectAttributes.addFlashAttribute("timeout", "timeout.snmpUpdateAll");
 		}
+    	}
 
 		try {
 		    // We wait to avoid not loading the recently added DB data

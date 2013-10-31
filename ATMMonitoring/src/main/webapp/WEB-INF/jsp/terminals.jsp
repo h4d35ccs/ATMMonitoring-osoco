@@ -104,6 +104,7 @@
 						  <a href="terminals/exportAll" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
 						<c:if test="${query != null}">
+					          <a href="terminals/request?queryId=${query.id}" class="btn left update"><spring:message code="label.update"/></a>
 						  <a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock"><spring:message code="label.update.schedule"/></a>
 						  <a href="terminals/export/${query.id}" class="btn download" target="_blank" ><spring:message code="label.query.downloadCsv"/></a>
 						</c:if>
