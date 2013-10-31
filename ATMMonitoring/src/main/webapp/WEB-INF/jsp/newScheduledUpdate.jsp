@@ -52,12 +52,12 @@
 
 <div class="row">
   <label for="name"><strong>Nombre de la planificación</strong></label>
-  <input type="text" id="name"/>
+  <form:input id="name" type="text" path="name"/>
 </div>
 
 <div class="row">
   <label for="description"><strong>Descripción</strong></label>
-  <textarea id="description"></textarea>
+  <form:textarea id="description" path="description"/>
 </div>
 
 <div class="row">
@@ -109,12 +109,16 @@
     <form:option value="${minute}">${minute < 10 ? '0' : ''}${minute}</form:option>
   </c:forEach>
 </form:select>
+ <form:select path="timeZone">
+  <c:forEach begin="0" end="24" var="timeZone">
+    <form:option value="${timeZone}">GMT ${timeZone > 12 ? '+' : ''}${timeZone - 12}</form:option>
+  </c:forEach>
+ </form:select>
 <div class="botonera">
   <input type="submit" id="form-submit" class="form-submit" value="<spring:message code="label.scheduledUpdate.addScheduledUpdate"/>"/>
   <a href="terminals/schedules/list" class="btn cancel">Cancelar</a>
 </div>
-</div>
-</form:form></div>
+</form:form></div></div>
 
 </jsp:body>
 
