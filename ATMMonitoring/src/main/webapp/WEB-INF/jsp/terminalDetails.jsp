@@ -985,7 +985,7 @@
 						</c:if>
 						<c:if  test="${!empty terminal.configs}">
                           <div class="action_box data desplegable">
-								<h3 class="txt content_hide">
+								<h3 class="txt">
 									<spring:message code="label.currentTerminalConfig"/>
 								</h3>
 								<div class="margin-box collapsible">
