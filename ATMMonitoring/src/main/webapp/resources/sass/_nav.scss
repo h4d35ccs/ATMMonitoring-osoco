@@ -59,6 +59,11 @@ nav#main_nav{
 		overflow: auto;
 	}
 }
+#tabs .desplegable{
+	.margin-box{
+		margin-bottom: 0;
+	}
+}
 nav.sub_nav{
 	background-color: $colorW1;
 	height: 3em;
