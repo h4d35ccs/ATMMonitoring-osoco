@@ -5,7 +5,7 @@
 
 <h3 class="txt content_hide"><spring:message code="label.processors"/></h3>
 
-<div class="margin-box collapsible">
+<div class="margin-box collapsible hide">
 
 <table class="data subform link">
 <tr>

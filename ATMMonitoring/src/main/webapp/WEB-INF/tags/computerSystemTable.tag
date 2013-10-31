@@ -5,8 +5,7 @@
 
 <h3 class="txt content_hide"><spring:message code="label.computerSystems"/></h3>
 
-<div class="margin-box collapsible">
-
+<div class="margin-box collapsible hide">
 <table class="data subform link">
 <tr>
 	<th><spring:message code="label.hardwareDevice.name"/></th>
