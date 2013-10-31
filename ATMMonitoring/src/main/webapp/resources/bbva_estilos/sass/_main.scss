@@ -3,6 +3,7 @@ body{
 	color: $colorK1;
 	font-family: $generalFont;
 	font-size: .8em;
+	overflow-x:hidden;
 }
 a{
 	@include transitionAll;
