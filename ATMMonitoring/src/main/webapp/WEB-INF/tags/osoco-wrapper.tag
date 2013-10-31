@@ -48,7 +48,7 @@
             </div>
             <h1>
                 <a href="dashboard"><img src="resources/images/general/logo.png"/></a>
-                <span>NCR</span> <strong>HASM</strong>
+                <span>NCR</span> <strong><acronym title="Hardware and Software Asset Management">HSAM</acronym></strong>
             </h1>
             <div id="user_info">
                ${userMsg}
