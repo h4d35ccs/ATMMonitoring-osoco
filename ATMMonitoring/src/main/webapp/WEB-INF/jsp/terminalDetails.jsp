@@ -1043,7 +1043,7 @@
 
 							<t:listSoftware config="${terminal.currentConfig}"/>
 
-							<h3 class="txt content_hide">
+							<h3 class="txt last content_hide">
 								<spring:message code="label.terminalConfigsHistory"/>
 							</h3>
 							<div class="margin-box collapsible hide">
