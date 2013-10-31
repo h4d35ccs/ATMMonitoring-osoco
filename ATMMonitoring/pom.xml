@@ -49,17 +49,13 @@
             <groupId>ncr.inventory</groupId>
             <artifactId>Inventory</artifactId>
             <version>0.1</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/../Inventory/target/Inventory-0.1.jar</systemPath>
         </dependency>
 
         <dependency>
-	    <groupId>uk.co.westhawk.snmp</groupId>
-	    <artifactId>snmp-stack</artifactId>
-	    <version>6.1</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/../Inventory/lib/snmp6_1.jar</systemPath>
-	</dependency>
+	        <groupId>uk.co.westhawk.snmp</groupId>
+	        <artifactId>snmp-stack</artifactId>
+	        <version>6.1</version>
+	    </dependency>
 
         <dependency>
             <groupId>log4j</groupId>
