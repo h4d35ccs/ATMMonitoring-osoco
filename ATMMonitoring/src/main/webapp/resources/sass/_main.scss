@@ -1,13 +1,13 @@
 body{
 	background: $colorW url("../images/general/bg_body.png") repeat-y fixed;
 	color: $colorK1;
-	font-family: Arial, Sans-Serif;
+	font-family: $generalFont;
 	font-size: .8em;
 	overflow-x:hidden;
 }
 a{
 	@include transitionAll;
-	color:$colorG;
+	color:$colorB3;
 	text-decoration: none;
 	outline: none;
 	&:hover{
@@ -20,35 +20,37 @@ p{
 }
 #main{
 	padding: 16px 35px;
-	border-top: 40px solid $colorK1;
+	border-top: 50px solid $colorW;
 	margin-left: 90px;
 	background:$colorW;
 	min-height: 300px;
 	position: relative;
-	display: block;
 	h1{
+		font-family: $designFont;
 		font-size: 2.2em;
-		color: $colorG;
+		color: $colorB3;
 		margin: .5em 0;
 		font-weight: normal;
 		clear: left;
 	}
 	h2{
+		font-family: $designFont;
 		@extend h1;
 		font-size: 1.7em;
 	}
 	h3{
+		font-family: $designFont;
 		@extend h1;
 		font-size: 1.5em;
-		color: $colorK2;
 	}
 	h4{
+		font-family: $designFont;
 		@extend h1;
 		font-size: 1.2em;
-		color: $colorK2;
 		font-weight: bold;
 	}
 	h5{
+		font-family: $designFont;
 		@extend h1;
 		font-size: 1em;
 		font-weight: bold;
@@ -90,18 +92,18 @@ p{
 		}
 		&.pagingItemCurrent{
 			@include border-radius(4px);
-			padding: .3em .5em;
-			background-color: $colorK1;
+			padding: .4em .5em;
+			background-color: $colorB3;
 			text-decoration: none;
 			color: $colorW;
 		 }
 		a{
 			padding: .3em .5em;
 			display: block;
-			border: 1px solid $colorK4;
+			border: 1px solid $colorB3;
 			@include border-radius(4px);
 			&:hover{
-				background-color: $colorG;
+				background-color: $colorB3;
 				text-decoration: none;
 				color: $colorW;
 			}

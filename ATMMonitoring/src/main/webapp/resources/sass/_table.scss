@@ -1,11 +1,8 @@
-.margin-box {
-  overflow: auto;
-}
 .table_buttons{
 	overflow: hidden;
 	@include border-radius(4px);
-	background:$colorK6;
-	border:1px solid $colorK5;
+	background:$colorW1;
+	border:1px solid $colorW1;
 	table{
 		border-right:none;
 		border-left: none;
@@ -26,24 +23,26 @@ table{
 	margin: .5em 0;
 	border: 1px solid $colorK4;
 	th{
-		background:$colorG;
-		color:$colorW;
+		background:$colorB5;
+		color:$colorB2;
 		&.order{
-			background:url("../images/icons/colunm_order.png") $colorG no-repeat right top;
+			background-image:url("../images/icons/colunm_order.png");
+			background-repeat: no-repeat;
+			background-position: right top;
 			padding-right: 2em;
-			border-top: 1px solid $colorW;
-			border-bottom: 1px solid $colorW;
 			&.bottom{
-				background:url("../images/icons/colunm_order.png") $colorK1 no-repeat right -40px;
+				background-image:url("../images/icons/colunm_order.png");
+				background-repeat: no-repeat;
+				background-position: right -40px;
+				background-color: $colorB2;
+				color: $colorW;
 			}
 			&.top{
-				background:url("../images/icons/colunm_order.png") $colorK1 no-repeat right -80px;
-			}
-		}
-		a{
-			color: $colorW;
-			&:hover{
-				text-decoration: none;
+				background-image:url("../images/icons/colunm_order.png");
+				background-repeat: no-repeat;
+				background-position: right -80px;
+				background-color: $colorB2;
+				color: $colorW;
 			}
 		}
 	}
@@ -52,17 +51,17 @@ table{
 	}
 	th,td{
 		padding: .8em;
-		border: 1px solid $colorK4;
+		border: 1px solid $colorK5;
 		border-collapse: collapse;
 		vertical-align: top;
 		&.note_detail{
 			&:hover{
 				color: $colorK1;
 			}
-			border-bottom: 2px solid $colorY3;
-			border-left:  2px solid $colorY3;
-			border-right:  2px solid $colorY3;
-			background:$colorY3;
+			border-bottom: 2px solid $colorB5;
+			border-left:  2px solid $colorB5;
+			border-right:  2px solid $colorB5;
+			background:$colorB5;
 			float: none;
 			padding: 1em;
 			div{
@@ -96,13 +95,13 @@ table{
 	tr{
 		background: $colorW;
 		&:nth-child(2n+1) {
-			background: $colorK5;
+			background: $colorW1;
 		}
 		&.active{
-			background:$colorY3;
-			border-top: 2px solid $colorY3;
-			border-left:  2px solid $colorY3;
-			border-right:  2px solid $colorY3;
+			background:$colorB5;
+			border-top: 2px solid $colorB5;
+			border-left:  2px solid $colorB5;
+			border-right:  2px solid $colorB5;
 		}
 	}
 	&.query-form{
@@ -110,12 +109,12 @@ table{
 		margin-bottom: 2em;
 		tr{
 			border:1px solid $colorW;
-			border-bottom: 2px dotted $colorK5;
+			border-bottom: 2px dotted $colorW1;
 			background: $colorW;
 			&:hover{
 				cursor: inherit;
 				border:1px solid $colorW;
-				border-bottom: 2px dotted $colorK5;
+				border-bottom: 2px dotted $colorW1;
 			}
 			&:nth-child(2n+1) {
 				background: $colorW;
@@ -129,13 +128,13 @@ table{
 		}
 		th{
 			border:1px solid $colorW;
-			border-bottom: 2px solid $colorK5;
-			color: $colorG;
-			background:$colorG5;
+			border-bottom: 2px solid $colorW1;
+			color: $colorB;
+			background:$colorB5;
 			&:hover{
 				cursor: inherit;
 				border:1px solid $colorW;
-				border-bottom: 2px solid $colorK5;
+				border-bottom: 2px solid $colorW1;
 			}
 		}
 		td{
@@ -161,8 +160,8 @@ table{
 		tr{
 			cursor: pointer;
 			&:hover{
-				background:$colorG5;
-				color: $colorG;
+				background:$colorB6;
+				color: $colorB;
 			}
 		}
 		label{
@@ -170,11 +169,11 @@ table{
 		}
 		// show detail
 		tr.showdetail.open, tr.showdetail.open:hover{
-			background:$colorG4;
+			background:$colorB4;
 			color: $colorW;
 		}
 		tr.detail, tr.detail:hover{
-			background:$colorG4;
+			background:$colorB4;
 			color: $colorK;
 			div{
 				position: relative;

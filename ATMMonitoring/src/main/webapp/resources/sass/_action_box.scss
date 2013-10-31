@@ -1,6 +1,6 @@
 #main .action_box{
-	border: 1px solid $colorK5;
-	background:$colorK6;
+	border: 1px solid $colorB5;
+	background:$colorB6;
 	padding: 1em;
 	margin-bottom: 2em;
 	overflow: hidden;
@@ -23,10 +23,10 @@
 		margin: 0;
 		padding: 3px;
 		padding-left: 1.5em;
-		border-bottom: 2px dotted $colorK4;
+		border-bottom: 2px dotted $colorB3;
 		@include border-radius(4px);
 		&:hover{
-			background-color:$colorK5;
+			background-color:$colorB5;
 		}
 		&.content_hide{
 			background-position: left -62px;
@@ -47,36 +47,16 @@
 		float: left;
 	}
 	&.data{
-		.model{
-				margin-top: 2em;
-				float: left;
-				width: 20%;
-				position: relative;
-			.photo{
-				@include border-radius(4px);
-				@include transitionAll;
-				border: 1px solid $colorK5;
-				background:$colorW;
-				height: 0;
+		.photo{
+			margin-top: 2em;
+			float: left;
+			width: 20%;
+			position: relative;
+			img{
 				width: 100%;
-				margin: 0;
-				margin-bottom: .5em;
-				padding: 0;
-				padding-top: 60%;
-				overflow: hidden;
-				position: relative;
-				img{
-					width: 100%;
-					position: absolute;
-					top: 0;
-				}
-				&:hover{
-					padding-top:100%;
-				}
 			}
 			.desplegable{
-				background:$colorW;
-				clear: both;
+				padding: .5em;
 				@include border-radius(4px);
 				margin-top: 1em;
 				.txt{
@@ -128,7 +108,7 @@
 						float: left;
 						display: block;
 						label{
-							width: 90%
+							width: 100%
 						}
 					}
 				}

@@ -6,19 +6,17 @@
 	}
 .fc-border-separate{
 	border: none;
-	border-right: 1px solid $colorK3;
+	border-right: 1px solid $colorK5;
 }
 .fc-header,.fc-header td{
 	background-color: $colorW;
 	border: none;
 }
 .fc-widget-header, .fc-widget-content{
-	border: 1px solid $colorK3;
+	border: 1px solid $colorK4;
 }
 .fc-border-separate th, .fc-agenda-slots th{
 	padding: .5em;
-	background-color: $colorK5;
-	color: $colorK;
 }
 .fc-event{
 	padding: .5em;
@@ -30,12 +28,14 @@
 		border-right: none;
 	}
 	&.fc-event-end.fc-event-start{
-		border: 1px solid $colorK4;
+		border: 1px solid $colorK5;
 	}
 	&.monthly{
-		background-color: $colorB3;
+		background-color: $colorY1;
+		color: $colorK2;
 	}
 	&.weekly{
-		background-color: $colorY3;
+		background-color: $colorO;
+		color: $colorW;
 	}
 }

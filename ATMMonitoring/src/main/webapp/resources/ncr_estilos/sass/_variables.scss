@@ -1,0 +1,72 @@
+// COLORS
+$colorK: #000000;
+$colorK1: #333333;
+$colorK2: #808080;
+$colorK3: #B3B3B3;
+$colorK4: #CCCCCC;
+$colorK5: #E6E6E6;
+$colorK6: #F3F3F3;
+
+$colorG: #6ca932;
+$colorG1: #89ba5b; // 80%
+$colorG2: #89ba5b; // 60%
+$colorG3: #89ba5b; // 40%
+$colorG4: #89ba5b; // 20%
+$colorG5: #f0f6ea; // 10%
+
+$colorR: #E14F3C;
+$colorR1: #e77263; // 80%
+$colorR2: #ed958a; // 60%
+$colorR3: #f3b9b1; // 40%
+$colorR4: #f9dcd8; // 20%
+$colorR5: #fcedeb; // 10%
+
+
+$colorB1: #8080D9;
+$colorB2: #5CD8EE;
+$colorB3: #4D99F2;
+
+$colorY1: #CCBF9E;
+$colorY2: #EDE634;
+$colorY21: #fbfad6; // 20%
+$colorY3: #F4A725;
+
+$colorW: #FFFFFF;
+
+@mixin transitionAll{
+ -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+@mixin transitionNone{
+ -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+@mixin shadow(){
+	-webkit-box-shadow: 0px 0px 8px $colorK3;
+    -moz-box-shadow: 0px 0px 8px $colorK3;
+    box-shadow: 0px 0px 8px $colorK3;
+}
+@mixin shadow1(){
+	-webkit-box-shadow: 8px 8px 5px $colorK3;
+    -moz-box-shadow: 8px 8px 5px $colorK3;
+    box-shadow: 8px 8px 5px $colorK3;
+}
+@mixin shadowK(){
+  -webkit-box-shadow: 8px 8px 30px $colorK;
+    -moz-box-shadow: 8px 8px 30px $colorK;
+    box-shadow: 8px 8px 30px $colorK;
+}
+@mixin shadow0(){
+  -webkit-box-shadow: 0 0 0 $colorK;
+    -moz-box-shadow: 0 0 0 $colorK;
+    box-shadow: 0 0 0 $colorK;
+}
+@mixin border-radius($radius){
+	-o-border-radius: $radius;
+ 	-moz-border-radius: $radius;
+ 	-webkit-border-radius: $radius;
+ 	border-radius: $radius;
+}

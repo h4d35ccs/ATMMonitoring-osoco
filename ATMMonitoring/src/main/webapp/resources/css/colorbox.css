@@ -131,8 +131,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   min-width: 100px;
   padding: 0.5em 1em;
   padding-left: 2.5em;
-  background: url("../images/icons/icon_collapsible.png") no-repeat #b3b3b3 left bottom;
-  border: 2px solid #cccccc;
+  background: url("../images/icons/icon_collapsible.png") no-repeat #6d6e71 left bottom;
+  border: 2px solid #939598;
   margin-left: 0;
 }
 /* line 52, ../sass/_forms.scss */
@@ -141,7 +141,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 /* line 55, ../sass/_forms.scss */
 .desplegable.button .txt.content_hide {
-  background: url("../images/icons/icon_collapsible.png") no-repeat gray left top;
+  background: url("../images/icons/icon_collapsible.png") no-repeat #6d6e71 left top;
 }
 /* line 59, ../sass/_forms.scss */
 .desplegable.button .txt.content_hide {
@@ -154,7 +154,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   clear: both;
   margin-top: .5em;
   background: white;
-  border: 1px solid #b3b3b3;
+  border: 1px solid #6d6e71;
 }
 /* line 70, ../sass/_forms.scss */
 .desplegable.button .collapsible input[type="text"],
@@ -173,7 +173,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 83, ../sass/_forms.scss */
 .btn, .save,
 #main .action_box .save, input[type="submit"], input[type="reset"], button {
-  border: 2px solid #cccccc;
+  border: 2px solid #52bcec;
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -184,7 +184,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   color: white;
   font-weight: normal;
   font-size: 1em;
-  background: #6ca932;
+  background: #009ee5;
   float: left;
   margin-right: 1em;
   margin-top: 0;
@@ -198,10 +198,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .btn:hover, .save:hover,
 #main .action_box .save:hover, input[type="submit"]:hover, input[type="reset"]:hover, button:hover {
   text-decoration: none;
-  background: white;
-  color: #6ca932;
+  background: #094fa4;
 }
-/* line 104, ../sass/_forms.scss */
+/* line 103, ../sass/_forms.scss */
 .row .btn, .row .save,
 .row #main .action_box .save,
 #main .action_box .row .save, .row input[type="submit"], .row input[type="reset"], .row button {
@@ -210,30 +209,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin: 0;
   margin-left: 1em;
 }
-/* line 110, ../sass/_forms.scss */
+/* line 109, ../sass/_forms.scss */
 .btn.cancel, .cancel.save,
 #main .action_box .cancel.save, input[type="submit"].cancel, input[type="reset"].cancel, button.cancel {
   background: transparent;
-  color: #6ca932;
+  color: #094fa4;
   text-decoration: underline;
   border: none;
 }
-/* line 115, ../sass/_forms.scss */
+/* line 114, ../sass/_forms.scss */
 .btn.cancel:hover, .cancel.save:hover,
 #main .action_box .cancel.save:hover, input[type="submit"].cancel:hover, input[type="reset"].cancel:hover, button.cancel:hover {
   text-decoration: none;
 }
-/* line 119, ../sass/_forms.scss */
+/* line 118, ../sass/_forms.scss */
 .btn.delete, .delete.save,
 #main .action_box .delete.save, input[type="submit"].delete, input[type="reset"].delete, button.delete {
-  background: #e14f3c;
+  background: #c8175e;
+  border: 2px solid #c8175e;
   color: white;
 }
 /* line 122, ../sass/_forms.scss */
 .btn.delete:hover, .delete.save:hover,
 #main .action_box .delete.save:hover, input[type="submit"].delete:hover, input[type="reset"].delete:hover, button.delete:hover {
   background: white;
-  color: #e14f3c;
+  color: #c8175e;
 }
 /* line 127, ../sass/_forms.scss */
 .btn.left, .left.save,
@@ -285,7 +285,7 @@ input.num {
 select {
   margin: 0.5em 1em;
   padding: 0.5em 1em;
-  border: 1px solid #b3b3b3;
+  border: 1px solid #6d6e71;
 }
 
 /* line 163, ../sass/_forms.scss */
@@ -341,15 +341,15 @@ input[type="checkbox"] {
 
 /* line 200, ../sass/_forms.scss */
 input:disabled {
-  background: #cccccc;
+  background: #939598;
   color: white;
-  border: 1px solid #b3b3b3;
+  border: 1px solid #6d6e71;
 }
 /* line 204, ../sass/_forms.scss */
 input:disabled:hover {
-  background: #cccccc;
+  background: #939598;
   color: white;
-  border: 1px solid #b3b3b3;
+  border: 1px solid #6d6e71;
   cursor: inherit;
 }
 
@@ -360,7 +360,7 @@ input:disabled:hover {
 /* line 213, ../sass/_forms.scss */
 .graph_component label {
   padding-top: 3em;
-  background-color: #e6e6e6;
+  background-color: #8bd1f3;
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -409,20 +409,15 @@ input:disabled:hover {
   margin: 1em 0.5em;
 }
 
-/* line 253, ../sass/_forms.scss */
-#queryDate {
-  width: 6em;
-}
-
 /* line 1, ../sass/_icons.scss */
 .icons_bg {
   display: none;
   background: white;
   background: rgba(255, 255, 255, 0.75);
-  border: 1px solid #e6e6e6;
-  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
-  -moz-box-shadow: 0px 0px 8px #b3b3b3;
-  box-shadow: 0px 0px 8px #b3b3b3;
+  border: 1px solid #eeeeee;
+  -webkit-box-shadow: 0px 0px 8px #6d6e71;
+  -moz-box-shadow: 0px 0px 8px #6d6e71;
+  box-shadow: 0px 0px 8px #6d6e71;
   position: absolute;
   top: 5px;
   right: 5px;
@@ -455,7 +450,7 @@ input:disabled:hover {
 }
 /* line 30, ../sass/_icons.scss */
 .fc-event .close {
-  background: url("../images/icons/close_w.png") no-repeat;
+  background: url("../images/icons/icon_note.png") no-repeat -20px 0;
   top: 1px;
   right: 1px;
 }
@@ -482,16 +477,16 @@ input:disabled:hover {
   display: block;
   color: white;
   padding: 0.5em 1em;
-  border-bottom: 1px solid #cccccc;
-  background: #6ca932;
-  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
-  -moz-box-shadow: 0px 0px 8px #b3b3b3;
-  box-shadow: 0px 0px 8px #b3b3b3;
+  border-bottom: 1px solid #939598;
+  background: #094fa4;
+  -webkit-box-shadow: 0px 0px 8px #6d6e71;
+  -moz-box-shadow: 0px 0px 8px #6d6e71;
+  box-shadow: 0px 0px 8px #6d6e71;
 }
 /* line 57, ../sass/_icons.scss */
 .icons_menu ul a:hover {
   text-decoration: none;
-  background: #b3b3b3;
+  background: #6d6e71;
 }
 /* line 62, ../sass/_icons.scss */
 .icons_menu ul li:last-child a {
@@ -528,23 +523,23 @@ input:disabled:hover {
 
 /* line 89, ../sass/_icons.scss */
 .add {
-  background: url("../images/icons/icon_add.png") no-repeat left bottom #6ca932;
+  background: url("../images/icons/icon_add.png") no-repeat left bottom;
+  background-color: #009ee5;
   padding-left: 35px;
-  position: relative;
 }
 /* line 93, ../sass/_icons.scss */
 .add:hover, .link tr:hover .add {
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
-  background: url("../images/icons/icon_add.png") no-repeat left top white;
+  background: url("../images/icons/icon_add.png") no-repeat left top #094fa4;
 }
 /* line 97, ../sass/_icons.scss */
 td .add, th .add {
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
-  background-color: #6ca932;
+  background-color: #009ee5;
   width: 30px;
   height: 30px;
   padding: 0;
@@ -556,116 +551,130 @@ td .add, th .add {
 }
 /* line 105, ../sass/_icons.scss */
 td .add span, th .add span {
-  display: none;
+  position: absolute;
+  top: 50px;
 }
-/* line 109, ../sass/_icons.scss */
+/* line 110, ../sass/_icons.scss */
 .add th, th .add:hover, .link tr:hover th .add {
   background: url("../images/icons/icon_add.png") no-repeat left bottom;
 }
-/* line 112, ../sass/_icons.scss */
+/* line 113, ../sass/_icons.scss */
 .link .open td .add {
   background: url("../images/icons/icon_less.png") no-repeat left bottom;
 }
-/* line 114, ../sass/_icons.scss */
+/* line 115, ../sass/_icons.scss */
 .link .open td .add:hover {
-  background: url("../images/icons/icon_less.png") no-repeat left top white;
+  background: url("../images/icons/icon_less.png") no-repeat left top #094fa4;
+  color: white;
 }
 
-/* line 119, ../sass/_icons.scss */
+/* line 121, ../sass/_icons.scss */
 .less {
   background-image: url("../images/icons/icon_next.png");
   background-repeat: no-repeat;
   background-position: left bottom;
   padding-left: 35px;
 }
-/* line 124, ../sass/_icons.scss */
+/* line 126, ../sass/_icons.scss */
 .less:hover {
   background-position: left top;
   background-color: white;
 }
 
-/* line 130, ../sass/_icons.scss */
+/* line 132, ../sass/_icons.scss */
 .clock {
-  background: url("../images/icons/icon_clock.png") no-repeat left bottom #6ca932;
+  background: url("../images/icons/icon_clock.png") no-repeat left bottom;
+  background-color: #009ee5;
   padding-left: 35px;
 }
-/* line 133, ../sass/_icons.scss */
+/* line 136, ../sass/_icons.scss */
 .clock:hover {
-  background: url("../images/icons/icon_clock.png") no-repeat left top white;
+  background: url("../images/icons/icon_clock.png") no-repeat left top;
+  background-color: #094fa4;
 }
 
-/* line 137, ../sass/_icons.scss */
+/* line 141, ../sass/_icons.scss */
 .next {
-  background: url("../images/icons/icon_next.png") no-repeat left bottom #6ca932;
+  background: url("../images/icons/icon_next.png") no-repeat left bottom;
+  background-color: #52bcec;
   padding-left: 35px;
 }
-/* line 140, ../sass/_icons.scss */
-.next:hover {
-  background: url("../images/icons/icon_next.png") no-repeat left top white;
-}
-
 /* line 145, ../sass/_icons.scss */
-.import {
-  background: url("../images/icons/icon_import.png") no-repeat left bottom #6ca932;
-  padding-left: 35px;
-}
-/* line 148, ../sass/_icons.scss */
-.import:hover {
-  background: url("../images/icons/icon_import.png") no-repeat left top white;
+.next:hover {
+  background: url("../images/icons/icon_next.png") no-repeat left top;
+  background-color: #094fa4;
 }
 
-/* line 153, ../sass/_icons.scss */
+/* line 151, ../sass/_icons.scss */
+.import {
+  background: url("../images/icons/icon_import.png") no-repeat left bottom;
+  background-color: #52bcec;
+  padding-left: 35px;
+}
+/* line 155, ../sass/_icons.scss */
+.import:hover {
+  background: url("../images/icons/icon_import.png") no-repeat left top;
+  background-color: #094fa4;
+}
+
+/* line 161, ../sass/_icons.scss */
 .back {
   background: url("../images/icons/icon_back.png") no-repeat left top transparent;
   padding-left: 35px;
   border: none;
-  color: #6ca932;
+  color: #009ee5;
 }
-/* line 158, ../sass/_icons.scss */
+/* line 166, ../sass/_icons.scss */
 .back:hover {
-  background: url("../images/icons/icon_back.png") no-repeat left top #f3f3f3;
+  background: url("../images/icons/icon_back.png") no-repeat left top #eeeeee;
 }
 
-/* line 162, ../sass/_icons.scss */
+/* line 170, ../sass/_icons.scss */
 .calendar {
-  background: url("../images/icons/icon_date.png") no-repeat bottom #6ca932;
+  background: url("../images/icons/icon_date.png") no-repeat bottom;
+  background-color: #009ee5;
   width: 55px;
   height: 30px;
   overflow: hidden;
 }
-/* line 167, ../sass/_icons.scss */
+/* line 176, ../sass/_icons.scss */
 .calendar:hover {
-  background: url("../images/icons/icon_date.png") no-repeat top white;
+  background: url("../images/icons/icon_date.png") no-repeat top;
+  background-color: #094fa4;
 }
-/* line 170, ../sass/_icons.scss */
+/* line 180, ../sass/_icons.scss */
 .calendar span {
   position: absolute;
   top: -3em;
 }
 
-/* line 176, ../sass/_icons.scss */
+/* line 186, ../sass/_icons.scss */
 .save,
 #main .action_box .save {
-  background: url("../images/icons/icon_save.png") no-repeat left bottom #6ca932;
+  background: url("../images/icons/icon_save.png") no-repeat left bottom;
+  background-color: #009ee5;
   padding-left: 35px;
 }
-/* line 180, ../sass/_icons.scss */
+/* line 191, ../sass/_icons.scss */
 .save:hover,
 #main .action_box .save:hover {
-  background: url("../images/icons/icon_save.png") no-repeat left top white;
+  background: url("../images/icons/icon_save.png") no-repeat left top;
+  background-color: #094fa4;
 }
 
-/* line 185, ../sass/_icons.scss */
+/* line 197, ../sass/_icons.scss */
 .play, input.play {
-  background: url("../images/icons/icon_play.png") no-repeat left bottom #6ca932;
+  background: url("../images/icons/icon_play.png") no-repeat left bottom;
+  background-color: #009ee5;
   padding-left: 35px;
 }
-/* line 188, ../sass/_icons.scss */
+/* line 201, ../sass/_icons.scss */
 .play:hover, input.play:hover {
-  background: url("../images/icons/icon_play.png") no-repeat left top white;
+  background: url("../images/icons/icon_play.png") no-repeat left top;
+  background-color: #094fa4;
 }
 
-/* line 193, ../sass/_icons.scss */
+/* line 207, ../sass/_icons.scss */
 .info {
   width: 25px;
   height: 25px;
@@ -677,11 +686,11 @@ td .add span, th .add span {
   cursor: pointer;
   cursor: help;
 }
-/* line 203, ../sass/_icons.scss */
+/* line 217, ../sass/_icons.scss */
 .info:hover {
   background: url("../images/icons/icon_info.png") no-repeat bottom left;
 }
-/* line 206, ../sass/_icons.scss */
+/* line 220, ../sass/_icons.scss */
 .info span {
   display: block;
   overflow: hidden;
@@ -690,14 +699,14 @@ td .add span, th .add span {
   width: 0;
 }
 
-/* line 214, ../sass/_icons.scss */
+/* line 228, ../sass/_icons.scss */
 .icons_action {
   position: absolute;
   top: 0;
   right: 0;
   white-space: nowrap;
 }
-/* line 219, ../sass/_icons.scss */
+/* line 233, ../sass/_icons.scss */
 .icons_action .note, .icons_action .edit, .icons_action .delete {
   background: url("../images/icons/icon_note.png") no-repeat;
   width: 20px;
@@ -708,7 +717,7 @@ td .add span, th .add span {
   margin-left: 2px;
   float: left;
 }
-/* line 228, ../sass/_icons.scss */
+/* line 242, ../sass/_icons.scss */
 .icons_action .note span, .icons_action .edit span, .icons_action .delete span {
   display: block;
   overflow: hidden;
@@ -716,48 +725,50 @@ td .add span, th .add span {
   height: 0;
   width: 0;
 }
-/* line 235, ../sass/_icons.scss */
+/* line 249, ../sass/_icons.scss */
 .icons_action .note:hover, .icons_action .edit:hover, .icons_action .delete:hover {
   background-position-y: -20px;
 }
-/* line 239, ../sass/_icons.scss */
+/* line 253, ../sass/_icons.scss */
 .icons_action .edit {
   background-position: -40px 0;
   cursor: pointer;
 }
-/* line 244, ../sass/_icons.scss */
+/* line 258, ../sass/_icons.scss */
 .icons_action .delete {
   background-position: -20px 0;
   cursor: pointer;
 }
 
-/* line 250, ../sass/_icons.scss */
+/* line 264, ../sass/_icons.scss */
 .download {
   background: url("../images/icons/icon_download.png") no-repeat top left transparent;
   border: none;
-  color: #6ca932;
+  color: #52bcec;
   padding-left: 35px;
 }
-/* line 255, ../sass/_icons.scss */
+/* line 269, ../sass/_icons.scss */
 .download:hover {
   background: url("../images/icons/icon_download.png") no-repeat top left transparent;
   background-color: transparent;
   text-decoration: underline;
 }
 
-/* line 261, ../sass/_icons.scss */
+/* line 275, ../sass/_icons.scss */
 .update, .btn.update, .update.save,
 #main .action_box .update.save {
-  background: url("../images/icons/icon_update.png") no-repeat bottom left #6ca932;
+  background: url("../images/icons/icon_update.png") no-repeat bottom left;
+  background-color: #009ee5;
   padding-left: 35px;
 }
-/* line 264, ../sass/_icons.scss */
+/* line 279, ../sass/_icons.scss */
 .update:hover, .btn.update:hover, .update.save:hover,
 #main .action_box .update.save:hover {
-  background: url("../images/icons/icon_update.png") no-repeat top left white;
+  background: url("../images/icons/icon_update.png") no-repeat top left;
+  background-color: #094fa4;
 }
 
-/* line 268, ../sass/_icons.scss */
+/* line 284, ../sass/_icons.scss */
 .edit {
   display: inline;
   width: 22px;
@@ -766,126 +777,114 @@ td .add span, th .add span {
   overflow: hidden;
   font-size: 20px;
 }
-/* line 275, ../sass/_icons.scss */
+/* line 291, ../sass/_icons.scss */
 .edit span {
   visibility: hidden;
 }
 
-/* line 279, ../sass/_icons.scss */
-.zoom {
-  position: absolute;
-  bottom: .5em;
-  right: .5em;
-  width: 20px;
-  height: 20px;
-  overflow: hidden;
-  display: block;
-  background: url("../images/icons/zoom.png") no-repeat;
-}
-
-/* line 289, ../sass/_icons.scss */
+/* line 295, ../sass/_icons.scss */
 .graph_01 {
   background: url("../images/icons/icon_graph_01.png") no-repeat top;
 }
 
-/* line 292, ../sass/_icons.scss */
+/* line 298, ../sass/_icons.scss */
 .graph_02 {
   background: url("../images/icons/icon_graph_02.png") no-repeat top;
 }
 
-/* line 295, ../sass/_icons.scss */
+/* line 301, ../sass/_icons.scss */
 .graph_03 {
   background: url("../images/icons/icon_graph_03.png") no-repeat top;
 }
 
-/* line 298, ../sass/_icons.scss */
+/* line 304, ../sass/_icons.scss */
 .graph_04 {
   background: url("../images/icons/icon_graph_04.png") no-repeat top;
 }
 
-/* line 301, ../sass/_icons.scss */
+/* line 307, ../sass/_icons.scss */
 .graph_05 {
   background: url("../images/icons/icon_graph_05.png") no-repeat top;
 }
 
-/* line 304, ../sass/_icons.scss */
+/* line 310, ../sass/_icons.scss */
 .graph_component label.current {
-  background-color: #6ca932;
+  background-color: #094fa4;
 }
 
-/* line 307, ../sass/_icons.scss */
+/* line 313, ../sass/_icons.scss */
 .columns_botonera {
   position: absolute;
   top: 0;
   right: 0;
   height: 28px;
   overflow: hidden;
-  border: 1px solid #cccccc;
+  border: 1px solid #939598;
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 316, ../sass/_icons.scss */
+/* line 322, ../sass/_icons.scss */
 .columns_botonera ul li {
   float: left;
   padding: 4px;
 }
-/* line 320, ../sass/_icons.scss */
+/* line 326, ../sass/_icons.scss */
 .columns_botonera ul a {
   display: block;
   width: 20px;
   height: 20px;
 }
-/* line 326, ../sass/_icons.scss */
+/* line 332, ../sass/_icons.scss */
 .columns_botonera ul .column1 a {
   background: url("../images/icons/icons_column.png") no-repeat 0 0;
 }
-/* line 329, ../sass/_icons.scss */
+/* line 335, ../sass/_icons.scss */
 .columns_botonera ul .column1.current a {
   background-position: 0 -20px;
 }
-/* line 335, ../sass/_icons.scss */
+/* line 341, ../sass/_icons.scss */
 .columns_botonera ul .column2 a {
   background: url("../images/icons/icons_column.png") no-repeat -20px 0;
 }
-/* line 338, ../sass/_icons.scss */
+/* line 344, ../sass/_icons.scss */
 .columns_botonera ul .column2.current a {
   background-position: -20px -20px;
 }
-/* line 344, ../sass/_icons.scss */
+/* line 350, ../sass/_icons.scss */
 .columns_botonera ul .column3 a {
   background: url("../images/icons/icons_column.png") no-repeat -40px 0;
 }
-/* line 347, ../sass/_icons.scss */
+/* line 353, ../sass/_icons.scss */
 .columns_botonera ul .column3.current a {
   background-position: -40px -20px;
 }
-/* line 352, ../sass/_icons.scss */
+/* line 358, ../sass/_icons.scss */
 .columns_botonera ul .column4 a {
   background: url("../images/icons/icons_column.png") no-repeat -60px 0;
 }
-/* line 355, ../sass/_icons.scss */
+/* line 361, ../sass/_icons.scss */
 .columns_botonera ul .column4.current a {
   background-position: -60px -20px;
 }
-/* line 360, ../sass/_icons.scss */
+/* line 366, ../sass/_icons.scss */
 .columns_botonera ul .lista a {
   background: url("../images/icons/icons_column.png") no-repeat -80px 0;
 }
-/* line 363, ../sass/_icons.scss */
+/* line 369, ../sass/_icons.scss */
 .columns_botonera ul .lista.current a {
   background-position: -80px -20px;
 }
-/* line 368, ../sass/_icons.scss */
+/* line 374, ../sass/_icons.scss */
 .columns_botonera ul .calendario a {
   background: url("../images/icons/icons_column.png") no-repeat -100px 0;
 }
-/* line 371, ../sass/_icons.scss */
+/* line 377, ../sass/_icons.scss */
 .columns_botonera ul .calendario.current a {
   background-position: -100px -20px;
 }
-/* line 378, ../sass/_icons.scss */
+/* line 384, ../sass/_icons.scss */
 .columns_botonera span {
   position: absolute;
   top: 5em;
@@ -893,8 +892,8 @@ td .add span, th .add span {
 
 /* line 1, ../sass/_messages.scss */
 .notification {
-  background: #f0f6ea url("../images/icons/notification.png") no-repeat 1em;
-  border: 2px dotted #89ba5b;
+  background: #eeeeee url("../images/icons/notification.png") no-repeat 1em;
+  border: 2px dotted #86c82d;
   padding: 1em 2em 1em 6em;
   margin: 1em 0;
   min-height: 2em;
@@ -905,13 +904,13 @@ td .add span, th .add span {
 }
 /* line 10, ../sass/_messages.scss */
 .notification strong {
-  color: #6ca932;
+  color: #094fa4;
 }
 
 /* line 14, ../sass/_messages.scss */
 .alert {
-  background: #fcedeb url("../images/icons/alert.png") no-repeat 1em;
-  border: 2px dotted #f3b9b1;
+  background: #f7e9e9 url("../images/icons/alert.png") no-repeat 1em;
+  border: 2px dotted #c8175e;
   padding: 1em 2em 1em 6em;
   margin: 1em 0;
   min-height: 2em;
@@ -922,27 +921,26 @@ td .add span, th .add span {
 }
 /* line 23, ../sass/_messages.scss */
 .alert strong {
-  color: #e14f3c;
+  color: #c8175e;
 }
 
 /* line 27, ../sass/_messages.scss */
 .message, .no_queries {
-  background: #fbfad6 url("../images/icons/message.png") no-repeat 1em;
-  border: 2px dotted #ccbf9e;
+  background: #eeeeee url("../images/icons/message.png") no-repeat 1em;
+  border: 2px dotted #f6891e;
   padding: 1em 2em 1em 6em;
   position: relative;
   min-height: 2em;
-  margin: 1em 0;
 }
-/* line 34, ../sass/_messages.scss */
+/* line 33, ../sass/_messages.scss */
 .td .message, .td .no_queries {
   display: block;
 }
-/* line 37, ../sass/_messages.scss */
+/* line 36, ../sass/_messages.scss */
 .message strong, .no_queries strong {
-  color: #f4a725;
+  color: #009ee5;
 }
-/* line 40, ../sass/_messages.scss */
+/* line 39, ../sass/_messages.scss */
 .message.left:after, .left.no_queries:after {
   content: "";
   position: absolute;
@@ -950,12 +948,12 @@ td .add span, th .add span {
   left: -32px;
   border-width: 15px 30px 15px 0;
   border-style: solid;
-  border-color: transparent #ccbf9e;
+  border-color: transparent #fdbd2c;
   display: block;
   width: 0;
 }
 
-/* line 52, ../sass/_messages.scss */
+/* line 51, ../sass/_messages.scss */
 .no_queries {
   background: transparent url("../images/icons/message_24.png") no-repeat 1em;
   border: none;
@@ -968,7 +966,7 @@ td .add span, th .add span {
   top: 40px;
   text-align: right;
 }
-/* line 64, ../sass/_messages.scss */
+/* line 63, ../sass/_messages.scss */
 .no_queries .flecha {
   background: url("../images/general/flecha.png") no-repeat;
   width: 200px;
@@ -979,20 +977,20 @@ td .add span, th .add span {
   right: -80px;
 }
 
-/* line 74, ../sass/_messages.scss */
+/* line 73, ../sass/_messages.scss */
 .error {
-  background: #e14f3c;
+  background: #c8175e;
   border: 1px dotted white;
   color: white;
   padding: 1em 2em;
   margin: 1em 0;
   position: relative;
 }
-/* line 75, ../sass/_messages.scss */
+/* line 74, ../sass/_messages.scss */
 .td .error {
   display: block;
 }
-/* line 85, ../sass/_messages.scss */
+/* line 84, ../sass/_messages.scss */
 .error.top:after {
   content: "";
   position: absolute;
@@ -1000,11 +998,11 @@ td .add span, th .add span {
   left: 45%;
   border-width: 0 15px 25px;
   border-style: solid;
-  border-color: #e14f3c transparent;
+  border-color: #c8175e transparent;
   display: block;
   width: 0;
 }
-/* line 98, ../sass/_messages.scss */
+/* line 97, ../sass/_messages.scss */
 .error.bottom:after {
   content: "";
   position: absolute;
@@ -1012,104 +1010,99 @@ td .add span, th .add span {
   left: 45%;
   border-width: 25px 15px 0 15px;
   border-style: solid;
-  border-color: #e14f3c transparent;
+  border-color: #c8175e transparent;
   display: block;
   width: 0;
 }
 
 /* line 1, ../sass/_table.scss */
-.margin-box {
-  overflow: auto;
-}
-
-/* line 4, ../sass/_table.scss */
 .table_buttons {
   overflow: hidden;
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  background: #f3f3f3;
-  border: 1px solid #e6e6e6;
+  background: #eeeeee;
+  border: 1px solid #eeeeee;
 }
-/* line 9, ../sass/_table.scss */
+/* line 6, ../sass/_table.scss */
 .table_buttons table {
   border-right: none;
   border-left: none;
 }
-/* line 12, ../sass/_table.scss */
+/* line 9, ../sass/_table.scss */
 .table_buttons table td:first-child {
   border-left: none;
 }
-/* line 16, ../sass/_table.scss */
+/* line 13, ../sass/_table.scss */
 .table_buttons .botonera {
   padding: 0;
   margin: 0.5em 1em 0.5em 0;
 }
-/* line 19, ../sass/_table.scss */
+/* line 16, ../sass/_table.scss */
 .table_buttons .botonera label {
   padding: 0.5em 1em 0;
 }
 
-/* line 24, ../sass/_table.scss */
+/* line 21, ../sass/_table.scss */
 table {
   width: 100%;
   margin: 0.5em 0;
-  border: 1px solid #cccccc;
+  border: 1px solid #939598;
+}
+/* line 25, ../sass/_table.scss */
+table th {
+  background: #b5e5f9;
+  color: #009ee5;
 }
 /* line 28, ../sass/_table.scss */
-table th {
-  background: #6ca932;
-  color: white;
-}
-/* line 31, ../sass/_table.scss */
 table th.order {
-  background: url("../images/icons/colunm_order.png") #6ca932 no-repeat right top;
+  background-image: url("../images/icons/colunm_order.png");
+  background-repeat: no-repeat;
+  background-position: right top;
   padding-right: 2em;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
 }
-/* line 36, ../sass/_table.scss */
+/* line 33, ../sass/_table.scss */
 table th.order.bottom {
-  background: url("../images/icons/colunm_order.png") #333333 no-repeat right -40px;
-}
-/* line 39, ../sass/_table.scss */
-table th.order.top {
-  background: url("../images/icons/colunm_order.png") #333333 no-repeat right -80px;
-}
-/* line 43, ../sass/_table.scss */
-table th a {
+  background-image: url("../images/icons/colunm_order.png");
+  background-repeat: no-repeat;
+  background-position: right -40px;
+  background-color: #009ee5;
   color: white;
 }
-/* line 45, ../sass/_table.scss */
-table th a:hover {
-  text-decoration: none;
+/* line 40, ../sass/_table.scss */
+table th.order.top {
+  background-image: url("../images/icons/colunm_order.png");
+  background-repeat: no-repeat;
+  background-position: right -80px;
+  background-color: #009ee5;
+  color: white;
 }
-/* line 50, ../sass/_table.scss */
+/* line 49, ../sass/_table.scss */
 table th:last-child, table td:last-child {
   border-right: none;
 }
-/* line 53, ../sass/_table.scss */
+/* line 52, ../sass/_table.scss */
 table th, table td {
   padding: .8em;
-  border: 1px solid #cccccc;
+  border: 1px solid #bcbec0;
   border-collapse: collapse;
   vertical-align: top;
 }
-/* line 58, ../sass/_table.scss */
+/* line 57, ../sass/_table.scss */
 table th.note_detail, table td.note_detail {
-  border-bottom: 2px solid #f4a725;
-  border-left: 2px solid #f4a725;
-  border-right: 2px solid #f4a725;
-  background: #f4a725;
+  border-bottom: 2px solid #b5e5f9;
+  border-left: 2px solid #b5e5f9;
+  border-right: 2px solid #b5e5f9;
+  background: #b5e5f9;
   float: none;
   padding: 1em;
 }
-/* line 59, ../sass/_table.scss */
+/* line 58, ../sass/_table.scss */
 table th.note_detail:hover, table td.note_detail:hover {
-  color: #333333;
+  color: #4d4d4f;
 }
-/* line 68, ../sass/_table.scss */
+/* line 67, ../sass/_table.scss */
 table th.note_detail div, table td.note_detail div {
   position: relative;
   background: white;
@@ -1118,11 +1111,11 @@ table th.note_detail div, table td.note_detail div {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
-  -moz-box-shadow: 0px 0px 8px #b3b3b3;
-  box-shadow: 0px 0px 8px #b3b3b3;
+  -webkit-box-shadow: 0px 0px 8px #6d6e71;
+  -moz-box-shadow: 0px 0px 8px #6d6e71;
+  box-shadow: 0px 0px 8px #6d6e71;
 }
-/* line 73, ../sass/_table.scss */
+/* line 72, ../sass/_table.scss */
 table th.note_detail div:after, table td.note_detail div:after {
   content: "";
   position: absolute;
@@ -1134,144 +1127,144 @@ table th.note_detail div:after, table td.note_detail div:after {
   display: block;
   width: 0;
 }
-/* line 85, ../sass/_table.scss */
+/* line 84, ../sass/_table.scss */
 table th.note_detail div li, table td.note_detail div li {
-  border-bottom: 2px dotted #cccccc;
+  border-bottom: 2px dotted #939598;
   margin-bottom: 1em;
 }
-/* line 89, ../sass/_table.scss */
+/* line 88, ../sass/_table.scss */
 table th.note_detail div li:last-child, table td.note_detail div li:last-child {
   border: none;
   margin-bottom: 0;
 }
-/* line 96, ../sass/_table.scss */
+/* line 95, ../sass/_table.scss */
 table tr {
   background: white;
 }
-/* line 98, ../sass/_table.scss */
+/* line 97, ../sass/_table.scss */
 table tr:nth-child(2n+1) {
-  background: #e6e6e6;
+  background: #eeeeee;
 }
-/* line 101, ../sass/_table.scss */
+/* line 100, ../sass/_table.scss */
 table tr.active {
-  background: #f4a725;
-  border-top: 2px solid #f4a725;
-  border-left: 2px solid #f4a725;
-  border-right: 2px solid #f4a725;
+  background: #b5e5f9;
+  border-top: 2px solid #b5e5f9;
+  border-left: 2px solid #b5e5f9;
+  border-right: 2px solid #b5e5f9;
 }
-/* line 108, ../sass/_table.scss */
+/* line 107, ../sass/_table.scss */
 table.query-form {
   border: 1px solid white;
   margin-bottom: 2em;
 }
-/* line 111, ../sass/_table.scss */
+/* line 110, ../sass/_table.scss */
 table.query-form tr {
   border: 1px solid white;
-  border-bottom: 2px dotted #e6e6e6;
+  border-bottom: 2px dotted #eeeeee;
   background: white;
 }
-/* line 115, ../sass/_table.scss */
+/* line 114, ../sass/_table.scss */
 table.query-form tr:hover {
   cursor: inherit;
   border: 1px solid white;
-  border-bottom: 2px dotted #e6e6e6;
+  border-bottom: 2px dotted #eeeeee;
 }
-/* line 120, ../sass/_table.scss */
+/* line 119, ../sass/_table.scss */
 table.query-form tr:nth-child(2n+1) {
   background: white;
 }
-/* line 124, ../sass/_table.scss */
+/* line 123, ../sass/_table.scss */
 table.query-form td:first-child {
   width: 30%;
 }
-/* line 127, ../sass/_table.scss */
+/* line 126, ../sass/_table.scss */
 table.query-form td:nth-child(2) {
   width: 3em;
 }
-/* line 130, ../sass/_table.scss */
+/* line 129, ../sass/_table.scss */
 table.query-form th {
   border: 1px solid white;
-  border-bottom: 2px solid #e6e6e6;
-  color: #6ca932;
-  background: #f0f6ea;
+  border-bottom: 2px solid #eeeeee;
+  color: #094fa4;
+  background: #b5e5f9;
 }
-/* line 135, ../sass/_table.scss */
+/* line 134, ../sass/_table.scss */
 table.query-form th:hover {
   cursor: inherit;
   border: 1px solid white;
-  border-bottom: 2px solid #e6e6e6;
+  border-bottom: 2px solid #eeeeee;
 }
-/* line 141, ../sass/_table.scss */
+/* line 140, ../sass/_table.scss */
 table.query-form td {
   background: white;
   border: 1px solid white;
 }
-/* line 144, ../sass/_table.scss */
+/* line 143, ../sass/_table.scss */
 table.query-form td:hover {
   background: white;
   border: 1px solid white;
 }
-/* line 148, ../sass/_table.scss */
+/* line 147, ../sass/_table.scss */
 table.query-form td.btn_add {
   border: 1px solid white;
 }
-/* line 150, ../sass/_table.scss */
+/* line 149, ../sass/_table.scss */
 table.query-form td.btn_add div {
   position: relative;
   overflow: hidden;
 }
-/* line 155, ../sass/_table.scss */
+/* line 154, ../sass/_table.scss */
 table.query-form td.btn_add .btn, table.query-form td.btn_add .save,
 table.query-form td.btn_add #main .action_box .save,
 #main .action_box table.query-form td.btn_add .save {
   float: right;
 }
-/* line 161, ../sass/_table.scss */
+/* line 160, ../sass/_table.scss */
 table.link tr {
   cursor: pointer;
 }
-/* line 163, ../sass/_table.scss */
+/* line 162, ../sass/_table.scss */
 table.link tr:hover {
-  background: #f0f6ea;
-  color: #6ca932;
+  background: #f1f8fc;
+  color: #094fa4;
 }
-/* line 168, ../sass/_table.scss */
+/* line 167, ../sass/_table.scss */
 table.link label {
   cursor: pointer;
 }
-/* line 172, ../sass/_table.scss */
+/* line 171, ../sass/_table.scss */
 table.link tr.showdetail.open, table.link tr.showdetail.open:hover {
-  background: #89ba5b;
+  background: #8bd1f3;
   color: white;
 }
-/* line 176, ../sass/_table.scss */
+/* line 175, ../sass/_table.scss */
 table.link tr.detail, table.link tr.detail:hover {
-  background: #89ba5b;
-  color: black;
+  background: #8bd1f3;
+  color: #4d4d4f;
 }
-/* line 179, ../sass/_table.scss */
+/* line 178, ../sass/_table.scss */
 table.link tr.detail div, table.link tr.detail:hover div {
   position: relative;
 }
-/* line 182, ../sass/_table.scss */
+/* line 181, ../sass/_table.scss */
 table.link tr.detail ul, table.link tr.detail:hover ul {
   padding: 1%;
   background: white;
-  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
-  -moz-box-shadow: 0px 0px 8px #b3b3b3;
-  box-shadow: 0px 0px 8px #b3b3b3;
+  -webkit-box-shadow: 0px 0px 8px #6d6e71;
+  -moz-box-shadow: 0px 0px 8px #6d6e71;
+  box-shadow: 0px 0px 8px #6d6e71;
   overflow: hidden;
   cursor: inherit;
 }
-/* line 188, ../sass/_table.scss */
+/* line 187, ../sass/_table.scss */
 table.link tr.detail ul li, table.link tr.detail:hover ul li {
   float: left;
   width: 32%;
   margin-right: 1%;
   padding: 0.5em 0;
-  border-bottom: 1px solid #b3b3b3;
+  border-bottom: 1px solid #6d6e71;
 }
-/* line 194, ../sass/_table.scss */
+/* line 193, ../sass/_table.scss */
 table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   width: 30%;
   display: block;
@@ -1279,7 +1272,7 @@ table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   text-align: right;
   margin-right: 1em;
 }
-/* line 202, ../sass/_table.scss */
+/* line 201, ../sass/_table.scss */
 table.link tr.detail ul:before, table.link tr.detail:hover ul:before {
   content: "";
   font-size: 20em;
@@ -1297,7 +1290,7 @@ table.link tr.detail ul:before, table.link tr.detail:hover ul:before {
 /* line 9, ../sass/colorbox.scss */
 .colorbox_box {
   background: white;
-  color: #333333;
+  color: #4d4d4f;
   font-family: Arial, Sans-Serif;
   font-size: .8em;
   padding: 2em;
@@ -1305,7 +1298,7 @@ table.link tr.detail ul:before, table.link tr.detail:hover ul:before {
 /* line 15, ../sass/colorbox.scss */
 .colorbox_box h1, .colorbox_box h2 {
   font-size: 2.2em;
-  color: #6ca932;
+  color: #094fa4;
   margin-bottom: 1em;
   font-weight: normal;
 }
@@ -1323,12 +1316,12 @@ table.link tr.detail ul:before, table.link tr.detail:hover ul:before {
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
-  color: #6ca932;
+  color: #094fa4;
   text-decoration: none;
 }
 /* line 34, ../sass/colorbox.scss */
 .colorbox_box .botonera {
-  border-top: 1px solid #b3b3b3;
+  border-top: 1px solid #6d6e71;
   padding: 1em 0 0 0;
   position: fixed;
   bottom: 0;

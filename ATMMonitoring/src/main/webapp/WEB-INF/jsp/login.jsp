@@ -20,8 +20,9 @@
 <jsp:body>
     <div id="scene">
       <div id="login_box" >
-        <h1><img src="resources/images/general/logo.png"/><span>NCR</span> <strong><acronym title="Hardware and Software Asset Management">HSAM</acronym></strong></h1>
-
+        <h1><img src="resources/images/general/logo.png"/>
+            <div id="headName"><span><acronym title="Hardware and Software Asset Management">HSAM</acronym></span></div>
+        </h1>
         <c:if test="${error == true}">
         <div class="error bottom">
             ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}

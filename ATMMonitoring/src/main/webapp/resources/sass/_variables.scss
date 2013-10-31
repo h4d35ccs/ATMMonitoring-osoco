@@ -1,37 +1,40 @@
+// FONTS
+$generalFont: Arial, Helvetica, sans-serif;
+$designFont: "bbvaweb-light", Arial, Helvetica, sans-serif;
+$handFont: "architects_daughterregular", Arial, Helvetica, sans-serif;
 // COLORS
-$colorK: #000000;
-$colorK1: #333333;
-$colorK2: #808080;
-$colorK3: #B3B3B3;
-$colorK4: #CCCCCC;
-$colorK5: #E6E6E6;
-$colorK6: #F3F3F3;
+$colorK: #4D4D4F;
+$colorK1: #4D4D4F;
+$colorK2: #6D6E71;
+$colorK3: #6D6E71;
+$colorK4: #939598;
+$colorK5: #BCBEC0;
+$colorK6: #D1D3D4;
 
-$colorG: #6ca932;
-$colorG1: #89ba5b; // 80%
-$colorG2: #89ba5b; // 60%
-$colorG3: #89ba5b; // 40%
-$colorG4: #89ba5b; // 20%
-$colorG5: #f0f6ea; // 10%
+$colorB:#094FA4; // Azul oscuro
+$colorB1:#006EC1; // Color hover enla
+$colorB2:#009EE5; // Color de títulos y enlaces
+$colorB3:#52bcec;
+$colorB4:#8BD1F3;
+$colorB5:#B5E5F9;
+$colorB6:#f1f8fc; // Azul Fondo cajas
+$colorB7:#e5f5ff; // AZul Fondo cajas oscuro 
 
-$colorR: #E14F3C;
-$colorR1: #e77263; // 80%
-$colorR2: #ed958a; // 60%
-$colorR3: #f3b9b1; // 40%
-$colorR4: #f9dcd8; // 20%
-$colorR5: #fcedeb; // 10%
+$colorR:#C8175E; // Magenta - Color ERROR y alert_date N1
+$colorR1:#FF3691; // Magenta claro
+$colorR2:#f7e9e9; // Magenta fondo
 
-
-$colorB1: #8080D9;
-$colorB2: #5CD8EE;
-$colorB3: #4D99F2;
-
-$colorY1: #CCBF9E;
-$colorY2: #EDE634;
-$colorY21: #fbfad6; // 20%
-$colorY3: #F4A725;
+$colorY1:#FDBD2C; // Yellow
+$colorY2:#FFE9B9; // Yellow light
 
 $colorW: #FFFFFF;
+$colorW1:#eeeeee;
+
+$colorO:#F6891E; // Orange - Color alert_date N2
+$colorG:#86C82D; // Green - Color alert_date N3
+
+$colorN:#B7C204; // Green lemon
+$colorT:#3EB6BB; // Turquoise
 
 @mixin transitionAll{
  -webkit-transition: all .5s;

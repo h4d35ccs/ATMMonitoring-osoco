@@ -81,13 +81,13 @@
 }
 
  .btn, input[type="submit"], input[type="reset"], button{
-	border:2px solid $colorK4;
+	border:2px solid $colorB3;
 	@include border-radius(4px);
 	@include transitionAll;
 	color: $colorW;
 	font-weight: normal;
 	font-size: 1em;
-	background:$colorG;
+	background:$colorB2;
 	float: left;
 	margin-right: 1em;
 	margin-top: 0;
@@ -98,8 +98,7 @@
 	width: auto;
 	&:hover{
 		text-decoration: none;
-		background:$colorW;
-		color: $colorG;
+		background:$colorB;
 	}
 	.row &{
 		float: none;
@@ -109,7 +108,7 @@
 	}
 	&.cancel{
 		background:transparent;
-		color: $colorG;
+		color: $colorB;
 		text-decoration: underline;
 		border: none;
 		&:hover{
@@ -118,6 +117,7 @@
 	}
 	&.delete{
 		background: $colorR;
+		border:2px solid $colorR;
 		color: $colorW;
 		&:hover{
 			background: $colorW;
@@ -212,7 +212,7 @@ input:disabled{
 	overflow: hidden;
 	label{
 		padding-top: 3em;
-		background-color:$colorK5;
+		background-color:$colorB4;
 		@include border-radius(4px);
 		text-align: center;
 		margin: 1%;
@@ -248,8 +248,4 @@ input:disabled{
 		float: left;
 		margin: 1em .5em;
 	}
-}
-// Calendario
-#queryDate{
-	width: 6em;
 }
