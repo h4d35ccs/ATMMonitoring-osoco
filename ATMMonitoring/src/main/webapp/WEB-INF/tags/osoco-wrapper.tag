@@ -3,6 +3,7 @@
 <%@attribute name="section" required="true" type="java.lang.String"%>
 <%@attribute name="userMsg" required="false" type="java.lang.String"%>
 <%@attribute name="header" required="false" fragment="true" %>
+<%@variable name-given="currentUrl" scope="NESTED"%>
 
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
