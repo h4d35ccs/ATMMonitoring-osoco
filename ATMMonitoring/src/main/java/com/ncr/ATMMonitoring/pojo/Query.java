@@ -3638,10 +3638,16 @@ public class Query {
     }
 
     public Locale getTrueLocale() {
-	String[] localeSplit = locale.split("-");
-	if (locale.length() == 2) {
-	    return new Locale(localeSplit[0], localeSplit[1]);
-	}
+	if (locale != null) {
+		String[] localeSplit = locale.split("-");
+		if (localeSplit.length >= 2) {
+		    return new Locale(localeSplit[0], localeSplit[1]);
+		} else {
+			if (localeSplit.length == 1) {
+				return new Locale(localeSplit[0]);
+			}
+		}
+    }
 	return null;
     }
 
