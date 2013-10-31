@@ -23,8 +23,8 @@ table{
 	margin: .5em 0;
 	border: 1px solid $colorK4;
 	th{
-		background:$colorB5;
-		color:$colorB2;
+		background:$colorB1;
+		color:$colorW;
 		&.order{
 			background-image:url("../images/icons/colunm_order.png");
 			background-repeat: no-repeat;
@@ -36,6 +36,9 @@ table{
 				background-position: right -40px;
 				background-color: $colorB2;
 				color: $colorW;
+				a{
+					color: $colorW;
+				}
 			}
 			&.top{
 				background-image:url("../images/icons/colunm_order.png");
@@ -43,7 +46,13 @@ table{
 				background-position: right -80px;
 				background-color: $colorB2;
 				color: $colorW;
+				a{
+					color: $colorW;
+				}
 			}
+		}
+		a{
+			color:$colorW;
 		}
 	}
 	th:last-child, td:last-child{
