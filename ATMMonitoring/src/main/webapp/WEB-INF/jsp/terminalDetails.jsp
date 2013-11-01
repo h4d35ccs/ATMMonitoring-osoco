@@ -433,7 +433,7 @@
 							</table>
 						</div>
 						</c:if>
-							
+
 					</div>
 					<div class="content_tab">
 						<div class="margin-box">
@@ -776,7 +776,7 @@
 						</c:if>
 						<c:if test="${!empty terminal.hardwareDevices}">
 
-                                                <div class="action_box data desplegable">
+                          <div class="action_box data desplegable">
 
 							<div class="margin-box">
 								<c:if test="${!empty terminal.computerSystems}">
@@ -907,7 +907,6 @@
 						</div>
 
 						</c:if>
-					</div>
 					</div>
 
 					<div class="content_tab">
