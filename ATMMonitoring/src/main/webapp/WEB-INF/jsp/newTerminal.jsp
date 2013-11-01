@@ -66,15 +66,18 @@
 											<dd id="field_model"></dd>
 										<dt><spring:message code="label.manufacturer"/> : </dt>
 											<dd id="field_manufacturer"></dd>
-										
-										<dt>Campo: </dt>
-											<dd>campo</dd>
-										<dt>Nombre de campo: </dt>
-											<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </dd>
-										<dt>Nombre de campo: </dt>
-											<dd>campo</dd>
-										<dt>Nombre de campo: </dt>
-											<dd>campo</dd>
+										<dt>Nickname: </dt>
+											<dd id="field_nickname"></dd>
+										<dt>Altura (mm): </dt>
+											<dd id="field_height"></dd>
+										<dt>Ancho (mm): </dt>
+											<dd id="field_width"></dd>
+										<dt>Profundidad (mm): </dt>
+											<dd id="field_depth"></dd>
+										<dt>Peso mínimo (kg): </dt>
+											<dd id="field_min_weight"></dd>
+										<dt>Peso máximo (kg): </dt>
+											<dd id="field_max_weight"></dd>
 									</dl>
 								</div>
 							</div>
@@ -338,7 +341,13 @@
 					<c:forEach items="${value}" var="model" varStatus="status2">
 						'${model.id}': {
 							'model' : '${model.model}',
-							'manufacturer' : '${model.manufacturer}'
+							'manufacturer' : '${model.manufacturer}',
+							'nickname' : '${model.nickname}',
+							'height' : '${model.height}',
+							'width' : '${model.width}',
+							'depth' : '${model.depth}',
+							'min_weight' : '${model.minWeight}',
+							'max_weight' : '${model.maxWeight}'
 						}${not status2.last ? ',' : ''}
 					</c:forEach>
 	       	 			}${not status1.last ? ',' : ''}
@@ -369,7 +378,14 @@
 			};
 			$('#field_model').text('');
 			$('#field_manufacturer').text('');
-			$('#photo_model').attr("src", '');
+			$('#field_nickname').text('');
+			$('#field_width').text('');
+			$('#field_height').text('');
+			$('#field_depth').text('');
+			$('#field_min_weight').text('');
+			$('#field_max_weight').text('');
+			$('.photo a').attr("href", '');
+			$('.photo img').attr("src", '');
 	    };
 	    function ChangeModel(){
 			var $cb1 = $('#ModelsCombo');
@@ -378,7 +394,14 @@
 				var values = valuesTree[$cb2.val()][$cb1.val()];
 				$('#field_model').text(values.model);
 				$('#field_manufacturer').text(values.manufacturer);
-				$('#photo_model').attr("src", 'terminals/models/image/' + $cb1.val());
+				$('#field_nickname').text(values.nickname);
+				$('#field_width').text(values.width);
+				$('#field_height').text(values.height);
+				$('#field_depth').text(values.depth);
+				$('#field_min_weight').text(values.min_weight);
+				$('#field_max_weight').text(values.max_weight);
+				$('.photo a').attr("href", 'terminals/models/image/' + $cb1.val());
+				$('.photo img').attr("src", 'terminals/models/image/' + $cb1.val());
 			};
 	    };
     </script>

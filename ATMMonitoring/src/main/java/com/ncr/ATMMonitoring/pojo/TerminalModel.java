@@ -25,8 +25,26 @@ public class TerminalModel {
     @Column(name = "model", length = 50, unique = true)
     private String model;
 
+    @Column(name = "nickname", length = 50)
+    private String nickname;
+
     @Column(name = "manufacturer", length = 50)
     private String manufacturer;
+
+    @Column(name = "height")
+    private Integer height;
+
+    @Column(name = "width")
+    private Integer width;
+
+    @Column(name = "depth")
+    private Integer depth;
+
+    @Column(name = "max_weight")
+    private Double maxWeight;
+
+    @Column(name = "min_weight")
+    private Double minWeight;
 
     @Column(name = "photo")
     private byte[] photo;
@@ -82,4 +100,52 @@ public class TerminalModel {
     public void setPhoto(byte[] photo) {
 	this.photo = photo;
     }
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public Integer getHeight() {
+		return height;
+	}
+
+	public void setHeight(Integer height) {
+		this.height = height;
+	}
+
+	public Integer getWidth() {
+		return width;
+	}
+
+	public void setWidth(Integer width) {
+		this.width = width;
+	}
+
+	public Integer getDepth() {
+		return depth;
+	}
+
+	public void setDepth(Integer depth) {
+		this.depth = depth;
+	}
+
+	public Double getMaxWeight() {
+		return maxWeight;
+	}
+
+	public void setMaxWeight(Double maxWeight) {
+		this.maxWeight = maxWeight;
+	}
+
+	public Double getMinWeight() {
+		return minWeight;
+	}
+
+	public void setMinWeight(Double minWeight) {
+		this.minWeight = minWeight;
+	}
 }
