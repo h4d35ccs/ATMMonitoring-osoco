@@ -12,6 +12,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.ncr.ATMMonitoring.utils.Operation;
+import com.ncr.agent.baseData.os.module.OperatingSystemPojo;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -25,12 +26,15 @@ public class OperatingSystem {
 
     static {
 	comboboxes = new TreeMap<String, Map>();
-	Map<String, Map> stringOperations = Operation.getOperationsByType(Operation.DataType.STRING);
+	Map<String, Map> stringOperations = Operation
+		.getOperationsByType(Operation.DataType.STRING);
 	comboboxes.put("osType", stringOperations);
 	comboboxes.put("name", stringOperations);
-	comboboxes.put("majorVersion",Operation.getOperationsByType(Operation.DataType.VERSION));
+	comboboxes.put("majorVersion",
+		Operation.getOperationsByType(Operation.DataType.VERSION));
 	comboboxes.put("serialNumber", stringOperations);
-	comboboxes.put("servicePackMajorVersion",Operation.getOperationsByType(Operation.DataType.VERSION));
+	comboboxes.put("servicePackMajorVersion",
+		Operation.getOperationsByType(Operation.DataType.VERSION));
 	comboboxes.put("osLanguage", stringOperations);
 	comboboxes.put("manufacturer", stringOperations);
 	comboboxes.put("organization", stringOperations);
@@ -42,16 +46,16 @@ public class OperatingSystem {
     @SequenceGenerator(name = "operating_systems_id_seq", sequenceName = "operating_systems_id_seq", allocationSize = 1)
     private Integer id;
 
-    @Column(name = "os_type", length = 100)
+    @Column(name = "os_type", length = 150)
     private String osType;
 
-    @Column(name = "name", length = 300)
+    @Column(name = "name", length = 150)
     private String name;
 
-    @Column(name = "serial_number", length = 100, unique = true)
+    @Column(name = "serial_number", length = 50, unique = true)
     private String serialNumber;
 
-    @Column(name = "manufacturer", length = 100)
+    @Column(name = "manufacturer", length = 50)
     private String manufacturer;
 
     @Column(name = "major_version")
@@ -66,7 +70,7 @@ public class OperatingSystem {
     @Column(name = "revision_version")
     private Integer revisionVersion;
 
-    @Column(name = "remaining_version", length = 100)
+    @Column(name = "remaining_version", length = 20)
     private String remainingVersion;
 
     @Column(name = "service_pack_major_version")
@@ -81,13 +85,13 @@ public class OperatingSystem {
     @Column(name = "service_pack_revision_version")
     private Integer servicePackRevisionVersion;
 
-    @Column(name = "service_pack_remaining_version", length = 100)
+    @Column(name = "service_pack_remaining_version", length = 20)
     private String servicePackRemainingVersion;
 
-    @Column(name = "organization", length = 100)
+    @Column(name = "organization", length = 50)
     private String organization;
 
-    @Column(name = "os_language", length = 100)
+    @Column(name = "os_language", length = 10)
     private String osLanguage;
 
     // We don't need this for now
@@ -110,6 +114,25 @@ public class OperatingSystem {
 	this.osLanguage = os.getOslanguage();
 	this.osType = os.getOstype();
 	this.serialNumber = os.getSerialnumber();
+    }
+
+    public OperatingSystem(OperatingSystemPojo os) {
+	if (os.getVersion() != null) {
+	    this.setVersion(os.getVersion());
+	}
+	if (os.getSpversion() != null) {
+	    this.setServicePackVersion(os.getSpversion());
+	}
+	this.manufacturer = os.getManufacturer();
+	this.name = os.getName();
+	this.organization = os.getOrganization();
+	this.osLanguage = os.getOslanguage();
+	this.osType = os.getOstype();
+	if ((os.getSerialnumber() != null)
+		&& (os.getSerialnumber().length() > 0)
+		&& !os.getSerialnumber().equals("null")) {
+	    this.serialNumber = os.getSerialnumber();
+	}
     }
 
     /**
