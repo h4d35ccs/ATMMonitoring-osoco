@@ -14,6 +14,8 @@ public interface TerminalModelDAO {
 
     public TerminalModel getTerminalModel(Integer id);
 
+    public TerminalModel getTerminalModelByModel(String model);
+
     public List<TerminalModel> listTerminalModels();
 
     public void updateTerminalModel(TerminalModel terminalModel);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -55,5 +56,12 @@ public class TerminalModelDAOImpl implements TerminalModelDAO {
 	    sessionFactory.getCurrentSession().delete(terminalModel);
 	}
 
+    }
+
+    @Override
+    public TerminalModel getTerminalModelByModel(String model) {
+	return (TerminalModel) sessionFactory.getCurrentSession()
+		.createCriteria(TerminalModel.class)
+		.add(Restrictions.eq("model", model)).uniqueResult();
     }
 }
