@@ -9,6 +9,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.ncr.agent.baseData.vendor.utils.FinancialPackagePojo;
+
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
@@ -28,13 +30,13 @@ public class SoftwareAggregate {
     @Column(name = "numbr")
     private Integer number;
 
-    @Column(name = "profile", length = 100)
+    @Column(name = "profile", length = 500)
     private String profile;
 
-    @Column(name = "name", length = 300)
+    @Column(name = "name", length = 500)
     private String name;
 
-    @Column(name = "description", length = 300)
+    @Column(name = "description", length = 500)
     private String description;
 
     @Column(name = "major_version")
@@ -64,19 +66,28 @@ public class SoftwareAggregate {
     }
 
     public SoftwareAggregate(ncr.inventory.data.Package pkg) {
-		this.setVersion(pkg.getVersion());
-		this.description = pkg.getDescription();
-		this.name = pkg.getName();
-		this.profile = pkg.getProfile();
-		// TODO
-		// No number?
+	this.setVersion(pkg.getVersion());
+	this.description = pkg.getDescription();
+	this.name = pkg.getName();
+	this.profile = pkg.getProfile();
+	// TODO
+	// No number?
+    }
+
+    public SoftwareAggregate(FinancialPackagePojo pkg) {
+	this.setVersion(pkg.getVersion());
+	this.description = pkg.getDescription();
+	this.name = pkg.getName();
+	this.profile = pkg.getProfile();
+	// TODO
+	// No number?
     }
 
     /**
      * @return the id
      */
     public Integer getId() {
-    	return id;
+	return id;
     }
 
     /**
@@ -84,14 +95,14 @@ public class SoftwareAggregate {
      *            the id to set
      */
     public void setId(Integer id) {
-    	this.id = id;
+	this.id = id;
     }
 
     /**
      * @return the profile
      */
     public String getProfile() {
-    	return profile;
+	return profile;
     }
 
     /**
@@ -99,14 +110,14 @@ public class SoftwareAggregate {
      *            the profile to set
      */
     public void setProfile(String profile) {
-    	this.profile = profile;
+	this.profile = profile;
     }
 
     /**
      * @return the name
      */
     public String getName() {
-    	return name;
+	return name;
     }
 
     /**
@@ -114,14 +125,14 @@ public class SoftwareAggregate {
      *            the name to set
      */
     public void setName(String name) {
-    	this.name = name;
+	this.name = name;
     }
 
     /**
      * @return the description
      */
     public String getDescription() {
-    	return description;
+	return description;
     }
 
     /**
@@ -129,14 +140,14 @@ public class SoftwareAggregate {
      *            the description to set
      */
     public void setDescription(String description) {
-    	this.description = description;
+	this.description = description;
     }
 
     /**
      * @return the number
      */
     public Integer getNumber() {
-    	return number;
+	return number;
     }
 
     /**
@@ -144,35 +155,35 @@ public class SoftwareAggregate {
      *            the number to set
      */
     public void setNumber(Integer number) {
-    	this.number = number;
+	this.number = number;
     }
 
     /**
      * @return the majorVersion
      */
     public Integer getMajorVersion() {
-    	return majorVersion;
+	return majorVersion;
     }
 
     /**
      * @return the minorVersion
      */
     public Integer getMinorVersion() {
-		return minorVersion;
+	return minorVersion;
     }
 
     /**
      * @return the buildVersion
      */
     public Integer getBuildVersion() {
-    	return buildVersion;
+	return buildVersion;
     }
 
     /**
      * @return the revisionVersion
      */
     public Integer getRevisionVersion() {
-    	return revisionVersion;
+	return revisionVersion;
     }
 
     /**
@@ -180,7 +191,7 @@ public class SoftwareAggregate {
      *            the majorVersion to set
      */
     public void setMajorVersion(Integer majorVersion) {
-    	this.majorVersion = majorVersion;
+	this.majorVersion = majorVersion;
     }
 
     /**
@@ -188,7 +199,7 @@ public class SoftwareAggregate {
      *            the minorVersion to set
      */
     public void setMinorVersion(Integer minorVersion) {
-    	this.minorVersion = minorVersion;
+	this.minorVersion = minorVersion;
     }
 
     /**
@@ -196,7 +207,7 @@ public class SoftwareAggregate {
      *            the buildVersion to set
      */
     public void setBuildVersion(Integer buildVersion) {
-    	this.buildVersion = buildVersion;
+	this.buildVersion = buildVersion;
     }
 
     /**
@@ -204,14 +215,14 @@ public class SoftwareAggregate {
      *            the revisionVersion to set
      */
     public void setRevisionVersion(Integer revisionVersion) {
-    	this.revisionVersion = revisionVersion;
+	this.revisionVersion = revisionVersion;
     }
 
     /**
      * @return the remainingVersion
      */
     public String getRemainingVersion() {
-    	return remainingVersion;
+	return remainingVersion;
     }
 
     /**
@@ -219,34 +230,34 @@ public class SoftwareAggregate {
      *            the remainingVersion to set
      */
     public void setRemainingVersion(String remainingVersion) {
-    	this.remainingVersion = remainingVersion;
+	this.remainingVersion = remainingVersion;
     }
 
     /**
      * @return the version complete
      */
     public String getVersion() {
-		String version = null;
-		if (majorVersion != null) {
-		    version = majorVersion.toString();
-		    if (minorVersion != null) {
-			version += "." + minorVersion.toString();
-			if (buildVersion != null) {
-			    version += "." + buildVersion.toString();
-			    if (revisionVersion != null) {
-				version += "." + revisionVersion.toString();
-				if (remainingVersion != null) {
-				    version += "." + remainingVersion;
-				}
-			    }
+	String version = null;
+	if (majorVersion != null) {
+	    version = majorVersion.toString();
+	    if (minorVersion != null) {
+		version += "." + minorVersion.toString();
+		if (buildVersion != null) {
+		    version += "." + buildVersion.toString();
+		    if (revisionVersion != null) {
+			version += "." + revisionVersion.toString();
+			if (remainingVersion != null) {
+			    version += "." + remainingVersion;
 			}
 		    }
-		} else {
-		    if ((remainingVersion != null) && (remainingVersion != "")) {
-			version = remainingVersion;
-		    }
 		}
-		return version;
+	    }
+	} else {
+	    if ((remainingVersion != null) && (remainingVersion != "")) {
+		version = remainingVersion;
+	    }
+	}
+	return version;
     }
 
     /**
@@ -254,33 +265,33 @@ public class SoftwareAggregate {
      *            the complete version to set
      */
     public void setVersion(String version) {
-		String[] versions = version.split("\\.", 5);
-		switch (versions.length) {
-		case 5:
-		    setRemainingVersion(versions[4]);
-		case 4:
-		    setRevisionVersion(new Integer(versions[3]));
-		case 3:
-		    setBuildVersion(new Integer(versions[2]));
-		case 2:
-		    setMinorVersion(new Integer(versions[1]));
-		    setMajorVersion(new Integer(versions[0]));
-		    break;
-		case 1:
-		    try {
-			setMajorVersion(new Integer(versions[0]));
-		    } catch (NumberFormatException e) {
-			setRemainingVersion(versions[0]);
-		    }
-		case 0:
-		    break;
-		}
+	String[] versions = version.split("\\.", 5);
+	switch (versions.length) {
+	case 5:
+	    setRemainingVersion(versions[4]);
+	case 4:
+	    setRevisionVersion(new Integer(versions[3]));
+	case 3:
+	    setBuildVersion(new Integer(versions[2]));
+	case 2:
+	    setMinorVersion(new Integer(versions[1]));
+	    setMajorVersion(new Integer(versions[0]));
+	    break;
+	case 1:
+	    try {
+		setMajorVersion(new Integer(versions[0]));
+	    } catch (NumberFormatException e) {
+		setRemainingVersion(versions[0]);
+	    }
+	case 0:
+	    break;
+	}
     }
 
     /**
      * @return the name and version concatenated
      */
     public String getNameVersion() {
-    	return name + " (V. " + getVersion() + ")";
+	return name + " (V. " + getVersion() + ")";
     }
 }
