@@ -22,6 +22,22 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import com.ncr.ATMMonitoring.utils.Utils;
+import com.ncr.agent.baseData.standard.xfs.module.ALM;
+import com.ncr.agent.baseData.standard.xfs.module.BCR;
+import com.ncr.agent.baseData.standard.xfs.module.CAM;
+import com.ncr.agent.baseData.standard.xfs.module.CDM;
+import com.ncr.agent.baseData.standard.xfs.module.CEU;
+import com.ncr.agent.baseData.standard.xfs.module.CHK;
+import com.ncr.agent.baseData.standard.xfs.module.CIM;
+import com.ncr.agent.baseData.standard.xfs.module.CRD;
+import com.ncr.agent.baseData.standard.xfs.module.DEP;
+import com.ncr.agent.baseData.standard.xfs.module.IDC;
+import com.ncr.agent.baseData.standard.xfs.module.IPM;
+import com.ncr.agent.baseData.standard.xfs.module.PIN;
+import com.ncr.agent.baseData.standard.xfs.module.PTR;
+import com.ncr.agent.baseData.standard.xfs.module.SIU;
+import com.ncr.agent.baseData.standard.xfs.module.TTU;
+import com.ncr.agent.baseData.standard.xfs.module.VDM;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -36,20 +52,23 @@ public class XfsComponent {
     private static final Set<String> xfsClasses;
 
     static {
-		xfsClasses = new HashSet<String>();
-		xfsClasses.add("CDM");
-		xfsClasses.add("CIM");
-		xfsClasses.add("IDC");
-		xfsClasses.add("PIN");
-		xfsClasses.add("PTR");
-		xfsClasses.add("SIU");
-		xfsClasses.add("TTU");
-		xfsClasses.add("VDM");
-		xfsClasses.add("CHK");
-		xfsClasses.add("DEP");
-		xfsClasses.add("CAM");
-		xfsClasses.add("ALM");
-		xfsClasses.add("CEU");
+	xfsClasses = new HashSet<String>();
+	xfsClasses.add("ALM");
+	xfsClasses.add("BCR");
+	xfsClasses.add("CAM");
+	xfsClasses.add("CDM");
+	xfsClasses.add("CEU");
+	xfsClasses.add("CHK");
+	xfsClasses.add("CIM");
+	xfsClasses.add("CRD");
+	xfsClasses.add("DEP");
+	xfsClasses.add("IDC");
+	xfsClasses.add("IPM");
+	xfsClasses.add("PIN");
+	xfsClasses.add("PTR");
+	xfsClasses.add("SIU");
+	xfsClasses.add("TTU");
+	xfsClasses.add("VDM");
     }
 
     @Id
@@ -68,7 +87,7 @@ public class XfsComponent {
     @OrderBy("type")
     private Set<LogicalCashUnit> logicalCashUnits = new HashSet<LogicalCashUnit>();
 
-    @Column(name = "xfs_class", length = 100, nullable = false)
+    @Column(name = "xfs_class", length = 50, nullable = false)
     private String xfsClass;
 
     @Column(name = "accept_media")
@@ -106,7 +125,7 @@ public class XfsComponent {
     
     @Column(name = "cameras", length = 200)
     private String cameras;
-    
+
     @Column(name = "cam_data", length = 200)
     private String camdata;
 
@@ -131,10 +150,10 @@ public class XfsComponent {
     @Column(name = "cen_revision_version")
     private Integer cenRevisionVersion;
 
-    @Column(name = "cen_remaining_version", length = 100)
+    @Column(name = "cen_remaining_version", length = 20)
     private String cenRemainingVersion;
 
-    @Column(name = "char_support", length = 50)
+    @Column(name = "char_support", length = 500)
     private String charSupport;
     
     @Column(name = "chip_io")
@@ -155,7 +174,7 @@ public class XfsComponent {
     @Column(name = "compare_magnetic_stripe")
     private Boolean comparemagneticstripe;
 
-    @Column(name = "control", length = 100)
+    @Column(name = "control", length = 500)
     private String control;
 
     @Column(name = "cursor")
@@ -181,7 +200,7 @@ public class XfsComponent {
 
     @Column(name = "door_safe", length = 500)
     private String doorSafe;*/
-    
+
     @Column(name = "door_safe")
     private Boolean doorSafe;
 
@@ -190,16 +209,16 @@ public class XfsComponent {
     
     @Column(name = "doors", length = 100)
     private String doors;
-    
+
     @Column(name = "encoder")
     private Boolean encoder;
-    
+
     @Column(name = "encode_names", length = 200)
     private String encodenames;
-    
+
     @Column(name = "endorser")
     private Boolean endorser;
-    
+
     @Column(name = "envelope_supply", length = 200)
     private String envelopesupply;
 
@@ -209,12 +228,12 @@ public class XfsComponent {
     @Column(name = "extents", length = 500)
     private String extents;
 
-    @Column(name = "extra", length = 1000)
+    @Column(name = "extra", length = 500)
     private String extra;
 
     @Column(name = "flux")
     private Boolean flux;
-    
+
     @Column(name = "font_names", length = 200)
     private String fontnames;
 
@@ -326,12 +345,12 @@ public class XfsComponent {
     @Column(name = "key_num")
     private Integer keyNum;
 
-    @Column(name = "logical_name", length = 100)
+    @Column(name = "logical_name", length = 500)
     private String logicalName;
     
     @Column(name = "magnetic_stripe_read")
     private Boolean magneticstriperead;
-    
+
     @Column(name = "magnetic_stripe_write")
     private Boolean magneticstripewrite;
 
@@ -349,7 +368,7 @@ public class XfsComponent {
     
     @Column(name = "max_num_chars")
     private Integer maxnumchars;
-    
+
     @Column(name = "max_pictures")
     private Integer maxpictures;
 
@@ -380,10 +399,10 @@ public class XfsComponent {
     @Column(name = "pin_formats", length = 500)
     private String pinFormats;
 
-    @Column(name = "power_off", length = 100)
+    @Column(name = "power_off", length = 500)
     private String powerOff;
 
-    @Column(name = "power_on", length = 100)
+    @Column(name = "power_on", length = 500)
     private String powerOn;
 
     @Column(name = "presentation_algorithms", length = 500)
@@ -391,14 +410,14 @@ public class XfsComponent {
     
     @Column(name = "printer")
     private Boolean printer;
-    
+
     @Column(name = "print_on_retracts")
     private Boolean printonretracts;
-    
+
     @Column(name = "programatically_deactivate")
     private Boolean programaticallydeactivate;
 
-    @Column(name = "read_form", length = 100)
+    @Column(name = "read_form", length = 500)
     private String readForm;
 
     @Column(name = "read_tracks", length = 500)
@@ -410,10 +429,10 @@ public class XfsComponent {
     @Column(name = "refill")
     private Boolean refill;
 
-    @Column(name = "resolution", length = 100)
+    @Column(name = "resolution", length = 500)
     private String resolution;
 
-    @Column(name = "resolutions", length = 100)
+    @Column(name = "resolutions", length = 500)
     private String resolutions;
 
     @Column(name = "retract_areas", length = 500)
@@ -431,7 +450,7 @@ public class XfsComponent {
     @Column(name = "retract_transport_actions", length = 500)
     private String retractTransportActions;
 
-    @Column(name = "security_type", length = 100)
+    @Column(name = "security_type", length = 500)
     private String securityType;
 
     /*@Column(name = "sensor_30")
@@ -467,7 +486,7 @@ public class XfsComponent {
     @Column(name = "sensors", length = 100)
     private String sensors;
 
-    @Column(name = "service_provider", length = 100)
+    @Column(name = "service_provider", length = 500)
     private String serviceProvider;
 
     @Column(name = "shutter_control")
@@ -488,17 +507,333 @@ public class XfsComponent {
     @Column(name = "validation_algorithms", length = 500)
     private String validationAlgorithms;
 
-    @Column(name = "vendor", length = 100)
+    @Column(name = "vendor", length = 500)
     private String vendor;
 
-    @Column(name = "write_form", length = 100)
+    @Column(name = "write_form", length = 500)
     private String writeForm;
 
-    @Column(name = "write_mode", length = 100)
+    @Column(name = "write_mode", length = 500)
     private String writeMode;
 
     @Column(name = "write_tracks", length = 500)
     private String writeTracks;
+
+    public XfsComponent() {
+    }
+
+    public XfsComponent(ALM xfs) {
+	xfsClass = "ALM";
+	extra = xfs.getExtra();
+	xfs.getLogical();
+	xfs.getProvider();
+	programaticallydeactivate = xfs.isProgramaticallydeactivate();
+    }
+
+    public XfsComponent(BCR xfs) {
+	xfsClass = "BCR";
+	extra = xfs.getExtra();
+	guidlights = xfs.getGuidlights();
+	xfs.getLogical();
+	xfs.getProvider();
+	xfs.getSymbologies();
+	xfs.isCanfiltersymbologies();
+	compound = xfs.isCompound();
+	xfs.isPowersavecontrol();
+    }
+
+    public XfsComponent(CAM xfs) {
+	xfsClass = "CAM";
+	camdata = xfs.getCamdata();
+	cameras = xfs.getCameras();
+	charSupport = xfs.getCharsupport();
+	extra = xfs.getExtra();
+	xfs.getLogical();
+	maxdatalength = xfs.getMaxdatalength();
+	maxpictures = xfs.getMaxpictures();
+	xfs.getProvider();
+	type = xfs.getType();
+    }
+
+    public XfsComponent(CDM xfs) {
+	xfsClass = "CDM";
+	exchangeTypes = xfs.getExchangetype();
+	extra = xfs.getExtra();
+	guidlights = xfs.getGuidlights();
+	xfs.getLogical();
+	maxDispenseItems = xfs.getMaxdispenseitems();
+	moveItems = xfs.getMoveitems();
+	supportedPositions = xfs.getPositions();
+	xfs.getProvider();
+	retractAreas = xfs.getRetractareas();
+	retractStackerActions = xfs.getRetractstackeractions();
+	retractTransportActions = xfs.getRetracttransportactions();
+	type = xfs.getType();
+	hasCashBox = xfs.isCashbox();
+	compound = xfs.isCompound();
+	xfs.isIntermediatestacker();
+	hasTakenSensor = xfs.isItemstakensensor();
+	xfs.isPowersavecontrol();
+	dispensePaper = xfs.isPreparedispense();
+	canOpenSafeDoor = xfs.isSafedoor(); // ??????????????????????????????????
+	hasShutter = xfs.isShutter();
+	shutterControl = xfs.isShuttercontrol();
+    }
+
+    public XfsComponent(CEU xfs) {
+	xfsClass = "CEU";
+	chipProtocol = xfs.getChipprotocol();
+	extra = xfs.getExtra();
+	xfs.getLogical();
+	xfs.getProvider();
+	chipio = xfs.isChipio();
+	comparemagneticstripe = xfs.isComparemagneticstripe();
+	compound = xfs.isCompound();
+	magneticstriperead = xfs.isMagneticstriperead();
+	magneticstripewrite = xfs.isMagneticstripewrite();
+	xfs.isPowersavecontrol();
+    }
+
+    public XfsComponent(CHK xfs) {
+	xfsClass = "CHK";
+	charSupport = xfs.getCharsupport();
+	encodenames = xfs.getEncodenames();
+	extra = xfs.getExtra();
+	fontnames = xfs.getFontnames();
+	guidlights = xfs.getGuidlights();
+	imagecapture = xfs.getImagecapture();
+	xfs.getLogical();
+	xfs.getProvider();
+	stamp = xfs.getStamp();
+	type = xfs.getType();
+	xfs.isAutofeed();
+	compound = xfs.isCompound();
+	encoder = xfs.isEncoder();
+	endorser = xfs.isEndorser();
+	micr = xfs.isMicr();
+	ocr = xfs.isOcr();
+	xfs.isPowersavecontrol();
+    }
+
+    public XfsComponent(CIM xfs) {
+	xfsClass = "CIM";
+	exchangeTypes = xfs.getExchangetype();
+	extra = xfs.getExtra();
+	guidlights = xfs.getGuidlights();
+	intermediateStacker = xfs.getIntermediatestacker();
+	xfs.getIteminfotypes();
+	xfs.getLogical();
+	maxCashInItems = xfs.getMaxCashInItems();
+	supportedPositions = xfs.getPositions();
+	xfs.getProvider();
+	retractAreas = xfs.getRetractareas();
+	retractStackerActions = xfs.getRetractstackeractions();
+	retractTransportActions = xfs.getRetracttransportactions();
+	type = xfs.getType();
+	hasCashBox = xfs.isCashbox();
+	xfs.isComparesignatures();
+	compound = xfs.isCompound();
+	hasInsertedSensor = xfs.isItemsinsertedsensor();
+	xfs.isItemstakensensor();
+	xfs.isPowersavecontrol();
+	refill = xfs.isRefill();
+	xfs.isSafedoor();
+	hasShutter = xfs.isShutter();
+	shutterControl = xfs.isShuttercontrol();
+    }
+
+    public XfsComponent(CRD xfs) {
+	xfsClass = "CRD";
+	xfs.getDispenseto();
+	extra = xfs.getExtra();
+	guidlights = xfs.getGuidlights();
+	xfs.getLogical();
+	powerOff = xfs.getPoweroffoption();
+	powerOn = xfs.getPoweronoption();
+	xfs.getProvider();
+	xfs.isCardtakensensor();
+	compound = xfs.isCompound();
+	xfs.isPowersavecontrol();
+    }
+
+    public XfsComponent(DEP xfs) {
+	xfsClass = "DEP";
+	charSupport = xfs.getCharsupport();
+	envelopesupply = xfs.getEnvsupply();
+	extra = xfs.getExtra();
+	guidlights = xfs.getGuidlights();
+	xfs.getLogical();
+	maxnumchars = xfs.getMaxnumchars();
+	xfs.getProvider();
+	retractenvelope = xfs.getRetractenvelope();
+	type = xfs.getType();
+	deptransport = xfs.isDeptransport();
+	xfs.isPowersavecontrol();
+	printer = xfs.isPrinter();
+	printonretracts = xfs.isPrintonretracts();
+	hasShutter = xfs.isShutter();
+	toner = xfs.isToner();
+    }
+
+    public XfsComponent(IDC xfs) {
+	xfsClass = "IDC";
+	cards = new Integer(xfs.getCards()).toString();
+	chipPower = xfs.getChippower();
+	chipProtocol = xfs.getChipprotocols();
+	xfs.getDipmode();
+	xfs.getEjectposition();
+	extra = xfs.getExtra();
+	guidlights = xfs.getGuidlights();
+	xfs.getLogical();
+	xfs.getMemorychipprotocols();
+	powerOff = xfs.getPoweroffoption();
+	powerOn = xfs.getPoweronoption();
+	xfs.getProvider();
+	readTracks = xfs.getReadtracks();
+	securityType = xfs.getSectype();
+	type = xfs.getType();
+	writeMode = xfs.getWritemode();
+	writeTracks = xfs.getWritetracks();
+    }
+
+    public XfsComponent(IPM xfs) {
+	xfsClass = "IPM";
+	backImageColorFormat = xfs.getBackimagecolorformat();
+	xfs.getBackscancolor();
+	codeLineFormat = xfs.getCodelineformat();
+	imageSource = xfs.getDatasource();
+	xfs.getDefaultbackscancolor();
+	xfs.getDefaultfrontscancolor();
+	extra = xfs.getExtra();
+	frontImageColorFormat = xfs.getFrontimagecolorformat();
+	xfs.getFrontscancolor();
+	guidlights = xfs.getGuidlights();
+	imageType = xfs.getImagetype();
+	xfs.getInsertorientation();
+	xfs.getLogical();
+	maxMediaOnStacker = xfs.getMaxmediaonstacker();
+	supportedPositions = xfs.getPositions();
+	xfs.getPrintsize();
+	xfs.getProvider();
+	xfs.getResetcontrol();
+	retractAreas = xfs.getRetractlocation();
+	type = xfs.getType();
+	xfs.isApplicationrefuse();
+	compound = xfs.isCompound();
+	xfs.isPowersavecontrol();
+	xfs.isPresentcontrol();
+	xfs.isRescan();
+	xfs.isRetractcountsitems();
+	xfs.isStamp();
+    }
+
+    public XfsComponent(PIN xfs) {
+	xfsClass = "PIN";
+	algorithms = xfs.getAlgorithms();
+	xfs.getAutobeep();
+	derivationAlgorithms = xfs.getDerivationalgorithms();
+	display = xfs.getDisplay();
+	xfs.getEmvhashalgorithm();
+	xfs.getEmvimportschemes();
+	xfs.getEncioprotocols();
+	extra = xfs.getExtra();
+	guidlights = xfs.getGuidlights();
+	xfs.getHsmvendor();
+	// idKey = xfs.getIdkey(); TODO ????????? String -> Integer
+	xfs.getKeyblockimportformats();
+	keyCheckModes = xfs.getKeycheckmodes();
+	keyNum = xfs.getKeynum();
+	xfs.getLogical();
+	pinFormats = xfs.getPinformats();
+	presentationAlgorithms = xfs.getPresentationalgorithms();
+	xfs.getProvider();
+	xfs.getRsaauthenticationscheme();
+	xfs.getRsacryptalgorithm();
+	xfs.getRsakeycheckmode();
+	xfs.getRsasignaturealgorithm();
+	xfs.getSignaturescheme();
+	type = xfs.getType();
+	validationAlgorithms = xfs.getValidationalgorithms();
+	compound = xfs.isCompound();
+	xfs.isHsmjournaling();
+	idConnect = xfs.isIdconnect();
+	xfs.isKeyimportthroughparts();
+	xfs.isPincanpersistafteruse();
+	xfs.isPowersavecontrol();
+	xfs.isSetpinblockdatarequired();
+	xfs.isTypecombined();
+    }
+
+    public XfsComponent(PTR xfs) {
+	xfsClass = "PTR";
+	xfs.getAutoretractperiod();
+	backImageColorFormat = xfs.getBackimagecolorformat();
+	charSupport = xfs.getCharsupport();
+	codeLineFormat = xfs.getCodelineformat();
+	control = xfs.getControl();
+	extents = xfs.getExtents();
+	extra = xfs.getExtra();
+	frontImageColorFormat = xfs.getFrontimagecolorformat();
+	guidlights = xfs.getGuidlights();
+	imageSource = xfs.getImagesource();
+	imageType = xfs.getImagetype();
+	xfs.getLogical();
+	maxMediaOnStacker = xfs.getMaxmediaonstacker();
+	// maxRetract = xfs.getMaxretract(); TODO ?????? String -> Integer
+	paperSources = xfs.getPapersources();
+	xfs.getProvider();
+	readForm = xfs.getReadform();
+	resolutions = xfs.getResolution();
+	retractBins = new Integer(xfs.getRetractbins()).toString();
+	type = xfs.getType();
+	xfs.getWindowsprinter();
+	writeForm = xfs.getWriteform();
+	acceptMedia = xfs.isAcceptmedia();
+	compound = xfs.isCompound();
+	dispensePaper = xfs.isDispensepaper();
+	xfs.isMediapresented();
+	mediaTaken = xfs.isMediataken();
+	multiPage = xfs.isMultipage();
+	xfs.isPowersavecontrol();
+	xfs.isRetracttotransport();
+    }
+
+    public XfsComponent(SIU xfs) {
+	xfsClass = "SIU";
+	auxiliaries = xfs.getAuxiliaries();
+	doors = xfs.getDoors();
+	extra = xfs.getExtra();
+	guidlights = xfs.getGuidlights();
+	indicators = xfs.getIndicators();
+	xfs.getLogical();
+	xfs.getProvider();
+	sensors = xfs.getSensors();
+	type = xfs.getType();
+	xfs.isPowersavecontrol();
+    }
+
+    public XfsComponent(TTU xfs) {
+	xfsClass = "TTU";
+	charSupport = xfs.getCharsupport();
+	extra = xfs.getExtra();
+	xfs.getLogical();
+	numLeds = xfs.getNumofleds();
+	xfs.getProvider();
+	resolutions = xfs.getResolutions();
+	type = xfs.getType();
+	cursor = xfs.isCursor();
+	displayLight = xfs.isDisplaylight();
+	forms = xfs.isForms();
+	keyLock = xfs.isKeylock();
+	xfs.isPowersavecontrol();
+    }
+
+    public XfsComponent(VDM xfs) {
+	xfsClass = "VDM";
+	extra = xfs.getExtra();
+	xfs.getLogical();
+	xfs.getProvider();
+    }
 
     /**
      * @return the financialDevice
@@ -594,94 +929,94 @@ public class XfsComponent {
     /**
      * @return the auxiliary15
      */
-    //public Integer getAuxiliary15() {
-    //	return auxiliary15;
-    //}
+//    public Integer getAuxiliary15() {
+//	return auxiliary15;
+//    }
 
     /**
      * @param auxiliary15
      *            the auxiliary15 to set
      */
-    //public void setAuxiliary15(Integer auxiliary15) {
-	//this.auxiliary15 = auxiliary15;
-    //}
+//    public void setAuxiliary15(Integer auxiliary15) {
+//	this.auxiliary15 = auxiliary15;
+//    }
 
     /**
      * @return the auxiliaryAudibleAlarm
      */
-    //public Boolean getAuxiliaryAudibleAlarm() {
-	//return auxiliaryAudibleAlarm;
-    //}
+//    public Boolean getAuxiliaryAudibleAlarm() {
+//	return auxiliaryAudibleAlarm;
+//    }
 
     /**
      * @param auxiliaryAudibleAlarm
      *            the auxiliaryAudibleAlarm to set
      */
-    //public void setAuxiliaryAudibleAlarm(Boolean auxiliaryAudibleAlarm) {
-	//this.auxiliaryAudibleAlarm = auxiliaryAudibleAlarm;
-    //}
+//    public void setAuxiliaryAudibleAlarm(Boolean auxiliaryAudibleAlarm) {
+//	this.auxiliaryAudibleAlarm = auxiliaryAudibleAlarm;
+//    }
 
     /**
      * @return the auxiliaryEnhancedAudioControl
      */
-    //public Boolean getAuxiliaryEnhancedAudioControl() {
-	//return auxiliaryEnhancedAudioControl;
-    //}
+//    public Boolean getAuxiliaryEnhancedAudioControl() {
+//	return auxiliaryEnhancedAudioControl;
+//    }
 
     /**
      * @param auxiliaryEnhancedAudioControl
      *            the auxiliaryEnhancedAudioControl to set
      */
-    //public void setAuxiliaryEnhancedAudioControl(
-	//    Boolean auxiliaryEnhancedAudioControl) {
-	//this.auxiliaryEnhancedAudioControl = auxiliaryEnhancedAudioControl;
-    //}
+//    public void setAuxiliaryEnhancedAudioControl(
+//	    Boolean auxiliaryEnhancedAudioControl) {
+//	this.auxiliaryEnhancedAudioControl = auxiliaryEnhancedAudioControl;
+//    }
 
     /**
      * @return the auxiliaryRemoteStatusMonitor
      */
-    //public Boolean getAuxiliaryRemoteStatusMonitor() {
-	//return auxiliaryRemoteStatusMonitor;
-    //}
+//    public Boolean getAuxiliaryRemoteStatusMonitor() {
+//	return auxiliaryRemoteStatusMonitor;
+//    }
 
     /**
      * @param auxiliaryRemoteStatusMonitor
      *            the auxiliaryRemoteStatusMonitor to set
      */
-    //public void setAuxiliaryRemoteStatusMonitor(
-	//    Boolean auxiliaryRemoteStatusMonitor) {
-	//this.auxiliaryRemoteStatusMonitor = auxiliaryRemoteStatusMonitor;
-    //}
+//    public void setAuxiliaryRemoteStatusMonitor(
+//	    Boolean auxiliaryRemoteStatusMonitor) {
+//	this.auxiliaryRemoteStatusMonitor = auxiliaryRemoteStatusMonitor;
+//    }
 
     /**
      * @return the auxiliaryUps
      */
-    //public Boolean getAuxiliaryUps() {
-	//return auxiliaryUps;
-    //}
+//    public Boolean getAuxiliaryUps() {
+//	return auxiliaryUps;
+//    }
 
     /**
      * @param auxiliaryUps
      *            the auxiliaryUps to set
      */
-    //public void setAuxiliaryUps(Boolean auxiliaryUps) {
-	//this.auxiliaryUps = auxiliaryUps;
-    //}
+//    public void setAuxiliaryUps(Boolean auxiliaryUps) {
+//	this.auxiliaryUps = auxiliaryUps;
+//    }
 
     /**
      * @return the auxiliaryVolume
      */
-    //public Boolean getAuxiliaryVolume() {
-	//return auxiliaryVolume;
-    //}
+//    public Boolean getAuxiliaryVolume() {
+//	return auxiliaryVolume;
+//    }
 
     /**
      * @param auxiliaryVolume
      *            the auxiliaryVolume to set
      */
-    //public void setAuxiliaryVolume(Boolean auxiliaryVolume) {
-	//this.auxiliaryVolume = auxiliaryVolume;
-    //}
+//    public void setAuxiliaryVolume(Boolean auxiliaryVolume) {
+//	this.auxiliaryVolume = auxiliaryVolume;
+//    }
 
     /**
      * @return the backImageColorFormat
@@ -1165,17 +1500,17 @@ public class XfsComponent {
     /**
      * @return the doorCabinet
      */
-    //public Boolean getDoorCabinet() {
-	//return doorCabinet;
-    //}
+//    public Boolean getDoorCabinet() {
+//	return doorCabinet;
+//    }
 
     /**
      * @param doorCabinet
      *            the doorCabinet to set
      */
-    //public void setDoorCabinet(Boolean doorCabinet) {
-	//this.doorCabinet = doorCabinet;
-    //}
+//    public void setDoorCabinet(Boolean doorCabinet) {
+//	this.doorCabinet = doorCabinet;
+//    }
 
     /**
      * @return the doorSafe
@@ -1195,17 +1530,17 @@ public class XfsComponent {
     /**
      * @return the doorSafe as a List<String>
      */
-    //public List<String> getDoorSafeSplit() {
-	//return Utils.splitStrings(doorSafe, XfsComponent.separator);
-    //}
+//    public List<String> getDoorSafeSplit() {
+//	return Utils.splitStrings(doorSafe, XfsComponent.separator);
+//    }
 
     /**
      * @param doorSafe
      *            the doorSafe as a List<String> to set
      */
-    //public void setDoorSafeSplit(List<String> doorSafe) {
-	//this.doorSafe = Utils.concatStrings(doorSafe, XfsComponent.separator);
-    //}
+//    public void setDoorSafeSplit(List<String> doorSafe) {
+//	this.doorSafe = Utils.concatStrings(doorSafe, XfsComponent.separator);
+//    }
 
     /**
      * @return the doorVandalShield
@@ -1379,200 +1714,200 @@ public class XfsComponent {
     /**
      * @return the guideLightBillAcceptor
      */
-    //public Boolean getguideLightBillAcceptor() {
-	//return guideLightBillAcceptor;
-    //}
+//    public Boolean getguideLightBillAcceptor() {
+//	return guideLightBillAcceptor;
+//    }
 
     /**
      * @param guideLightBillAcceptor
      *            the guideLightBillAcceptor to set
      */
-    //public void setguideLightBillAcceptor(Boolean guideLightBillAcceptor) {
-	//this.guideLightBillAcceptor = guideLightBillAcceptor;
-    //}
+//    public void setguideLightBillAcceptor(Boolean guideLightBillAcceptor) {
+//	this.guideLightBillAcceptor = guideLightBillAcceptor;
+//    }
 
     /**
      * @return the guideLightCardUnit
      */
-    //public Boolean getguideLightCardUnit() {
-	//return guideLightCardUnit;
-    //}
+//    public Boolean getguideLightCardUnit() {
+//	return guideLightCardUnit;
+//    }
 
     /**
      * @param guideLightCardUnit
      *            the guideLightCardUnit to set
      */
-    //public void setguideLightCardUnit(Boolean guideLightCardUnit) {
-	//this.guideLightCardUnit = guideLightCardUnit;
-    //}
+//    public void setguideLightCardUnit(Boolean guideLightCardUnit) {
+//	this.guideLightCardUnit = guideLightCardUnit;
+//    }
 
     /**
      * @return the guideLightChequeUnit
      */
-    //public Boolean getguideLightChequeUnit() {
-	//return guideLightChequeUnit;
-    //}
+//    public Boolean getguideLightChequeUnit() {
+//	return guideLightChequeUnit;
+//    }
 
     /**
      * @param guideLightChequeUnit
      *            the guideLightChequeUnit to set
      */
-    //public void setguideLightChequeUnit(Boolean guideLightChequeUnit) {
-	//this.guideLightChequeUnit = guideLightChequeUnit;
-    //}
+//    public void setguideLightChequeUnit(Boolean guideLightChequeUnit) {
+//	this.guideLightChequeUnit = guideLightChequeUnit;
+//    }
 
     /**
      * @return the guideLightCoinAcceptor
      */
-    //public Boolean getguideLightCoinAcceptor() {
-	//return guideLightCoinAcceptor;
-    //}
+//    public Boolean getguideLightCoinAcceptor() {
+//	return guideLightCoinAcceptor;
+//    }
 
     /**
      * @param guideLightCoinAcceptor
      *            the guideLightCoinAcceptor to set
      */
-    //public void setguideLightCoinAcceptor(Boolean guideLightCoinAcceptor) {
-	//this.guideLightCoinAcceptor = guideLightCoinAcceptor;
-    //}
+//    public void setguideLightCoinAcceptor(Boolean guideLightCoinAcceptor) {
+//	this.guideLightCoinAcceptor = guideLightCoinAcceptor;
+//    }
 
     /**
      * @return the guideLightCoinDispenser
      */
-    //public Boolean getguideLightCoinDispenser() {
-	//return guideLightCoinDispenser;
-    //}
+//    public Boolean getguideLightCoinDispenser() {
+//	return guideLightCoinDispenser;
+//    }
 
     /**
      * @param guideLightCoinDispenser
      *            the guideLightCoinDispenser to set
      */
-    //public void setguideLightCoinDispenser(Boolean guideLightCoinDispenser) {
-	//this.guideLightCoinDispenser = guideLightCoinDispenser;
-    //}
+//    public void setguideLightCoinDispenser(Boolean guideLightCoinDispenser) {
+//	this.guideLightCoinDispenser = guideLightCoinDispenser;
+//    }
 
     /**
      * @return the guideLightDocumentPrinter
      */
-    //public Boolean getguideLightDocumentPrinter() {
-	//return guideLightDocumentPrinter;
-    //}
+//    public Boolean getguideLightDocumentPrinter() {
+//	return guideLightDocumentPrinter;
+//    }
 
     /**
      * @param guideLightDocumentPrinter
      *            the guideLightDocumentPrinter to set
      */
-    //public void setguideLightDocumentPrinter(Boolean guideLightDocumentPrinter) {
-	//this.guideLightDocumentPrinter = guideLightDocumentPrinter;
-    //}
+//    public void setguideLightDocumentPrinter(Boolean guideLightDocumentPrinter) {
+//	this.guideLightDocumentPrinter = guideLightDocumentPrinter;
+//    }
 
     /**
      * @return the guideLightEnvelopeDepository
      */
-    //public Boolean getguideLightEnvelopeDepository() {
-	//return guideLightEnvelopeDepository;
-    //}
+//    public Boolean getguideLightEnvelopeDepository() {
+//	return guideLightEnvelopeDepository;
+//    }
 
     /**
      * @param guideLightEnvelopeDepository
      *            the guideLightEnvelopeDepository to set
      */
-    //public void setguideLightEnvelopeDepository(
-	//    Boolean guideLightEnvelopeDepository) {
-	//this.guideLightEnvelopeDepository = guideLightEnvelopeDepository;
-    //}
+//    public void setguideLightEnvelopeDepository(
+//	    Boolean guideLightEnvelopeDepository) {
+//	this.guideLightEnvelopeDepository = guideLightEnvelopeDepository;
+//    }
 
     /**
      * @return the guideLightEnvelopeDispenser
      */
-    //public Boolean getguideLightEnvelopeDispenser() {
-	//return guideLightEnvelopeDispenser;
-    //}
+//    public Boolean getguideLightEnvelopeDispenser() {
+//	return guideLightEnvelopeDispenser;
+//    }
 
     /**
      * @param guideLightEnvelopeDispenser
      *            the guideLightEnvelopeDispenser to set
      */
-    //public void setguideLightEnvelopeDispenser(
-	//    Boolean guideLightEnvelopeDispenser) {
-	//this.guideLightEnvelopeDispenser = guideLightEnvelopeDispenser;
-    //}
+//    public void setguideLightEnvelopeDispenser(
+//	    Boolean guideLightEnvelopeDispenser) {
+//	this.guideLightEnvelopeDispenser = guideLightEnvelopeDispenser;
+//    }
 
     /**
      * @return the guideLightNoteDispenser
      */
-    //public Boolean getguideLightNoteDispenser() {
-	//return guideLightNoteDispenser;
-    //}
+//    public Boolean getguideLightNoteDispenser() {
+//	return guideLightNoteDispenser;
+//    }
 
     /**
      * @param guideLightNoteDispenser
      *            the guideLightNoteDispenser to set
      */
-    //public void setguideLightNoteDispenser(Boolean guideLightNoteDispenser) {
-	//this.guideLightNoteDispenser = guideLightNoteDispenser;
-    //}
+//    public void setguideLightNoteDispenser(Boolean guideLightNoteDispenser) {
+//	this.guideLightNoteDispenser = guideLightNoteDispenser;
+//    }
 
     /**
      * @return the guideLightPassbookDispenser
      */
-    //public Boolean getguideLightPassbookDispenser() {
-	//return guideLightPassbookDispenser;
-    //}
+//    public Boolean getguideLightPassbookDispenser() {
+//	return guideLightPassbookDispenser;
+//    }
 
     /**
      * @param guideLightPassbookDispenser
      *            the guideLightPassbookDispenser to set
      */
-    //public void setguideLightPassbookDispenser(
-	//    Boolean guideLightPassbookDispenser) {
-	//this.guideLightPassbookDispenser = guideLightPassbookDispenser;
-    //}
+//    public void setguideLightPassbookDispenser(
+//	    Boolean guideLightPassbookDispenser) {
+//	this.guideLightPassbookDispenser = guideLightPassbookDispenser;
+//    }
 
     /**
      * @return the guideLightPinPad
      */
-    //public Boolean getguideLightPinPad() {
-	//return guideLightPinPad;
-    //}
+//    public Boolean getguideLightPinPad() {
+//	return guideLightPinPad;
+//    }
 
     /**
      * @param guideLightPinPad
      *            the guideLightPinPad to set
      */
-    //public void setguideLightPinPad(Boolean guideLightPinPad) {
-	//this.guideLightPinPad = guideLightPinPad;
-    //}
+//    public void setguideLightPinPad(Boolean guideLightPinPad) {
+//	this.guideLightPinPad = guideLightPinPad;
+//    }
 
     /**
      * @return the guideLightReceiptPrinter
      */
-    //public Boolean getguideLightReceiptPrinter() {
-	//return guideLightReceiptPrinter;
-    //}
+//    public Boolean getguideLightReceiptPrinter() {
+//	return guideLightReceiptPrinter;
+//    }
 
     /**
      * @param guideLightReceiptPrinter
      *            the guideLightReceiptPrinter to set
      */
-    //public void setguideLightReceiptPrinter(Boolean guideLightReceiptPrinter) {
-	//this.guideLightReceiptPrinter = guideLightReceiptPrinter;
-    //}
+//    public void setguideLightReceiptPrinter(Boolean guideLightReceiptPrinter) {
+//	this.guideLightReceiptPrinter = guideLightReceiptPrinter;
+//    }
 
     /**
      * @return the guideLightScanner
      */
-    //public Boolean getguideLightScanner() {
-	//return guideLightScanner;
-    //}
+//    public Boolean getguideLightScanner() {
+//	return guideLightScanner;
+//    }
 
     /**
      * @param guideLightScanner
      *            the guideLightScanner to set
      */
-    //public void setguideLightScanner(Boolean guideLightScanner) {
-	//this.guideLightScanner = guideLightScanner;
-    //}
+//    public void setguideLightScanner(Boolean guideLightScanner) {
+//	this.guideLightScanner = guideLightScanner;
+//    }
 
     /**
      * @return the hasCashBox
@@ -1653,7 +1988,7 @@ public class XfsComponent {
      * @return the idKey
      */
     public Integer getIdKey() {
-    	return idKey;
+	return idKey;
     }
 
     /**
@@ -1661,7 +1996,7 @@ public class XfsComponent {
      *            the idKey to set
      */
     public void setIdKey(Integer idKey) {
-    	this.idKey = idKey;
+	this.idKey = idKey;
     }
 
     /**
@@ -1728,68 +2063,68 @@ public class XfsComponent {
     /**
      * @return the indicatorAudio
      */
-    //public Boolean getIndicatorAudio() {
-	//return indicatorAudio;
-    //}
+//    public Boolean getIndicatorAudio() {
+//	return indicatorAudio;
+//    }
 
     /**
      * @param indicatorAudio
      *            the indicatorAudio to set
      */
-    //public void setIndicatorAudio(Boolean indicatorAudio) {
-	//this.indicatorAudio = indicatorAudio;
-    //}
+//    public void setIndicatorAudio(Boolean indicatorAudio) {
+//	this.indicatorAudio = indicatorAudio;
+//    }
 
     /**
      * @return the indicatorFasciaLight
      */
-    //public Boolean getIndicatorFasciaLight() {
-	//return indicatorFasciaLight;
-    //}
+//    public Boolean getIndicatorFasciaLight() {
+//	return indicatorFasciaLight;
+//    }
 
     /**
      * @param indicatorFasciaLight
      *            the indicatorFasciaLight to set
      */
-    //public void setIndicatorFasciaLight(Boolean indicatorFasciaLight) {
-	//this.indicatorFasciaLight = indicatorFasciaLight;
-    //}
+//    public void setIndicatorFasciaLight(Boolean indicatorFasciaLight) {
+//	this.indicatorFasciaLight = indicatorFasciaLight;
+//    }
 
     /**
      * @return the indicatorHeating
      */
-    //public Boolean getIndicatorHeating() {
-	//return indicatorHeating;
-    //}
+//    public Boolean getIndicatorHeating() {
+//	return indicatorHeating;
+//    }
 
     /**
      * @param indicatorHeating
      *            the indicatorHeating to set
      */
-    //public void setIndicatorHeating(Boolean indicatorHeating) {
-	//this.indicatorHeating = indicatorHeating;
-    //}
+//    public void setIndicatorHeating(Boolean indicatorHeating) {
+//	this.indicatorHeating = indicatorHeating;
+//    }
 
     /**
      * @return the indicatorOpenClose
      */
-    //public Boolean getIndicatorOpenClose() {
-	//return indicatorOpenClose;
-    //}
+//    public Boolean getIndicatorOpenClose() {
+//	return indicatorOpenClose;
+//    }
 
     /**
      * @param indicatorOpenClose
      *            the indicatorOpenClose to set
      */
-    //public void setIndicatorOpenClose(Boolean indicatorOpenClose) {
-	//this.indicatorOpenClose = indicatorOpenClose;
-    //}
+//    public void setIndicatorOpenClose(Boolean indicatorOpenClose) {
+//	this.indicatorOpenClose = indicatorOpenClose;
+//    }
 
     /**
      * @return the intermediateStacker
      */
     public Integer getIntermediateStacker() {
-    	return intermediateStacker;
+	return intermediateStacker;
     }
 
     /**
@@ -1797,7 +2132,7 @@ public class XfsComponent {
      *            the intermediateStacker to set
      */
     public void setIntermediateStacker(Integer intermediateStacker) {
-    	this.intermediateStacker = intermediateStacker;
+	this.intermediateStacker = intermediateStacker;
     }
 
     /**
@@ -2357,168 +2692,168 @@ public class XfsComponent {
     /**
      * @return the sensor30
      */
-    //public Integer getSensor30() {
-	//return sensor30;
-    //}
+//    public Integer getSensor30() {
+//	return sensor30;
+//    }
 
     /**
      * @param sensor30
      *            the sensor30 to set
      */
-    //public void setSensor30(Integer sensor30) {
-	//this.sensor30 = sensor30;
-    //}
+//    public void setSensor30(Integer sensor30) {
+//	this.sensor30 = sensor30;
+//    }
 
     /**
      * @return the sensor31
      */
-    //public Integer getSensor31() {
-	//return sensor31;
-    //}
+//    public Integer getSensor31() {
+//	return sensor31;
+//    }
 
     /**
      * @param sensor31
      *            the sensor31 to set
      */
-    //public void setSensor31(Integer sensor31) {
-	//this.sensor31 = sensor31;
-    //}
+//    public void setSensor31(Integer sensor31) {
+//	this.sensor31 = sensor31;
+//    }
 
     /**
      * @return the sensorAmbientLight
      */
-    //public Boolean getSensorAmbientLight() {
-	//return sensorAmbientLight;
-    //}
+//    public Boolean getSensorAmbientLight() {
+//	return sensorAmbientLight;
+//    }
 
     /**
      * @param sensorAmbientLight
      *            the sensorAmbientLight to set
      */
-    //public void setSensorAmbientLight(Boolean sensorAmbientLight) {
-	//this.sensorAmbientLight = sensorAmbientLight;
-    //}
+//    public void setSensorAmbientLight(Boolean sensorAmbientLight) {
+//	this.sensorAmbientLight = sensorAmbientLight;
+//    }
 
     /**
      * @return the sensorEnhancedAudio
      */
-    //public Boolean getSensorEnhancedAudio() {
-	//return sensorEnhancedAudio;
-    //}
+//    public Boolean getSensorEnhancedAudio() {
+//	return sensorEnhancedAudio;
+//    }
 
     /**
      * @param sensorEnhancedAudio
      *            the sensorEnhancedAudio to set
      */
-    //public void setSensorEnhancedAudio(Boolean sensorEnhancedAudio) {
-	//this.sensorEnhancedAudio = sensorEnhancedAudio;
-    //}
+//    public void setSensorEnhancedAudio(Boolean sensorEnhancedAudio) {
+//	this.sensorEnhancedAudio = sensorEnhancedAudio;
+//    }
 
     /**
      * @return the sensorHeat
      */
-    //public Boolean getSensorHeat() {
-	//return sensorHeat;
-    //}
+//    public Boolean getSensorHeat() {
+//	return sensorHeat;
+//    }
 
     /**
      * @param sensorHeat
      *            the sensorHeat to set
      */
-    //public void setSensorHeat(Boolean sensorHeat) {
-	//this.sensorHeat = sensorHeat;
-    //}
+//    public void setSensorHeat(Boolean sensorHeat) {
+//	this.sensorHeat = sensorHeat;
+//    }
 
     /**
      * @return the sensorInternalTamper
      */
-    //public Boolean getSensorInternalTamper() {
-	//return sensorInternalTamper;
-    //}
+//    public Boolean getSensorInternalTamper() {
+//	return sensorInternalTamper;
+//    }
 
     /**
      * @param sensorInternalTamper
      *            the sensorInternalTamper to set
      */
-    //public void setSensorInternalTamper(Boolean sensorInternalTamper) {
-	//this.sensorInternalTamper = sensorInternalTamper;
-    //}
+//    public void setSensorInternalTamper(Boolean sensorInternalTamper) {
+//	this.sensorInternalTamper = sensorInternalTamper;
+//    }
 
     /**
      * @return the sensorOperatorSwitch
      */
-    //public String getSensorOperatorSwitch() {
-	//return sensorOperatorSwitch;
-    //}
+//    public String getSensorOperatorSwitch() {
+//	return sensorOperatorSwitch;
+//    }
 
     /**
      * @param sensorOperatorSwitch
      *            the sensorOperatorSwitch to set
      */
-    //public void setSensorOperatorSwitch(String sensorOperatorSwitch) {
-	//this.sensorOperatorSwitch = sensorOperatorSwitch;
-    //}
+//    public void setSensorOperatorSwitch(String sensorOperatorSwitch) {
+//	this.sensorOperatorSwitch = sensorOperatorSwitch;
+//    }
 
     /**
      * @return the sensorOperatorSwitch as a List<String>
      */
-    //public List<String> getSensorOperatorSwitchSplit() {
-	//return Utils.splitStrings(sensorOperatorSwitch, XfsComponent.separator);
-    //}
+//    public List<String> getSensorOperatorSwitchSplit() {
+//	return Utils.splitStrings(sensorOperatorSwitch, XfsComponent.separator);
+//    }
 
     /**
      * @param sensorOperatorSwitch
      *            the sensorOperatorSwitch as a List<String> to set
      */
-    //public void setSensorOperatorSwitchSplit(List<String> sensorOperatorSwitch) {
-	//this.sensorOperatorSwitch = Utils.concatStrings(sensorOperatorSwitch,
-	//	XfsComponent.separator);
-    //}
+//    public void setSensorOperatorSwitchSplit(List<String> sensorOperatorSwitch) {
+//	this.sensorOperatorSwitch = Utils.concatStrings(sensorOperatorSwitch,
+//		XfsComponent.separator);
+//    }
 
     /**
      * @return the sensorProximity
      */
-    //public Boolean getSensorProximity() {
-	//return sensorProximity;
-    //}
+//    public Boolean getSensorProximity() {
+//	return sensorProximity;
+//    }
 
     /**
      * @param sensorProximity
      *            the sensorProximity to set
      */
-    //public void setSensorProximity(Boolean sensorProximity) {
-	//this.sensorProximity = sensorProximity;
-    //}
+//    public void setSensorProximity(Boolean sensorProximity) {
+//	this.sensorProximity = sensorProximity;
+//    }
 
     /**
      * @return the sensorSeismic
      */
-    //public Boolean getSensorSeismic() {
-	//return sensorSeismic;
-    //}
+//    public Boolean getSensorSeismic() {
+//	return sensorSeismic;
+//    }
 
     /**
      * @param sensorSeismic
      *            the sensorSeismic to set
      */
-    //public void setSensorSeismic(Boolean sensorSeismic) {
-	//this.sensorSeismic = sensorSeismic;
-    //}
+//    public void setSensorSeismic(Boolean sensorSeismic) {
+//	this.sensorSeismic = sensorSeismic;
+//    }
 
     /**
      * @return the sensorTamper
      */
-    //public Boolean getSensorTamper() {
-	//return sensorTamper;
-    //}
+//    public Boolean getSensorTamper() {
+//	return sensorTamper;
+//    }
 
     /**
      * @param sensorTamper
      *            the sensorTamper to set
      */
-    //public void setSensorTamper(Boolean sensorTamper) {
-	//this.sensorTamper = sensorTamper;
-    //}
+//    public void setSensorTamper(Boolean sensorTamper) {
+//	this.sensorTamper = sensorTamper;
+//    }
 
     /**
      * @return the serviceProvider
