@@ -16,7 +16,7 @@ import com.ncr.ATMMonitoring.pojo.TerminalModel;
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
-@Service
+@Service("terminalModelService")
 @Transactional
 public class TerminalModelServiceImpl implements TerminalModelService {
 
@@ -34,26 +34,32 @@ public class TerminalModelServiceImpl implements TerminalModelService {
     }
 
     @Override
+    public TerminalModel getTerminalModelByModel(String model) {
+	return terminalModelDAO.getTerminalModelByModel(model);
+    }
+
+    @Override
     public List<TerminalModel> listTerminalModels() {
 	return terminalModelDAO.listTerminalModels();
     }
 
     @Override
     public Map<String, List<TerminalModel>> listTerminalModelsByManufacturer() {
-    	Map<String, List<TerminalModel>> data = new HashMap<String, List<TerminalModel>>();
-    	List<TerminalModel> terminalModels = terminalModelDAO.listTerminalModels();
-    	String manufacturer;
-    	for (TerminalModel terminalModel : terminalModels) {
-    		manufacturer = terminalModel.getManufacturer();
-    		if (manufacturer != null) {
-    			if (!data.containsKey(manufacturer)) {
-    				data.put(manufacturer, new ArrayList<TerminalModel>());
-    			}
-				data.get(manufacturer).add(terminalModel);
-    		}
-    	}
-    	data.put("allManufacturers", terminalModels);
-    	return data;
+	Map<String, List<TerminalModel>> data = new HashMap<String, List<TerminalModel>>();
+	List<TerminalModel> terminalModels = terminalModelDAO
+		.listTerminalModels();
+	String manufacturer;
+	for (TerminalModel terminalModel : terminalModels) {
+	    manufacturer = terminalModel.getManufacturer();
+	    if (manufacturer != null) {
+		if (!data.containsKey(manufacturer)) {
+		    data.put(manufacturer, new ArrayList<TerminalModel>());
+		}
+		data.get(manufacturer).add(terminalModel);
+	    }
+	}
+	data.put("allManufacturers", terminalModels);
+	return data;
     }
 
     @Override
