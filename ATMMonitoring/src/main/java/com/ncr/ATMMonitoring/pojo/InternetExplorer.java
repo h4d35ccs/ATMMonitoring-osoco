@@ -15,6 +15,7 @@ import javax.persistence.UniqueConstraint;
 import ncr.inventory.data.IExplorer;
 
 import com.ncr.ATMMonitoring.utils.Operation;
+import com.ncr.agent.baseData.os.module.IExplorerPojo;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -29,8 +30,9 @@ public class InternetExplorer {
     private static final Map<String, Map> comboboxes;
 
     static {
-		comboboxes = new TreeMap<String, Map>();
-		comboboxes.put("majorVersion",Operation.getOperationsByType(Operation.DataType.VERSION));
+	comboboxes = new TreeMap<String, Map>();
+	comboboxes.put("majorVersion",
+		Operation.getOperationsByType(Operation.DataType.VERSION));
     }
 
     @Id
@@ -51,7 +53,7 @@ public class InternetExplorer {
     @Column(name = "revision_version")
     private Integer revisionVersion;
 
-    @Column(name = "remaining_version", length = 100)
+    @Column(name = "remaining_version", length = 20)
     private String remainingVersion;
 
     // We don't need this for now
@@ -66,21 +68,25 @@ public class InternetExplorer {
     }
 
     public InternetExplorer(IExplorer ie) {
-    	this.setVersion(ie.getVersion());
+	this.setVersion(ie.getVersion());
+    }
+
+    public InternetExplorer(IExplorerPojo ie) {
+	this.setVersion(ie.getVersion());
     }
 
     /**
      * @return the comboboxes
      */
     public static Map<String, Map> getComboboxes() {
-    	return comboboxes;
+	return comboboxes;
     }
 
     /**
      * @return the id
      */
     public Integer getId() {
-    	return id;
+	return id;
     }
 
     /**
@@ -88,35 +94,35 @@ public class InternetExplorer {
      *            the id to set
      */
     public void setId(Integer id) {
-    	this.id = id;
+	this.id = id;
     }
 
     /**
      * @return the majorVersion
      */
     public Integer getMajorVersion() {
-    	return majorVersion;
+	return majorVersion;
     }
 
     /**
      * @return the minorVersion
      */
     public Integer getMinorVersion() {
-    	return minorVersion;
+	return minorVersion;
     }
 
     /**
      * @return the buildVersion
      */
     public Integer getBuildVersion() {
-    	return buildVersion;
+	return buildVersion;
     }
 
     /**
      * @return the revisionVersion
      */
     public Integer getRevisionVersion() {
-    	return revisionVersion;
+	return revisionVersion;
     }
 
     /**
@@ -124,7 +130,7 @@ public class InternetExplorer {
      *            the majorVersion to set
      */
     public void setMajorVersion(Integer majorVersion) {
-    	this.majorVersion = majorVersion;
+	this.majorVersion = majorVersion;
     }
 
     /**
@@ -132,7 +138,7 @@ public class InternetExplorer {
      *            the minorVersion to set
      */
     public void setMinorVersion(Integer minorVersion) {
-    	this.minorVersion = minorVersion;
+	this.minorVersion = minorVersion;
     }
 
     /**
@@ -140,7 +146,7 @@ public class InternetExplorer {
      *            the buildVersion to set
      */
     public void setBuildVersion(Integer buildVersion) {
-    	this.buildVersion = buildVersion;
+	this.buildVersion = buildVersion;
     }
 
     /**
@@ -148,14 +154,14 @@ public class InternetExplorer {
      *            the revisionVersion to set
      */
     public void setRevisionVersion(Integer revisionVersion) {
-    	this.revisionVersion = revisionVersion;
+	this.revisionVersion = revisionVersion;
     }
 
     /**
      * @return the remainingVersion
      */
     public String getRemainingVersion() {
-    	return remainingVersion;
+	return remainingVersion;
     }
 
     /**
@@ -163,34 +169,34 @@ public class InternetExplorer {
      *            the remainingVersion to set
      */
     public void setRemainingVersion(String remainingVersion) {
-    	this.remainingVersion = remainingVersion;
+	this.remainingVersion = remainingVersion;
     }
 
     /**
      * @return the version complete
      */
     public String getVersion() {
-		String version = null;
-		if (majorVersion != null) {
-		    version = majorVersion.toString();
-		    if (minorVersion != null) {
-			version += "." + minorVersion.toString();
-			if (buildVersion != null) {
-			    version += "." + buildVersion.toString();
-			    if (revisionVersion != null) {
-				version += "." + revisionVersion.toString();
-				if (remainingVersion != null) {
-				    version += "." + remainingVersion;
-				}
-			    }
+	String version = null;
+	if (majorVersion != null) {
+	    version = majorVersion.toString();
+	    if (minorVersion != null) {
+		version += "." + minorVersion.toString();
+		if (buildVersion != null) {
+		    version += "." + buildVersion.toString();
+		    if (revisionVersion != null) {
+			version += "." + revisionVersion.toString();
+			if (remainingVersion != null) {
+			    version += "." + remainingVersion;
 			}
 		    }
-		} else {
-		    if ((remainingVersion != null) && (remainingVersion != "")) {
-			version = remainingVersion;
-		    }
 		}
-		return version;
+	    }
+	} else {
+	    if ((remainingVersion != null) && (remainingVersion != "")) {
+		version = remainingVersion;
+	    }
+	}
+	return version;
     }
 
     /**
@@ -198,26 +204,26 @@ public class InternetExplorer {
      *            the complete version to set
      */
     public void setVersion(String version) {
-		String[] versions = version.split("\\.", 5);
-		switch (versions.length) {
-		case 5:
-		    setRemainingVersion(versions[4]);
-		case 4:
-		    setRevisionVersion(new Integer(versions[3]));
-		case 3:
-		    setBuildVersion(new Integer(versions[2]));
-		case 2:
-		    setMinorVersion(new Integer(versions[1]));
-		    setMajorVersion(new Integer(versions[0]));
-		    break;
-		case 1:
-		    try {
-			setMajorVersion(new Integer(versions[0]));
-		    } catch (NumberFormatException e) {
-			setRemainingVersion(versions[0]);
-		    }
-		case 0:
-		    break;
-		}
+	String[] versions = version.split("\\.", 5);
+	switch (versions.length) {
+	case 5:
+	    setRemainingVersion(versions[4]);
+	case 4:
+	    setRevisionVersion(new Integer(versions[3]));
+	case 3:
+	    setBuildVersion(new Integer(versions[2]));
+	case 2:
+	    setMinorVersion(new Integer(versions[1]));
+	    setMajorVersion(new Integer(versions[0]));
+	    break;
+	case 1:
+	    try {
+		setMajorVersion(new Integer(versions[0]));
+	    } catch (NumberFormatException e) {
+		setRemainingVersion(versions[0]);
+	    }
+	case 0:
+	    break;
+	}
     }
 }
