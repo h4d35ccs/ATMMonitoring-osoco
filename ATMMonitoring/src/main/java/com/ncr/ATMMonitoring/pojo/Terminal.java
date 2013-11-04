@@ -26,10 +26,13 @@ import ncr.inventory.data.ATM;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import com.ncr.ATMMonitoring.snmp.SnmpWrongDataException;
+import com.ncr.ATMMonitoring.socket.ATMWrongDataException;
 import com.ncr.ATMMonitoring.utils.Operation;
+import com.ncr.agent.baseData.ATMDataStorePojo;
+import com.ncr.agent.baseData.os.module.NetworkAdapterSettingPojo;
+import com.ncr.agent.baseData.vendor.utils.FinancialTerminalPojo;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -45,10 +48,12 @@ public class Terminal {
 
     static {
 	comboboxes = new TreeMap<String, Map>();
-	Map<String, Map> operations = Operation.getOperationsByType(Operation.DataType.STRING);
+	Map<String, Map> operations = Operation
+		.getOperationsByType(Operation.DataType.STRING);
 	comboboxes.put("terminalType", operations);
 	comboboxes.put("terminalVendor", operations);
-	comboboxes.put("frontReplenish",Operation.getOperationsByType(Operation.DataType.BOOLEAN));
+	comboboxes.put("frontReplenish",
+		Operation.getOperationsByType(Operation.DataType.BOOLEAN));
 	comboboxes.put("geographicAddress", operations);
 	comboboxes.put("address", operations);
 	comboboxes.put("city", operations);
@@ -84,55 +89,55 @@ public class Terminal {
     @JoinColumn(name = "terminal_model_id")
     private TerminalModel terminalModel;
 
-    @Column(name = "terminal_type", length = 100)
+    @Column(name = "terminal_type", length = 50)
     private String terminalType;
 
-    @Column(name = "terminal_vendor", length = 100)
+    @Column(name = "terminal_vendor", length = 50)
     private String terminalVendor;
 
     @Column(name = "front_replenish")
     private Boolean frontReplenish;
 
-    @Column(name = "geographic_address", length = 300)
+    @Column(name = "geographic_address", length = 150)
     private String geographicAddress;
 
-    @Column(name = "address", length = 300)
+    @Column(name = "address", length = 100)
     private String address;
 
-    @Column(name = "city", length = 100)
+    @Column(name = "city", length = 35)
     private String city;
 
-    @Column(name = "area", length = 100)
+    @Column(name = "area", length = 35)
     private String area;
 
-    @Column(name = "country", length = 100)
+    @Column(name = "country", length = 50)
     private String country;
 
-    @Column(name = "zip_code", length = 30)
+    @Column(name = "zip_code", length = 150)
     private String zipCode;
 
-    @Column(name = "branch", length = 100)
+    @Column(name = "branch", length = 50)
     private String branch;
 
-    @Column(name = "bank", length = 100)
+    @Column(name = "bank", length = 50)
     private String bank;
 
-    @Column(name = "manufacturing_site", length = 100)
+    @Column(name = "manufacturing_site", length = 20)
     private String manufacturingSite;
 
-    @Column(name = "model", length = 100)
+    @Column(name = "model", length = 20)
     private String model;
 
-    @Column(name = "product_class", length = 100)
+    @Column(name = "product_class", length = 20)
     private String productClass;
 
-    @Column(name = "product_class_description", length = 200)
+    @Column(name = "product_class_description", length = 120)
     private String productClassDescription;
 
-    @Column(name = "serial_number", unique = true, length = 100)
+    @Column(name = "serial_number", unique = true, length = 50)
     private String serialNumber;
 
-    @Column(name = "tracer_number", length = 50)
+    @Column(name = "tracer_number", length = 20)
     private String tracerNumber;
 
     @OneToMany(mappedBy = "terminal", fetch = FetchType.LAZY)
@@ -140,11 +145,6 @@ public class Terminal {
     @OrderBy("start_date desc")
     private Set<TerminalConfig> configs = new HashSet<TerminalConfig>();
 
-    /*@OneToMany(mappedBy = "terminal", fetch = FetchType.LAZY)
-    @Cascade(CascadeType.ALL)
-    @OrderBy("serial_number")
-    private Set<FinancialDevice> financialDevices = new HashSet<FinancialDevice>();*/
-    
     @OneToMany(mappedBy = "terminal", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @OrderBy("serial_number")
@@ -172,12 +172,10 @@ public class Terminal {
     @OrderBy("major_version desc, minor_version desc, build_version desc, revision_version desc, remaining_version asc")
     private Set<InternetExplorer> internetExplorers = new HashSet<InternetExplorer>();
 
-    @NotEmpty
-    @Column(name = "ip", length = 23, unique = true, nullable = false)
+    @Column(name = "ip", length = 23)
     private String ip;
 
-    @NotEmpty
-    @Column(name = "mac", length = 17, unique = true, nullable = false)
+    @Column(name = "mac", length = 17)
     private String mac;
 
     /**
@@ -188,90 +186,136 @@ public class Terminal {
     }
 
     public static String getCsvHeader() {
-		return "Serial Number;IP;MAC;Terminal Type;Terminal Vendor;Front Replenish;"
-			+ "Bank;Branch;Geographic Address;Address;City;Zip Code;"
-			+ "Area;Country;Manufacturing Site;Model;Product Class;"
-			+ "Product Class Description;Tracer Number";
+	return "Serial Number;IP;MAC;Terminal Type;Terminal Vendor;Front Replenish;"
+		+ "Bank;Branch;Geographic Address;Address;City;Zip Code;"
+		+ "Area;Country;Manufacturing Site;Model;Product Class;"
+		+ "Product Class Description;Tracer Number";
     }
 
     public Terminal() {
     }
 
+    public Terminal(ATMDataStorePojo terminal) throws ATMWrongDataException {
+	Vector<NetworkAdapterSettingPojo> networkAdapters = terminal
+		.getvNetworkAdapterSetting();
+	if (networkAdapters.isEmpty()) {
+	    throw new ATMWrongDataException(
+		    "No subobject NetworkAdapterSetting in Terminal related to IP "
+			    + ip);
+	}
+	NetworkAdapterSettingPojo nw = networkAdapters.get(0);
+	if ((nw.getIpAddress() != null) && (nw.getIpAddress().length() > 0)
+		&& !nw.getIpAddress().equals("null")) {
+	    this.ip = nw.getIpAddress();
+	}
+	if ((nw.getMacAddress() != null) && (nw.getMacAddress().length() > 0)
+		&& !nw.getMacAddress().equals("null")) {
+	    this.mac = nw.getMacAddress();
+	}
+	FinancialTerminalPojo financialTerminal = terminal
+		.getFinancialTerminal();
+	if (financialTerminal == null) {
+	    throw new ATMWrongDataException(
+		    "No subobject FinancialTerminal in Terminal related to IP "
+			    + ip);
+	}
+	this.geographicAddress = financialTerminal.getGeographicaddress();
+	this.frontReplenish = Boolean.parseBoolean(financialTerminal
+		.getFrontreplenish());
+	this.manufacturingSite = financialTerminal.getManufacturingsite();
+	this.model = financialTerminal.getModel();
+	this.productClass = financialTerminal.getProductclass();
+	this.productClassDescription = financialTerminal
+		.getProductclassdescription();
+	if ((financialTerminal.getSerialnumber() != null)
+		&& (financialTerminal.getSerialnumber().length() > 0)
+		&& !financialTerminal.getSerialnumber().equals("null")) {
+	    this.serialNumber = financialTerminal.getSerialnumber();
+	}
+	this.terminalType = financialTerminal.getTerminaltype();
+	this.terminalVendor = financialTerminal.getVendor();
+	this.tracerNumber = financialTerminal.getTracernumber();
+    }
+
     public Terminal(ATM terminal) throws SnmpWrongDataException {
-		ip = terminal.getIp();
-		mac = terminal.getMac();
-		Vector<ncr.inventory.data.Terminal> subTerminals = terminal.getTerminals();
-		if ((subTerminals != null) && (subTerminals.size() > 0)) {
-		    if (subTerminals.size() > 1) {
-		    	logger.warn("More than one subobject Terminal related to IP " + ip);
-		    }
-		    ncr.inventory.data.Terminal subTerminal = subTerminals.get(0);
-		    if (subTerminal.getGeographicAddress() != null) {
-		    	this.geographicAddress = subTerminal.getGeographicAddress();
-		    }
-		    if (subTerminal.getFrontReplenish() != null) {
-		    	this.frontReplenish = Boolean.parseBoolean(subTerminal
-				.getFrontReplenish());
-		    }
-		    if (subTerminal.getManufacturingSite() != null) {
-		    	this.manufacturingSite = subTerminal.getManufacturingSite();
-		    }
-		    if (subTerminal.getModel() != null) {
-		    	this.model = subTerminal.getModel();
-		    }
-		    if (subTerminal.getProductClass() != null) {
-		    	this.productClass = subTerminal.getProductClass();
-		    }
-		    if (subTerminal.getProductClassDescription() != null) {
-		    	this.productClassDescription = subTerminal.getProductClassDescription();
-		    }
-		    if (subTerminal.getSerialNumber() != null) {
-		    	this.serialNumber = subTerminal.getSerialNumber();
-		    }
-		    if (subTerminal.getTerminalType() != null) {
-		    	this.terminalType = subTerminal.getTerminalType();
-		    }
-		    if (subTerminal.getTerminalVendor() != null) {
-		    	this.terminalVendor = subTerminal.getTerminalVendor();
-		    }
-		    if (subTerminal.getTracerNumber() != null) {
-		    	this.tracerNumber = subTerminal.getTracerNumber();
-		    }
-		} else {
-		    throw new SnmpWrongDataException("No subobjects Terminal related to IP " + ip);
-		}
+	ip = terminal.getIp();
+	mac = terminal.getMac();
+	Vector<ncr.inventory.data.Terminal> subTerminals = terminal
+		.getTerminals();
+	if ((subTerminals != null) && (subTerminals.size() > 0)) {
+	    if (subTerminals.size() > 1) {
+		logger.warn("More than one subobject Terminal related to IP "
+			+ ip);
+	    }
+	    ncr.inventory.data.Terminal subTerminal = subTerminals.get(0);
+	    if (subTerminal.getGeographicAddress() != null) {
+		this.geographicAddress = subTerminal.getGeographicAddress();
+	    }
+	    if (subTerminal.getFrontReplenish() != null) {
+		this.frontReplenish = Boolean.parseBoolean(subTerminal
+			.getFrontReplenish());
+	    }
+	    if (subTerminal.getManufacturingSite() != null) {
+		this.manufacturingSite = subTerminal.getManufacturingSite();
+	    }
+	    if (subTerminal.getModel() != null) {
+		this.model = subTerminal.getModel();
+	    }
+	    if (subTerminal.getProductClass() != null) {
+		this.productClass = subTerminal.getProductClass();
+	    }
+	    if (subTerminal.getProductClassDescription() != null) {
+		this.productClassDescription = subTerminal
+			.getProductClassDescription();
+	    }
+	    if (subTerminal.getSerialNumber() != null) {
+		this.serialNumber = subTerminal.getSerialNumber();
+	    }
+	    if (subTerminal.getTerminalType() != null) {
+		this.terminalType = subTerminal.getTerminalType();
+	    }
+	    if (subTerminal.getTerminalVendor() != null) {
+		this.terminalVendor = subTerminal.getTerminalVendor();
+	    }
+	    if (subTerminal.getTracerNumber() != null) {
+		this.tracerNumber = subTerminal.getTracerNumber();
+	    }
+	} else {
+	    throw new SnmpWrongDataException(
+		    "No subobjects Terminal related to IP " + ip);
+	}
     }
 
     public void replaceTerminalData(Terminal terminal) {
-		this.address = terminal.address;
-		this.area = terminal.area;
-		this.bank = terminal.bank;
-		this.branch = terminal.branch;
-		this.city = terminal.city;
-		this.country = terminal.country;
-		this.frontReplenish = terminal.frontReplenish;
-		this.geographicAddress = terminal.geographicAddress;
-		this.ip = terminal.ip;
-		this.mac = terminal.mac;
-		this.manufacturingSite = terminal.manufacturingSite;
-		this.model = terminal.model;
-		this.productClass = terminal.productClass;
-		this.productClassDescription = terminal.productClassDescription;
-		this.serialNumber = terminal.serialNumber;
-		this.terminalType = terminal.terminalType;
-		this.terminalVendor = terminal.terminalVendor;
-		this.tracerNumber = terminal.tracerNumber;
-		this.zipCode = terminal.zipCode;
-		this.bankCompany = terminal.bankCompany;
-		this.installation = terminal.installation;
-		this.terminalModel = terminal.terminalModel;
+	this.address = terminal.address;
+	this.area = terminal.area;
+	this.bank = terminal.bank;
+	this.branch = terminal.branch;
+	this.city = terminal.city;
+	this.country = terminal.country;
+	this.frontReplenish = terminal.frontReplenish;
+	this.geographicAddress = terminal.geographicAddress;
+	this.ip = terminal.ip;
+	this.mac = terminal.mac;
+	this.manufacturingSite = terminal.manufacturingSite;
+	this.model = terminal.model;
+	this.productClass = terminal.productClass;
+	this.productClassDescription = terminal.productClassDescription;
+	this.serialNumber = terminal.serialNumber;
+	this.terminalType = terminal.terminalType;
+	this.terminalVendor = terminal.terminalVendor;
+	this.tracerNumber = terminal.tracerNumber;
+	this.zipCode = terminal.zipCode;
+	this.bankCompany = terminal.bankCompany;
+	this.installation = terminal.installation;
+	this.terminalModel = terminal.terminalModel;
     }
 
     /**
      * @return the id
      */
     public Integer getId() {
-    	return id;
+	return id;
     }
 
     /**
@@ -279,7 +323,7 @@ public class Terminal {
      *            the id to set
      */
     public void setId(Integer id) {
-    	this.id = id;
+	this.id = id;
     }
 
     /**
@@ -301,7 +345,7 @@ public class Terminal {
      * @return the terminalType
      */
     public String getTerminalType() {
-    	return terminalType;
+	return terminalType;
     }
 
     /**
@@ -309,14 +353,14 @@ public class Terminal {
      *            the terminalType to set
      */
     public void setTerminalType(String terminalType) {
-    	this.terminalType = terminalType;
+	this.terminalType = terminalType;
     }
 
     /**
      * @return the terminalVendor
      */
     public String getTerminalVendor() {
-    	return terminalVendor;
+	return terminalVendor;
     }
 
     /**
@@ -324,14 +368,14 @@ public class Terminal {
      *            the terminalVendor to set
      */
     public void setTerminalVendor(String terminalVendor) {
-    	this.terminalVendor = terminalVendor;
+	this.terminalVendor = terminalVendor;
     }
 
     /**
      * @return the frontReplenish
      */
     public Boolean getFrontReplenish() {
-    	return frontReplenish;
+	return frontReplenish;
     }
 
     /**
@@ -339,14 +383,14 @@ public class Terminal {
      *            the frontReplenish to set
      */
     public void setFrontReplenish(Boolean frontReplenish) {
-    	this.frontReplenish = frontReplenish;
+	this.frontReplenish = frontReplenish;
     }
 
     /**
      * @return the geographicAddress
      */
     public String getGeographicAddress() {
-    	return geographicAddress;
+	return geographicAddress;
     }
 
     /**
@@ -354,14 +398,14 @@ public class Terminal {
      *            the geographicAddress to set
      */
     public void setGeographicAddress(String geographicAddress) {
-    	this.geographicAddress = geographicAddress;
+	this.geographicAddress = geographicAddress;
     }
 
     /**
      * @return the manufacturingSite
      */
     public String getManufacturingSite() {
-    	return manufacturingSite;
+	return manufacturingSite;
     }
 
     /**
@@ -369,14 +413,14 @@ public class Terminal {
      *            the manufacturingSite to set
      */
     public void setManufacturingSite(String manufacturingSite) {
-    	this.manufacturingSite = manufacturingSite;
+	this.manufacturingSite = manufacturingSite;
     }
 
     /**
      * @return the model
      */
     public String getModel() {
-    	return model;
+	return model;
     }
 
     /**
@@ -384,14 +428,14 @@ public class Terminal {
      *            the model to set
      */
     public void setModel(String model) {
-    	this.model = model;
+	this.model = model;
     }
 
     /**
      * @return the productClass
      */
     public String getProductClass() {
-    	return productClass;
+	return productClass;
     }
 
     /**
@@ -399,14 +443,14 @@ public class Terminal {
      *            the productClass to set
      */
     public void setProductClass(String productClass) {
-    	this.productClass = productClass;
+	this.productClass = productClass;
     }
 
     /**
      * @return the productClassDescription
      */
     public String getProductClassDescription() {
-    	return productClassDescription;
+	return productClassDescription;
     }
 
     /**
@@ -414,14 +458,14 @@ public class Terminal {
      *            the productClassDescription to set
      */
     public void setProductClassDescription(String productClassDescription) {
-    	this.productClassDescription = productClassDescription;
+	this.productClassDescription = productClassDescription;
     }
 
     /**
      * @return the serialNumber
      */
     public String getSerialNumber() {
-    	return serialNumber;
+	return serialNumber;
     }
 
     /**
@@ -429,14 +473,14 @@ public class Terminal {
      *            the serialNumber to set
      */
     public void setSerialNumber(String serialNumber) {
-    	this.serialNumber = serialNumber;
+	this.serialNumber = serialNumber;
     }
 
     /**
      * @return the tracerNumber
      */
     public String getTracerNumber() {
-    	return tracerNumber;
+	return tracerNumber;
     }
 
     /**
@@ -444,14 +488,14 @@ public class Terminal {
      *            the tracerNumber to set
      */
     public void setTracerNumber(String tracerNumber) {
-    	this.tracerNumber = tracerNumber;
+	this.tracerNumber = tracerNumber;
     }
 
     /**
      * @return the configs
      */
     public Set<TerminalConfig> getConfigs() {
-    	return configs;
+	return configs;
     }
 
     /**
@@ -459,14 +503,14 @@ public class Terminal {
      *            the configs to set
      */
     public void setConfigs(Set<TerminalConfig> configs) {
-    	this.configs = configs;
+	this.configs = configs;
     }
 
     /**
      * @return the financialDevices
      */
     public Set<FinancialDevice> getFinancialDevices() {
-    	return financialDevices;
+	return financialDevices;
     }
 
     /**
@@ -474,161 +518,161 @@ public class Terminal {
      *            the financialDevices to set
      */
     public void setFinancialDevices(Set<FinancialDevice> financialDevices) {
-    	this.financialDevices = financialDevices;
+	this.financialDevices = financialDevices;
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getHardwareDevices() {
-    	return hardwareDevices;
+	return hardwareDevices;
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getComputerSystems() {
-    	return HardwareDevice.filterComputerSystem(hardwareDevices);
+	return HardwareDevice.filterComputerSystem(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getProcessors() {
-    	return HardwareDevice.filterProcessor(hardwareDevices);
+	return HardwareDevice.filterProcessor(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getPhysicalMemories() {
-    	return HardwareDevice.filterPhysicalMemory(hardwareDevices);
+	return HardwareDevice.filterPhysicalMemory(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getDiskDrives() {
-    	return HardwareDevice.filterDiskDrive(hardwareDevices);
+	return HardwareDevice.filterDiskDrive(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getLogicalDisks() {
-    	return HardwareDevice.filterLogicalDisk(hardwareDevices);
+	return HardwareDevice.filterLogicalDisk(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getBaseBoards() {
-    	return HardwareDevice.filterBaseBoard(hardwareDevices);
+	return HardwareDevice.filterBaseBoard(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getNetworkAdapters() {
-    	return HardwareDevice.filterNetworkAdapter(hardwareDevices);
+	return HardwareDevice.filterNetworkAdapter(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getFloppyDrives() {
-    	return HardwareDevice.filterFloppyDrive(hardwareDevices);
+	return HardwareDevice.filterFloppyDrive(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getCdromDrives() {
-    	return HardwareDevice.filterCdromDrive(hardwareDevices);
+	return HardwareDevice.filterCdromDrive(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getSoundDevices() {
-    	return HardwareDevice.filterSoundDevice(hardwareDevices);
+	return HardwareDevice.filterSoundDevice(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getUsbControllers() {
-    	return HardwareDevice.filterUsbController(hardwareDevices);
+	return HardwareDevice.filterUsbController(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getSerialPorts() {
-    	return HardwareDevice.filterSerialPort(hardwareDevices);
+	return HardwareDevice.filterSerialPort(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getParallelPorts() {
-    	return HardwareDevice.filterParallelPort(hardwareDevices);
+	return HardwareDevice.filterParallelPort(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getControllers1394() {
-    	return HardwareDevice.filter1394Controller(hardwareDevices);
+	return HardwareDevice.filter1394Controller(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getScsiControllers() {
-    	return HardwareDevice.filterScsiController(hardwareDevices);
+	return HardwareDevice.filterScsiController(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getDesktopMonitors() {
-    	return HardwareDevice.filterDesktopMonitor(hardwareDevices);
+	return HardwareDevice.filterDesktopMonitor(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getKeyboards() {
-    	return HardwareDevice.filterKeyboard(hardwareDevices);
+	return HardwareDevice.filterKeyboard(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getPointingDevices() {
-    	return HardwareDevice.filterPointingDevice(hardwareDevices);
+	return HardwareDevice.filterPointingDevice(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getSystemSlots() {
-    	return HardwareDevice.filterSystemSlot(hardwareDevices);
+	return HardwareDevice.filterSystemSlot(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getBios() {
-    	return HardwareDevice.filterBios(hardwareDevices);
+	return HardwareDevice.filterBios(hardwareDevices);
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getVideoControllers() {
-    	return HardwareDevice.filterVideoController(hardwareDevices);
+	return HardwareDevice.filterVideoController(hardwareDevices);
     }
 
     /**
@@ -636,24 +680,24 @@ public class Terminal {
      *            the hardwareDevices to set
      */
     public void setHardwareDevices(Set<HardwareDevice> hardwareDevices) {
-    	this.hardwareDevices = hardwareDevices;
+	this.hardwareDevices = hardwareDevices;
     }
 
     /**
      * @return the current config
      */
     public TerminalConfig getCurrentConfig() {
-		if ((configs != null) && (!configs.isEmpty())) {
-		    return configs.iterator().next();
-		}
-		return null;
+	if ((configs != null) && (!configs.isEmpty())) {
+	    return configs.iterator().next();
+	}
+	return null;
     }
 
     /**
      * @return the bank
      */
     public String getBank() {
-    	return bank;
+	return bank;
     }
 
     /**
@@ -661,14 +705,14 @@ public class Terminal {
      *            the bank to set
      */
     public void setBank(String bank) {
-    	this.bank = bank;
+	this.bank = bank;
     }
 
     /**
      * @return the city
      */
     public String getCity() {
-    	return city;
+	return city;
     }
 
     /**
@@ -676,14 +720,14 @@ public class Terminal {
      *            the city to set
      */
     public void setCity(String city) {
-    	this.city = city;
+	this.city = city;
     }
 
     /**
      * @return the area
      */
     public String getArea() {
-    	return area;
+	return area;
     }
 
     /**
@@ -691,14 +735,14 @@ public class Terminal {
      *            the area to set
      */
     public void setArea(String area) {
-    	this.area = area;
+	this.area = area;
     }
 
     /**
      * @return the country
      */
     public String getCountry() {
-    	return country;
+	return country;
     }
 
     /**
@@ -706,14 +750,14 @@ public class Terminal {
      *            the country to set
      */
     public void setCountry(String country) {
-    	this.country = country;
+	this.country = country;
     }
 
     /**
      * @return the zipCode
      */
     public String getZipCode() {
-    	return zipCode;
+	return zipCode;
     }
 
     /**
@@ -721,14 +765,14 @@ public class Terminal {
      *            the zipCode to set
      */
     public void setZipCode(String zipCode) {
-    	this.zipCode = zipCode;
+	this.zipCode = zipCode;
     }
 
     /**
      * @return the branch
      */
     public String getBranch() {
-    	return branch;
+	return branch;
     }
 
     /**
@@ -736,14 +780,14 @@ public class Terminal {
      *            the branch to set
      */
     public void setBranch(String branch) {
-    	this.branch = branch;
+	this.branch = branch;
     }
 
     /**
      * @return the ip
      */
     public String getIp() {
-    	return ip;
+	return ip;
     }
 
     /**
@@ -751,14 +795,14 @@ public class Terminal {
      *            the ip to set
      */
     public void setIp(String ip) {
-    	this.ip = ip;
+	this.ip = ip;
     }
 
     /**
      * @return the address
      */
     public String getAddress() {
-    	return address;
+	return address;
     }
 
     /**
@@ -766,14 +810,14 @@ public class Terminal {
      *            the address to set
      */
     public void setAddress(String address) {
-    	this.address = address;
+	this.address = address;
     }
 
     /**
      * @return the softwareAggregates
      */
     public Set<SoftwareAggregate> getSoftwareAggregates() {
-    	return softwareAggregates;
+	return softwareAggregates;
     }
 
     /**
@@ -781,14 +825,14 @@ public class Terminal {
      *            the softwareAggregates to set
      */
     public void setSoftwareAggregates(Set<SoftwareAggregate> softwareAggregates) {
-    	this.softwareAggregates = softwareAggregates;
+	this.softwareAggregates = softwareAggregates;
     }
 
     /**
      * @return the hotfixes
      */
     public Set<Hotfix> getHotfixes() {
-    	return hotfixes;
+	return hotfixes;
     }
 
     /**
@@ -796,14 +840,14 @@ public class Terminal {
      *            the hotfixes to set
      */
     public void setHotfixes(Set<Hotfix> hotfixes) {
-    	this.hotfixes = hotfixes;
+	this.hotfixes = hotfixes;
     }
 
     /**
      * @return the internetExplorers
      */
     public Set<InternetExplorer> getInternetExplorers() {
-    	return internetExplorers;
+	return internetExplorers;
     }
 
     /**
@@ -811,56 +855,56 @@ public class Terminal {
      *            the internetExplorers to set
      */
     public void setInternetExplorers(Set<InternetExplorer> internetExplorers) {
-    	this.internetExplorers = internetExplorers;
+	this.internetExplorers = internetExplorers;
     }
 
     public String getCsvDescription() {
-		return (serialNumber != null ? serialNumber.toString() : "")
-			+ ";"
-			+ (ip != null ? ip.toString() : "")
-			+ ";"
-			+ (mac != null ? mac.toString() : "")
-			+ ";"
-			+ (terminalType != null ? terminalType.toString() : "")
-			+ ";"
-			+ (terminalVendor != null ? terminalVendor.toString() : "")
-			+ ";"
-			+ (frontReplenish != null ? frontReplenish.toString() : "")
-			+ ";"
-			+ (bank != null ? bank.toString() : "")
-			+ ";"
-			+ (branch != null ? branch.toString() : "")
-			+ ";"
-			+ (geographicAddress != null ? geographicAddress.toString()
-				: "")
-			+ ";"
-			+ (address != null ? address.toString() : "")
-			+ ";"
-			+ (city != null ? city.toString() : "")
-			+ ";"
-			+ (zipCode != null ? zipCode.toString() : "")
-			+ ";"
-			+ (area != null ? area.toString() : "")
-			+ ";"
-			+ (country != null ? country.toString() : "")
-			+ ";"
-			+ (manufacturingSite != null ? manufacturingSite.toString()
-				: "")
-			+ ";"
-			+ (model != null ? model.toString() : "")
-			+ ";"
-			+ (productClass != null ? productClass.toString() : "")
-			+ ";"
-			+ (productClassDescription != null ? productClassDescription
-				.toString() : "") + ";"
-			+ (tracerNumber != null ? tracerNumber.toString() : "");
+	return (serialNumber != null ? serialNumber.toString() : "")
+		+ ";"
+		+ (ip != null ? ip.toString() : "")
+		+ ";"
+		+ (mac != null ? mac.toString() : "")
+		+ ";"
+		+ (terminalType != null ? terminalType.toString() : "")
+		+ ";"
+		+ (terminalVendor != null ? terminalVendor.toString() : "")
+		+ ";"
+		+ (frontReplenish != null ? frontReplenish.toString() : "")
+		+ ";"
+		+ (bank != null ? bank.toString() : "")
+		+ ";"
+		+ (branch != null ? branch.toString() : "")
+		+ ";"
+		+ (geographicAddress != null ? geographicAddress.toString()
+			: "")
+		+ ";"
+		+ (address != null ? address.toString() : "")
+		+ ";"
+		+ (city != null ? city.toString() : "")
+		+ ";"
+		+ (zipCode != null ? zipCode.toString() : "")
+		+ ";"
+		+ (area != null ? area.toString() : "")
+		+ ";"
+		+ (country != null ? country.toString() : "")
+		+ ";"
+		+ (manufacturingSite != null ? manufacturingSite.toString()
+			: "")
+		+ ";"
+		+ (model != null ? model.toString() : "")
+		+ ";"
+		+ (productClass != null ? productClass.toString() : "")
+		+ ";"
+		+ (productClassDescription != null ? productClassDescription
+			.toString() : "") + ";"
+		+ (tracerNumber != null ? tracerNumber.toString() : "");
     }
 
     /**
      * @return the mac
      */
     public String getMac() {
-    	return mac;
+	return mac;
     }
 
     /**
@@ -868,7 +912,7 @@ public class Terminal {
      *            the mac to set
      */
     public void setMac(String mac) {
-    	this.mac = mac;
+	this.mac = mac;
     }
 
     public TerminalModel getTerminalModel() {
