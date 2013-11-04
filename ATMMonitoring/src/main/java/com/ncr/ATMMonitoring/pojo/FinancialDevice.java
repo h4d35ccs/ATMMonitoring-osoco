@@ -24,6 +24,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import com.ncr.ATMMonitoring.utils.Operation;
+import com.ncr.agent.baseData.vendor.utils.FinancialDevicePojo;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -36,25 +37,29 @@ public class FinancialDevice {
     private static final Map<String, Map> comboboxes;
 
     static {
-		comboboxes = new TreeMap<String, Map>();
-		Map<String, Map> stringOperations = Operation.getOperationsByType(Operation.DataType.STRING);
-		Map<String, Map> boolOperations = Operation.getOperationsByType(Operation.DataType.BOOLEAN);
-		comboboxes.put("model", stringOperations);
-		comboboxes.put("variant", stringOperations);
-		comboboxes.put("manufacturer", stringOperations);
-		comboboxes.put("serialNumber", stringOperations);
-		comboboxes.put("caption", stringOperations);
-		comboboxes.put("description", stringOperations);
-		comboboxes.put("universalId", stringOperations);
-		comboboxes.put("deviceInstance", stringOperations);
-		comboboxes.put("deviceStatus", stringOperations);
-		comboboxes.put("pmStatus", stringOperations);
-		comboboxes.put("hotSwappable", boolOperations);
-		comboboxes.put("replaceable", boolOperations);
-		comboboxes.put("removable", boolOperations);
-		comboboxes.put("name", stringOperations);
-		comboboxes.put("firmwareMajorVersion",Operation.getOperationsByType(Operation.DataType.VERSION));
-		comboboxes.put("majorVersion",Operation.getOperationsByType(Operation.DataType.VERSION));
+	comboboxes = new TreeMap<String, Map>();
+	Map<String, Map> stringOperations = Operation
+		.getOperationsByType(Operation.DataType.STRING);
+	Map<String, Map> boolOperations = Operation
+		.getOperationsByType(Operation.DataType.BOOLEAN);
+	comboboxes.put("model", stringOperations);
+	comboboxes.put("variant", stringOperations);
+	comboboxes.put("manufacturer", stringOperations);
+	comboboxes.put("serialNumber", stringOperations);
+	comboboxes.put("caption", stringOperations);
+	comboboxes.put("description", stringOperations);
+	comboboxes.put("universalId", stringOperations);
+	comboboxes.put("deviceInstance", stringOperations);
+	comboboxes.put("deviceStatus", stringOperations);
+	comboboxes.put("pmStatus", stringOperations);
+	comboboxes.put("hotSwappable", boolOperations);
+	comboboxes.put("replaceable", boolOperations);
+	comboboxes.put("removable", boolOperations);
+	comboboxes.put("name", stringOperations);
+	comboboxes.put("firmwareMajorVersion",
+		Operation.getOperationsByType(Operation.DataType.VERSION));
+	comboboxes.put("majorVersion",
+		Operation.getOperationsByType(Operation.DataType.VERSION));
     }
 
     @Id
@@ -64,9 +69,7 @@ public class FinancialDevice {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    //@Cascade(CascadeType.ALL) - Eva 13/03/2013 - Generates an "No row with the given identifier exists..."
     @Cascade(CascadeType.REFRESH)
-    //<--
     @JoinColumn(name = "terminal_id")
     private Terminal terminal;
 
@@ -75,10 +78,10 @@ public class FinancialDevice {
     @Cascade(CascadeType.ALL)
     private Set<XfsComponent> xfsComponents = new HashSet<XfsComponent>();
 
-    @Column(name = "device_instance", length = 100)
+    @Column(name = "device_instance", length = 150)
     private String deviceInstance;
 
-    @Column(name = "device_status", length = 50)
+    @Column(name = "device_status", length = 150)
     private String deviceStatus;
 
     @Column(name = "hot_swappable")
@@ -90,22 +93,19 @@ public class FinancialDevice {
     @Column(name = "replaceable")
     private Boolean replaceable;
 
-    @Column(name = "pm_status", length = 100)
+    @Column(name = "pm_status", length = 150)
     private String pmStatus;
 
-    @Column(name = "universal_id", length = 100)
+    @Column(name = "universal_id", length = 150)
     private String universalId;
 
-    @Column(name = "model", length = 100)
+    @Column(name = "model", length = 150)
     private String model;
 
-    @Column(name = "variant", length = 100)
+    @Column(name = "variant", length = 150)
     private String variant;
 
-    /*@Column(name = "serial_number", unique = true, length = 100)
-    private String serialNumber;*/
-    
-    @Column(name = "serial_number", length = 100)
+    @Column(name = "serial_number", length = 150)
     private String serialNumber;
 
     @Column(name = "name", length = 300)
@@ -154,37 +154,59 @@ public class FinancialDevice {
     }
 
     public FinancialDevice(Device device) {
-		this.setFirmwareVersion(device.getFirmwareVersion());
-		this.setVersion(device.getVersion());
-		this.caption = device.getCaption();
-		this.description = device.getDescription();
-		this.deviceInstance = device.getDeviceInstance();
-		this.deviceStatus = device.getDeviceStatus();
-		this.hotSwappable = Boolean.parseBoolean(device.getHotSwappable());
-		this.model = device.getModel();
-		this.name = device.getName();
-		this.pmStatus = device.getPmStatus();
-		this.removable = Boolean.parseBoolean(device.getRemovable());
-		this.replaceable = Boolean.parseBoolean(device.getReplaceable());
-		this.serialNumber = device.getSerialNumber();
-		this.universalId = device.getUniversalID();
-		this.variant = device.getVariant();
-		// TODO
-		// No xfs components?
+	this.setFirmwareVersion(device.getFirmwareVersion());
+	this.setVersion(device.getVersion());
+	this.caption = device.getCaption();
+	this.description = device.getDescription();
+	this.deviceInstance = device.getDeviceInstance();
+	this.deviceStatus = device.getDeviceStatus();
+	this.hotSwappable = Boolean.parseBoolean(device.getHotSwappable());
+	this.model = device.getModel();
+	this.name = device.getName();
+	this.pmStatus = device.getPmStatus();
+	this.removable = Boolean.parseBoolean(device.getRemovable());
+	this.replaceable = Boolean.parseBoolean(device.getReplaceable());
+	this.serialNumber = device.getSerialNumber();
+	this.universalId = device.getUniversalID();
+	this.variant = device.getVariant();
+	// TODO
+	// No xfs components?
+    }
+
+    public FinancialDevice(FinancialDevicePojo device) {
+	this.setFirmwareVersion(device.getFirmwareversion());
+	this.setVersion(device.getVersion());
+	this.caption = device.getCaption();
+	this.description = device.getDescription();
+	this.deviceInstance = device.getDeviceinstance();
+	this.deviceStatus = device.getDevicestatus();
+	this.hotSwappable = Boolean.parseBoolean(device.getHotswappable());
+	this.model = device.getModel();
+	this.name = device.getName();
+	this.pmStatus = device.getPmstatus();
+	this.removable = Boolean.parseBoolean(device.getRemovable());
+	this.replaceable = Boolean.parseBoolean(device.getReplaceable());
+	if ((device.getSerialnumber() != null)
+		&& (device.getSerialnumber().length() > 0)
+		&& (!device.getSerialnumber().equals("null"))) {
+	    this.serialNumber = device.getSerialnumber();
+	}
+	this.universalId = device.getUniversalid();
+	this.variant = device.getVariant();
     }
 
     /**
      * @return the comboboxes
      */
     public static Map<String, Map> getComboboxes() {
-    	return comboboxes;
+	return comboboxes;
     }
 
     /**
      * @return the id
      */
     public Integer getId() {
-    	return id;
+	return id;
     }
 
     /**
@@ -192,14 +214,14 @@ public class FinancialDevice {
      *            the id to set
      */
     public void setId(Integer id) {
-    	this.id = id;
+	this.id = id;
     }
 
     /**
      * @return the model
      */
     public String getModel() {
-    	return model;
+	return model;
     }
 
     /**
@@ -207,14 +229,14 @@ public class FinancialDevice {
      *            the model to set
      */
     public void setModel(String model) {
-    	this.model = model;
+	this.model = model;
     }
 
     /**
      * @return the variant
      */
     public String getVariant() {
-    	return variant;
+	return variant;
     }
 
     /**
@@ -222,14 +244,14 @@ public class FinancialDevice {
      *            the variant to set
      */
     public void setVariant(String variant) {
-    	this.variant = variant;
+	this.variant = variant;
     }
 
     /**
      * @return the serialNumber
      */
     public String getSerialNumber() {
-    	return serialNumber;
+	return serialNumber;
     }
 
     /**
@@ -237,14 +259,14 @@ public class FinancialDevice {
      *            the serialNumber to set
      */
     public void setSerialNumber(String serialNumber) {
-    	this.serialNumber = serialNumber;
+	this.serialNumber = serialNumber;
     }
 
     /**
      * @return the name
      */
     public String getName() {
-    	return name;
+	return name;
     }
 
     /**
@@ -259,7 +281,7 @@ public class FinancialDevice {
      * @return the terminal
      */
     public Terminal getTerminal() {
-    	return terminal;
+	return terminal;
     }
 
     /**
@@ -267,14 +289,14 @@ public class FinancialDevice {
      *            the terminal to set
      */
     public void setTerminal(Terminal terminal) {
-    	this.terminal = terminal;
+	this.terminal = terminal;
     }
 
     /**
      * @return the xfsComponents
      */
     public Set<XfsComponent> getXfsComponents() {
-    	return xfsComponents;
+	return xfsComponents;
     }
 
     /**
@@ -282,77 +304,77 @@ public class FinancialDevice {
      *            the xfsComponents to set
      */
     public void setXfsComponents(Set<XfsComponent> xfsComponents) {
-    	this.xfsComponents = xfsComponents;
+	this.xfsComponents = xfsComponents;
     }
 
     /**
      * @return the firmwareMajorVersion
      */
     public Integer getFirmwareMajorVersion() {
-    	return firmwareMajorVersion;
+	return firmwareMajorVersion;
     }
 
     /**
      * @return the firmwareMinorVersion
      */
     public Integer getFirmwareMinorVersion() {
-    	return firmwareMinorVersion;
+	return firmwareMinorVersion;
     }
 
     /**
      * @return the firmwareBuildVersion
      */
     public Integer getFirmwareBuildVersion() {
-    	return firmwareBuildVersion;
+	return firmwareBuildVersion;
     }
 
     /**
      * @return the firmwareRevisionVersion
      */
     public Integer getFirmwareRevisionVersion() {
-    	return firmwareRevisionVersion;
+	return firmwareRevisionVersion;
     }
 
     /**
      * @return the firmwareRemainingVersion
      */
     public String getFirmwareRemainingVersion() {
-    	return firmwareRemainingVersion;
+	return firmwareRemainingVersion;
     }
 
     /**
      * @return the majorVersion
      */
     public Integer getMajorVersion() {
-    	return majorVersion;
+	return majorVersion;
     }
 
     /**
      * @return the minorVersion
      */
     public Integer getMinorVersion() {
-    	return minorVersion;
+	return minorVersion;
     }
 
     /**
      * @return the buildVersion
      */
     public Integer getBuildVersion() {
-    	return buildVersion;
+	return buildVersion;
     }
 
     /**
      * @return the revisionVersion
      */
     public Integer getRevisionVersion() {
-    	return revisionVersion;
+	return revisionVersion;
     }
 
     /**
      * @return the remainingVersion
      */
     public String getRemainingVersion() {
-    	return remainingVersion;
+	return remainingVersion;
     }
 
     /**
@@ -360,7 +382,7 @@ public class FinancialDevice {
      *            the firmwareMajorVersion to set
      */
     public void setFirmwareMajorVersion(Integer firmwareMajorVersion) {
-    	this.firmwareMajorVersion = firmwareMajorVersion;
+	this.firmwareMajorVersion = firmwareMajorVersion;
     }
 
     /**
@@ -368,7 +390,7 @@ public class FinancialDevice {
      *            the firmwareMinorVersion to set
      */
     public void setFirmwareMinorVersion(Integer firmwareMinorVersion) {
-    	this.firmwareMinorVersion = firmwareMinorVersion;
+	this.firmwareMinorVersion = firmwareMinorVersion;
     }
 
     /**
@@ -376,7 +398,7 @@ public class FinancialDevice {
      *            the firmwareBuildVersion to set
      */
     public void setFirmwareBuildVersion(Integer firmwareBuildVersion) {
-    	this.firmwareBuildVersion = firmwareBuildVersion;
+	this.firmwareBuildVersion = firmwareBuildVersion;
     }
 
     /**
@@ -384,7 +406,7 @@ public class FinancialDevice {
      *            the firmwareRevisionVersion to set
      */
     public void setFirmwareRevisionVersion(Integer firmwareRevisionVersion) {
-    	this.firmwareRevisionVersion = firmwareRevisionVersion;
+	this.firmwareRevisionVersion = firmwareRevisionVersion;
     }
 
     /**
@@ -392,36 +414,35 @@ public class FinancialDevice {
      *            the firmwareRemainingVersion to set
      */
     public void setFirmwareRemainingVersion(String firmwareRemainingVersion) {
-    	this.firmwareRemainingVersion = firmwareRemainingVersion;
+	this.firmwareRemainingVersion = firmwareRemainingVersion;
     }
 
     /**
      * @return the firmware version complete
      */
     public String getFirmwareVersion() {
-    	/*String version = null;
-		if (firmwareMajorVersion != null) {
-		    version = firmwareMajorVersion.toString();
-		    if (firmwareMinorVersion != null) {
-			version += "." + firmwareMinorVersion.toString();
-			if (firmwareBuildVersion != null) {
-			    version += "." + firmwareBuildVersion.toString();
-			    if (firmwareRevisionVersion != null) {
-				version += "." + firmwareRevisionVersion.toString();
-				if (firmwareRemainingVersion != null) {
-				    version += "." + firmwareRemainingVersion;
-				}
-			    }
+	/*String version = null;
+	if (firmwareMajorVersion != null) {
+	    version = firmwareMajorVersion.toString();
+	    if (firmwareMinorVersion != null) {
+		version += "." + firmwareMinorVersion.toString();
+		if (firmwareBuildVersion != null) {
+		    version += "." + firmwareBuildVersion.toString();
+		    if (firmwareRevisionVersion != null) {
+			version += "." + firmwareRevisionVersion.toString();
+			if (firmwareRemainingVersion != null) {
+			    version += "." + firmwareRemainingVersion;
 			}
 		    }
-		} else {
-		    if ((firmwareRemainingVersion != null)
-			    && (firmwareRemainingVersion != "")) {
-			version = firmwareRemainingVersion;
-		    }
 		}
-		return version;*/
-    	
+	    }
+	} else {
+	    if ((firmwareRemainingVersion != null)
+		    && (firmwareRemainingVersion != "")) {
+		version = firmwareRemainingVersion;
+	    }
+	}
+	return version;*/
     	return getFirmwareRemainingVersion();
     }
 
@@ -430,36 +451,35 @@ public class FinancialDevice {
      *            the complete firmware version to set
      */
     public void setFirmwareVersion(String version) {
-		/*String[] versions = version.split("\\.", 5);
-		switch (versions.length) {
-			case 5:
-			    setFirmwareRemainingVersion(versions[4]);
-			case 4:
-			    setFirmwareRevisionVersion(new Integer(versions[3]));
-			case 3:
-			    setFirmwareBuildVersion(new Integer(versions[2]));
-			case 2:
-			    setFirmwareMinorVersion(new Integer(versions[1]));
-			    setFirmwareMajorVersion(new Integer(versions[0]));
-			    break;
-			case 1:
-			    try {
-			    	setFirmwareMajorVersion(new Integer(versions[0]));
-			    } catch (NumberFormatException e) {
-			    	setFirmwareRemainingVersion(versions[0]);
-			    }
-			case 0:
-			    break;
-		}*/
-    	
-    	setFirmwareRemainingVersion(version);
+	/*String[] versions = version.split("\\.", 5);
+	switch (versions.length) {
+	case 5:
+	    setFirmwareRemainingVersion(versions[4]);
+	case 4:
+	    setFirmwareRevisionVersion(new Integer(versions[3]));
+	case 3:
+	    setFirmwareBuildVersion(new Integer(versions[2]));
+	case 2:
+	    setFirmwareMinorVersion(new Integer(versions[1]));
+	    setFirmwareMajorVersion(new Integer(versions[0]));
+	    break;
+	case 1:
+	    try {
+		setFirmwareMajorVersion(new Integer(versions[0]));
+	    } catch (NumberFormatException e) {
+		setFirmwareRemainingVersion(versions[0]);
+	    }
+	case 0:
+	    break;
+	}*/
+	setFirmwareRemainingVersion(version);
     }
 
     /**
      * @return the firmware name and version concatenated
      */
     public String getFirmwareNameVersion() {
-    	return name + " (V. " + getFirmwareVersion() + ")";
+	return name + " (V. " + getFirmwareVersion() + ")";
     }
 
     /**
@@ -534,27 +554,27 @@ public class FinancialDevice {
      *            the complete version to set
      */
     public void setVersion(String version) {
-		String[] versions = version.split("\\.", 5);
-		switch (versions.length) {
-		case 5:
-		    setRemainingVersion(versions[4]);
-		case 4:
-		    setRevisionVersion(new Integer(versions[3]));
-		case 3:
-		    setBuildVersion(new Integer(versions[2]));
-		case 2:
-		    setMinorVersion(new Integer(versions[1]));
-		    setMajorVersion(new Integer(versions[0]));
-		    break;
-		case 1:
-		    try {
-			setMajorVersion(new Integer(versions[0]));
-		    } catch (NumberFormatException e) {
-			setRemainingVersion(versions[0]);
-		    }
-		case 0:
-		    break;
-		}
+	String[] versions = version.split("\\.", 5);
+	switch (versions.length) {
+	case 5:
+	    setRemainingVersion(versions[4]);
+	case 4:
+	    setRevisionVersion(new Integer(versions[3]));
+	case 3:
+	    setBuildVersion(new Integer(versions[2]));
+	case 2:
+	    setMinorVersion(new Integer(versions[1]));
+	    setMajorVersion(new Integer(versions[0]));
+	    break;
+	case 1:
+	    try {
+		setMajorVersion(new Integer(versions[0]));
+	    } catch (NumberFormatException e) {
+		setRemainingVersion(versions[0]);
+	    }
+	case 0:
+	    break;
+	}
     }
 
     /**
