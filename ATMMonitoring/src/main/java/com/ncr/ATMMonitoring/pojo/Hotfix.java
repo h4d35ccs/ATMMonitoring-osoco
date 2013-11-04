@@ -22,6 +22,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import com.ncr.ATMMonitoring.utils.Operation;
+import com.ncr.agent.baseData.os.module.HotfixPojo;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -37,12 +38,15 @@ public class Hotfix {
 
     static {
 	comboboxes = new TreeMap<String, Map>();
-	Map<String, Map> stringOperations = Operation.getOperationsByType(Operation.DataType.STRING);
-	comboboxes.put("number",Operation.getOperationsByType(Operation.DataType.NUMBER));
+	Map<String, Map> stringOperations = Operation
+		.getOperationsByType(Operation.DataType.STRING);
+	comboboxes.put("number",
+		Operation.getOperationsByType(Operation.DataType.NUMBER));
 	comboboxes.put("fixComments", stringOperations);
 	comboboxes.put("hotfixId", stringOperations);
 	comboboxes.put("description", stringOperations);
-	comboboxes.put("installedOn",Operation.getOperationsByType(Operation.DataType.DATE));
+	comboboxes.put("installedOn",
+		Operation.getOperationsByType(Operation.DataType.DATE));
     }
 
     @Id
@@ -59,13 +63,13 @@ public class Hotfix {
     @Column(name = "numbr")
     private Integer number;
 
-    @Column(name = "fix_comments", length = 300)
+    @Column(name = "fix_comments", length = 150)
     private String fixComments;
 
-    @Column(name = "hotfix_id", length = 50)
+    @Column(name = "hotfix_id", length = 150)
     private String hotfixId;
 
-    @Column(name = "description", length = 300)
+    @Column(name = "description", length = 150)
     private String description;
 
     @Column(name = "installed_on")
@@ -124,6 +128,56 @@ public class Hotfix {
 	}
 	// TODO
 	// No number?
+    }
+
+    public Hotfix(HotfixPojo hotfix) {
+	this.description = hotfix.getDescription();
+	this.fixComments = hotfix.getFixComments();
+	this.hotfixId = hotfix.getHotfixID();
+	if (hotfix.getInstalledOn().length() > 0) {
+	    try {
+		String[] date = hotfix.getInstalledOn().split("/");
+		String pattern = "dd/MM/";
+		if (date.length >= 3) {
+		    String day = date[0];
+		    if (day.length() > 2) {
+			day = day.substring(0, 2);
+		    } else if (day.length() == 1) {
+			day = "0" + day;
+		    } else if (day.length() != 2) {
+			day = null;
+		    }
+		    String month = date[1];
+		    if (month.length() > 2) {
+			month = month.substring(0, 2);
+		    } else if (month.length() == 1) {
+			month = "0" + month;
+		    } else if (month.length() != 2) {
+			month = null;
+		    }
+		    String year = date[2];
+		    if (year.length() >= 4) {
+			year = year.substring(0, 4);
+			pattern += "yyyy";
+		    } else if (year.length() == 2) {
+			pattern += "yy";
+		    } else {
+			year = null;
+		    }
+		    if ((year != null) && (month != null) && (day != null)) {
+			this.installedOn = new SimpleDateFormat(pattern)
+				.parse(day + "/" + month + "/" + year);
+		    } else {
+			logger.error("Couldn't parse Hotfix date '"
+				+ hotfix.getInstalledOn() + "'");
+			this.installedOn = null;
+		    }
+		}
+	    } catch (ParseException e) {
+		logger.error("Couldn't parse Hotfix date.", e);
+		this.installedOn = null;
+	    }
+	}
     }
 
     /**
