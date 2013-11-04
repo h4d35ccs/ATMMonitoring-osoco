@@ -49,7 +49,28 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import com.ncr.ATMMonitoring.utils.Operation;
-import com.ncr.ATMMonitoring.utils.Operation.DataType;
+import com.ncr.agent.baseData.os.module.BaseBoardPojo;
+import com.ncr.agent.baseData.os.module.BiosPojo;
+import com.ncr.agent.baseData.os.module.CDROMDrivePojo;
+import com.ncr.agent.baseData.os.module.ComputerSystemPojo;
+import com.ncr.agent.baseData.os.module.DesktopMonitorPojo;
+import com.ncr.agent.baseData.os.module.DiskDrivePojo;
+import com.ncr.agent.baseData.os.module.FloppyDrivePojo;
+import com.ncr.agent.baseData.os.module.KeyboardPojo;
+import com.ncr.agent.baseData.os.module.LogicalDiskPojo;
+import com.ncr.agent.baseData.os.module.NetworkAdapterSettingPojo;
+import com.ncr.agent.baseData.os.module.ParallelPortPojo;
+import com.ncr.agent.baseData.os.module.PhysicalMemoryPojo;
+import com.ncr.agent.baseData.os.module.PointingDevicePojo;
+import com.ncr.agent.baseData.os.module.ProcessorPojo;
+import com.ncr.agent.baseData.os.module.SCSIControllerPojo;
+import com.ncr.agent.baseData.os.module.SerialPortPojo;
+import com.ncr.agent.baseData.os.module.SoundDevicePojo;
+import com.ncr.agent.baseData.os.module.SystemSlotPojo;
+import com.ncr.agent.baseData.os.module.USBControllerPojo;
+import com.ncr.agent.baseData.os.module.UsbHubPojo;
+import com.ncr.agent.baseData.os.module.VideoControllerPojo;
+import com.ncr.agent.baseData.os.module._1394ControllerPojo;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -66,11 +87,16 @@ public class HardwareDevice {
 
     static {
 	comboboxes = new TreeMap<String, Map>();
-	Map<String, Map> stringOperations = Operation.getOperationsByType(Operation.DataType.STRING);
-	Map<String, Map> dateOperations = Operation.getOperationsByType(Operation.DataType.DATE);
-	Map<String, Map> numberOperations = Operation.getOperationsByType(Operation.DataType.NUMBER);
-	Map<String, Map> boolOperations = Operation.getOperationsByType(Operation.DataType.BOOLEAN);
-	Map<String, Map> versionOperations = Operation.getOperationsByType(Operation.DataType.VERSION);
+	Map<String, Map> stringOperations = Operation
+		.getOperationsByType(Operation.DataType.STRING);
+	Map<String, Map> dateOperations = Operation
+		.getOperationsByType(Operation.DataType.DATE);
+	Map<String, Map> numberOperations = Operation
+		.getOperationsByType(Operation.DataType.NUMBER);
+	Map<String, Map> boolOperations = Operation
+		.getOperationsByType(Operation.DataType.BOOLEAN);
+	Map<String, Map> versionOperations = Operation
+		.getOperationsByType(Operation.DataType.VERSION);
 
 	Map<String, Map> values = new TreeMap<String, Map>();
 	values.put("name", stringOperations);
@@ -329,10 +355,10 @@ public class HardwareDevice {
 	comboboxes.put("Win32_VideoController", values);
 	values = new TreeMap<String, Map>();
 	for (String hwDevice : comboboxes.keySet()) {
-		Map<String, Map> aux = comboboxes.get(hwDevice);
-		for (String name: aux.keySet()) {
-			values.put(name, aux.get(name));
-		}
+	    Map<String, Map> aux = comboboxes.get(hwDevice);
+	    for (String name : aux.keySet()) {
+		values.put(name, aux.get(name));
+	    }
 	}
 	comboboxes.put("allHwDevices", values);
     }
@@ -347,59 +373,68 @@ public class HardwareDevice {
 
     static {
 	deviceClasses = new HashMap<DeviceClassId, String>();
-	deviceClasses.put(DeviceClassId.COMPUTER_SYSTEM, "Win32_ComputerSystem");
+	deviceClasses
+		.put(DeviceClassId.COMPUTER_SYSTEM, "Win32_ComputerSystem");
 	deviceClasses.put(DeviceClassId.PROCESSOR, "Win32_Processor");
-	deviceClasses.put(DeviceClassId.PHYSICAL_MEMORY, "Win32_PhysicalMemory");
+	deviceClasses
+		.put(DeviceClassId.PHYSICAL_MEMORY, "Win32_PhysicalMemory");
 	deviceClasses.put(DeviceClassId.DISK_DRIVE, "Win32_DiskDrive");
 	deviceClasses.put(DeviceClassId.LOGICAL_DISK, "Win32_LogicalDisk");
 	deviceClasses.put(DeviceClassId.BASE_BOARD, "Win32_BaseBoard");
-	deviceClasses.put(DeviceClassId.NETWORK_ADAPTER, "Win32_NetworkAdapter");
+	deviceClasses
+		.put(DeviceClassId.NETWORK_ADAPTER, "Win32_NetworkAdapter");
 	deviceClasses.put(DeviceClassId.FLOPPY_DRIVE, "Win32_FloppyDrive");
 	deviceClasses.put(DeviceClassId.CDROM_DRIVE, "Win32_CDROMDrive");
 	deviceClasses.put(DeviceClassId.SOUND_DEVICE, "Win32_SoundDevice");
-	deviceClasses.put(DeviceClassId.DISPLAY_CONFIGURATION,"Win32_DisplayConfiguration");
+	deviceClasses.put(DeviceClassId.DISPLAY_CONFIGURATION,
+		"Win32_DisplayConfiguration");
 	deviceClasses.put(DeviceClassId.USB_CONTROLLER, "Win32_USBController");
 	deviceClasses.put(DeviceClassId.USB_HUB, "Win32_USBHub");
 	deviceClasses.put(DeviceClassId.SERIAL_PORT, "Win32_SerialPort");
 	deviceClasses.put(DeviceClassId.PARALLEL_PORT, "Win32_ParallelPort");
-	deviceClasses.put(DeviceClassId._1394_CONTROLLER,"Win32_1394Controller");
-	deviceClasses.put(DeviceClassId.SCSI_CONTROLLER, "Win32_SCSIController");
-	deviceClasses.put(DeviceClassId.DESKTOP_MONITOR, "Win32_DesktopMonitor");
+	deviceClasses.put(DeviceClassId._1394_CONTROLLER,
+		"Win32_1394Controller");
+	deviceClasses
+		.put(DeviceClassId.SCSI_CONTROLLER, "Win32_SCSIController");
+	deviceClasses
+		.put(DeviceClassId.DESKTOP_MONITOR, "Win32_DesktopMonitor");
 	deviceClasses.put(DeviceClassId.KEYBOARD, "Win32_Keyboard");
-	deviceClasses.put(DeviceClassId.POINTING_DEVICE, "Win32_PointingDevice");
+	deviceClasses
+		.put(DeviceClassId.POINTING_DEVICE, "Win32_PointingDevice");
 	deviceClasses.put(DeviceClassId.SYSTEM_SLOT, "Win32_SystemSlot");
 	deviceClasses.put(DeviceClassId.BIOS, "Win32_Bios");
-	deviceClasses.put(DeviceClassId.VIDEO_CONTROLLER,"Win32_VideoController");
+	deviceClasses.put(DeviceClassId.VIDEO_CONTROLLER,
+		"Win32_VideoController");
     }
 
     private static Set<HardwareDevice> filterByClass(
 	    Set<HardwareDevice> hardwareDevs, String deviceClass) {
-		Set<HardwareDevice> result = new HashSet<HardwareDevice>();
-		for (HardwareDevice dev : hardwareDevs) {
-		    if ((dev.getHardwareClass() != null)
-			    && (dev.getHardwareClass().equals(deviceClass))) {
-			result.add(dev);
-		    }
-		}
-		return result;
+	Set<HardwareDevice> result = new HashSet<HardwareDevice>();
+	for (HardwareDevice dev : hardwareDevs) {
+	    if ((dev.getHardwareClass() != null)
+		    && (dev.getHardwareClass().equals(deviceClass))) {
+		result.add(dev);
+	    }
+	}
+	return result;
     }
 
     public static Set<HardwareDevice> filterComputerSystem(
 	    Set<HardwareDevice> hardwareDevs) {
-		return filterByClass(hardwareDevs,
-			deviceClasses.get(DeviceClassId.COMPUTER_SYSTEM));
+	return filterByClass(hardwareDevs,
+		deviceClasses.get(DeviceClassId.COMPUTER_SYSTEM));
     }
 
     public static Set<HardwareDevice> filterProcessor(
 	    Set<HardwareDevice> hardwareDevs) {
-		return filterByClass(hardwareDevs,
-			deviceClasses.get(DeviceClassId.PROCESSOR));
+	return filterByClass(hardwareDevs,
+		deviceClasses.get(DeviceClassId.PROCESSOR));
     }
 
     public static Set<HardwareDevice> filterPhysicalMemory(
 	    Set<HardwareDevice> hardwareDevs) {
-		return filterByClass(hardwareDevs,
-			deviceClasses.get(DeviceClassId.PHYSICAL_MEMORY));
+	return filterByClass(hardwareDevs,
+		deviceClasses.get(DeviceClassId.PHYSICAL_MEMORY));
     }
 
     public static Set<HardwareDevice> filterDiskDrive(
@@ -552,7 +587,7 @@ public class HardwareDevice {
     private String caption;
 
     @Column(name = "total_physical_memory")
-    private Integer totalPhysicalMemory;
+    private Long totalPhysicalMemory;
 
     @Column(name = "description", length = 300)
     private String description;
@@ -600,7 +635,7 @@ public class HardwareDevice {
     private Long capacity;
 
     @Column(name = "speed")
-    private Integer speed;
+    private Long speed;
 
     @Column(name = "partitions")
     private Integer partitions;
@@ -653,16 +688,16 @@ public class HardwareDevice {
     @Column(name = "dhcp_enabled")
     private Boolean dhcpEnabled;
 
-    @Column(name = "dhcp_server", length = 30)
+    @Column(name = "dhcp_server", length = 150)
     private String dhcpServer;
 
-    @Column(name = "ip_address", length = 25)
+    @Column(name = "ip_address", length = 150)
     private String ipAddress;
 
-    @Column(name = "ip_subnet", length = 25)
+    @Column(name = "ip_subnet", length = 150)
     private String ipSubnet;
 
-    @Column(name = "default_ip_gateway", length = 25)
+    @Column(name = "default_ip_gateway", length = 150)
     private String defaultIpGateway;
 
     @Column(name = "mac_address", length = 17)
@@ -840,341 +875,888 @@ public class HardwareDevice {
     }
 
     public HardwareDevice(_1394Controller hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId._1394_CONTROLLER));
-		this.caption = hw.getCaption();
-		this.description = hw.getDescription();
-		this.deviceId = hw.getDeviceID();
-		this.manufacturer = hw.getManufacturer();
-		this.name = hw.getName();
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId._1394_CONTROLLER));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.deviceId = hw.getDeviceID();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(BaseBoard hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.BASE_BOARD));
-		this.model = hw.getModel();
-		this.product = hw.getProduct();
-		this.serialNumber = hw.getSerialNumber();
-		this.manufacturer = hw.getManufacturer();
-		this.name = hw.getName();
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.BASE_BOARD));
+	this.model = hw.getModel();
+	this.product = hw.getProduct();
+	this.serialNumber = hw.getSerialNumber();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(Bios hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.BIOS));
-		this.setCurrentLanguage(hw.getCurrentLanguage());
-		this.setPrimaryBios(Boolean.parseBoolean(hw.getPrimaryBIOS()));
-		if (hw.getReleaseDate().length() > 0) {
-		    try {
-			this.setReleaseDate(new SimpleDateFormat("yyyyMMdd").parse(hw
-				.getReleaseDate().substring(0, 8)));
-		    } catch (ParseException e) {
-			logger.error("Couldn't parse Bios date.", e);
-			this.releaseDate = null;
-		    }
-		}
-		this.setSmbiosVersion(hw.getSmBIOSVersion());
-		this.setVersion(hw.getVersion());
-		this.serialNumber = hw.getSerialNumber();
-		this.manufacturer = hw.getManufacturer();
-		this.name = hw.getName();
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.BIOS));
+	this.setCurrentLanguage(hw.getCurrentLanguage());
+	this.setPrimaryBios(Boolean.parseBoolean(hw.getPrimaryBIOS()));
+	if (hw.getReleaseDate().length() > 0) {
+	    try {
+		this.setReleaseDate(new SimpleDateFormat("yyyyMMdd").parse(hw
+			.getReleaseDate().substring(0, 8)));
+	    } catch (ParseException e) {
+		logger.error("Couldn't parse Bios date.", e);
+		this.releaseDate = null;
+	    }
+	}
+	this.setSmbiosVersion(hw.getSmBIOSVersion());
+	this.setVersion(hw.getVersion());
+	this.serialNumber = hw.getSerialNumber();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(CDROMDrive hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.CDROM_DRIVE));
-		this.caption = hw.getCaption();
-		this.deviceId = hw.getDeviceID();
-		this.manufacturer = hw.getManufacturer();
-		this.mediaType = hw.getMediaType();
-		this.name = hw.getName();
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.CDROM_DRIVE));
+	this.caption = hw.getCaption();
+	this.deviceId = hw.getDeviceID();
+	this.manufacturer = hw.getManufacturer();
+	this.mediaType = hw.getMediaType();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(ComputerSystem hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.COMPUTER_SYSTEM));
-		this.caption = hw.getCaption();
-		if (hw.getCurrentTimeZone().length() > 0) {
-		    this.currentTimeZone = Integer.parseInt(hw.getCurrentTimeZone());
-		}
-		this.daylightInEffect = Boolean.parseBoolean(hw.getDaylightInEffect());
-		this.description = hw.getDescription();
-		this.domain = hw.getDomain();
-		this.manufacturer = hw.getManufacturer();
-		this.model = hw.getModel();
-		this.name = hw.getName();
-		if (hw.getNumberOfProcessors().length() > 0) {
-		    this.numberOfProcessors = Integer.parseInt(hw
-			    .getNumberOfProcessors());
-		}
-		this.status = hw.getStatus();
-		
-		//EP410008 - 12/02/2013 - Added length > 0
-		if (hw.getTotalPhysicalMemory().length() > 0) {
-			this.totalPhysicalMemory = Integer.parseInt(hw.getTotalPhysicalMemory());
-		}
-		//<--
-		this.workgroup = hw.getWorkgroup();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.COMPUTER_SYSTEM));
+	this.caption = hw.getCaption();
+	if (hw.getCurrentTimeZone().length() > 0) {
+	    this.currentTimeZone = Integer.parseInt(hw.getCurrentTimeZone());
+	}
+	this.daylightInEffect = Boolean.parseBoolean(hw.getDaylightInEffect());
+	this.description = hw.getDescription();
+	this.domain = hw.getDomain();
+	this.manufacturer = hw.getManufacturer();
+	this.model = hw.getModel();
+	this.name = hw.getName();
+	if (hw.getNumberOfProcessors().length() > 0) {
+	    this.numberOfProcessors = Integer.parseInt(hw
+		    .getNumberOfProcessors());
+	}
+	this.status = hw.getStatus();
+
+	// EP410008 - 12/02/2013 - Added length > 0
+	if (hw.getTotalPhysicalMemory().length() > 0) {
+	    this.totalPhysicalMemory = Long.parseLong(hw
+		    .getTotalPhysicalMemory());
+	}
+	// <--
+	this.workgroup = hw.getWorkgroup();
     }
 
     public HardwareDevice(DesktopMonitor hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.DESKTOP_MONITOR));
-		this.caption = hw.getCaption();
-		this.deviceId = hw.getDeviceID();
-		this.displayType = Boolean.parseBoolean(hw.getDisplayType());
-		this.monitorManufacturer = hw.getMonitorManufacturer();
-		this.monitorType = hw.getMonitorType();
-		this.name = hw.getName();
-		if (hw.getPixelsPerXLogicalInch().length() > 0) {
-		    this.pixelsPerXLogicalInch = Integer.parseInt(hw
-			    .getPixelsPerXLogicalInch());
-		}
-		if (hw.getPixelsPerYLogicalInch().length() > 0) {
-		    this.pixelsPerYLogicalInch = Integer.parseInt(hw
-			    .getPixelsPerYLogicalInch());
-		}
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.DESKTOP_MONITOR));
+	this.caption = hw.getCaption();
+	this.deviceId = hw.getDeviceID();
+	this.displayType = Boolean.parseBoolean(hw.getDisplayType());
+	this.monitorManufacturer = hw.getMonitorManufacturer();
+	this.monitorType = hw.getMonitorType();
+	this.name = hw.getName();
+	if (hw.getPixelsPerXLogicalInch().length() > 0) {
+	    this.pixelsPerXLogicalInch = Integer.parseInt(hw
+		    .getPixelsPerXLogicalInch());
+	}
+	if (hw.getPixelsPerYLogicalInch().length() > 0) {
+	    this.pixelsPerYLogicalInch = Integer.parseInt(hw
+		    .getPixelsPerYLogicalInch());
+	}
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(DiskDrive hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.DISK_DRIVE));
-		if (hw.getBytesPerSector().length() > 0) {
-		    this.bytesPerSector = Integer.parseInt(hw.getBytesPerSector());
-		}
-		this.caption = hw.getCaption();
-		this.description = hw.getDescription();
-		this.deviceId = hw.getDeviceID();
-		this.manufacturer = hw.getManufacturer();
-		if (hw.getMaxMediaSize().length() > 0) {
-		    this.maxMediaSize = Integer.parseInt(hw.getMaxMediaSize());
-		}
-		this.firmwareRevision = hw.getFirmwareRevision();
-		this.mediaType = hw.getMediaType();
-		this.model = hw.getModel();
-		this.name = hw.getName();
-		if (hw.getPartitions().length() > 0) {
-		    this.partitions = Integer.parseInt(hw.getPartitions());
-		}
-		if (hw.getSectorsPerTrack().length() > 0) {
-		    this.sectorsPerTrack = Integer.parseInt(hw.getSectorsPerTrack());
-		}
-		this.serialNumber = hw.getSerialNumber();
-		this.signature = hw.getSignature();
-		this.size = Long.parseLong(hw.getSize());
-		this.status = hw.getStatus();
-		if (hw.getTotalCylinders().length() > 0) {
-		    this.totalCylinders = Integer.parseInt(hw.getTotalCylinders());
-		}
-		if (hw.getTracksPerCylinder().length() > 0) {
-		    this.tracksPerCylinder = Integer.parseInt(hw.getTracksPerCylinder());
-		}
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.DISK_DRIVE));
+	if (hw.getBytesPerSector().length() > 0) {
+	    this.bytesPerSector = Integer.parseInt(hw.getBytesPerSector());
+	}
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.deviceId = hw.getDeviceID();
+	this.manufacturer = hw.getManufacturer();
+	if (hw.getMaxMediaSize().length() > 0) {
+	    this.maxMediaSize = Integer.parseInt(hw.getMaxMediaSize());
+	}
+	this.firmwareRevision = hw.getFirmwareRevision();
+	this.mediaType = hw.getMediaType();
+	this.model = hw.getModel();
+	this.name = hw.getName();
+	if (hw.getPartitions().length() > 0) {
+	    this.partitions = Integer.parseInt(hw.getPartitions());
+	}
+	if (hw.getSectorsPerTrack().length() > 0) {
+	    this.sectorsPerTrack = Integer.parseInt(hw.getSectorsPerTrack());
+	}
+	this.serialNumber = hw.getSerialNumber();
+	this.signature = hw.getSignature();
+	this.size = Long.parseLong(hw.getSize());
+	this.status = hw.getStatus();
+	if (hw.getTotalCylinders().length() > 0) {
+	    this.totalCylinders = Integer.parseInt(hw.getTotalCylinders());
+	}
+	if (hw.getTracksPerCylinder().length() > 0) {
+	    this.tracksPerCylinder = Integer
+		    .parseInt(hw.getTracksPerCylinder());
+	}
     }
 
     public HardwareDevice(FloppyDrive hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.FLOPPY_DRIVE));
-		this.caption = hw.getCaption();
-		this.description = hw.getDescription();
-		this.deviceId = hw.getDeviceID();
-		this.manufacturer = hw.getManufacturer();
-		this.mediaType = hw.getMediaType();
-		this.name = hw.getName();
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.FLOPPY_DRIVE));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.deviceId = hw.getDeviceID();
+	this.manufacturer = hw.getManufacturer();
+	this.mediaType = hw.getMediaType();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(Keyboard hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.KEYBOARD));
-		this.caption = hw.getCaption();
-		this.description = hw.getDescription();
-		this.layout = hw.getLayout();
-		this.name = hw.getName();
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.KEYBOARD));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.layout = hw.getLayout();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(LogicalDisk hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.LOGICAL_DISK));
-		this.caption = hw.getCaption();
-		this.description = hw.getDescription();
-		this.deviceId = hw.getDeviceID();
-		this.fileSystem = hw.getFileSystem();
-		this.freeSpace = Long.parseLong(hw.getFreeSpace());
-		this.name = hw.getName();
-		this.size = Long.parseLong(hw.getSize());
-		this.volumeName = hw.getVolumeName();
-		this.volumeSerialNumber = hw.getVolumeSerialNumber();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.LOGICAL_DISK));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.deviceId = hw.getDeviceID();
+	this.fileSystem = hw.getFileSystem();
+	this.freeSpace = Long.parseLong(hw.getFreeSpace());
+	this.name = hw.getName();
+	this.size = Long.parseLong(hw.getSize());
+	this.volumeName = hw.getVolumeName();
+	this.volumeSerialNumber = hw.getVolumeSerialNumber();
     }
 
     public HardwareDevice(NetworkAdapterSetting hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.NETWORK_ADAPTER));
-		this.adapterType = hw.getAdapterType();
-		this.caption = hw.getCaption();
-		this.defaultIpGateway = hw.getDefaultIPGateway();
-		this.description = hw.getDescription();
-		this.dhcpEnabled = Boolean.parseBoolean(hw.getDhcpEnabled());
-		this.dhcpServer = hw.getDhcpServer();
-		if (hw.getInterfaceIndex().length() > 0) {
-		    this.interfaceIndex = Integer.parseInt(hw.getInterfaceIndex());
-		}
-		this.ipAddress = hw.getIpAddress();
-		this.ipSubnet = hw.getIpSubnet();
-		this.macAddress = hw.getMacAddress();
-		this.manufacturer = hw.getManufacturer();
-		this.name = hw.getName();
-		this.netConnectionId = hw.getNetConnectionID();
-		this.netConnectionStatus = hw.getNetConnectionStatus();
-		if (hw.getSpeed().length() > 0) {
-		    this.speed = Integer.parseInt(hw.getSpeed());
-		}
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.NETWORK_ADAPTER));
+	this.adapterType = hw.getAdapterType();
+	this.caption = hw.getCaption();
+	this.defaultIpGateway = hw.getDefaultIPGateway();
+	this.description = hw.getDescription();
+	this.dhcpEnabled = Boolean.parseBoolean(hw.getDhcpEnabled());
+	this.dhcpServer = hw.getDhcpServer();
+	if (hw.getInterfaceIndex().length() > 0) {
+	    this.interfaceIndex = Integer.parseInt(hw.getInterfaceIndex());
+	}
+	this.ipAddress = hw.getIpAddress();
+	this.ipSubnet = hw.getIpSubnet();
+	this.macAddress = hw.getMacAddress();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.netConnectionId = hw.getNetConnectionID();
+	this.netConnectionStatus = hw.getNetConnectionStatus();
+	if (hw.getSpeed().length() > 0) {
+	    this.speed = Long.parseLong(hw.getSpeed());
+	}
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(ParallelPort hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.PARALLEL_PORT));
-		this.caption = hw.getCaption();
-		this.deviceId = hw.getDeviceID();
-		this.name = hw.getName();
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.PARALLEL_PORT));
+	this.caption = hw.getCaption();
+	this.deviceId = hw.getDeviceID();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(PhysicalMemory hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.PHYSICAL_MEMORY));
-		this.capacity = Long.parseLong(hw.getCapacity());
-		this.manufacturer = hw.getManufacturer();
-		this.name = hw.getName();
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.PHYSICAL_MEMORY));
+	this.capacity = Long.parseLong(hw.getCapacity());
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(PointingDevice hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.POINTING_DEVICE));
-		this.caption = hw.getCaption();
-		this.description = hw.getDescription();
-		this.hardwareType = hw.getHardwareType();
-		this.manufacturer = hw.getManufacturer();
-		this.name = hw.getName();
-		if (hw.getPointingType().length() > 0) {
-		    this.pointingType = Integer.parseInt(hw.getPointingType());
-		}
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.POINTING_DEVICE));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.hardwareType = hw.getHardwareType();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	if (hw.getPointingType().length() > 0) {
+	    this.pointingType = Integer.parseInt(hw.getPointingType());
+	}
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(Processor hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.PROCESSOR));
-		if (hw.getAddressWidth().length() > 0) {
-		    this.addressWidth = Integer.parseInt(hw.getAddressWidth());
-		}
-		this.architecture = hw.getArchitecture();
-		this.caption = hw.getCaption();
-		if (hw.getCurrentClockSpeed().length() > 0) {
-		    this.currentClockSpeed = Integer.parseInt(hw.getCurrentClockSpeed());
-		}
-		if (hw.getDataWidth().length() > 0) {
-		    this.dataWidth = Integer.parseInt(hw.getDataWidth());
-		}
-		if (hw.getExtClock().length() > 0) {
-		    this.extClock = Integer.parseInt(hw.getExtClock());
-		}
-		this.manufacturer = hw.getManufacturer();
-		if (hw.getMaxClockSpeed().length() > 0) {
-		    this.maxClockSpeed = Integer.parseInt(hw.getMaxClockSpeed());
-		}
-		this.name = hw.getName();
-		if (hw.getNumberOfCores().length() > 0) {
-		    this.numberOfProcessors = Integer.parseInt(hw.getNumberOfCores());
-		}
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.PROCESSOR));
+	if (hw.getAddressWidth().length() > 0) {
+	    this.addressWidth = Integer.parseInt(hw.getAddressWidth());
+	}
+	this.architecture = hw.getArchitecture();
+	this.caption = hw.getCaption();
+	if (hw.getCurrentClockSpeed().length() > 0) {
+	    this.currentClockSpeed = Integer
+		    .parseInt(hw.getCurrentClockSpeed());
+	}
+	if (hw.getDataWidth().length() > 0) {
+	    this.dataWidth = Integer.parseInt(hw.getDataWidth());
+	}
+	if (hw.getExtClock().length() > 0) {
+	    this.extClock = Integer.parseInt(hw.getExtClock());
+	}
+	this.manufacturer = hw.getManufacturer();
+	if (hw.getMaxClockSpeed().length() > 0) {
+	    this.maxClockSpeed = Integer.parseInt(hw.getMaxClockSpeed());
+	}
+	this.name = hw.getName();
+	if (hw.getNumberOfCores().length() > 0) {
+	    this.numberOfProcessors = Integer.parseInt(hw.getNumberOfCores());
+	}
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(SCSIController hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.SCSI_CONTROLLER));
-		this.caption = hw.getCaption();
-		this.description = hw.getDescription();
-		this.driverName = hw.getDriverName();
-		this.setHardwareVersion(hw.getHardwareVersion());
-		this.manufacturer = hw.getManufacturer();
-		this.name = hw.getName();
-		this.statusInfo = hw.getStatusInfo();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.SCSI_CONTROLLER));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.driverName = hw.getDriverName();
+	this.setHardwareVersion(hw.getHardwareVersion());
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.statusInfo = hw.getStatusInfo();
     }
 
     public HardwareDevice(SerialPort hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.SERIAL_PORT));
-		this.caption = hw.getCaption();
-		this.deviceId = hw.getDeviceID();
-		if (hw.getMaxBaudRate().length() > 0) {
-		    this.maxBaudRate = Integer.parseInt(hw.getMaxBaudRate());
-		}
-		this.name = hw.getName();
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.SERIAL_PORT));
+	this.caption = hw.getCaption();
+	this.deviceId = hw.getDeviceID();
+	if (hw.getMaxBaudRate().length() > 0) {
+	    this.maxBaudRate = Integer.parseInt(hw.getMaxBaudRate());
+	}
+	this.name = hw.getName();
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(SoundDevice hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.SOUND_DEVICE));
-		this.caption = hw.getCaption();
-		this.manufacturer = hw.getManufacturer();
-		this.name = hw.getName();
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.SOUND_DEVICE));
+	this.caption = hw.getCaption();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(SystemSlot hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.SYSTEM_SLOT));
-		this.caption = hw.getCaption();
-		if (hw.getCurrentUsage().length() > 0) {
-		    this.currentUsage = Integer.parseInt(hw.getCurrentUsage());
-		}
-		this.manufacturer = hw.getManufacturer();
-		this.name = hw.getName();
-		this.serialNumber = hw.getSerialNumber();
-		this.slotDesignation = hw.getSlotDesignation();
-		this.tag = hw.getTag();
-		this.setVersion(hw.getVersion());
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.SYSTEM_SLOT));
+	this.caption = hw.getCaption();
+	if (hw.getCurrentUsage().length() > 0) {
+	    this.currentUsage = Integer.parseInt(hw.getCurrentUsage());
+	}
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.serialNumber = hw.getSerialNumber();
+	this.slotDesignation = hw.getSlotDesignation();
+	this.tag = hw.getTag();
+	this.setVersion(hw.getVersion());
     }
 
     public HardwareDevice(USBController hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_CONTROLLER));
-		this.caption = hw.getCaption();
-		this.deviceId = hw.getDeviceID();
-		this.manufacturer = hw.getManufacturer();
-		this.name = hw.getName();
-		if (hw.getProtocolSupported().length() > 0) {
-		    this.protocolSupported = Integer.parseInt(hw.getProtocolSupported());
-		}
-		this.status = hw.getStatus();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_CONTROLLER));
+	this.caption = hw.getCaption();
+	this.deviceId = hw.getDeviceID();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	if (hw.getProtocolSupported().length() > 0) {
+	    this.protocolSupported = Integer
+		    .parseInt(hw.getProtocolSupported());
+	}
+	this.status = hw.getStatus();
     }
 
     public HardwareDevice(UsbHub hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_HUB));
-		this.description = hw.getDescription();
-		this.name = hw.getName();
-		if (hw.getNumberOfPorts().length() > 0) {
-		    this.numberOfPorts = Integer.parseInt(hw.getNumberOfPorts());
-		}
-		this.protocolCode = hw.getProtocolCode();
-		this.status = hw.getStatus();
-		this.setUsbVersion(hw.getUsbVersion());
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_HUB));
+	this.description = hw.getDescription();
+	this.name = hw.getName();
+	if (hw.getNumberOfPorts().length() > 0) {
+	    this.numberOfPorts = Integer.parseInt(hw.getNumberOfPorts());
+	}
+	this.protocolCode = hw.getProtocolCode();
+	this.status = hw.getStatus();
+	this.setUsbVersion(hw.getUsbVersion());
     }
 
     public HardwareDevice(VideoController hw) {
-		this.setHardwareClass(deviceClasses.get(DeviceClassId.VIDEO_CONTROLLER));
-		if (hw.getAdapterRAM().length() > 0) {
-		    this.adapterRam = Integer.parseInt(hw.getAdapterRAM());
-		}
-		//EP410008 - 12/02/2013 - Added length > 0
-		if (hw.getCurrentBitsPerPixel().length() > 0) {
-			this.currentBitsPerPixel = Integer.parseInt(hw.getCurrentBitsPerPixel());
-		}
-		//<--
-		if (hw.getCurrentHorizontalResolution().length() > 0) {
-		    this.currentHorizontalResolution = Integer.parseInt(hw.getCurrentHorizontalResolution());
-		}
-		if (hw.getCurrentNumberOfColors().length() > 0) {
-		    this.currentNumberOfColors = Long.parseLong(hw.getCurrentNumberOfColors());
-		}
-		if (hw.getCurrentRefreshRate().length() > 0) {
-		    this.currentRefreshRate = Integer.parseInt(hw.getCurrentRefreshRate());
-		}
-		if (hw.getCurrentVerticalResolution().length() > 0) {
-		    this.currentVerticalResolution = Integer.parseInt(hw.getCurrentVerticalResolution());
-		}
-		this.description = hw.getDescription();
-		this.name = hw.getName();
-		this.videoProcessor = hw.getVideoProcessor();
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.VIDEO_CONTROLLER));
+	if (hw.getAdapterRAM().length() > 0) {
+	    this.adapterRam = Integer.parseInt(hw.getAdapterRAM());
+	}
+	// EP410008 - 12/02/2013 - Added length > 0
+	if (hw.getCurrentBitsPerPixel().length() > 0) {
+	    this.currentBitsPerPixel = Integer.parseInt(hw
+		    .getCurrentBitsPerPixel());
+	}
+	// <--
+	if (hw.getCurrentHorizontalResolution().length() > 0) {
+	    this.currentHorizontalResolution = Integer.parseInt(hw
+		    .getCurrentHorizontalResolution());
+	}
+	if (hw.getCurrentNumberOfColors().length() > 0) {
+	    this.currentNumberOfColors = Long.parseLong(hw
+		    .getCurrentNumberOfColors());
+	}
+	if (hw.getCurrentRefreshRate().length() > 0) {
+	    this.currentRefreshRate = Integer.parseInt(hw
+		    .getCurrentRefreshRate());
+	}
+	if (hw.getCurrentVerticalResolution().length() > 0) {
+	    this.currentVerticalResolution = Integer.parseInt(hw
+		    .getCurrentVerticalResolution());
+	}
+	this.description = hw.getDescription();
+	this.name = hw.getName();
+	this.videoProcessor = hw.getVideoProcessor();
+    }
+
+    public HardwareDevice(_1394ControllerPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId._1394_CONTROLLER));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.deviceId = hw.getDeviceID();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(BaseBoardPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.BASE_BOARD));
+	this.model = hw.getModel();
+	this.product = hw.getProduct();
+	this.serialNumber = hw.getSerialNumber();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(BiosPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.BIOS));
+	this.setCurrentLanguage(hw.getCurrentLanguage());
+	this.setPrimaryBios(Boolean.parseBoolean(hw.getPrimaryBIOS()));
+	if ((hw.getReleaseDate() != null) && (hw.getReleaseDate().length() > 0)
+		&& (!hw.getReleaseDate().equals("null"))) {
+	    try {
+		this.setReleaseDate(new SimpleDateFormat("yyyyMMdd").parse(hw
+			.getReleaseDate().substring(0, 8)));
+	    } catch (ParseException e) {
+		logger.error("Couldn't parse Bios date.", e);
+		this.releaseDate = null;
+	    }
+	}
+	this.setSmbiosVersion(hw.getSmBIOSVersion());
+	this.setVersion(hw.getVersion());
+	this.serialNumber = hw.getSerialNumber();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(CDROMDrivePojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.CDROM_DRIVE));
+	this.caption = hw.getCaption();
+	this.deviceId = hw.getDeviceID();
+	this.manufacturer = hw.getManufacturer();
+	this.mediaType = hw.getMediaType();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(ComputerSystemPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.COMPUTER_SYSTEM));
+	this.caption = hw.getCaption();
+	if ((hw.getCurrentTimeZone() != null)
+		&& (hw.getCurrentTimeZone().length() > 0)
+		&& (!hw.getCurrentTimeZone().equals("null"))) {
+	    try {
+		this.currentTimeZone = Integer
+			.parseInt(hw.getCurrentTimeZone());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.daylightInEffect = Boolean.parseBoolean(hw.getDaylightInEffect());
+	this.description = hw.getDescription();
+	this.domain = hw.getDomain();
+	this.manufacturer = hw.getManufacturer();
+	this.model = hw.getModel();
+	this.name = hw.getName();
+	if ((hw.getNumberOfProcessors() != null)
+		&& (hw.getNumberOfProcessors().length() > 0)
+		&& (!hw.getNumberOfProcessors().equals("null"))) {
+	    try {
+		this.numberOfProcessors = Integer.parseInt(hw
+			.getNumberOfProcessors());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.status = hw.getStatus();
+
+	// EP410008 - 12/02/2013 - Added length > 0
+	if ((hw.getTotalPhysicalMemory() != null)
+		&& (hw.getTotalPhysicalMemory().length() > 0)
+		&& (!hw.getTotalPhysicalMemory().equals("null"))) {
+	    try {
+		this.totalPhysicalMemory = Long.parseLong(hw
+			.getTotalPhysicalMemory());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	// <--
+	this.workgroup = hw.getWorkgroup();
+    }
+
+    public HardwareDevice(DesktopMonitorPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.DESKTOP_MONITOR));
+	this.caption = hw.getCaption();
+	this.deviceId = hw.getDeviceID();
+	this.displayType = Boolean.parseBoolean(hw.getDisplayType());
+	this.monitorManufacturer = hw.getMonitorManufacturer();
+	this.monitorType = hw.getMonitorType();
+	this.name = hw.getName();
+	if ((hw.getPixelsPerXLogicalInch() != null)
+		&& (hw.getPixelsPerXLogicalInch().length() > 0)
+		&& (!hw.getPixelsPerXLogicalInch().equals("null"))) {
+	    try {
+		this.pixelsPerXLogicalInch = Integer.parseInt(hw
+			.getPixelsPerXLogicalInch());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	if ((hw.getPixelsPerYLogicalInch() != null)
+		&& (hw.getPixelsPerYLogicalInch().length() > 0)
+		&& (!hw.getPixelsPerYLogicalInch().equals("null"))) {
+	    try {
+		this.pixelsPerYLogicalInch = Integer.parseInt(hw
+			.getPixelsPerYLogicalInch());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(DiskDrivePojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.DISK_DRIVE));
+	if ((hw.getBytesPerSector() != null)
+		&& (hw.getBytesPerSector().length() > 0)
+		&& (!hw.getBytesPerSector().equals("null"))) {
+	    try {
+		this.bytesPerSector = Integer.parseInt(hw.getBytesPerSector());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.deviceId = hw.getDeviceID();
+	this.manufacturer = hw.getManufacturer();
+	if ((hw.getMaxMediaSize() != null)
+		&& (hw.getMaxMediaSize().length() > 0)
+		&& (!hw.getMaxMediaSize().equals("null"))) {
+	    try {
+		this.maxMediaSize = Integer.parseInt(hw.getMaxMediaSize());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	// this.firmwareRevision = hw.getFirmwareRevision();
+	this.mediaType = hw.getMediaType();
+	this.model = hw.getModel();
+	this.name = hw.getName();
+	if ((hw.getPartitions() != null) && (hw.getPartitions().length() > 0)
+		&& (!hw.getPartitions().equals("null"))) {
+	    try {
+		this.partitions = Integer.parseInt(hw.getPartitions());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	if ((hw.getSectorsPerTrack() != null)
+		&& (hw.getSectorsPerTrack().length() > 0)
+		&& (!hw.getSectorsPerTrack().equals("null"))) {
+	    try {
+		this.sectorsPerTrack = Integer
+			.parseInt(hw.getSectorsPerTrack());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	// this.serialNumber = hw.getSerialNumber();
+	this.signature = hw.getSignature();
+	this.size = Long.parseLong(hw.getSize());
+	this.status = hw.getStatus();
+	if ((hw.getTotalCylinders() != null)
+		&& (hw.getTotalCylinders().length() > 0)
+		&& (!hw.getTotalCylinders().equals("null"))) {
+	    try {
+		this.totalCylinders = Integer.parseInt(hw.getTotalCylinders());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	if ((hw.getTracksPerCylinder() != null)
+		&& (hw.getTracksPerCylinder().length() > 0)
+		&& (!hw.getTracksPerCylinder().equals("null"))) {
+	    try {
+		this.tracksPerCylinder = Integer.parseInt(hw
+			.getTracksPerCylinder());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+    }
+
+    public HardwareDevice(FloppyDrivePojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.FLOPPY_DRIVE));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.deviceId = hw.getDeviceID();
+	this.manufacturer = hw.getManufacturer();
+	// this.mediaType = hw.getMediaType();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(KeyboardPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.KEYBOARD));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.layout = hw.getLayout();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(LogicalDiskPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.LOGICAL_DISK));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.deviceId = hw.getDeviceID();
+	this.fileSystem = hw.getFileSystem();
+	if ((hw.getFreeSpace() != null) && (hw.getFreeSpace().length() > 0)
+		&& (!hw.getFreeSpace().equals("null"))) {
+	    try {
+		this.freeSpace = Long.parseLong(hw.getFreeSpace());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.name = hw.getName();
+	if ((hw.getSize() != null) && (hw.getSize().length() > 0)
+		&& (!hw.getSize().equals("null"))) {
+	    try {
+		this.size = Long.parseLong(hw.getSize());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.volumeName = hw.getVolumeName();
+	this.volumeSerialNumber = hw.getVolumeSerialNumber();
+    }
+
+    public HardwareDevice(NetworkAdapterSettingPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.NETWORK_ADAPTER));
+	this.adapterType = hw.getAdapterType();
+	this.caption = hw.getCaption();
+	this.defaultIpGateway = hw.getDefaultIPGateway();
+	this.description = hw.getDescription();
+	this.dhcpEnabled = Boolean.parseBoolean(hw.getDhcpEnabled());
+	this.dhcpServer = hw.getDhcpServer();
+	if ((hw.getInterfaceIndex() != null)
+		&& (hw.getInterfaceIndex().length() > 0)
+		&& (!hw.getInterfaceIndex().equals("null"))) {
+	    try {
+		this.interfaceIndex = Integer.parseInt(hw.getInterfaceIndex());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.ipAddress = hw.getIpAddress();
+	this.ipSubnet = hw.getIpSubnet();
+	this.macAddress = hw.getMacAddress();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.netConnectionId = hw.getNetConnectionID();
+	this.netConnectionStatus = hw.getNetConnectionStatus();
+	if ((hw.getSpeed() != null) && (hw.getSpeed().length() > 0)
+		&& (!hw.getSpeed().equals("null"))) {
+	    try {
+		this.speed = Long.parseLong(hw.getSpeed());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(ParallelPortPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.PARALLEL_PORT));
+	this.caption = hw.getCaption();
+	this.deviceId = hw.getDeviceID();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(PhysicalMemoryPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.PHYSICAL_MEMORY));
+	if ((hw.getCapacity() != null) && (hw.getCapacity().length() > 0)
+		&& (!hw.getCapacity().equals("null"))) {
+	    try {
+		this.capacity = Long.parseLong(hw.getCapacity());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(PointingDevicePojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.POINTING_DEVICE));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.hardwareType = hw.getHardwareType();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	if ((hw.getPointingType() != null)
+		&& (hw.getPointingType().length() > 0)
+		&& (!hw.getPointingType().equals("null"))) {
+	    try {
+		this.pointingType = Integer.parseInt(hw.getPointingType());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(ProcessorPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.PROCESSOR));
+	if ((hw.getAddressWidth() != null)
+		&& (hw.getAddressWidth().length() > 0)
+		&& (!hw.getAddressWidth().equals("null"))) {
+	    try {
+		this.addressWidth = Integer.parseInt(hw.getAddressWidth());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.architecture = hw.getArchitecture();
+	this.caption = hw.getCaption();
+	if ((hw.getCurrentClockSpeed() != null)
+		&& (hw.getCurrentClockSpeed().length() > 0)
+		&& (!hw.getCurrentClockSpeed().equals("null"))) {
+	    try {
+		this.currentClockSpeed = Integer.parseInt(hw
+			.getCurrentClockSpeed());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	if ((hw.getDataWidth() != null) && (hw.getDataWidth().length() > 0)
+		&& (!hw.getDataWidth().equals("null"))) {
+	    try {
+		this.dataWidth = Integer.parseInt(hw.getDataWidth());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	if ((hw.getExtClock() != null) && (hw.getExtClock().length() > 0)
+		&& (!hw.getExtClock().equals("null"))) {
+	    try {
+		this.extClock = Integer.parseInt(hw.getExtClock());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.manufacturer = hw.getManufacturer();
+	if ((hw.getMaxClockSpeed() != null)
+		&& (hw.getMaxClockSpeed().length() > 0)
+		&& (!hw.getMaxClockSpeed().equals("null"))) {
+	    try {
+		this.maxClockSpeed = Integer.parseInt(hw.getMaxClockSpeed());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.name = hw.getName();
+	// if (hw.getNumberOfCores().length() > 0) {
+	// this.numberOfProcessors = Integer.parseInt(hw.getNumberOfCores());
+	// }
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(SCSIControllerPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.SCSI_CONTROLLER));
+	this.caption = hw.getCaption();
+	this.description = hw.getDescription();
+	this.driverName = hw.getDriverName();
+	this.setHardwareVersion(hw.getHardwareVersion());
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.statusInfo = hw.getStatusInfo();
+    }
+
+    public HardwareDevice(SerialPortPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.SERIAL_PORT));
+	this.caption = hw.getCaption();
+	this.deviceId = hw.getDeviceID();
+	if ((hw.getMaxBaudRate() != null) && (hw.getMaxBaudRate().length() > 0)
+		&& (!hw.getMaxBaudRate().equals("null"))) {
+	    try {
+		this.maxBaudRate = Integer.parseInt(hw.getMaxBaudRate());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.name = hw.getName();
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(SoundDevicePojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.SOUND_DEVICE));
+	this.caption = hw.getCaption();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(SystemSlotPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.SYSTEM_SLOT));
+	this.caption = hw.getCaption();
+	if ((hw.getCurrentUsage() != null)
+		&& (hw.getCurrentUsage().length() > 0)
+		&& (!hw.getCurrentUsage().equals("null"))) {
+	    try {
+		this.currentUsage = Integer.parseInt(hw.getCurrentUsage());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	this.serialNumber = hw.getSerialNumber();
+	this.slotDesignation = hw.getSlotDesignation();
+	this.tag = hw.getTag();
+	this.setVersion(hw.getVersion());
+    }
+
+    public HardwareDevice(USBControllerPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_CONTROLLER));
+	this.caption = hw.getCaption();
+	this.deviceId = hw.getDeviceID();
+	this.manufacturer = hw.getManufacturer();
+	this.name = hw.getName();
+	if ((hw.getProtocolSupported() != null)
+		&& (hw.getProtocolSupported().length() > 0)
+		&& (!hw.getProtocolSupported().equals("null"))) {
+	    try {
+		this.protocolSupported = Integer.parseInt(hw
+			.getProtocolSupported());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.status = hw.getStatus();
+    }
+
+    public HardwareDevice(UsbHubPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_HUB));
+	this.description = hw.getDescription();
+	this.name = hw.getName();
+	if ((hw.getNumberOfPorts() != null)
+		&& (hw.getNumberOfPorts().length() > 0)
+		&& (!hw.getNumberOfPorts().equals("null"))) {
+	    try {
+		this.numberOfPorts = Integer.parseInt(hw.getNumberOfPorts());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.protocolCode = hw.getProtocolCode();
+	this.status = hw.getStatus();
+	this.setUsbVersion(hw.getUsbVersion());
+    }
+
+    public HardwareDevice(VideoControllerPojo hw) {
+	this.setHardwareClass(deviceClasses.get(DeviceClassId.VIDEO_CONTROLLER));
+	if ((hw.getAdapterRAM() != null) && (hw.getAdapterRAM().length() > 0)
+		&& (!hw.getAdapterRAM().equals("null"))) {
+	    try {
+		this.adapterRam = Integer.parseInt(hw.getAdapterRAM());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	// EP410008 - 12/02/2013 - Added length > 0
+	if ((hw.getCurrentBitsPerPixel() != null)
+		&& (hw.getCurrentBitsPerPixel().length() > 0)
+		&& (!hw.getCurrentBitsPerPixel().equals("null"))) {
+	    try {
+		this.currentBitsPerPixel = Integer.parseInt(hw
+			.getCurrentBitsPerPixel());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	if ((hw.getCurrentHorizontalResolution() != null)
+		&& (hw.getCurrentHorizontalResolution().length() > 0)
+		&& (!hw.getCurrentHorizontalResolution().equals("null"))) {
+	    try {
+		this.currentHorizontalResolution = Integer.parseInt(hw
+			.getCurrentHorizontalResolution());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	if ((hw.getCurrentNumberOfColors() != null)
+		&& (hw.getCurrentNumberOfColors().length() > 0)
+		&& (!hw.getCurrentNumberOfColors().equals("null"))) {
+	    try {
+		this.currentNumberOfColors = Long.parseLong(hw
+			.getCurrentNumberOfColors());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	if ((hw.getCurrentRefreshRate() != null)
+		&& (hw.getCurrentRefreshRate().length() > 0)
+		&& (!hw.getCurrentRefreshRate().equals("null"))) {
+	    try {
+		this.currentRefreshRate = Integer.parseInt(hw
+			.getCurrentRefreshRate());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	if ((hw.getCurrentVerticalResolution() != null)
+		&& (hw.getCurrentVerticalResolution().length() > 0)
+		&& (!hw.getCurrentVerticalResolution().equals("null"))) {
+	    try {
+		this.currentVerticalResolution = Integer.parseInt(hw
+			.getCurrentVerticalResolution());
+	    } catch (NumberFormatException e) {
+		logger.warn("Error when parsing number.", e);
+	    }
+	}
+	this.description = hw.getDescription();
+	this.name = hw.getName();
+	this.videoProcessor = hw.getVideoProcessor();
     }
 
     /**
@@ -1307,7 +1889,7 @@ public class HardwareDevice {
     /**
      * @return the totalPhysicalMemory
      */
-    public Integer getTotalPhysicalMemory() {
+    public Long getTotalPhysicalMemory() {
 	return totalPhysicalMemory;
     }
 
@@ -1315,7 +1897,7 @@ public class HardwareDevice {
      * @param totalPhysicalMemory
      *            the totalPhysicalMemory to set
      */
-    public void setTotalPhysicalMemory(Integer totalPhysicalMemory) {
+    public void setTotalPhysicalMemory(Long totalPhysicalMemory) {
 	this.totalPhysicalMemory = totalPhysicalMemory;
     }
 
@@ -1502,7 +2084,7 @@ public class HardwareDevice {
     /**
      * @return the speed
      */
-    public Integer getSpeed() {
+    public Long getSpeed() {
 	return speed;
     }
 
@@ -1510,7 +2092,7 @@ public class HardwareDevice {
      * @param speed
      *            the speed to set
      */
-    public void setSpeed(Integer speed) {
+    public void setSpeed(Long speed) {
 	this.speed = speed;
     }
 
@@ -2886,27 +3468,27 @@ public class HardwareDevice {
      *            the complete usb version to set
      */
     public void setUsbVersion(String version) {
-		String[] versions = version.split("\\.", 5);
-		switch (versions.length) {
-		case 5:
-		    setUsbRemainingVersion(versions[4]);
-		case 4:
-		    setUsbRevisionVersion(new Integer(versions[3]));
-		case 3:
-		    setUsbBuildVersion(new Integer(versions[2]));
-		case 2:
-		    setUsbMinorVersion(new Integer(versions[1]));
-		    setUsbMajorVersion(new Integer(versions[0]));
-		    break;
-		case 1:
-		    try {
-			setUsbMajorVersion(new Integer(versions[0]));
-		    } catch (NumberFormatException e) {
-			setUsbRemainingVersion(versions[0]);
-		    }
-		case 0:
-		    break;
-		}
+	String[] versions = version.split("\\.", 5);
+	switch (versions.length) {
+	case 5:
+	    setUsbRemainingVersion(versions[4]);
+	case 4:
+	    setUsbRevisionVersion(new Integer(versions[3]));
+	case 3:
+	    setUsbBuildVersion(new Integer(versions[2]));
+	case 2:
+	    setUsbMinorVersion(new Integer(versions[1]));
+	    setUsbMajorVersion(new Integer(versions[0]));
+	    break;
+	case 1:
+	    try {
+		setUsbMajorVersion(new Integer(versions[0]));
+	    } catch (NumberFormatException e) {
+		setUsbRemainingVersion(versions[0]);
+	    }
+	case 0:
+	    break;
+	}
     }
 
     /**
