@@ -50,6 +50,14 @@
             <artifactId>Inventory</artifactId>
             <version>0.1</version>
         </dependency>
+        
+        <dependency>
+                <groupId>ncr.ATMMonitoring.agent</groupId>
+                <artifactId>ATMAgent</artifactId>
+                <version>1.0</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/InventoryAgentData.jar</systemPath>
+        </dependency>
 
         <dependency>
 	        <groupId>uk.co.westhawk.snmp</groupId>
