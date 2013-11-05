@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.service;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashSet;
@@ -153,10 +154,11 @@ public class TerminalServiceImpl implements TerminalService {
     public List<Terminal> listTerminalsByBankCompany(BankCompany bank) {
 	return terminalDAO.listTerminalsByBankCompany(bank);
     }
-    
+
     @Override
-    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks, String sort, String order) {
-    	return terminalDAO.listTerminalsByBankCompanies(banks, sort, order);
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks,
+	    String sort, String order) {
+	return terminalDAO.listTerminalsByBankCompanies(banks, sort, order);
     }
 
     @Override
@@ -824,69 +826,101 @@ public class TerminalServiceImpl implements TerminalService {
 		finDevs.add(finDev);
 	    }
 	}
-	for (ALM xfsPojo : dataStoreTerminal.getvAlm()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvAlm() != null) {
+	    for (ALM xfsPojo : dataStoreTerminal.getvAlm()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (BCR xfsPojo : dataStoreTerminal.getvBcr()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvBcr() != null) {
+	    for (BCR xfsPojo : dataStoreTerminal.getvBcr()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (CAM xfsPojo : dataStoreTerminal.getvCam()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvCam() != null) {
+	    for (CAM xfsPojo : dataStoreTerminal.getvCam()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (CDM xfsPojo : dataStoreTerminal.getvCdm()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvCdm() != null) {
+	    for (CDM xfsPojo : dataStoreTerminal.getvCdm()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (CEU xfsPojo : dataStoreTerminal.getvCeu()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvCeu() != null) {
+	    for (CEU xfsPojo : dataStoreTerminal.getvCeu()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (CHK xfsPojo : dataStoreTerminal.getvChk()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvChk() != null) {
+	    for (CHK xfsPojo : dataStoreTerminal.getvChk()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (CIM xfsPojo : dataStoreTerminal.getvCim()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvCim() != null) {
+	    for (CIM xfsPojo : dataStoreTerminal.getvCim()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (CRD xfsPojo : dataStoreTerminal.getvCrd()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvCrd() != null) {
+	    for (CRD xfsPojo : dataStoreTerminal.getvCrd()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (DEP xfsPojo : dataStoreTerminal.getvDep()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvDep() != null) {
+	    for (DEP xfsPojo : dataStoreTerminal.getvDep()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (IDC xfsPojo : dataStoreTerminal.getvIdc()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvIdc() != null) {
+	    for (IDC xfsPojo : dataStoreTerminal.getvIdc()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (IPM xfsPojo : dataStoreTerminal.getvIpm()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvIpm() != null) {
+	    for (IPM xfsPojo : dataStoreTerminal.getvIpm()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (PIN xfsPojo : dataStoreTerminal.getvPin()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvPin() != null) {
+	    for (PIN xfsPojo : dataStoreTerminal.getvPin()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (PTR xfsPojo : dataStoreTerminal.getvPtr()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvPtr() != null) {
+	    for (PTR xfsPojo : dataStoreTerminal.getvPtr()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (SIU xfsPojo : dataStoreTerminal.getvSiu()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvSiu() != null) {
+	    for (SIU xfsPojo : dataStoreTerminal.getvSiu()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (TTU xfsPojo : dataStoreTerminal.getvTtu()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvTtu() != null) {
+	    for (TTU xfsPojo : dataStoreTerminal.getvTtu()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
-	for (VDM xfsPojo : dataStoreTerminal.getvVdm()) {
-	    XfsComponent xfs = new XfsComponent(xfsPojo);
-	    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	if (dataStoreTerminal.getvVdm() != null) {
+	    for (VDM xfsPojo : dataStoreTerminal.getvVdm()) {
+		XfsComponent xfs = new XfsComponent(xfsPojo);
+		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
 	}
 	return finDevs;
     }
