@@ -15,6 +15,11 @@
                 $("#showTerminal").hide();
                 $("#editForm").show();
 	        });
+            $("#cancelEdit").click(function(event) {
+                $("#showTerminal").show();
+                $("#editForm").hide();
+	        });
+
             initTabs();
 	    });
 
@@ -103,7 +108,7 @@
 								</div>
 							</div>
 								<c:if test="${canEdit == true}">
-							            <div id="editForm" class="${errors != null ? '': 'hide'}">
+							      <div id="editForm" class="${errors != null ? '': 'hide'}">
 									<form:form method="post" action="terminals/update" commandName="terminal">
 										<form:hidden path="id"/>
 										<div class="ul_data editable">
@@ -262,8 +267,11 @@
 												</li>
 											</ul>
 										<div class="botonera">
+
 											<input type="submit" class="btn" value="<spring:message code="label.terminal.updateTerminal"/>"/>
 											<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>
+
+		                                    <input id="cancelEdit" type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
 										</div>
 
 										</div>
