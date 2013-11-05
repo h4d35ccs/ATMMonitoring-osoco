@@ -25,11 +25,13 @@
 					<h1><spring:message code="label.terminal.new"/></h1>
 					<div class=" botonera">
 						<div class="desplegable button">
-							<div class="btn txt import content_hide"><spring:message code="label.import.file"/></div>
-							<div class="hide collapsible" style="display: none;">
-								<input type="file">
-								<div class="botonera"><input type="button" class="btn" value="<spring:message code="label.upload"/>"></div>
-							</div>
+							<form method="post" action="terminals/import" enctype="multipart/form-data" >
+								<div class="btn txt import content_hide"><spring:message code="label.import.file"/></div>
+								<div class="hide collapsible" style="display: none;">
+									<input type="file" name="file">
+									<div class="botonera"><input type="submit" class="btn" value="<spring:message code="label.upload"/>"></div>
+								</div>
+							</form>
 						</div>
 					</div>
 					<div class="action_box data">

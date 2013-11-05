@@ -309,6 +309,19 @@ public class TerminalController {
 	return "terminalDetails";
     }
 
+    @RequestMapping(value = "/terminals/import", method = RequestMethod.POST)
+    public String importTerminal(
+	    @RequestParam("file") CommonsMultipartFile file,
+	    Map<String, Object> map, HttpServletRequest request,
+	    Principal principal) {
+
+	boolean importResult = false;
+	if (file != null) {
+	    importResult = terminalService.importJsonTerminal(file);
+	}
+	return "redirect:/terminals/list";
+    }
+
     @RequestMapping(value="/terminals/new", method = RequestMethod.GET)
     public String addTerminal(Map<String, Object> map, HttpServletRequest request, Principal principal) {
 	String userMsg = "";
