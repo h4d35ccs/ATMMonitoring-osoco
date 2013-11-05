@@ -32,7 +32,7 @@
   <div id="header_g">
     <nav id="breadcrumb">
       <ul>
-        <li><a href="dasthboard"><spring:message code="breadcrumb.home"/></a></li>
+        <li><a href="dashboard"><spring:message code="breadcrumb.home"/></a></li>
         <li><a href="terminals"><spring:message code="breadcrumb.terminals"/></a></li>
         <li><spring:message code="label.queries.mine"/></li>
       </ul>
