@@ -369,7 +369,7 @@
 					</div>
 					<!-- // /action_box -->
 					<div class="action_box data desplegable">
-						<h2 class="txt last"><spring:message code="label.terminal.history"/></h2>
+						<h2 class="txt content_hide last"><spring:message code="label.terminal.history"/></h2>
 						<div class="collapsible last hide">
 							<img src="resources/images/ejemplo/historico.png" style="width:100%; margin:1em 0" />
 						</div>
