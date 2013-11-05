@@ -26,8 +26,8 @@ public class SnmpListener extends Inventory {
     static private ConcurrentLinkedQueue<String> waitingIps = new ConcurrentLinkedQueue<String>();
     @Value("${config.snmpTimeOut}")
     private int timeOut;
-    @Value("${config.backgroundListener}")
-    private String listenerState;
+    // @Value("${config.backgroundListener}")
+    private String listenerState = "off";
     @Autowired
     private TerminalService terminalService;
 

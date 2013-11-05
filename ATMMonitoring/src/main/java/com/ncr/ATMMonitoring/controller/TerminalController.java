@@ -46,6 +46,7 @@ import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.snmp.SnmpService;
 import com.ncr.ATMMonitoring.snmp.SnmpTimeOutException;
+import com.ncr.ATMMonitoring.socket.SocketService;
 
 import org.apache.log4j.Logger;
 
@@ -82,7 +83,7 @@ public class TerminalController {
     @Autowired
     private UserService userService;
     @Autowired
-    private SnmpService snmpService;
+    private SocketService socketService;
 
     // @Autowired
     // private SoftwareService softwareService;
@@ -101,25 +102,25 @@ public class TerminalController {
 					.getUserByUsername(principal.getName());
     		Query query = queryService.getQuery(Integer.parseInt(queryId));
     		if (query.getUser().getId().equals(loggedUser.getId())) {
-    			snmpService.updateTerminalsSnmp(query);
+    			socketService.updateTerminalsSocket(query);
     		}
     	} else {
-		try {
-		    snmpService.updateAllTerminalsSnmp();
+	    // try {
+		    socketService.updateAllTerminalsSocket();
 		    redirectAttributes.addFlashAttribute("success", "success.snmpUpdateAll");
-		} catch (SnmpTimeOutException e) {
-		    String userMsg = "";
-		    Locale locale = RequestContextUtils.getLocale(request);
-		    if (principal != null) {
-			User loggedUser = userService.getUserByUsername(principal
-				.getName());
-			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-
-		    }
-		    map.put("userMsg", userMsg);
-		    map.put("ips", e.getIpsHtmlList());
-		    redirectAttributes.addFlashAttribute("timeout", "timeout.snmpUpdateAll");
-		}
+//		} catch (SnmpTimeOutException e) {
+//		    String userMsg = "";
+//		    Locale locale = RequestContextUtils.getLocale(request);
+//		    if (principal != null) {
+//			User loggedUser = userService.getUserByUsername(principal
+//				.getName());
+//			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+//
+//		    }
+//		    map.put("userMsg", userMsg);
+//		    map.put("ips", e.getIpsHtmlList());
+//		    redirectAttributes.addFlashAttribute("timeout", "timeout.snmpUpdateAll");
+//		}
     	}
 
 		try {
@@ -145,29 +146,30 @@ public class TerminalController {
 			map.clear();
 			return "redirect:/terminals/list";
 		}
-		try {
+	// try {
 		    logger.debug("request snmp update for terminal" + terminalId);
-			snmpService.updateTerminalSnmp(terminal);
+	socketService.updateTerminalSocket(terminal);
 			redirectAttributes.addFlashAttribute("success", "success.snmpUpdateTerminal");
-		} catch (SnmpTimeOutException e) {
-			String userMsg = "";
-			Locale locale = RequestContextUtils.getLocale(request);
-			if (principal != null) {
-				User loggedUser = userService.getUserByUsername(principal.getName());
-				userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-				Set<BankCompany> bankCompanies = loggedUser
-					.getManageableBankCompanies();
-				if ((terminal.getBankCompany() != null)
-					&& (!bankCompanies.contains(terminal.getBankCompany()))) {
-					map.clear();
-					return "redirect:/terminals/list";
-				}
-			}
-			map.put("userMsg", userMsg);
-			map.put("ips", e.getIpsHtmlList());
-			redirectAttributes.addFlashAttribute("timeout", "timeout.snmpUpdateTerminal");
-			return "redirect:/terminals/details/" + terminalId;
-		}
+	// } catch (SnmpTimeOutException e) {
+	// String userMsg = "";
+	// Locale locale = RequestContextUtils.getLocale(request);
+	// if (principal != null) {
+	// User loggedUser = userService.getUserByUsername(principal.getName());
+	// userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	// Set<BankCompany> bankCompanies = loggedUser
+	// .getManageableBankCompanies();
+	// if ((terminal.getBankCompany() != null)
+	// && (!bankCompanies.contains(terminal.getBankCompany()))) {
+	// map.clear();
+	// return "redirect:/terminals/list";
+	// }
+	// }
+	// map.put("userMsg", userMsg);
+	// map.put("ips", e.getIpsHtmlList());
+	// redirectAttributes.addFlashAttribute("timeout",
+	// "timeout.snmpUpdateTerminal");
+	// return "redirect:/terminals/details/" + terminalId;
+	// }
 
 		try {
 			// We wait to avoid not loading the recently added DB data

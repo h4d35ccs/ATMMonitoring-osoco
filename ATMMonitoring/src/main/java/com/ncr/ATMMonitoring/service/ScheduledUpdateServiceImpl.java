@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO;
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 import com.ncr.ATMMonitoring.pojo.Terminal;
-import com.ncr.ATMMonitoring.snmp.SnmpService;
+import com.ncr.ATMMonitoring.socket.SocketService;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -31,7 +31,7 @@ public class ScheduledUpdateServiceImpl implements ScheduledUpdateService {
     @Autowired
     private ScheduledUpdateDAO scheduledUpdateDAO;
     @Autowired
-    private SnmpService snmpService;
+    private SocketService socketService;
     @Autowired
     private QueryService queryService;
 
@@ -67,7 +67,7 @@ public class ScheduledUpdateServiceImpl implements ScheduledUpdateService {
 		logger.info("General update found for instant "
 			+ DateFormat.getDateTimeInstance(DateFormat.SHORT,
 				DateFormat.SHORT).format(currentDate.getTime()));
-		snmpService.updateAllTerminalsSnmpAsync();
+		socketService.updateAllTerminalsSocketAsync();
 		return;
 	    }
 	}
@@ -79,7 +79,7 @@ public class ScheduledUpdateServiceImpl implements ScheduledUpdateService {
 		ips.add(terminal.getIp());
 	    }
 	}
-	snmpService.updateTerminalsSnmp(ips);
+	socketService.updateTerminalsSocket(ips);
     }
 
     @Override
