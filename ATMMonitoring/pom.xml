@@ -359,6 +359,64 @@
   			</configuration>
         </plugin>
 
+			<!-- <plugin>
+	            <groupId>com.pyx4me</groupId>
+	            <artifactId>proguard-maven-plugin</artifactId>
+	            <executions>
+	                <execution>
+	                    <phase>prepare-package</phase>
+	                    <goals>
+	                        <goal>proguard</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	            <configuration>
+  					<proguardVersion>4.4</proguardVersion>
+  					<obfuscate>true</obfuscate>
+	                <injar>${project.artifactId}-${project.version}/WEB-INF/lib/${project.artifactId}-${project.version}.jar</injar>
+	                <outjar>${project.artifactId}-${project.version}/WEB-INF/lib/${project.artifactId}-${project.version}-obf.jar</outjar>
+	                <outputDirectory>${project.build.directory}</outputDirectory>
+	                <options>
+	                <option>-target 1.6</option>
+                        <option>-allowaccessmodification</option>
+                        <option><![CDATA[
+                            -keep public class * {
+                                public <init>(...);
+                                public void set*(...);
+                                public void init*(...);
+                                public void close*(...);
+                                public ** get*(...);
+                                public boolean is*(...);
+                                public boolean can*(...);
+                            }
+                            ]]></option>
+                        <option><![CDATA[
+                            -keepclassmembers class * {
+                                @javax.inject.Inject *;
+                                @javax.inject.Named *;
+                                java.util.Set *;
+                                @org.springframework.beans.factory.annotation.Autowired *;
+                                @org.springframework.beans.factory.annotation.Qualifier *;
+                                @org.springframework.beans.factory.annotation.Value *;
+                                @org.springframework.beans.factory.annotation.Required *;
+                            }
+                            ]]></option>
+                        <option>-keep @org.springframework.beans.factory.annotation.Service class *</option>
+                        <option>-keep @org.springframework.stereotype.Service class *</option>
+                        <option>-keep @org.springframework.stereotype.Component class * </option>
+                        <option>-keep @org.springframework.stereotype.Repository class *</option>
+                        <option>-keep @org.springframework.stereotype.Controller class * </option>
+                        <option>-keepattributes *Annotation*</option>
+                        <option>-keepdirectories</option>
+	                </options>
+	                <libs>
+	                	<lib>${java.home}/lib/rt.jar</lib>
+                        <lib>${java.home}/lib/jsse.jar</lib>
+                        <lib>${java.home}/lib/jce.jar</lib>
+                    </libs>
+	            </configuration>
+	        </plugin> -->
+
 	   </plugins>
 	</build>
 
