@@ -26,7 +26,7 @@
 			<li>
 				<a href="dashboard"><spring:message code="breadcrumb.home"/></a>
 			</li>
-		
+
 			<li><spring:message code="breadcrumb.reports"/></li>
 		</ul>
 	</nav>
@@ -55,14 +55,14 @@
 		</div>
 	</div>
 	<div class="box_list">
-		<a href="#">
+		<a href="http://1.0.0.2/MicroStrategy/asp/Main.aspx?Server=PC-ELI&Project=inventory&port=0&evt=2048001&src=Main.aspx.2048001&visMode=0&documentID=3438E8F542936CA3E0D0C7A1662D35DB&currentViewMedia=2&hiddensections=header,path,dockTop,dockLeft,footer">
 			<h3><spring:message code="label.report.name"/></h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
 			<p><spring:message code="label.report.description"/></p>
 		</a>
 	</div>
 	<div class="box_list">
-		<a href="#">
+		<a href="http://1.0.0.2/MicroStrategy/asp/Main.aspx?Server=PC-ELI&Project=inventory&port=0&evt=2048001&src=Main.aspx.2048001&visMode=0&documentID=3438E8F542936CA3E0D0C7A1662D35DB&currentViewMedia=2&hiddensections=header,path,dockTop,dockLeft,footer">
 			<h3><spring:message code="label.report.name"/></h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
 			<p><spring:message code="label.report.description"/></p>
@@ -70,7 +70,7 @@
 		</a>
 	</div>
 	<div class="box_list">
-		<a href="#">
+		<a href="http://1.0.0.2/MicroStrategy/asp/Main.aspx?Server=PC-ELI&Project=inventory&port=0&evt=2048001&src=Main.aspx.2048001&visMode=0&documentID=3438E8F542936CA3E0D0C7A1662D35DB&currentViewMedia=2&hiddensections=header,path,dockTop,dockLeft,footer">
 			<h3>Report Name</h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
@@ -79,49 +79,49 @@
 		</a>
 	</div>
 	<div class="box_list">
-		<a href="#">
+		<a href="http://1.0.0.2/MicroStrategy/asp/Main.aspx?Server=PC-ELI&Project=inventory&port=0&evt=2048001&src=Main.aspx.2048001&visMode=0&documentID=3438E8F542936CA3E0D0C7A1662D35DB&currentViewMedia=2&hiddensections=header,path,dockTop,dockLeft,footer">
 			<h3>Report Name</h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 		</a>
 	</div>
 	<div class="box_list">
-		<a href="#">
+		<a href="http://1.0.0.2/MicroStrategy/asp/Main.aspx?Server=PC-ELI&Project=inventory&port=0&evt=2048001&src=Main.aspx.2048001&visMode=0&documentID=3438E8F542936CA3E0D0C7A1662D35DB&currentViewMedia=2&hiddensections=header,path,dockTop,dockLeft,footer">
 			<h3>Report Name</h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 		</a>
 	</div>
 	<div class="box_list">
-		<a href="#">
+		<a href="http://1.0.0.2/MicroStrategy/asp/Main.aspx?Server=PC-ELI&Project=inventory&port=0&evt=2048001&src=Main.aspx.2048001&visMode=0&documentID=3438E8F542936CA3E0D0C7A1662D35DB&currentViewMedia=2&hiddensections=header,path,dockTop,dockLeft,footer">
 			<h3><spring:message code="label.report.name"/></h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
 			<p><spring:message code="label.report.description"/></p>
 		</a>
 	</div>
 	<div class="box_list">
-		<a href="#">
+		<a href="http://1.0.0.2/MicroStrategy/asp/Main.aspx?Server=PC-ELI&Project=inventory&port=0&evt=2048001&src=Main.aspx.2048001&visMode=0&documentID=3438E8F542936CA3E0D0C7A1662D35DB&currentViewMedia=2&hiddensections=header,path,dockTop,dockLeft,footer">
 			<h3><spring:message code="label.report.name"/></h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
 			<p><spring:message code="label.report.description"/></p>
 		</a>
 	</div>
 	<div class="box_list">
-		<a href="#">
+		<a href="http://1.0.0.2/MicroStrategy/asp/Main.aspx?Server=PC-ELI&Project=inventory&port=0&evt=2048001&src=Main.aspx.2048001&visMode=0&documentID=3438E8F542936CA3E0D0C7A1662D35DB&currentViewMedia=2&hiddensections=header,path,dockTop,dockLeft,footer">
 			<h3>Report Name</h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, expedita, dolor, ad, quod quis ex doloribus enim reprehenderit est tenetur ducimus cum aliquid ratione. Quaerat dolor sint architecto culpa consequatur!</p>
 		</a>
 	</div>
 	<div class="box_list">
-			<a href="#">
+			<a href="http://1.0.0.2/MicroStrategy/asp/Main.aspx?Server=PC-ELI&Project=inventory&port=0&evt=2048001&src=Main.aspx.2048001&visMode=0&documentID=3438E8F542936CA3E0D0C7A1662D35DB&currentViewMedia=2&hiddensections=header,path,dockTop,dockLeft,footer">
 			<h3><spring:message code="label.report.name"/></h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
 			<p><spring:message code="label.report.description"/></p>
 		</a>
 	</div>
 	<div class="box_list">
-		<a href="#">
+		<a href="http://1.0.0.2/MicroStrategy/asp/Main.aspx?Server=PC-ELI&Project=inventory&port=0&evt=2048001&src=Main.aspx.2048001&visMode=0&documentID=3438E8F542936CA3E0D0C7A1662D35DB&currentViewMedia=2&hiddensections=header,path,dockTop,dockLeft,footer">
 			<h3><spring:message code="label.report.name"/></h3>
 			<img src="resources/images/ejemplo/grafico.png"/>
 			<p><spring:message code="label.report.description"/></p>
