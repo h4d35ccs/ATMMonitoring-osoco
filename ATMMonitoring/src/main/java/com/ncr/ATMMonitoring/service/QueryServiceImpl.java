@@ -93,11 +93,13 @@ public class QueryServiceImpl implements QueryService {
 
 	@Override
 	public Query findOrCreateQuery(Query query) {
-		Query result = query;
+		Query result = null;
 		List<Query> queries = listQueries();
 		if (!queries.contains(query)) {
 			addQuery(query);
 			result = query;
+		} else {
+			result = queries.get(queries.indexOf(query));
 		}
 		return result;
 	}

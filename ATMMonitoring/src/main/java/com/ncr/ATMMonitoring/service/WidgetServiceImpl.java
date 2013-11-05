@@ -78,7 +78,7 @@ public class WidgetServiceImpl implements WidgetService {
 		Query allTerminalsQuery = new Query();
 		allTerminalsQuery.setName("All Terminals");
 		allTerminalsQuery.setUser(admin);
-		queryService.findOrCreateQuery(allTerminalsQuery);
+		allTerminalsQuery = queryService.findOrCreateQuery(allTerminalsQuery);
 
 		Widget widget1 = buildDefaultWidget(
 		    "Bancos", 1, allTerminalsQuery, null, "bank", ChartType.PIE_CHART);
@@ -87,7 +87,7 @@ public class WidgetServiceImpl implements WidgetService {
 		    "Fabricantes", 2, allTerminalsQuery, null, "terminalVendor", ChartType.BAR_CHART);
 		defaultWidgets.add(widget2);
 		Widget widget3 = buildDefaultWidget(
-		    "Distribución por ciudad", 3, allTerminalsQuery, null, "city", ChartType.GEO_CHART);
+		    "Por ciudad", 3, allTerminalsQuery, null, "city", ChartType.GEO_CHART);
 		defaultWidgets.add(widget3);
 		Widget widget4 = buildDefaultWidget("Versiones IE", 4, allTerminalsQuery, "internetExplorers", "majorVersion", ChartType.PIE_CHART);
 		defaultWidgets.add(widget4);
