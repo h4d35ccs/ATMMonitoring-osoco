@@ -3006,83 +3006,69 @@ td .add span, th .add span {
   margin-right: 1em;
 }
 
-@media screen and (max-height: 600px) {
-  /* line 2, ../sass/_responsive.scss */
-  nav#main_nav #nav_icons a {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background: none;
-  }
-
-  /* line 7, ../sass/_responsive.scss */
-  nav#main_nav #nav_icons .help {
-    position: relative;
-  }
-}
-@media screen and (min-width: 801px) {
-  /* line 12, ../sass/_responsive.scss */
-  #main, #cboxContent {
-    margin-left: 90px;
-  }
-}
 @media screen and (max-width: 1200px) {
-  /* line 19, ../sass/_responsive.scss */
+  /* line 4, ../sass/_responsive.scss */
   #dashboard #columns .column4 {
     display: none;
   }
-  /* line 23, ../sass/_responsive.scss */
+  /* line 8, ../sass/_responsive.scss */
   #dashboard #sortable.column4 li.ui-state-default {
     width: 29%;
   }
 }
-@media screen and (max-width: 800px) {
-  /* line 30, ../sass/_responsive.scss */
+@media screen and (max-width: 1023px) {
+  /* line 15, ../sass/_responsive.scss */
   #rButton {
     display: block;
     cursor: pointer;
   }
 
-  /* line 35, ../sass/_responsive.scss */
+  /* line 20, ../sass/_responsive.scss */
   #main_header h1, #main_header #main h2, #main #main_header h2, #main_header #cboxContent h2, #cboxContent #main_header h2, #main_header #main h3, #main #main_header h3, #main_header #cboxContent h3, #cboxContent #main_header h3, #main_header #main h4, #main #main_header h4, #main_header #cboxContent h4, #cboxContent #main_header h4, #main_header #main h5, #main #main_header h5, #main_header #cboxContent h5, #cboxContent #main_header h5 {
     left: 40px;
   }
-  /* line 37, ../sass/_responsive.scss */
+  /* line 22, ../sass/_responsive.scss */
   #main_header h1 strong, #main_header #main h2 strong, #main #main_header h2 strong, #main_header #cboxContent h2 strong, #cboxContent #main_header h2 strong, #main_header #main h3 strong, #main #main_header h3 strong, #main_header #cboxContent h3 strong, #cboxContent #main_header h3 strong, #main_header #main h4 strong, #main #main_header h4 strong, #main_header #cboxContent h4 strong, #cboxContent #main_header h4 strong, #main_header #main h5 strong, #main #main_header h5 strong, #main_header #cboxContent h5 strong, #cboxContent #main_header h5 strong {
     left: 85px;
     font-size: 1.2em;
     top: 10px;
   }
-  /* line 43, ../sass/_responsive.scss */
+  /* line 28, ../sass/_responsive.scss */
   #main_header #user_info {
     right: 5px;
     margin-left: 0;
   }
-  /* line 46, ../sass/_responsive.scss */
+  /* line 31, ../sass/_responsive.scss */
   #main_header #user_info .welcome, #main_header #user_info .date {
     display: none;
   }
-  /* line 50, ../sass/_responsive.scss */
+  /* line 35, ../sass/_responsive.scss */
   #main_header #lang ul {
     right: 0;
   }
-  /* line 52, ../sass/_responsive.scss */
+  /* line 37, ../sass/_responsive.scss */
   #main_header #lang ul a {
     font-size: 1.5em;
   }
 
-  /* line 57, ../sass/_responsive.scss */
+  /* line 42, ../sass/_responsive.scss */
   #main_nav.btn_close {
     display: none;
   }
 
-  /* line 60, ../sass/_responsive.scss */
+  /* line 45, ../sass/_responsive.scss */
   #main, #cboxContent {
-    margin-left: 90px;
+    margin-left: 0;
     padding-top: 5%;
-    width: 101%;
+    left: 90px;
   }
 
-  /* line 65, ../sass/_responsive.scss */
+  /* line 50, ../sass/_responsive.scss */
+  #cboxContent {
+    left: 0;
+  }
+
+  /* line 53, ../sass/_responsive.scss */
   #main.btn_close, .btn_close#cboxContent {
     position: absolute;
     top: 0;
@@ -3094,51 +3080,117 @@ td .add span, th .add span {
     min-height: 100%;
   }
 
-  /* line 75, ../sass/_responsive.scss */
+  /* line 63, ../sass/_responsive.scss */
   #cboxClose {
     top: 0;
     right: 0;
   }
 
-  /* line 82, ../sass/_responsive.scss */
+  /* line 70, ../sass/_responsive.scss */
   #dashboard #columns .column3 {
     display: none;
   }
-  /* line 86, ../sass/_responsive.scss */
+  /* line 74, ../sass/_responsive.scss */
   #dashboard #header_g #components ul li {
     font-size: 1.5em;
   }
-  /* line 89, ../sass/_responsive.scss */
+  /* line 77, ../sass/_responsive.scss */
   #dashboard #sortable.column3 li.ui-state-default, #dashboard #sortable.column4 li.ui-state-default {
     width: 46%;
   }
 
-  /* line 94, ../sass/_responsive.scss */
-  #main .action_box.data .photo, #cboxContent .action_box.data .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo, #cboxContent .action_box.data .photo, #cboxContent .data.pagination .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo, #cboxContent .data.pagination .photo {
+  /* line 82, ../sass/_responsive.scss */
+  #main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .action_box.data .model, #cboxContent .data.pagination .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .data.pagination .model {
     width: 35%;
   }
 
-  /* line 97, ../sass/_responsive.scss */
+  /* line 85, ../sass/_responsive.scss */
   #main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .action_box.data .ul_data, #cboxContent .data.pagination .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
     width: 60%;
   }
 
-  /* line 100, ../sass/_responsive.scss */
+  /* line 88, ../sass/_responsive.scss */
   #main .action_box.data .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li {
     width: 96%;
   }
-  /* line 102, ../sass/_responsive.scss */
+  /* line 90, ../sass/_responsive.scss */
   #main .action_box.data .ul_data > ul li li strong, #cboxContent .action_box.data .ul_data > ul li li strong, #main .data.pagination .ul_data > ul li li strong, #cboxContent .data.pagination .ul_data > ul li li strong, #cboxContent .action_box.data .ul_data > ul li li strong, #cboxContent .data.pagination .ul_data > ul li li strong, #main .data.pagination .ul_data > ul li li strong, #cboxContent .data.pagination .ul_data > ul li li strong, #cboxContent .data.pagination .ul_data > ul li li strong {
     width: 40%;
   }
 
-  /* line 106, ../sass/_responsive.scss */
+  /* line 94, ../sass/_responsive.scss */
   nav.sub_nav {
     font-size: .9em;
   }
 
-  /* line 109, ../sass/_responsive.scss */
+  /* line 97, ../sass/_responsive.scss */
   table.link tr.detail ul li, table.link tr.detail:hover ul li {
     width: 49%;
+  }
+
+  /* line 102, ../sass/_responsive.scss */
+  .documentation #header_g, .documentation .menu, .documentation .scroll {
+    width: 100%;
+    margin-top: 1em;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 114, ../sass/_responsive.scss */
+  nav#main_nav #nav_icons a {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background: none;
+  }
+
+  /* line 119, ../sass/_responsive.scss */
+  nav#main_nav #nav_icons .help {
+    position: relative;
+  }
+
+  /* line 122, ../sass/_responsive.scss */
+  .add, .clock, .next, .import, .back, .save, .download, .update {
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0;
+    padding-left: 30px;
+  }
+
+  /* line 131, ../sass/_responsive.scss */
+  #main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .action_box.data .model, #cboxContent .data.pagination .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .data.pagination .model {
+    width: 96%;
+  }
+
+  /* line 134, ../sass/_responsive.scss */
+  #main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .action_box.data .ul_data, #cboxContent .data.pagination .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
+    width: 96%;
+  }
+  /* line 136, ../sass/_responsive.scss */
+  #main .action_box.data .ul_data li strong, #cboxContent .action_box.data .ul_data li strong, #main .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #cboxContent .action_box.data .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #main .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong {
+    width: 30%;
+  }
+
+  /* line 140, ../sass/_responsive.scss */
+  nav.sub_nav {
+    font-size: .7em;
+  }
+
+  /* line 143, ../sass/_responsive.scss */
+  table.link tr.detail ul li, table.link tr.detail:hover ul li {
+    width: 49%;
+  }
+
+  /* line 146, ../sass/_responsive.scss */
+  .w33, .w66 {
+    width: 100%;
+  }
+
+  /* line 150, ../sass/_responsive.scss */
+  #main .fc-header h2, #cboxContent .fc-header h2 {
+    font-size: 1em;
   }
 }

@@ -1,18 +1,3 @@
-@media screen and (max-height: 600px) {
-	nav#main_nav #nav_icons a{
-		padding-top: 25px;
-		padding-bottom: 25px;
-		background:none;
-	}
-	nav#main_nav #nav_icons .help{
-		position: relative;
-	}
-}
-@media screen and (min-width: 801px) {
-	#main{
-		margin-left: 90px;
-	}
-}
 @media screen and (max-width: 1200px) {
 	#dashboard{
 		#columns{
@@ -25,7 +10,7 @@
 		}
 	}
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1023px) {
 // Generales
 	#rButton{
 		display: block;
@@ -58,9 +43,12 @@
 		display: none;
 	}
 	#main{
-		margin-left: 90px;
+		margin-left: 0;
 		padding-top: 5%;
-		width: 101%;
+		left: 90px;
+	}
+	#cboxContent{
+		left: 0;
 	}
 	#main.btn_close{
 		position: absolute;
@@ -91,7 +79,7 @@
 		}
 	}
 // detalle TERMINAL
-	#main .action_box.data .photo, #cboxContent .action_box.data .photo, #main .data.pagination .photo, #cboxContent .data.pagination .photo {
+	#main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model {
 		width: 35%;
 	}
 	#main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
@@ -109,4 +97,58 @@
 	table.link tr.detail ul li, table.link tr.detail:hover ul li {
 		width: 49%;
 	}
+// Usuarios
+	.documentation{
+		#header_g, .menu, .scroll{
+			width: 100%;
+			margin-top: 1em;
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	nav#main_nav #nav_icons a{
+		padding-top: 25px;
+		padding-bottom: 25px;
+		background:none;
+	}
+	nav#main_nav #nav_icons .help{
+		position: relative;
+	}
+	.add,.clock,.next,.import,.back,.save, .download, .update{
+		width: 0;
+		overflow: hidden;
+		white-space: nowrap;
+		padding: 0;
+		padding-left: 30px;
+
+	}
+// detalle TERMINAL
+	#main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model {
+		width: 96%;
+	}
+	#main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
+		width: 96%;
+		li strong{
+			width: 30%;
+		}
+	}
+	nav.sub_nav {
+		font-size: .7em;
+	}
+	table.link tr.detail ul li, table.link tr.detail:hover ul li {
+		width: 49%;
+	}
+	.w33, .w66{
+		width: 100%;
+	}
+// Calendario
+	#main .fc-header h2{
+		font-size: 1em;
+	}
+
 }
