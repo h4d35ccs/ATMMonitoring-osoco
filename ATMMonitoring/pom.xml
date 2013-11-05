@@ -289,6 +289,57 @@
 	<build>
 	  <plugins>
 
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-war-plugin</artifactId> -->
+<!-- 				<version>2.4</version> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						First step is to disable the default-war build step. -->
+<!-- 						<id>default-war</id> -->
+<!-- 						<phase>none</phase> -->
+<!-- 					</execution> -->
+<!-- 					<execution> -->
+<!-- 						Second step is to create an exploded war. Done in prepare-package -->
+<!-- 						<id>war-exploded</id> -->
+<!-- 						<phase>prepare-package</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>exploded</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 					<execution> -->
+<!-- 						Last step is to make sure that the war is built in the package -->
+<!-- 							phase -->
+<!-- 						<id>custom-war</id> -->
+<!-- 						<phase>package</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>war</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 				<configuration> -->
+<!-- 					<archiveClasses>true</archiveClasses> -->
+<!-- 					<webResources> -->
+<!-- 						<resource> -->
+<!-- 							<directory>lib</directory> -->
+<!-- 							<targetPath>WEB-INF/lib</targetPath> -->
+<!-- 							<filtering>true</filtering> -->
+<!-- 							<includes> -->
+<!-- 								<include>**/*.jar</include> -->
+<!-- 							</includes> -->
+<!-- 						</resource> -->
+<!-- 						<resource> -->
+<!-- 							<directory>src/main/resources</directory> -->
+<!-- 							<targetPath>WEB-INF/classes</targetPath> -->
+<!-- 							<filtering>true</filtering> -->
+<!-- 						</resource> -->
+<!-- 					</webResources> -->
+<!-- 					<packagingExcludes> -->
+<!-- 						WEB-INF/lib/*_proguard_base.jar -->
+<!-- 					</packagingExcludes> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+
 		<plugin>
 			<artifactId>maven-compiler-plugin</artifactId>
 			<configuration>
