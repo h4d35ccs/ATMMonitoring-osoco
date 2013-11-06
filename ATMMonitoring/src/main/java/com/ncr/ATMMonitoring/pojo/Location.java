@@ -22,7 +22,7 @@ public class Location {
     @SequenceGenerator(name = "locations_id_seq", sequenceName = "locations_id_seq", allocationSize = 1)
     private Integer id;
 
-    @Column(name = "address", length = 80)
+    @Column(name = "address", length = 200)
     private String address;
 
     @Column(name = "coord_x")
