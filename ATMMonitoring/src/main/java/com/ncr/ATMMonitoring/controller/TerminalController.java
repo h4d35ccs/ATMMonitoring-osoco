@@ -1,6 +1,10 @@
 package com.ncr.ATMMonitoring.controller;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -13,6 +17,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -765,18 +770,36 @@ public class TerminalController {
     @RequestMapping(value = { "terminals/models/image/{terminalModelId}" })
     public void getTerminalModelImage(
 	    @PathVariable("terminalModelId") Integer terminalModelId,
-	    HttpServletRequest request, HttpServletResponse response) {
-	// get the thumb from the user entity
+	    HttpServletRequest request, HttpServletResponse response,
+	    String width, String height) {
 
 	TerminalModel model = terminalModelService
 		.getTerminalModel(terminalModelId);
 	try {
 	    if ((model != null) && (model.getPhoto() != null)) {
-		byte[] bytearray = model.getPhoto();
-		BufferedOutputStream output = new BufferedOutputStream(
-			response.getOutputStream());
-		output.write(bytearray, 0, bytearray.length);
-		output.close();
+		int realHeight = 0, realWidth = 0;
+		if (width != null) {
+		    try {
+			realWidth = Integer.parseInt(width);
+		    } catch (NumberFormatException e) {
+		    }
+		}
+		if (height != null) {
+		    try {
+			realHeight = Integer.parseInt(height);
+		    } catch (NumberFormatException e) {
+		    }
+		}
+
+		BufferedImage img = model.getPhotoAsImage(realWidth, realHeight);
+		if (img == null) {
+		    response.sendRedirect("../../list");
+		} else {
+		    BufferedOutputStream output = new BufferedOutputStream(
+			    response.getOutputStream());
+		    ImageIO.write(img, "jpg", output);
+		    output.close();
+		}
 	    } else {
 		response.sendRedirect("../../list");
 	    }

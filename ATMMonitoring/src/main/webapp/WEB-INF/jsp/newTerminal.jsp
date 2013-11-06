@@ -403,7 +403,7 @@
 				$('#field_min_weight').text(values.min_weight);
 				$('#field_max_weight').text(values.max_weight);
 				$('.photo a').attr("href", 'terminals/models/image/' + $cb1.val());
-				$('.photo img').attr("src", 'terminals/models/image/' + $cb1.val());
+				$('.photo img').attr("src", 'terminals/models/image/' + $cb1.val() + '?width=200');
 			};
 	    };
     </script>
