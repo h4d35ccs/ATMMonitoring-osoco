@@ -14,6 +14,8 @@
             var periodicity = $(this).val();
             $(".periodicity").hide();
             $("#" + periodicity).show();
+            $('#month-selector').val('');
+            $('.radioweek').attr('checked',false);
         });
 	});
 </script>
@@ -74,13 +76,13 @@
 
 <form:label path="weekDay"><strong><spring:message code="label.choose.days"/>:</strong></form:label>
 <ul class="weekDay">
-  <li><form:radiobutton id="monday" path="weekDay" value="2"/><label for="monday"><spring:message code="label.scheduledUpdate.weekDay.monday"/></label></li>
-  <li><form:radiobutton id="tuesday" path="weekDay" value="3"/><label for="tuesday"><spring:message code="label.scheduledUpdate.weekDay.tuesday"/></label></li>
-  <li><form:radiobutton id="wednesday" path="weekDay" value="4"/><label for="wednesday"><spring:message code="label.scheduledUpdate.weekDay.wednesday"/></label></li>
-  <li><form:radiobutton id="thursday" path="weekDay" value="5"/><label for="thursday"><spring:message code="label.scheduledUpdate.weekDay.thursday"/></label></li>
-  <li><form:radiobutton id="friday" path="weekDay" value="6"/><label for="friday"><spring:message code="label.scheduledUpdate.weekDay.friday"/></label></li>
-  <li><form:radiobutton id="saturday" path="weekDay" value="7"/><label for="saturday"><spring:message code="label.scheduledUpdate.weekDay.saturday"/></label></li>
-  <li><form:radiobutton id="sunday" path="weekDay" value="1"/><label for="sunday"><spring:message code="label.scheduledUpdate.weekDay.sunday"/></label></li>
+  <li><form:radiobutton class="radioweek" id="monday" path="weekDay" value="2"/><label for="monday"><spring:message code="label.scheduledUpdate.weekDay.monday"/></label></li>
+  <li><form:radiobutton class="radioweek" id="tuesday" path="weekDay" value="3"/><label for="tuesday"><spring:message code="label.scheduledUpdate.weekDay.tuesday"/></label></li>
+  <li><form:radiobutton class="radioweek" id="wednesday" path="weekDay" value="4"/><label for="wednesday"><spring:message code="label.scheduledUpdate.weekDay.wednesday"/></label></li>
+  <li><form:radiobutton class="radioweek" id="thursday" path="weekDay" value="5"/><label for="thursday"><spring:message code="label.scheduledUpdate.weekDay.thursday"/></label></li>
+  <li><form:radiobutton class="radioweek" id="friday" path="weekDay" value="6"/><label for="friday"><spring:message code="label.scheduledUpdate.weekDay.friday"/></label></li>
+  <li><form:radiobutton class="radioweek" id="saturday" path="weekDay" value="7"/><label for="saturday"><spring:message code="label.scheduledUpdate.weekDay.saturday"/></label></li>
+  <li><form:radiobutton class="radioweek" id="sunday" path="weekDay" value="1"/><label for="sunday"><spring:message code="label.scheduledUpdate.weekDay.sunday"/></label></li>
 </ul>
 </div>
 
