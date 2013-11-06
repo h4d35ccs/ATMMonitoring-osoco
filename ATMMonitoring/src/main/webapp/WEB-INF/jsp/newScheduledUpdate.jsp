@@ -111,7 +111,7 @@
 </form:select>
  <form:select path="timeZone">
   <c:forEach begin="0" end="24" var="timeZone">
-    <form:option value="${timeZone}">GMT ${timeZone > 12 ? '+' : ''}${timeZone - 12}</form:option>
+    <form:option value="${timeZone - 12}">GMT ${timeZone > 12 ? '+' : ''}${timeZone - 12}</form:option>
   </c:forEach>
  </form:select>
 <div class="botonera">
