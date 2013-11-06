@@ -1,5 +1,13 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +16,10 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.apache.log4j.Logger;
+
+import com.ncr.ATMMonitoring.dao.FinancialDeviceDAOImpl;
+
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
@@ -15,6 +27,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "terminal_models")
 public class TerminalModel {
+
+    static private Logger logger = Logger.getLogger(TerminalModel.class
+	    .getName());
 
     @Id
     @Column(name = "id")
@@ -99,6 +114,35 @@ public class TerminalModel {
 
     public void setPhoto(byte[] photo) {
 	this.photo = photo;
+    }
+
+    public BufferedImage getPhotoAsImage(int width, int height) {
+	ByteArrayInputStream in = new ByteArrayInputStream(photo);
+	BufferedImage img;
+	try {
+	    img = ImageIO.read(in);
+	} catch (IOException e) {
+	    logger.error("Error while retrieving image from Terminal Model with id "
+		    + id);
+	    return null;
+	}
+	// If we have width and height, resize the image
+	if ((height == 0) && (width != 0)) {
+	    height = (width * img.getHeight()) / img.getWidth();
+	} else {
+	    if ((width == 0) && (height != 0)) {
+		width = (height * img.getWidth()) / img.getHeight();
+	    }
+	}
+	if ((width != 0) && (height != 0)) {
+	    Image scaledImage = img.getScaledInstance(width, height,
+		    Image.SCALE_SMOOTH);
+	    img = new BufferedImage(width, height,
+		    BufferedImage.TYPE_INT_RGB);
+	    img.getGraphics().drawImage(scaledImage, 0, 0, new Color(0, 0, 0),
+		    null);
+	}
+	return img;
     }
 
 	public String getNickname() {
