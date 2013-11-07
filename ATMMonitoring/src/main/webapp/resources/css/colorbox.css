@@ -1030,6 +1030,11 @@ td .add span, th .add span {
 }
 
 /* line 1, ../sass/_table.scss */
+.margin-box {
+  overflow: auto;
+}
+
+/* line 4, ../sass/_table.scss */
 .table_buttons {
   overflow: hidden;
   -o-border-radius: 4px;
@@ -1039,44 +1044,44 @@ td .add span, th .add span {
   background: #eeeeee;
   border: 1px solid #eeeeee;
 }
-/* line 6, ../sass/_table.scss */
+/* line 9, ../sass/_table.scss */
 .table_buttons table {
   border-right: none;
   border-left: none;
 }
-/* line 9, ../sass/_table.scss */
+/* line 12, ../sass/_table.scss */
 .table_buttons table td:first-child {
   border-left: none;
 }
-/* line 13, ../sass/_table.scss */
+/* line 16, ../sass/_table.scss */
 .table_buttons .botonera {
   padding: 0;
   margin: 0.5em 1em;
 }
-/* line 16, ../sass/_table.scss */
+/* line 19, ../sass/_table.scss */
 .table_buttons .botonera label {
   padding: 0.5em 1em 0;
 }
 
-/* line 21, ../sass/_table.scss */
+/* line 24, ../sass/_table.scss */
 table {
   width: 100%;
   margin: 0.5em 0;
   border: 1px solid #939598;
 }
-/* line 25, ../sass/_table.scss */
+/* line 28, ../sass/_table.scss */
 table th {
   background: #006ec1;
   color: white;
 }
-/* line 28, ../sass/_table.scss */
+/* line 31, ../sass/_table.scss */
 table th.order {
   background-image: url("../images/icons/colunm_order.png");
   background-repeat: no-repeat;
   background-position: right top;
   padding-right: 2em;
 }
-/* line 33, ../sass/_table.scss */
+/* line 36, ../sass/_table.scss */
 table th.order.bottom {
   background-image: url("../images/icons/colunm_order.png");
   background-repeat: no-repeat;
@@ -1084,11 +1089,11 @@ table th.order.bottom {
   background-color: #009ee5;
   color: white;
 }
-/* line 39, ../sass/_table.scss */
+/* line 42, ../sass/_table.scss */
 table th.order.bottom a {
   color: white;
 }
-/* line 43, ../sass/_table.scss */
+/* line 46, ../sass/_table.scss */
 table th.order.top {
   background-image: url("../images/icons/colunm_order.png");
   background-repeat: no-repeat;
@@ -1096,26 +1101,26 @@ table th.order.top {
   background-color: #009ee5;
   color: white;
 }
-/* line 49, ../sass/_table.scss */
+/* line 52, ../sass/_table.scss */
 table th.order.top a {
   color: white;
 }
-/* line 54, ../sass/_table.scss */
+/* line 57, ../sass/_table.scss */
 table th a {
   color: white;
 }
-/* line 58, ../sass/_table.scss */
+/* line 61, ../sass/_table.scss */
 table th:last-child, table td:last-child {
   border-right: none;
 }
-/* line 61, ../sass/_table.scss */
+/* line 64, ../sass/_table.scss */
 table th, table td {
   padding: 0.5em 0.8em;
   border: 1px solid #bcbec0;
   border-collapse: collapse;
   vertical-align: top;
 }
-/* line 66, ../sass/_table.scss */
+/* line 69, ../sass/_table.scss */
 table th.note_detail, table td.note_detail {
   border-bottom: 2px solid #b5e5f9;
   border-left: 2px solid #b5e5f9;
@@ -1124,11 +1129,11 @@ table th.note_detail, table td.note_detail {
   float: none;
   padding: 1em;
 }
-/* line 67, ../sass/_table.scss */
+/* line 70, ../sass/_table.scss */
 table th.note_detail:hover, table td.note_detail:hover {
   color: #4d4d4f;
 }
-/* line 76, ../sass/_table.scss */
+/* line 79, ../sass/_table.scss */
 table th.note_detail div, table td.note_detail div {
   position: relative;
   background: white;
@@ -1141,7 +1146,7 @@ table th.note_detail div, table td.note_detail div {
   -moz-box-shadow: 0px 0px 8px #6d6e71;
   box-shadow: 0px 0px 8px #6d6e71;
 }
-/* line 81, ../sass/_table.scss */
+/* line 84, ../sass/_table.scss */
 table th.note_detail div:after, table td.note_detail div:after {
   content: "";
   position: absolute;
@@ -1153,125 +1158,125 @@ table th.note_detail div:after, table td.note_detail div:after {
   display: block;
   width: 0;
 }
-/* line 93, ../sass/_table.scss */
+/* line 96, ../sass/_table.scss */
 table th.note_detail div li, table td.note_detail div li {
   border-bottom: 2px dotted #939598;
   margin-bottom: 1em;
 }
-/* line 97, ../sass/_table.scss */
+/* line 100, ../sass/_table.scss */
 table th.note_detail div li:last-child, table td.note_detail div li:last-child {
   border: none;
   margin-bottom: 0;
 }
-/* line 104, ../sass/_table.scss */
+/* line 107, ../sass/_table.scss */
 table tr {
   background: white;
 }
-/* line 106, ../sass/_table.scss */
+/* line 109, ../sass/_table.scss */
 table tr:nth-child(2n+1) {
   background: #eeeeee;
 }
-/* line 109, ../sass/_table.scss */
+/* line 112, ../sass/_table.scss */
 table tr.active {
   background: #b5e5f9;
   border-top: 2px solid #b5e5f9;
   border-left: 2px solid #b5e5f9;
   border-right: 2px solid #b5e5f9;
 }
-/* line 116, ../sass/_table.scss */
+/* line 119, ../sass/_table.scss */
 table.query-form {
   border: 1px solid white;
   margin-bottom: 2em;
 }
-/* line 119, ../sass/_table.scss */
+/* line 122, ../sass/_table.scss */
 table.query-form tr {
   border: 1px solid white;
   border-bottom: 2px dotted #eeeeee;
   background: white;
 }
-/* line 123, ../sass/_table.scss */
+/* line 126, ../sass/_table.scss */
 table.query-form tr:hover {
   cursor: inherit;
   border: 1px solid white;
   border-bottom: 2px dotted #eeeeee;
 }
-/* line 128, ../sass/_table.scss */
+/* line 131, ../sass/_table.scss */
 table.query-form tr:nth-child(2n+1) {
   background: white;
 }
-/* line 132, ../sass/_table.scss */
+/* line 135, ../sass/_table.scss */
 table.query-form td:first-child {
   width: 30%;
 }
-/* line 135, ../sass/_table.scss */
+/* line 138, ../sass/_table.scss */
 table.query-form td:nth-child(2) {
   width: 3em;
 }
-/* line 138, ../sass/_table.scss */
+/* line 141, ../sass/_table.scss */
 table.query-form th {
   border: 1px solid white;
   border-bottom: 2px solid #eeeeee;
   color: #094fa4;
   background: #b5e5f9;
 }
-/* line 143, ../sass/_table.scss */
+/* line 146, ../sass/_table.scss */
 table.query-form th:hover {
   cursor: inherit;
   border: 1px solid white;
   border-bottom: 2px solid #eeeeee;
 }
-/* line 149, ../sass/_table.scss */
+/* line 152, ../sass/_table.scss */
 table.query-form td {
   background: white;
   border: 1px solid white;
 }
-/* line 152, ../sass/_table.scss */
+/* line 155, ../sass/_table.scss */
 table.query-form td:hover {
   background: white;
   border: 1px solid white;
 }
-/* line 156, ../sass/_table.scss */
+/* line 159, ../sass/_table.scss */
 table.query-form td.btn_add {
   border: 1px solid white;
 }
-/* line 158, ../sass/_table.scss */
+/* line 161, ../sass/_table.scss */
 table.query-form td.btn_add div {
   position: relative;
   overflow: hidden;
 }
-/* line 163, ../sass/_table.scss */
+/* line 166, ../sass/_table.scss */
 table.query-form td.btn_add .btn, table.query-form td.btn_add .save,
 table.query-form td.btn_add #main .action_box .save,
 #main .action_box table.query-form td.btn_add .save {
   float: right;
 }
-/* line 169, ../sass/_table.scss */
+/* line 172, ../sass/_table.scss */
 table.link tr {
   cursor: pointer;
 }
-/* line 171, ../sass/_table.scss */
+/* line 174, ../sass/_table.scss */
 table.link tr:hover {
   background: #f1f8fc;
   color: #094fa4;
 }
-/* line 176, ../sass/_table.scss */
+/* line 179, ../sass/_table.scss */
 table.link label {
   cursor: pointer;
 }
-/* line 180, ../sass/_table.scss */
+/* line 183, ../sass/_table.scss */
 table.link tr.showdetail.open, table.link tr.showdetail.open:hover {
   background: #8bd1f3;
 }
-/* line 184, ../sass/_table.scss */
+/* line 187, ../sass/_table.scss */
 table.link tr.detail, table.link tr.detail:hover {
   background: #8bd1f3;
   color: #4d4d4f;
 }
-/* line 187, ../sass/_table.scss */
+/* line 190, ../sass/_table.scss */
 table.link tr.detail div, table.link tr.detail:hover div {
   position: relative;
 }
-/* line 190, ../sass/_table.scss */
+/* line 193, ../sass/_table.scss */
 table.link tr.detail ul, table.link tr.detail:hover ul {
   padding: 1%;
   background: white;
@@ -1281,7 +1286,7 @@ table.link tr.detail ul, table.link tr.detail:hover ul {
   overflow: hidden;
   cursor: inherit;
 }
-/* line 196, ../sass/_table.scss */
+/* line 199, ../sass/_table.scss */
 table.link tr.detail ul li, table.link tr.detail:hover ul li {
   float: left;
   width: 32%;
@@ -1289,7 +1294,7 @@ table.link tr.detail ul li, table.link tr.detail:hover ul li {
   padding: 0.5em 0;
   border-bottom: 1px solid #6d6e71;
 }
-/* line 202, ../sass/_table.scss */
+/* line 205, ../sass/_table.scss */
 table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   width: 30%;
   display: block;
@@ -1297,7 +1302,7 @@ table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
   text-align: right;
   margin-right: 1em;
 }
-/* line 210, ../sass/_table.scss */
+/* line 213, ../sass/_table.scss */
 table.link tr.detail ul:before, table.link tr.detail:hover ul:before {
   content: "";
   font-size: 20em;
