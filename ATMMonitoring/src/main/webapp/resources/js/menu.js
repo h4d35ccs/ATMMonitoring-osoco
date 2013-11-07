@@ -1,15 +1,35 @@
 
 $(function() {
+
+    $.fn.extend({
+        unfold: function() {
+            this.each(function() {
+		        $(this).find(".txt").removeClass('content_hide');
+		        $(this).find('.collapsible').show('slow');
+            });
+        },
+        fold: function() {
+            this.each(function() {
+			    $(this).find(".collapsible").hide('slow');
+			    $(this).find(".txt").addClass('content_hide');
+            });
+        }
+    });
+
 	$('ul.collapsible').hide(); // Cierro todos los menun de las cajas
-	$(document).on("click", ".desplegable .txt", function() {
+
+	$(document).on("click", ".desplegable .txt", function(event) {
+        event.stopPropagation();
 		if($(this).hasClass('content_hide')){ // si pulso en uno que está cerrado...
-			$(this).removeClass('content_hide');
-			$(this).next('.collapsible').show('slow');
+            $(this).parent().unfold();
 		}else{
-			$(this).next('.collapsible').hide('slow');
-			$(this).addClass('content_hide');
+            $(this).parent().fold();
 		}
 	});
+
+    $(document).on("click", "body", function() {
+        $(".desplegable.autofold").fold();
+    });
 
 // Mostrar detalle de un TR
 	$('table .detail').hide();
