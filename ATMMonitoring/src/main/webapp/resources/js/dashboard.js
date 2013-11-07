@@ -278,10 +278,10 @@ var transforms = {
                                     children: [ { tag: 'span', html: 'cerrar' } ] },
                                   { tag: 'nav', class: 'icons_menu desplegable',
                                     children: [ { tag: 'div', class: 'icon16 config content_hide txt',
-                                                  children: [ { tag: 'span', html: 'Opciones' } ] },
+                                                  children: [ { tag: 'span', html: strings['label.widget.options'] } ] },
                                                 { tag: 'ul', class: 'collapsible',
-                                                  children: [ { tag: 'li', children: [ { tag: 'a', href: '#', html: 'Editar'} ] },
-                                                              { tag: 'li', children: [ { tag: 'a', href: '#', html: 'Compartir'} ] },
+                                                  children: [ { tag: 'li', children: [ { tag: 'a', href: '#', html: strings['label.widget.edit']} ] },
+                                                              { tag: 'li', children: [ { tag: 'a', href: '#', html: strings['label.widget.cancel']} ] },
                                                             ]
                                                 }
                                               ]

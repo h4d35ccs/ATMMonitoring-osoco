@@ -12,13 +12,19 @@
     <script type='text/javascript' src='https://www.google.com/jsapi'></script>
     <script type="text/javascript" src="resources/js/json2html.js"></script>
     <script type="text/javascript" src="resources/js/jquery.json2html.js"></script>
+    <script type="text/javascript">
+      var strings = new Array();
+      strings['label.widget.options'] = "<spring:message code='label.widget.options' javaScriptEscape='true' />";
+      strings['label.widget.edit'] = "<spring:message code='label.widget.edit' javaScriptEscape='true' />";
+      strings['label.widget.cancel'] = "<spring:message code='label.widget.cancel' javaScriptEscape='true' />";
+    </script>
     <script type='text/javascript' src='resources/js/dashboard.js'></script>
   </jsp:attribute>
 
   <jsp:body>
           <div id="header_g">
             <div id="components">
-              <div id="my_components" class="desplegable">
+              <div id="my_components" class="desplegable autofold">
                 <div class="txt content_hide">
                   <span><spring:message code="label.widgets.mine"/></span>
                 </div>
