@@ -144,6 +144,50 @@
 												</li>
 												<li>
 													<strong>
+														<form:label path="terminalVendor">
+
+															<spring:message code="label.terminal.terminalVendor"/>
+
+														</form:label>
+													</strong>
+													<form:input class='form-tf-grey' path="terminalVendor" maxlength="50"/>
+													<form:errors path="terminalVendor"  element="div" cssClass="error top"/>
+												</li>
+												<li>
+													<strong>
+														<form:label path="model">
+
+															<spring:message code="label.terminal.model"/>
+
+														</form:label>
+													</strong>
+													<form:input class='form-tf-grey' path="model" maxlength="20"/>
+												        <form:errors path="model"  element="div" cssClass="error top"/>
+												</li>
+												<li>
+													<strong>
+														<form:label path="productClass">
+
+															<spring:message code="label.terminal.productClass"/>
+
+														</form:label>
+													</strong>
+													<form:input class='form-tf-grey' path="productClass" maxlength="20"/>
+													<form:errors path="productClass"  element="div" cssClass="error top"/>
+												</li>
+												<li>
+													<strong>
+														<form:label path="productClassDescription">
+
+															<spring:message code="label.terminal.productClassDescription"/>
+
+														</form:label>
+													</strong>
+													<form:input class='form-tf-grey' path="productClassDescription" maxlength="120"/>
+
+												</li>
+												<li>
+													<strong>
 														<form:label path="serialNumber">
 
 															<spring:message code="label.terminal.serialNumber"/>
@@ -165,18 +209,7 @@
 														</form:label>
 													</strong>
 													<form:input class='form-tf-grey' path="terminalType" maxlength="50"/>
-													<form:errors path="terminalType"  element="div" cssClass="error top"/>
-												</li>
-												<li>
-													<strong>
-														<form:label path="terminalVendor">
-
-															<spring:message code="label.terminal.terminalVendor"/>
-
-														</form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="terminalVendor" maxlength="50"/>
-													<form:errors path="terminalVendor"  element="div" cssClass="error top"/>
+													<form:errors path="terminalType"  elnement="div" cssClass="error top"/>
 												</li>
 												<li>
 													<strong>
@@ -223,39 +256,6 @@
 												</li>
 												<li>
 													<strong>
-														<form:label path="model">
-
-															<spring:message code="label.terminal.model"/>
-
-														</form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="model" maxlength="20"/>
-												        <form:errors path="model"  element="div" cssClass="error top"/>
-												</li>
-												<li>
-													<strong>
-														<form:label path="productClass">
-
-															<spring:message code="label.terminal.productClass"/>
-
-														</form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="productClass" maxlength="20"/>
-													<form:errors path="productClass"  element="div" cssClass="error top"/>
-												</li>
-												<li>
-													<strong>
-														<form:label path="productClassDescription">
-
-															<spring:message code="label.terminal.productClassDescription"/>
-
-														</form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="productClassDescription" maxlength="120"/>
-
-												</li>
-												<li>
-													<strong>
 														<form:label path="tracerNumber">
 
 															<spring:message code="label.terminal.tracerNumber"/>
@@ -296,6 +296,30 @@
 											</li>
 											<li>
 												<strong>
+													<spring:message code="label.terminal.terminalVendor"/>
+												</strong>
+												${terminal.terminalVendor}
+											</li>
+											<li>
+												<strong>
+													<spring:message code="label.terminal.model"/>
+												</strong>
+												${terminal.model}
+											</li>
+											<li>
+												<strong>
+													<spring:message code="label.terminal.productClass"/>
+												</strong>
+												${terminal.productClass}
+											</li>
+											<li>
+												<strong>
+													<spring:message code="label.terminal.productClassDescription"/>
+												</strong>
+												${terminal.productClassDescription}
+											</li>
+											<li>
+												<strong>
 													<spring:message code="label.terminal.serialNumber"/>
 												</strong>
 												${terminal.serialNumber}
@@ -305,12 +329,6 @@
 													<spring:message code="label.terminal.terminalType"/>
 												</strong>
 												${terminal.terminalType}
-											</li>
-											<li>
-												<strong>
-													<spring:message code="label.terminal.terminalVendor"/>
-												</strong>
-												${terminal.terminalVendor}
 											</li>
 											<li>
 												<strong>
@@ -335,24 +353,6 @@
 													<spring:message code="label.terminal.manufacturingSite"/>
 												</strong>
 												${terminal.manufacturingSite}
-											</li>
-											<li>
-												<strong>
-													<spring:message code="label.terminal.model"/>
-												</strong>
-												${terminal.model}
-											</li>
-											<li>
-												<strong>
-													<spring:message code="label.terminal.productClass"/>
-												</strong>
-												${terminal.productClass}
-											</li>
-											<li>
-												<strong>
-													<spring:message code="label.terminal.productClassDescription"/>
-												</strong>
-												${terminal.productClassDescription}
 											</li>
 											<li>
 												<strong>
@@ -984,70 +984,8 @@
 
 							<t:listSoftware config="${terminal.currentConfig}"/>
 
-							<h3 class="txt last content_hide">
-								<spring:message code="label.terminalConfigsHistory"/>
-							</h3>
-							<div class="margin-box collapsible hide">
-								<c:choose>
-									<c:when  test="${terminal.configs.size() > 10}">
-										<div id="tableContainer" class="tableContainer tableContainerTc">
-											<table class="data link">
-												<thead class="fixedHeader"></c:when>
-									<c:otherwise>
-										<table class="data link"></c:otherwise>
-								</c:choose>
-									<tr>
-										<c:choose>
-											<c:when  test="${terminal.configs.size() >
-												10}">
-												<th width="151px"></c:when>
-												<c:otherwise>
-										<th></c:otherwise>
-												</c:choose>
-
-												<spring:message code="label.terminalConfig.startDate"/>
-
-										</th>
-														<%--Code with support for Terminal Config AUTHORS --%>
-														<%-- <th>
-
-														<spring:message code="label.terminalconfig.author"/>
-
-													</th>
-													--%>
-									</tr>
-									<c:if  test="${terminal.configs.size() >10}"></thead>
-									<tbody class="scrollContent scrollContentTc"></c:if>
-									<c:set var="alt" value="${false}"/>
-									<c:forEach items="${terminal.configs}" var="config">
-									<tr <c:if test="${alt}">class="alt"</c:if> >
-													<td>
-														<a class="iframe" href="terminals/swConfigs/details/${config.id}">
-															<fmt:formatDate value="${config.startDate}" dateStyle="short" type="both" />
-														</a>
-													</td>
-													<%--Code with support for Terminal Config AUTHORS --%>
-													<%-- <c:choose>
-													<c:when test="${config.author != null}">
-														<td>${config.author.lastname}, ${config.author.firstname}</td>
-													</c:when>
-													<c:otherwise>
-														<td>----</td>
-													</c:otherwise>
-												</c:choose>
-												--%>
-									</tr>
-											<c:set var="alt" value="${!alt}"/>
-										</c:forEach>
-										<c:choose>
-											<c:when  test="${terminal.configs.size() >10}"></tbody>
-								</table>
-											</c:when>
-											<c:otherwise></table>
-										</c:otherwise>
-										</c:choose>
 						</c:if>
-				</div>
+
 </div>
 			</div>
 			<div class="content_tab">
