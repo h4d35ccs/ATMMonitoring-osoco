@@ -145,7 +145,8 @@ public class Software {
 	this.caption = sw.getCaption();
 	this.description = sw.getDescription();
 	this.identifyingNumber = sw.getIdentifyingNumber();
-	if (sw.getInstallDate().length() > 0) {
+	if ((sw.getInstallDate() != null)
+		&& (sw.getInstallDate().length() >= 8)) {
 	    try {
 		this.installDate = new SimpleDateFormat("yyyyMMdd").parse(sw
 			.getInstallDate().substring(0, 8));

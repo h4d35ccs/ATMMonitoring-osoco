@@ -132,7 +132,7 @@ public class FinancialDevice {
     @Column(name = "firmware_revision_version")
     private Integer firmwareRevisionVersion;
 
-    @Column(name = "firmware_remaining_version", length = 100)
+    @Column(name = "firmware_remaining_version", length = 300)
     private String firmwareRemainingVersion;
 
     @Column(name = "major_version")
