@@ -1,11 +1,14 @@
+<%@taglib uri="http://www.ncr.com/tags" prefix="ncr"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
-
 
 <t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}" section="terminals">
 				<div id="header_g">
@@ -39,25 +42,25 @@
 						<form:form method="post" action="terminals/list" commandName="terminal">
 						  <div class="row td">
 							<label for="proveedor"><spring:message code="label.manufacturer"/>:</label>
-							<select id="ManufacturerCombo" onchange="ChangeManufacturer()"> 
+							<select id="ManufacturerCombo" onchange="ChangeManufacturer()">
 								<option value=""><spring:message code="label.select.default"/></option>
 								<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
 								  <c:if test="${key != 'allManufacturers'}">
 									<option value="${key}">${key}</option>
 								  </c:if>
 								</c:forEach>
-							</select> 
-							<label for="modelo"><spring:message code="label.terminal.model"/>:</label> 
+							</select>
+							<label for="modelo"><spring:message code="label.terminal.model"/>:</label>
 							<form:select id="ModelsCombo" path="terminalModel" onchange="ChangeModel()">
 							  <option value="" ></option>
                             </form:select>
-							
+
 						  </div>
 						  <div class="collapsible last">
 						  	<div class="model">
 							<div class="photo">
-								<a href="resources/images/ejemplo/terminal.jpg" class="colorbox">
-									<img src="resources/images/ejemplo/terminal.jpg"/>
+								<a href="<ncr:terminalModelPhotoUrl/>" class="colorbox">
+									<img src="<ncr:terminalModelPhotoUrl/>"/>
 									<div class="zoom"></div>
 								</a>
 							</div>
@@ -83,16 +86,16 @@
 									</dl>
 								</div>
 							</div>
-							
+
 							<div class="ul_data editable">
 							  <ul>
 							    <li> <strong><form:label path="mac">
 								  <spring:message code="label.terminal.mac"/>
 								  *
-							      </form:label></strong> 
-							      
+							      </form:label></strong>
+
 							      <form:input class='form-tf-grey' path="mac" maxlength="17"/>
-							      
+
 							      <div class="error-td">
 								<form:errors path="mac"/>
 								<c:if test="${duplicatedMac == true}">
@@ -103,7 +106,7 @@
 							    <li> <strong><form:label path="ip">
 								  <spring:message code="label.terminal.ip"/>
 								  *
-							      </form:label></strong> 
+							      </form:label></strong>
 							      <form:input class='form-tf-grey' path="ip" maxlength="23"/>
 							      <div class="error-td">
 								<form:errors path="ip"/>
@@ -115,13 +118,13 @@
 							    <li>
 							      <strong>
 								<form:label path="serialNumber">
-								  
+
 								  <spring:message code="label.terminal.serialNumber"/>
-								  
+
 								</form:label>
 							      </strong>
 							      <form:input class='form-tf-grey' path="serialNumber" maxlength="50"/>
-							      
+
 							      <div class="error-td">
 								<form:errors path="serialNumber"/>
 								<c:if test="${duplicatedSerialNumber == true}">
@@ -132,13 +135,13 @@
 							    <li>
 							      <strong>
 								<form:label path="terminalType">
-								  
+
 								  <spring:message code="label.terminal.terminalType"/>
-								  
+
 								</form:label>
 							      </strong>
 							      <form:input class='form-tf-grey' path="terminalType" maxlength="50"/>
-							      
+
 							      <div class="error-td">
 								<form:errors path="terminalType"/>
 							      </div>
@@ -146,13 +149,13 @@
 							    <li>
 							      <strong>
 								<form:label path="terminalVendor">
-								  
+
 								  <spring:message code="label.terminal.terminalVendor"/>
-								  
+
 								</form:label>
 							      </strong>
 							      <form:input class='form-tf-grey' path="terminalVendor" maxlength="50"/>
-							      
+
 							      <div class="error-td">
 								<form:errors path="terminalVendor"/>
 							      </div>
@@ -160,20 +163,20 @@
 							    <li>
 							      <strong>
 								<form:label path="frontReplenish">
-								  
+
 								  <spring:message code="label.terminal.frontReplenish"/>
-								  
+
 								</form:label>
 							      </strong>
 							      <form:checkbox path="frontReplenish"/>
-							      
+
 							    </li>
 							    <li>
 							      <strong>
 								<form:label path="bank">
-								  
+
 								  <spring:message code="label.terminal.bank"/>
-								  
+
 								</form:label>
 							      </strong>
 							      <form:select class='form-tf-grey' path="bankCompany">
@@ -189,9 +192,9 @@
 							    <li>
 							      <strong>
 								<form:label path="branch">
-								  
+
 													    <spring:message code="label.terminal.branch"/>
-													    
+
 													  </form:label>
 													</strong>
 													<form:input class='form-tf-grey' path="branch" maxlength="50"/>
@@ -288,7 +291,7 @@
 															</div>
 															<div class="error-td"></div>
 														</li>
-														<li> 
+														<li>
 															<strong><label for="ip"><spring:message code="label.location.ip"/></label></strong>
 															<input id="ip" name="ip" type="text">
 															<div class="error-td">
@@ -321,7 +324,7 @@
 													</ul>
 												</div>
 											</div>
-											
+
 										</div>
 										<div class="botonera">
 											<input type="submit" class="btn save" value="<spring:message code="label.terminal.save"/>"/>
@@ -333,7 +336,7 @@
 					</div>
 					<!-- // /action_box -->
 				</div>
-				
+
 	</div>
 	<script type="text/javascript">
 	    var valuesTree = {
@@ -350,8 +353,9 @@
 							'depth' : '${model.depth}',
 							'min_weight' : '${model.minWeight}',
 							'max_weight' : '${model.maxWeight}'
-						}${not status2.last ? ',' : ''}
+						},
 					</c:forEach>
+                        'photoUrl': '<ncr:terminalModelPhotoUrl manufacturer="${key}"/>'
 	       	 			}${not status1.last ? ',' : ''}
 	       		</c:forEach>
 	    };
@@ -371,8 +375,10 @@
 				    return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
 				  });
 				$.each(keys, function(index, key) {
-					  $cb1.append($('<option/>')
-					     .attr("value", key).text(values[key]['model']));
+                      if (key != 'photoUrl') {
+				          $cb1.append($('<option/>')
+					         .attr("value", key).text(values[key]['model']));
+                      }
 				});
 				$cb1.prop('disabled', false);
 			} else {
@@ -386,9 +392,16 @@
 			$('#field_depth').text('');
 			$('#field_min_weight').text('');
 			$('#field_max_weight').text('');
-			$('.photo a').attr("href", '');
-			$('.photo img').attr("src", '');
+            var photoUrl;
+            if ($cb2.val()) {
+              photoUrl = valuesTree[$cb2.val()]['photoUrl'];
+            } else {
+              photoUrl = '<ncr:terminalModelPhotoUrl />'
+            }
+			$('.photo a').attr("href", photoUrl);
+			$('.photo img').attr("src", photoUrl);
 	    };
+
 	    function ChangeModel(){
 			var $cb1 = $('#ModelsCombo');
 			var $cb2 = $('#ManufacturerCombo');
@@ -404,7 +417,12 @@
 				$('#field_max_weight').text(values.max_weight);
 				$('.photo a').attr("href", 'terminals/models/image/' + $cb1.val());
 				$('.photo img').attr("src", 'terminals/models/image/' + $cb1.val() + '?width=200');
-			};
+			}
+            if (!$cb1.val()) {
+                  var photoUrl = valuesTree[$cb2.val()]['photoUrl'];
+			      $('.photo a').attr("href", photoUrl);
+			      $('.photo img').attr("src", photoUrl);
+            }
 	    };
     </script>
 

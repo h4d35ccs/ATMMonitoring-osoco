@@ -4,7 +4,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <display-name>ATM Monitoring</display-name>
-  
+
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
@@ -23,7 +23,7 @@
             /WEB-INF/security-context.xml
         </param-value>
     </context-param>
-  
+
 	  <servlet-mapping>
 	    <servlet-name>spring</servlet-name>
 	    <url-pattern>/</url-pattern>
@@ -58,20 +58,27 @@
 		<filter-name>OpenHibernateSessionInViewFilter</filter-name>
 		<url-pattern>*</url-pattern>
 	</filter-mapping>
-	
+
 	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/jsp/404.jsp</location>
   	</error-page>
-	
+
 	<error-page>
 		<error-code>403</error-code>
 		<location>/WEB-INF/jsp/403.jsp</location>
   	</error-page>
-  	
+
   	<error-page>
 		<exception-type>java.lang.Exception</exception-type>
 		<location>/WEB-INF/jsp/error.jsp</location>
 	</error-page>
+
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://www.ncr.com/tags</taglib-uri>
+            <taglib-location>/WEB-INF/tags/ncr.tld</taglib-location>
+        </taglib>
+    </jsp-config>
 
 </web-app>

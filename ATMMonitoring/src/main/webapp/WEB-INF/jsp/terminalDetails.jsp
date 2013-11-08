@@ -1,8 +1,11 @@
+<%@taglib uri="http://www.ncr.com/tags" prefix="ncr"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
@@ -84,8 +87,8 @@
 						<div class="collapsible last">
 							<div class="model">
 								<div class="photo">
-									<a href="resources/images/ejemplo/terminal.jpg" class="colorbox">
-										<img src="resources/images/ejemplo/terminal.jpg"/>
+									<a href='<ncr:terminalModelPhotoUrl atm="${terminal}" />' class="colorbox">
+										<img src='<ncr:terminalModelPhotoUrl atm="${terminal}" width="300" />' width="300"/>
 										<div class="zoom"></div>
 									</a>
 								</div>
