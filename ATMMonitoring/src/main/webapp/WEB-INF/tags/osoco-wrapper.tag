@@ -53,7 +53,7 @@
             </h1>
             <div id="user_info">
                ${userMsg}
-                <div id="lang" class="desplegable">
+                <div id="lang" class="desplegable autofold">
                     <div class="txt content_hide">
                         <span><spring:message code="language.${pageContext.response.locale}"/></span>
                     </div>
