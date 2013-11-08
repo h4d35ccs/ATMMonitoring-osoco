@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,7 +35,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "dashboard")
-public class Dashboard {
+public class Dashboard implements Serializable {
+
+    private static final long serialVersionUID = -958900960975875923L;
 
     @Id
     @Column(name = "id")
