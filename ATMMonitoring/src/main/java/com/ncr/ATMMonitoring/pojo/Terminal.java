@@ -186,9 +186,9 @@ public class Terminal {
     }
 
     public static String getCsvHeader() {
-	return "Serial Number;IP;MAC;Terminal Type;Terminal Vendor;Front Replenish;"
-		+ "Bank;Branch;Geographic Address;Address;City;Zip Code;"
-		+ "Area;Country;Manufacturing Site;Model;Product Class;"
+	return "Serial Number;IP;MAC;Terminal Type;Vendor;Model;"
+		+ "Front Replenish;Bank;Branch;Geographic Address;"
+		+ "Address;Manufacturing Site;Product Class;"
 		+ "Product Class Description;Tracer Number";
     }
 
@@ -853,7 +853,11 @@ public class Terminal {
 		+ ";"
 		+ (terminalType != null ? terminalType.toString() : "")
 		+ ";"
-		+ (terminalVendor != null ? terminalVendor.toString() : "")
+		+ (((terminalModel != null) && (terminalModel.getManufacturer() != null)) ? terminalModel
+			.getManufacturer() : "")
+		+ ";"
+		+ (((terminalModel != null) && (terminalModel.getModel() != null)) ? terminalModel
+			.getModel() : "")
 		+ ";"
 		+ (frontReplenish != null ? frontReplenish.toString() : "")
 		+ ";"
@@ -864,20 +868,13 @@ public class Terminal {
 		+ (geographicAddress != null ? geographicAddress.toString()
 			: "")
 		+ ";"
-		+ (address != null ? address.toString() : "")
-		+ ";"
-		+ (city != null ? city.toString() : "")
-		+ ";"
-		+ (zipCode != null ? zipCode.toString() : "")
-		+ ";"
-		+ (area != null ? area.toString() : "")
-		+ ";"
-		+ (country != null ? country.toString() : "")
+		+ (((installation != null)
+			&& (installation.getLocation() != null) && (installation
+			.getLocation().getAddress() != null)) ? installation
+			.getLocation().getAddress() : "")
 		+ ";"
 		+ (manufacturingSite != null ? manufacturingSite.toString()
 			: "")
-		+ ";"
-		+ (model != null ? model.toString() : "")
 		+ ";"
 		+ (productClass != null ? productClass.toString() : "")
 		+ ";"
