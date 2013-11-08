@@ -196,8 +196,8 @@ public class Terminal {
     }
 
     public Terminal(ATMDataStorePojo terminal) throws ATMWrongDataException {
-	this.ip = terminal.getCurrentip();
-	this.mac = terminal.getCurrentmac();
+	// this.ip = terminal.getCurrentip();
+	// this.mac = terminal.getCurrentmac();
 	FinancialTerminalPojo financialTerminal = terminal
 		.getFinancialTerminal();
 	if (financialTerminal == null) {
