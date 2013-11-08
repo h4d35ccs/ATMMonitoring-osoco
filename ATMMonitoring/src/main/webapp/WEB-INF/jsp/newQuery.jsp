@@ -81,7 +81,7 @@
 							</c:forEach>
 						</table>
 					</div><!-- /collapsible -->
-				<h2 class="txt" id="hwSection">
+				<h2 class="txt content_hide" id="hwSection">
 					<spring:message code="label.query.hardwareSection"/>
 					<span></span>
 				</h2>
@@ -203,7 +203,7 @@
 							</c:forEach>
 						</table>
 					</div><!-- /collapsible -->
-				<h2 class="txt" id="swSection">
+				<h2 class="txt content_hide" id="swSection">
 					<spring:message code="label.query.softwareGlobalSection"/>
 				</h2>
 					<div class="collapsible">
@@ -593,20 +593,20 @@
 	       	 '${key}': {
 					<c:forEach items="${value.keySet()}" var="subkey" varStatus="status2">
 		        		<c:set var="subvalue" value="${value.get(subkey)}"/>
-						'${subkey}': 
+						'${subkey}':
 							{
 								label: <c:if test="${(key != 'allOperations') && (subkey != 'allHwDevices')}">'<spring:message code="label.${key}.${subkey}"/>'</c:if><c:if test="${(key == 'allOperations') || (subkey == 'allHwDevices')}">''</c:if>,
 								values: {
 									<c:forEach items="${subvalue.keySet()}" var="subsubkey" varStatus="status3">
 					        		<c:set var="subsubvalue" value="${subvalue.get(subsubkey)}"/>
-									'${subsubkey}': 
+									'${subsubkey}':
 										{
 											<c:if test="${subsubvalue.getClass().getSimpleName() == 'TreeMap'}">
 											label: <c:if test="${key != 'allOperations'}">'<spring:message code="label.${key}.${subsubkey}"/>'</c:if><c:if test="${key == 'allOperations'}">''</c:if>,
 											values: {
 												<c:forEach items="${subsubvalue.keySet()}" var="subsubsubkey" varStatus="status4">
 								        		<c:set var="subsubsubvalue" value="${subsubvalue.get(subsubsubkey)}"/>
-												'${subsubsubkey}': 
+												'${subsubsubkey}':
 												{
 													label: '<spring:message code="label.query.operation.${subsubsubkey}"/>',
 													values: ${subsubsubvalue}
