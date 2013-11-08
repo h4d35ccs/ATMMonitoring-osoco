@@ -664,7 +664,7 @@ public class HardwareDevice {
     @Column(name = "revision_version")
     private Integer revisionVersion;
 
-    @Column(name = "remaining_version", length = 20)
+    @Column(name = "remaining_version", length = 100)
     private String remainingVersion;
 
     @Column(name = "usb_major_version")
@@ -2268,18 +2268,48 @@ public class HardwareDevice {
 	case 5:
 	    setRemainingVersion(versions[4]);
 	case 4:
-	    setRevisionVersion(new Integer(versions[3]));
+	    try {
+		setRevisionVersion(new Integer(versions[3]));
+	    } catch (NumberFormatException e) {
+		if (getRemainingVersion() != null) {
+		    setRemainingVersion(versions[3] + "."
+			    + getRemainingVersion());
+		} else {
+		    setRemainingVersion(versions[1]);
+		}
+	    }
 	case 3:
-	    setBuildVersion(new Integer(versions[2]));
+	    try {
+		setBuildVersion(new Integer(versions[2]));
+	    } catch (NumberFormatException e) {
+		if (getRemainingVersion() != null) {
+		    setRemainingVersion(versions[2] + "."
+			    + getRemainingVersion());
+		} else {
+		    setRemainingVersion(versions[1]);
+		}
+	    }
 	case 2:
-	    setMinorVersion(new Integer(versions[1]));
-	    setMajorVersion(new Integer(versions[0]));
-	    break;
+	    try {
+		setMinorVersion(new Integer(versions[1]));
+	    } catch (NumberFormatException e) {
+		if (getRemainingVersion() != null) {
+		    setRemainingVersion(versions[1] + "."
+			    + getRemainingVersion());
+		} else {
+		    setRemainingVersion(versions[1]);
+		}
+	    }
 	case 1:
 	    try {
 		setMajorVersion(new Integer(versions[0]));
 	    } catch (NumberFormatException e) {
-		setRemainingVersion(versions[0]);
+		if (getRemainingVersion() != null) {
+		    setRemainingVersion(versions[0] + "."
+			    + getRemainingVersion());
+		} else {
+		    setRemainingVersion(versions[0]);
+		}
 	    }
 	case 0:
 	    break;

@@ -186,9 +186,9 @@ public class Terminal {
     }
 
     public static String getCsvHeader() {
-	return "Serial Number;IP;MAC;Terminal Type;Terminal Vendor;Front Replenish;"
-		+ "Bank;Branch;Geographic Address;Address;City;Zip Code;"
-		+ "Area;Country;Manufacturing Site;Model;Product Class;"
+	return "Serial Number;IP;MAC;Terminal Type;Vendor;Model;"
+		+ "Front Replenish;Bank;Branch;Geographic Address;"
+		+ "Address;Manufacturing Site;Product Class;"
 		+ "Product Class Description;Tracer Number";
     }
 
@@ -196,22 +196,8 @@ public class Terminal {
     }
 
     public Terminal(ATMDataStorePojo terminal) throws ATMWrongDataException {
-	Vector<NetworkAdapterSettingPojo> networkAdapters = terminal
-		.getvNetworkAdapterSetting();
-	if (networkAdapters.isEmpty()) {
-	    throw new ATMWrongDataException(
-		    "No subobject NetworkAdapterSetting in Terminal related to IP "
-			    + ip);
-	}
-	NetworkAdapterSettingPojo nw = networkAdapters.get(0);
-	if ((nw.getIpAddress() != null) && (nw.getIpAddress().length() > 0)
-		&& !nw.getIpAddress().equals("null")) {
-	    this.ip = nw.getIpAddress();
-	}
-	if ((nw.getMacAddress() != null) && (nw.getMacAddress().length() > 0)
-		&& !nw.getMacAddress().equals("null")) {
-	    this.mac = nw.getMacAddress();
-	}
+	this.ip = terminal.getCurrentip();
+	this.mac = terminal.getCurrentmac();
 	FinancialTerminalPojo financialTerminal = terminal
 		.getFinancialTerminal();
 	if (financialTerminal == null) {
@@ -227,11 +213,11 @@ public class Terminal {
 	this.productClass = financialTerminal.getProductclass();
 	this.productClassDescription = financialTerminal
 		.getProductclassdescription();
-	if ((financialTerminal.getSerialnumber() != null)
-		&& (financialTerminal.getSerialnumber().length() > 0)
-		&& !financialTerminal.getSerialnumber().equals("null")) {
-	    this.serialNumber = financialTerminal.getSerialnumber();
-	}
+	// if ((financialTerminal.getSerialnumber() != null)
+	// && (financialTerminal.getSerialnumber().length() > 0)
+	// && !financialTerminal.getSerialnumber().equals("null")) {
+	this.serialNumber = financialTerminal.getSerialnumber();
+	// }
 	this.terminalType = financialTerminal.getTerminaltype();
 	this.terminalVendor = financialTerminal.getVendor();
 	this.tracerNumber = financialTerminal.getTracernumber();
@@ -867,7 +853,11 @@ public class Terminal {
 		+ ";"
 		+ (terminalType != null ? terminalType.toString() : "")
 		+ ";"
-		+ (terminalVendor != null ? terminalVendor.toString() : "")
+		+ (((terminalModel != null) && (terminalModel.getManufacturer() != null)) ? terminalModel
+			.getManufacturer() : "")
+		+ ";"
+		+ (((terminalModel != null) && (terminalModel.getModel() != null)) ? terminalModel
+			.getModel() : "")
 		+ ";"
 		+ (frontReplenish != null ? frontReplenish.toString() : "")
 		+ ";"
@@ -878,20 +868,13 @@ public class Terminal {
 		+ (geographicAddress != null ? geographicAddress.toString()
 			: "")
 		+ ";"
-		+ (address != null ? address.toString() : "")
-		+ ";"
-		+ (city != null ? city.toString() : "")
-		+ ";"
-		+ (zipCode != null ? zipCode.toString() : "")
-		+ ";"
-		+ (area != null ? area.toString() : "")
-		+ ";"
-		+ (country != null ? country.toString() : "")
+		+ (((installation != null)
+			&& (installation.getLocation() != null) && (installation
+			.getLocation().getAddress() != null)) ? installation
+			.getLocation().getAddress() : "")
 		+ ";"
 		+ (manufacturingSite != null ? manufacturingSite.toString()
 			: "")
-		+ ";"
-		+ (model != null ? model.toString() : "")
 		+ ";"
 		+ (productClass != null ? productClass.toString() : "")
 		+ ";"

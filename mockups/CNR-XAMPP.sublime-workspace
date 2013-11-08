@@ -407,7 +407,7 @@
 			"file": "sass/_main.scss",
 			"settings":
 			{
-				"buffer_size": 415,
+				"buffer_size": 981,
 				"line_ending": "Unix"
 			}
 		},
@@ -415,7 +415,7 @@
 			"file": "sass/_header.scss",
 			"settings":
 			{
-				"buffer_size": 1722,
+				"buffer_size": 1574,
 				"line_ending": "Unix"
 			}
 		},
@@ -423,7 +423,7 @@
 			"file": "sass/ncr_screen.scss",
 			"settings":
 			{
-				"buffer_size": 182,
+				"buffer_size": 314,
 				"line_ending": "Unix"
 			}
 		},
@@ -431,7 +431,7 @@
 			"file": "sass/_dashboard.scss",
 			"settings":
 			{
-				"buffer_size": 2836,
+				"buffer_size": 3191,
 				"line_ending": "Unix"
 			}
 		}
@@ -896,15 +896,15 @@
 					"file": "sass/_main.scss",
 					"settings":
 					{
-						"buffer_size": 415,
+						"buffer_size": 981,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								413,
-								413
+								0,
+								0
 							]
 						],
 						"settings":
@@ -923,15 +923,15 @@
 					"file": "sass/_header.scss",
 					"settings":
 					{
-						"buffer_size": 1722,
+						"buffer_size": 1574,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1348,
-								1348
+								0,
+								0
 							]
 						],
 						"settings":
@@ -951,15 +951,15 @@
 					"file": "sass/ncr_screen.scss",
 					"settings":
 					{
-						"buffer_size": 182,
+						"buffer_size": 314,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								85,
-								85
+								0,
+								0
 							]
 						],
 						"settings":
@@ -977,15 +977,15 @@
 					"file": "sass/_dashboard.scss",
 					"settings":
 					{
-						"buffer_size": 2836,
+						"buffer_size": 3191,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								81,
-								81
+								233,
+								233
 							]
 						],
 						"settings":

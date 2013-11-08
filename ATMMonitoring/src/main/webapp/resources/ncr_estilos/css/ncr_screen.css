@@ -1862,7 +1862,7 @@ input:disabled:hover {
 /* line 16, ../sass/_table.scss */
 .table_buttons .botonera {
   padding: 0;
-  margin: 0.5em 1em 0.5em 0;
+  margin: 0.5em 1em;
 }
 /* line 19, ../sass/_table.scss */
 .table_buttons .botonera label {
@@ -3455,37 +3455,43 @@ td .add span, th .add span {
     padding: 0;
     padding-left: 30px;
   }
+  /* line 128, ../sass/_responsive.scss */
+  #iframe .add, #iframe .clock, #iframe .next, #iframe .import, #iframe .back, #iframe .save, #iframe .download, #iframe .update {
+    width: auto;
+    padding: 0.5em 1em;
+    padding-left: 30px;
+  }
 
-  /* line 131, ../sass/_responsive.scss */
+  /* line 135, ../sass/_responsive.scss */
   #main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .action_box.data .model, #cboxContent .data.pagination .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .data.pagination .model {
     width: 96%;
   }
 
-  /* line 134, ../sass/_responsive.scss */
+  /* line 138, ../sass/_responsive.scss */
   #main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .action_box.data .ul_data, #cboxContent .data.pagination .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
     width: 96%;
   }
-  /* line 136, ../sass/_responsive.scss */
+  /* line 140, ../sass/_responsive.scss */
   #main .action_box.data .ul_data li strong, #cboxContent .action_box.data .ul_data li strong, #main .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #cboxContent .action_box.data .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #main .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong {
     width: 30%;
   }
 
-  /* line 140, ../sass/_responsive.scss */
+  /* line 144, ../sass/_responsive.scss */
   nav.sub_nav {
     font-size: .7em;
   }
 
-  /* line 143, ../sass/_responsive.scss */
+  /* line 147, ../sass/_responsive.scss */
   table.link tr.detail ul li, table.link tr.detail:hover ul li {
     width: 49%;
   }
 
-  /* line 146, ../sass/_responsive.scss */
+  /* line 150, ../sass/_responsive.scss */
   .w33, .w66 {
     width: 100%;
   }
 
-  /* line 150, ../sass/_responsive.scss */
+  /* line 154, ../sass/_responsive.scss */
   #main .fc-header h2, #cboxContent .fc-header h2 {
     font-size: 1em;
   }

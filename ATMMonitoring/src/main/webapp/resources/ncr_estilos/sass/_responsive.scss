@@ -125,7 +125,11 @@
 		white-space: nowrap;
 		padding: 0;
 		padding-left: 30px;
-
+		#iframe &{
+			width: auto;
+			padding: 0.5em 1em;
+			padding-left: 30px;
+		}
 	}
 // detalle TERMINAL
 	#main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model {
