@@ -49,6 +49,7 @@ import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 import com.ncr.ATMMonitoring.pojo.HardwareDevice;
 import com.ncr.ATMMonitoring.pojo.Hotfix;
 import com.ncr.ATMMonitoring.pojo.InternetExplorer;
+import com.ncr.ATMMonitoring.pojo.JxfsComponent;
 import com.ncr.ATMMonitoring.pojo.OperatingSystem;
 import com.ncr.ATMMonitoring.pojo.Software;
 import com.ncr.ATMMonitoring.pojo.SoftwareAggregate;
@@ -85,6 +86,18 @@ import com.ncr.agent.baseData.os.module.USBControllerPojo;
 import com.ncr.agent.baseData.os.module.UsbHubPojo;
 import com.ncr.agent.baseData.os.module.VideoControllerPojo;
 import com.ncr.agent.baseData.os.module._1394ControllerPojo;
+import com.ncr.agent.baseData.standard.jxfs.alm.CapabilitiesJxfsALMCollector;
+import com.ncr.agent.baseData.standard.jxfs.cam.CapabilitiesJxfsCAMCollector;
+import com.ncr.agent.baseData.standard.jxfs.cdr.CapabilitiesJxfsCDRCollector;
+import com.ncr.agent.baseData.standard.jxfs.chk.CapabilitiesJxfsCHKCollector;
+import com.ncr.agent.baseData.standard.jxfs.dep.CapabilitiesJxfsDEPCollector;
+import com.ncr.agent.baseData.standard.jxfs.msd.CapabilitiesJxfsMSDCollector;
+import com.ncr.agent.baseData.standard.jxfs.pin.CapabilitiesJxfsPINCollector;
+import com.ncr.agent.baseData.standard.jxfs.ptr.CapabilitiesJxfsPTRCollector;
+import com.ncr.agent.baseData.standard.jxfs.scn.CapabilitiesJxfsSCNCollector;
+import com.ncr.agent.baseData.standard.jxfs.siu.CapabilitiesJxfsSIUCollector;
+import com.ncr.agent.baseData.standard.jxfs.tio.CapabilitiesJxfsTIOCollector;
+import com.ncr.agent.baseData.standard.jxfs.vdm.CapabilitiesJxfsVDMCollector;
 import com.ncr.agent.baseData.standard.xfs.module.ALM;
 import com.ncr.agent.baseData.standard.xfs.module.BCR;
 import com.ncr.agent.baseData.standard.xfs.module.CAM;
@@ -814,11 +827,22 @@ public class TerminalServiceImpl implements TerminalService {
 	}
     }
 
+    private void assignJxfsComponent(JxfsComponent jxfs,
+	    Collection<FinancialDevice> finDevs, String name) {
+	for (FinancialDevice dev : finDevs) {
+	    if (name.equals(dev.getName())) {
+		dev.getJxfsComponents().add(jxfs);
+		jxfs.setFinancialDevice(dev);
+	    }
+	}
+    }
+
     private Set<FinancialDevice> getFinancialDevs(Terminal terminal,
 	    ATMDataStorePojo dataStoreTerminal) {
 	Set<FinancialDevice> finDevs = new HashSet<FinancialDevice>();
 	Vector<FinancialDevicePojo> vector = dataStoreTerminal
 		.getvFinancialDevice();
+	// Create and assign xfs components
 	if (vector != null) {
 	    for (FinancialDevicePojo item : vector) {
 		FinancialDevice finDev = new FinancialDevice(item);
@@ -920,6 +944,104 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (VDM xfsPojo : dataStoreTerminal.getvVdm()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
 		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+	    }
+	}
+
+	// Create and assign jxfs components
+	if (dataStoreTerminal.getVjAlm() != null) {
+	    for (CapabilitiesJxfsALMCollector jxfsPojo : dataStoreTerminal
+		    .getVjAlm()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjCam() != null) {
+	    for (CapabilitiesJxfsCAMCollector jxfsPojo : dataStoreTerminal
+		    .getVjCam()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjCdr() != null) {
+	    for (CapabilitiesJxfsCDRCollector jxfsPojo : dataStoreTerminal
+		    .getVjCdr()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjChk() != null) {
+	    for (CapabilitiesJxfsCHKCollector jxfsPojo : dataStoreTerminal
+		    .getVjChk()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjDep() != null) {
+	    for (CapabilitiesJxfsDEPCollector jxfsPojo : dataStoreTerminal
+		    .getVjDep()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjMsd() != null) {
+	    for (CapabilitiesJxfsMSDCollector jxfsPojo : dataStoreTerminal
+		    .getVjMsd()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjPin() != null) {
+	    for (CapabilitiesJxfsPINCollector jxfsPojo : dataStoreTerminal
+		    .getVjPin()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjPtr() != null) {
+	    for (CapabilitiesJxfsPTRCollector jxfsPojo : dataStoreTerminal
+		    .getVjPtr()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjScn() != null) {
+	    for (CapabilitiesJxfsSCNCollector jxfsPojo : dataStoreTerminal
+		    .getVjScn()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjSiu() != null) {
+	    for (CapabilitiesJxfsSIUCollector jxfsPojo : dataStoreTerminal
+		    .getVjSiu()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjTio() != null) {
+	    for (CapabilitiesJxfsTIOCollector jxfsPojo : dataStoreTerminal
+		    .getVjTio()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
+	    }
+	}
+	if (dataStoreTerminal.getVjVdm() != null) {
+	    for (CapabilitiesJxfsVDMCollector jxfsPojo : dataStoreTerminal
+		    .getVjVdm()) {
+		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
+		assignJxfsComponent(jxfs, finDevs,
+			jxfsPojo.getDevicecontrolname());
 	    }
 	}
 	return finDevs;
