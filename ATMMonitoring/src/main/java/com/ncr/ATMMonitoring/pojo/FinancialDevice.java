@@ -125,35 +125,11 @@ public class FinancialDevice {
     @Column(name = "manufacturer", length = 300)
     private String manufacturer;
 
-    @Column(name = "firmware_major_version")
-    private Integer firmwareMajorVersion;
+    @Column(name = "firmware_version", length = 300)
+    private String firmwareVersion;
 
-    @Column(name = "firmware_minor_version")
-    private Integer firmwareMinorVersion;
-
-    @Column(name = "firmware_build_version")
-    private Integer firmwareBuildVersion;
-
-    @Column(name = "firmware_revision_version")
-    private Integer firmwareRevisionVersion;
-
-    @Column(name = "firmware_remaining_version", length = 300)
-    private String firmwareRemainingVersion;
-
-    @Column(name = "major_version")
-    private Integer majorVersion;
-
-    @Column(name = "minor_version")
-    private Integer minorVersion;
-
-    @Column(name = "build_version")
-    private Integer buildVersion;
-
-    @Column(name = "revision_version")
-    private Integer revisionVersion;
-
-    @Column(name = "remaining_version", length = 100)
-    private String remainingVersion;
+    @Column(name = "version", length = 300)
+    private String version;
 
     public FinancialDevice() {
     }
@@ -313,171 +289,25 @@ public class FinancialDevice {
     }
 
     /**
-     * @return the firmwareMajorVersion
-     */
-    public Integer getFirmwareMajorVersion() {
-	return firmwareMajorVersion;
-    }
-
-    /**
-     * @return the firmwareMinorVersion
-     */
-    public Integer getFirmwareMinorVersion() {
-	return firmwareMinorVersion;
-    }
-
-    /**
-     * @return the firmwareBuildVersion
-     */
-    public Integer getFirmwareBuildVersion() {
-	return firmwareBuildVersion;
-    }
-
-    /**
-     * @return the firmwareRevisionVersion
-     */
-    public Integer getFirmwareRevisionVersion() {
-	return firmwareRevisionVersion;
-    }
-
-    /**
-     * @return the firmwareRemainingVersion
-     */
-    public String getFirmwareRemainingVersion() {
-	return firmwareRemainingVersion;
-    }
-
-    /**
-     * @return the majorVersion
-     */
-    public Integer getMajorVersion() {
-	return majorVersion;
-    }
-
-    /**
-     * @return the minorVersion
-     */
-    public Integer getMinorVersion() {
-	return minorVersion;
-    }
-
-    /**
-     * @return the buildVersion
-     */
-    public Integer getBuildVersion() {
-	return buildVersion;
-    }
-
-    /**
-     * @return the revisionVersion
-     */
-    public Integer getRevisionVersion() {
-	return revisionVersion;
-    }
-
-    /**
-     * @return the remainingVersion
-     */
-    public String getRemainingVersion() {
-	return remainingVersion;
-    }
-
-    /**
-     * @param firmwareMajorVersion
-     *            the firmwareMajorVersion to set
-     */
-    public void setFirmwareMajorVersion(Integer firmwareMajorVersion) {
-	this.firmwareMajorVersion = firmwareMajorVersion;
-    }
-
-    /**
-     * @param firmwareMinorVersion
-     *            the firmwareMinorVersion to set
-     */
-    public void setFirmwareMinorVersion(Integer firmwareMinorVersion) {
-	this.firmwareMinorVersion = firmwareMinorVersion;
-    }
-
-    /**
-     * @param firmwareBuildVersion
-     *            the firmwareBuildVersion to set
-     */
-    public void setFirmwareBuildVersion(Integer firmwareBuildVersion) {
-	this.firmwareBuildVersion = firmwareBuildVersion;
-    }
-
-    /**
-     * @param firmwareRevisionVersion
-     *            the firmwareRevisionVersion to set
-     */
-    public void setFirmwareRevisionVersion(Integer firmwareRevisionVersion) {
-	this.firmwareRevisionVersion = firmwareRevisionVersion;
-    }
-
-    /**
-     * @param firmwareRemainingVersion
-     *            the firmwareRemainingVersion to set
-     */
-    public void setFirmwareRemainingVersion(String firmwareRemainingVersion) {
-	this.firmwareRemainingVersion = firmwareRemainingVersion;
-    }
-
-    /**
-     * @return the firmware version complete
+     * @return the firmwareVersion
      */
     public String getFirmwareVersion() {
-	/*String version = null;
-	if (firmwareMajorVersion != null) {
-	    version = firmwareMajorVersion.toString();
-	    if (firmwareMinorVersion != null) {
-		version += "." + firmwareMinorVersion.toString();
-		if (firmwareBuildVersion != null) {
-		    version += "." + firmwareBuildVersion.toString();
-		    if (firmwareRevisionVersion != null) {
-			version += "." + firmwareRevisionVersion.toString();
-			if (firmwareRemainingVersion != null) {
-			    version += "." + firmwareRemainingVersion;
-			}
-		    }
-		}
-	    }
-	} else {
-	    if ((firmwareRemainingVersion != null)
-		    && (firmwareRemainingVersion != "")) {
-		version = firmwareRemainingVersion;
-	    }
-	}
-	return version;*/
-    	return getFirmwareRemainingVersion();
+	return firmwareVersion;
     }
 
     /**
-     * @param version
-     *            the complete firmware version to set
+     * @return the version
      */
-    public void setFirmwareVersion(String version) {
-	/*String[] versions = version.split("\\.", 5);
-	switch (versions.length) {
-	case 5:
-	    setFirmwareRemainingVersion(versions[4]);
-	case 4:
-	    setFirmwareRevisionVersion(new Integer(versions[3]));
-	case 3:
-	    setFirmwareBuildVersion(new Integer(versions[2]));
-	case 2:
-	    setFirmwareMinorVersion(new Integer(versions[1]));
-	    setFirmwareMajorVersion(new Integer(versions[0]));
-	    break;
-	case 1:
-	    try {
-		setFirmwareMajorVersion(new Integer(versions[0]));
-	    } catch (NumberFormatException e) {
-		setFirmwareRemainingVersion(versions[0]);
-	    }
-	case 0:
-	    break;
-	}*/
-	setFirmwareRemainingVersion(version);
+    public String getVersion() {
+	return version;
+    }
+
+    /**
+     * @param firmwareVersion
+     *            the firmwareVersion to set
+     */
+    public void setFirmwareVersion(String firmwareVersion) {
+	this.firmwareVersion = firmwareVersion;
     }
 
     /**
@@ -488,98 +318,11 @@ public class FinancialDevice {
     }
 
     /**
-     * @param majorVersion
-     *            the majorVersion to set
-     */
-    public void setMajorVersion(Integer majorVersion) {
-	this.majorVersion = majorVersion;
-    }
-
-    /**
-     * @param minorVersion
-     *            the minorVersion to set
-     */
-    public void setMinorVersion(Integer minorVersion) {
-	this.minorVersion = minorVersion;
-    }
-
-    /**
-     * @param buildVersion
-     *            the buildVersion to set
-     */
-    public void setBuildVersion(Integer buildVersion) {
-	this.buildVersion = buildVersion;
-    }
-
-    /**
-     * @param revisionVersion
-     *            the revisionVersion to set
-     */
-    public void setRevisionVersion(Integer revisionVersion) {
-	this.revisionVersion = revisionVersion;
-    }
-
-    /**
-     * @param remainingVersion
-     *            the remainingVersion to set
-     */
-    public void setRemainingVersion(String remainingVersion) {
-	this.remainingVersion = remainingVersion;
-    }
-
-    /**
-     * @return the version complete
-     */
-    public String getVersion() {
-	String version = null;
-	if (majorVersion != null) {
-	    version = majorVersion.toString();
-	    if (minorVersion != null) {
-		version += "." + minorVersion.toString();
-		if (buildVersion != null) {
-		    version += "." + buildVersion.toString();
-		    if (revisionVersion != null) {
-			version += "." + revisionVersion.toString();
-			if (remainingVersion != null) {
-			    version += "." + remainingVersion;
-			}
-		    }
-		}
-	    }
-	} else {
-	    if ((remainingVersion != null) && (remainingVersion != "")) {
-		version = remainingVersion;
-	    }
-	}
-	return version;
-    }
-
-    /**
      * @param version
-     *            the complete version to set
+     *            the version to set
      */
     public void setVersion(String version) {
-	String[] versions = version.split("\\.", 5);
-	switch (versions.length) {
-	case 5:
-	    setRemainingVersion(versions[4]);
-	case 4:
-	    setRevisionVersion(new Integer(versions[3]));
-	case 3:
-	    setBuildVersion(new Integer(versions[2]));
-	case 2:
-	    setMinorVersion(new Integer(versions[1]));
-	    setMajorVersion(new Integer(versions[0]));
-	    break;
-	case 1:
-	    try {
-		setMajorVersion(new Integer(versions[0]));
-	    } catch (NumberFormatException e) {
-		setRemainingVersion(versions[0]);
-	    }
-	case 0:
-	    break;
-	}
+	this.version = version;
     }
 
     /**
