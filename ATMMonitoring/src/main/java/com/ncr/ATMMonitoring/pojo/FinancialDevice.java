@@ -24,6 +24,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import com.ncr.ATMMonitoring.utils.Operation;
+import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.vendor.utils.FinancialDevicePojo;
 
 /**
@@ -155,8 +156,9 @@ public class FinancialDevice {
     }
 
     public FinancialDevice(FinancialDevicePojo device) {
-	this.setFirmwareVersion(device.getFirmwareversion());
-	this.setVersion(device.getVersion());
+	this.setFirmwareVersion(Utils.unescapeJsonChain(device
+		.getFirmwareversion()));
+	this.setVersion(Utils.unescapeJsonChain(device.getVersion()));
 	this.caption = device.getCaption();
 	this.description = device.getDescription();
 	this.deviceInstance = device.getDeviceinstance();
@@ -167,12 +169,12 @@ public class FinancialDevice {
 	this.pmStatus = device.getPmstatus();
 	this.removable = Boolean.parseBoolean(device.getRemovable());
 	this.replaceable = Boolean.parseBoolean(device.getReplaceable());
-	if ((device.getSerialnumber() != null)
-		&& (device.getSerialnumber().length() > 0)
-		&& (!device.getSerialnumber().equals("null"))) {
-	    this.serialNumber = device.getSerialnumber();
-	}
-	this.universalId = device.getUniversalid();
+	// if ((device.getSerialnumber() != null)
+	// && (device.getSerialnumber().length() > 0)
+	// && (!device.getSerialnumber().equals("null"))) {
+	this.serialNumber = Utils.unescapeJsonChain(device.getSerialnumber());
+	// }
+	this.universalId = Utils.unescapeJsonChain(device.getUniversalid());
 	this.variant = device.getVariant();
     }
 
