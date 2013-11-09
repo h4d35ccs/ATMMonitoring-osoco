@@ -653,35 +653,11 @@ public class HardwareDevice {
     @Column(name = "file_system", length = 300)
     private String fileSystem;
 
-    @Column(name = "major_version")
-    private Integer majorVersion;
+    @Column(name = "version", length = 200)
+    private String version;
 
-    @Column(name = "minor_version")
-    private Integer minorVersion;
-
-    @Column(name = "build_version")
-    private Integer buildVersion;
-
-    @Column(name = "revision_version")
-    private Integer revisionVersion;
-
-    @Column(name = "remaining_version", length = 100)
-    private String remainingVersion;
-
-    @Column(name = "usb_major_version")
-    private Integer usbMajorVersion;
-
-    @Column(name = "usb_minor_version")
-    private Integer usbMinorVersion;
-
-    @Column(name = "usb_build_version")
-    private Integer usbBuildVersion;
-
-    @Column(name = "usb_revision_version")
-    private Integer usbRevisionVersion;
-
-    @Column(name = "usb_remaining_version", length = 50)
-    private String usbRemainingVersion;
+    @Column(name = "usb_version", length = 200)
+    private String usbVersion;
 
     @Column(name = "adapter_type", length = 300)
     private String adapterType;
@@ -824,20 +800,8 @@ public class HardwareDevice {
     @Column(name = "media_type", length = 100)
     private String mediaType;
 
-    @Column(name = "hardware_major_version")
-    private Integer hardwareMajorVersion;
-
-    @Column(name = "hardware_minor_version")
-    private Integer hardwareMinorVersion;
-
-    @Column(name = "hardware_build_version")
-    private Integer hardwareBuildVersion;
-
-    @Column(name = "hardware_revision_version")
-    private Integer hardwareRevisionVersion;
-
-    @Column(name = "hardware_remaining_version", length = 50)
-    private String hardwareRemainingVersion;
+    @Column(name = "hardware_version", length = 50)
+    private String hardwareVersion;
 
     @Column(name = "status_info", length = 100)
     private String statusInfo;
@@ -2158,163 +2122,18 @@ public class HardwareDevice {
     }
 
     /**
-     * @return the majorVersion
-     */
-    public Integer getMajorVersion() {
-	return majorVersion;
-    }
-
-    /**
-     * @return the minorVersion
-     */
-    public Integer getMinorVersion() {
-	return minorVersion;
-    }
-
-    /**
-     * @return the buildVersion
-     */
-    public Integer getBuildVersion() {
-	return buildVersion;
-    }
-
-    /**
-     * @return the revisionVersion
-     */
-    public Integer getRevisionVersion() {
-	return revisionVersion;
-    }
-
-    /**
-     * @param majorVersion
-     *            the majorVersion to set
-     */
-    public void setMajorVersion(Integer majorVersion) {
-	this.majorVersion = majorVersion;
-    }
-
-    /**
-     * @param minorVersion
-     *            the minorVersion to set
-     */
-    public void setMinorVersion(Integer minorVersion) {
-	this.minorVersion = minorVersion;
-    }
-
-    /**
-     * @param buildVersion
-     *            the buildVersion to set
-     */
-    public void setBuildVersion(Integer buildVersion) {
-	this.buildVersion = buildVersion;
-    }
-
-    /**
-     * @param revisionVersion
-     *            the revisionVersion to set
-     */
-    public void setRevisionVersion(Integer revisionVersion) {
-	this.revisionVersion = revisionVersion;
-    }
-
-    /**
-     * @return the remainingVersion
-     */
-    public String getRemainingVersion() {
-	return remainingVersion;
-    }
-
-    /**
-     * @param remainingVersion
-     *            the remainingVersion to set
-     */
-    public void setRemainingVersion(String remainingVersion) {
-	this.remainingVersion = remainingVersion;
-    }
-
-    /**
-     * @return the version complete
+     * @return the version
      */
     public String getVersion() {
-	String version = null;
-	if (majorVersion != null) {
-	    version = majorVersion.toString();
-	    if (minorVersion != null) {
-		version += "." + minorVersion.toString();
-		if (buildVersion != null) {
-		    version += "." + buildVersion.toString();
-		    if (revisionVersion != null) {
-			version += "." + revisionVersion.toString();
-			if (remainingVersion != null) {
-			    version += "." + remainingVersion;
-			}
-		    }
-		}
-	    }
-	} else {
-	    if ((remainingVersion != null) && (remainingVersion != "")) {
-		version = remainingVersion;
-	    }
-	}
 	return version;
     }
 
     /**
      * @param version
-     *            the complete version to set
+     *            the version to set
      */
     public void setVersion(String version) {
-	String[] versions = version.split("\\.", 5);
-	switch (versions.length) {
-	case 5:
-	    setRemainingVersion(versions[4]);
-	case 4:
-	    try {
-		setRevisionVersion(new Integer(versions[3]));
-	    } catch (NumberFormatException e) {
-		if (getRemainingVersion() != null) {
-		    setRemainingVersion(versions[3] + "."
-			    + getRemainingVersion());
-		} else {
-		    setRemainingVersion(versions[1]);
-		}
-	    }
-	case 3:
-	    try {
-		setBuildVersion(new Integer(versions[2]));
-	    } catch (NumberFormatException e) {
-		if (getRemainingVersion() != null) {
-		    setRemainingVersion(versions[2] + "."
-			    + getRemainingVersion());
-		} else {
-		    setRemainingVersion(versions[1]);
-		}
-	    }
-	case 2:
-	    try {
-		setMinorVersion(new Integer(versions[1]));
-	    } catch (NumberFormatException e) {
-		if (getRemainingVersion() != null) {
-		    setRemainingVersion(versions[1] + "."
-			    + getRemainingVersion());
-		} else {
-		    setRemainingVersion(versions[1]);
-		}
-	    }
-	case 1:
-	    try {
-		setMajorVersion(new Integer(versions[0]));
-	    } catch (NumberFormatException e) {
-		if (getRemainingVersion() != null) {
-		    setRemainingVersion(versions[0] + "."
-			    + getRemainingVersion());
-		} else {
-		    setRemainingVersion(versions[0]);
-		}
-	    }
-	case 0:
-	    break;
-	}
+	this.version = version;
     }
 
     /**
@@ -2948,134 +2767,18 @@ public class HardwareDevice {
     }
 
     /**
-     * @return the hardwareMajorVersion
-     */
-    public Integer getHardwareMajorVersion() {
-	return hardwareMajorVersion;
-    }
-
-    /**
-     * @return the hardwareMinorVersion
-     */
-    public Integer getHardwareMinorVersion() {
-	return hardwareMinorVersion;
-    }
-
-    /**
-     * @return the hardwareBuildVersion
-     */
-    public Integer getHardwareBuildVersion() {
-	return hardwareBuildVersion;
-    }
-
-    /**
-     * @return the hardwareRevisionVersion
-     */
-    public Integer getHardwareRevisionVersion() {
-	return hardwareRevisionVersion;
-    }
-
-    /**
-     * @return the hardwareRemainingVersion
-     */
-    public String getHardwareRemainingVersion() {
-	return hardwareRemainingVersion;
-    }
-
-    /**
-     * @param hardwareMajorVersion
-     *            the hardwareMajorVersion to set
-     */
-    public void setHardwareMajorVersion(Integer hardwareMajorVersion) {
-	this.hardwareMajorVersion = hardwareMajorVersion;
-    }
-
-    /**
-     * @param hardwareMinorVersion
-     *            the hardwareMinorVersion to set
-     */
-    public void setHardwareMinorVersion(Integer hardwareMinorVersion) {
-	this.hardwareMinorVersion = hardwareMinorVersion;
-    }
-
-    /**
-     * @param hardwareBuildVersion
-     *            the hardwareBuildVersion to set
-     */
-    public void setHardwareBuildVersion(Integer hardwareBuildVersion) {
-	this.hardwareBuildVersion = hardwareBuildVersion;
-    }
-
-    /**
-     * @param hardwareRevisionVersion
-     *            the hardwareRevisionVersion to set
-     */
-    public void setHardwareRevisionVersion(Integer hardwareRevisionVersion) {
-	this.hardwareRevisionVersion = hardwareRevisionVersion;
-    }
-
-    /**
-     * @param hardwareRemainingVersion
-     *            the hardwareRemainingVersion to set
-     */
-    public void setHardwareRemainingVersion(String hardwareRemainingVersion) {
-	this.hardwareRemainingVersion = hardwareRemainingVersion;
-    }
-
-    /**
-     * @return the hardware version complete
+     * @return the hardwareVersion
      */
     public String getHardwareVersion() {
-	String version = null;
-	if (hardwareMajorVersion != null) {
-	    version = hardwareMajorVersion.toString();
-	    if (hardwareMinorVersion != null) {
-		version += "." + hardwareMinorVersion.toString();
-		if (hardwareBuildVersion != null) {
-		    version += "." + hardwareBuildVersion.toString();
-		    if (hardwareRevisionVersion != null) {
-			version += "." + hardwareRevisionVersion.toString();
-			if (hardwareRemainingVersion != null) {
-			    version += "." + hardwareRemainingVersion;
-			}
-		    }
-		}
-	    }
-	} else {
-	    if ((hardwareRemainingVersion != null)
-		    && (hardwareRemainingVersion != "")) {
-		version = hardwareRemainingVersion;
-	    }
-	}
-	return version;
+	return hardwareVersion;
     }
 
     /**
-     * @param version
-     *            the complete hardware version to set
+     * @param hardwareVersion
+     *            the hardwareVersion to set
      */
-    public void setHardwareVersion(String version) {
-	String[] versions = version.split("\\.", 5);
-	switch (versions.length) {
-	case 5:
-	    setHardwareRemainingVersion(versions[4]);
-	case 4:
-	    setHardwareRevisionVersion(new Integer(versions[3]));
-	case 3:
-	    setHardwareBuildVersion(new Integer(versions[2]));
-	case 2:
-	    setHardwareMinorVersion(new Integer(versions[1]));
-	    setHardwareMajorVersion(new Integer(versions[0]));
-	    break;
-	case 1:
-	    try {
-		setHardwareMajorVersion(new Integer(versions[0]));
-	    } catch (NumberFormatException e) {
-		setHardwareRemainingVersion(versions[0]);
-	    }
-	case 0:
-	    break;
-	}
+    public void setHardwareVersion(String hardwareVersion) {
+	this.hardwareVersion = hardwareVersion;
     }
 
     /**
@@ -3386,78 +3089,18 @@ public class HardwareDevice {
     }
 
     /**
-     * @return the usbMajorVersion
-     */
-    public Integer getUsbMajorVersion() {
-	return usbMajorVersion;
-    }
-
-    /**
-     * @param usbMajorVersion
-     *            the usbMajorVersion to set
-     */
-    public void setUsbMajorVersion(Integer usbMajorVersion) {
-	this.usbMajorVersion = usbMajorVersion;
-    }
-
-    /**
-     * @return the usbMinorVersion
-     */
-    public Integer getUsbMinorVersion() {
-	return usbMinorVersion;
-    }
-
-    /**
-     * @param usbMinorVersion
-     *            the usbMinorVersion to set
-     */
-    public void setUsbMinorVersion(Integer usbMinorVersion) {
-	this.usbMinorVersion = usbMinorVersion;
-    }
-
-    /**
-     * @return the usbBuildVersion
-     */
-    public Integer getUsbBuildVersion() {
-	return usbBuildVersion;
-    }
-
-    /**
-     * @param usbBuildVersion
-     *            the usbBuildVersion to set
-     */
-    public void setUsbBuildVersion(Integer usbBuildVersion) {
-	this.usbBuildVersion = usbBuildVersion;
-    }
-
-    /**
-     * @return the usbRevisionVersion
-     */
-    public Integer getUsbRevisionVersion() {
-	return usbRevisionVersion;
-    }
-
-    /**
-     * @param usbRevisionVersion
-     *            the usbRevisionVersion to set
-     */
-    public void setUsbRevisionVersion(Integer usbRevisionVersion) {
-	this.usbRevisionVersion = usbRevisionVersion;
-    }
-
-    /**
      * @return the usbRemainingVersion
      */
-    public String getUsbRemainingVersion() {
-	return usbRemainingVersion;
+    public String getUsbVersion() {
+	return usbVersion;
     }
 
     /**
-     * @param usbRemainingVersion
-     *            the usbRemainingVersion to set
+     * @param usbVersion
+     *            the usbVersion to set
      */
-    public void setUsbRemainingVersion(String usbRemainingVersion) {
-	this.usbRemainingVersion = usbRemainingVersion;
+    public void setUsbVersion(String usbVersion) {
+	this.usbVersion = usbVersion;
     }
 
     /**
@@ -3465,61 +3108,6 @@ public class HardwareDevice {
      */
     public static char getSeparator() {
 	return separator;
-    }
-
-    /**
-     * @return the usb version complete
-     */
-    public String getUsbVersion() {
-	String version = null;
-	if (usbMajorVersion != null) {
-	    version = usbMajorVersion.toString();
-	    if (usbMinorVersion != null) {
-		version += "." + usbMinorVersion.toString();
-		if (usbBuildVersion != null) {
-		    version += "." + usbBuildVersion.toString();
-		    if (usbRevisionVersion != null) {
-			version += "." + usbRevisionVersion.toString();
-			if (usbRemainingVersion != null) {
-			    version += "." + usbRemainingVersion;
-			}
-		    }
-		}
-	    }
-	} else {
-	    if ((usbRemainingVersion != null) && (usbRemainingVersion != "")) {
-		version = usbRemainingVersion;
-	    }
-	}
-	return version;
-    }
-
-    /**
-     * @param version
-     *            the complete usb version to set
-     */
-    public void setUsbVersion(String version) {
-	String[] versions = version.split("\\.", 5);
-	switch (versions.length) {
-	case 5:
-	    setUsbRemainingVersion(versions[4]);
-	case 4:
-	    setUsbRevisionVersion(new Integer(versions[3]));
-	case 3:
-	    setUsbBuildVersion(new Integer(versions[2]));
-	case 2:
-	    setUsbMinorVersion(new Integer(versions[1]));
-	    setUsbMajorVersion(new Integer(versions[0]));
-	    break;
-	case 1:
-	    try {
-		setUsbMajorVersion(new Integer(versions[0]));
-	    } catch (NumberFormatException e) {
-		setUsbRemainingVersion(versions[0]);
-	    }
-	case 0:
-	    break;
-	}
     }
 
     /**
