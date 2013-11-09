@@ -78,6 +78,11 @@ public class FinancialDevice {
     @Cascade(CascadeType.ALL)
     private Set<XfsComponent> xfsComponents = new HashSet<XfsComponent>();
 
+    @OneToMany(mappedBy = "financialDevice", fetch = FetchType.LAZY)
+    @OrderBy("jxfs_class asc")
+    @Cascade(CascadeType.ALL)
+    private Set<JxfsComponent> jxfsComponents = new HashSet<JxfsComponent>();
+
     @Column(name = "device_instance", length = 150)
     private String deviceInstance;
 
@@ -732,5 +737,13 @@ public class FinancialDevice {
      */
     public void setManufacturer(String manufacturer) {
 	this.manufacturer = manufacturer;
+    }
+
+    public Set<JxfsComponent> getJxfsComponents() {
+	return jxfsComponents;
+    }
+
+    public void setJxfsComponents(Set<JxfsComponent> jxfsComponents) {
+	this.jxfsComponents = jxfsComponents;
     }
 }

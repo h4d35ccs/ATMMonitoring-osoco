@@ -1,4 +1,4 @@
-package com.ncr.ATMMonitoring.service;
+package com.ncr.ATMMonitoring.dao;
 
 import java.util.List;
 
@@ -9,17 +9,11 @@ import com.ncr.ATMMonitoring.pojo.XfsComponent;
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
-public interface XfsComponentService {
-
-    public void addXfsComponent(XfsComponent xfsComponent);
-
-    public XfsComponent getXfsComponent(Integer id);
-
-    public List<XfsComponent> listXfsComponents();
+public interface JxfsComponentDAO {
 
     public void addJxfsComponent(JxfsComponent jxfsComponent);
 
-    public JxfsComponent getJxfsComponent(Integer id);
-
     public List<JxfsComponent> listJxfsComponents();
+
+    public JxfsComponent getJxfsComponent(Integer id);
 }
