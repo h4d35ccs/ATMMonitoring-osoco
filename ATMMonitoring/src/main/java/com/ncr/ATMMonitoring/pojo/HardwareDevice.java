@@ -49,6 +49,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import com.ncr.ATMMonitoring.utils.Operation;
+import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.os.module.BaseBoardPojo;
 import com.ncr.agent.baseData.os.module.BiosPojo;
 import com.ncr.agent.baseData.os.module.CDROMDrivePojo;
@@ -878,7 +879,7 @@ public class HardwareDevice {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId._1394_CONTROLLER));
 	this.caption = hw.getCaption();
 	this.description = hw.getDescription();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.manufacturer = hw.getManufacturer();
 	this.name = hw.getName();
 	this.status = hw.getStatus();
@@ -907,8 +908,8 @@ public class HardwareDevice {
 		this.releaseDate = null;
 	    }
 	}
-	this.setSmbiosVersion(hw.getSmBIOSVersion());
-	this.setVersion(hw.getVersion());
+	this.setSmbiosVersion(Utils.unescapeJsonChain(hw.getSmBIOSVersion()));
+	this.setVersion(Utils.unescapeJsonChain(hw.getVersion()));
 	this.serialNumber = hw.getSerialNumber();
 	this.manufacturer = hw.getManufacturer();
 	this.name = hw.getName();
@@ -918,7 +919,7 @@ public class HardwareDevice {
     public HardwareDevice(CDROMDrive hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.CDROM_DRIVE));
 	this.caption = hw.getCaption();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.manufacturer = hw.getManufacturer();
 	this.mediaType = hw.getMediaType();
 	this.name = hw.getName();
@@ -955,7 +956,7 @@ public class HardwareDevice {
     public HardwareDevice(DesktopMonitor hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.DESKTOP_MONITOR));
 	this.caption = hw.getCaption();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.displayType = Boolean.parseBoolean(hw.getDisplayType());
 	this.monitorManufacturer = hw.getMonitorManufacturer();
 	this.monitorType = hw.getMonitorType();
@@ -978,7 +979,7 @@ public class HardwareDevice {
 	}
 	this.caption = hw.getCaption();
 	this.description = hw.getDescription();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.manufacturer = hw.getManufacturer();
 	if (hw.getMaxMediaSize().length() > 0) {
 	    this.maxMediaSize = Integer.parseInt(hw.getMaxMediaSize());
@@ -1010,7 +1011,7 @@ public class HardwareDevice {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.FLOPPY_DRIVE));
 	this.caption = hw.getCaption();
 	this.description = hw.getDescription();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.manufacturer = hw.getManufacturer();
 	this.mediaType = hw.getMediaType();
 	this.name = hw.getName();
@@ -1030,7 +1031,7 @@ public class HardwareDevice {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.LOGICAL_DISK));
 	this.caption = hw.getCaption();
 	this.description = hw.getDescription();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.fileSystem = hw.getFileSystem();
 	this.freeSpace = Long.parseLong(hw.getFreeSpace());
 	this.name = hw.getName();
@@ -1066,7 +1067,7 @@ public class HardwareDevice {
     public HardwareDevice(ParallelPort hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.PARALLEL_PORT));
 	this.caption = hw.getCaption();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.name = hw.getName();
 	this.status = hw.getStatus();
     }
@@ -1134,7 +1135,7 @@ public class HardwareDevice {
     public HardwareDevice(SerialPort hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.SERIAL_PORT));
 	this.caption = hw.getCaption();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	if (hw.getMaxBaudRate().length() > 0) {
 	    this.maxBaudRate = Integer.parseInt(hw.getMaxBaudRate());
 	}
@@ -1161,13 +1162,13 @@ public class HardwareDevice {
 	this.serialNumber = hw.getSerialNumber();
 	this.slotDesignation = hw.getSlotDesignation();
 	this.tag = hw.getTag();
-	this.setVersion(hw.getVersion());
+	this.setVersion(Utils.unescapeJsonChain(hw.getVersion()));
     }
 
     public HardwareDevice(USBController hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_CONTROLLER));
 	this.caption = hw.getCaption();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.manufacturer = hw.getManufacturer();
 	this.name = hw.getName();
 	if (hw.getProtocolSupported().length() > 0) {
@@ -1225,7 +1226,7 @@ public class HardwareDevice {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId._1394_CONTROLLER));
 	this.caption = hw.getCaption();
 	this.description = hw.getDescription();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.manufacturer = hw.getManufacturer();
 	this.name = hw.getName();
 	this.status = hw.getStatus();
@@ -1255,8 +1256,8 @@ public class HardwareDevice {
 		this.releaseDate = null;
 	    }
 	}
-	this.setSmbiosVersion(hw.getSmBIOSVersion());
-	this.setVersion(hw.getVersion());
+	this.setSmbiosVersion(Utils.unescapeJsonChain(hw.getSmBIOSVersion()));
+	this.setVersion(Utils.unescapeJsonChain(hw.getVersion()));
 	this.serialNumber = hw.getSerialNumber();
 	this.manufacturer = hw.getManufacturer();
 	this.name = hw.getName();
@@ -1266,7 +1267,7 @@ public class HardwareDevice {
     public HardwareDevice(CDROMDrivePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.CDROM_DRIVE));
 	this.caption = hw.getCaption();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.manufacturer = hw.getManufacturer();
 	this.mediaType = hw.getMediaType();
 	this.name = hw.getName();
@@ -1322,7 +1323,7 @@ public class HardwareDevice {
     public HardwareDevice(DesktopMonitorPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.DESKTOP_MONITOR));
 	this.caption = hw.getCaption();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.displayType = Boolean.parseBoolean(hw.getDisplayType());
 	this.monitorManufacturer = hw.getMonitorManufacturer();
 	this.monitorType = hw.getMonitorType();
@@ -1363,7 +1364,7 @@ public class HardwareDevice {
 	}
 	this.caption = hw.getCaption();
 	this.description = hw.getDescription();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.manufacturer = hw.getManufacturer();
 	if ((hw.getMaxMediaSize() != null)
 		&& (hw.getMaxMediaSize().length() > 0)
@@ -1425,7 +1426,7 @@ public class HardwareDevice {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.FLOPPY_DRIVE));
 	this.caption = hw.getCaption();
 	this.description = hw.getDescription();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.manufacturer = hw.getManufacturer();
 	// this.mediaType = hw.getMediaType();
 	this.name = hw.getName();
@@ -1445,7 +1446,7 @@ public class HardwareDevice {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.LOGICAL_DISK));
 	this.caption = hw.getCaption();
 	this.description = hw.getDescription();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.fileSystem = hw.getFileSystem();
 	if ((hw.getFreeSpace() != null) && (hw.getFreeSpace().length() > 0)
 		&& (!hw.getFreeSpace().equals("null"))) {
@@ -1506,7 +1507,7 @@ public class HardwareDevice {
     public HardwareDevice(ParallelPortPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.PARALLEL_PORT));
 	this.caption = hw.getCaption();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.name = hw.getName();
 	this.status = hw.getStatus();
     }
@@ -1615,7 +1616,7 @@ public class HardwareDevice {
     public HardwareDevice(SerialPortPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.SERIAL_PORT));
 	this.caption = hw.getCaption();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	if ((hw.getMaxBaudRate() != null) && (hw.getMaxBaudRate().length() > 0)
 		&& (!hw.getMaxBaudRate().equals("null"))) {
 	    try {
@@ -1653,13 +1654,13 @@ public class HardwareDevice {
 	this.serialNumber = hw.getSerialNumber();
 	this.slotDesignation = hw.getSlotDesignation();
 	this.tag = hw.getTag();
-	this.setVersion(hw.getVersion());
+	this.setVersion(Utils.unescapeJsonChain(hw.getVersion()));
     }
 
     public HardwareDevice(USBControllerPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_CONTROLLER));
 	this.caption = hw.getCaption();
-	this.deviceId = hw.getDeviceID();
+	this.deviceId = Utils.unescapeJsonChain(hw.getDeviceID());
 	this.manufacturer = hw.getManufacturer();
 	this.name = hw.getName();
 	if ((hw.getProtocolSupported() != null)
