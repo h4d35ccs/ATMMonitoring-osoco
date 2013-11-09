@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Matcher;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -65,4 +66,13 @@ public abstract class Utils {
 		}
 		return result;
     }
+
+    public static String unescapeJsonChain(String chain) {
+	return chain.replaceAll("\\\\\\\\", "@@@@")
+		.replaceAll("\\\\u003c", "<").replaceAll("\\\\u003d", "=")
+		.replaceAll("\\\\u003e", ">").replaceAll("\\\\u0026", "&")
+		.replaceAll("\\\\\\\"", "\"")
+		.replaceAll("@@@@", Matcher.quoteReplacement("\\"));
+    }
+
 }
