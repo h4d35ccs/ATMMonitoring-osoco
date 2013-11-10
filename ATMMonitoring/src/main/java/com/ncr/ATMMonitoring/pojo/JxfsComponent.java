@@ -22,15 +22,22 @@ import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
+import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.standard.jxfs.alm.CapabilitiesJxfsALMCollector;
 import com.ncr.agent.baseData.standard.jxfs.cam.CapabilitiesJxfsCAMCollector;
 import com.ncr.agent.baseData.standard.jxfs.cdr.CapabilitiesJxfsCDRCollector;
+import com.ncr.agent.baseData.standard.jxfs.cdr.PositionsJxfsCDRCollector;
 import com.ncr.agent.baseData.standard.jxfs.chk.CapabilitiesJxfsCHKCollector;
 import com.ncr.agent.baseData.standard.jxfs.dep.CapabilitiesJxfsDEPCollector;
 import com.ncr.agent.baseData.standard.jxfs.msd.CapabilitiesJxfsMSDCollector;
 import com.ncr.agent.baseData.standard.jxfs.pin.CapabilitiesJxfsPINCollector;
+import com.ncr.agent.baseData.standard.jxfs.pin.PINSecureKeyDetailCollector;
 import com.ncr.agent.baseData.standard.jxfs.ptr.CapabilitiesJxfsPTRCollector;
+import com.ncr.agent.baseData.standard.jxfs.scn.BarcodeCapabilitiesCollector;
 import com.ncr.agent.baseData.standard.jxfs.scn.CapabilitiesJxfsSCNCollector;
+import com.ncr.agent.baseData.standard.jxfs.scn.ChequeCapabilitiesCollector;
+import com.ncr.agent.baseData.standard.jxfs.scn.ImageCapabilitiesCollector;
+import com.ncr.agent.baseData.standard.jxfs.scn.ScnCapabilitiesCollector;
 import com.ncr.agent.baseData.standard.jxfs.siu.CapabilitiesJxfsSIUCollector;
 import com.ncr.agent.baseData.standard.jxfs.tio.CapabilitiesJxfsTIOCollector;
 import com.ncr.agent.baseData.standard.jxfs.vdm.CapabilitiesJxfsVDMCollector;
@@ -58,6 +65,7 @@ public class JxfsComponent {
 	comboboxes.put("auxiliaries", stringOperations);
 	comboboxes.put("availableResolution", stringOperations);
 	comboboxes.put("baitTrap", stringOperations);
+	comboboxes.put("barcodeCapabilities", stringOperations);
 	comboboxes.put("beepOnPressSupported", stringOperations);
 	comboboxes.put("beepSupported", stringOperations);
 	comboboxes.put("billsTakenSensor", stringOperations);
@@ -66,6 +74,7 @@ public class JxfsComponent {
 	comboboxes.put("category3", stringOperations);
 	comboboxes.put("cdType", stringOperations);
 	comboboxes.put("checkVandalism", stringOperations);
+	comboboxes.put("chequeCapabilities", stringOperations);
 	comboboxes.put("coins", stringOperations);
 	comboboxes.put("complex", stringOperations);
 	comboboxes.put("compound", stringOperations);
@@ -101,6 +110,7 @@ public class JxfsComponent {
 	comboboxes.put("guidlights", stringOperations);
 	comboboxes.put("idKey", stringOperations);
 	comboboxes.put("imageCapture", stringOperations);
+	comboboxes.put("imageCapabilities", stringOperations);
 	comboboxes.put("indicators", stringOperations);
 	comboboxes.put("inputCookSupported", stringOperations);
 	comboboxes.put("inputPositions", stringOperations);
@@ -122,6 +132,7 @@ public class JxfsComponent {
 	comboboxes.put("orientationToBeScanned", stringOperations);
 	comboboxes.put("outputPositions", stringOperations);
 	comboboxes.put("print", stringOperations);
+	comboboxes.put("positions", stringOperations);
 	comboboxes.put("powerOff", stringOperations);
 	comboboxes.put("powerOn", stringOperations);
 	comboboxes.put("ptrCapabilities", stringOperations);
@@ -139,6 +150,8 @@ public class JxfsComponent {
 	comboboxes.put("retract", stringOperations);
 	comboboxes.put("safeDoorCmd", stringOperations);
 	comboboxes.put("safeDoorSequence", stringOperations);
+	comboboxes.put("scnCapabilities", stringOperations);
+	comboboxes.put("secureKeyDetail", stringOperations);
 	comboboxes.put("secureKeyEntryState", stringOperations);
 	comboboxes.put("secureKeyEntrySupported", stringOperations);
 	comboboxes.put("secureModuleType", stringOperations);
@@ -213,6 +226,10 @@ public class JxfsComponent {
     @Type(type = "text")
     private String baitTrap;
 
+    @Column(name = "barcode_capabilites")
+    @Type(type = "text")
+    private String barcodeCapabilities;
+
     @Column(name = "beep_on_press_supp")
     @Type(type = "text")
     private String beepOnPressSupported;
@@ -244,6 +261,10 @@ public class JxfsComponent {
     @Column(name = "check_vandalism")
     @Type(type = "text")
     private String checkVandalism;
+
+    @Column(name = "cheque_capabilities")
+    @Type(type = "text")
+    private String chequeCapabilities;
 
     @Column(name = "coins")
     @Type(type = "text")
@@ -379,6 +400,10 @@ public class JxfsComponent {
     @Type(type = "text")
     private String idKey;
 
+    @Column(name = "image_capabilities")
+    @Type(type = "text")
+    private String imageCapabilities;
+
     @Column(name = "image_capture")
     @Type(type = "text")
     private String imageCapture;
@@ -456,6 +481,10 @@ public class JxfsComponent {
     @Type(type = "text")
     private String print;
 
+    @Column(name = "positions")
+    @Type(type = "text")
+    private String positions;
+
     @Column(name = "power_off")
     @Type(type = "text")
     private String powerOff;
@@ -523,6 +552,14 @@ public class JxfsComponent {
     @Column(name = "sade_door_seq")
     @Type(type = "text")
     private String safeDoorSequence;
+
+    @Column(name = "scn_capabilities")
+    @Type(type = "text")
+    private String scnCapabilities;
+
+    @Column(name = "secure_key_detail")
+    @Type(type = "text")
+    private String secureKeyDetail;
 
     @Column(name = "secure_key_entry_state")
     @Type(type = "text")
@@ -691,7 +728,9 @@ public class JxfsComponent {
 		.getMultiplecurrenciescashinsupported();
 	orientationToBeScanned = jxfs.getOrientationtobescanned();
 	outputPositions = jxfs.getOutputpositions();
-	jxfs.getPositions(); // TODO
+	positions = (jxfs.getPositions() != null) ? Utils.toJson(jxfs
+		.getPositions().toArray(new PositionsJxfsCDRCollector[0]))
+		: null;
 	refill = jxfs.getRefill();
 	retract = jxfs.getRetract();
 	safeDoorCmd = jxfs.getSafedoorcmd();
@@ -768,7 +807,9 @@ public class JxfsComponent {
 	inputRawSupported = jxfs.getInputrawsupported();
 	numberOfKeys = jxfs.getNumberofkeys();
 	remoteKeyLoad = jxfs.getRemotekeyload();
-	jxfs.getSecurekeydetail(); // TODO
+	secureKeyDetail = (jxfs.getSecurekeydetail() != null) ? Utils
+		.toJson(jxfs.getSecurekeydetail().toArray(
+			new PINSecureKeyDetailCollector[0])) : null;
 	secureKeyEntryState = jxfs.getSecurekeyentrystate();
 	secureKeyEntrySupported = jxfs.getSecurekeyentrysupported();
 	supportedChipPresentationModes = jxfs
@@ -805,14 +846,22 @@ public class JxfsComponent {
 
     public JxfsComponent(CapabilitiesJxfsSCNCollector jxfs) {
 	jxfsClass = "SCN";
-	jxfs.getBarcodecapabilities(); // TODO
-	jxfs.getChequecapabilities(); // TODO
+	barcodeCapabilities = (jxfs.getBarcodecapabilities() != null) ? Utils
+		.toJson(jxfs.getBarcodecapabilities().toArray(
+			new BarcodeCapabilitiesCollector[0])) : null;
+	chequeCapabilities = (jxfs.getChequecapabilities() != null) ? Utils
+		.toJson(jxfs.getChequecapabilities().toArray(
+			new ChequeCapabilitiesCollector[0])) : null;
 	deviceControlName = jxfs.getDevicecontrolname();
 	deviceId = jxfs.getDeviceid();
 	deviceServiceName = jxfs.getDeviceservicename();
 	deviceType = jxfs.getDevicetype();
-	jxfs.getImagecapabilities(); // TODO
-	jxfs.getScncapabilities(); // TODO
+	imageCapabilities = (jxfs.getImagecapabilities() != null) ? Utils
+		.toJson(jxfs.getImagecapabilities().toArray(
+			new ImageCapabilitiesCollector[0])) : null;
+	scnCapabilities = (jxfs.getScncapabilities() != null) ? Utils
+		.toJson(jxfs.getScncapabilities().toArray(
+			new ScnCapabilitiesCollector[0])) : null;
 	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
 	// .getVendorinfo())));
     }

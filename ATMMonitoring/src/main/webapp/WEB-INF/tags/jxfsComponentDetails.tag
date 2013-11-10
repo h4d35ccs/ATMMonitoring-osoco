@@ -45,6 +45,12 @@
 <td>${jxfsComponent.baitTrap}</td>
 </tr>
 </c:if>
+<c:if test="${jxfsComponent.barcodeCapabilities != null}">
+<tr>
+<td class="header"><spring:message code="label.jxfsComponent.barcodeCapabilities"/></td>
+<td>${jxfsComponent.barcodeCapabilities}</td>
+</tr>
+</c:if>
 <c:if test="${jxfsComponent.beepOnPressSupported != null}">
 <tr>
 <td class="header"><spring:message code="label.jxfsComponent.beepOnPressSupported"/></td>
@@ -91,6 +97,12 @@
 <tr>
 <td class="header"><spring:message code="label.jxfsComponent.checkVandalism"/></td>
 <td>${jxfsComponent.checkVandalism}</td>
+</tr>
+</c:if>
+<c:if test="${jxfsComponent.chequeCapabilities != null}">
+<tr>
+<td class="header"><spring:message code="label.jxfsComponent.chequeCapabilities"/></td>
+<td>${jxfsComponent.chequeCapabilities}</td>
 </tr>
 </c:if>
 <c:if test="${jxfsComponent.coins != null}">
@@ -297,6 +309,12 @@
 <td>${jxfsComponent.idKey}</td>
 </tr>
 </c:if>
+<c:if test="${jxfsComponent.imageCapabilities != null}">
+<tr>
+<td class="header"><spring:message code="label.jxfsComponent.imageCapabilities"/></td>
+<td>${jxfsComponent.imageCapabilities}</td>
+</tr>
+</c:if>
 <c:if test="${jxfsComponent.imageCapture != null}">
 <tr>
 <td class="header"><spring:message code="label.jxfsComponent.imageCapture"/></td>
@@ -429,6 +447,12 @@
 <td>${jxfsComponent.print}</td>
 </tr>
 </c:if>
+<c:if test="${jxfsComponent.positions != null}">
+<tr>
+<td class="header"><spring:message code="label.jxfsComponent.positions"/></td>
+<td>${jxfsComponent.positions}</td>
+</tr>
+</c:if>
 <c:if test="${jxfsComponent.powerOff != null}">
 <tr>
 <td class="header"><spring:message code="label.jxfsComponent.powerOff"/></td>
@@ -529,6 +553,18 @@
 <tr>
 <td class="header"><spring:message code="label.jxfsComponent.safeDoorSequence"/></td>
 <td>${jxfsComponent.safeDoorSequence}</td>
+</tr>
+</c:if>
+<c:if test="${jxfsComponent.scnCapabilities != null}">
+<tr>
+<td class="header"><spring:message code="label.jxfsComponent.scnCapabilities"/></td>
+<td>${jxfsComponent.scnCapabilities}</td>
+</tr>
+</c:if>
+<c:if test="${jxfsComponent.secureKeyDetail != null}">
+<tr>
+<td class="header"><spring:message code="label.jxfsComponent.secureKeyDetail"/></td>
+<td>${jxfsComponent.secureKeyDetail}</td>
 </tr>
 </c:if>
 <c:if test="${jxfsComponent.secureKeyEntryState != null}">
