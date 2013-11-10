@@ -1,7 +1,9 @@
 package com.ncr.ATMMonitoring.pojo;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,6 +20,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.standard.jxfs.alm.CapabilitiesJxfsALMCollector;
 import com.ncr.agent.baseData.standard.jxfs.cam.CapabilitiesJxfsCAMCollector;
 import com.ncr.agent.baseData.standard.jxfs.cdr.CapabilitiesJxfsCDRCollector;
@@ -39,9 +42,127 @@ import com.ncr.agent.baseData.standard.jxfs.vdm.CapabilitiesJxfsVDMCollector;
 @Table(name = "jxfs_components")
 public class JxfsComponent {
 
+    private static final Map<String, Map> comboboxes;
     private static final Set<String> jxfsClasses;
 
     static {
+	comboboxes = new TreeMap<String, Map>();
+	Map<String, Map> stringOperations = Operation
+		.getOperationsByType(Operation.DataType.STRING);
+	Map<String, Map> numOperations = Operation
+		.getOperationsByType(Operation.DataType.NUMBER);
+	comboboxes.put("jxfsClass", stringOperations);
+	comboboxes.put("acceptLimit", stringOperations);
+	comboboxes.put("autopresent", stringOperations);
+	comboboxes.put("auxiliaries", stringOperations);
+	comboboxes.put("availableResolution", stringOperations);
+	comboboxes.put("baitTrap", stringOperations);
+	comboboxes.put("beepOnPressSupported", stringOperations);
+	comboboxes.put("beepSupported", stringOperations);
+	comboboxes.put("billsTakenSensor", stringOperations);
+	comboboxes.put("cashbox", stringOperations);
+	comboboxes.put("category2", stringOperations);
+	comboboxes.put("category3", stringOperations);
+	comboboxes.put("cdType", stringOperations);
+	comboboxes.put("checkVandalism", stringOperations);
+	comboboxes.put("coins", stringOperations);
+	comboboxes.put("complex", stringOperations);
+	comboboxes.put("compound", stringOperations);
+	comboboxes.put("createSignatureCommandSupported", stringOperations);
+	comboboxes.put("ctrlTurn", stringOperations);
+	comboboxes.put("cursorSupported", stringOperations);
+	comboboxes.put("cylinders", stringOperations);
+	comboboxes.put("defaultInputPosition", stringOperations);
+	comboboxes.put("defaultOutputPosition", stringOperations);
+	comboboxes.put("defaultRollbackPosition", numOperations);
+	comboboxes.put("deposit", stringOperations);
+	comboboxes.put("detector", stringOperations);
+	comboboxes.put("deviceControlName", stringOperations);
+	comboboxes.put("deviceId", stringOperations);
+	comboboxes.put("deviceOrientation", stringOperations);
+	comboboxes.put("deviceScanningBothLongSide", stringOperations);
+	comboboxes.put("deviceScanningBothShortSide", stringOperations);
+	comboboxes.put("deviceServiceName", stringOperations);
+	comboboxes.put("deviceType", stringOperations);
+	comboboxes.put("dispense", stringOperations);
+	comboboxes.put("displayLightSupported", stringOperations);
+	comboboxes.put("keyboardLockSupported", stringOperations);
+	comboboxes.put("keyboardSupported", stringOperations);
+	comboboxes.put("keysSupported", stringOperations);
+	comboboxes.put("doors", stringOperations);
+	comboboxes.put("ejectStatus", stringOperations);
+	comboboxes.put("entry", stringOperations);
+	comboboxes.put("envSupply", stringOperations);
+	comboboxes.put("escrow", stringOperations);
+	comboboxes.put("escrowSize", numOperations);
+	comboboxes.put("eventOnStartSupported", stringOperations);
+	comboboxes.put("extent", stringOperations);
+	comboboxes.put("guidlights", stringOperations);
+	comboboxes.put("idKey", stringOperations);
+	comboboxes.put("imageCapture", stringOperations);
+	comboboxes.put("indicators", stringOperations);
+	comboboxes.put("inputCookSupported", stringOperations);
+	comboboxes.put("inputPositions", stringOperations);
+	comboboxes.put("inputRawSupported", stringOperations);
+	comboboxes.put("intermediateStacker", stringOperations);
+	comboboxes.put("insertTextSupported", stringOperations);
+	comboboxes.put("maxDataLength", numOperations);
+	comboboxes.put("maxInBills", numOperations);
+	comboboxes.put("maxInCoins", numOperations);
+	comboboxes.put("maxLed", numOperations);
+	comboboxes.put("maxNumOfChars", numOperations);
+	comboboxes.put("maxOutBills", numOperations);
+	comboboxes.put("maxOutCoins", numOperations);
+	comboboxes.put("maxPictures", numOperations);
+	comboboxes.put("maxRetract", numOperations);
+	comboboxes.put("maxStacker", numOperations);
+	comboboxes.put("multipleCurrenciesCashInSupported", stringOperations);
+	comboboxes.put("numberOfKeys", numOperations);
+	comboboxes.put("orientationToBeScanned", stringOperations);
+	comboboxes.put("outputPositions", stringOperations);
+	comboboxes.put("print", stringOperations);
+	comboboxes.put("powerOff", stringOperations);
+	comboboxes.put("powerOn", stringOperations);
+	comboboxes.put("ptrCapabilities", stringOperations);
+	comboboxes.put("ptrControlMedia", stringOperations);
+	comboboxes.put("readForm", stringOperations);
+	comboboxes.put("readFonts", stringOperations);
+	comboboxes.put("readImage", stringOperations);
+	comboboxes.put("readKeyboardDataWithDefault", stringOperations);
+	comboboxes.put("readMicr", stringOperations);
+	comboboxes.put("readOcr", stringOperations);
+	comboboxes.put("readStatus", stringOperations);
+	comboboxes.put("refill", stringOperations);
+	comboboxes.put("remoteKeyLoad", stringOperations);
+	comboboxes.put("retain", stringOperations);
+	comboboxes.put("retract", stringOperations);
+	comboboxes.put("safeDoorCmd", stringOperations);
+	comboboxes.put("safeDoorSequence", stringOperations);
+	comboboxes.put("secureKeyEntryState", stringOperations);
+	comboboxes.put("secureKeyEntrySupported", stringOperations);
+	comboboxes.put("secureModuleType", stringOperations);
+	comboboxes.put("sensors", stringOperations);
+	comboboxes.put("status", stringOperations);
+	comboboxes.put("supportedChipPresentationModes", stringOperations);
+	comboboxes.put("supportedChipProtocols", stringOperations);
+	comboboxes.put("supportedCryptoModes", stringOperations);
+	comboboxes.put("supportedFdKeys", stringOperations);
+	comboboxes.put("supportedPinFormats", stringOperations);
+	comboboxes.put("supportedReadTracks", stringOperations);
+	comboboxes.put("supportedTextAttributes", stringOperations);
+	comboboxes.put("supportedValidationAlgorithms", stringOperations);
+	comboboxes.put("supportedWriteHicoTracks", stringOperations);
+	comboboxes.put("supportedWriteTracks", stringOperations);
+	comboboxes.put("shutterCmd", stringOperations);
+	comboboxes.put("silentAlarm", stringOperations);
+	comboboxes.put("testCashUnit", stringOperations);
+	comboboxes.put("transport", stringOperations);
+	comboboxes.put("trustedUser", stringOperations);
+	comboboxes.put("unfit", stringOperations);
+	comboboxes.put("vendorData", stringOperations);
+	comboboxes.put("writeForm", stringOperations);
+	comboboxes.put("writeMode", stringOperations);
+
 	jxfsClasses = new HashSet<String>();
 	jxfsClasses.add("ALM");
 	jxfsClasses.add("CAM");
@@ -1571,6 +1692,10 @@ public class JxfsComponent {
 
     public static Set<String> getJxfsclasses() {
 	return jxfsClasses;
+    }
+
+    public static Map<String, Map> getComboboxes() {
+	return comboboxes;
     }
 
 }

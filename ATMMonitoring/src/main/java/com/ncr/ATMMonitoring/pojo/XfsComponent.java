@@ -3,7 +3,9 @@ package com.ncr.ATMMonitoring.pojo;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +24,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.standard.xfs.module.ALM;
 import com.ncr.agent.baseData.standard.xfs.module.BCR;
@@ -48,9 +51,157 @@ import com.ncr.agent.baseData.standard.xfs.module.VDM;
 @Table(name = "xfs_components")
 public class XfsComponent {
 
+    private static final Map<String, Map> comboboxes;
     private static final Set<String> xfsClasses;
 
     static {
+	comboboxes = new TreeMap<String, Map>();
+	Map<String, Map> stringOperations = Operation
+		.getOperationsByType(Operation.DataType.STRING);
+	Map<String, Map> boolOperations = Operation
+		.getOperationsByType(Operation.DataType.BOOLEAN);
+	Map<String, Map> numOperations = Operation
+		.getOperationsByType(Operation.DataType.NUMBER);
+	comboboxes.put("xfsClass", stringOperations);
+	comboboxes.put("acceptMedia", boolOperations);
+	comboboxes.put("algorithms", stringOperations);
+	comboboxes.put("autobeep", stringOperations);
+	comboboxes.put("autoretractPeriod", numOperations);
+	comboboxes.put("auxiliaries", stringOperations);
+	comboboxes.put("backImageColorFormat", stringOperations);
+	comboboxes.put("backscanColor", stringOperations);
+	comboboxes.put("cameras", stringOperations);
+	comboboxes.put("camdata", stringOperations);
+	comboboxes.put("canFilterSymbologies", boolOperations);
+	comboboxes.put("cards", numOperations);
+	comboboxes.put("charSupport", stringOperations);
+	comboboxes.put("chipio", boolOperations);
+	comboboxes.put("chipPower", stringOperations);
+	comboboxes.put("chipProtocol", stringOperations);
+	comboboxes.put("codeLineFormat", stringOperations);
+	comboboxes.put("compound", boolOperations);
+	comboboxes.put("comparemagneticstripe", boolOperations);
+	comboboxes.put("control", stringOperations);
+	comboboxes.put("cursor", boolOperations);
+	comboboxes.put("defaultBackscanColor", stringOperations);
+	comboboxes.put("defaultFrontscanColor", stringOperations);
+	comboboxes.put("deptransport", boolOperations);
+	comboboxes.put("derivationAlgorithms", stringOperations);
+	comboboxes.put("isPrepareDispense", stringOperations);
+	comboboxes.put("dipMode", stringOperations);
+	comboboxes.put("dispenseTo", stringOperations);
+	comboboxes.put("display", stringOperations);
+	comboboxes.put("displayLight", boolOperations);
+	comboboxes.put("doors", stringOperations);
+	comboboxes.put("ejectPosition", stringOperations);
+	comboboxes.put("emvHashAlgorithm", stringOperations);
+	comboboxes.put("emvImportSchemes", stringOperations);
+	comboboxes.put("encioProtocols", stringOperations);
+	comboboxes.put("encoder", boolOperations);
+	comboboxes.put("encodenames", stringOperations);
+	comboboxes.put("endorser", boolOperations);
+	comboboxes.put("envelopesupply", stringOperations);
+	comboboxes.put("exchangeTypes", stringOperations);
+	comboboxes.put("extents", stringOperations);
+	comboboxes.put("extra", stringOperations);
+	comboboxes.put("fontnames", stringOperations);
+	comboboxes.put("forms", boolOperations);
+	comboboxes.put("frontImageColorFormat", stringOperations);
+	comboboxes.put("frontscanColor", stringOperations);
+	comboboxes.put("guidlights", stringOperations);
+	comboboxes.put("hasCashBox", boolOperations);
+	comboboxes.put("hasInsertedSensor", boolOperations);
+	comboboxes.put("hasShutter", boolOperations);
+	comboboxes.put("hasTakenSensor", boolOperations);
+	comboboxes.put("hsmVendor", stringOperations);
+	comboboxes.put("idConnect", boolOperations);
+	comboboxes.put("idKey", stringOperations);
+	comboboxes.put("imagecapture", stringOperations);
+	comboboxes.put("imageSource", stringOperations);
+	comboboxes.put("imageType", stringOperations);
+	comboboxes.put("indicators", stringOperations);
+	comboboxes.put("insertOrientation", stringOperations);
+	comboboxes.put("intermediateStacker", numOperations);
+	comboboxes.put("isApplicationRefuse", boolOperations);
+	comboboxes.put("isAutofeed", boolOperations);
+	comboboxes.put("isCardTakenSensor", boolOperations);
+	comboboxes.put("isCompareSignatures", boolOperations);
+	comboboxes.put("isHsmJournaling", boolOperations);
+	comboboxes.put("isIntermediateStacker", boolOperations);
+	comboboxes.put("isItemsTakenSensor", boolOperations);
+	comboboxes.put("isKeyImportThroughParts", boolOperations);
+	comboboxes.put("isMediaPresented", boolOperations);
+	comboboxes.put("isPinCanPersistAfterUse", boolOperations);
+	comboboxes.put("isPresentControl", boolOperations);
+	comboboxes.put("isRescan", boolOperations);
+	comboboxes.put("isRetractCountsItems", boolOperations);
+	comboboxes.put("isRetractToTransport", boolOperations);
+	comboboxes.put("isSafeDoor", boolOperations);
+	comboboxes.put("isSetPinBlockDataRequired", boolOperations);
+	comboboxes.put("isStamp", boolOperations);
+	comboboxes.put("isTypeCombined", boolOperations);
+	comboboxes.put("itemInfoTypes", stringOperations);
+	comboboxes.put("keyBlockImportFormats", stringOperations);
+	comboboxes.put("keyCheckModes", stringOperations);
+	comboboxes.put("keyLock", boolOperations);
+	comboboxes.put("keyNum", numOperations);
+	comboboxes.put("logical", stringOperations);
+	comboboxes.put("magneticstriperead", boolOperations);
+	comboboxes.put("magneticstripewrite", boolOperations);
+	comboboxes.put("maxCashInItems", numOperations);
+	comboboxes.put("maxDataLength", numOperations);
+	comboboxes.put("maxDispenseItems", numOperations);
+	comboboxes.put("maxMediaOnStacker", numOperations);
+	comboboxes.put("maxNumChars", numOperations);
+	comboboxes.put("maxPictures", numOperations);
+	comboboxes.put("maxRetract", stringOperations);
+	comboboxes.put("mediaTaken", boolOperations);
+	comboboxes.put("memoryChipProtocols", stringOperations);
+	comboboxes.put("micr", boolOperations);
+	comboboxes.put("moveItems", stringOperations);
+	comboboxes.put("multiPage", boolOperations);
+	comboboxes.put("numLeds", numOperations);
+	comboboxes.put("ocr", stringOperations);
+	comboboxes.put("paperSources", stringOperations);
+	comboboxes.put("pinFormats", stringOperations);
+	comboboxes.put("powerOff", stringOperations);
+	comboboxes.put("powerOn", stringOperations);
+	comboboxes.put("powerSaveControl", boolOperations);
+	comboboxes.put("presentationAlgorithms", stringOperations);
+	comboboxes.put("printer", boolOperations);
+	comboboxes.put("printOnRetracts", boolOperations);
+	comboboxes.put("printSize", stringOperations);
+	comboboxes.put("programaticallyDeactivate", boolOperations);
+	comboboxes.put("provider", stringOperations);
+	comboboxes.put("readForm", stringOperations);
+	comboboxes.put("readTracks", stringOperations);
+	comboboxes.put("refill", boolOperations);
+	comboboxes.put("resetControl", stringOperations);
+	comboboxes.put("resolutions", stringOperations);
+	comboboxes.put("retractAreas", stringOperations);
+	comboboxes.put("retractBins", stringOperations);
+	comboboxes.put("retractenvelope", stringOperations);
+	comboboxes.put("retractStackerActions", stringOperations);
+	comboboxes.put("retractTransportActions", stringOperations);
+	comboboxes.put("rsaAuthenticationScheme", stringOperations);
+	comboboxes.put("rsaCryptAlgorithm", stringOperations);
+	comboboxes.put("rsaKeycheckMode", stringOperations);
+	comboboxes.put("rsaSignatureAlgorithm", stringOperations);
+	comboboxes.put("securityType", stringOperations);
+	comboboxes.put("sensors", stringOperations);
+	comboboxes.put("shutterControl", boolOperations);
+	comboboxes.put("signatureScheme", stringOperations);
+	comboboxes.put("stamp", stringOperations);
+	comboboxes.put("positions", stringOperations);
+	comboboxes.put("symbologies", stringOperations);
+	comboboxes.put("toner", boolOperations);
+	comboboxes.put("type", stringOperations);
+	comboboxes.put("validationAlgorithms", stringOperations);
+	comboboxes.put("windowsPrinter", stringOperations);
+	comboboxes.put("writeForm", stringOperations);
+	comboboxes.put("writeMode", stringOperations);
+	comboboxes.put("writeTracks", stringOperations);
+
 	xfsClasses = new HashSet<String>();
 	xfsClasses.add("ALM");
 	xfsClasses.add("BCR");
@@ -1957,5 +2108,9 @@ public class XfsComponent {
 
     public static Set<String> getXfsclasses() {
 	return xfsClasses;
+    }
+
+    public static Map<String, Map> getComboboxes() {
+	return comboboxes;
     }
 }
