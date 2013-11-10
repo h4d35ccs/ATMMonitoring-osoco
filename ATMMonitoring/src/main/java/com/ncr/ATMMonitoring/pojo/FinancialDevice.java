@@ -47,24 +47,22 @@ public class FinancialDevice {
 		.getOperationsByType(Operation.DataType.STRING);
 	Map<String, Map> boolOperations = Operation
 		.getOperationsByType(Operation.DataType.BOOLEAN);
-	comboboxes.put("model", stringOperations);
-	comboboxes.put("variant", stringOperations);
-	comboboxes.put("manufacturer", stringOperations);
-	comboboxes.put("serialNumber", stringOperations);
 	comboboxes.put("caption", stringOperations);
 	comboboxes.put("description", stringOperations);
-	comboboxes.put("universalId", stringOperations);
 	comboboxes.put("deviceInstance", stringOperations);
 	comboboxes.put("deviceStatus", stringOperations);
-	comboboxes.put("pmStatus", stringOperations);
+	comboboxes.put("firmwareVersion", stringOperations);
 	comboboxes.put("hotSwappable", boolOperations);
+	comboboxes.put("manufacturer", stringOperations);
+	comboboxes.put("model", stringOperations);
+	comboboxes.put("name", stringOperations);
+	comboboxes.put("pmStatus", stringOperations);
 	comboboxes.put("replaceable", boolOperations);
 	comboboxes.put("removable", boolOperations);
-	comboboxes.put("name", stringOperations);
-	comboboxes.put("firmwareMajorVersion",
-		Operation.getOperationsByType(Operation.DataType.VERSION));
-	comboboxes.put("majorVersion",
-		Operation.getOperationsByType(Operation.DataType.VERSION));
+	comboboxes.put("serialNumber", stringOperations);
+	comboboxes.put("universalId", stringOperations);
+	comboboxes.put("variant", stringOperations);
+	comboboxes.put("version", stringOperations);
     }
 
     @Id

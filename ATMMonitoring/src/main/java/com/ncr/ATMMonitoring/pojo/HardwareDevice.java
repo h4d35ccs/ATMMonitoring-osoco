@@ -96,8 +96,6 @@ public class HardwareDevice {
 		.getOperationsByType(Operation.DataType.NUMBER);
 	Map<String, Map> boolOperations = Operation
 		.getOperationsByType(Operation.DataType.BOOLEAN);
-	Map<String, Map> versionOperations = Operation
-		.getOperationsByType(Operation.DataType.VERSION);
 
 	Map<String, Map> values = new TreeMap<String, Map>();
 	values.put("name", stringOperations);
@@ -248,7 +246,7 @@ public class HardwareDevice {
 	values.put("numberOfPorts", numberOperations);
 	values.put("description", stringOperations);
 	values.put("protocolCode", stringOperations);
-	values.put("usbMajorVersion", versionOperations);
+	values.put("usbVersion", stringOperations);
 	values.put("status", stringOperations);
 	comboboxes.put("Win32_USBHub", values);
 
@@ -283,7 +281,7 @@ public class HardwareDevice {
 	values.put("statusInfo", stringOperations);
 	values.put("manufacturer", stringOperations);
 	values.put("driverName", stringOperations);
-	values.put("hardwareMajorVersion", versionOperations);
+	values.put("hardwareVersion", stringOperations);
 	comboboxes.put("Win32_SCSIController", values);
 
 	values = new TreeMap<String, Map>();
@@ -324,7 +322,7 @@ public class HardwareDevice {
 	values.put("slotDesignation", stringOperations);
 	values.put("currentUsage", numberOperations);
 	values.put("tag", stringOperations);
-	values.put("majorVersion", versionOperations);
+	values.put("version", stringOperations);
 	comboboxes.put("Win32_SystemSlot", values);
 
 	values = new TreeMap<String, Map>();
@@ -339,7 +337,7 @@ public class HardwareDevice {
 	values.put("releaseDate", dateOperations);
 	values.put("serialNumber", stringOperations);
 	values.put("smbiosPresent", boolOperations);
-	values.put("majorVersion", versionOperations);
+	values.put("version", stringOperations);
 	values.put("status", stringOperations);
 	comboboxes.put("Win32_Bios", values);
 
