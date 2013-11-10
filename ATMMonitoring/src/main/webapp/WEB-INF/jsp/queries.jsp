@@ -278,6 +278,11 @@
 							<td>
 								<form:select path="xfsComponentCombo${i}2" id="xfsComponentCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('xfsComponent', ${i})">
 									<form:option value="" label=""/>
+									<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+										<form:option value="${value}">
+											<spring:message code="label.query.operation.${value}"/>
+										</form:option>
+									</c:forEach>
 								</form:select>
 							</td>
 							<td>
@@ -331,6 +336,11 @@
 							<td>
 								<form:select path="jxfsComponentCombo${i}2" id="jxfsComponentCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('jxfsComponent', ${i})">
 									<form:option value="" label=""/>
+									<c:forEach items="${values.get('allOperations').get('allOperations').keySet()}" var="value">
+										<form:option value="${value}">
+											<spring:message code="label.query.operation.${value}"/>
+										</form:option>
+									</c:forEach>
 								</form:select>
 							</td>
 							<td>
@@ -845,12 +855,16 @@
 		    	} else {
 		    		$cb.prop('disabled', false);
 		    		var values = valuesTree[entity][value].values;
-		    		$cb.each(function()
+		    		$('#' + entity + 'Combo' + number + '2 > option').each(function()
 							{
-								if (!($(this).val() in values)) {
+								if (!(($(this).val() in values) || ($(this).val() == ''))) {
 									$(this).remove();
 								}
-							});
+							}
+		    		);
+		    		if ($cb.val() != '') {
+		    			$('#' + entity + 'Field' + number).prop('disabled', false);
+		    		}
 		    	}
 	    	}
 	    };
@@ -867,9 +881,9 @@
 		    	} else {
 		    		$cb2.prop('disabled', false);
 		    		var values = valuesTree[entity][value1].values;
-		    		$cb2.each(function()
+		    		$('#' + entity + 'Combo' + number + '2 > option').each(function()
 							{
-								if (!($(this).val() in values)) {
+								if (!(($(this).val() in values) || ($(this).val() == ''))) {
 									$(this).remove();
 								}
 							});
@@ -880,13 +894,16 @@
 			    	} else {
 			    		$cb3.prop('disabled', false);
 			    		values = values[value2].values;
-			    		$cb3.each(function()
+			    		$('#' + entity + 'Combo' + number + '3 > option').each(function()
 								{
-									if (!($(this).val() in values)) {
+									if (!(($(this).val() in values) || ($(this).val() == ''))) {
 										$(this).remove();
 									}
 								});
 			    	}
+		    		if ($cb3.val() != '') {
+		    			$('#' + entity + 'Field' + number).prop('disabled', false);
+		    		}
 		    	}
 	    	}
 	    };
