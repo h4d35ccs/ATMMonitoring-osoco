@@ -202,6 +202,112 @@
 								</tr>
 							</c:forEach>
 						</table>
+						<h3>
+							<spring:message code="label.query.xfsComponentSection"/>
+						</h3>
+						<table class="query-form">
+							<tr>
+								<th>
+									<spring:message code="label.query.field"/>
+								</th>
+								<th>
+									<spring:message code="label.query.not"/>
+								</th>
+								<th>
+									<spring:message code="label.query.comparison"/>
+								</th>
+								<th>
+									<spring:message code="label.query.value"/>
+								</th>
+								<th></th>
+							</tr>
+							<c:forEach var="i" begin="1" end="5" varStatus="status">
+								<tr id="xfsComponentRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>>
+									<td>
+										<form:select path="xfsComponentCombo${i}1" id="xfsComponentCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('xfsComponent', ${i})">
+											<form:option value="" label=""/>
+											<c:forEach items="${values.get('xfsComponent').keySet()}" var="value">
+												<form:option value="${value}">
+													<spring:message code="label.xfsComponent.${value}"/>
+												</form:option>
+											</c:forEach>
+										</form:select>
+									</td>
+									<td>
+										<form:checkbox path="xfsComponentCB${i}" id="xfsComponentCB${i}" disabled="true"/>
+									</td>
+									<td>
+										<form:select path="xfsComponentCombo${i}2" id="xfsComponentCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('xfsComponent', ${i})">
+											<form:option value="" label=""/>
+										</form:select>
+									</td>
+									<td>
+										<form:input class='form-tf-grey' path="xfsComponentField${i}" id="xfsComponentField${i}" disabled="true" maxlength="150"/>
+										</td>
+									<c:if test="${!status.last}">
+										<td class="btn_add">
+											<div id="xfsComponentShowButton${i}" onclick="showHiddenRow('xfsComponent', ${i})" class="btn add"><span>Añadir</span></div>
+										</td>
+									</c:if>
+									<c:if test="${status.last}">
+										<td> </td>
+									</c:if>
+								</tr>
+							</c:forEach>
+						</table>
+						<h3>
+							<spring:message code="label.query.jxfsComponentSection"/>
+						</h3>
+						<table class="query-form">
+							<tr>
+								<th>
+									<spring:message code="label.query.field"/>
+								</th>
+								<th>
+									<spring:message code="label.query.not"/>
+								</th>
+								<th>
+									<spring:message code="label.query.comparison"/>
+								</th>
+								<th>
+									<spring:message code="label.query.value"/>
+								</th>
+								<th></th>
+							</tr>
+							<c:forEach var="i" begin="1" end="5" varStatus="status">
+								<tr id="jxfsComponentRow${i}" <c:if test="${!status.first}">class="hidden"</c:if>>
+									<td>
+										<form:select path="jxfsComponentCombo${i}1" id="jxfsComponentCombo${i}1" class="query_selectors" size="1" onchange="ChangeValue2CB1('jxfsComponent', ${i})">
+											<form:option value="" label=""/>
+											<c:forEach items="${values.get('jxfsComponent').keySet()}" var="value">
+												<form:option value="${value}">
+													<spring:message code="label.jxfsComponent.${value}"/>
+												</form:option>
+											</c:forEach>
+										</form:select>
+									</td>
+									<td>
+										<form:checkbox path="jxfsComponentCB${i}" id="jxfsComponentCB${i}" disabled="true"/>
+									</td>
+									<td>
+										<form:select path="jxfsComponentCombo${i}2" id="jxfsComponentCombo${i}2" class="query_selectors" size="1" disabled="true" onchange="ChangeValue2CB2('jxfsComponent', ${i})">
+											<form:option value="" label=""/>
+										</form:select>
+									</td>
+									<td>
+										<form:input class='form-tf-grey' path="jxfsComponentField${i}" id="jxfsComponentField${i}" disabled="true" maxlength="150"/>
+										</td>
+									<c:if test="${!status.last}">
+										<td class="btn_add">
+											<div id="jxfsComponentShowButton${i}" onclick="showHiddenRow('jxfsComponent', ${i})" class="btn add"><span>Añadir</span></div>
+										</td>
+									</c:if>
+									<c:if test="${status.last}">
+										<td> </td>
+									</c:if>
+								</tr>
+							</c:forEach>
+						</table>
 					</div><!-- /collapsible -->
 				<h2 class="txt content_hide" id="swSection">
 					<spring:message code="label.query.softwareGlobalSection"/>
@@ -580,6 +686,8 @@
 			displayOnLoad('terminal', 5);
 			displayOnLoad('hardwareDevice', 5);
 			displayOnLoad('financialDevice', 5);
+			displayOnLoad('xfsComponent', 5);
+			displayOnLoad('jxfsComponent', 5);
 			displayOnLoad('operatingSystem', 5);
 			displayOnLoad('internetExplorer', 2);
 			displayOnLoad('hotfix', 5);

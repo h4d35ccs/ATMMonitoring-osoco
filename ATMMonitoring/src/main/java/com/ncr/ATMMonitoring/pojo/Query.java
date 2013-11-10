@@ -43,6 +43,8 @@ public class Query {
 	comboboxes = new TreeMap<String, Map>();
 	comboboxes.put("terminal", Terminal.getComboboxes());
 	comboboxes.put("financialDevice", FinancialDevice.getComboboxes());
+	comboboxes.put("xfsComponent", XfsComponent.getComboboxes());
+	comboboxes.put("jxfsComponent", JxfsComponent.getComboboxes());
 	comboboxes.put("hotfix", Hotfix.getComboboxes());
 	comboboxes.put("internetExplorer", InternetExplorer.getComboboxes());
 	comboboxes.put("operatingSystem", OperatingSystem.getComboboxes());
@@ -599,6 +601,126 @@ public class Query {
 
     @Column(name = "hw_device_f5", length = 150)
     private String hardwareDeviceField5 = "";
+
+    @Column(name = "xfs_component_c11", length = 50)
+    private String xfsComponentCombo11 = "";
+
+    @Column(name = "xfs_component_c12", length = 50)
+    private String xfsComponentCombo12 = "";
+
+    @Column(name = "xfs_component_cb1")
+    private Boolean xfsComponentCB1 = false;
+
+    @Column(name = "xfs_component_f1", length = 150)
+    private String xfsComponentField1 = "";
+
+    @Column(name = "xfs_component_c21", length = 50)
+    private String xfsComponentCombo21 = "";
+
+    @Column(name = "xfs_component_c22", length = 50)
+    private String xfsComponentCombo22 = "";
+
+    @Column(name = "xfs_component_cb2")
+    private Boolean xfsComponentCB2 = false;
+
+    @Column(name = "xfs_component_f2", length = 150)
+    private String xfsComponentField2 = "";
+
+    @Column(name = "xfs_component_c31", length = 50)
+    private String xfsComponentCombo31 = "";
+
+    @Column(name = "xfs_component_c32", length = 50)
+    private String xfsComponentCombo32 = "";
+
+    @Column(name = "xfs_component_cb3")
+    private Boolean xfsComponentCB3 = false;
+
+    @Column(name = "xfs_component_f3", length = 150)
+    private String xfsComponentField3 = "";
+
+    @Column(name = "xfs_component_c41", length = 50)
+    private String xfsComponentCombo41 = "";
+
+    @Column(name = "xfs_component_c42", length = 50)
+    private String xfsComponentCombo42 = "";
+
+    @Column(name = "xfs_component_cb4")
+    private Boolean xfsComponentCB4 = false;
+
+    @Column(name = "xfs_component_f4", length = 150)
+    private String xfsComponentField4 = "";
+
+    @Column(name = "xfs_component_c51", length = 50)
+    private String xfsComponentCombo51 = "";
+
+    @Column(name = "xfs_component_c52", length = 50)
+    private String xfsComponentCombo52 = "";
+
+    @Column(name = "xfs_component_cb5")
+    private Boolean xfsComponentCB5 = false;
+
+    @Column(name = "xfs_component_f5", length = 150)
+    private String xfsComponentField5 = "";
+
+    @Column(name = "jxfs_component_c11", length = 50)
+    private String jxfsComponentCombo11 = "";
+
+    @Column(name = "jxfs_component_c12", length = 50)
+    private String jxfsComponentCombo12 = "";
+
+    @Column(name = "jxfs_component_cb1")
+    private Boolean jxfsComponentCB1 = false;
+
+    @Column(name = "jxfs_component_f1", length = 150)
+    private String jxfsComponentField1 = "";
+
+    @Column(name = "jxfs_component_c21", length = 50)
+    private String jxfsComponentCombo21 = "";
+
+    @Column(name = "jxfs_component_c22", length = 50)
+    private String jxfsComponentCombo22 = "";
+
+    @Column(name = "jxfs_component_cb2")
+    private Boolean jxfsComponentCB2 = false;
+
+    @Column(name = "jxfs_component_f2", length = 150)
+    private String jxfsComponentField2 = "";
+
+    @Column(name = "jxfs_component_c31", length = 50)
+    private String jxfsComponentCombo31 = "";
+
+    @Column(name = "jxfs_component_c32", length = 50)
+    private String jxfsComponentCombo32 = "";
+
+    @Column(name = "jxfs_component_cb3")
+    private Boolean jxfsComponentCB3 = false;
+
+    @Column(name = "jxfs_component_f3", length = 150)
+    private String jxfsComponentField3 = "";
+
+    @Column(name = "jxfs_component_c41", length = 50)
+    private String jxfsComponentCombo41 = "";
+
+    @Column(name = "jxfs_component_c42", length = 50)
+    private String jxfsComponentCombo42 = "";
+
+    @Column(name = "jxfs_component_cb4")
+    private Boolean jxfsComponentCB4 = false;
+
+    @Column(name = "jxfs_component_f4", length = 150)
+    private String jxfsComponentField4 = "";
+
+    @Column(name = "jxfs_component_c51", length = 50)
+    private String jxfsComponentCombo51 = "";
+
+    @Column(name = "jxfs_component_c52", length = 50)
+    private String jxfsComponentCombo52 = "";
+
+    @Column(name = "jxfs_component_cb5")
+    private Boolean jxfsComponentCB5 = false;
+
+    @Column(name = "jxfs_component_f5", length = 150)
+    private String jxfsComponentField5 = "";
 
     /**
      * @return the id
@@ -1299,6 +1421,54 @@ public class Query {
 		+ financialDeviceCombo51, financialDeviceCombo52,
 		financialDeviceField5, financialDeviceCB5, values, types,
 		locale);
+	if (constraints.endsWith(" and ")) {
+	    constraints = constraints.substring(0, constraints.length() - 5);
+	}
+	return constraints;
+    }
+
+    private String getXfsComponentConstraints(List<Object> values,
+	    List<Type> types, Locale locale) {
+	String constraints = "";
+	constraints += getConstraint("xfsComponent." + xfsComponentCombo11,
+		xfsComponentCombo12, xfsComponentField1, xfsComponentCB1,
+		values, types, locale);
+	constraints += getConstraint("xfsComponent." + xfsComponentCombo21,
+		xfsComponentCombo22, xfsComponentField2, xfsComponentCB2,
+		values, types, locale);
+	constraints += getConstraint("xfsComponent." + xfsComponentCombo31,
+		xfsComponentCombo32, xfsComponentField3, xfsComponentCB3,
+		values, types, locale);
+	constraints += getConstraint("xfsComponent." + xfsComponentCombo41,
+		xfsComponentCombo42, xfsComponentField4, xfsComponentCB4,
+		values, types, locale);
+	constraints += getConstraint("xfsComponent." + xfsComponentCombo51,
+		xfsComponentCombo52, xfsComponentField5, xfsComponentCB5,
+		values, types, locale);
+	if (constraints.endsWith(" and ")) {
+	    constraints = constraints.substring(0, constraints.length() - 5);
+	}
+	return constraints;
+    }
+
+    private String getJxfsComponentConstraints(List<Object> values,
+	    List<Type> types, Locale locale) {
+	String constraints = "";
+	constraints += getConstraint("jxfsComponent." + jxfsComponentCombo11,
+		jxfsComponentCombo12, jxfsComponentField1, jxfsComponentCB1,
+		values, types, locale);
+	constraints += getConstraint("jxfsComponent." + jxfsComponentCombo21,
+		jxfsComponentCombo22, jxfsComponentField2, jxfsComponentCB2,
+		values, types, locale);
+	constraints += getConstraint("jxfsComponent." + jxfsComponentCombo31,
+		jxfsComponentCombo32, jxfsComponentField3, jxfsComponentCB3,
+		values, types, locale);
+	constraints += getConstraint("jxfsComponent." + jxfsComponentCombo41,
+		jxfsComponentCombo42, jxfsComponentField4, jxfsComponentCB4,
+		values, types, locale);
+	constraints += getConstraint("jxfsComponent." + jxfsComponentCombo51,
+		jxfsComponentCombo52, jxfsComponentField5, jxfsComponentCB5,
+		values, types, locale);
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -3572,8 +3742,20 @@ public class Query {
 		values, types, locale);
 	String hardwareDeviceConstraints = getHardwareDeviceConstraints(values,
 		types, locale);
-	if (financialDeviceConstraints.length() > 0) {
+	String xfsComponentConstraints = getXfsComponentConstraints(values,
+		types, locale);
+	String jxfsComponentConstraints = getJxfsComponentConstraints(values,
+		types, locale);
+	if ((financialDeviceConstraints.length() > 0)
+		|| (xfsComponentConstraints.length() > 0)
+		|| (jxfsComponentConstraints.length() > 0)) {
 	    hql += " join terminal.financialDevices financialDevice";
+	}
+	if (xfsComponentConstraints.length() > 0) {
+	    hql += " join financialDevice.xfsComponents xfsComponent";
+	}
+	if (jxfsComponentConstraints.length() > 0) {
+	    hql += " join financialDevice.jxfsComponents jxfsComponent";
 	}
 	if (hotfixConstraints.length() > 0) {
 	    hql += " join terminal.hotfixes hotfix";
@@ -3594,6 +3776,12 @@ public class Query {
 	}
 	if (financialDeviceConstraints.length() > 0) {
 	    hql += "(" + financialDeviceConstraints + ") and ";
+	}
+	if (xfsComponentConstraints.length() > 0) {
+	    hql += "(" + xfsComponentConstraints + ") and ";
+	}
+	if (jxfsComponentConstraints.length() > 0) {
+	    hql += "(" + jxfsComponentConstraints + ") and ";
 	}
 	if (hotfixConstraints.length() > 0) {
 	    hql += "(" + hotfixConstraints + ") and ";
@@ -3702,6 +3890,326 @@ public class Query {
     public String getCreationDateShort() {
 	return (creationDate != null) ? DateFormat.getDateInstance(
 		DateFormat.SHORT, Locale.getDefault()).format(creationDate) : "";
+    }
+
+    public String getXfsComponentCombo11() {
+	return xfsComponentCombo11;
+    }
+
+    public void setXfsComponentCombo11(String xfsComponentCombo11) {
+	this.xfsComponentCombo11 = xfsComponentCombo11;
+    }
+
+    public String getXfsComponentCombo12() {
+	return xfsComponentCombo12;
+    }
+
+    public void setXfsComponentCombo12(String xfsComponentCombo12) {
+	this.xfsComponentCombo12 = xfsComponentCombo12;
+    }
+
+    public Boolean getXfsComponentCB1() {
+	return xfsComponentCB1;
+    }
+
+    public void setXfsComponentCB1(Boolean xfsComponentCB1) {
+	this.xfsComponentCB1 = xfsComponentCB1;
+    }
+
+    public String getXfsComponentField1() {
+	return xfsComponentField1;
+    }
+
+    public void setXfsComponentField1(String xfsComponentField1) {
+	this.xfsComponentField1 = xfsComponentField1;
+    }
+
+    public String getXfsComponentCombo21() {
+	return xfsComponentCombo21;
+    }
+
+    public void setXfsComponentCombo21(String xfsComponentCombo21) {
+	this.xfsComponentCombo21 = xfsComponentCombo21;
+    }
+
+    public String getXfsComponentCombo22() {
+	return xfsComponentCombo22;
+    }
+
+    public void setXfsComponentCombo22(String xfsComponentCombo22) {
+	this.xfsComponentCombo22 = xfsComponentCombo22;
+    }
+
+    public Boolean getXfsComponentCB2() {
+	return xfsComponentCB2;
+    }
+
+    public void setXfsComponentCB2(Boolean xfsComponentCB2) {
+	this.xfsComponentCB2 = xfsComponentCB2;
+    }
+
+    public String getXfsComponentField2() {
+	return xfsComponentField2;
+    }
+
+    public void setXfsComponentField2(String xfsComponentField2) {
+	this.xfsComponentField2 = xfsComponentField2;
+    }
+
+    public String getXfsComponentCombo31() {
+	return xfsComponentCombo31;
+    }
+
+    public void setXfsComponentCombo31(String xfsComponentCombo31) {
+	this.xfsComponentCombo31 = xfsComponentCombo31;
+    }
+
+    public String getXfsComponentCombo32() {
+	return xfsComponentCombo32;
+    }
+
+    public void setXfsComponentCombo32(String xfsComponentCombo32) {
+	this.xfsComponentCombo32 = xfsComponentCombo32;
+    }
+
+    public Boolean getXfsComponentCB3() {
+	return xfsComponentCB3;
+    }
+
+    public void setXfsComponentCB3(Boolean xfsComponentCB3) {
+	this.xfsComponentCB3 = xfsComponentCB3;
+    }
+
+    public String getXfsComponentField3() {
+	return xfsComponentField3;
+    }
+
+    public void setXfsComponentField3(String xfsComponentField3) {
+	this.xfsComponentField3 = xfsComponentField3;
+    }
+
+    public String getXfsComponentCombo41() {
+	return xfsComponentCombo41;
+    }
+
+    public void setXfsComponentCombo41(String xfsComponentCombo41) {
+	this.xfsComponentCombo41 = xfsComponentCombo41;
+    }
+
+    public String getXfsComponentCombo42() {
+	return xfsComponentCombo42;
+    }
+
+    public void setXfsComponentCombo42(String xfsComponentCombo42) {
+	this.xfsComponentCombo42 = xfsComponentCombo42;
+    }
+
+    public Boolean getXfsComponentCB4() {
+	return xfsComponentCB4;
+    }
+
+    public void setXfsComponentCB4(Boolean xfsComponentCB4) {
+	this.xfsComponentCB4 = xfsComponentCB4;
+    }
+
+    public String getXfsComponentField4() {
+	return xfsComponentField4;
+    }
+
+    public void setXfsComponentField4(String xfsComponentField4) {
+	this.xfsComponentField4 = xfsComponentField4;
+    }
+
+    public String getXfsComponentCombo51() {
+	return xfsComponentCombo51;
+    }
+
+    public void setXfsComponentCombo51(String xfsComponentCombo51) {
+	this.xfsComponentCombo51 = xfsComponentCombo51;
+    }
+
+    public String getXfsComponentCombo52() {
+	return xfsComponentCombo52;
+    }
+
+    public void setXfsComponentCombo52(String xfsComponentCombo52) {
+	this.xfsComponentCombo52 = xfsComponentCombo52;
+    }
+
+    public Boolean getXfsComponentCB5() {
+	return xfsComponentCB5;
+    }
+
+    public void setXfsComponentCB5(Boolean xfsComponentCB5) {
+	this.xfsComponentCB5 = xfsComponentCB5;
+    }
+
+    public String getXfsComponentField5() {
+	return xfsComponentField5;
+    }
+
+    public void setXfsComponentField5(String xfsComponentField5) {
+	this.xfsComponentField5 = xfsComponentField5;
+    }
+
+    public String getJxfsComponentCombo11() {
+	return jxfsComponentCombo11;
+    }
+
+    public void setJxfsComponentCombo11(String jxfsComponentCombo11) {
+	this.jxfsComponentCombo11 = jxfsComponentCombo11;
+    }
+
+    public String getJxfsComponentCombo12() {
+	return jxfsComponentCombo12;
+    }
+
+    public void setJxfsComponentCombo12(String jxfsComponentCombo12) {
+	this.jxfsComponentCombo12 = jxfsComponentCombo12;
+    }
+
+    public Boolean getJxfsComponentCB1() {
+	return jxfsComponentCB1;
+    }
+
+    public void setJxfsComponentCB1(Boolean jxfsComponentCB1) {
+	this.jxfsComponentCB1 = jxfsComponentCB1;
+    }
+
+    public String getJxfsComponentField1() {
+	return jxfsComponentField1;
+    }
+
+    public void setJxfsComponentField1(String jxfsComponentField1) {
+	this.jxfsComponentField1 = jxfsComponentField1;
+    }
+
+    public String getJxfsComponentCombo21() {
+	return jxfsComponentCombo21;
+    }
+
+    public void setJxfsComponentCombo21(String jxfsComponentCombo21) {
+	this.jxfsComponentCombo21 = jxfsComponentCombo21;
+    }
+
+    public String getJxfsComponentCombo22() {
+	return jxfsComponentCombo22;
+    }
+
+    public void setJxfsComponentCombo22(String jxfsComponentCombo22) {
+	this.jxfsComponentCombo22 = jxfsComponentCombo22;
+    }
+
+    public Boolean getJxfsComponentCB2() {
+	return jxfsComponentCB2;
+    }
+
+    public void setJxfsComponentCB2(Boolean jxfsComponentCB2) {
+	this.jxfsComponentCB2 = jxfsComponentCB2;
+    }
+
+    public String getJxfsComponentField2() {
+	return jxfsComponentField2;
+    }
+
+    public void setJxfsComponentField2(String jxfsComponentField2) {
+	this.jxfsComponentField2 = jxfsComponentField2;
+    }
+
+    public String getJxfsComponentCombo31() {
+	return jxfsComponentCombo31;
+    }
+
+    public void setJxfsComponentCombo31(String jxfsComponentCombo31) {
+	this.jxfsComponentCombo31 = jxfsComponentCombo31;
+    }
+
+    public String getJxfsComponentCombo32() {
+	return jxfsComponentCombo32;
+    }
+
+    public void setJxfsComponentCombo32(String jxfsComponentCombo32) {
+	this.jxfsComponentCombo32 = jxfsComponentCombo32;
+    }
+
+    public Boolean getJxfsComponentCB3() {
+	return jxfsComponentCB3;
+    }
+
+    public void setJxfsComponentCB3(Boolean jxfsComponentCB3) {
+	this.jxfsComponentCB3 = jxfsComponentCB3;
+    }
+
+    public String getJxfsComponentField3() {
+	return jxfsComponentField3;
+    }
+
+    public void setJxfsComponentField3(String jxfsComponentField3) {
+	this.jxfsComponentField3 = jxfsComponentField3;
+    }
+
+    public String getJxfsComponentCombo41() {
+	return jxfsComponentCombo41;
+    }
+
+    public void setJxfsComponentCombo41(String jxfsComponentCombo41) {
+	this.jxfsComponentCombo41 = jxfsComponentCombo41;
+    }
+
+    public String getJxfsComponentCombo42() {
+	return jxfsComponentCombo42;
+    }
+
+    public void setJxfsComponentCombo42(String jxfsComponentCombo42) {
+	this.jxfsComponentCombo42 = jxfsComponentCombo42;
+    }
+
+    public Boolean getJxfsComponentCB4() {
+	return jxfsComponentCB4;
+    }
+
+    public void setJxfsComponentCB4(Boolean jxfsComponentCB4) {
+	this.jxfsComponentCB4 = jxfsComponentCB4;
+    }
+
+    public String getJxfsComponentField4() {
+	return jxfsComponentField4;
+    }
+
+    public void setJxfsComponentField4(String jxfsComponentField4) {
+	this.jxfsComponentField4 = jxfsComponentField4;
+    }
+
+    public String getJxfsComponentCombo51() {
+	return jxfsComponentCombo51;
+    }
+
+    public void setJxfsComponentCombo51(String jxfsComponentCombo51) {
+	this.jxfsComponentCombo51 = jxfsComponentCombo51;
+    }
+
+    public String getJxfsComponentCombo52() {
+	return jxfsComponentCombo52;
+    }
+
+    public void setJxfsComponentCombo52(String jxfsComponentCombo52) {
+	this.jxfsComponentCombo52 = jxfsComponentCombo52;
+    }
+
+    public Boolean getJxfsComponentCB5() {
+	return jxfsComponentCB5;
+    }
+
+    public void setJxfsComponentCB5(Boolean jxfsComponentCB5) {
+	this.jxfsComponentCB5 = jxfsComponentCB5;
+    }
+
+    public String getJxfsComponentField5() {
+	return jxfsComponentField5;
+    }
+
+    public void setJxfsComponentField5(String jxfsComponentField5) {
+	this.jxfsComponentField5 = jxfsComponentField5;
     }
 
 }
