@@ -404,6 +404,9 @@ public class JxfsComponent {
     @Column(name = "write_mode", length = 200)
     private String writeMode;
 
+    public JxfsComponent() {
+    }
+
     public JxfsComponent(CapabilitiesJxfsALMCollector jxfs) {
 	jxfsClass = "ALM";
 	deviceControlName = jxfs.getDevicecontrolname();
