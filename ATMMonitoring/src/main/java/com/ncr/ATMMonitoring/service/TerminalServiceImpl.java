@@ -1082,8 +1082,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsALMCollector jxfsPojo : dataStoreTerminal
 		    .getVjAlm()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1095,8 +1096,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsCAMCollector jxfsPojo : dataStoreTerminal
 		    .getVjCam()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1108,8 +1110,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsCDRCollector jxfsPojo : dataStoreTerminal
 		    .getVjCdr()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1121,8 +1124,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsCHKCollector jxfsPojo : dataStoreTerminal
 		    .getVjChk()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1134,8 +1138,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsDEPCollector jxfsPojo : dataStoreTerminal
 		    .getVjDep()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1147,8 +1152,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsMSDCollector jxfsPojo : dataStoreTerminal
 		    .getVjMsd()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1160,8 +1166,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsPINCollector jxfsPojo : dataStoreTerminal
 		    .getVjPin()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1173,8 +1180,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsPTRCollector jxfsPojo : dataStoreTerminal
 		    .getVjPtr()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1186,8 +1194,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsSCNCollector jxfsPojo : dataStoreTerminal
 		    .getVjScn()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1199,8 +1208,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsSIUCollector jxfsPojo : dataStoreTerminal
 		    .getVjSiu()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1212,8 +1222,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsTIOCollector jxfsPojo : dataStoreTerminal
 		    .getVjTio()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
@@ -1225,8 +1236,9 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsVDMCollector jxfsPojo : dataStoreTerminal
 		    .getVjVdm()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		if (jxfsPojo.getVendorinfo() != null) {
-		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		String[] devs = jxfsPojo.getVendorinfo();
+		if ((devs != null) && (devs.length > 0)) {
+		    assignJxfsComponent(jxfs, finDevs, devs);
 		} else {
 		    logger.warn("Jxfs component of type '"
 			    + jxfs.getJxfsClass()
