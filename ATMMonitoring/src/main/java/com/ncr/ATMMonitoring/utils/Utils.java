@@ -6,11 +6,20 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 public abstract class Utils {
+
+    private static Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+
+    public static String toJson(Object object) {
+	return gson.toJson(object);
+    }
 
     public static String concatStrings(List<String> strings, char separator) {
 		String result = "", separatorString = String.valueOf(separator);
