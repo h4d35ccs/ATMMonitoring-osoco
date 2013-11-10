@@ -704,7 +704,7 @@
 												</td>
 												<td>
 													<c:forEach items="${financialDevice.xfsComponents}" var="xfsComponent">
-														<a class="iframe" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.serviceProvider}</a>
+														<a class="iframe" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.xfsClass}</a>
 														</c:forEach>
 												</td>
 --%>
@@ -761,11 +761,22 @@
 												<li>
 													<strong><spring:message code="label.financialDevice.hotSwappable"/>:</strong>${financialDevice.hotSwappable}
 												</li>
-												<li>
-													<c:forEach items="${financialDevice.xfsComponents}" var="xfsComponent">
-														<strong><spring:message code="label.financialDevice.xfsComponents"/>:</strong><a class="iframe" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.serviceProvider}</a>
+												<c:if  test="${!empty financialDevice.xfsComponents}">
+													<li>
+														<strong><spring:message code="label.financialDevice.xfsComponents"/>:</strong>
+														<c:forEach items="${financialDevice.xfsComponents}" var="xfsComponent">
+															<a class="iframe" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.xfsClass}</a>
 														</c:forEach>
-												</li>
+													</li>
+												</c:if>
+												<c:if  test="${!empty financialDevice.jxfsComponents}">
+													<li>
+														<strong><spring:message code="label.financialDevice.jxfsComponents"/>:</strong>
+														<c:forEach items="${financialDevice.jxfsComponents}" var="jxfsComponent">
+															<a class="iframe" href="terminals/jxfsComponents/details/${jxfsComponent.id}">${jxfsComponent.jxfsClass}</a>
+														</c:forEach>
+													</li>
+												</c:if>
 												</ul>
 											</td>
 											</tr>
