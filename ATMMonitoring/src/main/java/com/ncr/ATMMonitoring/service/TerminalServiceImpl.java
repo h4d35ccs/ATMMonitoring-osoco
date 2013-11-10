@@ -818,21 +818,39 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     private void assignXfsComponent(XfsComponent xfs,
-	    Collection<FinancialDevice> finDevs, String name) {
-	for (FinancialDevice dev : finDevs) {
-	    if (name.equals(dev.getName())) {
-		dev.getXfsComponents().add(xfs);
-		xfs.setFinancialDevice(dev);
+	    Collection<FinancialDevice> finDevs, String[] names) {
+	boolean found;
+	for (String name : names) {
+	    found = false;
+	    for (FinancialDevice dev : finDevs) {
+		if (name.equals(dev.getName()) || name.equals(dev.getCaption())) {
+		    dev.getXfsComponents().add(xfs);
+		    found = true;
+		    break;
+		}
+	    }
+	    if (!found) {
+		logger.warn("Couldn't find financial device '" + name
+			+ "' for xfs component '" + xfs.getXfsClass() + "'");
 	    }
 	}
     }
 
     private void assignJxfsComponent(JxfsComponent jxfs,
-	    Collection<FinancialDevice> finDevs, String name) {
-	for (FinancialDevice dev : finDevs) {
-	    if (name.equals(dev.getName())) {
-		dev.getJxfsComponents().add(jxfs);
-		jxfs.setFinancialDevice(dev);
+	    Collection<FinancialDevice> finDevs, String[] names) {
+	boolean found;
+	for (String name : names) {
+	    found = false;
+	    for (FinancialDevice dev : finDevs) {
+		if (name.equals(dev.getName()) || name.equals(dev.getCaption())) {
+		    dev.getJxfsComponents().add(jxfs);
+		    found = true;
+		    break;
+		}
+	    }
+	    if (!found) {
+		logger.warn("Couldn't find financial device '" + name
+			+ "' for jxfs component '" + jxfs.getJxfsClass() + "'");
 	    }
 	}
     }
@@ -853,97 +871,209 @@ public class TerminalServiceImpl implements TerminalService {
 	if (dataStoreTerminal.getvAlm() != null) {
 	    for (ALM xfsPojo : dataStoreTerminal.getvAlm()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvBcr() != null) {
 	    for (BCR xfsPojo : dataStoreTerminal.getvBcr()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvCam() != null) {
 	    for (CAM xfsPojo : dataStoreTerminal.getvCam()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvCdm() != null) {
 	    for (CDM xfsPojo : dataStoreTerminal.getvCdm()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvCeu() != null) {
 	    for (CEU xfsPojo : dataStoreTerminal.getvCeu()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvChk() != null) {
 	    for (CHK xfsPojo : dataStoreTerminal.getvChk()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvCim() != null) {
 	    for (CIM xfsPojo : dataStoreTerminal.getvCim()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvCrd() != null) {
 	    for (CRD xfsPojo : dataStoreTerminal.getvCrd()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvDep() != null) {
 	    for (DEP xfsPojo : dataStoreTerminal.getvDep()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvIdc() != null) {
 	    for (IDC xfsPojo : dataStoreTerminal.getvIdc()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvIpm() != null) {
 	    for (IPM xfsPojo : dataStoreTerminal.getvIpm()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvPin() != null) {
 	    for (PIN xfsPojo : dataStoreTerminal.getvPin()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvPtr() != null) {
 	    for (PTR xfsPojo : dataStoreTerminal.getvPtr()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvSiu() != null) {
 	    for (SIU xfsPojo : dataStoreTerminal.getvSiu()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvTtu() != null) {
 	    for (TTU xfsPojo : dataStoreTerminal.getvTtu()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getvVdm() != null) {
 	    for (VDM xfsPojo : dataStoreTerminal.getvVdm()) {
 		XfsComponent xfs = new XfsComponent(xfsPojo);
-		assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename());
+		if (xfsPojo.getDevicename() != null) {
+		    assignXfsComponent(xfs, finDevs, xfsPojo.getDevicename()
+			    .split(","));
+		} else {
+		    logger.warn("Xfs component of type '"
+			    + xfs.getXfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 
@@ -952,96 +1082,156 @@ public class TerminalServiceImpl implements TerminalService {
 	    for (CapabilitiesJxfsALMCollector jxfsPojo : dataStoreTerminal
 		    .getVjAlm()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjCam() != null) {
 	    for (CapabilitiesJxfsCAMCollector jxfsPojo : dataStoreTerminal
 		    .getVjCam()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjCdr() != null) {
 	    for (CapabilitiesJxfsCDRCollector jxfsPojo : dataStoreTerminal
 		    .getVjCdr()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjChk() != null) {
 	    for (CapabilitiesJxfsCHKCollector jxfsPojo : dataStoreTerminal
 		    .getVjChk()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjDep() != null) {
 	    for (CapabilitiesJxfsDEPCollector jxfsPojo : dataStoreTerminal
 		    .getVjDep()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjMsd() != null) {
 	    for (CapabilitiesJxfsMSDCollector jxfsPojo : dataStoreTerminal
 		    .getVjMsd()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjPin() != null) {
 	    for (CapabilitiesJxfsPINCollector jxfsPojo : dataStoreTerminal
 		    .getVjPin()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjPtr() != null) {
 	    for (CapabilitiesJxfsPTRCollector jxfsPojo : dataStoreTerminal
 		    .getVjPtr()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjScn() != null) {
 	    for (CapabilitiesJxfsSCNCollector jxfsPojo : dataStoreTerminal
 		    .getVjScn()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjSiu() != null) {
 	    for (CapabilitiesJxfsSIUCollector jxfsPojo : dataStoreTerminal
 		    .getVjSiu()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjTio() != null) {
 	    for (CapabilitiesJxfsTIOCollector jxfsPojo : dataStoreTerminal
 		    .getVjTio()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	if (dataStoreTerminal.getVjVdm() != null) {
 	    for (CapabilitiesJxfsVDMCollector jxfsPojo : dataStoreTerminal
 		    .getVjVdm()) {
 		JxfsComponent jxfs = new JxfsComponent(jxfsPojo);
-		assignJxfsComponent(jxfs, finDevs,
-			jxfsPojo.getDevicecontrolname());
+		if (jxfsPojo.getVendorinfo() != null) {
+		    assignJxfsComponent(jxfs, finDevs, jxfsPojo.getVendorinfo());
+		} else {
+		    logger.warn("Jxfs component of type '"
+			    + jxfs.getJxfsClass()
+			    + "' won't be saved because it has no financial device info!!");
+		}
 	    }
 	}
 	return finDevs;

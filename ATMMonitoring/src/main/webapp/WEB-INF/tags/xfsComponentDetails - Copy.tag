@@ -241,11 +241,7 @@
 <c:if test="${xfsComponent.extra != null}">
 <tr>
     <td class="header"><i><label><spring:message code="label.xfsComponent.extra"/></label></i></td>
-    <td><label>
-	<c:forEach items="${xfsComponent.extraSplit}" var="split">
-    	${split}<br>
-    </c:forEach>
-    </label></td>
+    <td><label>${xfsComponent.extra}</label></td>
 </tr>
 </c:if>
 <c:if test="${xfsComponent.flux != null}">

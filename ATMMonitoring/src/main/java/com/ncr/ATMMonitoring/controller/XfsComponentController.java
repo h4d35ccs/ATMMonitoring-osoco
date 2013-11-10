@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.controller;
 import java.security.Principal;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
+import com.ncr.ATMMonitoring.pojo.FinancialDevice;
+import com.ncr.ATMMonitoring.pojo.JxfsComponent;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.XfsComponent;
 import com.ncr.ATMMonitoring.service.UserService;
@@ -65,10 +68,16 @@ public class XfsComponentController {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    BankCompany aux = xfsComponent.getFinancialDevice().getTerminal()
-		    .getBankCompany();
-	    if ((aux != null)
-		    && (!loggedUser.getManageableBankCompanies().contains(aux))) {
+	    boolean allowed = false;
+	    Set<BankCompany> banks = loggedUser.getManageableBankCompanies();
+	    for (FinancialDevice dev : xfsComponent.getFinancialDevices()) {
+		BankCompany aux = dev.getTerminal().getBankCompany();
+		if ((aux == null) || (banks.contains(aux))) {
+		    allowed = true;
+		    break;
+		}
+	    }
+	    if (!allowed) {
 		map.clear();
 		return "redirect:/terminals/list";
 	    }
@@ -77,6 +86,42 @@ public class XfsComponentController {
 	map.put("xfsComponent", xfsComponent);
 
 	return "xfsComponentDetails";
+    }
+
+    @RequestMapping("/terminals/jxfsComponents/details/{jxfsComponentId}")
+    public String jxfsComponentDetails(
+	    @PathVariable("jxfsComponentId") Integer jxfsComponentId,
+	    Map<String, Object> map, HttpServletRequest request,
+	    Principal principal) {
+	JxfsComponent jxfsComponent = xfsComponentService
+		.getJxfsComponent(jxfsComponentId);
+	if (jxfsComponent == null) {
+	    return "redirect:/terminals/list";
+	}
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    boolean allowed = false;
+	    Set<BankCompany> banks = loggedUser.getManageableBankCompanies();
+	    for (FinancialDevice dev : jxfsComponent.getFinancialDevices()) {
+		BankCompany aux = dev.getTerminal().getBankCompany();
+		if ((aux == null) || (banks.contains(aux))) {
+		    allowed = true;
+		    break;
+		}
+	    }
+	    if (!allowed) {
+		map.clear();
+		return "redirect:/terminals/list";
+	    }
+	}
+	map.put("userMsg", userMsg);
+	map.put("jxfsComponent", jxfsComponent);
+
+	return "jxfsComponentDetails";
     }
     // @RequestMapping(value = "/terminals/xfsComponents/add", method =
     // RequestMethod.POST)

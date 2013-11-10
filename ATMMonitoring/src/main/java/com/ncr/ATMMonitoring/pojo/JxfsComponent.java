@@ -1,25 +1,23 @@
 package com.ncr.ATMMonitoring.pojo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.standard.jxfs.alm.CapabilitiesJxfsALMCollector;
 import com.ncr.agent.baseData.standard.jxfs.cam.CapabilitiesJxfsCAMCollector;
 import com.ncr.agent.baseData.standard.jxfs.cdr.CapabilitiesJxfsCDRCollector;
@@ -33,11 +31,13 @@ import com.ncr.agent.baseData.standard.jxfs.siu.CapabilitiesJxfsSIUCollector;
 import com.ncr.agent.baseData.standard.jxfs.tio.CapabilitiesJxfsTIOCollector;
 import com.ncr.agent.baseData.standard.jxfs.vdm.CapabilitiesJxfsVDMCollector;
 
+/**
+ * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
+ */
+
 @Entity
 @Table(name = "jxfs_components")
 public class JxfsComponent {
-
-    private static final char separator = ';';
 
     private static final Set<String> jxfsClasses;
 
@@ -63,171 +63,171 @@ public class JxfsComponent {
     @SequenceGenerator(name = "jxfs_components_id_seq", sequenceName = "jxfs_components_id_seq", allocationSize = 1)
     private Integer id;
 
-    @ManyToOne
+    @ManyToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.REFRESH)
-    @JoinColumn(name = "financial_device_id")
-    private FinancialDevice financialDevice;
+    @JoinTable(name = "financial_device_jxfs_component", joinColumns = { @JoinColumn(name = "jxfs_component_id") }, inverseJoinColumns = { @JoinColumn(name = "financial_device_id") })
+    private Set<FinancialDevice> financialDevices = new HashSet<FinancialDevice>();
 
     @Column(name = "jxfs_class", length = 50, nullable = false)
     private String jxfsClass;
 
-    @Column(name = "accept_limit", length = 100)
+    @Column(name = "accept_limit", length = 200)
     private String acceptLimit;
 
-    @Column(name = "autopresent", length = 100)
+    @Column(name = "autopresent", length = 200)
     private String autopresent;
 
-    @Column(name = "auxiliaries", length = 100)
+    @Column(name = "auxiliaries", length = 200)
     private String auxiliaries;
 
-    @Column(name = "available_resolution", length = 100)
+    @Column(name = "available_resolution", length = 200)
     private String availableResolution;
 
-    @Column(name = "bait_trap", length = 100)
+    @Column(name = "bait_trap", length = 200)
     private String baitTrap;
 
-    @Column(name = "beep_on_press_supp", length = 100)
+    @Column(name = "beep_on_press_supp", length = 200)
     private String beepOnPressSupported;
 
-    @Column(name = "beep_supp", length = 100)
+    @Column(name = "beep_supp", length = 200)
     private String beepSupported;
 
-    @Column(name = "bills_taken_sensor", length = 100)
+    @Column(name = "bills_taken_sensor", length = 200)
     private String billsTakenSensor;
 
-    @Column(name = "cashbox", length = 100)
+    @Column(name = "cashbox", length = 200)
     private String cashbox;
 
-    @Column(name = "category2", length = 100)
+    @Column(name = "category2", length = 200)
     private String category2;
 
-    @Column(name = "category3", length = 100)
+    @Column(name = "category3", length = 200)
     private String category3;
 
-    @Column(name = "cd_type", length = 100)
+    @Column(name = "cd_type", length = 200)
     private String cdType;
 
-    @Column(name = "check_vandalism", length = 100)
+    @Column(name = "check_vandalism", length = 200)
     private String checkVandalism;
 
-    @Column(name = "coins", length = 100)
+    @Column(name = "coins", length = 200)
     private String coins;
 
-    @Column(name = "complex", length = 100)
+    @Column(name = "complex", length = 200)
     private String complex;
 
-    @Column(name = "compound", length = 100)
+    @Column(name = "compound", length = 200)
     private String compound;
 
-    @Column(name = "create_sign_cmd_supported", length = 100)
+    @Column(name = "create_sign_cmd_supported", length = 200)
     private String createSignatureCommandSupported;
 
-    @Column(name = "ctrl_turn", length = 100)
+    @Column(name = "ctrl_turn", length = 200)
     private String ctrlTurn;
 
-    @Column(name = "cursor_supp", length = 100)
+    @Column(name = "cursor_supp", length = 200)
     private String cursorSupported;
 
-    @Column(name = "cylinders", length = 100)
+    @Column(name = "cylinders", length = 200)
     private String cylinders;
 
-    @Column(name = "default_input_position", length = 100)
+    @Column(name = "default_input_position", length = 200)
     private String defaultInputPosition;
 
-    @Column(name = "default_output_position", length = 100)
+    @Column(name = "default_output_position", length = 200)
     private String defaultOutputPosition;
 
     @Column(name = "default_rollback_position")
     private Integer defaultRollbackPosition;
 
-    @Column(name = "deposit", length = 100)
+    @Column(name = "deposit", length = 200)
     private String deposit;
 
-    @Column(name = "detector", length = 100)
+    @Column(name = "detector", length = 200)
     private String detector;
 
     @Column(name = "device_control_name", length = 200)
     private String deviceControlName;
 
-    @Column(name = "device_id", length = 100)
+    @Column(name = "device_id", length = 200)
     private String deviceId;
 
-    @Column(name = "device_orientation", length = 100)
+    @Column(name = "device_orientation", length = 200)
     private String deviceOrientation;
 
-    @Column(name = "device_scan_both_long_side", length = 100)
+    @Column(name = "device_scan_both_long_side", length = 200)
     private String deviceScanningBothLongSide;
 
-    @Column(name = "device_scan_both_short_side", length = 100)
+    @Column(name = "device_scan_both_short_side", length = 200)
     private String deviceScanningBothShortSide;
 
     @Column(name = "device_service_name", length = 200)
     private String deviceServiceName;
 
-    @Column(name = "device_type", length = 100)
+    @Column(name = "device_type", length = 200)
     private String deviceType;
 
-    @Column(name = "dispense", length = 100)
+    @Column(name = "dispense", length = 200)
     private String dispense;
 
-    @Column(name = "display_light_supp", length = 100)
+    @Column(name = "display_light_supp", length = 200)
     private String displayLightSupported;
 
-    @Column(name = "keyboard_lock_supp", length = 100)
+    @Column(name = "keyboard_lock_supp", length = 200)
     private String keyboardLockSupported;
 
-    @Column(name = "keyboard_supp", length = 100)
+    @Column(name = "keyboard_supp", length = 200)
     private String keyboardSupported;
 
-    @Column(name = "keys_supp", length = 100)
+    @Column(name = "keys_supp", length = 200)
     private String keysSupported;
 
-    @Column(name = "doors", length = 100)
+    @Column(name = "doors", length = 200)
     private String doors;
 
-    @Column(name = "eject_status", length = 100)
+    @Column(name = "eject_status", length = 200)
     private String ejectStatus;
 
-    @Column(name = "entry", length = 100)
+    @Column(name = "entry", length = 200)
     private String entry;
 
-    @Column(name = "env_supply", length = 100)
+    @Column(name = "env_supply", length = 200)
     private String envSupply;
 
-    @Column(name = "escrow", length = 100)
+    @Column(name = "escrow", length = 200)
     private String escrow;
 
     @Column(name = "escrow_size")
     private Integer escrowSize;
 
-    @Column(name = "event_on_start_supp", length = 100)
+    @Column(name = "event_on_start_supp", length = 200)
     private String eventOnStartSupported;
 
-    @Column(name = "extent", length = 100)
+    @Column(name = "extent", length = 200)
     private String extent;
 
-    @Column(name = "guidlights", length = 100)
+    @Column(name = "guidlights", length = 200)
     private String guidlights;
 
-    @Column(name = "id_key", length = 100)
+    @Column(name = "id_key", length = 200)
     private String idKey;
 
-    @Column(name = "image_capture", length = 100)
+    @Column(name = "image_capture", length = 200)
     private String imageCapture;
 
-    @Column(name = "indicators", length = 100)
+    @Column(name = "indicators", length = 200)
     private String indicators;
 
-    @Column(name = "input_cook_supp", length = 100)
+    @Column(name = "input_cook_supp", length = 200)
     private String inputCookSupported;
 
-    @Column(name = "input_positions", length = 100)
+    @Column(name = "input_positions", length = 200)
     private String inputPositions;
 
-    @Column(name = "input_raw_supp", length = 100)
+    @Column(name = "input_raw_supp", length = 200)
     private String inputRawSupported;
 
-    @Column(name = "intermediate_stacker", length = 100)
+    @Column(name = "intermediate_stacker", length = 200)
     private String intermediateStacker;
 
     @Column(name = "insert_text_supported", length = 50)
@@ -263,25 +263,25 @@ public class JxfsComponent {
     @Column(name = "max_stacker")
     private Integer maxStacker;
 
-    @Column(name = "mult_curr_cash_in_supported", length = 100)
+    @Column(name = "mult_curr_cash_in_supported", length = 200)
     private String multipleCurrenciesCashInSupported;
 
     @Column(name = "number_of_keys")
     private Integer numberOfKeys;
 
-    @Column(name = "orientation_to_be_scanned", length = 100)
+    @Column(name = "orientation_to_be_scanned", length = 200)
     private String orientationToBeScanned;
 
-    @Column(name = "output_positions", length = 100)
+    @Column(name = "output_positions", length = 200)
     private String outputPositions;
 
-    @Column(name = "print", length = 100)
+    @Column(name = "print", length = 200)
     private String print;
 
-    @Column(name = "power_off", length = 100)
+    @Column(name = "power_off", length = 200)
     private String powerOff;
 
-    @Column(name = "power_on", length = 100)
+    @Column(name = "power_on", length = 200)
     private String powerOn;
 
     @Column(name = "ptr_capabilities", length = 200)
@@ -290,118 +290,118 @@ public class JxfsComponent {
     @Column(name = "ptr_control_media", length = 200)
     private String ptrControlMedia;
 
-    @Column(name = "read_form", length = 100)
+    @Column(name = "read_form", length = 200)
     private String readForm;
 
-    @Column(name = "read_fonts", length = 100)
+    @Column(name = "read_fonts", length = 200)
     private String readFonts;
 
-    @Column(name = "read_image", length = 100)
+    @Column(name = "read_image", length = 200)
     private String readImage;
 
-    @Column(name = "read_keyboard_data_w_default", length = 100)
+    @Column(name = "read_keyboard_data_w_default", length = 200)
     private String readKeyboardDataWithDefault;
 
-    @Column(name = "read_micr", length = 100)
+    @Column(name = "read_micr", length = 200)
     private String readMicr;
 
-    @Column(name = "read_ocr", length = 100)
+    @Column(name = "read_ocr", length = 200)
     private String readOcr;
 
-    @Column(name = "read_status", length = 100)
+    @Column(name = "read_status", length = 200)
     private String readStatus;
 
-    @Column(name = "refill", length = 100)
+    @Column(name = "refill", length = 200)
     private String refill;
 
-    @Column(name = "remote_key_load", length = 100)
+    @Column(name = "remote_key_load", length = 200)
     private String remoteKeyLoad;
 
-    @Column(name = "retain", length = 100)
+    @Column(name = "retain", length = 200)
     private String retain;
 
-    @Column(name = "retract", length = 100)
+    @Column(name = "retract", length = 200)
     private String retract;
 
-    @Column(name = "safe_door_cmd", length = 100)
+    @Column(name = "safe_door_cmd", length = 200)
     private String safeDoorCmd;
 
-    @Column(name = "sade_door_seq", length = 100)
+    @Column(name = "sade_door_seq", length = 200)
     private String safeDoorSequence;
 
-    @Column(name = "secure_key_entry_state", length = 100)
+    @Column(name = "secure_key_entry_state", length = 200)
     private String secureKeyEntryState;
 
-    @Column(name = "secure_key_entry_supp", length = 100)
+    @Column(name = "secure_key_entry_supp", length = 200)
     private String secureKeyEntrySupported;
 
-    @Column(name = "secure_module_type", length = 100)
+    @Column(name = "secure_module_type", length = 200)
     private String secureModuleType;
 
-    @Column(name = "sensors", length = 100)
+    @Column(name = "sensors", length = 200)
     private String sensors;
 
-    @Column(name = "status", length = 100)
+    @Column(name = "status", length = 200)
     private String status;
 
-    @Column(name = "supp_chip_presentation_modes", length = 100)
+    @Column(name = "supp_chip_presentation_modes", length = 200)
     private String supportedChipPresentationModes;
 
-    @Column(name = "supp_chip_protocols", length = 100)
+    @Column(name = "supp_chip_protocols", length = 200)
     private String supportedChipProtocols;
 
-    @Column(name = "supp_crypto_modes", length = 100)
+    @Column(name = "supp_crypto_modes", length = 200)
     private String supportedCryptoModes;
 
-    @Column(name = "supp_fd_keys", length = 100)
+    @Column(name = "supp_fd_keys", length = 200)
     private String supportedFdKeys;
 
-    @Column(name = "supp_pin_formats", length = 100)
+    @Column(name = "supp_pin_formats", length = 200)
     private String supportedPinFormats;
 
-    @Column(name = "supp_read_tracks", length = 100)
+    @Column(name = "supp_read_tracks", length = 200)
     private String supportedReadTracks;
 
-    @Column(name = "supp_text_attributes", length = 100)
+    @Column(name = "supp_text_attributes", length = 200)
     private String supportedTextAttributes;
 
-    @Column(name = "supp_validation_algorithms", length = 100)
+    @Column(name = "supp_validation_algorithms", length = 200)
     private String supportedValidationAlgorithms;
 
-    @Column(name = "supp_write_hico_tracks", length = 100)
+    @Column(name = "supp_write_hico_tracks", length = 200)
     private String supportedWriteHicoTracks;
 
-    @Column(name = "supp_write_tracks", length = 100)
+    @Column(name = "supp_write_tracks", length = 200)
     private String supportedWriteTracks;
 
-    @Column(name = "shutter_cmd", length = 100)
+    @Column(name = "shutter_cmd", length = 200)
     private String shutterCmd;
 
-    @Column(name = "silent_alarm", length = 100)
+    @Column(name = "silent_alarm", length = 200)
     private String silentAlarm;
 
-    @Column(name = "test_cash_unit", length = 100)
+    @Column(name = "test_cash_unit", length = 200)
     private String testCashUnit;
 
-    @Column(name = "transport", length = 100)
+    @Column(name = "transport", length = 200)
     private String transport;
 
-    @Column(name = "trusted_user", length = 100)
+    @Column(name = "trusted_user", length = 200)
     private String trustedUser;
 
-    @Column(name = "unfit", length = 100)
+    @Column(name = "unfit", length = 200)
     private String unfit;
 
-    @Column(name = "vendor_data", length = 100)
+    @Column(name = "vendor_data", length = 200)
     private String vendorData;
 
-    @Column(name = "vendor_info", length = 100)
-    private String vendorInfo;
+    // @Column(name = "vendor_info", length = 200)
+    // private String vendorInfo;
 
-    @Column(name = "write_form", length = 100)
+    @Column(name = "write_form", length = 200)
     private String writeForm;
 
-    @Column(name = "write_mode", length = 100)
+    @Column(name = "write_mode", length = 200)
     private String writeMode;
 
     public JxfsComponent(CapabilitiesJxfsALMCollector jxfs) {
@@ -410,8 +410,8 @@ public class JxfsComponent {
 	deviceId = jxfs.getDeviceid();
 	deviceServiceName = jxfs.getDeviceservicename();
 	deviceType = jxfs.getDevicetype();
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
     }
 
     public JxfsComponent(CapabilitiesJxfsCAMCollector jxfs) {
@@ -423,8 +423,8 @@ public class JxfsComponent {
 	insertTextSupported = jxfs.getInserttextsupported();
 	maxDataLength = jxfs.getMaxdatalength();
 	maxPictures = jxfs.getMaxpictures();
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
     }
 
     public JxfsComponent(CapabilitiesJxfsCDRCollector jxfs) {
@@ -479,11 +479,12 @@ public class JxfsComponent {
 	trustedUser = jxfs.getTrusteduser();
 	unfit = jxfs.getUnfit();
 	vendorData = jxfs.getVendordata();
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
     }
 
     public JxfsComponent(CapabilitiesJxfsCHKCollector jxfs) {
+	jxfsClass = "CHK";
 	complex = jxfs.getComplex();
 	deviceControlName = jxfs.getDevicecontrolname();
 	deviceId = jxfs.getDeviceid();
@@ -493,11 +494,12 @@ public class JxfsComponent {
 	readFonts = jxfs.getReadfonts();
 	readMicr = jxfs.getReadmicr();
 	readOcr = jxfs.getReadocr();
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
     }
 
     public JxfsComponent(CapabilitiesJxfsDEPCollector jxfs) {
+	jxfsClass = "DEP";
 	deviceControlName = jxfs.getDevicecontrolname();
 	deviceId = jxfs.getDeviceid();
 	deviceServiceName = jxfs.getDeviceservicename();
@@ -512,6 +514,7 @@ public class JxfsComponent {
     }
 
     public JxfsComponent(CapabilitiesJxfsMSDCollector jxfs) {
+	jxfsClass = "MSD";
 	deviceControlName = jxfs.getDevicecontrolname();
 	deviceId = jxfs.getDeviceid();
 	deviceServiceName = jxfs.getDeviceservicename();
@@ -524,12 +527,13 @@ public class JxfsComponent {
 	supportedReadTracks = jxfs.getSupportedreadtracks();
 	supportedWriteHicoTracks = jxfs.getSupportedwritehicotracks();
 	supportedWriteTracks = jxfs.getSupportedwritetracks();
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
 	writeMode = jxfs.getWritemode();
     }
 
     public JxfsComponent(CapabilitiesJxfsPINCollector jxfs) {
+	jxfsClass = "PIN";
 	beepOnPressSupported = jxfs.getBeeponpresssupported();
 	deviceControlName = jxfs.getDevicecontrolname();
 	deviceId = jxfs.getDeviceid();
@@ -550,11 +554,12 @@ public class JxfsComponent {
 	supportedFdKeys = jxfs.getSupportedfdkeys();
 	supportedPinFormats = jxfs.getSupportedpinformats();
 	supportedValidationAlgorithms = jxfs.getSupportedvalidationalgorithms();
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
     }
 
     public JxfsComponent(CapabilitiesJxfsPTRCollector jxfs) {
+	jxfsClass = "PTR";
 	ctrlTurn = jxfs.getCtrlturn();
 	deviceControlName = jxfs.getDevicecontrolname();
 	deviceId = jxfs.getDeviceid();
@@ -570,12 +575,13 @@ public class JxfsComponent {
 	readImage = jxfs.getReadimage();
 	readStatus = jxfs.getReadstatus();
 	status = jxfs.getStatus();
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
 	writeForm = jxfs.getWriteform();
     }
 
     public JxfsComponent(CapabilitiesJxfsSCNCollector jxfs) {
+	jxfsClass = "SCN";
 	jxfs.getBarcodecapabilities(); // TODO
 	jxfs.getChequecapabilities(); // TODO
 	deviceControlName = jxfs.getDevicecontrolname();
@@ -584,11 +590,12 @@ public class JxfsComponent {
 	deviceType = jxfs.getDevicetype();
 	jxfs.getImagecapabilities(); // TODO
 	jxfs.getScncapabilities(); // TODO
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
     }
 
     public JxfsComponent(CapabilitiesJxfsSIUCollector jxfs) {
+	jxfsClass = "SIU";
 	auxiliaries = jxfs.getAuxiliaries();
 	deviceControlName = jxfs.getDevicecontrolname();
 	deviceId = jxfs.getDeviceid();
@@ -598,11 +605,12 @@ public class JxfsComponent {
 	guidlights = jxfs.getGuidlights();
 	indicators = jxfs.getIndicators();
 	sensors = jxfs.getSensors();
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
     }
 
     public JxfsComponent(CapabilitiesJxfsTIOCollector jxfs) {
+	jxfsClass = "TIO";
 	availableResolution = jxfs.getAvailableresolution();
 	beepSupported = jxfs.getBeepsupported();
 	cursorSupported = jxfs.getCursorsupported();
@@ -617,27 +625,28 @@ public class JxfsComponent {
 	maxLed = jxfs.getMaxled();
 	readKeyboardDataWithDefault = jxfs.getReadkeyboarddatawithdefault();
 	supportedTextAttributes = jxfs.getSupportedtextattributes();
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
     }
 
     public JxfsComponent(CapabilitiesJxfsVDMCollector jxfs) {
+	jxfsClass = "VDM";
 	deviceControlName = jxfs.getDevicecontrolname();
 	deviceId = jxfs.getDeviceid();
 	deviceServiceName = jxfs.getDeviceservicename();
 	deviceType = jxfs.getDevicetype();
-	setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
-		.getVendorinfo())));
+	// setVendorInfoSplit(new ArrayList<String>(Arrays.asList(jxfs
+	// .getVendorinfo())));
     }
 
-    /**
-     * @param vendor
-     *            info the vendor info as a List<String> to set
-     */
-    public void setVendorInfoSplit(List<String> vendorInfo) {
-	this.vendorInfo = Utils.concatStrings(vendorInfo,
-		JxfsComponent.separator);
-    }
+    // /**
+    // * @param vendor
+    // * info the vendor info as a List<String> to set
+    // */
+    // public void setVendorInfoSplit(List<String> vendorInfo) {
+    // this.vendorInfo = Utils.concatStrings(vendorInfo,
+    // JxfsComponent.separator);
+    // }
 
     public Integer getId() {
 	return id;
@@ -647,12 +656,12 @@ public class JxfsComponent {
 	this.id = id;
     }
 
-    public FinancialDevice getFinancialDevice() {
-	return financialDevice;
+    public Set<FinancialDevice> getFinancialDevices() {
+	return financialDevices;
     }
 
-    public void setFinancialDevice(FinancialDevice financialDevice) {
-	this.financialDevice = financialDevice;
+    public void setFinancialDevices(Set<FinancialDevice> financialDevices) {
+	this.financialDevices = financialDevices;
     }
 
     public String getJxfsClass() {
@@ -1533,13 +1542,13 @@ public class JxfsComponent {
 	this.vendorData = vendorData;
     }
 
-    public String getVendorInfo() {
-	return vendorInfo;
-    }
-
-    public void setVendorInfo(String vendorInfo) {
-	this.vendorInfo = vendorInfo;
-    }
+    // public String getVendorInfo() {
+    // return vendorInfo;
+    // }
+    //
+    // public void setVendorInfo(String vendorInfo) {
+    // this.vendorInfo = vendorInfo;
+    // }
 
     public String getWriteForm() {
 	return writeForm;

@@ -1,6 +1,8 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -12,6 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
@@ -74,14 +78,16 @@ public class FinancialDevice {
     @JoinColumn(name = "terminal_id")
     private Terminal terminal;
 
-    @OneToMany(mappedBy = "financialDevice", fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @OrderBy("xfs_class asc")
     @Cascade(CascadeType.ALL)
+    @JoinTable(name = "financial_device_xfs_component", joinColumns = { @JoinColumn(name = "financial_device_id") }, inverseJoinColumns = { @JoinColumn(name = "xfs_component_id") })
     private Set<XfsComponent> xfsComponents = new HashSet<XfsComponent>();
 
-    @OneToMany(mappedBy = "financialDevice", fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @OrderBy("jxfs_class asc")
     @Cascade(CascadeType.ALL)
+    @JoinTable(name = "financial_device_jxfs_component", joinColumns = { @JoinColumn(name = "financial_device_id") }, inverseJoinColumns = { @JoinColumn(name = "jxfs_component_id") })
     private Set<JxfsComponent> jxfsComponents = new HashSet<JxfsComponent>();
 
     @Column(name = "device_instance", length = 150)
