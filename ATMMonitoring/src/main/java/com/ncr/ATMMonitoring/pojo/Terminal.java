@@ -149,7 +149,7 @@ public class Terminal {
     @Type(type = "text")
     private String productClassDescription;
 
-    @Column(name = "serial_number", unique = true)
+    @Column(name = "serial_number")
     @Type(type = "text")
     private String serialNumber;
 
