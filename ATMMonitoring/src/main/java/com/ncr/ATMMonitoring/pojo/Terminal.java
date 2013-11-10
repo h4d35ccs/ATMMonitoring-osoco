@@ -26,6 +26,7 @@ import ncr.inventory.data.ATM;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Type;
 
 import com.ncr.ATMMonitoring.snmp.SnmpWrongDataException;
 import com.ncr.ATMMonitoring.socket.ATMWrongDataException;
@@ -89,55 +90,71 @@ public class Terminal {
     @JoinColumn(name = "terminal_model_id")
     private TerminalModel terminalModel;
 
-    @Column(name = "terminal_type", length = 50)
+    @Column(name = "terminal_type")
+    @Type(type = "text")
     private String terminalType;
 
-    @Column(name = "terminal_vendor", length = 50)
+    @Column(name = "terminal_vendor")
+    @Type(type = "text")
     private String terminalVendor;
 
     @Column(name = "front_replenish")
     private Boolean frontReplenish;
 
-    @Column(name = "geographic_address", length = 150)
+    @Column(name = "geographic_address")
+    @Type(type = "text")
     private String geographicAddress;
 
-    @Column(name = "address", length = 100)
+    @Column(name = "address")
+    @Type(type = "text")
     private String address;
 
-    @Column(name = "city", length = 35)
+    @Column(name = "city")
+    @Type(type = "text")
     private String city;
 
-    @Column(name = "area", length = 35)
+    @Column(name = "area")
+    @Type(type = "text")
     private String area;
 
-    @Column(name = "country", length = 50)
+    @Column(name = "country")
+    @Type(type = "text")
     private String country;
 
-    @Column(name = "zip_code", length = 150)
+    @Column(name = "zip_code")
+    @Type(type = "text")
     private String zipCode;
 
-    @Column(name = "branch", length = 50)
+    @Column(name = "branch")
+    @Type(type = "text")
     private String branch;
 
-    @Column(name = "bank", length = 50)
+    @Column(name = "bank")
+    @Type(type = "text")
     private String bank;
 
-    @Column(name = "manufacturing_site", length = 20)
+    @Column(name = "manufacturing_site")
+    @Type(type = "text")
     private String manufacturingSite;
 
-    @Column(name = "model", length = 20)
+    @Column(name = "model")
+    @Type(type = "text")
     private String model;
 
-    @Column(name = "product_class", length = 20)
+    @Column(name = "product_class")
+    @Type(type = "text")
     private String productClass;
 
-    @Column(name = "product_class_description", length = 120)
+    @Column(name = "product_class_description")
+    @Type(type = "text")
     private String productClassDescription;
 
-    @Column(name = "serial_number", unique = true, length = 50)
+    @Column(name = "serial_number", unique = true)
+    @Type(type = "text")
     private String serialNumber;
 
-    @Column(name = "tracer_number", length = 20)
+    @Column(name = "tracer_number")
+    @Type(type = "text")
     private String tracerNumber;
 
     @OneToMany(mappedBy = "terminal", fetch = FetchType.LAZY)

@@ -9,6 +9,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.Type;
+
 import com.ncr.agent.baseData.vendor.utils.FinancialPackagePojo;
 
 /**
@@ -30,13 +32,16 @@ public class SoftwareAggregate {
     @Column(name = "numbr")
     private Integer number;
 
-    @Column(name = "profile", length = 500)
+    @Column(name = "profile")
+    @Type(type = "text")
     private String profile;
 
-    @Column(name = "name", length = 500)
+    @Column(name = "name")
+    @Type(type = "text")
     private String name;
 
-    @Column(name = "description", length = 500)
+    @Column(name = "description")
+    @Type(type = "text")
     private String description;
 
     @Column(name = "major_version")
@@ -51,7 +56,8 @@ public class SoftwareAggregate {
     @Column(name = "revision_version")
     private Integer revisionVersion;
 
-    @Column(name = "remaining_version", length = 100)
+    @Column(name = "remaining_version")
+    @Type(type = "text")
     private String remainingVersion;
 
     // We don't need this for now

@@ -1,8 +1,6 @@
 package com.ncr.ATMMonitoring.pojo;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -17,7 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -26,6 +23,7 @@ import ncr.inventory.data.Device;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.ATMMonitoring.utils.Utils;
@@ -88,10 +86,12 @@ public class FinancialDevice {
     @JoinTable(name = "financial_device_jxfs_component", joinColumns = { @JoinColumn(name = "financial_device_id") }, inverseJoinColumns = { @JoinColumn(name = "jxfs_component_id") })
     private Set<JxfsComponent> jxfsComponents = new HashSet<JxfsComponent>();
 
-    @Column(name = "device_instance", length = 150)
+    @Column(name = "device_instance")
+    @Type(type = "text")
     private String deviceInstance;
 
-    @Column(name = "device_status", length = 150)
+    @Column(name = "device_status")
+    @Type(type = "text")
     private String deviceStatus;
 
     @Column(name = "hot_swappable")
@@ -103,37 +103,48 @@ public class FinancialDevice {
     @Column(name = "replaceable")
     private Boolean replaceable;
 
-    @Column(name = "pm_status", length = 150)
+    @Column(name = "pm_status")
+    @Type(type = "text")
     private String pmStatus;
 
-    @Column(name = "universal_id", length = 150)
+    @Column(name = "universal_id")
+    @Type(type = "text")
     private String universalId;
 
-    @Column(name = "model", length = 150)
+    @Column(name = "model")
+    @Type(type = "text")
     private String model;
 
-    @Column(name = "variant", length = 150)
+    @Column(name = "variant")
+    @Type(type = "text")
     private String variant;
 
-    @Column(name = "serial_number", length = 150)
+    @Column(name = "serial_number")
+    @Type(type = "text")
     private String serialNumber;
 
-    @Column(name = "name", length = 300)
+    @Column(name = "name")
+    @Type(type = "text")
     private String name;
 
-    @Column(name = "caption", length = 300)
+    @Column(name = "caption")
+    @Type(type = "text")
     private String caption;
 
-    @Column(name = "description", length = 300)
+    @Column(name = "description")
+    @Type(type = "text")
     private String description;
 
-    @Column(name = "manufacturer", length = 300)
+    @Column(name = "manufacturer")
+    @Type(type = "text")
     private String manufacturer;
 
-    @Column(name = "firmware_version", length = 300)
+    @Column(name = "firmware_version")
+    @Type(type = "text")
     private String firmwareVersion;
 
-    @Column(name = "version", length = 300)
+    @Column(name = "version")
+    @Type(type = "text")
     private String version;
 
     public FinancialDevice() {

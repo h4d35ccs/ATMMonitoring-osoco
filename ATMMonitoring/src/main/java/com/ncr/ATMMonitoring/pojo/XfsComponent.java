@@ -23,6 +23,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.ATMMonitoring.utils.Utils;
@@ -243,46 +244,57 @@ public class XfsComponent {
     @Column(name = "accept_media")
     private Boolean acceptMedia;
 
-    @Column(name = "algorithms", length = 500)
+    @Column(name = "algorithms")
+    @Type(type = "text")
     private String algorithms;
     
-    @Column(name = "autobeep", length = 200)
+    @Column(name = "autobeep")
+    @Type(type = "text")
     private String autobeep;
 
     @Column(name = "autoretract_period")
     private Integer autoretractPeriod;
 
-    @Column(name = "auxiliaries", length = 100)
+    @Column(name = "auxiliaries")
+    @Type(type = "text")
     private String auxiliaries;
 
-    @Column(name = "back_image_color_format", length = 500)
+    @Column(name = "back_image_color_format")
+    @Type(type = "text")
     private String backImageColorFormat;
 
-    @Column(name = "backscan_color", length = 200)
+    @Column(name = "backscan_color")
+    @Type(type = "text")
     private String backscanColor;
     
-    @Column(name = "cameras", length = 200)
+    @Column(name = "cameras")
+    @Type(type = "text")
     private String cameras;
 
-    @Column(name = "cam_data", length = 200)
+    @Column(name = "cam_data")
+    @Type(type = "text")
     private String camdata;
 
     @Column(name = "cards")
     private Integer cards;
 
-    @Column(name = "char_support", length = 500)
+    @Column(name = "char_support")
+    @Type(type = "text")
     private String charSupport;
     
     @Column(name = "chip_io")
     private Boolean chipio;
 
-    @Column(name = "chip_power", length = 500)
+    @Column(name = "chip_power")
+    @Type(type = "text")
     private String chipPower;
 
-    @Column(name = "chip_protocol", length = 500)
+    @Column(name = "chip_protocol")
+    @Type(type = "text")
     private String chipProtocol;
 
-    @Column(name = "code_line_format", length = 500)
+    @Column(name = "code_line_format")
+    @Type(type = "text")
     private String codeLineFormat;
 
     @Column(name = "compound")
@@ -291,88 +303,109 @@ public class XfsComponent {
     @Column(name = "compare_magnetic_stripe")
     private Boolean comparemagneticstripe;
 
-    @Column(name = "control", length = 500)
+    @Column(name = "control")
+    @Type(type = "text")
     private String control;
 
     @Column(name = "cursor")
     private Boolean cursor;
 
-    @Column(name = "default_backscan_color", length = 200)
+    @Column(name = "default_backscan_color")
+    @Type(type = "text")
     private String defaultBackscanColor;
 
-    @Column(name = "default_frontscan_color", length = 200)
+    @Column(name = "default_frontscan_color")
+    @Type(type = "text")
     private String defaultFrontscanColor;
     
     @Column(name = "dep_transport")
     private Boolean deptransport;
 
-    @Column(name = "derivation_algorithms", length = 500)
+    @Column(name = "derivation_algorithms")
+    @Type(type = "text")
     private String derivationAlgorithms;
 
     @Column(name = "is_prepare_dispense")
     private Boolean isPrepareDispense;
 
-    @Column(name = "dip_mode", length = 200)
+    @Column(name = "dip_mode")
+    @Type(type = "text")
     private String dipMode;
 
-    @Column(name = "dispense_to", length = 200)
+    @Column(name = "dispense_to")
+    @Type(type = "text")
     private String dispenseTo;
 
-    @Column(name = "display", length = 500)
+    @Column(name = "display")
+    @Type(type = "text")
     private String display;
 
     @Column(name = "display_light")
     private Boolean displayLight;
     
-    @Column(name = "doors", length = 100)
+    @Column(name = "doors")
+    @Type(type = "text")
     private String doors;
 
-    @Column(name = "eject_position", length = 200)
+    @Column(name = "eject_position")
+    @Type(type = "text")
     private String ejectPosition;
 
-    @Column(name = "emv_hash_algorithm", length = 200)
+    @Column(name = "emv_hash_algorithm")
+    @Type(type = "text")
     private String emvHashAlgorithm;
 
-    @Column(name = "emv_import_schemes", length = 200)
+    @Column(name = "emv_import_schemes")
+    @Type(type = "text")
     private String emvImportSchemes;
 
-    @Column(name = "encio_protocols", length = 200)
+    @Column(name = "encio_protocols")
+    @Type(type = "text")
     private String encioProtocols;
 
     @Column(name = "encoder")
     private Boolean encoder;
 
-    @Column(name = "encode_names", length = 200)
+    @Column(name = "encode_names")
+    @Type(type = "text")
     private String encodenames;
 
     @Column(name = "endorser")
     private Boolean endorser;
 
-    @Column(name = "envelope_supply", length = 200)
+    @Column(name = "envelope_supply")
+    @Type(type = "text")
     private String envelopesupply;
 
-    @Column(name = "exchange_types", length = 500)
+    @Column(name = "exchange_types")
+    @Type(type = "text")
     private String exchangeTypes;
 
-    @Column(name = "extents", length = 500)
+    @Column(name = "extents")
+    @Type(type = "text")
     private String extents;
 
-    @Column(name = "extra", length = 500)
+    @Column(name = "extra")
+    @Type(type = "text")
     private String extra;
 
-    @Column(name = "font_names", length = 200)
+    @Column(name = "font_names")
+    @Type(type = "text")
     private String fontnames;
 
     @Column(name = "forms")
     private Boolean forms;
 
-    @Column(name = "front_image_color_format", length = 500)
+    @Column(name = "front_image_color_format")
+    @Type(type = "text")
     private String frontImageColorFormat;
 
-    @Column(name = "frontscan_color", length = 200)
+    @Column(name = "frontscan_color")
+    @Type(type = "text")
     private String frontscanColor;
     
-    @Column(name = "guidlights", length = 100)
+    @Column(name = "guidlights")
+    @Type(type = "text")
     private String guidlights;
 
     @Column(name = "has_cash_box")
@@ -387,28 +420,35 @@ public class XfsComponent {
     @Column(name = "has_taken_sensor")
     private Boolean hasTakenSensor;
 
-    @Column(name = "hsm_vendor", length = 200)
+    @Column(name = "hsm_vendor")
+    @Type(type = "text")
     private String hsmVendor;
 
     @Column(name = "id_connect")
     private Boolean idConnect;
     
-    @Column(name = "id_key", length = 200)
+    @Column(name = "id_key")
+    @Type(type = "text")
     private String idKey;
 
-    @Column(name = "image_capture", length = 200)
+    @Column(name = "image_capture")
+    @Type(type = "text")
     private String imagecapture;
 
-    @Column(name = "image_source", length = 500)
+    @Column(name = "image_source")
+    @Type(type = "text")
     private String imageSource;
 
-    @Column(name = "image_type", length = 500)
+    @Column(name = "image_type")
+    @Type(type = "text")
     private String imageType;
     
-    @Column(name = "indicators", length = 100)
+    @Column(name = "indicators")
+    @Type(type = "text")
     private String indicators;
     
-    @Column(name = "insert_orientation", length = 200)
+    @Column(name = "insert_orientation")
+    @Type(type = "text")
     private String insertOrientation;
 
     @Column(name = "intermediate_stacker")
@@ -468,13 +508,16 @@ public class XfsComponent {
     @Column(name = "is_type_combined")
     private Boolean isTypeCombined;
 
-    @Column(name = "item_info_types", length = 200)
+    @Column(name = "item_info_types")
+    @Type(type = "text")
     private String itemInfoTypes;
 
-    @Column(name = "key_block_import_formats", length = 200)
+    @Column(name = "key_block_import_formats")
+    @Type(type = "text")
     private String keyBlockImportFormats;
 
-    @Column(name = "key_check_modes", length = 500)
+    @Column(name = "key_check_modes")
+    @Type(type = "text")
     private String keyCheckModes;
 
     @Column(name = "key_lock")
@@ -483,7 +526,8 @@ public class XfsComponent {
     @Column(name = "key_num")
     private Integer keyNum;
 
-    @Column(name = "logical", length = 200)
+    @Column(name = "logical")
+    @Type(type = "text")
     private String logical;
     
     @Column(name = "magnetic_stripe_read")
@@ -510,19 +554,22 @@ public class XfsComponent {
     @Column(name = "max_pictures")
     private Integer maxPictures;
 
-    @Column(name = "max_retract", length = 200)
+    @Column(name = "max_retract")
+    @Type(type = "text")
     private String maxRetract;
 
     @Column(name = "media_taken")
     private Boolean mediaTaken;
 
-    @Column(name = "memory_chip_protocols", length = 200)
+    @Column(name = "memory_chip_protocols")
+    @Type(type = "text")
     private String memoryChipProtocols;
     
     @Column(name = "micr")
     private Boolean micr;
 
-    @Column(name = "move_items", length = 500)
+    @Column(name = "move_items")
+    @Type(type = "text")
     private String moveItems;
 
     @Column(name = "multi_page")
@@ -534,22 +581,27 @@ public class XfsComponent {
     @Column(name = "ocr")
     private Boolean ocr;
 
-    @Column(name = "paper_sources", length = 500)
+    @Column(name = "paper_sources")
+    @Type(type = "text")
     private String paperSources;
 
-    @Column(name = "pin_formats", length = 500)
+    @Column(name = "pin_formats")
+    @Type(type = "text")
     private String pinFormats;
 
-    @Column(name = "power_off", length = 500)
+    @Column(name = "power_off")
+    @Type(type = "text")
     private String powerOff;
 
-    @Column(name = "power_on", length = 500)
+    @Column(name = "power_on")
+    @Type(type = "text")
     private String powerOn;
 
     @Column(name = "power_save_control")
     private Boolean powerSaveControl;
 
-    @Column(name = "presentation_algorithms", length = 500)
+    @Column(name = "presentation_algorithms")
+    @Type(type = "text")
     private String presentationAlgorithms;
     
     @Column(name = "printer")
@@ -558,76 +610,97 @@ public class XfsComponent {
     @Column(name = "print_on_retracts")
     private Boolean printOnRetracts;
 
-    @Column(name = "print_size", length = 200)
+    @Column(name = "print_size")
+    @Type(type = "text")
     private String printSize;
 
     @Column(name = "programatically_deactivate")
     private Boolean programaticallyDeactivate;
 
-    @Column(name = "provider", length = 200)
+    @Column(name = "provider")
+    @Type(type = "text")
     private String provider;
 
-    @Column(name = "read_form", length = 500)
+    @Column(name = "read_form")
+    @Type(type = "text")
     private String readForm;
 
-    @Column(name = "read_tracks", length = 500)
+    @Column(name = "read_tracks")
+    @Type(type = "text")
     private String readTracks;
 
     @Column(name = "refill")
     private Boolean refill;
 
-    @Column(name = "reset_control", length = 200)
+    @Column(name = "reset_control")
+    @Type(type = "text")
     private String resetControl;
 
-    @Column(name = "resolutions", length = 500)
+    @Column(name = "resolutions")
+    @Type(type = "text")
     private String resolutions;
 
-    @Column(name = "retract_areas", length = 500)
+    @Column(name = "retract_areas")
+    @Type(type = "text")
     private String retractAreas;
 
-    @Column(name = "retract_bins", length = 500)
+    @Column(name = "retract_bins")
+    @Type(type = "text")
     private String retractBins;
     
-    @Column(name = "retract_envelope", length = 200)
+    @Column(name = "retract_envelope")
+    @Type(type = "text")
     private String retractenvelope;
 
-    @Column(name = "retract_stacker_actions", length = 500)
+    @Column(name = "retract_stacker_actions")
+    @Type(type = "text")
     private String retractStackerActions;
 
-    @Column(name = "retract_transport_actions", length = 500)
+    @Column(name = "retract_transport_actions")
+    @Type(type = "text")
     private String retractTransportActions;
 
-    @Column(name = "rsa_auth_scheme", length = 200)
+    @Column(name = "rsa_auth_scheme")
+    @Type(type = "text")
     private String rsaAuthenticationScheme;
 
-    @Column(name = "rsa_crypt_algorithm", length = 200)
+    @Column(name = "rsa_crypt_algorithm")
+    @Type(type = "text")
     private String rsaCryptAlgorithm;
 
-    @Column(name = "rsa_keycheck_mode", length = 200)
+    @Column(name = "rsa_keycheck_mode")
+    @Type(type = "text")
     private String rsaKeycheckMode;
 
-    @Column(name = "rsa_signature_algorithm", length = 200)
+    @Column(name = "rsa_signature_algorithm")
+    @Type(type = "text")
     private String rsaSignatureAlgorithm;
 
-    @Column(name = "security_type", length = 500)
+    @Column(name = "security_type")
+    @Type(type = "text")
     private String securityType;
     
-    @Column(name = "sensors", length = 100)
+    @Column(name = "sensors")
+    @Type(type = "text")
     private String sensors;
 
     @Column(name = "shutter_control")
     private Boolean shutterControl;
     
-    @Column(name = "signature_scheme", length = 200)
+    @Column(name = "signature_scheme")
+    @Type(type = "text")
     private String signatureScheme;
 
-    @Column(name = "stamp", length = 200)
+    @Column(name = "stamp")
+    @Type(type = "text")
     private String stamp;
 
-    @Column(name = "positions", length = 500)
+    @Column(name = "positions")
+    @Type(type = "text")
     private String positions;
 
-    @Column(name = "symbologies", length = 200)
+    @Column(name = "symbologies")
+    @Type(type = "text")
     private String symbologies;
 
     @Column(name = "can_filter_symbologies")
@@ -636,22 +709,28 @@ public class XfsComponent {
     @Column(name = "toner")
     private Boolean toner;
 
-    @Column(name = "type", length = 500)
+    @Column(name = "type")
+    @Type(type = "text")
     private String type;
 
-    @Column(name = "validation_algorithms", length = 500)
+    @Column(name = "validation_algorithms")
+    @Type(type = "text")
     private String validationAlgorithms;
 
-    @Column(name = "windows_printer", length = 200)
+    @Column(name = "windows_printer")
+    @Type(type = "text")
     private String windowsPrinter;
 
-    @Column(name = "write_form", length = 500)
+    @Column(name = "write_form")
+    @Type(type = "text")
     private String writeForm;
 
-    @Column(name = "write_mode", length = 500)
+    @Column(name = "write_mode")
+    @Type(type = "text")
     private String writeMode;
 
-    @Column(name = "write_tracks", length = 500)
+    @Column(name = "write_tracks")
+    @Type(type = "text")
     private String writeTracks;
 
     public XfsComponent() {

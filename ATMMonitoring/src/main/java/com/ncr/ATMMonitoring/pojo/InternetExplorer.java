@@ -12,6 +12,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.Type;
+
 import ncr.inventory.data.IExplorer;
 
 import com.ncr.ATMMonitoring.utils.Operation;
@@ -53,7 +55,8 @@ public class InternetExplorer {
     @Column(name = "revision_version")
     private Integer revisionVersion;
 
-    @Column(name = "remaining_version", length = 20)
+    @Column(name = "remaining_version")
+    @Type(type = "text")
     private String remainingVersion;
 
     // We don't need this for now

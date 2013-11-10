@@ -20,6 +20,7 @@ import javax.persistence.Table;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.HotfixPojo;
@@ -63,13 +64,16 @@ public class Hotfix {
     @Column(name = "numbr")
     private Integer number;
 
-    @Column(name = "fix_comments", length = 150)
+    @Column(name = "fix_comments")
+    @Type(type = "text")
     private String fixComments;
 
-    @Column(name = "hotfix_id", length = 150)
+    @Column(name = "hotfix_id")
+    @Type(type = "text")
     private String hotfixId;
 
-    @Column(name = "description", length = 150)
+    @Column(name = "description")
+    @Type(type = "text")
     private String description;
 
     @Column(name = "installed_on")

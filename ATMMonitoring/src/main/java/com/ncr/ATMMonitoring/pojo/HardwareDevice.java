@@ -47,6 +47,7 @@ import ncr.inventory.data._1394Controller;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.ATMMonitoring.utils.Utils;
@@ -570,25 +571,30 @@ public class HardwareDevice {
     @Column(name = "hardware_class", length = 100, nullable = false)
     private String hardwareClass;
 
-    @Column(name = "name", length = 300)
+    @Column(name = "name")
+    @Type(type = "text")
     private String name;
 
-    @Column(name = "manufacturer", length = 300)
+    @Column(name = "manufacturer")
+    @Type(type = "text")
     private String manufacturer;
 
-    @Column(name = "model", length = 300)
+    @Column(name = "model")
+    @Type(type = "text")
     private String model;
 
     @Column(name = "number_of_processors")
     private Integer numberOfProcessors;
 
-    @Column(name = "caption", length = 300)
+    @Column(name = "caption")
+    @Type(type = "text")
     private String caption;
 
     @Column(name = "total_physical_memory")
     private Long totalPhysicalMemory;
 
-    @Column(name = "description", length = 300)
+    @Column(name = "description")
+    @Type(type = "text")
     private String description;
 
     @Column(name = "current_time_zone")
@@ -597,19 +603,24 @@ public class HardwareDevice {
     @Column(name = "daylight_in_effect")
     private Boolean daylightInEffect;
 
-    @Column(name = "domain", length = 300)
+    @Column(name = "domain")
+    @Type(type = "text")
     private String domain;
 
-    @Column(name = "workgroup", length = 300)
+    @Column(name = "workgroup")
+    @Type(type = "text")
     private String workgroup;
 
-    @Column(name = "status", length = 300)
+    @Column(name = "status")
+    @Type(type = "text")
     private String status;
 
-    @Column(name = "architecture", length = 300)
+    @Column(name = "architecture")
+    @Type(type = "text")
     private String architecture;
 
-    @Column(name = "protocol_code", length = 300)
+    @Column(name = "protocol_code")
+    @Type(type = "text")
     private String protocolCode;
 
     @Column(name = "address_width")
@@ -645,49 +656,61 @@ public class HardwareDevice {
     @Column(name = "free_space")
     private Long freeSpace;
 
-    @Column(name = "product", length = 100)
+    @Column(name = "product")
+    @Type(type = "text")
     private String product;
 
-    @Column(name = "file_system", length = 300)
+    @Column(name = "file_system")
+    @Type(type = "text")
     private String fileSystem;
 
-    @Column(name = "version", length = 200)
+    @Column(name = "version")
+    @Type(type = "text")
     private String version;
 
-    @Column(name = "usb_version", length = 200)
+    @Column(name = "usb_version")
+    @Type(type = "text")
     private String usbVersion;
 
-    @Column(name = "adapter_type", length = 300)
+    @Column(name = "adapter_type")
+    @Type(type = "text")
     private String adapterType;
 
     @Column(name = "dhcp_enabled")
     private Boolean dhcpEnabled;
 
-    @Column(name = "dhcp_server", length = 150)
+    @Column(name = "dhcp_server")
+    @Type(type = "text")
     private String dhcpServer;
 
-    @Column(name = "ip_address", length = 150)
+    @Column(name = "ip_address")
+    @Type(type = "text")
     private String ipAddress;
 
-    @Column(name = "ip_subnet", length = 150)
+    @Column(name = "ip_subnet")
+    @Type(type = "text")
     private String ipSubnet;
 
-    @Column(name = "default_ip_gateway", length = 150)
+    @Column(name = "default_ip_gateway")
+    @Type(type = "text")
     private String defaultIpGateway;
 
     @Column(name = "mac_address", length = 17)
     private String macAddress;
 
-    @Column(name = "net_connection_id", length = 300)
+    @Column(name = "net_connection_id")
+    @Type(type = "text")
     private String netConnectionId;
 
-    @Column(name = "net_connection_status", length = 100)
+    @Column(name = "net_connection_status")
+    @Type(type = "text")
     private String netConnectionStatus;
 
     @Column(name = "video_memory")
     private Integer videoMemory;
 
-    @Column(name = "device_id", length = 300)
+    @Column(name = "device_id")
+    @Type(type = "text")
     private String deviceId;
 
     @Column(name = "max_baud_rate")
@@ -696,13 +719,16 @@ public class HardwareDevice {
     @Column(name = "display_type")
     private Boolean displayType;
 
-    @Column(name = "monitor_manufacturer", length = 300)
+    @Column(name = "monitor_manufacturer")
+    @Type(type = "text")
     private String monitorManufacturer;
 
-    @Column(name = "signature", length = 300)
+    @Column(name = "signature")
+    @Type(type = "text")
     private String signature;
 
-    @Column(name = "monitor_type", length = 300)
+    @Column(name = "monitor_type")
+    @Type(type = "text")
     private String monitorType;
 
     @Column(name = "pixels_per_x_logical_inch")
@@ -711,10 +737,12 @@ public class HardwareDevice {
     @Column(name = "pixels_per_y_logical_inch")
     private Integer pixelsPerYLogicalInch;
 
-    @Column(name = "layout", length = 300)
+    @Column(name = "layout")
+    @Type(type = "text")
     private String layout;
 
-    @Column(name = "hardware_type", length = 300)
+    @Column(name = "hardware_type")
+    @Type(type = "text")
     private String hardwareType;
 
     @Column(name = "pointing_type")
@@ -723,16 +751,20 @@ public class HardwareDevice {
     @Column(name = "current_usage")
     private Integer currentUsage;
 
-    @Column(name = "serial_number", length = 300)
+    @Column(name = "serial_number")
+    @Type(type = "text")
     private String serialNumber;
 
-    @Column(name = "slot_designation", length = 100)
+    @Column(name = "slot_designation")
+    @Type(type = "text")
     private String slotDesignation;
 
-    @Column(name = "tag", length = 300)
+    @Column(name = "tag")
+    @Type(type = "text")
     private String tag;
 
-    @Column(name = "smbios_version", length = 100)
+    @Column(name = "smbios_version")
+    @Type(type = "text")
     private String smbiosVersion;
 
     @Column(name = "smbios_major_version")
@@ -741,7 +773,8 @@ public class HardwareDevice {
     @Column(name = "smbios_minor_version")
     private Integer smbiosMinorVersion;
 
-    @Column(name = "current_language", length = 100)
+    @Column(name = "current_language")
+    @Type(type = "text")
     private String currentLanguage;
 
     @Column(name = "primary_bios")
@@ -786,7 +819,8 @@ public class HardwareDevice {
     @Column(name = "adapter_ram")
     private Integer adapterRam;
 
-    @Column(name = "firmware_revision", length = 50)
+    @Column(name = "firmware_revision")
+    @Type(type = "text")
     private String firmwareRevision;
 
     @Column(name = "max_clock_speed")
@@ -795,13 +829,16 @@ public class HardwareDevice {
     @Column(name = "max_media_size")
     private Integer maxMediaSize;
 
-    @Column(name = "media_type", length = 100)
+    @Column(name = "media_type")
+    @Type(type = "text")
     private String mediaType;
 
-    @Column(name = "hardware_version", length = 50)
+    @Column(name = "hardware_version")
+    @Type(type = "text")
     private String hardwareVersion;
 
-    @Column(name = "status_info", length = 100)
+    @Column(name = "status_info")
+    @Type(type = "text")
     private String statusInfo;
 
     @Column(name = "total_cylinders")
@@ -816,13 +853,16 @@ public class HardwareDevice {
     @Column(name = "bytes_per_sector")
     private Integer bytesPerSector;
 
-    @Column(name = "video_processor", length = 100)
+    @Column(name = "video_processor")
+    @Type(type = "text")
     private String videoProcessor;
 
-    @Column(name = "volume_serial_number", length = 100)
+    @Column(name = "volume_serial_number")
+    @Type(type = "text")
     private String volumeSerialNumber;
 
-    @Column(name = "driver_name", length = 100)
+    @Column(name = "driver_name")
+    @Type(type = "text")
     private String driverName;
 
     @Column(name = "interface_index")
@@ -831,7 +871,8 @@ public class HardwareDevice {
     @Column(name = "protocol_supported")
     private Integer protocolSupported;
 
-    @Column(name = "volume_name", length = 100)
+    @Column(name = "volume_name")
+    @Type(type = "text")
     private String volumeName;
 
     public HardwareDevice() {

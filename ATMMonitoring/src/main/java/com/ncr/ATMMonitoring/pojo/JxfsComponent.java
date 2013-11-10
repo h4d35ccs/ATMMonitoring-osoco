@@ -19,6 +19,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.standard.jxfs.alm.CapabilitiesJxfsALMCollector;
@@ -192,166 +193,218 @@ public class JxfsComponent {
     @Column(name = "jxfs_class", length = 50, nullable = false)
     private String jxfsClass;
 
-    @Column(name = "accept_limit", length = 200)
+    @Column(name = "accept_limit")
+    @Type(type = "text")
     private String acceptLimit;
 
-    @Column(name = "autopresent", length = 200)
+    @Column(name = "autopresent")
+    @Type(type = "text")
     private String autopresent;
 
-    @Column(name = "auxiliaries", length = 200)
+    @Column(name = "auxiliaries")
+    @Type(type = "text")
     private String auxiliaries;
 
-    @Column(name = "available_resolution", length = 200)
+    @Column(name = "available_resolution")
+    @Type(type = "text")
     private String availableResolution;
 
-    @Column(name = "bait_trap", length = 200)
+    @Column(name = "bait_trap")
+    @Type(type = "text")
     private String baitTrap;
 
-    @Column(name = "beep_on_press_supp", length = 200)
+    @Column(name = "beep_on_press_supp")
+    @Type(type = "text")
     private String beepOnPressSupported;
 
-    @Column(name = "beep_supp", length = 200)
+    @Column(name = "beep_supp")
+    @Type(type = "text")
     private String beepSupported;
 
-    @Column(name = "bills_taken_sensor", length = 200)
+    @Column(name = "bills_taken_sensor")
+    @Type(type = "text")
     private String billsTakenSensor;
 
-    @Column(name = "cashbox", length = 200)
+    @Column(name = "cashbox")
+    @Type(type = "text")
     private String cashbox;
 
-    @Column(name = "category2", length = 200)
+    @Column(name = "category2")
+    @Type(type = "text")
     private String category2;
 
-    @Column(name = "category3", length = 200)
+    @Column(name = "category3")
+    @Type(type = "text")
     private String category3;
 
-    @Column(name = "cd_type", length = 200)
+    @Column(name = "cd_type")
+    @Type(type = "text")
     private String cdType;
 
-    @Column(name = "check_vandalism", length = 200)
+    @Column(name = "check_vandalism")
+    @Type(type = "text")
     private String checkVandalism;
 
-    @Column(name = "coins", length = 200)
+    @Column(name = "coins")
+    @Type(type = "text")
     private String coins;
 
-    @Column(name = "complex", length = 200)
+    @Column(name = "complex")
+    @Type(type = "text")
     private String complex;
 
-    @Column(name = "compound", length = 200)
+    @Column(name = "compound")
+    @Type(type = "text")
     private String compound;
 
-    @Column(name = "create_sign_cmd_supported", length = 200)
+    @Column(name = "create_sign_cmd_supported")
+    @Type(type = "text")
     private String createSignatureCommandSupported;
 
-    @Column(name = "ctrl_turn", length = 200)
+    @Column(name = "ctrl_turn")
+    @Type(type = "text")
     private String ctrlTurn;
 
-    @Column(name = "cursor_supp", length = 200)
+    @Column(name = "cursor_supp")
+    @Type(type = "text")
     private String cursorSupported;
 
-    @Column(name = "cylinders", length = 200)
+    @Column(name = "cylinders")
+    @Type(type = "text")
     private String cylinders;
 
-    @Column(name = "default_input_position", length = 200)
+    @Column(name = "default_input_position")
+    @Type(type = "text")
     private String defaultInputPosition;
 
-    @Column(name = "default_output_position", length = 200)
+    @Column(name = "default_output_position")
+    @Type(type = "text")
     private String defaultOutputPosition;
 
     @Column(name = "default_rollback_position")
     private Integer defaultRollbackPosition;
 
-    @Column(name = "deposit", length = 200)
+    @Column(name = "deposit")
+    @Type(type = "text")
     private String deposit;
 
-    @Column(name = "detector", length = 200)
+    @Column(name = "detector")
+    @Type(type = "text")
     private String detector;
 
-    @Column(name = "device_control_name", length = 200)
+    @Column(name = "device_control_name")
+    @Type(type = "text")
     private String deviceControlName;
 
-    @Column(name = "device_id", length = 200)
+    @Column(name = "device_id")
+    @Type(type = "text")
     private String deviceId;
 
-    @Column(name = "device_orientation", length = 200)
+    @Column(name = "device_orientation")
+    @Type(type = "text")
     private String deviceOrientation;
 
-    @Column(name = "device_scan_both_long_side", length = 200)
+    @Column(name = "device_scan_both_long_side")
+    @Type(type = "text")
     private String deviceScanningBothLongSide;
 
-    @Column(name = "device_scan_both_short_side", length = 200)
+    @Column(name = "device_scan_both_short_side")
+    @Type(type = "text")
     private String deviceScanningBothShortSide;
 
-    @Column(name = "device_service_name", length = 200)
+    @Column(name = "device_service_name")
+    @Type(type = "text")
     private String deviceServiceName;
 
-    @Column(name = "device_type", length = 200)
+    @Column(name = "device_type")
+    @Type(type = "text")
     private String deviceType;
 
-    @Column(name = "dispense", length = 200)
+    @Column(name = "dispense")
+    @Type(type = "text")
     private String dispense;
 
-    @Column(name = "display_light_supp", length = 200)
+    @Column(name = "display_light_supp")
+    @Type(type = "text")
     private String displayLightSupported;
 
-    @Column(name = "keyboard_lock_supp", length = 200)
+    @Column(name = "keyboard_lock_supp")
+    @Type(type = "text")
     private String keyboardLockSupported;
 
-    @Column(name = "keyboard_supp", length = 200)
+    @Column(name = "keyboard_supp")
+    @Type(type = "text")
     private String keyboardSupported;
 
-    @Column(name = "keys_supp", length = 200)
+    @Column(name = "keys_supp")
+    @Type(type = "text")
     private String keysSupported;
 
-    @Column(name = "doors", length = 200)
+    @Column(name = "doors")
+    @Type(type = "text")
     private String doors;
 
-    @Column(name = "eject_status", length = 200)
+    @Column(name = "eject_status")
+    @Type(type = "text")
     private String ejectStatus;
 
-    @Column(name = "entry", length = 200)
+    @Column(name = "entry")
+    @Type(type = "text")
     private String entry;
 
-    @Column(name = "env_supply", length = 200)
+    @Column(name = "env_supply")
+    @Type(type = "text")
     private String envSupply;
 
-    @Column(name = "escrow", length = 200)
+    @Column(name = "escrow")
+    @Type(type = "text")
     private String escrow;
 
     @Column(name = "escrow_size")
     private Integer escrowSize;
 
-    @Column(name = "event_on_start_supp", length = 200)
+    @Column(name = "event_on_start_supp")
+    @Type(type = "text")
     private String eventOnStartSupported;
 
-    @Column(name = "extent", length = 200)
+    @Column(name = "extent")
+    @Type(type = "text")
     private String extent;
 
-    @Column(name = "guidlights", length = 200)
+    @Column(name = "guidlights")
+    @Type(type = "text")
     private String guidlights;
 
-    @Column(name = "id_key", length = 200)
+    @Column(name = "id_key")
+    @Type(type = "text")
     private String idKey;
 
-    @Column(name = "image_capture", length = 200)
+    @Column(name = "image_capture")
+    @Type(type = "text")
     private String imageCapture;
 
-    @Column(name = "indicators", length = 200)
+    @Column(name = "indicators")
+    @Type(type = "text")
     private String indicators;
 
-    @Column(name = "input_cook_supp", length = 200)
+    @Column(name = "input_cook_supp")
+    @Type(type = "text")
     private String inputCookSupported;
 
-    @Column(name = "input_positions", length = 200)
+    @Column(name = "input_positions")
+    @Type(type = "text")
     private String inputPositions;
 
-    @Column(name = "input_raw_supp", length = 200)
+    @Column(name = "input_raw_supp")
+    @Type(type = "text")
     private String inputRawSupported;
 
-    @Column(name = "intermediate_stacker", length = 200)
+    @Column(name = "intermediate_stacker")
+    @Type(type = "text")
     private String intermediateStacker;
 
-    @Column(name = "insert_text_supported", length = 50)
+    @Column(name = "insert_text_supported")
+    @Type(type = "text")
     private String insertTextSupported;
 
     @Column(name = "max_data_length")
@@ -384,145 +437,191 @@ public class JxfsComponent {
     @Column(name = "max_stacker")
     private Integer maxStacker;
 
-    @Column(name = "mult_curr_cash_in_supported", length = 200)
+    @Column(name = "mult_curr_cash_in_supported")
+    @Type(type = "text")
     private String multipleCurrenciesCashInSupported;
 
     @Column(name = "number_of_keys")
     private Integer numberOfKeys;
 
-    @Column(name = "orientation_to_be_scanned", length = 200)
+    @Column(name = "orientation_to_be_scanned")
+    @Type(type = "text")
     private String orientationToBeScanned;
 
-    @Column(name = "output_positions", length = 200)
+    @Column(name = "output_positions")
+    @Type(type = "text")
     private String outputPositions;
 
-    @Column(name = "print", length = 200)
+    @Column(name = "print")
+    @Type(type = "text")
     private String print;
 
-    @Column(name = "power_off", length = 200)
+    @Column(name = "power_off")
+    @Type(type = "text")
     private String powerOff;
 
-    @Column(name = "power_on", length = 200)
+    @Column(name = "power_on")
+    @Type(type = "text")
     private String powerOn;
 
-    @Column(name = "ptr_capabilities", length = 200)
+    @Column(name = "ptr_capabilities")
+    @Type(type = "text")
     private String ptrCapabilities;
 
-    @Column(name = "ptr_control_media", length = 200)
+    @Column(name = "ptr_control_media")
+    @Type(type = "text")
     private String ptrControlMedia;
 
-    @Column(name = "read_form", length = 200)
+    @Column(name = "read_form")
+    @Type(type = "text")
     private String readForm;
 
-    @Column(name = "read_fonts", length = 200)
+    @Column(name = "read_fonts")
+    @Type(type = "text")
     private String readFonts;
 
-    @Column(name = "read_image", length = 200)
+    @Column(name = "read_image")
+    @Type(type = "text")
     private String readImage;
 
-    @Column(name = "read_keyboard_data_w_default", length = 200)
+    @Column(name = "read_keyboard_data_w_default")
+    @Type(type = "text")
     private String readKeyboardDataWithDefault;
 
-    @Column(name = "read_micr", length = 200)
+    @Column(name = "read_micr")
+    @Type(type = "text")
     private String readMicr;
 
-    @Column(name = "read_ocr", length = 200)
+    @Column(name = "read_ocr")
+    @Type(type = "text")
     private String readOcr;
 
-    @Column(name = "read_status", length = 200)
+    @Column(name = "read_status")
+    @Type(type = "text")
     private String readStatus;
 
-    @Column(name = "refill", length = 200)
+    @Column(name = "refill")
+    @Type(type = "text")
     private String refill;
 
-    @Column(name = "remote_key_load", length = 200)
+    @Column(name = "remote_key_load")
+    @Type(type = "text")
     private String remoteKeyLoad;
 
-    @Column(name = "retain", length = 200)
+    @Column(name = "retain")
+    @Type(type = "text")
     private String retain;
 
-    @Column(name = "retract", length = 200)
+    @Column(name = "retract")
+    @Type(type = "text")
     private String retract;
 
-    @Column(name = "safe_door_cmd", length = 200)
+    @Column(name = "safe_door_cmd")
+    @Type(type = "text")
     private String safeDoorCmd;
 
-    @Column(name = "sade_door_seq", length = 200)
+    @Column(name = "sade_door_seq")
+    @Type(type = "text")
     private String safeDoorSequence;
 
-    @Column(name = "secure_key_entry_state", length = 200)
+    @Column(name = "secure_key_entry_state")
+    @Type(type = "text")
     private String secureKeyEntryState;
 
-    @Column(name = "secure_key_entry_supp", length = 200)
+    @Column(name = "secure_key_entry_supp")
+    @Type(type = "text")
     private String secureKeyEntrySupported;
 
-    @Column(name = "secure_module_type", length = 200)
+    @Column(name = "secure_module_type")
+    @Type(type = "text")
     private String secureModuleType;
 
-    @Column(name = "sensors", length = 200)
+    @Column(name = "sensors")
+    @Type(type = "text")
     private String sensors;
 
-    @Column(name = "status", length = 200)
+    @Column(name = "status")
+    @Type(type = "text")
     private String status;
 
-    @Column(name = "supp_chip_presentation_modes", length = 200)
+    @Column(name = "supp_chip_presentation_modes")
+    @Type(type = "text")
     private String supportedChipPresentationModes;
 
-    @Column(name = "supp_chip_protocols", length = 200)
+    @Column(name = "supp_chip_protocols")
+    @Type(type = "text")
     private String supportedChipProtocols;
 
-    @Column(name = "supp_crypto_modes", length = 200)
+    @Column(name = "supp_crypto_modes")
+    @Type(type = "text")
     private String supportedCryptoModes;
 
-    @Column(name = "supp_fd_keys", length = 200)
+    @Column(name = "supp_fd_keys")
+    @Type(type = "text")
     private String supportedFdKeys;
 
-    @Column(name = "supp_pin_formats", length = 200)
+    @Column(name = "supp_pin_formats")
+    @Type(type = "text")
     private String supportedPinFormats;
 
-    @Column(name = "supp_read_tracks", length = 200)
+    @Column(name = "supp_read_tracks")
+    @Type(type = "text")
     private String supportedReadTracks;
 
-    @Column(name = "supp_text_attributes", length = 200)
+    @Column(name = "supp_text_attributes")
+    @Type(type = "text")
     private String supportedTextAttributes;
 
-    @Column(name = "supp_validation_algorithms", length = 200)
+    @Column(name = "supp_validation_algorithms")
+    @Type(type = "text")
     private String supportedValidationAlgorithms;
 
-    @Column(name = "supp_write_hico_tracks", length = 200)
+    @Column(name = "supp_write_hico_tracks")
+    @Type(type = "text")
     private String supportedWriteHicoTracks;
 
-    @Column(name = "supp_write_tracks", length = 200)
+    @Column(name = "supp_write_tracks")
+    @Type(type = "text")
     private String supportedWriteTracks;
 
-    @Column(name = "shutter_cmd", length = 200)
+    @Column(name = "shutter_cmd")
+    @Type(type = "text")
     private String shutterCmd;
 
-    @Column(name = "silent_alarm", length = 200)
+    @Column(name = "silent_alarm")
+    @Type(type = "text")
     private String silentAlarm;
 
-    @Column(name = "test_cash_unit", length = 200)
+    @Column(name = "test_cash_unit")
+    @Type(type = "text")
     private String testCashUnit;
 
-    @Column(name = "transport", length = 200)
+    @Column(name = "transport")
+    @Type(type = "text")
     private String transport;
 
-    @Column(name = "trusted_user", length = 200)
+    @Column(name = "trusted_user")
+    @Type(type = "text")
     private String trustedUser;
 
-    @Column(name = "unfit", length = 200)
+    @Column(name = "unfit")
+    @Type(type = "text")
     private String unfit;
 
-    @Column(name = "vendor_data", length = 200)
+    @Column(name = "vendor_data")
+    @Type(type = "text")
     private String vendorData;
 
-    // @Column(name = "vendor_info", length = 200)
+    // @Column(name = "vendor_info")
+    // @Type(type = "text")
     // private String vendorInfo;
 
-    @Column(name = "write_form", length = 200)
+    @Column(name = "write_form")
+    @Type(type = "text")
     private String writeForm;
 
-    @Column(name = "write_mode", length = 200)
+    @Column(name = "write_mode")
+    @Type(type = "text")
     private String writeMode;
 
     public JxfsComponent() {

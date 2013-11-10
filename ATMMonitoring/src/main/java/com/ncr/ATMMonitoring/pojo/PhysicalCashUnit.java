@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Type;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -33,7 +34,8 @@ public class PhysicalCashUnit {
     @JoinColumn(name = "logical_cash_unit_id")
     private LogicalCashUnit logicalCashUnit;
 
-    @Column(name = "name", length = 50)
+    @Column(name = "name")
+    @Type(type = "text")
     private String name;
 
     @Column(name = "unit_id")

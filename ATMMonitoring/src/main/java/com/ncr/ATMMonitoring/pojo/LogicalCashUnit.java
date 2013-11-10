@@ -19,6 +19,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Type;
 
 import com.ncr.ATMMonitoring.utils.Utils;
 
@@ -48,19 +49,23 @@ public class LogicalCashUnit {
     @OrderBy("name")
     private Set<PhysicalCashUnit> physicalCashUnits = new HashSet<PhysicalCashUnit>();
 
-    @Column(name = "name", length = 50)
+    @Column(name = "name")
+    @Type(type = "text")
     private String name;
 
-    @Column(name = "type", length = 50)
+    @Column(name = "type")
+    @Type(type = "text")
     private String type;
 
     @Column(name = "unit_id")
     private Integer unitId;
 
-    @Column(name = "currency_id", length = 50)
+    @Column(name = "currency_id")
+    @Type(type = "text")
     private String currencyId;
 
-    @Column(name = "vals", length = 150)
+    @Column(name = "vals")
+    @Type(type = "text")
     private String values;
 
     @Column(name = "minimum")

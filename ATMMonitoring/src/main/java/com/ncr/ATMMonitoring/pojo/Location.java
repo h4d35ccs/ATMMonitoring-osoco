@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
@@ -22,7 +24,8 @@ public class Location {
     @SequenceGenerator(name = "locations_id_seq", sequenceName = "locations_id_seq", allocationSize = 1)
     private Integer id;
 
-    @Column(name = "address", length = 200)
+    @Column(name = "address")
+    @Type(type = "text")
     private String address;
 
     @Column(name = "coord_x")
@@ -31,22 +34,22 @@ public class Location {
     @Column(name = "coord_y")
     private Double coordY;
 
-    @Column(name = "position", length = 30)
+    @Column(name = "position", length = 50)
     private String position;
 
-    @Column(name = "location", length = 30)
+    @Column(name = "location", length = 50)
     private String location;
 
-    @Column(name = "office", length = 20)
+    @Column(name = "office", length = 50)
     private String office;
 
-    @Column(name = "bank", length = 20)
+    @Column(name = "bank", length = 50)
     private String bank;
 
-    @Column(name = "bank_company", length = 20)
+    @Column(name = "bank_company", length = 50)
     private String bankCompany;
 
-    @Column(name = "ip", length = 20)
+    @Column(name = "ip", length = 50)
     private String ip;
 
     @Column(name = "public_access")

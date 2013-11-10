@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.OperatingSystemPojo;
 
@@ -46,16 +48,20 @@ public class OperatingSystem {
     @SequenceGenerator(name = "operating_systems_id_seq", sequenceName = "operating_systems_id_seq", allocationSize = 1)
     private Integer id;
 
-    @Column(name = "os_type", length = 150)
+    @Column(name = "os_type")
+    @Type(type = "text")
     private String osType;
 
-    @Column(name = "name", length = 150)
+    @Column(name = "name")
+    @Type(type = "text")
     private String name;
 
-    @Column(name = "serial_number", length = 50, unique = true)
+    @Column(name = "serial_number", unique = true)
+    @Type(type = "text")
     private String serialNumber;
 
-    @Column(name = "manufacturer", length = 50)
+    @Column(name = "manufacturer")
+    @Type(type = "text")
     private String manufacturer;
 
     @Column(name = "major_version")
@@ -70,7 +76,8 @@ public class OperatingSystem {
     @Column(name = "revision_version")
     private Integer revisionVersion;
 
-    @Column(name = "remaining_version", length = 20)
+    @Column(name = "remaining_version")
+    @Type(type = "text")
     private String remainingVersion;
 
     @Column(name = "service_pack_major_version")
@@ -85,13 +92,16 @@ public class OperatingSystem {
     @Column(name = "service_pack_revision_version")
     private Integer servicePackRevisionVersion;
 
-    @Column(name = "service_pack_remaining_version", length = 20)
+    @Column(name = "service_pack_remaining_version")
+    @Type(type = "text")
     private String servicePackRemainingVersion;
 
-    @Column(name = "organization", length = 50)
+    @Column(name = "organization")
+    @Type(type = "text")
     private String organization;
 
-    @Column(name = "os_language", length = 10)
+    @Column(name = "os_language")
+    @Type(type = "text")
     private String osLanguage;
 
     // We don't need this for now

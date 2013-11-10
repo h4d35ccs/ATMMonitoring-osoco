@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import ncr.inventory.data.Product;
 
 import org.apache.log4j.Logger;
+import org.hibernate.annotations.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.ProductPojo;
@@ -58,22 +59,27 @@ public class Software {
     @SequenceGenerator(name = "software_id_seq", sequenceName = "software_id_seq", allocationSize = 1)
     private Integer id;
 
-    @Column(name = "caption", length = 150)
+    @Column(name = "caption")
+    @Type(type = "text")
     private String caption;
 
-    @Column(name = "name", length = 150)
+    @Column(name = "name")
+    @Type(type = "text")
     private String name;
 
-    @Column(name = "description", length = 150)
+    @Column(name = "description")
+    @Type(type = "text")
     private String description;
 
-    @Column(name = "identifying_number", length = 50)
+    @Column(name = "identifying_number")
+    @Type(type = "text")
     private String identifyingNumber;
 
     @Column(name = "install_date")
     private Date installDate = new Date();
 
-    @Column(name = "vendor", length = 150)
+    @Column(name = "vendor")
+    @Type(type = "text")
     private String vendor;
 
     @Column(name = "major_version")
@@ -88,22 +94,28 @@ public class Software {
     @Column(name = "revision_version")
     private Integer revisionVersion;
 
-    @Column(name = "remaining_version", length = 20)
+    @Column(name = "remaining_version")
+    @Type(type = "text")
     private String remainingVersion;
 
-    @Column(name = "language", length = 10)
+    @Column(name = "language")
+    @Type(type = "text")
     private String language;
 
-    @Column(name = "local_package", length = 50)
+    @Column(name = "local_package")
+    @Type(type = "text")
     private String localPackage;
 
-    @Column(name = "package_name", length = 50)
+    @Column(name = "package_name")
+    @Type(type = "text")
     private String packageName;
 
-    @Column(name = "product_id", length = 25)
+    @Column(name = "product_id")
+    @Type(type = "text")
     private String productId;
 
-    @Column(name = "sw_type", length = 10)
+    @Column(name = "sw_type")
+    @Type(type = "text")
     private String swType;
 
     // We don't need this for now
