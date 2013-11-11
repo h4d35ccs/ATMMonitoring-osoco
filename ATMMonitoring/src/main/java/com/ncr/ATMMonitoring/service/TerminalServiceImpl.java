@@ -420,32 +420,32 @@ public class TerminalServiceImpl implements TerminalService {
     public void persistDataStoreTerminal(ATMDataStorePojo dataStoreTerminal) {
 	try {
 	    Terminal terminal = new Terminal(dataStoreTerminal);
-	    System.out.println(terminal.getCsvDescription());
-	    Terminal dbTerminal = terminalDAO.getTerminalByMac(terminal
-		    .getMac());
+	    Terminal dbTerminal = terminalDAO.getTerminalByMatricula(terminal
+		    .getMatricula());
 	    if (dbTerminal != null) {
 		overwriteFields(dbTerminal, terminal);
 		terminal = dbTerminal;
 		terminalDAO.updateTerminal(terminal);
 		logger.debug("Updated Terminal from ATMDataStore with IP "
-			+ dbTerminal.getIp());
+			+ terminal.getIp() + " and matricula "
+			+ terminal.getMatricula());
 		removeRelatedEntities(terminal);
 	    } else {
 		terminalDAO.addTerminal(terminal);
-		logger.debug("Created Terminal form ATMDataStore with IP "
-			+ terminal.getIp());
+		logger.debug("Created Terminal from ATMDataStore with IP "
+			+ terminal.getIp() + " and matricula "
+			+ terminal.getMatricula());
 	    }
 	    addNewEntities(terminal, dataStoreTerminal);
 	    terminalDAO.updateTerminal(terminal);
 	    logger.debug("Created all new devices and software for Terminal with IP "
-		    + terminal.getIp());
+		    + terminal.getIp()
+		    + " and matricula "
+		    + terminal.getMatricula());
 	} catch (ATMWrongDataException e) {
-	    String ip = "";
-	    if (!dataStoreTerminal.getvNetworkAdapterSetting().isEmpty()) {
-		ip = dataStoreTerminal.getvNetworkAdapterSetting().get(0)
-			.getIpAddress();
-	    }
-	    logger.error("Couldn't persist ATM with IP " + ip
+	    logger.error(
+		    "Couldn't persist ATM with IP "
+			    + dataStoreTerminal.getCurrentip()
 		    + "due to error: ", e);
 	}
     }
@@ -490,6 +490,7 @@ public class TerminalServiceImpl implements TerminalService {
 		.getProductClassDescription());
 	terminal.setSerialNumber(newTerminal.getSerialNumber());
 	terminal.setTracerNumber(newTerminal.getTracerNumber());
+	terminal.setMatricula(newTerminal.getMatricula());
     }
 
     private Set<SoftwareAggregate> getSwAggregates(ATM snmpTerminal) {
