@@ -157,6 +157,9 @@ public class Terminal {
     @Type(type = "text")
     private String tracerNumber;
 
+    @Column(name = "matricula", length = 100)
+    private String matricula;
+
     @OneToMany(mappedBy = "terminal", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @OrderBy("start_date desc")
@@ -238,6 +241,7 @@ public class Terminal {
 	this.terminalType = financialTerminal.getTerminaltype();
 	this.terminalVendor = financialTerminal.getVendor();
 	this.tracerNumber = financialTerminal.getTracernumber();
+	this.matricula = terminal.getMatricula();
     }
 
     public Terminal(ATM terminal) throws SnmpWrongDataException {
@@ -929,5 +933,13 @@ public class Terminal {
 
     public void setInstallation(Installation installation) {
 	this.installation = installation;
+    }
+
+    public String getMatricula() {
+	return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+	this.matricula = matricula;
     }
 }
