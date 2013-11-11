@@ -27,7 +27,7 @@ public interface TerminalDAO {
     public Terminal getTerminal(Integer id);
 
     public List<Terminal> getTerminalsByHQL(List<Object> values,
-											List<Type> types, String hql);
+	    List<Type> types, String hql);
 
     public List<Terminal> getTerminalsByHQL(List<Object> values,
 	    List<Type> types, String hql, String sort, String order);
@@ -42,4 +42,6 @@ public interface TerminalDAO {
     public Terminal getTerminalByIp(String ip);
 
     public Terminal getTerminalByMac(String mac);
+
+    public Terminal getTerminalByMatricula(String matricula);
 }

@@ -162,4 +162,12 @@ public class TerminalDAOImpl implements TerminalDAO {
 		.add(Restrictions.eq("mac", mac)).uniqueResult();
 	return result;
     }
+
+    @Override
+    public Terminal getTerminalByMatricula(String matricula) {
+	Terminal result = (Terminal) sessionFactory.getCurrentSession()
+		.createCriteria(Terminal.class)
+		.add(Restrictions.eq("matricula", matricula)).uniqueResult();
+	return result;
+    }
 }
