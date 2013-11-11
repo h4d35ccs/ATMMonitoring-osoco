@@ -38,7 +38,6 @@ import org.apache.log4j.Logger;
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
-
 @Controller
 public class QueryController {
 
@@ -335,8 +334,11 @@ public class QueryController {
 
     @RequestMapping(value = "/queries/results/export", method = RequestMethod.POST)
     public void downloadResultsCsv(@ModelAttribute("query") Query query,
-	    HttpServletResponse response, HttpServletRequest request) {
+            HttpServletResponse response, HttpServletRequest request,
+			String sort, String order) {
 	try {
+		String sortValue = (sort == null) ? DEFAULT_SORT : sort;
+		String orderValue = (order == null) ? DEFAULT_ORDER : order;
 	    response.setContentType("text/csv;charset=utf-8");
 	    response.setHeader("Content-Disposition",
 		    "attachment; filename=\"terminals.csv\"");
@@ -344,8 +346,7 @@ public class QueryController {
 	    OutputStream buffOs = new BufferedOutputStream(resOs);
 	    OutputStreamWriter outputwriter = new OutputStreamWriter(buffOs);
 	    outputwriter.write(Terminal.getCsvHeader());
-	    List<Terminal> terminals = queryService.executeQuery(query,
-		    RequestContextUtils.getLocale(request));
+	    List<Terminal> terminals = queryService.executeQuery(query, RequestContextUtils.getLocale(request), sortValue, orderValue);
 	    for (Terminal terminal : terminals) {
 		outputwriter.write("\n" + terminal.getCsvDescription());
 	    }

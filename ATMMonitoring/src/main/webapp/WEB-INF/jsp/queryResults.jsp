@@ -44,7 +44,6 @@
         }
 
         function populateHiddenFields(page, sort, order) {
-            console.log("field " + $("#queryForm input[name='p']").val());
             $("#queryForm input[name='p']").val(page);
             $("#queryForm input[name='sort']").val(sort);
             $("#queryForm input[name='order']").val(order);
@@ -875,20 +874,20 @@
 	       	 '${key}': {
 					<c:forEach items="${value.keySet()}" var="subkey" varStatus="status2">
 		        		<c:set var="subvalue" value="${value.get(subkey)}"/>
-						'${subkey}': 
+						'${subkey}':
 							{
 								label: <c:if test="${(key != 'allOperations') && (subkey != 'allHwDevices')}">'<spring:message code="label.${key}.${subkey}"/>'</c:if><c:if test="${(key == 'allOperations') || (subkey == 'allHwDevices')}">''</c:if>,
 								values: {
 									<c:forEach items="${subvalue.keySet()}" var="subsubkey" varStatus="status3">
 					        		<c:set var="subsubvalue" value="${subvalue.get(subsubkey)}"/>
-									'${subsubkey}': 
+									'${subsubkey}':
 										{
 											<c:if test="${subsubvalue.getClass().getSimpleName() == 'TreeMap'}">
 											label: <c:if test="${key != 'allOperations'}">'<spring:message code="label.${key}.${subsubkey}"/>'</c:if><c:if test="${key == 'allOperations'}">''</c:if>,
 											values: {
 												<c:forEach items="${subsubvalue.keySet()}" var="subsubsubkey" varStatus="status4">
 								        		<c:set var="subsubsubvalue" value="${subsubvalue.get(subsubsubkey)}"/>
-												'${subsubsubkey}': 
+												'${subsubsubkey}':
 												{
 													label: '<spring:message code="label.query.operation.${subsubsubkey}"/>',
 													values: ${subsubsubvalue}
@@ -1113,20 +1112,19 @@
 		<c:if  test="${!empty pagedListHolder.pageList}">
 		<h2>${pagedListHolder.source.size()} <spring:message code="label.results"/></h2>
 		<div class="table_buttons">
-		<!--
-			<div class="botonera"> 
-				<label for="all_check"><input type="checkbox" class="all_check" name="all_check"/> Marcar todos</label>
-				<a href="#" class="btn left update">Actualizar</a>
-				<a href="#" class="btn left clock">Actualización planificada</a>
+
+			<div class="botonera">
 				<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 			</div>
-                  -->
+
 			<div class="margin-box">
-                
+
 			<t:terminalsTable baseUrl="queries/results" terminals="${pagedListHolder.pageList}"/>
+
             		</div>
-			<div class="pagingContainer">
-			<form:form id="pagingForm" method="post" action="queries/results/export" commandName="query">
+			<form:form id="exportForm" method="post" action="queries/results/export" commandName="query" target="_blank">
+              <input type="hidden" name="sort" value="${sort}"/>
+              <input type="hidden" name="order" value="${order}"/>
 				<c:forEach var="i" begin="1" end="5">
 					<form:hidden path="terminalCombo${i}1"/>
 					<form:hidden path="terminalCB${i}"/>
@@ -1169,58 +1167,10 @@
 					<form:hidden path="internetExplorerField${i}"/>
 				</c:forEach>
 
-			</form:form>
-			</div>
-			<form:form id="exportForm" method="post" action="queries/results/export" commandName="query" target="_blank">
-				<c:forEach var="i" begin="1" end="5">
-					<form:hidden path="terminalCombo${i}1"/>
-					<form:hidden path="terminalCB${i}"/>
-					<form:hidden path="terminalCombo${i}2"/>
-					<form:hidden path="terminalField${i}"/>
-					<form:hidden path="hardwareDeviceCombo${i}1"/>
-					<form:hidden path="hardwareDeviceCB${i}"/>
-					<form:hidden path="hardwareDeviceCombo${i}2"/>
-					<form:hidden path="hardwareDeviceCombo${i}3"/>
-					<form:hidden path="hardwareDeviceField${i}"/>
-					<form:hidden path="financialDeviceCombo${i}1"/>
-					<form:hidden path="financialDeviceCB${i}"/>
-					<form:hidden path="financialDeviceCombo${i}2"/>
-					<form:hidden path="financialDeviceField${i}"/>
-					<form:hidden path="operatingSystemCombo${i}1"/>
-					<form:hidden path="operatingSystemCB${i}"/>
-					<form:hidden path="operatingSystemCombo${i}2"/>
-					<form:hidden path="operatingSystemField${i}"/>
-					<form:hidden path="hotfixCombo${i}1"/>
-					<form:hidden path="hotfixCB${i}"/>
-					<form:hidden path="hotfixCombo${i}2"/>
-					<form:hidden path="hotfixField${i}"/>
-					<form:hidden path="softwareCombo${i}1"/>
-					<form:hidden path="softwareCB${i}"/>
-					<form:hidden path="softwareCombo${i}2"/>
-					<form:hidden path="softwareField${i}"/>
-					<form:hidden path="featSwCombo${i}1"/>
-					<form:hidden path="featSwCB${i}"/>
-					<form:hidden path="featSwCombo${i}2"/>
-					<form:hidden path="featSwField${i}"/>
-					<form:hidden path="xfsSwCombo${i}1"/>
-					<form:hidden path="xfsSwCB${i}"/>
-					<form:hidden path="xfsSwCombo${i}2"/>
-					<form:hidden path="xfsSwField${i}"/>
-				</c:forEach>
-				<c:forEach var="i" begin="1" end="2">
-					<form:hidden path="internetExplorerCombo${i}1"/>
-					<form:hidden path="internetExplorerCB${i}"/>
-					<form:hidden path="internetExplorerCombo${i}2"/>
-					<form:hidden path="internetExplorerField${i}"/>
-				</c:forEach>
-<!--
 				<div class="botonera ">
-					<label for="all_check"><input type="checkbox" class="all_check"  name="all_check"/> Marcar todos</label>
-					<a href="#" class="btn left update">Actualizar</a>
-					<a href="#" class="btn left clock">Actualización planificada</a>
 					<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
 				</div>
--->
+
 		   </div><!-- /table_buttons -->
 
 			<div class="pagination">
