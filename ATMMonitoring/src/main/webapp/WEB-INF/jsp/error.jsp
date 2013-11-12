@@ -11,12 +11,12 @@
 			<h2><spring:message code="label.error.errorMessage1"/></h2>
 			<div class="error">${exception.getClass().getCanonicalName()}:${exception.message}</div>
 			<div class="alert"><spring:message code="label.error.errorMessage2"/></div>
-			<h2><spring:message code="label.error.completeStackTrace"/></h2>
 		</div>
 	</div>
 	<div class="action_box">
-		<c:forEach items="${exception.stackTrace}" var="element">
-		    <c:out value="${element}"/>
-		</c:forEach>
+      <h2><spring:message code="label.error.completeStackTrace"/></h2>
+	  <c:forEach items="${exception.stackTrace}" var="element">
+		<c:out value="${element}"/>
+	  </c:forEach>
 	</div>
 </t:osoco-wrapper>
