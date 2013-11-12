@@ -71,8 +71,11 @@
 		text-align: right;
 		.txt{
 			display: block;
-			padding-right: 2em;
-			background:url("../images/icons/icons_onoff.png") no-repeat right top;
+			padding-right: 2.5em;
+			background:url("../images/icons/icons_onoff_w.png") no-repeat right bottom;
+			&.content_hide{
+				background:url("../images/icons/icons_onoff_w.png") no-repeat right top;
+			}
 		}
 		ul{
 			display: none;
@@ -80,33 +83,36 @@
 			position: absolute;
 		}
 		li{
-			@include shadow;
-			background:$colorW;
+			background:$colorW1;
 			color: $colorB;
 			a{
 				padding: .5em 1em;
-				border-bottom: 1px solid $colorB;
+				border: 1px solid $colorK5;
 				text-align: left;
 				display: block;
+				&:hover{
+					text-decoration: none;
+					background:$colorW;
+				}
 			}
 		}
 	}
 	#exit{
-			a{
-				margin-top: 0;
-				overflow: hidden;
-				width: 40px;
-				height: 40px;
-				display: block;
-				background: url("../images/general/exit.png") no-repeat;
-				
-				span{
-					color: $colorW;
-					position: absolute;
-					top: -100px;
-				}
+		a{
+			margin-top: 0;
+			overflow: hidden;
+			width: 40px;
+			height: 40px;
+			display: block;
+			background: url("../images/general/exit.png") no-repeat;
+			
+			span{
+				color: $colorW;
+				position: absolute;
+				top: -100px;
 			}
 		}
+	}
 }
 #header_g{
 	position: relative;

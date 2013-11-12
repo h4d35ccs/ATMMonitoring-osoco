@@ -484,31 +484,37 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 72, ../sass/_header.scss */
 #main_header #lang .txt {
   display: block;
-  padding-right: 2em;
-  background: url("../images/icons/icons_onoff.png") no-repeat right top;
+  padding-right: 2.5em;
+  background: url("../images/icons/icons_onoff_w.png") no-repeat right bottom;
 }
-/* line 77, ../sass/_header.scss */
+/* line 76, ../sass/_header.scss */
+#main_header #lang .txt.content_hide {
+  background: url("../images/icons/icons_onoff_w.png") no-repeat right top;
+}
+/* line 80, ../sass/_header.scss */
 #main_header #lang ul {
   display: none;
   padding-top: 1em;
   position: absolute;
 }
-/* line 82, ../sass/_header.scss */
+/* line 85, ../sass/_header.scss */
 #main_header #lang li {
-  -webkit-box-shadow: 0px 0px 8px #6d6e71;
-  -moz-box-shadow: 0px 0px 8px #6d6e71;
-  box-shadow: 0px 0px 8px #6d6e71;
-  background: white;
+  background: #eeeeee;
   color: #094fa4;
 }
-/* line 86, ../sass/_header.scss */
+/* line 88, ../sass/_header.scss */
 #main_header #lang li a {
   padding: 0.5em 1em;
-  border-bottom: 1px solid #094fa4;
+  border: 1px solid #bcbec0;
   text-align: left;
   display: block;
 }
-/* line 95, ../sass/_header.scss */
+/* line 93, ../sass/_header.scss */
+#main_header #lang li a:hover {
+  text-decoration: none;
+  background: white;
+}
+/* line 101, ../sass/_header.scss */
 #main_header #exit a {
   margin-top: 0;
   overflow: hidden;
@@ -517,41 +523,41 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
   background: url("../images/general/exit.png") no-repeat;
 }
-/* line 103, ../sass/_header.scss */
+/* line 109, ../sass/_header.scss */
 #main_header #exit a span {
   color: white;
   position: absolute;
   top: -100px;
 }
 
-/* line 111, ../sass/_header.scss */
+/* line 117, ../sass/_header.scss */
 #header_g {
   position: relative;
   clear: both;
   height: 3em;
   position: relative;
 }
-/* line 117, ../sass/_header.scss */
+/* line 123, ../sass/_header.scss */
 #header_g #breadcrumb li {
   float: left;
   margin-right: .5em;
 }
-/* line 120, ../sass/_header.scss */
+/* line 126, ../sass/_header.scss */
 #header_g #breadcrumb li a:after {
   content: " > ";
 }
-/* line 125, ../sass/_header.scss */
+/* line 131, ../sass/_header.scss */
 #header_g .botonera {
   position: absolute;
   right: 0;
   top: 3em;
 }
-/* line 129, ../sass/_header.scss */
+/* line 135, ../sass/_header.scss */
 #header_g .botonera li {
   float: left;
   margin-left: .5em;
 }
-/* line 133, ../sass/_header.scss */
+/* line 139, ../sass/_header.scss */
 #header_g .botonera .btn, #header_g .botonera .save,
 #header_g .botonera #cboxContent .action_box .save,
 #cboxContent .action_box #header_g .botonera .save,
