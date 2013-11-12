@@ -8,6 +8,7 @@
 <t:osoco-wrapper titleCode="label.queryEngine" userMsg="${userMsg}"  section="reports">
 <script type="text/javascript">
 	$(document).ready(function(){
+        $("#reportFrameContainer").hide();
         $("#toggleReportView").find("li").click(function(event) {
         	event.preventDefault();
             if (!$(this).hasClass("current")) {
@@ -18,7 +19,23 @@
             	$(this).addClass("current");
             };
         });
+        $(".box_list a").click(function(event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+            loadInFrame(url);
+            $(".content.reportView").hide();
+            $("#reportFrameContainer").show("slow");
+        });
+        $("a.back").click(function(event) {
+            event.preventDefault();
+            $("#reportFrameContainer").hide();
+            $(".content.reportView").show("slow");
+        });
 	});
+
+    function loadInFrame(url) {
+        $("#reportFrame").attr("src", url);
+    }
 </script>
 <div id="header_g">
 	<nav id="breadcrumb">
@@ -32,14 +49,22 @@
 	</nav>
 </div>
 
-<div class="content reportView column3">
-	<h1>
-		<spring:message code="label.externalreportsMan"/>
-	</h1>
+<h1>
+  <spring:message code="label.externalreportsMan"/>
+</h1>
 
-	<h2>
-		<spring:message code="label.externalreports"/>
-	</h2>
+<h2>
+  <spring:message code="label.externalreports"/>
+</h2>
+
+<div id="reportFrameContainer">
+    <div class="botonera">
+        <a class="btn back left" href="externalreports">Return to reports</a>
+    </div>
+    <iframe id="reportFrame" width="1000" height="900"></iframe>
+</div>
+
+<div class="content reportView column3">
 	<div id="header_g">
 		<div id="toggleReportView" class="columns_botonera">
 		  <nav>
@@ -128,4 +153,5 @@
 		</a>
 	</div>
 </div>
+
 </t:osoco-wrapper>
