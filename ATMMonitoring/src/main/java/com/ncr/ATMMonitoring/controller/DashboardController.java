@@ -65,6 +65,8 @@ public class DashboardController {
         map.put("userMsg", userMsg);
 		map.put("dashboard", dashboard);
 		map.put("columnOptions", Dashboard.ColumnOptions.values());
+		Object error = null;
+		error.toString();
         return "dashboard";
     }
 

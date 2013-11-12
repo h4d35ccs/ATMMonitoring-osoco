@@ -485,7 +485,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 #main_header #lang .txt {
   display: block;
   padding-right: 2em;
-  background: url("../images/icons/icons_onoff_w.png") no-repeat right top;
+  background: url("../images/icons/icons_onoff.png") no-repeat right top;
 }
 /* line 77, ../sass/_header.scss */
 #main_header #lang ul {
@@ -2345,6 +2345,24 @@ strong {
   float: left;
 }
 
+/* line 193, ../sass/_main.scss */
+#error_box {
+  background: url("../images/general/bg_error.png") no-repeat;
+  width: 580px;
+  height: 480px;
+  margin: 1em auto;
+  position: relative;
+}
+/* line 199, ../sass/_main.scss */
+#error_box .message_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 100px;
+  max-height: 270px;
+  overflow: auto;
+}
+
 /* line 2, ../sass/_login_user.scss */
 #login_user #scene {
   position: absolute;
@@ -3186,18 +3204,36 @@ td .add span, th .add span {
 }
 @media screen and (max-width: 600px) {
   /* line 114, ../sass/_responsive.scss */
+  #error_box {
+    background: none;
+    width: auto;
+    height: auto;
+    margin: 0;
+    position: static;
+  }
+  /* line 120, ../sass/_responsive.scss */
+  #error_box .message_box {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    max-height: auto;
+    overflow: auto;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
   nav#main_nav #nav_icons a {
     padding-top: 25px;
     padding-bottom: 25px;
     background: none;
   }
 
-  /* line 119, ../sass/_responsive.scss */
+  /* line 134, ../sass/_responsive.scss */
   nav#main_nav #nav_icons .help {
     position: relative;
   }
 
-  /* line 122, ../sass/_responsive.scss */
+  /* line 137, ../sass/_responsive.scss */
   .add, .clock, .next, .import, .back, .save, .download, .update {
     width: 0;
     overflow: hidden;
@@ -3205,43 +3241,43 @@ td .add span, th .add span {
     padding: 0;
     padding-left: 30px;
   }
-  /* line 128, ../sass/_responsive.scss */
+  /* line 143, ../sass/_responsive.scss */
   #iframe .add, #iframe .clock, #iframe .next, #iframe .import, #iframe .back, #iframe .save, #iframe .download, #iframe .update {
     width: auto;
     padding: 0.5em 1em;
     padding-left: 30px;
   }
 
-  /* line 136, ../sass/_responsive.scss */
+  /* line 151, ../sass/_responsive.scss */
   #main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .action_box.data .model, #cboxContent .data.pagination .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .data.pagination .model {
     width: 96%;
   }
 
-  /* line 139, ../sass/_responsive.scss */
+  /* line 154, ../sass/_responsive.scss */
   #main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .action_box.data .ul_data, #cboxContent .data.pagination .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
     width: 96%;
   }
-  /* line 141, ../sass/_responsive.scss */
+  /* line 156, ../sass/_responsive.scss */
   #main .action_box.data .ul_data li strong, #cboxContent .action_box.data .ul_data li strong, #main .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #cboxContent .action_box.data .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #main .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong {
     width: 30%;
   }
 
-  /* line 145, ../sass/_responsive.scss */
+  /* line 160, ../sass/_responsive.scss */
   nav.sub_nav {
     font-size: .7em;
   }
 
-  /* line 148, ../sass/_responsive.scss */
+  /* line 163, ../sass/_responsive.scss */
   table.link tr.detail ul li, table.link tr.detail:hover ul li {
     width: 49%;
   }
 
-  /* line 151, ../sass/_responsive.scss */
+  /* line 166, ../sass/_responsive.scss */
   .w33, .w66 {
     width: 100%;
   }
 
-  /* line 155, ../sass/_responsive.scss */
+  /* line 170, ../sass/_responsive.scss */
   #main .fc-header h2, #cboxContent .fc-header h2 {
     font-size: 1em;
   }

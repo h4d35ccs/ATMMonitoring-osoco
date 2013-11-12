@@ -1327,7 +1327,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin: 0;
   margin-bottom: .5em;
   padding: 0;
-  padding-top: 60%;
+  padding-top: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -1337,11 +1337,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   position: absolute;
   top: 0;
 }
-/* line 73, ../sass/_action_box.scss */
-#main .action_box.data .model .photo:hover, #cboxContent .action_box.data .model .photo:hover, #main .data.pagination .model .photo:hover, #cboxContent .data.pagination .model .photo:hover {
-  padding-top: 100%;
-}
-/* line 77, ../sass/_action_box.scss */
+/* line 74, ../sass/_action_box.scss */
 #main .action_box.data .model .desplegable, #cboxContent .action_box.data .model .desplegable, #main .data.pagination .model .desplegable, #cboxContent .data.pagination .model .desplegable {
   background: white;
   clear: both;
@@ -1351,7 +1347,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   border-radius: 4px;
   margin-top: 1em;
 }
-/* line 82, ../sass/_action_box.scss */
+/* line 79, ../sass/_action_box.scss */
 #main .action_box.data .model .desplegable .txt, #cboxContent .action_box.data .model .desplegable .txt, #main .data.pagination .model .desplegable .txt, #cboxContent .data.pagination .model .desplegable .txt {
   cursor: pointer;
   float: none;
@@ -1360,43 +1356,43 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   color: white;
   border: 2px solid #b3b3b3;
 }
-/* line 83, ../sass/_action_box.scss */
+/* line 80, ../sass/_action_box.scss */
 #main .action_box.data .model .desplegable .txt.content_hide, #cboxContent .action_box.data .model .desplegable .txt.content_hide, #main .data.pagination .model .desplegable .txt.content_hide, #cboxContent .data.pagination .model .desplegable .txt.content_hide {
   background: url("../images/icons/icon_collapsible.png") no-repeat gray left top;
 }
-/* line 93, ../sass/_action_box.scss */
+/* line 90, ../sass/_action_box.scss */
 #main .action_box.data .model .desplegable dl, #cboxContent .action_box.data .model .desplegable dl, #main .data.pagination .model .desplegable dl, #cboxContent .data.pagination .model .desplegable dl {
   margin-top: 1em;
   padding: 1em;
   background: white;
   overflow: hidden;
 }
-/* line 98, ../sass/_action_box.scss */
+/* line 95, ../sass/_action_box.scss */
 #main .action_box.data .model .desplegable dl dt, #cboxContent .action_box.data .model .desplegable dl dt, #main .data.pagination .model .desplegable dl dt, #cboxContent .data.pagination .model .desplegable dl dt {
   font-weight: bold;
 }
-/* line 101, ../sass/_action_box.scss */
+/* line 98, ../sass/_action_box.scss */
 #main .action_box.data .model .desplegable dl dd, #cboxContent .action_box.data .model .desplegable dl dd, #main .data.pagination .model .desplegable dl dd, #cboxContent .data.pagination .model .desplegable dl dd {
   border-bottom: 1px solid #cccccc;
   padding: 0.5em 0;
   margin-bottom: .5em;
 }
-/* line 105, ../sass/_action_box.scss */
+/* line 102, ../sass/_action_box.scss */
 #main .action_box.data .model .desplegable dl dd:last-child, #cboxContent .action_box.data .model .desplegable dl dd:last-child, #main .data.pagination .model .desplegable dl dd:last-child, #cboxContent .data.pagination .model .desplegable dl dd:last-child {
   border: none;
 }
-/* line 112, ../sass/_action_box.scss */
+/* line 109, ../sass/_action_box.scss */
 #main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
   margin-top: 2em;
   float: right;
   width: 75%;
 }
-/* line 116, ../sass/_action_box.scss */
+/* line 113, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul, #cboxContent .action_box.data .ul_data > ul, #main .data.pagination .ul_data > ul, #cboxContent .data.pagination .ul_data > ul {
   overflow: hidden;
   margin-bottom: 2em;
 }
-/* line 119, ../sass/_action_box.scss */
+/* line 116, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li {
   margin-left: 4%;
   padding: 0.5em 0;
@@ -1404,30 +1400,30 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width: 46%;
   border-bottom: 1px solid #b3b3b3;
 }
-/* line 125, ../sass/_action_box.scss */
+/* line 122, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong, #cboxContent .action_box.data .ul_data > ul li strong, #main .data.pagination .ul_data > ul li strong, #cboxContent .data.pagination .ul_data > ul li strong {
   width: 45%;
   margin-right: 4%;
   float: left;
   display: block;
 }
-/* line 130, ../sass/_action_box.scss */
+/* line 127, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul li strong label, #cboxContent .action_box.data .ul_data > ul li strong label, #main .data.pagination .ul_data > ul li strong label, #cboxContent .data.pagination .ul_data > ul li strong label {
   width: 90%;
 }
-/* line 137, ../sass/_action_box.scss */
+/* line 134, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable > ul li, #cboxContent .action_box.data .ul_data.editable > ul li, #main .data.pagination .ul_data.editable > ul li, #cboxContent .data.pagination .ul_data.editable > ul li {
   min-height: 3em;
 }
-/* line 140, ../sass/_action_box.scss */
+/* line 137, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable input[type="text"], #cboxContent .action_box.data .ul_data.editable input[type="text"], #main .data.pagination .ul_data.editable input[type="text"], #cboxContent .data.pagination .ul_data.editable input[type="text"] {
   width: 40%;
 }
-/* line 142, ../sass/_action_box.scss */
+/* line 139, ../sass/_action_box.scss */
 #main .action_box.data .ul_data.editable input[type="text"].num, #cboxContent .action_box.data .ul_data.editable input[type="text"].num, #main .data.pagination .ul_data.editable input[type="text"].num, #cboxContent .data.pagination .ul_data.editable input[type="text"].num {
   width: 2em;
 }
-/* line 147, ../sass/_action_box.scss */
+/* line 144, ../sass/_action_box.scss */
 #main .action_box.data .ul_data .ul_data, #cboxContent .action_box.data .ul_data .ul_data, #main .data.pagination .ul_data .ul_data, #cboxContent .data.pagination .ul_data .ul_data {
   width: auto;
   float: none;
@@ -2615,6 +2611,24 @@ strong {
   float: left;
 }
 
+/* line 191, ../sass/_main.scss */
+#error_box {
+  background: url("../images/general/bg_error.png") no-repeat;
+  width: 580px;
+  height: 480px;
+  margin: 1em auto;
+  position: relative;
+}
+/* line 197, ../sass/_main.scss */
+#error_box .message_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 100px;
+  max-height: 270px;
+  overflow: auto;
+}
+
 /* line 2, ../sass/_login_user.scss */
 #login_user #scene {
   position: absolute;
@@ -3436,18 +3450,36 @@ td .add span, th .add span {
 }
 @media screen and (max-width: 600px) {
   /* line 114, ../sass/_responsive.scss */
+  #error_box {
+    background: none;
+    width: auto;
+    height: auto;
+    margin: 0;
+    position: static;
+  }
+  /* line 120, ../sass/_responsive.scss */
+  #error_box .message_box {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    max-height: auto;
+    overflow: auto;
+  }
+
+  /* line 129, ../sass/_responsive.scss */
   nav#main_nav #nav_icons a {
     padding-top: 25px;
     padding-bottom: 25px;
     background: none;
   }
 
-  /* line 119, ../sass/_responsive.scss */
+  /* line 134, ../sass/_responsive.scss */
   nav#main_nav #nav_icons .help {
     position: relative;
   }
 
-  /* line 122, ../sass/_responsive.scss */
+  /* line 137, ../sass/_responsive.scss */
   .add, .clock, .next, .import, .back, .save, .download, .update {
     width: 0;
     overflow: hidden;
@@ -3455,43 +3487,43 @@ td .add span, th .add span {
     padding: 0;
     padding-left: 30px;
   }
-  /* line 128, ../sass/_responsive.scss */
+  /* line 143, ../sass/_responsive.scss */
   #iframe .add, #iframe .clock, #iframe .next, #iframe .import, #iframe .back, #iframe .save, #iframe .download, #iframe .update {
     width: auto;
     padding: 0.5em 1em;
     padding-left: 30px;
   }
 
-  /* line 135, ../sass/_responsive.scss */
+  /* line 150, ../sass/_responsive.scss */
   #main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .action_box.data .model, #cboxContent .data.pagination .model, #main .data.pagination .model, #cboxContent .data.pagination .model, #cboxContent .data.pagination .model {
     width: 96%;
   }
 
-  /* line 138, ../sass/_responsive.scss */
+  /* line 153, ../sass/_responsive.scss */
   #main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .action_box.data .ul_data, #cboxContent .data.pagination .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
     width: 96%;
   }
-  /* line 140, ../sass/_responsive.scss */
+  /* line 155, ../sass/_responsive.scss */
   #main .action_box.data .ul_data li strong, #cboxContent .action_box.data .ul_data li strong, #main .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #cboxContent .action_box.data .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #main .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong, #cboxContent .data.pagination .ul_data li strong {
     width: 30%;
   }
 
-  /* line 144, ../sass/_responsive.scss */
+  /* line 159, ../sass/_responsive.scss */
   nav.sub_nav {
     font-size: .7em;
   }
 
-  /* line 147, ../sass/_responsive.scss */
+  /* line 162, ../sass/_responsive.scss */
   table.link tr.detail ul li, table.link tr.detail:hover ul li {
     width: 49%;
   }
 
-  /* line 150, ../sass/_responsive.scss */
+  /* line 165, ../sass/_responsive.scss */
   .w33, .w66 {
     width: 100%;
   }
 
-  /* line 154, ../sass/_responsive.scss */
+  /* line 169, ../sass/_responsive.scss */
   #main .fc-header h2, #cboxContent .fc-header h2 {
     font-size: 1em;
   }

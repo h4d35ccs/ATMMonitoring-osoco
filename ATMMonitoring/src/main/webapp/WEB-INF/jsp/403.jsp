@@ -4,7 +4,9 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<t:wrapper titleCode="label.error">
+<t:osoco-wrapper titleCode="label.error" userMsg="${userMsg}" section="errors">
+<div id="error_box">
 	<h1><spring:message code="label.error.error403"/></h1>
-	<h4><spring:message code="label.error.error403msg"/></h4>
-</t:wrapper>
+	<div class="error"><spring:message code="label.error.error403msg"/></div>
+</div>
+</t:osoco-wrapper>

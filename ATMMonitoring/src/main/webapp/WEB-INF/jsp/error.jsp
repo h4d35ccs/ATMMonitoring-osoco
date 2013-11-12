@@ -4,14 +4,19 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<t:wrapper titleCode="label.error">
-	<h1><spring:message code="label.error.errorPageTitle"/></h1>
-	<h4><spring:message code="label.error.errorMessage1"/></h4>
-	<div class="error-message">${exception.getClass().getCanonicalName()}:{${exception.message}</div>
-	<h4><spring:message code="label.error.errorMessage2"/></h4>
-	<br><br><br>
-	<h4><spring:message code="label.error.completeStackTrace"/></h4>
-	<c:forEach items="${exception.stackTrace}" var="element">
-	    <c:out value="${element}"/>
-	</c:forEach>
-</t:wrapper>
+<t:osoco-wrapper titleCode="label.error" userMsg="${userMsg}" section="errors">
+	<div id="error_box">
+		<div class="message_box">
+			<h1><spring:message code="label.error.errorPageTitle"/></h1>
+			<h2><spring:message code="label.error.errorMessage1"/></h2>
+			<div class="error">${exception.getClass().getCanonicalName()}:${exception.message}</div>
+			<div class="alert"><spring:message code="label.error.errorMessage2"/></div>
+			<h2><spring:message code="label.error.completeStackTrace"/></h2>
+		</div>
+	</div>
+	<div class="action_box">
+		<c:forEach items="${exception.stackTrace}" var="element">
+		    <c:out value="${element}"/>
+		</c:forEach>
+	</div>
+</t:osoco-wrapper>

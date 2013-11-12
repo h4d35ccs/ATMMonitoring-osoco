@@ -188,3 +188,18 @@ strong{
 	width: 66%;
 	float: left;
 }
+#error_box{
+	background:url("../images/general/bg_error.png") no-repeat;
+	width: 580px;
+	height: 480px;
+	margin: 1em auto;
+	position: relative;
+	.message_box{
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 100px;
+		max-height: 270px;
+		overflow: auto;
+	}
+}
