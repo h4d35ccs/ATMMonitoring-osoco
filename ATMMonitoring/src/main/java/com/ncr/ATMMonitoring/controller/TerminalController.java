@@ -331,7 +331,8 @@ public class TerminalController {
     }
 
     @RequestMapping(value="/terminals/new", method = RequestMethod.GET)
-    public String addTerminal(Map<String, Object> map, HttpServletRequest request, Principal principal) {
+    public String viewNewTerminal(Map<String, Object> map,
+	    HttpServletRequest request, Principal principal) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
 	boolean canAdd = false;
@@ -422,26 +423,28 @@ public class TerminalController {
 	    return "terminals";
 	}
 
-	if (terminalService.loadTerminalBySerialNumber(terminal
-		.getSerialNumber()) != null) {
-	    map.put("userMsg", userMsg);
-	    map.put("canAdd", canAdd);
-	    map.put("duplicatedSerialNumber", true);
-	    return "terminals";
-	}
-	if (terminalService.loadTerminalByIp(terminal.getIp()) != null) {
-	    map.put("userMsg", userMsg);
-	    map.put("canAdd", canAdd);
-	    map.put("duplicatedIp", true);
-	    return "terminals";
-	}
-
-	if (terminalService.loadTerminalByMac(terminal.getMac()) != null) {
-	    map.put("userMsg", userMsg);
-	    map.put("canAdd", canAdd);
-	    map.put("duplicatedMac", true);
-	    return "terminals";
-	}
+	// TODO revisar esto cuando actualicemos el modelo
+	//
+	// if (terminalService.loadTerminalBySerialNumber(terminal
+	// .getSerialNumber()) != null) {
+	// map.put("userMsg", userMsg);
+	// map.put("canAdd", canAdd);
+	// map.put("duplicatedSerialNumber", true);
+	// return "terminals";
+	// }
+	// if (terminalService.loadTerminalByIp(terminal.getIp()) != null) {
+	// map.put("userMsg", userMsg);
+	// map.put("canAdd", canAdd);
+	// map.put("duplicatedIp", true);
+	// return "terminals";
+	// }
+	//
+	// if (terminalService.loadTerminalByMac(terminal.getMac()) != null) {
+	// map.put("userMsg", userMsg);
+	// map.put("canAdd", canAdd);
+	// map.put("duplicatedMac", true);
+	// return "terminals";
+	// }
 
 	terminalService.addTerminal(terminal);
 
@@ -504,30 +507,32 @@ public class TerminalController {
 	    return "terminalDetails";
 	}
 
-	Terminal auxTerminal = terminalService
-		.loadTerminalBySerialNumber(terminal.getSerialNumber());
-	if ((auxTerminal != null)
-		&& (!auxTerminal.getId().equals(terminal.getId()))) {
-	    map.put("duplicatedSerialNumber", true);
-	    map.put("errors", true);
-	    return "terminalDetails";
-	}
-	auxTerminal = terminalService.loadTerminalByIp(terminal.getIp());
-	if ((auxTerminal != null)
-		&& (!auxTerminal.getId().equals(terminal.getId()))) {
-	    map.put("duplicatedIp", true);
-	    map.put("errors", true);
-	    return "terminalDetails";
-	}
-	auxTerminal = terminalService.loadTerminalByMac(terminal.getMac());
-	if ((auxTerminal != null)
-		&& (!auxTerminal.getId().equals(terminal.getId()))) {
-	    map.put("duplicatedMac", true);
-	    map.put("errors", true);
-	    return "terminalDetails";
-	}
+	// TODO revisar esto cuando actualicemos el modelo
+	//
+	// Terminal auxTerminal = terminalService
+	// .loadTerminalBySerialNumber(terminal.getSerialNumber());
+	// if ((auxTerminal != null)
+	// && (!auxTerminal.getId().equals(terminal.getId()))) {
+	// map.put("duplicatedSerialNumber", true);
+	// map.put("errors", true);
+	// return "terminalDetails";
+	// }
+	// auxTerminal = terminalService.loadTerminalByIp(terminal.getIp());
+	// if ((auxTerminal != null)
+	// && (!auxTerminal.getId().equals(terminal.getId()))) {
+	// map.put("duplicatedIp", true);
+	// map.put("errors", true);
+	// return "terminalDetails";
+	// }
+	// auxTerminal = terminalService.loadTerminalByMac(terminal.getMac());
+	// if ((auxTerminal != null)
+	// && (!auxTerminal.getId().equals(terminal.getId()))) {
+	// map.put("duplicatedMac", true);
+	// map.put("errors", true);
+	// return "terminalDetails";
+	// }
 
-	auxTerminal = terminalService.getTerminal(terminal.getId());
+	Terminal auxTerminal = terminalService.getTerminal(terminal.getId());
 	auxTerminal.replaceTerminalData(terminal);
 	terminalService.updateTerminal(auxTerminal);
 	redirectAttributes.addFlashAttribute("success", "success.updatingTerminal");
