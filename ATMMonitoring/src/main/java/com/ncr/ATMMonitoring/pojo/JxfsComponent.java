@@ -192,7 +192,55 @@ public class JxfsComponent {
 	jxfsClasses.add("VDM");
     }
 
-    @Id
+    public String getBarcodeCapabilities() {
+		return barcodeCapabilities;
+	}
+
+	public void setBarcodeCapabilities(String barcodeCapabilities) {
+		this.barcodeCapabilities = barcodeCapabilities;
+	}
+
+	public String getChequeCapabilities() {
+		return chequeCapabilities;
+	}
+
+	public void setChequeCapabilities(String chequeCapabilities) {
+		this.chequeCapabilities = chequeCapabilities;
+	}
+
+	public String getImageCapabilities() {
+		return imageCapabilities;
+	}
+
+	public void setImageCapabilities(String imageCapabilities) {
+		this.imageCapabilities = imageCapabilities;
+	}
+
+	public String getPositions() {
+		return positions;
+	}
+
+	public void setPositions(String positions) {
+		this.positions = positions;
+	}
+
+	public String getScnCapabilities() {
+		return scnCapabilities;
+	}
+
+	public void setScnCapabilities(String scnCapabilities) {
+		this.scnCapabilities = scnCapabilities;
+	}
+
+	public String getSecureKeyDetail() {
+		return secureKeyDetail;
+	}
+
+	public void setSecureKeyDetail(String secureKeyDetail) {
+		this.secureKeyDetail = secureKeyDetail;
+	}
+
+	@Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "jxfs_components_id_seq")
     @SequenceGenerator(name = "jxfs_components_id_seq", sequenceName = "jxfs_components_id_seq", allocationSize = 1)
