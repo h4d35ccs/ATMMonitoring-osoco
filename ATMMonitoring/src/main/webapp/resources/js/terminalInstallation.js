@@ -54,7 +54,6 @@ function initHandlers() {
 
 function initUI() {
     loadMap();
-    $("#inOffice").attr("checked", true).trigger("change");
     $(".date").datepicker();
 }
 
@@ -84,6 +83,7 @@ function initMap() {
         showMapAndCenterAtLatLng(event.latLng);
     });
     initHandlers();
+    $("#inOffice").attr("checked", true).trigger("change");
 }
 
 function onAddressChanged() {
