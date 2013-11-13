@@ -45,6 +45,7 @@ import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.TerminalModel;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.InstallationService;
+import com.ncr.ATMMonitoring.service.LocationService;
 import com.ncr.ATMMonitoring.service.TerminalModelService;
 import com.ncr.ATMMonitoring.service.TerminalService;
 import com.ncr.ATMMonitoring.service.QueryService;
@@ -89,6 +90,8 @@ public class TerminalController {
     private UserService userService;
     @Autowired
     private SocketService socketService;
+    @Autowired
+    private LocationService locationService;
 
     // @Autowired
     // private SoftwareService softwareService;
@@ -99,7 +102,7 @@ public class TerminalController {
     }
 
     @RequestMapping(value = "/terminals/request", method = RequestMethod.GET)
-    public String requestTerminalsUpdate(Map<String, Object> map, String queryId, HttpServletRequest request, 
+    public String requestTerminalsUpdate(Map<String, Object> map, String queryId, HttpServletRequest request,
 					 Principal principal,
 					  RedirectAttributes redirectAttributes) {
     	if ((queryId != null) && (principal != null)) {
@@ -867,7 +870,8 @@ public class TerminalController {
     }
 
     @RequestMapping(value = { "terminals/installation" })
-    public String newInstallation() {
+    public String newInstallation(Map<String, Object> map) {
+		map.put("locations", locationService.listLocations());
     	return "terminalInstallation";
     }
 
