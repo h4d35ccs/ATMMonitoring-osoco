@@ -21,15 +21,13 @@
 		<article>
 			<div class="content">
 				<div class="ul_data editable">
-					<ul>
-						<li>
-							<label for="inOffice"><spring:message code="label.installation.inOffice"/></label>
-                            <input type="radio" id="inOffice" name="installationType" value="inOffice">
-                        </li>
-                        <li>
-							<label for="outOffice"><spring:message code="label.installation.outOffice"/></label>
-                            <input type="radio" id="outOffice" name="installationType" value="outOffice">
-						</li>
+					<div class="row">
+						
+						<label for="inOffice"><input type="radio" id="inOffice" name="installationType" value="inOffice"><spring:message code="label.installation.inOffice"/></label>
+						
+						<label for="outOffice"><input type="radio" id="outOffice" name="installationType" value="outOffice"><spring:message code="label.installation.outOffice"/></label>
+					</div>
+					<ul class="">
 						<li class="inOffice">
 							<label for="office"><spring:message code="label.location.office"/></label>
                             <select id="office" name="location.id">
@@ -100,7 +98,7 @@
 		</article>
 	</div>
 
-    <div id="map" style="width: 500px; height: 300px;"></div>
+    <div id="map"></div>
 
 </div>
 </jsp:body>

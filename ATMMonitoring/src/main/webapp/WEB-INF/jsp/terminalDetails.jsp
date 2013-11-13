@@ -415,7 +415,7 @@
 					</nav>
 					<div class="content_tab">
 						<div class="botonera">
-							<a href="terminals/installation" class="btn iframe"><spring:message code="label.installation.new"/></a>
+							<a href="terminals/installation" class="btn iframe_m"><spring:message code="label.installation.new"/></a>
 						</div>
                                                 <c:if test="${terminal.installation != null}">
 						<h3><spring:message code="label.installation.current"/></h3>

@@ -18,6 +18,9 @@
 			}
 		}
 		&.installation{
+			#primary .botonera{
+				margin: 0 2em 0 0;
+			}
 			.content{
 				margin-right: 2em;
 			}
@@ -27,18 +30,26 @@
 			li{
 				overflow: hidden;
 				margin-bottom: .5em;
+				a{
+					float: none;
+					display: inline;
+				}
 			}
 			label{
-				width: 33%;
+				width: 150px;
 				margin-left: 2%;
 				display: block;
 				float: left;
+				padding: .5em;
 			}
 			input[type="text"]{
-				width: 45%;
+				width: 180px;
+				&.date{
+					width: 148px;
+				}
 			}
 			input[type="checkbox"]{
-				margin: .8em 0;
+				margin: .5em 0;
 			}
 			input.withbutton{
 				width: 25%;
@@ -48,6 +59,34 @@
 				clear: both;
 				float: right;
 				margin: 1em;
+			}
+			.row{
+				@include border-radius(4px);
+				padding: .5em;
+				background:$colorW1;
+				label{
+					width: auto;
+					padding: 0;
+					margin: 0;
+					margin-right: .5em;
+				}
+				input[type="radio"]{
+					margin-right: .5em;
+				}
+			}
+			.form{
+				clear: both;
+				padding-right: 0;
+				label{
+					text-align: right;
+					margin-right: 1em;
+				}
+			}
+			#map{
+				width: 50%;
+				height: 380px;
+				float: right;
+				margin-top: 7.5em;
 			}
 		}
 	}
