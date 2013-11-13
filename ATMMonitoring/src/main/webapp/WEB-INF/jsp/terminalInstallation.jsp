@@ -1,6 +1,8 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
@@ -22,9 +24,9 @@
 			<div class="content">
 				<div class="ul_data editable">
 					<div class="row">
-						
+
 						<label for="inOffice"><input type="radio" id="inOffice" name="installationType" value="inOffice"><spring:message code="label.installation.inOffice"/></label>
-						
+
 						<label for="outOffice"><input type="radio" id="outOffice" name="installationType" value="outOffice"><spring:message code="label.installation.outOffice"/></label>
 					</div>
 					<ul class="">
@@ -63,7 +65,8 @@
 						</li>
 						<li>
 							<label for="startDate"><spring:message code="label.installation.startDate"/></label>
-							<input id="startDate" class="date" name="date" type="text" value="22/10/2013">
+                            <c:set var="now" value="<%=new java.util.Date()%>" />
+							<input id="startDate" class="date" name="date" type="text" value="<fmt:formatDate value="${now}" pattern="dd/MM/yyyy"/>">
 							<a href="" id="startDateButton" class="btn calendar">
 								<span>
 									<spring:message code="label.calendar.open"/>
