@@ -29,10 +29,11 @@
 			}
 			li{
 				overflow: hidden;
-				margin-bottom: .5em;
+				margin-bottom: .3em;
 				a{
 					float: none;
 					display: inline;
+					margin: 0;
 				}
 			}
 			label{
@@ -44,9 +45,14 @@
 			}
 			input[type="text"]{
 				width: 180px;
+				padding: .2em;
 				&.date{
 					width: 148px;
 				}
+			}
+			select{
+				margin: 0;
+				width: 180px;
 			}
 			input[type="checkbox"]{
 				margin: .5em 0;
@@ -58,12 +64,13 @@
 			.message{
 				clear: both;
 				float: right;
-				margin: 1em;
+				margin-left: 44%;
+				margin-right: 1em;
 			}
 			.row{
 				@include border-radius(4px);
 				padding: .5em;
-				background:$colorW1;
+				background:$colorK5;
 				label{
 					width: auto;
 					padding: 0;
@@ -75,8 +82,8 @@
 				}
 			}
 			.form{
-				clear: both;
 				padding-right: 0;
+				clear: both;
 				label{
 					text-align: right;
 					margin-right: 1em;
