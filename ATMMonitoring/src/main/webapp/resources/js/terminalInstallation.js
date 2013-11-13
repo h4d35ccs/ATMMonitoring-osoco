@@ -14,7 +14,6 @@ $.fn.extend({
 });
 
 $(function() {
-    initHandlers();
     initUI();
 });
 
@@ -69,7 +68,7 @@ function loadMap() {
 function initMap() {
     geocoder = new google.maps.Geocoder();
     var mapOptions = {
-        zoom: 17,
+        zoom: 1,
         center: new google.maps.LatLng(0, 0),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
@@ -77,12 +76,14 @@ function initMap() {
     marker = new google.maps.Marker({
         map: map,
         draggable: false,
-        animation: google.maps.Animation.DROP
+        animation: google.maps.Animation.DROP,
+        icon: "resources/images/icons/marker.png"
     });
     google.maps.event.addListener(marker, 'dragend', function(event) {
         updateCoordsFromLatLng(event.latLng);
         showMapAndCenterAtLatLng(event.latLng);
     });
+    initHandlers();
 }
 
 function onAddressChanged() {
@@ -90,7 +91,7 @@ function onAddressChanged() {
         if (address) {
             showMapAndCenterAtAddress(address);
         } else {
-            hideMap();
+            showWorldInMap();
         }
     }
 }
@@ -122,31 +123,31 @@ function showMapAndCenterAtAddress(address) {
 }
 
 function showMapAndCenterAtLatLng(latlng) {
-    showMap();
+    map.setZoom(17);
     placeMarker(latlng);
 }
 
 function placeMarker(latlng) {
+    map.setCenter(latlng);
     marker.setPosition(latlng);
+    marker.setVisible(true);
+    marker.setAnimation(google.maps.Animation.DROP);
     if (isOutOfOfficeInstallation()) {
         marker.setDraggable(true);
     } else {
         marker.setDraggable(false);
     }
-    map.setCenter(latlng);
 }
 
-function hideMap() {
-    $("#map").hide();
-}
-
-function showMap() {
-    $("#map").show();
-    google.maps.event.trigger(map, 'resize');
+function showWorldInMap() {
+    marker.setVisible(false);
+    map.setCenter(new google.maps.LatLng(0, 0));
+    map.setZoom(1);
 }
 
 function parseCoord(coord) {
-    return parseFloat(coord.replace(',','.').replace(' ',''));
+    var parsedCoord = parseFloat(coord.replace(',','.').replace(' ',''));
+    return parsedCoord ? parsedCoord : null;
 }
 
 function isOutOfOfficeInstallation() {
