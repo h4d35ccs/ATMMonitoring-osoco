@@ -40,22 +40,6 @@
 					<div class="action_box data">
 						<h2><spring:message code="label.terminalDetails"/></h2>
 						<form:form method="post" action="terminals/list" commandName="terminal">
-						  <div class="row td">
-							<label for="proveedor"><spring:message code="label.manufacturer"/>:</label>
-							<select id="ManufacturerCombo" onchange="ChangeManufacturer()">
-								<option value=""><spring:message code="label.select.default"/></option>
-								<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
-								  <c:if test="${key != 'allManufacturers'}">
-									<option value="${key}">${key}</option>
-								  </c:if>
-								</c:forEach>
-							</select>
-							<label for="modelo"><spring:message code="label.terminal.model"/>:</label>
-							<form:select id="ModelsCombo" path="terminalModel" onchange="ChangeModel()">
-							  <option value="" ></option>
-                            </form:select>
-
-						  </div>
 						  <div class="collapsible last">
 						  	<div class="model">
 							<div class="photo">
@@ -67,21 +51,21 @@
 							<div class="desplegable">
 									<div class="txt content_hide"><span><spring:message code="label.moreInfo"/></span></div>
 									<dl class="collapsible hide">
-										<dt><spring:message code="label.name"/>: </dt>
+										<dt><spring:message code="label.terminalModel.model"/>: </dt>
 											<dd id="field_model"></dd>
-										<dt><spring:message code="label.manufacturer"/> : </dt>
+										<dt><spring:message code="label.terminalModel.manufacturer"/> : </dt>
 											<dd id="field_manufacturer"></dd>
-										<dt>Nickname: </dt>
+										<dt><spring:message code="label.terminalModel.nickname"/>: </dt>
 											<dd id="field_nickname"></dd>
-										<dt>Altura (mm): </dt>
+										<dt><spring:message code="label.terminalModel.height"/>: </dt>
 											<dd id="field_height"></dd>
-										<dt>Ancho (mm): </dt>
+										<dt><spring:message code="label.terminalModel.width"/>: </dt>
 											<dd id="field_width"></dd>
-										<dt>Profundidad (mm): </dt>
+										<dt><spring:message code="label.terminalModel.depth"/>: </dt>
 											<dd id="field_depth"></dd>
-										<dt>Peso mínimo (kg): </dt>
+										<dt><spring:message code="label.terminalModel.minWeight"/>: </dt>
 											<dd id="field_min_weight"></dd>
-										<dt>Peso máximo (kg): </dt>
+										<dt><spring:message code="label.terminalModel.maxWeight"/>: </dt>
 											<dd id="field_max_weight"></dd>
 									</dl>
 								</div>
@@ -89,131 +73,57 @@
 
 							<div class="ul_data editable">
 							  <ul>
-							    <li> <strong><form:label path="mac">
-								  <spring:message code="label.terminal.mac"/>
-								  *
-							      </form:label></strong>
+												<li> <strong><form:label path="mac">
+															<spring:message code="label.terminal.mac"/>
+															*
+														</form:label></strong>
 
-							      <form:input class='form-tf-grey' path="mac" maxlength="17"/>
+													<form:input class='form-tf-grey' path="mac" maxlength="17"/>
 
-							      <div class="error-td">
-								<form:errors path="mac"/>
-								<c:if test="${duplicatedMac == true}">
-								  <spring:message code="label.terminal.duplicatedMac"/>
-								</c:if>
-							      </div>
-							    </li>
-							    <li> <strong><form:label path="ip">
-								  <spring:message code="label.terminal.ip"/>
-								  *
-							      </form:label></strong>
-							      <form:input class='form-tf-grey' path="ip" maxlength="23"/>
-							      <div class="error-td">
-								<form:errors path="ip"/>
-								<c:if test="${duplicatedIp == true}">
-								  <spring:message code="label.terminal.duplicatedIp"/>
-								</c:if>
-							      </div>
-							    </li>
-							    <li>
-							      <strong>
-								<form:label path="serialNumber">
 
-								  <spring:message code="label.terminal.serialNumber"/>
+														<form:errors path="mac" element="div" cssClass="error top"/>
+														<c:if test="${duplicatedMac == true}">
+														   	<div class="error top">
+															<spring:message code="label.terminal.duplicatedMac"/>
+															</div>
+														</c:if>
 
-								</form:label>
-							      </strong>
-							      <form:input class='form-tf-grey' path="serialNumber" maxlength="50"/>
+												</li>
+												<li> <strong><form:label path="ip">
+															<spring:message code="label.terminal.ip"/>
+															*
+														</form:label></strong>
+													        <form:input class='form-tf-grey' path="ip" maxlength="23"/>
 
-							      <div class="error-td">
-								<form:errors path="serialNumber"/>
-								<c:if test="${duplicatedSerialNumber == true}">
-								  <spring:message code="label.terminal.duplicatedSerialNumber"/>
-								</c:if>
-							      </div>
-							    </li>
-							    <li>
-							      <strong>
-								<form:label path="terminalType">
-
-								  <spring:message code="label.terminal.terminalType"/>
-
-								</form:label>
-							      </strong>
-							      <form:input class='form-tf-grey' path="terminalType" maxlength="50"/>
-
-							      <div class="error-td">
-								<form:errors path="terminalType"/>
-							      </div>
-							    </li>
-							    <li>
-							      <strong>
-								<form:label path="terminalVendor">
-
-								  <spring:message code="label.terminal.terminalVendor"/>
-
-								</form:label>
-							      </strong>
-							      <form:input class='form-tf-grey' path="terminalVendor" maxlength="50"/>
-
-							      <div class="error-td">
-								<form:errors path="terminalVendor"/>
-							      </div>
-							    </li>
-							    <li>
-							      <strong>
-								<form:label path="frontReplenish">
-
-								  <spring:message code="label.terminal.frontReplenish"/>
-
-								</form:label>
-							      </strong>
-							      <form:checkbox path="frontReplenish"/>
-
-							    </li>
-							    <li>
-							      <strong>
-								<form:label path="bank">
-
-								  <spring:message code="label.terminal.bank"/>
-
-								</form:label>
-							      </strong>
-							      <form:select class='form-tf-grey' path="bankCompany">
-							          <option value="" >Seleccionar</option>
-                                				  <c:forEach items="${banksList}" var="bank">
-                                    				    <option value="${bank.id}"}>${bank.name}</option>
-                                                                 </c:forEach>
-                            				      </form:select>
-							      <div class="error-td">
-								<form:errors path="bankCompany"/>
-							      </div>
-							    </li>
-							    <li>
-							      <strong>
-								<form:label path="branch">
-
-													    <spring:message code="label.terminal.branch"/>
-
-													  </form:label>
-													</strong>
-													<form:input class='form-tf-grey' path="branch" maxlength="50"/>
-
-													<div class="error-td">
-														<form:errors path="branch"/>
-													</div>
+														<form:errors path="ip"  element="div" cssClass="error top"/>
+														<c:if test="${duplicatedIp == true}">
+														<div class="error top">
+															<spring:message code="label.terminal.duplicatedIp"/>
+												                </div>
+														</c:if>
 												</li>
 												<li>
 													<strong>
-														<form:label path="manufacturingSite">
+														<form:label path="terminalVendor">
 
-															<spring:message code="label.terminal.manufacturingSite"/>
+															<spring:message code="label.terminal.terminalVendor"/>
 
 														</form:label>
 													</strong>
-													<form:input class='form-tf-grey' path="manufacturingSite" maxlength="20"/>
+													<select id="ManufacturerCombo" onchange="ChangeManufacturer()">
+														<option value=""><spring:message code="label.select.default"/></option>
+														<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
+														  <c:if test="${key != 'allManufacturers'}">
+														  	<option value="${key}"
+															  	<c:if test="${key.equals(terminal.terminalModel.manufacturer)}">
+															  		selected="true"
+															  	</c:if>
+														  	>${key}</option>
+														  </c:if>
+														</c:forEach>
+													</select>
 												</li>
-												<!--li>
+												<li>
 													<strong>
 														<form:label path="model">
 
@@ -221,11 +131,17 @@
 
 														</form:label>
 													</strong>
-													<form:input class='form-tf-grey' path="model" maxlength="20"/>
-													<div class="error-td">
-														<form:errors path="model"/>
-													</div>
-												</li-->
+													<form:select id="ModelsCombo" path="terminalModel.id" onchange="ChangeModel()">
+													  <option value="" ></option>
+													  <c:forEach items="${values.get('allManufacturers')}" var="model" varStatus="status1">
+														  	<option value="${model.id}"
+															  	<c:if test="${model.model.equals(terminal.terminalModel.model)}">
+															  		selected="true"
+															  	</c:if>
+														  	>${model.model}</option>
+														</c:forEach>
+						                            </form:select>
+												</li>
 												<li>
 													<strong>
 														<form:label path="productClass">
@@ -235,9 +151,7 @@
 														</form:label>
 													</strong>
 													<form:input class='form-tf-grey' path="productClass" maxlength="20"/>
-													<div class="error-td">
-														<form:errors path="productClass"/>
-													</div>
+													<form:errors path="productClass"  element="div" cssClass="error top"/>
 												</li>
 												<li>
 													<strong>
@@ -252,6 +166,74 @@
 												</li>
 												<li>
 													<strong>
+														<form:label path="serialNumber">
+
+															<spring:message code="label.terminal.serialNumber"/>
+
+														</form:label>
+													</strong>
+													<form:input class='form-tf-grey' path="serialNumber" maxlength="50"/>
+													<form:errors path="serialNumber"  element="div" cssClass="error top"/>
+													<c:if test="${duplicatedSerialNumber == true}">
+														<div class="error top"><spring:message code="label.terminal.duplicatedSerialNumber"/></div>
+													</c:if>
+												</li>
+												<li>
+													<strong>
+														<form:label path="terminalType">
+
+															<spring:message code="label.terminal.terminalType"/>
+
+														</form:label>
+													</strong>
+													<form:input class='form-tf-grey' path="terminalType" maxlength="50"/>
+													<form:errors path="terminalType"  elnement="div" cssClass="error top"/>
+												</li>
+												<li>
+													<strong>
+														<form:label path="frontReplenish">
+
+															<spring:message code="label.terminal.frontReplenish"/>
+
+														</form:label>
+													</strong>
+													<form:checkbox path="frontReplenish"/>
+
+												</li>
+												<li>
+													<strong>
+														<form:label path="bank">
+
+															<spring:message code="label.terminal.bank"/>
+
+														</form:label>
+													</strong>
+													<form:input class='form-tf-grey' path="bank" maxlength="50"/>
+													<form:errors path="bank"  element="div" cssClass="error top"/>
+												</li>
+												<li>
+													<strong>
+														<form:label path="branch">
+
+															<spring:message code="label.terminal.branch"/>
+
+														</form:label>
+													</strong>
+													<form:input class='form-tf-grey' path="branch" maxlength="50"/>
+													<form:errors path="branch"  element="div" cssClass="error top"/>
+												</li>
+												<li>
+													<strong>
+														<form:label path="manufacturingSite">
+
+															<spring:message code="label.terminal.manufacturingSite"/>
+
+														</form:label>
+													</strong>
+													<form:input class='form-tf-grey' path="manufacturingSite" maxlength="20"/>
+												</li>
+												<li>
+													<strong>
 														<form:label path="tracerNumber">
 
 															<spring:message code="label.terminal.tracerNumber"/>
@@ -260,12 +242,6 @@
 													</strong>
 													<form:input class='form-tf-grey' path="tracerNumber" maxlength="20"/>
 
-												</li>
-												<li>
-													<strong>
-														<label><spring:message code="label.installation.create"/></label>
-													</strong>
-														<input type="checkbox" id="isAgeSelected"/>
 												</li>
 											</ul>
 											<div id="txtAge" style="display:none">

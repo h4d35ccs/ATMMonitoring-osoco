@@ -24,6 +24,7 @@
 	        });
 
             initTabs();
+            onLoadModelCB();
 	    });
 
         function initTabs() {
@@ -92,21 +93,26 @@
 										<div class="zoom"></div>
 									</a>
 								</div>
-								<div class="desplegable">
+								
+							<div class="desplegable">
 									<div class="txt content_hide"><span><spring:message code="label.moreInfo"/></span></div>
 									<dl class="collapsible hide">
-										<dt><spring:message code="label.name"/>: </dt>
-											<dd id="field_model"></dd>
-										<dt><spring:message code="label.manufacturer"/> : </dt>
-											<dd>campo</dd>
-										<dt>Campo: </dt>
-											<dd>campo</dd>
-										<dt>Nombre de campo: </dt>
-											<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </dd>
-										<dt>Nombre de campo: </dt>
-											<dd>campo</dd>
-										<dt>Nombre de campo: </dt>
-											<dd>campo</dd>
+										<dt><spring:message code="label.terminalModel.model"/>: </dt>
+											<dd id="field_model">${terminal.terminalModel.model}</dd>
+										<dt><spring:message code="label.terminalModel.manufacturer"/> : </dt>
+											<dd id="field_manufacturer">${terminal.terminalModel.manufacturer}</dd>
+										<dt><spring:message code="label.terminalModel.nickname"/>: </dt>
+											<dd id="field_nickname">${terminal.terminalModel.nickname}</dd>
+										<dt><spring:message code="label.terminalModel.height"/>: </dt>
+											<dd id="field_height">${terminal.terminalModel.height}</dd>
+										<dt><spring:message code="label.terminalModel.width"/>: </dt>
+											<dd id="field_width">${terminal.terminalModel.width}</dd>
+										<dt><spring:message code="label.terminalModel.depth"/>: </dt>
+											<dd id="field_depth">${terminal.terminalModel.depth}</dd>
+										<dt><spring:message code="label.terminalModel.minWeight"/>: </dt>
+											<dd id="field_min_weight">${terminal.terminalModel.minWeight}</dd>
+										<dt><spring:message code="label.terminalModel.maxWeight"/>: </dt>
+											<dd id="field_max_weight">${terminal.terminalModel.maxWeight}</dd>
 									</dl>
 								</div>
 							</div>
@@ -153,8 +159,18 @@
 
 														</form:label>
 													</strong>
-													<form:input class='form-tf-grey' path="terminalVendor" maxlength="50"/>
-													<form:errors path="terminalVendor"  element="div" cssClass="error top"/>
+													<select id="ManufacturerCombo" onchange="ChangeManufacturer()">
+														<option value=""><spring:message code="label.select.default"/></option>
+														<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
+														  <c:if test="${key != 'allManufacturers'}">
+														  	<option value="${key}"
+															  	<c:if test="${key.equals(terminal.terminalModel.manufacturer)}">
+															  		selected="true"
+															  	</c:if>
+														  	>${key}</option>
+														  </c:if>
+														</c:forEach>
+													</select>
 												</li>
 												<li>
 													<strong>
@@ -164,8 +180,16 @@
 
 														</form:label>
 													</strong>
-													<form:input class='form-tf-grey' path="model" maxlength="20"/>
-												        <form:errors path="model"  element="div" cssClass="error top"/>
+													<form:select id="ModelsCombo" path="terminalModel.id" onchange="ChangeModel()">
+													  <option value="" ></option>
+													  <c:forEach items="${values.get('allManufacturers')}" var="model" varStatus="status1">
+														  	<option value="${model.id}"
+															  	<c:if test="${model.model.equals(terminal.terminalModel.model)}">
+															  		selected="true"
+															  	</c:if>
+														  	>${model.model}</option>
+														</c:forEach>
+						                            </form:select>
 												</li>
 												<li>
 													<strong>
@@ -301,13 +325,13 @@
 												<strong>
 													<spring:message code="label.terminal.terminalVendor"/>
 												</strong>
-												${terminal.terminalVendor}
+												${terminal.terminalModel.manufacturer}
 											</li>
 											<li>
 												<strong>
 													<spring:message code="label.terminal.model"/>
 												</strong>
-												${terminal.model}
+												${terminal.terminalModel.model}
 											</li>
 											<li>
 												<strong>
@@ -1209,13 +1233,114 @@
 	</div>
 
 <script type="text/javascript">
+	var valuesTree = {
+	    	<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
+	    		<c:set var="value" value="${values.get(key)}"/>
+	   	 '${key}': {
+				<c:forEach items="${value}" var="model" varStatus="status2">
+					'${model.id}': {
+						'model' : '${model.model}',
+						'manufacturer' : '${model.manufacturer}',
+						'nickname' : '${model.nickname}',
+						'height' : '${model.height}',
+						'width' : '${model.width}',
+						'depth' : '${model.depth}',
+						'min_weight' : '${model.minWeight}',
+						'max_weight' : '${model.maxWeight}'
+					},
+				</c:forEach>
+	                'photoUrl': '<ncr:terminalModelPhotoUrl manufacturer="${key}"/>'
+	   	 			}${not status1.last ? ',' : ''}
+	   		</c:forEach>
+	};
+    function onLoadModelCB(){
+	    	var value = $('#ManufacturerCombo').val();
+	    	var $cb = $('#ModelsCombo');
+	    	if (value == '') {
+	    		$cb.empty();
+				$cb.append($('<option selected="selected"></option>'));
+	    	} else {
+	    		var values = valuesTree[value];
+	    		$('#ModelsCombo > option').each(function()
+						{
+							if (!(($(this).val() in values) || ($(this).val() == ''))) {
+								$(this).remove();
+							}
+						}
+	    		);
+	    	}
+    };
+	function ChangeManufacturer(){
+		var $cb1 = $('#ModelsCombo');
+		var $cb2 = $('#ManufacturerCombo');
+		$cb1.empty();
+		$cb1.append($('<option selected="selected"></option>'));
+		if ($cb2.val() != '') {
+			var values = valuesTree[$cb2.val()];
+			var keys = $.map(values, function(v, i){
+				  return i;
+				});
+			keys.sort(function(a,b){
+			    var compA = values[a].label;
+			    var compB = values[b].label;
+			    return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+			  });
+			$.each(keys, function(index, key) {
+	              if (key != 'photoUrl') {
+			          $cb1.append($('<option/>')
+				         .attr("value", key).text(values[key]['model']));
+	              }
+			});
+			$cb1.prop('disabled', false);
+		} else {
+			$cb1.prop('disabled', true);
+		};
+		$('#field_model').text('');
+		$('#field_manufacturer').text('');
+		$('#field_nickname').text('');
+		$('#field_width').text('');
+		$('#field_height').text('');
+		$('#field_depth').text('');
+		$('#field_min_weight').text('');
+		$('#field_max_weight').text('');
+	    var photoUrl;
+	    if ($cb2.val()) {
+	      photoUrl = valuesTree[$cb2.val()]['photoUrl'];
+	    } else {
+	      photoUrl = '<ncr:terminalModelPhotoUrl />'
+	    }
+		$('.photo a').attr("href", photoUrl);
+		$('.photo img').attr("src", photoUrl);
+	};
+
+	function ChangeModel(){
+		var $cb1 = $('#ModelsCombo');
+		var $cb2 = $('#ManufacturerCombo');
+		if (($cb1.val() != '') && ($cb2.val() != '')) {
+			var values = valuesTree[$cb2.val()][$cb1.val()];
+			$('#field_model').text(values.model);
+			$('#field_manufacturer').text(values.manufacturer);
+			$('#field_nickname').text(values.nickname);
+			$('#field_width').text(values.width);
+			$('#field_height').text(values.height);
+			$('#field_depth').text(values.depth);
+			$('#field_min_weight').text(values.min_weight);
+			$('#field_max_weight').text(values.max_weight);
+			$('.photo a').attr("href", 'terminals/models/image/' + $cb1.val());
+			$('.photo img').attr("src", 'terminals/models/image/' + $cb1.val() + '?width=200');
+		}
+	    if (!$cb1.val()) {
+	          var photoUrl = valuesTree[$cb2.val()]['photoUrl'];
+		      $('.photo a').attr("href", photoUrl);
+		      $('.photo img').attr("src", photoUrl);
+	    }
+	};
+
 	function requestSnmpUpdate() {
 
 			window.location.href = "terminals/request/${terminal.id}";
 	}
-</script>
-
-<script type="text/javascript">
+	
 	$(document).ready(function(){
 		$("#TestChromatable").chromatable({
 				width: "1015px",
@@ -1236,7 +1361,7 @@
 		});
 
 	});
-</script>
+    </script>
 
 </jsp:body>
 

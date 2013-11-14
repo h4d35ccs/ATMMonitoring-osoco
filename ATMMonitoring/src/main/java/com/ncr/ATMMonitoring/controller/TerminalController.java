@@ -233,7 +233,6 @@ public class TerminalController {
 			userQueries = loggedUser.getQueries();
 		}
 		map.put("banksList", bankCompanies);
-		map.put("terminalModelsList", terminalModelService.listTerminalModels());
 		map.put("installationsList", installationService.listInstallations());
 		map.put("userQueries", userQueries);
 		map.put("userMsg", userMsg);
@@ -298,8 +297,9 @@ public class TerminalController {
 	    }
 	}
 	map.put("banksList", bankCompanies);
-	map.put("terminalModelsList", terminalModelService.listTerminalModels());
 	map.put("installationsList", installationService.listInstallations());
+	map.put("values",
+		terminalModelService.listTerminalModelsByManufacturer());
 	map.put("userMsg", userMsg);
 	map.put("canEdit", canEdit);
 	map.put("terminal", terminal);
@@ -415,7 +415,6 @@ public class TerminalController {
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
 	map.put("banksList", bankCompanies);
-	map.put("terminalModelsList", terminalModelService.listTerminalModels());
 	map.put("installationsList", installationService.listInstallations());
 	if (result.hasErrors()) {
 	    map.put("userMsg", userMsg);
@@ -497,7 +496,6 @@ public class TerminalController {
 	    bankCompanies = loggedUser.getManageableBankCompanies();
 	}
 	map.put("banksList", bankCompanies);
-	map.put("terminalModelsList", terminalModelService.listTerminalModels());
 	map.put("installationsList", installationService.listInstallations());
 	map.put("terminalsList", terminals);
 	map.put("userMsg", userMsg);
