@@ -260,7 +260,7 @@
 														</li>
 														<li>
 															<strong><label for="ip"><spring:message code="label.location.ip"/></label></strong>
-															<input id="ip" name="ip" type="text">
+															<input id="installation.ip" name="installation.ip" type="text">
 															<div class="error-td">
 															</div>
 														</li>
