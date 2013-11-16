@@ -335,6 +335,7 @@ public class TerminalServiceImpl implements TerminalService {
 	TerminalModel model = getTerminalModel(dataStoreTerminal);
 	if (model != null) {
 	    terminal.setTerminalModel(model);
+	    terminal.setTerminalVendor(model.getManufacturer());
 	}
 	terminal.setHardwareDevices(getHwDevs(terminal, dataStoreTerminal));
 	terminal.setFinancialDevices(getFinancialDevs(terminal,
