@@ -39,7 +39,7 @@
       <td>${terminal.terminalType}</td>
       <td>${terminal.terminalVendor}</td>
       <td>${terminal.geographicAddress}</td>
-      <td>${terminal.productClass}</td>
+      <td>${terminal.terminalModel.productClass}</td>
       <td>${terminal.tracerNumber}</td>
     </tr>
   </c:forEach>
