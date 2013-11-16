@@ -64,4 +64,12 @@ public class TerminalModelDAOImpl implements TerminalModelDAO {
 		.createCriteria(TerminalModel.class)
 		.add(Restrictions.eq("model", model)).uniqueResult();
     }
+
+    @Override
+    public TerminalModel getTerminalModelByProductClass(String productClass) {
+	return (TerminalModel) sessionFactory.getCurrentSession()
+		.createCriteria(TerminalModel.class)
+		.add(Restrictions.eq("productClass", productClass))
+		.uniqueResult();
+    }
 }

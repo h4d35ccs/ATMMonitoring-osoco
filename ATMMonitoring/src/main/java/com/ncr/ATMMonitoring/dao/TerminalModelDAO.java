@@ -16,6 +16,8 @@ public interface TerminalModelDAO {
 
     public TerminalModel getTerminalModelByModel(String model);
 
+    public TerminalModel getTerminalModelByProductClass(String productClass);
+
     public List<TerminalModel> listTerminalModels();
 
     public void updateTerminalModel(TerminalModel terminalModel);

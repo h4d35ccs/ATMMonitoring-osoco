@@ -39,6 +39,11 @@ public class TerminalModelServiceImpl implements TerminalModelService {
     }
 
     @Override
+    public TerminalModel getTerminalModelByProductClass(String productClass) {
+	return terminalModelDAO.getTerminalModelByProductClass(productClass);
+    }
+
+    @Override
     public List<TerminalModel> listTerminalModels() {
 	return terminalModelDAO.listTerminalModels();
     }

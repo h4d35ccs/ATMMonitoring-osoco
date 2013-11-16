@@ -52,21 +52,23 @@
 									<div class="txt content_hide"><span><spring:message code="label.moreInfo"/></span></div>
 									<dl class="collapsible hide">
 										<dt><spring:message code="label.terminalModel.model"/>: </dt>
-											<dd id="field_model"></dd>
+											<dd id="field_model">${terminal.terminalModel.model}</dd>
+										<dt><spring:message code="label.terminalModel.productClass"/>: </dt>
+											<dd id="field_product_class">${terminal.terminalModel.productClass}</dd>
 										<dt><spring:message code="label.terminalModel.manufacturer"/> : </dt>
-											<dd id="field_manufacturer"></dd>
+											<dd id="field_manufacturer">${terminal.terminalModel.manufacturer}</dd>
 										<dt><spring:message code="label.terminalModel.nickname"/>: </dt>
-											<dd id="field_nickname"></dd>
+											<dd id="field_nickname">${terminal.terminalModel.nickname}</dd>
 										<dt><spring:message code="label.terminalModel.height"/>: </dt>
-											<dd id="field_height"></dd>
+											<dd id="field_height">${terminal.terminalModel.height}</dd>
 										<dt><spring:message code="label.terminalModel.width"/>: </dt>
-											<dd id="field_width"></dd>
+											<dd id="field_width">${terminal.terminalModel.width}</dd>
 										<dt><spring:message code="label.terminalModel.depth"/>: </dt>
-											<dd id="field_depth"></dd>
+											<dd id="field_depth">${terminal.terminalModel.depth}</dd>
 										<dt><spring:message code="label.terminalModel.minWeight"/>: </dt>
-											<dd id="field_min_weight"></dd>
+											<dd id="field_min_weight">${terminal.terminalModel.minWeight}</dd>
 										<dt><spring:message code="label.terminalModel.maxWeight"/>: </dt>
-											<dd id="field_max_weight"></dd>
+											<dd id="field_max_weight">${terminal.terminalModel.maxWeight}</dd>
 									</dl>
 								</div>
 							</div>
@@ -125,33 +127,22 @@
 												</li>
 												<li>
 													<strong>
-														<form:label path="model">
-
-															<spring:message code="label.terminal.model"/>
-
-														</form:label>
-													</strong>
-													<form:select id="ModelsCombo" path="terminalModel.id" onchange="ChangeModel()">
-													  <option value="" ></option>
-													  <c:forEach items="${values.get('allManufacturers')}" var="model" varStatus="status1">
-														  	<option value="${model.id}"
-															  	<c:if test="${model.model.equals(terminal.terminalModel.model)}">
-															  		selected="true"
-															  	</c:if>
-														  	>${model.model}</option>
-														</c:forEach>
-						                            </form:select>
-												</li>
-												<li>
-													<strong>
 														<form:label path="productClass">
 
 															<spring:message code="label.terminal.productClass"/>
 
 														</form:label>
 													</strong>
-													<form:input class='form-tf-grey' path="productClass" maxlength="20"/>
-													<form:errors path="productClass"  element="div" cssClass="error top"/>
+													<form:select id="ModelsCombo" path="terminalModel.id" onchange="ChangeModel()">
+													  <option value="" ></option>
+													  <c:forEach items="${values.get('allManufacturers')}" var="model">
+														  	<option value="${model.id}"
+															  	<c:if test="${model.productClass.equals(terminal.terminalModel.productClass)}">
+															  		selected="true"
+															  	</c:if>
+														  	>${model.productClass}</option>
+														</c:forEach>
+						                            </form:select>
 												</li>
 												<li>
 													<strong>
@@ -315,6 +306,9 @@
 
 	</div>
 	<script type="text/javascript">
+	    $(function() {
+	        onLoadModelCB();
+	    });
 	    var valuesTree = {
 	        	<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
 	        		<c:set var="value" value="${values.get(key)}"/>
@@ -322,6 +316,7 @@
 					<c:forEach items="${value}" var="model" varStatus="status2">
 						'${model.id}': {
 							'model' : '${model.model}',
+							'product_class' : '${model.productClass}',
 							'manufacturer' : '${model.manufacturer}',
 							'nickname' : '${model.nickname}',
 							'height' : '${model.height}',
@@ -334,6 +329,23 @@
                         'photoUrl': '<ncr:terminalModelPhotoUrl manufacturer="${key}"/>'
 	       	 			}${not status1.last ? ',' : ''}
 	       		</c:forEach>
+	    };
+	    function onLoadModelCB(){
+		    	var value = $('#ManufacturerCombo').val();
+		    	var $cb = $('#ModelsCombo');
+		    	if (value == '') {
+		    		$cb.empty();
+					$cb.append($('<option selected="selected"></option>'));
+		    	} else {
+		    		var values = valuesTree[value];
+		    		$('#ModelsCombo > option').each(function()
+							{
+								if (!(($(this).val() in values) || ($(this).val() == ''))) {
+									$(this).remove();
+								}
+							}
+		    		);
+		    	}
 	    };
 	    function ChangeManufacturer(){
 			var $cb1 = $('#ModelsCombo');
@@ -353,7 +365,7 @@
 				$.each(keys, function(index, key) {
                       if (key != 'photoUrl') {
 				          $cb1.append($('<option/>')
-					         .attr("value", key).text(values[key]['model']));
+					         .attr("value", key).text(values[key]['product_class']));
                       }
 				});
 				$cb1.prop('disabled', false);
@@ -361,6 +373,7 @@
 				$cb1.prop('disabled', true);
 			};
 			$('#field_model').text('');
+			$('#field_product_class').text('');
 			$('#field_manufacturer').text('');
 			$('#field_nickname').text('');
 			$('#field_width').text('');
@@ -384,6 +397,7 @@
 			if (($cb1.val() != '') && ($cb2.val() != '')) {
 				var values = valuesTree[$cb2.val()][$cb1.val()];
 				$('#field_model').text(values.model);
+				$('#field_product_class').text(values.product_class);
 				$('#field_manufacturer').text(values.manufacturer);
 				$('#field_nickname').text(values.nickname);
 				$('#field_width').text(values.width);

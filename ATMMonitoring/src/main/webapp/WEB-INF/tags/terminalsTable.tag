@@ -8,7 +8,7 @@
 
 <%
     String[] terminalColumns = { "mac" , "ip", "serialNumber", "terminalType", "terminalVendor",
-        "geographicAddress", "model", "productClass", "tracerNumber"};
+        "geographicAddress", "productClass", "tracerNumber"};
     request.setAttribute("terminalColumns", terminalColumns);
 %>
 
@@ -39,7 +39,6 @@
       <td>${terminal.terminalType}</td>
       <td>${terminal.terminalVendor}</td>
       <td>${terminal.geographicAddress}</td>
-      <td>${terminal.model}</td>
       <td>${terminal.productClass}</td>
       <td>${terminal.tracerNumber}</td>
     </tr>

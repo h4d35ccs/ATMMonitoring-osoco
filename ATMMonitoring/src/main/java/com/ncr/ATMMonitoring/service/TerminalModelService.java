@@ -17,6 +17,8 @@ public interface TerminalModelService {
 
     public TerminalModel getTerminalModelByModel(String model);
 
+    public TerminalModel getTerminalModelByProductClass(String productClass);
+
     public List<TerminalModel> listTerminalModels();
 
     public Map<String, List<TerminalModel>> listTerminalModelsByManufacturer();

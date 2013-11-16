@@ -37,8 +37,11 @@ public class TerminalModel {
     @SequenceGenerator(name = "terminal_models_id_seq", sequenceName = "terminal_models_id_seq", allocationSize = 1)
     private Integer id;
 
-    @Column(name = "model", length = 50, unique = true)
+    @Column(name = "model", length = 50)
     private String model;
+
+    @Column(name = "product_class", length = 50, unique = true)
+    private String productClass;
 
     @Column(name = "nickname", length = 50)
     private String nickname;
@@ -192,4 +195,12 @@ public class TerminalModel {
 	public void setMinWeight(Double minWeight) {
 		this.minWeight = minWeight;
 	}
+
+    public String getProductClass() {
+	return productClass;
+    }
+
+    public void setProductClass(String productClass) {
+	this.productClass = productClass;
+    }
 }

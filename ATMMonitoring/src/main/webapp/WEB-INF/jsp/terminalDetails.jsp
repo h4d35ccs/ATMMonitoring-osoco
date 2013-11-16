@@ -99,6 +99,8 @@
 									<dl class="collapsible hide">
 										<dt><spring:message code="label.terminalModel.model"/>: </dt>
 											<dd id="field_model">${terminal.terminalModel.model}</dd>
+										<dt><spring:message code="label.terminalModel.productClass"/>: </dt>
+											<dd id="field_product_class">${terminal.terminalModel.productClass}</dd>
 										<dt><spring:message code="label.terminalModel.manufacturer"/> : </dt>
 											<dd id="field_manufacturer">${terminal.terminalModel.manufacturer}</dd>
 										<dt><spring:message code="label.terminalModel.nickname"/>: </dt>
@@ -174,33 +176,22 @@
 												</li>
 												<li>
 													<strong>
-														<form:label path="model">
-
-															<spring:message code="label.terminal.model"/>
-
-														</form:label>
-													</strong>
-													<form:select id="ModelsCombo" path="terminalModel.id" onchange="ChangeModel()">
-													  <option value="" ></option>
-													  <c:forEach items="${values.get('allManufacturers')}" var="model" varStatus="status1">
-														  	<option value="${model.id}"
-															  	<c:if test="${model.model.equals(terminal.terminalModel.model)}">
-															  		selected="true"
-															  	</c:if>
-														  	>${model.model}</option>
-														</c:forEach>
-						                            </form:select>
-												</li>
-												<li>
-													<strong>
 														<form:label path="productClass">
 
 															<spring:message code="label.terminal.productClass"/>
 
 														</form:label>
 													</strong>
-													<form:input class='form-tf-grey' path="productClass" maxlength="20"/>
-													<form:errors path="productClass"  element="div" cssClass="error top"/>
+													<form:select id="ModelsCombo" path="terminalModel.id" onchange="ChangeModel()">
+													  <option value="" ></option>
+													  <c:forEach items="${values.get('allManufacturers')}" var="model">
+														  	<option value="${model.id}"
+															  	<c:if test="${model.productClass.equals(terminal.terminalModel.productClass)}">
+															  		selected="true"
+															  	</c:if>
+														  	>${model.productClass}</option>
+														</c:forEach>
+						                            </form:select>
 												</li>
 												<li>
 													<strong>
@@ -329,15 +320,9 @@
 											</li>
 											<li>
 												<strong>
-													<spring:message code="label.terminal.model"/>
-												</strong>
-												${terminal.terminalModel.model}
-											</li>
-											<li>
-												<strong>
 													<spring:message code="label.terminal.productClass"/>
 												</strong>
-												${terminal.productClass}
+												${terminal.terminalModel.productClass}
 											</li>
 											<li>
 												<strong>
@@ -1240,6 +1225,7 @@
 				<c:forEach items="${value}" var="model" varStatus="status2">
 					'${model.id}': {
 						'model' : '${model.model}',
+						'product_class' : '${model.productClass}',
 						'manufacturer' : '${model.manufacturer}',
 						'nickname' : '${model.nickname}',
 						'height' : '${model.height}',
@@ -1253,7 +1239,7 @@
 	   	 			}${not status1.last ? ',' : ''}
 	   		</c:forEach>
 	};
-    function onLoadModelCB(){
+	function onLoadModelCB(){
 	    	var value = $('#ManufacturerCombo').val();
 	    	var $cb = $('#ModelsCombo');
 	    	if (value == '') {
@@ -1269,7 +1255,7 @@
 						}
 	    		);
 	    	}
-    };
+	};
 	function ChangeManufacturer(){
 		var $cb1 = $('#ModelsCombo');
 		var $cb2 = $('#ManufacturerCombo');
@@ -1288,7 +1274,7 @@
 			$.each(keys, function(index, key) {
 	              if (key != 'photoUrl') {
 			          $cb1.append($('<option/>')
-				         .attr("value", key).text(values[key]['model']));
+				         .attr("value", key).text(values[key]['product_class']));
 	              }
 			});
 			$cb1.prop('disabled', false);
@@ -1296,6 +1282,7 @@
 			$cb1.prop('disabled', true);
 		};
 		$('#field_model').text('');
+		$('#field_product_class').text('');
 		$('#field_manufacturer').text('');
 		$('#field_nickname').text('');
 		$('#field_width').text('');
@@ -1312,13 +1299,14 @@
 		$('.photo a').attr("href", photoUrl);
 		$('.photo img').attr("src", photoUrl);
 	};
-
+	
 	function ChangeModel(){
 		var $cb1 = $('#ModelsCombo');
 		var $cb2 = $('#ManufacturerCombo');
 		if (($cb1.val() != '') && ($cb2.val() != '')) {
 			var values = valuesTree[$cb2.val()][$cb1.val()];
 			$('#field_model').text(values.model);
+			$('#field_product_class').text(values.product_class);
 			$('#field_manufacturer').text(values.manufacturer);
 			$('#field_nickname').text(values.nickname);
 			$('#field_width').text(values.width);

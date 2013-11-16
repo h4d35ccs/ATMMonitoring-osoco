@@ -754,12 +754,14 @@ public class TerminalServiceImpl implements TerminalService {
 
 	FinancialTerminalPojo ft = dataStoreTerminal.getFinancialTerminal();
 	TerminalModel model = null;
-	if ((ft.getModel() != null) && (ft.getModel().length() > 0)
-		&& (!ft.getModel().equals("null"))) {
-	    model = terminalModelService.getTerminalModelByModel(ft.getModel());
+	String productClass = ft.getProductclass();
+	if ((productClass != null) && (productClass.length() > 0)
+		&& (!productClass.equals("null"))) {
+	    model = terminalModelService
+		    .getTerminalModelByProductClass(productClass);
 	    if (model == null) {
-		logger.error("Couldn't find a TerminalModel with model '"
-			+ ft.getModel() + "'");
+		logger.error("Couldn't find a TerminalModel with product class '"
+			+ productClass + "'");
 	    }
 	}
 	return model;
