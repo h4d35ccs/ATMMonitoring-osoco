@@ -161,18 +161,18 @@
 
 														</form:label>
 													</strong>
-													<select id="ManufacturerCombo" onchange="ChangeManufacturer()">
+													<form:select id="ManufacturerCombo" path="terminalVendor" onchange="ChangeManufacturer()">
 														<option value=""><spring:message code="label.select.default"/></option>
 														<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
 														  <c:if test="${key != 'allManufacturers'}">
 														  	<option value="${key}"
-															  	<c:if test="${key.equals(terminal.terminalModel.manufacturer)}">
+															  	<c:if test="${key.equals(terminal.terminalVendor)}">
 															  		selected="true"
 															  	</c:if>
 														  	>${key}</option>
 														  </c:if>
 														</c:forEach>
-													</select>
+													</form:select>
 												</li>
 												<li>
 													<strong>
@@ -316,7 +316,7 @@
 												<strong>
 													<spring:message code="label.terminal.terminalVendor"/>
 												</strong>
-												${terminal.terminalModel.manufacturer}
+												${terminal.terminalVendor}
 											</li>
 											<li>
 												<strong>
@@ -1255,6 +1255,11 @@
 						}
 	    		);
 	    	}
+            if (!$cb.val()) {
+				var photoUrl = valuesTree[value]['photoUrl'];
+				$('.photo a').attr("href", photoUrl);
+				$('.photo img').attr("src", photoUrl);
+          	}
 	};
 	function ChangeManufacturer(){
 		var $cb1 = $('#ModelsCombo');
