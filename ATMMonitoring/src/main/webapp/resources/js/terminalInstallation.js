@@ -8,7 +8,8 @@ var coordY;
 $.fn.extend({
     clearFormElements: function() {
         this.each(function() {
-            $(this).find(":input").val("").trigger("change");
+            $(this).find(":input:not(:checkbox)").val("").trigger("change");
+            $(this).find(":checkbox").attr('checked', false);
         });
     }
 });
