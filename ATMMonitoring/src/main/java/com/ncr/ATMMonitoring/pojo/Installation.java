@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
@@ -27,8 +30,9 @@ public class Installation {
     private Integer id;
 
     @ManyToOne
+    @Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name = "location_id")
-    private Location location;
+    private Location location = new Location();
 
     @Column(name = "lu_code", length = 20)
     private String luCode;
