@@ -40,6 +40,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.controller.propertyEditor.DatePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
+import com.ncr.ATMMonitoring.pojo.Installation;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.TerminalModel;
@@ -872,10 +873,44 @@ public class TerminalController {
 
     }
 
-    @RequestMapping(value = { "terminals/installation" })
-    public String newInstallation(Map<String, Object> map) {
-		map.put("locations", locationService.listLocations());
-    	return "terminalInstallation";
+    @RequestMapping(value = { "terminals/installations/new" }, method = RequestMethod.GET)
+    public String newInstallationForm(Map<String, Object> map, String matricula) {
+	Terminal terminal = null;
+	if (matricula != null) {
+	    terminal = terminalService.loadTerminalByMatricula(matricula);
+	}
+	if (terminal == null) {
+	    return "redirect:/terminals/list";
+	}
+	map.put("installation", new Installation());
+	map.put("locations", locationService.listLocations());
+	map.put("matricula", matricula);
+	return "terminalInstallation";
+    }
+
+    @RequestMapping(value = { "terminals/installations/new" }, method = RequestMethod.POST)
+    public String newInstallation(
+	    @Valid @ModelAttribute("installation") Installation installation,
+	    BindingResult result, Map<String, Object> map, String matricula,
+	    HttpServletRequest request, Principal principal) {
+	Terminal terminal = null;
+	if (matricula != null) {
+	    terminal = terminalService.loadTerminalByMatricula(matricula);
+	}
+	if (terminal == null) {
+	    return "redirect:/terminals/list";
+	}
+	if ((installation.getLocation() != null)
+		&& (installation.getLocation().getId() != null)) {
+	    installation.setLocation(locationService.getLocation(installation
+		    .getLocation().getId()));
+	}
+	installationService.addInstallation(installation);
+	terminal.setInstallation(installation);
+	terminalService.updateTerminal(terminal);
+	map.put("installation", new Installation());
+	map.put("locations", locationService.listLocations());
+	return "closeIframeUpdateParent";
     }
 
 }
