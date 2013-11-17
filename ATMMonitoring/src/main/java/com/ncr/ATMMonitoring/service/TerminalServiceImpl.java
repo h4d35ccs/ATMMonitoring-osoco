@@ -190,6 +190,11 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     @Override
+    public Terminal loadTerminalByMatricula(String matricula) {
+	return terminalDAO.getTerminalByMatricula(matricula);
+    }
+
+    @Override
     public Terminal loadTerminalByIp(String ip) {
 	return terminalDAO.getTerminalByIp(ip);
     }

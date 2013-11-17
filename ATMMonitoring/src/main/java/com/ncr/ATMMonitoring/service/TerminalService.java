@@ -37,6 +37,8 @@ public interface TerminalService {
 
     public Terminal loadTerminalByMac(String mac);
 
+    public Terminal loadTerminalByMatricula(String matricula);
+
     public void persistSnmpTerminal(ATM snmpTerminal);
 
     public boolean importJsonTerminal(CommonsMultipartFile jsonFile);
