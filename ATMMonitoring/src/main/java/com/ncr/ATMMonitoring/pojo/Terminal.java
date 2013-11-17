@@ -105,26 +105,6 @@ public class Terminal {
     @Type(type = "text")
     private String geographicAddress;
 
-    @Column(name = "address")
-    @Type(type = "text")
-    private String address;
-
-    @Column(name = "city")
-    @Type(type = "text")
-    private String city;
-
-    @Column(name = "area")
-    @Type(type = "text")
-    private String area;
-
-    @Column(name = "country")
-    @Type(type = "text")
-    private String country;
-
-    @Column(name = "zip_code")
-    @Type(type = "text")
-    private String zipCode;
-
     @Column(name = "branch")
     @Type(type = "text")
     private String branch;
@@ -136,14 +116,6 @@ public class Terminal {
     @Column(name = "manufacturing_site")
     @Type(type = "text")
     private String manufacturingSite;
-
-    @Column(name = "model")
-    @Type(type = "text")
-    private String model;
-
-    @Column(name = "product_class")
-    @Type(type = "text")
-    private String productClass;
 
     @Column(name = "product_class_description")
     @Type(type = "text")
@@ -206,10 +178,10 @@ public class Terminal {
     }
 
     public static String getCsvHeader() {
-	return "Serial Number;IP;MAC;Terminal Type;Vendor;Model;"
-		+ "Front Replenish;Bank;Branch;Geographic Address;"
-		+ "Address;Manufacturing Site;Product Class;"
-		+ "Product Class Description;Tracer Number";
+	return "Serial Number;IP;MAC;Terminal Type;Vendor;Product Class;"
+		+ "Product Class Description;Front Replenish;Bank;"
+		+ "Branch;Geographic Address;Address;Manufacturing Site;"
+		+ "Tracer Number";
     }
 
     public Terminal() {
@@ -229,8 +201,6 @@ public class Terminal {
 	this.frontReplenish = Boolean.parseBoolean(financialTerminal
 		.getFrontreplenish());
 	this.manufacturingSite = financialTerminal.getManufacturingsite();
-	this.model = financialTerminal.getModel();
-	this.productClass = financialTerminal.getProductclass();
 	this.productClassDescription = financialTerminal
 		.getProductclassdescription();
 	// if ((financialTerminal.getSerialnumber() != null)
@@ -265,12 +235,6 @@ public class Terminal {
 	    if (subTerminal.getManufacturingSite() != null) {
 		this.manufacturingSite = subTerminal.getManufacturingSite();
 	    }
-	    if (subTerminal.getModel() != null) {
-		this.model = subTerminal.getModel();
-	    }
-	    if (subTerminal.getProductClass() != null) {
-		this.productClass = subTerminal.getProductClass();
-	    }
 	    if (subTerminal.getProductClassDescription() != null) {
 		this.productClassDescription = subTerminal
 			.getProductClassDescription();
@@ -294,25 +258,18 @@ public class Terminal {
     }
 
     public void replaceTerminalData(Terminal terminal) {
-	this.address = terminal.address;
-	this.area = terminal.area;
 	this.bank = terminal.bank;
 	this.branch = terminal.branch;
-	this.city = terminal.city;
-	this.country = terminal.country;
 	this.frontReplenish = terminal.frontReplenish;
 	this.geographicAddress = terminal.geographicAddress;
 	this.ip = terminal.ip;
 	this.mac = terminal.mac;
 	this.manufacturingSite = terminal.manufacturingSite;
-	this.model = terminal.model;
-	this.productClass = terminal.productClass;
 	this.productClassDescription = terminal.productClassDescription;
 	this.serialNumber = terminal.serialNumber;
 	this.terminalType = terminal.terminalType;
 	this.terminalVendor = terminal.terminalVendor;
 	this.tracerNumber = terminal.tracerNumber;
-	this.zipCode = terminal.zipCode;
 	this.bankCompany = terminal.bankCompany;
 	this.installation = terminal.installation;
 	this.terminalModel = terminal.terminalModel;
@@ -421,36 +378,6 @@ public class Terminal {
      */
     public void setManufacturingSite(String manufacturingSite) {
 	this.manufacturingSite = manufacturingSite;
-    }
-
-    /**
-     * @return the model
-     */
-    public String getModel() {
-	return model;
-    }
-
-    /**
-     * @param model
-     *            the model to set
-     */
-    public void setModel(String model) {
-	this.model = model;
-    }
-
-    /**
-     * @return the productClass
-     */
-    public String getProductClass() {
-	return productClass;
-    }
-
-    /**
-     * @param productClass
-     *            the productClass to set
-     */
-    public void setProductClass(String productClass) {
-	this.productClass = productClass;
     }
 
     /**
@@ -716,66 +643,6 @@ public class Terminal {
     }
 
     /**
-     * @return the city
-     */
-    public String getCity() {
-	return city;
-    }
-
-    /**
-     * @param city
-     *            the city to set
-     */
-    public void setCity(String city) {
-	this.city = city;
-    }
-
-    /**
-     * @return the area
-     */
-    public String getArea() {
-	return area;
-    }
-
-    /**
-     * @param area
-     *            the area to set
-     */
-    public void setArea(String area) {
-	this.area = area;
-    }
-
-    /**
-     * @return the country
-     */
-    public String getCountry() {
-	return country;
-    }
-
-    /**
-     * @param country
-     *            the country to set
-     */
-    public void setCountry(String country) {
-	this.country = country;
-    }
-
-    /**
-     * @return the zipCode
-     */
-    public String getZipCode() {
-	return zipCode;
-    }
-
-    /**
-     * @param zipCode
-     *            the zipCode to set
-     */
-    public void setZipCode(String zipCode) {
-	this.zipCode = zipCode;
-    }
-
-    /**
      * @return the branch
      */
     public String getBranch() {
@@ -803,21 +670,6 @@ public class Terminal {
      */
     public void setIp(String ip) {
 	this.ip = ip;
-    }
-
-    /**
-     * @return the address
-     */
-    public String getAddress() {
-	return address;
-    }
-
-    /**
-     * @param address
-     *            the address to set
-     */
-    public void setAddress(String address) {
-	this.address = address;
     }
 
     /**
@@ -877,8 +729,11 @@ public class Terminal {
 		+ (((terminalModel != null) && (terminalModel.getManufacturer() != null)) ? terminalModel
 			.getManufacturer() : "")
 		+ ";"
-		+ (((terminalModel != null) && (terminalModel.getModel() != null)) ? terminalModel
-			.getModel() : "")
+		+ (((terminalModel != null) && (terminalModel.getProductClass() != null)) ? terminalModel
+			.getProductClass() : "")
+		+ ";"
+		+ (productClassDescription != null ? productClassDescription
+			.toString() : "")
 		+ ";"
 		+ (frontReplenish != null ? frontReplenish.toString() : "")
 		+ ";"
@@ -895,10 +750,6 @@ public class Terminal {
 		+ (manufacturingSite != null ? manufacturingSite.toString()
 			: "")
 		+ ";"
-		+ (productClass != null ? productClass.toString() : "")
-		+ ";"
-		+ (productClassDescription != null ? productClassDescription
-			.toString() : "") + ";"
 		+ (tracerNumber != null ? tracerNumber.toString() : "");
     }
 

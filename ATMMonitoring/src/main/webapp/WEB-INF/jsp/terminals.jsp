@@ -433,21 +433,6 @@
 		</tr>
 		<tr>
 			<td class="header">
-				<form:label path="address">
-					<i>
-						<spring:message code="label.terminal.address"/>
-					</i>
-				</form:label>
-			</td>
-			<td>
-				<form:input class='form-tf-grey' path="address" maxlength="100"/>
-			</td>
-			<td class="error-td">
-				<form:errors path="address"/>
-			</td>
-		</tr>
-		<tr>
-			<td class="header">
 				<form:label path="city">
 					<i>
 						<spring:message code="label.terminal.city"/>
@@ -530,21 +515,6 @@
 				</td>
 				<td class="error-td">
 					<form:errors path="model"/>
-				</td>
-			</tr>
-			<tr>
-				<td class="header">
-					<form:label path="productClass">
-						<i>
-							<spring:message code="label.terminal.productClass"/>
-						</i>
-					</form:label>
-				</td>
-				<td>
-					<form:input class='form-tf-grey' path="productClass" maxlength="20"/>
-				</td>
-				<td class="error-td">
-					<form:errors path="productClass"/>
 				</td>
 			</tr>
 			<tr>

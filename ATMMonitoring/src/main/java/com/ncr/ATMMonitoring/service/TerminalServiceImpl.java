@@ -490,8 +490,6 @@ public class TerminalServiceImpl implements TerminalService {
 	terminal.setTerminalVendor(newTerminal.getTerminalVendor());
 	terminal.setFrontReplenish(newTerminal.getFrontReplenish());
 	terminal.setManufacturingSite(newTerminal.getManufacturingSite());
-	terminal.setModel(newTerminal.getModel());
-	terminal.setProductClass(newTerminal.getProductClass());
 	terminal.setProductClassDescription(newTerminal
 		.getProductClassDescription());
 	terminal.setSerialNumber(newTerminal.getSerialNumber());

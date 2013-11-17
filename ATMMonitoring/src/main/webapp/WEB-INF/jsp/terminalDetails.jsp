@@ -176,9 +176,9 @@
 												</li>
 												<li>
 													<strong>
-														<form:label path="productClass">
+														<form:label path="terminalModel.productClass">
 
-															<spring:message code="label.terminal.productClass"/>
+															<spring:message code="label.terminalModel.productClass"/>
 
 														</form:label>
 													</strong>
@@ -320,7 +320,7 @@
 											</li>
 											<li>
 												<strong>
-													<spring:message code="label.terminal.productClass"/>
+													<spring:message code="label.terminalModel.productClass"/>
 												</strong>
 												${terminal.terminalModel.productClass}
 											</li>

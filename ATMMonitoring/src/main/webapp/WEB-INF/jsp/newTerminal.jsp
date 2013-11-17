@@ -127,9 +127,9 @@
 												</li>
 												<li>
 													<strong>
-														<form:label path="productClass">
+														<form:label path="terminalModel.productClass">
 
-															<spring:message code="label.terminal.productClass"/>
+															<spring:message code="label.terminalModel.productClass"/>
 
 														</form:label>
 													</strong>
