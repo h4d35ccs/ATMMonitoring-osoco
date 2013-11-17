@@ -55,6 +55,9 @@ function initHandlers() {
 function initUI() {
     loadMap();
     $(".date").datepicker();
+    var startDate = $( "#startDate" ).datepicker( "getDate" );
+    $(".date").datepicker( "option", "dateFormat", "dd/mm/yy" );
+    $( "#startDate" ).datepicker( "setDate", startDate );
 }
 
 function loadMap() {
