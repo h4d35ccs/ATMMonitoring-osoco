@@ -884,6 +884,7 @@ public class TerminalController {
 	}
 	map.put("installation", new Installation());
 	map.put("locations", locationService.listLocations());
+	map.put("locationClasses", Installation.getLocationclasses());
 	map.put("matricula", matricula);
 	return "terminalInstallation";
     }

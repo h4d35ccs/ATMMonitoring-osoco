@@ -23,6 +23,9 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "installations")
 public class Installation {
 
+    private static final String[] locationClasses = { "internal_lobby",
+	    "internal_vestibule", "external_ttw", "external_driveup" };
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "installations_id_seq")
@@ -51,6 +54,12 @@ public class Installation {
 
     @Column(name = "end_date")
     private Date endDate;
+
+    @Column(name = "location_class", length = 50)
+    private String locationClass;
+
+    @Column(name = "ip", length = 50)
+    private String ip;
 
     // We don't need this for now
     // @OneToMany(mappedBy = "installation")
@@ -134,6 +143,26 @@ public class Installation {
 
     public void setEndDate(Date endDate) {
 	this.endDate = endDate;
+    }
+
+    public String getLocationClass() {
+	return locationClass;
+    }
+
+    public void setLocationClass(String locationClass) {
+	this.locationClass = locationClass;
+    }
+
+    public String getIp() {
+	return ip;
+    }
+
+    public void setIp(String ip) {
+	this.ip = ip;
+    }
+
+    public static String[] getLocationclasses() {
+	return locationClasses;
     }
 
 }

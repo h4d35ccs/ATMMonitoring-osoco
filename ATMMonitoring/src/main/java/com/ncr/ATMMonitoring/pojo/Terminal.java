@@ -889,10 +889,8 @@ public class Terminal {
 		+ (geographicAddress != null ? geographicAddress.toString()
 			: "")
 		+ ";"
-		+ (((installation != null)
-			&& (installation.getLocation() != null) && (installation
-			.getLocation().getAddress() != null)) ? installation
-			.getLocation().getAddress() : "")
+		+ (((installation != null) && (installation.getLocation() != null)) ? installation
+			.getLocation().getCompleteAddress() : "")
 		+ ";"
 		+ (manufacturingSite != null ? manufacturingSite.toString()
 			: "")

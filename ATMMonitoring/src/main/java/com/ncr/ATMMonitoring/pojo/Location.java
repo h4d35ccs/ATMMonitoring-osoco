@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Type;
 
@@ -15,7 +16,9 @@ import org.hibernate.annotations.Type;
  */
 
 @Entity
-@Table(name = "locations")
+@Table(name = "locations", uniqueConstraints = { @UniqueConstraint(columnNames = {
+	"address_street", "address_number", "address_city", "address_postcode",
+	"address_country" }) })
 public class Location {
 
     @Id
@@ -24,9 +27,25 @@ public class Location {
     @SequenceGenerator(name = "locations_id_seq", sequenceName = "locations_id_seq", allocationSize = 1)
     private Integer id;
 
-    @Column(name = "address")
+    @Column(name = "address_street")
     @Type(type = "text")
-    private String address;
+    private String addressStreet;
+
+    @Column(name = "address_number")
+    @Type(type = "text")
+    private String addressNumber;
+
+    @Column(name = "address_postcode")
+    @Type(type = "text")
+    private String addressPostcode;
+
+    @Column(name = "address_city")
+    @Type(type = "text")
+    private String addressCity;
+
+    @Column(name = "address_country")
+    @Type(type = "text")
+    private String addressCountry;
 
     @Column(name = "coord_x")
     private Double coordX;
@@ -34,11 +53,8 @@ public class Location {
     @Column(name = "coord_y")
     private Double coordY;
 
-    @Column(name = "position", length = 50)
-    private String position;
-
-    @Column(name = "location", length = 50)
-    private String location;
+    @Column(name = "displaced")
+    private Boolean displaced;
 
     @Column(name = "office", length = 50)
     private String office;
@@ -48,9 +64,6 @@ public class Location {
 
     @Column(name = "bank_company", length = 50)
     private String bankCompany;
-
-    @Column(name = "ip", length = 50)
-    private String ip;
 
     @Column(name = "public_access")
     private Boolean publicAccess;
@@ -82,14 +95,6 @@ public class Location {
 	this.id = id;
     }
 
-    public String getAddress() {
-	return address;
-    }
-
-    public void setAddress(String address) {
-	this.address = address;
-    }
-
     public Double getCoordX() {
 	return coordX;
     }
@@ -104,22 +109,6 @@ public class Location {
 
     public void setCoordY(Double coordY) {
 	this.coordY = coordY;
-    }
-
-    public String getPosition() {
-	return position;
-    }
-
-    public void setPosition(String position) {
-	this.position = position;
-    }
-
-    public String getLocation() {
-	return location;
-    }
-
-    public void setLocation(String location) {
-	this.location = location;
     }
 
     public String getOffice() {
@@ -146,20 +135,74 @@ public class Location {
 	this.bankCompany = bankCompany;
     }
 
-    public String getIp() {
-	return ip;
-    }
-
-    public void setIp(String ip) {
-	this.ip = ip;
-    }
-
     public Boolean getPublicAccess() {
 	return publicAccess;
     }
 
     public void setPublicAccess(Boolean publicAccess) {
 	this.publicAccess = publicAccess;
+    }
+
+    public String getAddressStreet() {
+	return addressStreet;
+    }
+
+    public void setAddressStreet(String addressStreet) {
+	this.addressStreet = addressStreet;
+    }
+
+    public String getAddressNumber() {
+	return addressNumber;
+    }
+
+    public void setAddressNumber(String addressNumber) {
+	this.addressNumber = addressNumber;
+    }
+
+    public String getAddressPostcode() {
+	return addressPostcode;
+    }
+
+    public void setAddressPostcode(String addressPostcode) {
+	this.addressPostcode = addressPostcode;
+    }
+
+    public String getAddressCity() {
+	return addressCity;
+    }
+
+    public void setAddressCity(String addressCity) {
+	this.addressCity = addressCity;
+    }
+
+    public String getAddressCountry() {
+	return addressCountry;
+    }
+
+    public void setAddressCountry(String addressCountry) {
+	this.addressCountry = addressCountry;
+    }
+
+    public String getCompleteAddress() {
+	String address = (addressStreet != null) ? addressStreet : "";
+	address += ((addressNumber != null) ? ((address.length() > 0) ? " "
+		: "") + addressNumber : "");
+	address += ((addressCity != null) ? ((address.length() > 0) ? ", " : "")
+		+ addressCity
+		: "");
+	address += ((addressPostcode != null) ? ((address.length() > 0) ? ", "
+		: "") + addressPostcode : "");
+	address += ((addressCountry != null) ? ((address.length() > 0) ? ", "
+		: "") + addressCountry : "");
+	return address;
+    }
+
+    public Boolean getDisplaced() {
+	return displaced;
+    }
+
+    public void setDisplaced(Boolean displaced) {
+	this.displaced = displaced;
     }
 
 }

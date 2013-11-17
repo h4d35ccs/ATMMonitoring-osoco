@@ -36,13 +36,32 @@
 	                            <form:select id="office" path="location.id" name="location.id">
 	                              <option value=""></option>
 								  <c:forEach items="${locations}" var="location">
-	                              <option value="${location.id}">${location.address}</option>
+	                              <option value="${location.id}">${location.completeAddress}</option>
 	                              </c:forEach>
 	                            </form:select>
 							</li>
 							<li class="outOffice">
 								<label for="address"><spring:message code="label.location.address"/></label>
-								<form:input id="address" path="location.address" name="address"/>
+							</li>
+							<li class="outOffice">
+								<label for="addressStreet"><spring:message code="label.location.addressStreet"/></label>
+								<form:input id="addressStreer" path="location.addressStreet" name="addressStreet"/>
+							</li>
+							<li class="outOffice">
+								<label for="addressNumber"><spring:message code="label.location.addressNumber"/></label>
+								<form:input id="addressNumber" path="location.addressNumber" name="addressNumber"/>
+							</li>
+							<li class="outOffice">
+								<label for="addressCity"><spring:message code="label.location.addressCity"/></label>
+								<form:input id="addressCity" path="location.addressCity" name="addressCity"/>
+							</li>
+							<li class="outOffice">
+								<label for="addressPostcode"><spring:message code="label.location.addressPostcode"/></label>
+								<form:input id="addressPostcode" path="location.addressPostcode" name="addressPostcode"/>
+							</li>
+							<li class="outOffice">
+								<label for="addressCountry"><spring:message code="label.location.addressCountry"/></label>
+								<form:input id="addressCountry" path="location.addressCountry" name="addressCountry"/>
 							</li>
 							<li class="outOffice">
 								<label for="coordX"><spring:message code="label.location.coordX"/></label>
@@ -61,8 +80,8 @@
 								<form:checkbox id="publicAccess" path="location.publicAccess" name="publicAccess"/>
 							</li>
 							<li class="outOffice">
-								<label for="ip"><spring:message code="label.terminal.ip"/></label>
-								<form:input id="ip" path="location.ip" name="ip" type="text"/>
+								<label for="displaced"><spring:message code="label.location.displaced"/></label>
+								<form:checkbox id="displaced" path="location.displaced" name="displaced"/>
 							</li>
 							<li>
 								<label for="startDate"><spring:message code="label.installation.startDate"/></label>
@@ -83,6 +102,19 @@
 										<spring:message code="label.calendar.open"/>
 									</span>
 								</a>
+							</li>
+							<li>
+								<label for="locationClass"><spring:message code="label.installation.locationClass"/></label>
+								<form:select id="locationClass" path="locationClass" name="locationClass" type="text">
+									<option value=""></option>
+								  	<c:forEach items="${locationClasses}" var="locationClass">
+	                              		<option value="${locationClass}"><spring:message code="label.installation.${locationClass}"/></option>
+	                              	</c:forEach>
+								</form:select>
+							</li>
+							<li>
+								<label for="ip"><spring:message code="label.terminal.ip"/></label>
+								<form:input id="ip" path="ip" name="ip" type="text"/>
 							</li>
 							<li>
 								<label for="type"><spring:message code="label.installation.type"/></label>

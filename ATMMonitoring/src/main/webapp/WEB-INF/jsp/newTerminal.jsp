@@ -259,19 +259,8 @@
 															<div class="error-td"></div>
 														</li>
 														<li>
-															<strong><label for="ip"><spring:message code="label.location.ip"/></label></strong>
-															<input id="installation.ip" name="installation.ip" type="text">
-															<div class="error-td">
-															</div>
-														</li>
-														<li>
 															<strong><label for="type"><spring:message code="label.installation.type"/></label></strong>
 															<input id="type" name="type" type="text">
-															<div class="error-td"></div>
-														</li>
-														<li>
-															<strong><label for="puesto"><spring:message code="label.location.position"/></label></strong>
-															<input id="puesto" name="puesto" type="text">
 															<div class="error-td"></div>
 														</li>
 														<li>

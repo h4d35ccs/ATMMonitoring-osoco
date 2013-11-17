@@ -434,18 +434,26 @@
 									<th><spring:message code="label.location.office"/></th>
 									<th><spring:message code="label.location.address"/></th>
 									<th><spring:message code="label.creationDate"/></th>
-									<th><spring:message code="label.location.ip"/></th>
-									<th><spring:message code="label.location.type"/></th>
-									<th><spring:message code="label.location.position"/></th>
+									<th><spring:message code="label.terminal.ip"/></th>
+									<th><spring:message code="label.installation.type"/></th>
+									<th><spring:message code="label.installation.locationClass"/></th>
 									<th><spring:message code="label.location.processed"/></th>
 									<th><spring:message code="label.location.publicAccess"/></th>
 								</tr>
 								<tr>
 									<td>${terminal.installation.location.office}</td>
-									<td>${terminal.installation.location.address}</td>
+									<td>${terminal.installation.location.completeAddress}</td>
 									<td>${terminal.installation.startDate}</td>
-									<td>${terminal.installation.location.ip}</td>
+									<td>${terminal.installation.ip}</td>
 									<td>${terminal.installation.type}</td>
+									<c:choose>
+										<c:when  test="${(terminal.installation.locationClass != null) && (terminal.installation.locationClass.length() > 0)}">
+											<td><spring:message code="label.installation.${terminal.installation.locationClass}"/></td>
+										</c:when>
+										<c:otherwise>
+										<td></td>
+										</c:otherwise>
+									</c:choose>
 									<td>${terminal.installation.processed}</td>
 									<td>${terminal.installation.location.publicAccess}</td>
 									<td></td>
