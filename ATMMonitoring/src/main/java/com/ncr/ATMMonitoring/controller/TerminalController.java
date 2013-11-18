@@ -1,10 +1,7 @@
 package com.ncr.ATMMonitoring.controller;
 
-import java.awt.Color;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -22,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.support.PagedListHolder;
@@ -47,15 +45,11 @@ import com.ncr.ATMMonitoring.pojo.TerminalModel;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.InstallationService;
 import com.ncr.ATMMonitoring.service.LocationService;
+import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.TerminalModelService;
 import com.ncr.ATMMonitoring.service.TerminalService;
-import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.UserService;
-import com.ncr.ATMMonitoring.snmp.SnmpService;
-import com.ncr.ATMMonitoring.snmp.SnmpTimeOutException;
 import com.ncr.ATMMonitoring.socket.SocketService;
-
-import org.apache.log4j.Logger;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)

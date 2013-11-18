@@ -19,8 +19,6 @@ import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import ncr.inventory.data.Device;
-
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Type;
@@ -148,26 +146,6 @@ public class FinancialDevice {
     private String version;
 
     public FinancialDevice() {
-    }
-
-    public FinancialDevice(Device device) {
-	this.setFirmwareVersion(device.getFirmwareVersion());
-	this.setVersion(device.getVersion());
-	this.caption = device.getCaption();
-	this.description = device.getDescription();
-	this.deviceInstance = device.getDeviceInstance();
-	this.deviceStatus = device.getDeviceStatus();
-	this.hotSwappable = Boolean.parseBoolean(device.getHotSwappable());
-	this.model = device.getModel();
-	this.name = device.getName();
-	this.pmStatus = device.getPmStatus();
-	this.removable = Boolean.parseBoolean(device.getRemovable());
-	this.replaceable = Boolean.parseBoolean(device.getReplaceable());
-	this.serialNumber = device.getSerialNumber();
-	this.universalId = device.getUniversalID();
-	this.variant = device.getVariant();
-	// TODO
-	// No xfs components?
     }
 
     public FinancialDevice(FinancialDevicePojo device) {

@@ -14,8 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import ncr.inventory.data.Product;
-
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Type;
 
@@ -127,29 +125,6 @@ public class Software {
     // private Set<TerminalConfig> configs;
 
     public Software() {
-    }
-
-    public Software(Product sw) {
-	this.setVersion(sw.getVersion());
-	this.caption = sw.getCaption();
-	this.description = sw.getDescription();
-	this.identifyingNumber = sw.getIdentifyingNumber();
-	if (sw.getInstallDate().length() > 0) {
-	    try {
-		this.installDate = new SimpleDateFormat("yyyyMMdd").parse(sw
-			.getInstallDate().substring(0, 8));
-	    } catch (ParseException e) {
-		logger.error("Couldn't parse Product date.", e);
-		this.installDate = null;
-	    }
-	}
-	this.language = sw.getLanguage();
-	this.localPackage = sw.getLocalPackage();
-	this.name = sw.getName();
-	this.packageName = sw.getPackageName();
-	this.productId = sw.getProductID();
-	this.swType = sw.getSwtype();
-	this.vendor = sw.getVendor();
     }
 
     public Software(ProductPojo sw) {

@@ -3,8 +3,6 @@ package com.ncr.ATMMonitoring.service;
 import java.util.List;
 import java.util.Set;
 
-import ncr.inventory.data.ATM;
-
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
@@ -38,8 +36,6 @@ public interface TerminalService {
     public Terminal loadTerminalByMac(String mac);
 
     public Terminal loadTerminalByMatricula(String matricula);
-
-    public void persistSnmpTerminal(ATM snmpTerminal);
 
     public boolean importJsonTerminal(CommonsMultipartFile jsonFile);
 

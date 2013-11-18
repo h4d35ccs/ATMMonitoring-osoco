@@ -21,14 +21,11 @@ import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import ncr.inventory.data.ATM;
-
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Type;
 
-import com.ncr.ATMMonitoring.snmp.SnmpWrongDataException;
 import com.ncr.ATMMonitoring.socket.ATMWrongDataException;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.ATMDataStorePojo;
@@ -212,49 +209,6 @@ public class Terminal {
 	this.terminalVendor = financialTerminal.getVendor();
 	this.tracerNumber = financialTerminal.getTracernumber();
 	this.matricula = terminal.getMatricula();
-    }
-
-    public Terminal(ATM terminal) throws SnmpWrongDataException {
-	ip = terminal.getIp();
-	mac = terminal.getMac();
-	Vector<ncr.inventory.data.Terminal> subTerminals = terminal
-		.getTerminals();
-	if ((subTerminals != null) && (subTerminals.size() > 0)) {
-	    if (subTerminals.size() > 1) {
-		logger.warn("More than one subobject Terminal related to IP "
-			+ ip);
-	    }
-	    ncr.inventory.data.Terminal subTerminal = subTerminals.get(0);
-	    if (subTerminal.getGeographicAddress() != null) {
-		this.geographicAddress = subTerminal.getGeographicAddress();
-	    }
-	    if (subTerminal.getFrontReplenish() != null) {
-		this.frontReplenish = Boolean.parseBoolean(subTerminal
-			.getFrontReplenish());
-	    }
-	    if (subTerminal.getManufacturingSite() != null) {
-		this.manufacturingSite = subTerminal.getManufacturingSite();
-	    }
-	    if (subTerminal.getProductClassDescription() != null) {
-		this.productClassDescription = subTerminal
-			.getProductClassDescription();
-	    }
-	    if (subTerminal.getSerialNumber() != null) {
-		this.serialNumber = subTerminal.getSerialNumber();
-	    }
-	    if (subTerminal.getTerminalType() != null) {
-		this.terminalType = subTerminal.getTerminalType();
-	    }
-	    if (subTerminal.getTerminalVendor() != null) {
-		this.terminalVendor = subTerminal.getTerminalVendor();
-	    }
-	    if (subTerminal.getTracerNumber() != null) {
-		this.tracerNumber = subTerminal.getTracerNumber();
-	    }
-	} else {
-	    throw new SnmpWrongDataException(
-		    "No subobjects Terminal related to IP " + ip);
-	}
     }
 
     public void replaceTerminalData(Terminal terminal) {

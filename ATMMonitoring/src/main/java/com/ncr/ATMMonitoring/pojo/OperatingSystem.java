@@ -115,17 +115,6 @@ public class OperatingSystem {
     public OperatingSystem() {
     }
 
-    public OperatingSystem(ncr.inventory.data.OperatingSystem os) {
-	this.setVersion(os.getVersion());
-	this.setServicePackVersion(os.getSpversion());
-	this.manufacturer = os.getManufacturer();
-	this.name = os.getName();
-	this.organization = os.getOrganization();
-	this.osLanguage = os.getOslanguage();
-	this.osType = os.getOstype();
-	this.serialNumber = os.getSerialnumber();
-    }
-
     public OperatingSystem(OperatingSystemPojo os) {
 	if (os.getVersion() != null) {
 	    this.setVersion(os.getVersion());

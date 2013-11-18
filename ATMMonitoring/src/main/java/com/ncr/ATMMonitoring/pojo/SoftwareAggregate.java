@@ -71,15 +71,6 @@ public class SoftwareAggregate {
     public SoftwareAggregate() {
     }
 
-    public SoftwareAggregate(ncr.inventory.data.Package pkg) {
-	this.setVersion(pkg.getVersion());
-	this.description = pkg.getDescription();
-	this.name = pkg.getName();
-	this.profile = pkg.getProfile();
-	// TODO
-	// No number?
-    }
-
     public SoftwareAggregate(FinancialPackagePojo pkg) {
 	this.setVersion(pkg.getVersion());
 	this.description = pkg.getDescription();

@@ -14,8 +14,6 @@ import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Type;
 
-import ncr.inventory.data.IExplorer;
-
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.IExplorerPojo;
 
@@ -68,10 +66,6 @@ public class InternetExplorer {
     // private Set<Terminal> terminals;
 
     public InternetExplorer() {
-    }
-
-    public InternetExplorer(IExplorer ie) {
-	this.setVersion(ie.getVersion());
     }
 
     public InternetExplorer(IExplorerPojo ie) {
