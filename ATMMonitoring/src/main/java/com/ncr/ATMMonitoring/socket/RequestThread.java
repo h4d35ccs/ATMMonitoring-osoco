@@ -42,7 +42,8 @@ public class RequestThread extends Thread {
 
 	try {
 	    // Abrimos el socket y un buffer de lectura
-	    socket = new Socket(ip, agentPort);
+	    socket = RequestThreadManager.getClientSocketFactory()
+		    .createSocket(ip, agentPort);
 	    // Ponemos un timeout para la recepción de datos
 	    socket.setSoTimeout(timeOut * 1000);
 

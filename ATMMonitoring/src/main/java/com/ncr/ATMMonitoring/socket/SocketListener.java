@@ -6,6 +6,7 @@ import java.net.SocketException;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.net.ServerSocketFactory;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
@@ -74,7 +75,8 @@ public class SocketListener extends Thread {
 
     public void doInit() throws IOException {
 	// Abrimos un socket en el puerto designado
-	serverSocket = new ServerSocket(serverPort);
+	serverSocket = RequestThreadManager.getServerSocketFactory()
+		.createServerSocket(serverPort);
 	listener = this;
 	start();
 	logger.info("Server socket listening to port " + serverPort);

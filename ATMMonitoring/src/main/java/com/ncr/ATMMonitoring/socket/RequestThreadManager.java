@@ -7,6 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import javax.net.ServerSocketFactory;
+import javax.net.SocketFactory;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -17,6 +20,10 @@ public class RequestThreadManager extends Thread {
 
     static private Logger logger = Logger.getLogger(RequestThreadManager.class
 	    .getName());
+    static private final ServerSocketFactory SERVER_SOCKET_FACTORY = ServerSocketFactory
+	    .getDefault();
+    static private final SocketFactory CLIENT_SOCKET_FACTORY = SocketFactory
+	    .getDefault();
 
     private double maxThreads;
     private double maxTerminals;
@@ -147,5 +154,19 @@ public class RequestThreadManager extends Thread {
 	    threads.clear();
 	    socketService.updateTerminalsSocket(ips);
 	}
+    }
+
+    /**
+     * @return the serverSocketFactory
+     */
+    public static ServerSocketFactory getServerSocketFactory() {
+	return SERVER_SOCKET_FACTORY;
+    }
+
+    /**
+     * @return the clientSocketFactory
+     */
+    public static SocketFactory getClientSocketFactory() {
+	return CLIENT_SOCKET_FACTORY;
     }
 }
