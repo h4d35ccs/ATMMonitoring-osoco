@@ -1,16 +1,26 @@
 package com.ncr.ATMMonitoring.socket;
 
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 
 import javax.net.ServerSocketFactory;
 import javax.net.SocketFactory;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 import org.apache.log4j.Logger;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -20,10 +30,45 @@ public class RequestThreadManager extends Thread {
 
     static private Logger logger = Logger.getLogger(RequestThreadManager.class
 	    .getName());
-    static private final ServerSocketFactory SERVER_SOCKET_FACTORY = ServerSocketFactory
-	    .getDefault();
-    static private final SocketFactory CLIENT_SOCKET_FACTORY = SocketFactory
-	    .getDefault();
+    static private ServerSocketFactory SERVER_SOCKET_FACTORY;
+    static private SocketFactory CLIENT_SOCKET_FACTORY;
+
+    static {
+	TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+	    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+		return null;
+	    }
+
+	    public void checkClientTrusted(X509Certificate[] certs,
+		    String authType) {
+	    }
+
+	    public void checkServerTrusted(X509Certificate[] certs,
+		    String authType) {
+	    }
+	} };
+
+	try {
+	    Properties props = PropertiesLoaderUtils
+		    .loadProperties(new ClassPathResource("config.properties"));
+	    KeyManagerFactory kmf = KeyManagerFactory
+		    .getInstance(KeyManagerFactory.getDefaultAlgorithm());
+	    InputStream in = new ClassPathResource("keystore").getInputStream();
+	    KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+	    ks.load(in, props.getProperty("security.keystorePass")
+		    .toCharArray());
+	    kmf.init(ks, props.getProperty("security.privatekeyPass")
+		    .toCharArray());
+	    // Install the all-trusting trust manager
+	    SSLContext sc = SSLContext.getInstance("SSL");
+	    sc.init(kmf.getKeyManagers(),
+		    trustAllCerts, new java.security.SecureRandom());
+	    SERVER_SOCKET_FACTORY = sc.getServerSocketFactory();
+	    CLIENT_SOCKET_FACTORY = sc.getSocketFactory();
+	} catch (Exception e) {
+	    e.printStackTrace();
+	}
+    }
 
     private double maxThreads;
     private double maxTerminals;
