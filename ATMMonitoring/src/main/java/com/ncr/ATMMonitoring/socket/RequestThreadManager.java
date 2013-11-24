@@ -95,8 +95,8 @@ public class RequestThreadManager extends Thread {
 	this.ips = ips;
     }
 
-    public void handleIpSuccess(String json) {
-	socketService.processTerminalJson(json);
+    public Long handleIpSuccess(String json) {
+	return socketService.processTerminalJson(json);
     }
 
     public void handleIpError(String ip) {

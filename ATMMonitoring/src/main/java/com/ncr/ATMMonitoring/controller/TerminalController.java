@@ -871,7 +871,11 @@ public class TerminalController {
     public String newInstallationForm(Map<String, Object> map, String matricula) {
 	Terminal terminal = null;
 	if (matricula != null) {
-	    terminal = terminalService.loadTerminalByMatricula(matricula);
+	    try {
+		terminal = terminalService.loadTerminalByMatricula(Long
+			.parseLong(matricula));
+	    } catch (NumberFormatException e) {
+	    }
 	}
 	if (terminal == null) {
 	    return "redirect:/terminals/list";
@@ -890,7 +894,11 @@ public class TerminalController {
 	    HttpServletRequest request, Principal principal) {
 	Terminal terminal = null;
 	if (matricula != null) {
-	    terminal = terminalService.loadTerminalByMatricula(matricula);
+	    try {
+		terminal = terminalService.loadTerminalByMatricula(Long
+			.parseLong(matricula));
+	    } catch (NumberFormatException e) {
+	    }
 	}
 	if (terminal == null) {
 	    return "redirect:/terminals/list";

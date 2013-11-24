@@ -43,5 +43,5 @@ public interface TerminalDAO {
 
     public Terminal getTerminalByMac(String mac);
 
-    public Terminal getTerminalByMatricula(String matricula);
+    public Terminal getTerminalByMatricula(Long matricula);
 }

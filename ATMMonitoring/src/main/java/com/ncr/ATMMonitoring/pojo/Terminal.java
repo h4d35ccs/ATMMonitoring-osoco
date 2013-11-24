@@ -126,8 +126,8 @@ public class Terminal {
     @Type(type = "text")
     private String tracerNumber;
 
-    @Column(name = "matricula", length = 100)
-    private String matricula;
+    @Column(name = "matricula", nullable = false)
+    private Long matricula;
 
     @OneToMany(mappedBy = "terminal", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
@@ -208,7 +208,10 @@ public class Terminal {
 	this.terminalType = financialTerminal.getTerminaltype();
 	this.terminalVendor = financialTerminal.getVendor();
 	this.tracerNumber = financialTerminal.getTracernumber();
-	this.matricula = terminal.getMatricula();
+	String matricula = terminal.getMatricula();
+	if ((matricula != null) && (matricula.length() > 0)) {
+	    this.matricula = Long.parseLong(terminal.getMatricula());
+	}
     }
 
     public void replaceTerminalData(Terminal terminal) {
@@ -702,8 +705,7 @@ public class Terminal {
 			.getLocation().getCompleteAddress() : "")
 		+ ";"
 		+ (manufacturingSite != null ? manufacturingSite.toString()
-			: "")
-		+ ";"
+			: "") + ";"
 		+ (tracerNumber != null ? tracerNumber.toString() : "");
     }
 
@@ -738,11 +740,11 @@ public class Terminal {
 	this.installation = installation;
     }
 
-    public String getMatricula() {
+    public Long getMatricula() {
 	return matricula;
     }
 
-    public void setMatricula(String matricula) {
+    public void setMatricula(Long matricula) {
 	this.matricula = matricula;
     }
 }

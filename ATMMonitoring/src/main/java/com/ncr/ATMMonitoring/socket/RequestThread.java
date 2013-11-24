@@ -24,6 +24,7 @@ public class RequestThread extends Thread {
     private static final String authOkMsg = "OK";
     private static final String authErrorMsg = "ERROR";
     private static final String authUpdateMsg = "UPDATE";
+    private static final String endCommMsg = "END";
     private static Logger logger = Logger.getLogger(SocketListenerThread.class
 	    .getName());
     private Set<String> ips;
@@ -103,12 +104,9 @@ public class RequestThread extends Thread {
 
     private void requestDataJson(String ip) throws Exception {
 
-	Socket socket = null;
-	BufferedReader in = null;
-
 	try {
 	    // Abrimos el socket y un buffer de lectura
-	    socket = RequestThreadManager.getClientSocketFactory()
+	    Socket socket = RequestThreadManager.getClientSocketFactory()
 		    .createSocket(ip, agentPort);
 
 	    // Ponemos un timeout para la recepción de datos
@@ -123,26 +121,38 @@ public class RequestThread extends Thread {
 		return;
 	    }
 
-	    in = new BufferedReader(new InputStreamReader(
+	    BufferedReader in = new BufferedReader(new InputStreamReader(
 		    socket.getInputStream()));
+	    PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 	    String json;
+	    String endMsg = endCommMsg;
 	    try {
 		// Recuperamos el Json con los datos del DataStore
 		json = in.readLine();
 		logger.info("Data received from IP: " + ip);
+		try {
+		    Long matricula = parent.handleIpSuccess(json);
+		    if (matricula != null) {
+			// Tenemos una matrícula nueva, así que la enviamos al
+			// agente
+			logger.info("New matricula " + matricula
+				+ " will be sent to IP: " + ip);
+			endMsg += ":" + matricula;
+		    }
+		} catch (Exception e) {
+		    logger.error(
+			    "An error happened while saving data received from ip: "
+				    + ip + "\nJson: " + json, e);
+		}
+		// Enviamos el mensaje que confirma el final de la comunicación
+		logger.info("Sending final comm message to IP: " + ip);
+		out.println(endMsg);
 	    } catch (SocketTimeoutException e) {
 		logger.error("We received no response from IP: " + ip, e);
 		throw e;
 	    } finally {
 		// Cerramos los recursos abiertos
 		socket.close();
-	    }
-	    try {
-		parent.handleIpSuccess(json);
-	    } catch (Exception e) {
-		logger.error(
-			"An error happened while saving data received from ip: "
-				+ ip + "\nJson: " + json, e);
 	    }
 	    // Todo ha ido bien, terminamos.
 	    return;

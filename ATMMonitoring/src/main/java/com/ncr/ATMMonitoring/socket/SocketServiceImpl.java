@@ -137,12 +137,18 @@ public class SocketServiceImpl implements SocketService {
 	requestThreadManager.start();
     }
 
-    public void processTerminalJson(String json) {
+    public Long processTerminalJson(String json) {
 	// logger.debug("Json received: " + json);
 	ATMDataStorePojo data = ATMDataStorePojo.fromJson(json);
 	logger.debug("ATMDataStore received: " + data.toString());
 	// logger.debug("Resulting Json: " + data.toJson());
-	terminalService.persistDataStoreTerminal(data);
+	Terminal terminal = terminalService.persistDataStoreTerminal(data);
+	if ((data.getMatricula() == null)
+		|| (data.getMatricula().length() == 0)) {
+	    // La matrícula es nueva, la devolvemos
+	    return terminal.getMatricula();
+	}
+	return null;
     }
 
     public String getHashSeed() {

@@ -35,9 +35,9 @@ public interface TerminalService {
 
     public Terminal loadTerminalByMac(String mac);
 
-    public Terminal loadTerminalByMatricula(String matricula);
+    public Terminal loadTerminalByMatricula(Long matricula);
 
     public boolean importJsonTerminal(CommonsMultipartFile jsonFile);
 
-    public void persistDataStoreTerminal(ATMDataStorePojo dataStoreTerminal);
+    public Terminal persistDataStoreTerminal(ATMDataStorePojo dataStoreTerminal);
 }

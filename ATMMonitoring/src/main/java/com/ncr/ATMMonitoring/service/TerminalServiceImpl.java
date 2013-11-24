@@ -161,7 +161,7 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     @Override
-    public Terminal loadTerminalByMatricula(String matricula) {
+    public Terminal loadTerminalByMatricula(Long matricula) {
 	return terminalDAO.getTerminalByMatricula(matricula);
     }
 
@@ -318,9 +318,15 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     @Override
-    public void persistDataStoreTerminal(ATMDataStorePojo dataStoreTerminal) {
+    public Terminal persistDataStoreTerminal(ATMDataStorePojo dataStoreTerminal) {
+	Terminal terminal = null;
 	try {
-	    Terminal terminal = new Terminal(dataStoreTerminal);
+	    try {
+		terminal = new Terminal(dataStoreTerminal);
+	    } catch (NumberFormatException e) {
+		logger.error("Couldn't parse matricula number...", e);
+		throw e;
+	    }
 	    Terminal dbTerminal = terminalDAO.getTerminalByMatricula(terminal
 		    .getMatricula());
 	    if (dbTerminal != null) {
@@ -349,6 +355,7 @@ public class TerminalServiceImpl implements TerminalService {
 			    + dataStoreTerminal.getCurrentip()
 		    + "due to error: ", e);
 	}
+	return terminal;
     }
 
     private void overwriteFields(Terminal terminal, Terminal newTerminal) {

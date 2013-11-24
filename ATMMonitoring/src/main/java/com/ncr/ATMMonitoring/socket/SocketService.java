@@ -25,7 +25,7 @@ public interface SocketService {
 
     public void processAwaitingIps();
 
-    public void processTerminalJson(String json);
+    public Long processTerminalJson(String json);
 
     public String getHashSeed();
 
