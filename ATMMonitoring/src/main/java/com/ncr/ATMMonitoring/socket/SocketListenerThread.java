@@ -37,7 +37,6 @@ public class SocketListenerThread extends Thread {
 		out.println(okMessage);
 		logger.info("Update request confirmed ('" + okMessage
 			+ "') to IP: " + ip);
-		out.close();
 
 		// Pedimos los datos al agente
 		parent.requestData(ip);
