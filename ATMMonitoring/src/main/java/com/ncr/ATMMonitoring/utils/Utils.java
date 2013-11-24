@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -84,4 +86,7 @@ public abstract class Utils {
 		.replaceAll("@@@@", Matcher.quoteReplacement("\\"));
     }
 
+    public static String getMD5Hex(String content) {
+	return DigestUtils.md5Hex(content);
+    }
 }
