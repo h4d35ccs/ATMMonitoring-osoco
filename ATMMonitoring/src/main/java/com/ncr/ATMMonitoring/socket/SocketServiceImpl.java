@@ -48,6 +48,10 @@ public class SocketServiceImpl implements SocketService {
     private int sleepTime;
     @Value("${config.maxTimeRequestThread}")
     private int maxTime;
+    @Value("${security.hashSeed}")
+    private String hashSeed;
+    @Value("${security.oldHashSeed}")
+    private String oldHashSeed;
 
     @Autowired
     private SocketListener socketListener;
@@ -139,5 +143,13 @@ public class SocketServiceImpl implements SocketService {
 	logger.debug("ATMDataStore received: " + data.toString());
 	// logger.debug("Resulting Json: " + data.toJson());
 	terminalService.persistDataStoreTerminal(data);
+    }
+
+    public String getHashSeed() {
+	return hashSeed;
+    }
+
+    public String getOldHashSeed() {
+	return oldHashSeed;
     }
 }
