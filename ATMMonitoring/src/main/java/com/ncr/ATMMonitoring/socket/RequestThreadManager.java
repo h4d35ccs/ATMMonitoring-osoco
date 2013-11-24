@@ -214,4 +214,12 @@ public class RequestThreadManager extends Thread {
     public static SocketFactory getClientSocketFactory() {
 	return CLIENT_SOCKET_FACTORY;
     }
+
+    public String getHashSeed() {
+	return socketService.getHashSeed();
+    }
+
+    public String getOldHashSeed() {
+	return socketService.getOldHashSeed();
+    }
 }
