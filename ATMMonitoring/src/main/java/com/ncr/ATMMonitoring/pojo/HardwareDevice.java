@@ -344,7 +344,7 @@ public class HardwareDevice {
 
     private static final Map<DeviceClassId, String> deviceClasses;
 
-    private static enum DeviceClassId {
+    public static enum DeviceClassId {
 	COMPUTER_SYSTEM, PROCESSOR, PHYSICAL_MEMORY, DISK_DRIVE, LOGICAL_DISK, BASE_BOARD, NETWORK_ADAPTER, FLOPPY_DRIVE, CDROM_DRIVE, SOUND_DEVICE, DISPLAY_CONFIGURATION, USB_CONTROLLER, USB_HUB, SERIAL_PORT, PARALLEL_PORT, _1394_CONTROLLER, SCSI_CONTROLLER, DESKTOP_MONITOR, KEYBOARD, POINTING_DEVICE, SYSTEM_SLOT, BIOS, VIDEO_CONTROLLER
     }
 
@@ -2280,8 +2280,8 @@ public class HardwareDevice {
     /**
      * @return the deviceclasses
      */
-    public static Collection<String> getDeviceclasses() {
-	return deviceClasses.values();
+    public static Map<DeviceClassId, String> getDeviceclasses() {
+	return deviceClasses;
     }
 
     /**
