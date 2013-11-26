@@ -158,7 +158,7 @@ public class TerminalDAOImpl implements TerminalDAO {
 	Terminal result = (Terminal) sessionFactory.getCurrentSession()
 		.createCriteria(Terminal.class)
 		.add(Restrictions.eq("serialNumber", serialNumber))
-		.uniqueResult();
+		.setMaxResults(1).uniqueResult();
 	return result;
     }
 
@@ -166,7 +166,7 @@ public class TerminalDAOImpl implements TerminalDAO {
     public Terminal getTerminalByIp(String ip) {
 	Terminal result = (Terminal) sessionFactory.getCurrentSession()
 		.createCriteria(Terminal.class).add(Restrictions.eq("ip", ip))
-		.uniqueResult();
+		.setMaxResults(1).uniqueResult();
 	return result;
     }
 
@@ -174,7 +174,8 @@ public class TerminalDAOImpl implements TerminalDAO {
     public Terminal getTerminalByMac(String mac) {
 	Terminal result = (Terminal) sessionFactory.getCurrentSession()
 		.createCriteria(Terminal.class)
-		.add(Restrictions.eq("mac", mac)).uniqueResult();
+		.add(Restrictions.eq("mac", mac)).setMaxResults(1)
+		.uniqueResult();
 	return result;
     }
 
@@ -182,7 +183,8 @@ public class TerminalDAOImpl implements TerminalDAO {
     public Terminal getTerminalByMatricula(Long matricula) {
 	Terminal result = (Terminal) sessionFactory.getCurrentSession()
 		.createCriteria(Terminal.class)
-		.add(Restrictions.eq("matricula", matricula)).uniqueResult();
+		.add(Restrictions.eq("matricula", matricula)).setMaxResults(1)
+		.uniqueResult();
 	return result;
     }
 
