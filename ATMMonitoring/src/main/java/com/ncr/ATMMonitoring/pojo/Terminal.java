@@ -232,6 +232,46 @@ public class Terminal {
 	this.terminalModel = terminal.terminalModel;
     }
 
+    public void replaceTerminalDataWoVoidValues(Terminal terminal) {
+	this.bank = ((terminal.bank != null) && (terminal.bank.trim().length() > 0)) ? terminal.bank
+		: this.bank;
+	this.branch = ((terminal.branch != null) && (terminal.branch.trim()
+		.length() > 0)) ? terminal.branch : this.branch;
+	this.frontReplenish = (terminal.frontReplenish != null) ? terminal.frontReplenish
+		: this.frontReplenish;
+	this.geographicAddress = ((terminal.geographicAddress != null) && (terminal.geographicAddress
+		.trim().length() > 0)) ? terminal.geographicAddress
+		: this.geographicAddress;
+	this.ip = ((terminal.ip != null) && (terminal.ip.trim().length() > 0)) ? terminal.ip
+		: this.ip;
+	this.mac = ((terminal.mac != null) && (terminal.mac.trim().length() > 0)) ? terminal.mac
+		: this.mac;
+	this.manufacturingSite = ((terminal.manufacturingSite != null) && (terminal.manufacturingSite
+		.trim().length() > 0)) ? terminal.manufacturingSite
+		: this.manufacturingSite;
+	this.productClassDescription = ((terminal.productClassDescription != null) && (terminal.productClassDescription
+		.trim().length() > 0)) ? terminal.productClassDescription
+		: this.productClassDescription;
+	this.serialNumber = ((terminal.serialNumber != null) && (terminal.serialNumber
+		.trim().length() > 0)) ? terminal.serialNumber
+		: this.serialNumber;
+	this.terminalType = ((terminal.terminalType != null) && (terminal.terminalType
+		.trim().length() > 0)) ? terminal.terminalType
+		: this.terminalType;
+	this.terminalVendor = ((terminal.terminalVendor != null) && (terminal.terminalVendor
+		.trim().length() > 0)) ? terminal.terminalVendor
+		: this.terminalVendor;
+	this.tracerNumber = ((terminal.tracerNumber != null) && (terminal.tracerNumber
+		.trim().length() > 0)) ? terminal.tracerNumber
+		: this.tracerNumber;
+	// We don't know if we can retrieve this information yet
+	// this.bankCompany = (terminal.bankCompany != null) ?
+	// terminal.bankCompany
+	// : this.bankCompany;
+	this.terminalModel = (terminal.terminalModel != null) ? terminal.terminalModel
+		: this.terminalModel;
+    }
+
     /**
      * @return the id
      */

@@ -339,7 +339,7 @@ public class TerminalServiceImpl implements TerminalService {
 			.getTerminalBySimilarity(dataStoreTerminal);
 	    }
 	    if (dbTerminal != null) {
-		dbTerminal.replaceTerminalData(terminal);
+		dbTerminal.replaceTerminalDataWoVoidValues(terminal);
 		terminal = dbTerminal;
 		terminalDAO.updateTerminal(terminal);
 		logger.debug("Updated Terminal from ATMDataStore with IP "
