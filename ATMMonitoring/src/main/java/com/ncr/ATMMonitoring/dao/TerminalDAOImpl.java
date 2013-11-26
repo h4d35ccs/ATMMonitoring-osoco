@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.dao;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Set;
+import java.util.Vector;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
@@ -17,7 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
+import com.ncr.ATMMonitoring.pojo.HardwareDevice;
 import com.ncr.ATMMonitoring.pojo.Terminal;
+import com.ncr.agent.baseData.ATMDataStorePojo;
+import com.ncr.agent.baseData.os.module.BaseBoardPojo;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -193,5 +197,54 @@ public class TerminalDAOImpl implements TerminalDAO {
 		.createSQLQuery("select nextval('terminals_matricula_seq')")
 		.uniqueResult();
 	return seq.longValue();
+    }
+
+    @Override
+    public Terminal getTerminalBySimilarity(ATMDataStorePojo terminal) {
+	Vector baseBoards = terminal.getvBaseBoard();
+	String serialNumber = (baseBoards.size() > 0) ? ((BaseBoardPojo) baseBoards
+		.get(0)).getSerialNumber() : null;
+	logger.debug("SERIAL: " + serialNumber);
+	Terminal result = (Terminal) sessionFactory
+		.getCurrentSession()
+		.createCriteria(Terminal.class)
+		.createAlias("hardwareDevices", "hw")
+		.add(Restrictions.or(
+			Restrictions.and(Restrictions.eq("ip",
+					terminal.getCurrentip()),
+					Restrictions.eq("mac",
+						terminal.getCurrentmac()),
+					Restrictions.isNotNull("mac"),
+				Restrictions.isNotNull("ip"), Restrictions.ne(
+					"mac", ""), Restrictions.ne("ip", "")),
+			Restrictions.and(
+				Restrictions.eq("ip", terminal.getCurrentip()),
+				Restrictions
+					.eq("hw.serialNumber", serialNumber),
+				Restrictions
+					.eq("hw.hardwareClass",
+						HardwareDevice
+							.getDeviceclasses()
+							.get(HardwareDevice.DeviceClassId.BASE_BOARD)),
+				Restrictions.isNotNull("hw.serialNumber"),
+				Restrictions.isNotNull("ip"), Restrictions.ne(
+					"hw.serialNumber", ""), Restrictions
+					.ne("ip", "")),
+			Restrictions.and(
+				Restrictions
+					.eq("mac", terminal.getCurrentmac()),
+				Restrictions
+					.eq("hw.serialNumber", serialNumber),
+				Restrictions
+					.eq("hw.hardwareClass",
+						HardwareDevice
+							.getDeviceclasses()
+							.get(HardwareDevice.DeviceClassId.BASE_BOARD)),
+				Restrictions.isNotNull("hw.serialNumber"),
+				Restrictions.isNotNull("mac"), Restrictions.ne(
+					"hw.serialNumber", ""), Restrictions
+					.ne("mac", ""))))
+		.setMaxResults(1).uniqueResult();
+	return result;
     }
 }

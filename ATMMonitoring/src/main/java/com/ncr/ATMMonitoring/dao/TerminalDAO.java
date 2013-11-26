@@ -7,6 +7,7 @@ import org.hibernate.type.Type;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Terminal;
+import com.ncr.agent.baseData.ATMDataStorePojo;
 
 /**
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
@@ -32,8 +33,7 @@ public interface TerminalDAO {
     public List<Terminal> getTerminalsByHQL(List<Object> values,
 	    List<Type> types, String hql, String sort, String order);
 
-    public List executeQuery(List<Object> values,
-											List<Type> types, String hql);
+    public List executeQuery(List<Object> values, List<Type> types, String hql);
 
     public void updateTerminal(Terminal terminal);
 
@@ -44,4 +44,6 @@ public interface TerminalDAO {
     public Terminal getTerminalByMac(String mac);
 
     public Terminal getTerminalByMatricula(Long matricula);
+
+    public Terminal getTerminalBySimilarity(ATMDataStorePojo terminal);
 }
