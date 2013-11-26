@@ -329,8 +329,17 @@ public class TerminalServiceImpl implements TerminalService {
 	    }
 	    Terminal dbTerminal = terminalDAO.getTerminalByMatricula(terminal
 		    .getMatricula());
+	    if ((dbTerminal == null) && (terminal.getSerialNumber() != null)
+			&& (terminal.getSerialNumber().trim().length() > 0)) {
+		dbTerminal = terminalDAO.getTerminalBySerialNumber(terminal
+			.getSerialNumber());
+	    }
+	    if (dbTerminal == null) {
+		dbTerminal = terminalDAO
+			.getTerminalBySimilarity(dataStoreTerminal);
+	    }
 	    if (dbTerminal != null) {
-		overwriteFields(dbTerminal, terminal);
+		dbTerminal.replaceTerminalData(terminal);
 		terminal = dbTerminal;
 		terminalDAO.updateTerminal(terminal);
 		logger.debug("Updated Terminal from ATMDataStore with IP "
@@ -356,19 +365,6 @@ public class TerminalServiceImpl implements TerminalService {
 		    + "due to error: ", e);
 	}
 	return terminal;
-    }
-
-    private void overwriteFields(Terminal terminal, Terminal newTerminal) {
-	terminal.setGeographicAddress(newTerminal.getGeographicAddress());
-	terminal.setTerminalType(newTerminal.getTerminalType());
-	terminal.setTerminalVendor(newTerminal.getTerminalVendor());
-	terminal.setFrontReplenish(newTerminal.getFrontReplenish());
-	terminal.setManufacturingSite(newTerminal.getManufacturingSite());
-	terminal.setProductClassDescription(newTerminal
-		.getProductClassDescription());
-	terminal.setSerialNumber(newTerminal.getSerialNumber());
-	terminal.setTracerNumber(newTerminal.getTracerNumber());
-	terminal.setMatricula(newTerminal.getMatricula());
     }
 
     private TerminalModel getTerminalModel(ATMDataStorePojo dataStoreTerminal) {
