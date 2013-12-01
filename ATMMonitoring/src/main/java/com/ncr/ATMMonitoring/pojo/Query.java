@@ -1098,6 +1098,21 @@ public class Query {
 	return constraints;
     }
 
+    private String getBankCompanyConstraints() {
+	String constraints = "";
+	if (user != null) {
+	    constraints += "(terminal.bankCompany = null";
+	    Set<BankCompany> bankCompanies = user.getManageableBankCompanies();
+	    for (BankCompany bank : bankCompanies) {
+		constraints += " OR ";
+		constraints += "terminal.bankCompany.id = " + bank.getId();
+	    }
+	    constraints += ")";
+	}
+	System.out.println("BANK: " + constraints);
+	return constraints;
+    }
+
     /**
      * @return the financialDeviceCombo11
      */
@@ -3729,6 +3744,7 @@ public class Query {
 	hql += " terminal from Terminal terminal";
 	String terminalConstraints = getTerminalConstraints(values, types,
 		locale);
+	String bankCompanyConstraints = getBankCompanyConstraints();
 	String financialDeviceConstraints = getFinancialDeviceConstraints(
 		values, types, locale);
 	String hotfixConstraints = getHotfixConstraints(values, types, locale);
@@ -3773,6 +3789,9 @@ public class Query {
 	}
 	if (terminalConstraints.length() > 0) {
 	    hql += "(" + terminalConstraints + ") and ";
+	}
+	if (bankCompanyConstraints.length() > 0) {
+	    hql += "(" + bankCompanyConstraints + ") and ";
 	}
 	if (financialDeviceConstraints.length() > 0) {
 	    hql += "(" + financialDeviceConstraints + ") and ";

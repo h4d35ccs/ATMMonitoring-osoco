@@ -251,9 +251,9 @@ public class QueryController {
 
 	Locale locale = RequestContextUtils.getLocale(request);
 	User loggedUser = null;
-	 if (principal != null) {
+	if (principal != null) {
 		loggedUser = userService.getUserByUsername(principal.getName());
-	 }
+	}
 
 	if (WebUtils.hasSubmitParameter(request, "save")) {
 	    if (principal != null) {
@@ -280,6 +280,9 @@ public class QueryController {
 	    }
 	    return "redirect:/queries/list";
 	} else if (WebUtils.hasSubmitParameter(request, "execute")) {
+	    if (principal != null) {
+		query.setUser(loggedUser);
+	    }
 	    logger.debug("Executing query... " + query.getName());
 		String sortValue = (sort == null) ? DEFAULT_SORT : sort;
 		String orderValue = (order == null) ? DEFAULT_ORDER : order;
