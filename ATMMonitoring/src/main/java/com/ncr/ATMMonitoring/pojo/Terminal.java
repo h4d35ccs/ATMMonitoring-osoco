@@ -53,20 +53,15 @@ public class Terminal {
 	comboboxes.put("frontReplenish",
 		Operation.getOperationsByType(Operation.DataType.BOOLEAN));
 	comboboxes.put("geographicAddress", operations);
-	comboboxes.put("address", operations);
-	comboboxes.put("city", operations);
-	comboboxes.put("area", operations);
-	comboboxes.put("country", operations);
-	comboboxes.put("zipCode", operations);
 	comboboxes.put("branch", operations);
 	comboboxes.put("bank", operations);
 	comboboxes.put("manufacturingSite", operations);
-	comboboxes.put("model", operations);
 	comboboxes.put("productClass", operations);
 	comboboxes.put("productClassDescription", operations);
 	comboboxes.put("serialNumber", operations);
 	comboboxes.put("tracerNumber", operations);
 	comboboxes.put("ip", operations);
+	comboboxes.put("mac", operations);
     }
 
     @Id
