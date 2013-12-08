@@ -101,27 +101,6 @@ public class SocketServiceImpl implements SocketService {
      * (non-Javadoc)
      * 
      * @see
-     * com.ncr.ATMMonitoring.socket.SocketService#updateAllTerminalsSocketAsync
-     * ()
-     */
-    @Override
-    @Async
-    public void updateAllTerminalsSocketAsync() {
-	Date now = new Date();
-	try {
-	    updateAllTerminalsSocket();
-	} catch (Exception e) {
-	    DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT,
-		    DateFormat.SHORT);
-	    logger.error("Async Update that started at [" + df.format(now)
-		    + "] raised Exception", e);
-	}
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
      * com.ncr.ATMMonitoring.socket.SocketService#updateAllTerminalsSocket()
      */
     @Override

@@ -91,7 +91,7 @@ public class ScheduledUpdateServiceImpl implements ScheduledUpdateService {
 		logger.info("General update found for instant "
 			+ DateFormat.getDateTimeInstance(DateFormat.SHORT,
 				DateFormat.SHORT).format(currentDate.getTime()));
-		socketService.updateAllTerminalsSocketAsync();
+		socketService.updateAllTerminalsSocket();
 		return;
 	    }
 	}

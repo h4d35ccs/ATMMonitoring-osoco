@@ -17,11 +17,6 @@ import com.ncr.ATMMonitoring.pojo.Terminal;
 public interface SocketService {
 
     /**
-     * Update all terminals socket async.
-     */
-    public void updateAllTerminalsSocketAsync();
-
-    /**
      * Insert all terminals' ip's into the waiting ones list.
      */
     public void updateAllTerminalsSocket();
