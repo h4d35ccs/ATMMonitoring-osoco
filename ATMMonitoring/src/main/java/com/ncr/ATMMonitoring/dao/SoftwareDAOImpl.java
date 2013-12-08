@@ -11,23 +11,35 @@ import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Software;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class SoftwareDAOImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
 public class SoftwareDAOImpl implements SoftwareDAO {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(SoftwareDAOImpl.class.getName());
+    
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.SoftwareDAO#addSoftware(com.ncr.ATMMonitoring.pojo.Software)
+     */
     @Override
     public void addSoftware(Software software) {
 		sessionFactory.getCurrentSession().save(software);
 		logger.debug("Created new Software with id " + software.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.SoftwareDAO#listSoftware()
+     */
     @Override
     public List<Software> listSoftware() {
 		return sessionFactory.getCurrentSession()
@@ -39,12 +51,18 @@ public class SoftwareDAOImpl implements SoftwareDAO {
 			.addOrder(Order.desc("remaining_version")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.SoftwareDAO#getSoftware(java.lang.Integer)
+     */
     @Override
     public Software getSoftware(Integer id) {
 		return (Software) sessionFactory.getCurrentSession().get(
 			Software.class, id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.SoftwareDAO#getSoftwareByIdentifyingNumber(java.lang.String)
+     */
     @Override
     public Software getSoftwareByIdentifyingNumber(String id) {
 		return (Software) sessionFactory.getCurrentSession().createCriteria(Software.class).add(Restrictions.eq("identifyingNumber", id)).uniqueResult();

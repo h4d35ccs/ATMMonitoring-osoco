@@ -35,26 +35,45 @@ import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.UserService;
 import org.apache.log4j.Logger;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class QueryController.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 @Controller
 public class QueryController {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(QueryController.class.getName());
 
+	/** The Constant DEFAULT_SORT. */
 	public static final String DEFAULT_SORT = "serialNumber";
 
+	/** The Constant DEFAULT_ORDER. */
 	public static final String DEFAULT_ORDER = "asc";
 
+    /** The page size. */
     @Value("${config.queriesPageSize}")
     private int pageSize;
+    
+    /** The query service. */
     @Autowired
     private QueryService queryService;
+    
+    /** The user service. */
     @Autowired
     private UserService userService;
 
 
+    /**
+     * Creates the query.
+     *
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/queries/create", method = RequestMethod.GET)
     public String createQuery(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
@@ -87,6 +106,15 @@ public class QueryController {
 
 
 
+    /**
+     * Show user query.
+     *
+     * @param queryId the query id
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/queries/show", method = RequestMethod.GET)
     public String showUserQuery(Integer queryId,
 	    Map<String, Object> map, HttpServletRequest request,
@@ -115,6 +143,15 @@ public class QueryController {
 
     }
 
+ /**
+  * Delete user query.
+  *
+  * @param queryId the query id
+  * @param map the map
+  * @param request the request
+  * @param principal the principal
+  * @return the string
+  */
  @RequestMapping(value = "/queries/delete", method = RequestMethod.GET)
     public String deleteUserQuery(Integer queryId,
 	    Map<String, Object> map, HttpServletRequest request,
@@ -159,6 +196,15 @@ public class QueryController {
 
 
 
+    /**
+     * Select user query.
+     *
+     * @param query the query
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/queries/create", method = RequestMethod.POST)
     public String selectUserQuery(@ModelAttribute("query") Query query,
 	    Map<String, Object> map, HttpServletRequest request,
@@ -202,11 +248,25 @@ public class QueryController {
 
     }
 
+    /**
+     * Redirect to queries.
+     *
+     * @return the string
+     */
     @RequestMapping("/queries")
     public String redirectToQueries() {
 		return "redirect:/queries/list";
     }
 
+    /**
+     * List queries.
+     *
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @param p the p
+     * @return the string
+     */
     @RequestMapping("/queries/list")
     public String listQueries(Map<String, Object> map,
 			      HttpServletRequest request,
@@ -243,6 +303,20 @@ public class QueryController {
     }
 
 
+    /**
+     * Save or update query.
+     *
+     * @param query the query
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @param redirectAttributes the redirect attributes
+     * @param p the p
+     * @param sort the sort
+     * @param order the order
+     * @return the string
+     * @throws Exception the exception
+     */
     @RequestMapping(value = "/queries/results", method = RequestMethod.POST)
     public String saveOrUpdateQuery(@ModelAttribute("query") Query query,
 	    Map<String, Object> map, HttpServletRequest request,
@@ -325,16 +399,35 @@ public class QueryController {
 
     }
 
+    /**
+     * Redirect from wrong results.
+     *
+     * @return the string
+     */
     @RequestMapping(value = "/queries/results", method = RequestMethod.GET)
     public String redirectFromWrongResults() {
 	return "redirect:/queries/create";
     }
 
+    /**
+     * Redirect from wrong results export.
+     *
+     * @return the string
+     */
     @RequestMapping(value = "/queries/results/export", method = RequestMethod.GET)
     public String redirectFromWrongResultsExport() {
 	return "redirect:/queries/create";
     }
 
+    /**
+     * Download results csv.
+     *
+     * @param query the query
+     * @param response the response
+     * @param request the request
+     * @param sort the sort
+     * @param order the order
+     */
     @RequestMapping(value = "/queries/results/export", method = RequestMethod.POST)
     public void downloadResultsCsv(@ModelAttribute("query") Query query,
             HttpServletResponse response, HttpServletRequest request,

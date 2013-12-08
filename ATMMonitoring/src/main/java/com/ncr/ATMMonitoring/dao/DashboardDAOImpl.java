@@ -9,18 +9,26 @@ import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Dashboard;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Rafael Luque (OSOCO)
+ * The Class DashboardDAOImpl.
+ * 
+ * @author Rafael Luque (rafael.luque@osoco.es)
  */
 
 @Repository
 public class DashboardDAOImpl implements DashboardDAO {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(DashboardDAOImpl.class.getName());
 
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.DashboardDAO#save(com.ncr.ATMMonitoring.pojo.Dashboard)
+     */
     @Override
     public void save(Dashboard dashboard) {
 		sessionFactory.getCurrentSession().save(dashboard);

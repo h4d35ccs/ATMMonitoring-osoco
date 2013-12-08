@@ -30,24 +30,44 @@ import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.RoleService;
 import com.ncr.ATMMonitoring.service.UserService;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class UserController.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Controller
 public class UserController {
 
+    /** The user service. */
     @Autowired
     private UserService userService;
+    
+    /** The role service. */
     @Autowired
     private RoleService roleService;
 
+    /**
+     * Binder.
+     *
+     * @param binder the binder
+     * @throws Exception the exception
+     */
     @InitBinder
     protected void binder(WebDataBinder binder) throws Exception {
 	binder.registerCustomEditor(Role.class, new RolePropertyEditor(
 		roleService));
     }
 
+    /**
+     * List users.
+     *
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/users/list", method = RequestMethod.GET)
     public String listUsers(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
@@ -73,6 +93,14 @@ public class UserController {
 	return "users";
     }
 
+    /**
+     * Redirect to users.
+     *
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping("/users")
     public String redirectToUsers(Map<String, Object> map,
 		    HttpServletRequest request, Principal principal) {
@@ -87,6 +115,15 @@ public class UserController {
 		return "newUsers";
     }
 
+    /**
+     * User details.
+     *
+     * @param userId the user id
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping("/users/details/{userId}")
     public String userDetails(@PathVariable("userId") Integer userId,
 	    Map<String, Object> map, HttpServletRequest request,
@@ -122,6 +159,16 @@ public class UserController {
 	return "userDetails";
     }
 
+    /**
+     * Adds the user.
+     *
+     * @param user the user
+     * @param result the result
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/users/list", method = RequestMethod.POST)
     public String addUser(@Valid @ModelAttribute("user") User user,
 	    BindingResult result, Map<String, Object> map,
@@ -178,6 +225,16 @@ public class UserController {
 	return "redirect:/users/list";
     }
 
+    /**
+     * Update user.
+     *
+     * @param user the user
+     * @param result the result
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/users/update", method = RequestMethod.POST)
     public String updateUser(@Valid @ModelAttribute("user") User user,
 	    BindingResult result, Map<String, Object> map,
@@ -244,6 +301,16 @@ public class UserController {
 	return "redirect:/users/details/" + user.getId().intValue();
     }
 
+    /**
+     * Update password.
+     *
+     * @param user the user
+     * @param result the result
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/users/updatepw", method = RequestMethod.POST)
     public String updatePassword(@Valid @ModelAttribute("user") User user,
 	    BindingResult result, Map<String, Object> map,
@@ -299,6 +366,13 @@ public class UserController {
 	return "redirect:/users/details/" + user.getId().intValue();
     }
 
+    /**
+     * Delete user.
+     *
+     * @param userId the user id
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping("/users/delete/{userId}")
     public String deleteUser(@PathVariable("userId") Integer userId,
 	    Principal principal) {
@@ -321,6 +395,11 @@ public class UserController {
 	return "redirect:/users/list";
     }
 
+	/**
+	 * New group.
+	 *
+	 * @return the string
+	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/users/newGroup")
     public String newGroup() {
     	return "newGroup";

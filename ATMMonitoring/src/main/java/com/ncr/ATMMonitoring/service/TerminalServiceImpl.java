@@ -89,92 +89,149 @@ import com.ncr.agent.baseData.vendor.utils.FinancialDevicePojo;
 import com.ncr.agent.baseData.vendor.utils.FinancialPackagePojo;
 import com.ncr.agent.baseData.vendor.utils.FinancialTerminalPojo;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class TerminalServiceImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Service("terminalService")
 @Transactional
 public class TerminalServiceImpl implements TerminalService {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalServiceImpl.class
 	    .getName());
 
+    /** The terminal dao. */
     @Autowired
     private TerminalDAO terminalDAO;
+    
+    /** The hardware device service. */
     @Autowired
     private HardwareDeviceService hardwareDeviceService;
+    
+    /** The financial device service. */
     @Autowired
     private FinancialDeviceService financialDeviceService;
+    
+    /** The internet explorer service. */
     @Autowired
     private InternetExplorerService internetExplorerService;
+    
+    /** The hotfix service. */
     @Autowired
     private HotfixService hotfixService;
+    
+    /** The software aggregate service. */
     @Autowired
     private SoftwareAggregateService softwareAggregateService;
+    
+    /** The software service. */
     @Autowired
     private SoftwareService softwareService;
+    
+    /** The operating system service. */
     @Autowired
     private OperatingSystemService operatingSystemService;
+    
+    /** The terminal model service. */
     @Autowired
     private TerminalModelService terminalModelService;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#addTerminal(com.ncr.ATMMonitoring.pojo.Terminal)
+     */
     @Override
     public void addTerminal(Terminal terminal) {
 	terminalDAO.addTerminal(terminal);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#updateTerminal(com.ncr.ATMMonitoring.pojo.Terminal)
+     */
     @Override
     public void updateTerminal(Terminal terminal) {
 	terminalDAO.updateTerminal(terminal);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#listTerminalsByBankCompanies(java.util.Set)
+     */
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks) {
 	return terminalDAO.listTerminalsByBankCompanies(banks);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#listTerminalsByBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
+     */
     @Override
     public List<Terminal> listTerminalsByBankCompany(BankCompany bank) {
 	return terminalDAO.listTerminalsByBankCompany(bank);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#listTerminalsByBankCompanies(java.util.Set, java.lang.String, java.lang.String)
+     */
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks,
 	    String sort, String order) {
 	return terminalDAO.listTerminalsByBankCompanies(banks, sort, order);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#listTerminals()
+     */
     @Override
     public List<Terminal> listTerminals() {
 	return terminalDAO.listTerminals();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#getTerminal(java.lang.Integer)
+     */
     @Override
     public Terminal getTerminal(Integer id) {
 	return terminalDAO.getTerminal(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#loadTerminalBySerialNumber(java.lang.String)
+     */
     @Override
     public Terminal loadTerminalBySerialNumber(String serialNumber) {
 	return terminalDAO.getTerminalBySerialNumber(serialNumber);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#loadTerminalByMatricula(java.lang.Long)
+     */
     @Override
     public Terminal loadTerminalByMatricula(Long matricula) {
 	return terminalDAO.getTerminalByMatricula(matricula);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#loadTerminalByIp(java.lang.String)
+     */
     @Override
     public Terminal loadTerminalByIp(String ip) {
 	return terminalDAO.getTerminalByIp(ip);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#loadTerminalByMac(java.lang.String)
+     */
     @Override
     public Terminal loadTerminalByMac(String mac) {
 	return terminalDAO.getTerminalByMac(mac);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#importJsonTerminal(org.springframework.web.multipart.commons.CommonsMultipartFile)
+     */
     @Override
     public boolean importJsonTerminal(CommonsMultipartFile jsonFile) {
 	try {
@@ -198,6 +255,11 @@ public class TerminalServiceImpl implements TerminalService {
 	return true;
     }
 
+    /**
+     * Removes the related entities.
+     *
+     * @param terminal the terminal
+     */
     @SuppressWarnings("rawtypes")
     private void removeRelatedEntities(Terminal terminal) {
 	Set<HardwareDevice> hwDevs = terminal.getHardwareDevices();
@@ -229,6 +291,12 @@ public class TerminalServiceImpl implements TerminalService {
 		+ terminal.getIp());
     }
 
+    /**
+     * Adds the new entities.
+     *
+     * @param terminal the terminal
+     * @param dataStoreTerminal the data store terminal
+     */
     private void addNewEntities(Terminal terminal,
 	    ATMDataStorePojo dataStoreTerminal) {
 
@@ -317,6 +385,9 @@ public class TerminalServiceImpl implements TerminalService {
 	}
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.TerminalService#persistDataStoreTerminal(com.ncr.agent.baseData.ATMDataStorePojo)
+     */
     @Override
     public Terminal persistDataStoreTerminal(ATMDataStorePojo dataStoreTerminal) {
 	Terminal terminal = null;
@@ -367,6 +438,12 @@ public class TerminalServiceImpl implements TerminalService {
 	return terminal;
     }
 
+    /**
+     * Gets the terminal model.
+     *
+     * @param dataStoreTerminal the data store terminal
+     * @return the terminal model
+     */
     private TerminalModel getTerminalModel(ATMDataStorePojo dataStoreTerminal) {
 
 	FinancialTerminalPojo ft = dataStoreTerminal.getFinancialTerminal();
@@ -384,6 +461,12 @@ public class TerminalServiceImpl implements TerminalService {
 	return model;
     }
 
+    /**
+     * Gets the sw aggregates.
+     *
+     * @param dataStoreTerminal the data store terminal
+     * @return the sw aggregates
+     */
     private Set<SoftwareAggregate> getSwAggregates(
 	    ATMDataStorePojo dataStoreTerminal) {
 	Set<SoftwareAggregate> swAggregates = new HashSet<SoftwareAggregate>();
@@ -398,6 +481,12 @@ public class TerminalServiceImpl implements TerminalService {
 	return swAggregates;
     }
 
+    /**
+     * Gets the internet explorers.
+     *
+     * @param dataStoreTerminal the data store terminal
+     * @return the internet explorers
+     */
     private Set<InternetExplorer> getInternetExplorers(
 	    ATMDataStorePojo dataStoreTerminal) {
 	Set<InternetExplorer> internetExplorers = new HashSet<InternetExplorer>();
@@ -411,6 +500,12 @@ public class TerminalServiceImpl implements TerminalService {
 	return internetExplorers;
     }
 
+    /**
+     * Gets the software.
+     *
+     * @param dataStoreTerminal the data store terminal
+     * @return the software
+     */
     private Set<Software> getSoftware(ATMDataStorePojo dataStoreTerminal) {
 	Set<Software> software = new HashSet<Software>();
 	Vector<ProductPojo> vector = dataStoreTerminal.getvProduct();
@@ -423,6 +518,12 @@ public class TerminalServiceImpl implements TerminalService {
 	return software;
     }
 
+    /**
+     * Gets the operating systems.
+     *
+     * @param dataStoreTerminal the data store terminal
+     * @return the operating systems
+     */
     private Set<OperatingSystem> getOperatingSystems(
 	    ATMDataStorePojo dataStoreTerminal) {
 	Set<OperatingSystem> oss = new HashSet<OperatingSystem>();
@@ -437,6 +538,13 @@ public class TerminalServiceImpl implements TerminalService {
 	return oss;
     }
 
+    /**
+     * Assign xfs component.
+     *
+     * @param xfs the xfs
+     * @param finDevs the fin devs
+     * @param names the names
+     */
     private void assignXfsComponent(XfsComponent xfs,
 	    Collection<FinancialDevice> finDevs, String[] names) {
 	boolean found;
@@ -456,6 +564,13 @@ public class TerminalServiceImpl implements TerminalService {
 	}
     }
 
+    /**
+     * Assign jxfs component.
+     *
+     * @param jxfs the jxfs
+     * @param finDevs the fin devs
+     * @param names the names
+     */
     private void assignJxfsComponent(JxfsComponent jxfs,
 	    Collection<FinancialDevice> finDevs, String[] names) {
 	boolean found;
@@ -475,6 +590,13 @@ public class TerminalServiceImpl implements TerminalService {
 	}
     }
 
+    /**
+     * Gets the financial devs.
+     *
+     * @param terminal the terminal
+     * @param dataStoreTerminal the data store terminal
+     * @return the financial devs
+     */
     private Set<FinancialDevice> getFinancialDevs(Terminal terminal,
 	    ATMDataStorePojo dataStoreTerminal) {
 	Set<FinancialDevice> finDevs = new HashSet<FinancialDevice>();
@@ -869,6 +991,13 @@ public class TerminalServiceImpl implements TerminalService {
 	return finDevs;
     }
 
+    /**
+     * Gets the hotfixes.
+     *
+     * @param terminal the terminal
+     * @param dataStoreTerminal the data store terminal
+     * @return the hotfixes
+     */
     private Set<Hotfix> getHotfixes(Terminal terminal,
 	    ATMDataStorePojo dataStoreTerminal) {
 	Set<Hotfix> hotfixes = new HashSet<Hotfix>();
@@ -883,6 +1012,13 @@ public class TerminalServiceImpl implements TerminalService {
 	return hotfixes;
     }
 
+    /**
+     * Gets the hw devs.
+     *
+     * @param terminal the terminal
+     * @param dataStoreTerminal the data store terminal
+     * @return the hw devs
+     */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     private Set<HardwareDevice> getHwDevs(Terminal terminal,
 	    ATMDataStorePojo dataStoreTerminal) {

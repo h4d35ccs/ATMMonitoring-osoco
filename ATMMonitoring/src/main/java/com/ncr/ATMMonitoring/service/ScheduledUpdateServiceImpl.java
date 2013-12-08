@@ -17,44 +17,68 @@ import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.socket.SocketService;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class ScheduledUpdateServiceImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Service("scheduledUpdateService")
 @Transactional
 public class ScheduledUpdateServiceImpl implements ScheduledUpdateService {
 
+    /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(ScheduledUpdateServiceImpl.class.getName());
 
+    /** The scheduled update dao. */
     @Autowired
     private ScheduledUpdateDAO scheduledUpdateDAO;
+    
+    /** The socket service. */
     @Autowired
     private SocketService socketService;
+    
+    /** The query service. */
     @Autowired
     private QueryService queryService;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.ScheduledUpdateService#addScheduledUpdate(com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
+     */
     @Override
     public void addScheduledUpdate(ScheduledUpdate scheduledUpdate) {
 	scheduledUpdateDAO.addScheduledUpdate(scheduledUpdate);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.ScheduledUpdateService#listWeeklyScheduledUpdates()
+     */
     @Override
     public List<ScheduledUpdate> listWeeklyScheduledUpdates() {
 	return scheduledUpdateDAO.listWeeklyScheduledUpdates();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.ScheduledUpdateService#listMonthlyScheduledUpdates()
+     */
     @Override
     public List<ScheduledUpdate> listMonthlyScheduledUpdates() {
 	return scheduledUpdateDAO.listMonthlyScheduledUpdates();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.ScheduledUpdateService#removeScheduledUpdate(java.lang.Integer)
+     */
     @Override
     public void removeScheduledUpdate(Integer id) {
 	scheduledUpdateDAO.removeScheduledUpdate(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.ScheduledUpdateService#checkCurrentUpdates()
+     */
     @Override
     @Scheduled(cron = "0 * * * * *")
     public void checkCurrentUpdates() {
@@ -82,6 +106,9 @@ public class ScheduledUpdateServiceImpl implements ScheduledUpdateService {
 	socketService.updateTerminalsSocket(ips);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.ScheduledUpdateService#existsScheduledUpdate(com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
+     */
     @Override
     public boolean existsScheduledUpdate(ScheduledUpdate scheduledUpdate) {
 	if (scheduledUpdate.getMonthDay() != null) {

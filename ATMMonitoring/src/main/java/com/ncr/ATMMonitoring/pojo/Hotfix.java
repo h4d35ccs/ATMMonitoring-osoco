@@ -25,16 +25,21 @@ import org.hibernate.annotations.Type;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.HotfixPojo;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class Hotfix.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
 @Table(name = "hotfixes")
 public class Hotfix {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(Hotfix.class.getName());
 
+    /** The comboboxes data related to this entity for the query designer. */
     private static final Map<String, Map> comboboxes;
 
     static {
@@ -50,38 +55,53 @@ public class Hotfix {
 		Operation.getOperationsByType(Operation.DataType.DATE));
     }
 
+    /** The id. */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hotfixes_id_seq")
     @SequenceGenerator(name = "hotfixes_id_seq", sequenceName = "hotfixes_id_seq", allocationSize = 1)
     private Integer id;
 
+    /** The terminal. */
     @ManyToOne(fetch = FetchType.EAGER)
     @Cascade(CascadeType.REFRESH)
     @JoinColumn(name = "terminal_id")
     private Terminal terminal;
 
+    /** The number. */
     @Column(name = "numbr")
     private Integer number;
 
+    /** The fix comments. */
     @Column(name = "fix_comments")
     @Type(type = "text")
     private String fixComments;
 
+    /** The hotfix id. */
     @Column(name = "hotfix_id")
     @Type(type = "text")
     private String hotfixId;
 
+    /** The description. */
     @Column(name = "description")
     @Type(type = "text")
     private String description;
 
+    /** The installed on. */
     @Column(name = "installed_on")
     private Date installedOn;
 
+    /**
+     * Instantiates a new hotfix.
+     */
     public Hotfix() {
     }
 
+    /**
+     * Instantiates a new hotfix.
+     *
+     * @param hotfix the hotfix
+     */
     public Hotfix(HotfixPojo hotfix) {
 	this.description = hotfix.getDescription();
 	this.fixComments = hotfix.getFixComments();
@@ -133,6 +153,8 @@ public class Hotfix {
     }
 
     /**
+     * Gets the comboboxes.
+     *
      * @return the comboboxes
      */
     public static Map<String, Map> getComboboxes() {
@@ -140,6 +162,8 @@ public class Hotfix {
     }
 
     /**
+     * Gets the id.
+     *
      * @return the id
      */
     public Integer getId() {
@@ -147,14 +171,17 @@ public class Hotfix {
     }
 
     /**
-     * @param id
-     *            the id to set
+     * Sets the id.
+     *
+     * @param id the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
     }
 
     /**
+     * Gets the number.
+     *
      * @return the number
      */
     public Integer getNumber() {
@@ -162,14 +189,17 @@ public class Hotfix {
     }
 
     /**
-     * @param number
-     *            the number to set
+     * Sets the number.
+     *
+     * @param number the number to set
      */
     public void setNumber(Integer number) {
 	this.number = number;
     }
 
     /**
+     * Gets the fix comments.
+     *
      * @return the fixComments
      */
     public String getFixComments() {
@@ -177,14 +207,17 @@ public class Hotfix {
     }
 
     /**
-     * @param fixComments
-     *            the fixComments to set
+     * Sets the fix comments.
+     *
+     * @param fixComments the fixComments to set
      */
     public void setFixComments(String fixComments) {
 	this.fixComments = fixComments;
     }
 
     /**
+     * Gets the hotfix id.
+     *
      * @return the hotfixId
      */
     public String getHotfixId() {
@@ -192,14 +225,17 @@ public class Hotfix {
     }
 
     /**
-     * @param hotfixId
-     *            the hotfixId to set
+     * Sets the hotfix id.
+     *
+     * @param hotfixId the hotfixId to set
      */
     public void setHotfixId(String hotfixId) {
 	this.hotfixId = hotfixId;
     }
 
     /**
+     * Gets the description.
+     *
      * @return the description
      */
     public String getDescription() {
@@ -207,14 +243,17 @@ public class Hotfix {
     }
 
     /**
-     * @param description
-     *            the description to set
+     * Sets the description.
+     *
+     * @param description the description to set
      */
     public void setDescription(String description) {
 	this.description = description;
     }
 
     /**
+     * Gets the installed on.
+     *
      * @return the installedOn
      */
     public Date getInstalledOn() {
@@ -222,14 +261,17 @@ public class Hotfix {
     }
 
     /**
-     * @param installedOn
-     *            the installedOn to set
+     * Sets the installed on.
+     *
+     * @param installedOn the installedOn to set
      */
     public void setInstalledOn(Date installedOn) {
 	this.installedOn = installedOn;
     }
 
     /**
+     * Gets the terminal.
+     *
      * @return the terminal
      */
     public Terminal getTerminal() {
@@ -237,8 +279,9 @@ public class Hotfix {
     }
 
     /**
-     * @param terminal
-     *            the terminal to set
+     * Sets the terminal.
+     *
+     * @param terminal the terminal to set
      */
     public void setTerminal(Terminal terminal) {
 	this.terminal = terminal;

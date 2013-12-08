@@ -15,18 +15,27 @@ import org.springframework.stereotype.Repository;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.User;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class UserDAOImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
 public class UserDAOImpl implements UserDAO {
 
+    /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(UserDAOImpl.class.getName());
+    
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#addUser(com.ncr.ATMMonitoring.pojo.User)
+     */
     @Override
     public void addUser(User user) {
 	sessionFactory.getCurrentSession().save(user);
@@ -34,6 +43,9 @@ public class UserDAOImpl implements UserDAO {
 		+ " and username " + user.getUsername());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#updateUser(com.ncr.ATMMonitoring.pojo.User)
+     */
     @Override
     public void updateUser(User user) {
 	sessionFactory.getCurrentSession().update(
@@ -42,6 +54,9 @@ public class UserDAOImpl implements UserDAO {
 		+ user.getUsername());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsers()
+     */
     @Override
     public List<User> listUsers() {
 	return sessionFactory.getCurrentSession().createCriteria(User.class)
@@ -49,6 +64,9 @@ public class UserDAOImpl implements UserDAO {
 		.addOrder(Order.asc("username")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsersByBankCompanies(java.util.Set)
+     */
     @Override
     public List<User> listUsersByBankCompanies(Set<BankCompany> banks) {
 	Criterion restriction = (banks.size() > 0) ? Restrictions.or(
@@ -60,6 +78,9 @@ public class UserDAOImpl implements UserDAO {
 		.addOrder(Order.asc("username")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsersByBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
+     */
     @Override
     public List<User> listUsersByBankCompany(BankCompany bank) {
 	return sessionFactory
@@ -71,11 +92,17 @@ public class UserDAOImpl implements UserDAO {
 		.addOrder(Order.asc("username")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#getUser(java.lang.Integer)
+     */
     @Override
     public User getUser(Integer id) {
 	return (User) sessionFactory.getCurrentSession().get(User.class, id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#removeUser(java.lang.Integer)
+     */
     @Override
     public void removeUser(Integer id) {
 	User user = (User) sessionFactory.getCurrentSession().load(User.class,
@@ -87,6 +114,9 @@ public class UserDAOImpl implements UserDAO {
 	}
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#getUserByUsername(java.lang.String)
+     */
     @Override
     public User getUserByUsername(String username) {
 	User result = (User) sessionFactory.getCurrentSession()

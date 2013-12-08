@@ -24,48 +24,86 @@ import com.ncr.ATMMonitoring.service.TerminalService;
 import com.ncr.agent.baseData.ATMDataStorePojo;
 
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class SocketServiceImpl.
+ * 
+ * Default implementation of SocketService.
+ * 
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Service
 public class SocketServiceImpl implements SocketService {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(SocketServiceImpl.class
 	    .getName());
 
+    /** The ips waiting to be requested their data. */
     private Set<String> awaitingIps = Collections
 	    .synchronizedSet(new HashSet<String>());
 
+    /** The max number of threads. */
     @Value("${config.maxNumberUpdateThreads}")
     private double maxThreads;
+    
+    /** The max number of terminals per thread. */
     @Value("${config.maxNumberTerminalsPerThread}")
     private double maxTerminals;
+    
+    /** The response time out. */
     @Value("${config.socketTimeOut}")
     private int timeOut;
+    
+    /** The agent port. */
     @Value("${config.agentSocketPort}")
     private int agentPort;
+    
+    /** The sleep time between checks onto the sub-threads. */
     @Value("${config.sleepTimeRequestManager}")
     private int sleepTime;
+    
+    /** The max time we wait for the whole process to end. */
     @Value("${config.maxTimeRequestThread}")
     private int maxTime;
+    
+    /** The current hash seed for confirming ATM's identity. */
     @Value("${security.hashSeed}")
     private String hashSeed;
+    
+    /** The old hash seed for confirming ATM's identity. */
     @Value("${security.oldHashSeed}")
     private String oldHashSeed;
 
+    /** The socket listener. */
     @Autowired
     private SocketListener socketListener;
+    
+    /** The terminal service. */
     @Autowired
     private TerminalService terminalService;
+    
+    /** The query service. */
     @Autowired
     private QueryService queryService;
+    
+    /** The request thread manager. */
     private RequestThreadManager requestThreadManager;
 
+    /**
+     * Inits the socketListener by setting this object as its service.
+     */
     @PostConstruct
     public void init() {
 	socketListener.setSocketService(this);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.socket.SocketService#updateAllTerminalsSocketAsync
+     * ()
+     */
     @Override
     @Async
     public void updateAllTerminalsSocketAsync() {
@@ -80,6 +118,12 @@ public class SocketServiceImpl implements SocketService {
 	}
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.socket.SocketService#updateAllTerminalsSocket()
+     */
     @Override
     public void updateAllTerminalsSocket() {
 	List<Terminal> terminals = terminalService.listTerminals();
@@ -88,21 +132,33 @@ public class SocketServiceImpl implements SocketService {
 	}
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.socket.SocketService#updateTerminalSocket(com.ncr.ATMMonitoring.pojo.Terminal)
+     */
     @Override
     public void updateTerminalSocket(Terminal terminal) {
 	awaitingIps.add(terminal.getIp());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.socket.SocketService#updateTerminalSocket(java.lang.String)
+     */
     @Override
     public void updateTerminalSocket(String ip) {
 	awaitingIps.add(ip);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.socket.SocketService#updateTerminalsSocket(java.util.Collection)
+     */
     @Override
     public void updateTerminalsSocket(Collection<String> ips) {
 	awaitingIps.addAll(ips);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.socket.SocketService#updateTerminalsSocket(com.ncr.ATMMonitoring.pojo.Query)
+     */
     @Override
     public void updateTerminalsSocket(Query query) {
 	if (query != null) {
@@ -115,6 +171,9 @@ public class SocketServiceImpl implements SocketService {
 	}
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.socket.SocketService#processAwaitingIps()
+     */
     @Override
     @Scheduled(cron = "30 * * * * *")
     public void processAwaitingIps() {
@@ -137,6 +196,9 @@ public class SocketServiceImpl implements SocketService {
 	requestThreadManager.start();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.socket.SocketService#processTerminalJson(java.lang.String)
+     */
     public Long processTerminalJson(String json) {
 	// logger.debug("Json received: " + json);
 	ATMDataStorePojo data = ATMDataStorePojo.fromJson(json);
@@ -151,10 +213,16 @@ public class SocketServiceImpl implements SocketService {
 	return null;
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.socket.SocketService#getHashSeed()
+     */
     public String getHashSeed() {
 	return hashSeed;
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.socket.SocketService#getOldHashSeed()
+     */
     public String getOldHashSeed() {
 	return oldHashSeed;
     }

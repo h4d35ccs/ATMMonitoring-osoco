@@ -12,13 +12,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Rafael Luque (OSOCO)
+ * The Class HelpController.
+ * 
+ * @author Rafael Luque (rafael.luque@osoco.es)
  */
 @Controller
 public class HelpController {
 
 
+    /**
+     * Show dashboard.
+     *
+     * @param map the map
+     * @param principal the principal
+     * @param request the request
+     * @return the string
+     */
     @RequestMapping(value = "/help", method = RequestMethod.GET)
     public String showDashboard(Map<String, Object> map, Principal principal, HttpServletRequest request) {
         return "help";

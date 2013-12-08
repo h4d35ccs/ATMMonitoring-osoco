@@ -9,18 +9,27 @@ import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.PhysicalCashUnit;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class PhysicalCashUnitDAOImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
 public class PhysicalCashUnitDAOImpl implements PhysicalCashUnitDAO {
 
+    /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(PhysicalCashUnitDAOImpl.class.getName());
+    
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.PhysicalCashUnitDAO#addPhysicalCashUnit(com.ncr.ATMMonitoring.pojo.PhysicalCashUnit)
+     */
     @Override
     public void addPhysicalCashUnit(PhysicalCashUnit physicalCashUnit) {
 	sessionFactory.getCurrentSession().save(physicalCashUnit);
@@ -28,12 +37,18 @@ public class PhysicalCashUnitDAOImpl implements PhysicalCashUnitDAO {
 		+ physicalCashUnit.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.PhysicalCashUnitDAO#listPhysicalCashUnits()
+     */
     @Override
     public List<PhysicalCashUnit> listPhysicalCashUnits() {
 	return sessionFactory.getCurrentSession()
 		.createCriteria(PhysicalCashUnit.class).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.PhysicalCashUnitDAO#getPhysicalCashUnit(java.lang.Integer)
+     */
     @Override
     public PhysicalCashUnit getPhysicalCashUnit(Integer id) {
 	return (PhysicalCashUnit) sessionFactory.getCurrentSession().get(

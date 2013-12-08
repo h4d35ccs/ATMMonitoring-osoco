@@ -15,18 +15,27 @@ import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class ScheduledUpdateDAOImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
 public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 
+    /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(ScheduledUpdateDAOImpl.class.getName());
+    
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#addScheduledUpdate(com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
+     */
     @Override
     public void addScheduledUpdate(ScheduledUpdate scheduledUpdate) {
 	sessionFactory.getCurrentSession().save(scheduledUpdate);
@@ -34,6 +43,9 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 		+ scheduledUpdate.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#listWeeklyScheduledUpdates()
+     */
     @Override
     public List<ScheduledUpdate> listWeeklyScheduledUpdates() {
 	return sessionFactory.getCurrentSession()
@@ -43,6 +55,9 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 		.addOrder(Order.asc("minute")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#listMonthlyScheduledUpdates()
+     */
     @Override
     public List<ScheduledUpdate> listMonthlyScheduledUpdates() {
 	return sessionFactory.getCurrentSession()
@@ -52,12 +67,18 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 		.addOrder(Order.asc("minute")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#getScheduledUpdate(java.lang.Integer)
+     */
     @Override
     public ScheduledUpdate getScheduledUpdate(Integer id) {
 	return (ScheduledUpdate) sessionFactory.getCurrentSession().get(
 		ScheduledUpdate.class, id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#removeScheduledUpdate(java.lang.Integer)
+     */
     @Override
     public void removeScheduledUpdate(Integer id) {
 	ScheduledUpdate scheduledUpdate = (ScheduledUpdate) sessionFactory
@@ -67,6 +88,9 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 	}
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#existsMonthlyScheduledUpdate(com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
+     */
     @Override
     public boolean existsMonthlyScheduledUpdate(ScheduledUpdate scheduledUpdate) {
 	Criteria query = sessionFactory
@@ -80,6 +104,9 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 	return (query.uniqueResult() != null);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#existsWeeklyScheduledUpdate(com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
+     */
     @Override
     public boolean existsWeeklyScheduledUpdate(ScheduledUpdate scheduledUpdate) {
 	Criteria query = sessionFactory
@@ -93,6 +120,9 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
 	return (query.uniqueResult() != null);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#listValidScheduledUpdates(java.util.Calendar)
+     */
     @Override
     public List<ScheduledUpdate> listValidScheduledUpdates(Calendar date) {
 	date.setTimeZone(TimeZone.getTimeZone("GMT"));

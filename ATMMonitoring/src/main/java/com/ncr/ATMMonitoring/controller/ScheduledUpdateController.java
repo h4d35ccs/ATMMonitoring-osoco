@@ -36,30 +36,58 @@ import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.ScheduledUpdateService;
 import com.ncr.ATMMonitoring.service.UserService;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class ScheduledUpdateController.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Controller
 public class ScheduledUpdateController {
 
+    /** The logger. */
     private static Logger logger = Logger.getLogger(ScheduledUpdateController.class.getName());
+	
+	/** The event date format. */
 	private static SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+	
+	/** The weekly title date format. */
 	private static SimpleDateFormat weeklyTitleDateFormat = new SimpleDateFormat("EEEE");
+	
+	/** The monthly title date format. */
 	private static SimpleDateFormat monthlyTitleDateFormat = new SimpleDateFormat("'d√≠a' d");
+	
+	/** The event duration in millis. */
 	private static long EVENT_DURATION_IN_MILLIS = 60 * 60 * 1000;
 
+    /** The scheduled update service. */
     @Autowired
     private ScheduledUpdateService scheduledUpdateService;
 
+    /** The user service. */
     @Autowired
     private UserService userService;
 
+    /**
+     * Binder.
+     *
+     * @param binder the binder
+     * @throws Exception the exception
+     */
     @InitBinder
     protected void binder(WebDataBinder binder) throws Exception {
     	binder.registerCustomEditor(Date.class, new DatePropertyEditor(true));
     }
 
+    /**
+     * List schedules.
+     *
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/terminals/schedules/list", method = RequestMethod.GET)
     public String listSchedules(Map<String, Object> map,
 								HttpServletRequest request, Principal principal) {
@@ -78,6 +106,15 @@ public class ScheduledUpdateController {
 		return "scheduledUpdates";
     }
 
+    /**
+     * New scheduled update.
+     *
+     * @param map the map
+     * @param queryId the query id
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/terminals/schedules/new", method = RequestMethod.GET)
     public String newScheduledUpdate(Map<String, Object> map,
 				     String queryId,
@@ -102,6 +139,15 @@ public class ScheduledUpdateController {
 		return "newScheduledUpdate";
     }
 
+    /**
+     * List update events.
+     *
+     * @param start the start
+     * @param end the end
+     * @param request the request
+     * @param principal the principal
+     * @return the list
+     */
     @RequestMapping(value = "/terminals/schedules/updates", method = RequestMethod.GET)
 	@ResponseBody
     public List listUpdateEvents(long start, long end, HttpServletRequest request, Principal principal) {
@@ -119,6 +165,17 @@ public class ScheduledUpdateController {
 		return toCalendarEventsJSON(updates, start, end);
     }
 
+    /**
+     * Adds the scheduled update.
+     *
+     * @param scheduledUpdate the scheduled update
+     * @param result the result
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @param redirectAttributes the redirect attributes
+     * @return the string
+     */
     @RequestMapping(value = "/terminals/schedules/list", method = RequestMethod.POST)
     public String addScheduledUpdate(
             @Valid @ModelAttribute("scheduledUpdate")
@@ -160,11 +217,23 @@ public class ScheduledUpdateController {
 		}
 	}
 
+    /**
+     * Redirect to schedules.
+     *
+     * @return the string
+     */
     @RequestMapping("/terminals/schedules")
     public String redirectToSchedules() {
 	return "redirect:/terminals/schedules/list";
     }
 
+    /**
+     * Delete scheduled update.
+     *
+     * @param scheduledUpdateId the scheduled update id
+     * @param redirectAttributes the redirect attributes
+     * @return the string
+     */
     @RequestMapping("/terminals/schedules/delete/{scheduledUpdateId}")
     public String deleteScheduledUpdate(
 		    @PathVariable("scheduledUpdateId") Integer scheduledUpdateId,
@@ -174,6 +243,14 @@ public class ScheduledUpdateController {
 		return "redirect:/terminals/schedules/list";
     }
 
+	/**
+	 * To calendar events json.
+	 *
+	 * @param updates the updates
+	 * @param from the from
+	 * @param to the to
+	 * @return the list
+	 */
 	private List<Map> toCalendarEventsJSON(List<ScheduledUpdate> updates, long from, long to) {
 		logger.debug("updates: " + updates);
 		List json = new ArrayList();

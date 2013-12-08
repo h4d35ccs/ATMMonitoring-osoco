@@ -6,15 +6,26 @@ import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Rafael Luque (OSOCO)
+ * The Class TemplateModelPhotoUrlTag.
+ * 
+ * @author Rafael Luque (rafael.luque@osoco.es)
  */
 public class TemplateModelPhotoUrlTag extends SimpleTagSupport {
 
+	/** The atm. */
 	private Terminal atm;
+	
+	/** The manufacturer. */
 	private String manufacturer;
+	
+	/** The width. */
 	private Integer width;
 
+    /* (non-Javadoc)
+     * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
+     */
     public void doTag() throws JspException, IOException {
 		String url = null;
 		if (manufacturer != null) {
@@ -34,14 +45,29 @@ public class TemplateModelPhotoUrlTag extends SimpleTagSupport {
         getJspContext().getOut().write(url);
     }
 
+	/**
+	 * Sets the atm.
+	 *
+	 * @param atm the new atm
+	 */
 	public void setAtm(Terminal atm) {
 		this.atm = atm;
 	}
 
+	/**
+	 * Sets the manufacturer.
+	 *
+	 * @param manufacturer the new manufacturer
+	 */
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
 
+	/**
+	 * Sets the width.
+	 *
+	 * @param width the new width
+	 */
 	public void setWidth(Integer width) {
 		this.width = width;
 	}

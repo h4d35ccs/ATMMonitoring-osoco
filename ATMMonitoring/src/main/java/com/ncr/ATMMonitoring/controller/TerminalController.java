@@ -51,51 +51,93 @@ import com.ncr.ATMMonitoring.service.TerminalService;
 import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.socket.SocketService;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class TerminalController.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Controller
 public class TerminalController {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalController.class.getName());
 
+	/** The Constant DEFAULT_SORT. */
 	public static final String DEFAULT_SORT = "serialNumber";
 
+	/** The Constant DEFAULT_ORDER. */
 	public static final String DEFAULT_ORDER = "asc";
 
+    /** The can alter terminals roles. */
     @Value("${security.terminalsManagementAllowedRoles}")
     private String canAlterTerminalsRoles;
+    
+    /** The can manage scheduled updates roles. */
     @Value("${security.scheduledUpdatesAccessAllowedRoles}")
     private String canManageScheduledUpdatesRoles;
+    
+    /** The page size. */
     @Value("${config.terminalsPageSize}")
     private int pageSize;
+    
+    /** The terminal models page size. */
     @Value("${config.terminalModelsPageSize}")
     private int terminalModelsPageSize;
 
+    /** The terminal service. */
     @Autowired
     private TerminalService terminalService;
+    
+    /** The terminal model service. */
     @Autowired
     private TerminalModelService terminalModelService;
+    
+    /** The installation service. */
     @Autowired
     private InstallationService installationService;
+    
+    /** The query service. */
     @Autowired
     private QueryService queryService;
+    
+    /** The user service. */
     @Autowired
     private UserService userService;
+    
+    /** The socket service. */
     @Autowired
     private SocketService socketService;
+    
+    /** The location service. */
     @Autowired
     private LocationService locationService;
 
     // @Autowired
     // private SoftwareService softwareService;
 
+    /**
+     * Binder.
+     *
+     * @param binder the binder
+     * @throws Exception the exception
+     */
     @InitBinder
     protected void binder(WebDataBinder binder) throws Exception {
 		binder.registerCustomEditor(Date.class, new DatePropertyEditor());
     }
 
+    /**
+     * Request terminals update.
+     *
+     * @param map the map
+     * @param queryId the query id
+     * @param request the request
+     * @param principal the principal
+     * @param redirectAttributes the redirect attributes
+     * @return the string
+     */
     @RequestMapping(value = "/terminals/request", method = RequestMethod.GET)
     public String requestTerminalsUpdate(Map<String, Object> map, String queryId, HttpServletRequest request,
 					 Principal principal,
@@ -137,6 +179,16 @@ public class TerminalController {
 		return "redirect:/terminals/list";
     }
 
+    /**
+     * Request terminal update.
+     *
+     * @param terminalId the terminal id
+     * @param map the map
+     * @param request the request
+     * @param redirectAttributes the redirect attributes
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping("/terminals/request/{terminalId}")
     public String requestTerminalUpdate(
 	    @PathVariable("terminalId") Integer terminalId,
@@ -185,6 +237,17 @@ public class TerminalController {
 		return "redirect:/terminals/details/" + terminalId;
     }
 
+    /**
+     * List terminals.
+     *
+     * @param map the map
+     * @param principal the principal
+     * @param p the p
+     * @param sort the sort
+     * @param order the order
+     * @param request the request
+     * @return the string
+     */
     @RequestMapping(value = "/terminals/list", method = RequestMethod.GET)
     public String listTerminals(
             Map<String, Object> map,
@@ -251,11 +314,25 @@ public class TerminalController {
 		return "terminals";
     }
 
+    /**
+     * Redirect to terminals.
+     *
+     * @return the string
+     */
     @RequestMapping(value = { "/terminals" })
     public String redirectToTerminals() {
 	return "redirect:/terminals/list";
     }
 
+    /**
+     * Terminal details.
+     *
+     * @param terminalId the terminal id
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping("/terminals/details/{terminalId}")
     public String terminalDetails(
 	    @PathVariable("terminalId") Integer terminalId,
@@ -312,6 +389,15 @@ public class TerminalController {
 	return "terminalDetails";
     }
 
+    /**
+     * Import terminal.
+     *
+     * @param file the file
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/terminals/import", method = RequestMethod.POST)
     public String importTerminal(
 	    @RequestParam("file") CommonsMultipartFile file,
@@ -325,6 +411,14 @@ public class TerminalController {
 	return "redirect:/terminals/list";
     }
 
+    /**
+     * View new terminal.
+     *
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value="/terminals/new", method = RequestMethod.GET)
     public String viewNewTerminal(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
@@ -353,6 +447,17 @@ public class TerminalController {
 	return "newTerminal";
    }
 
+   /**
+    * Adds the terminal.
+    *
+    * @param terminal the terminal
+    * @param result the result
+    * @param map the map
+    * @param request the request
+    * @param principal the principal
+    * @param p the p
+    * @return the string
+    */
    @RequestMapping(value = "/terminals/list", method = RequestMethod.POST)
     public String addTerminal(
 	    @Valid @ModelAttribute("terminal") Terminal terminal,
@@ -453,6 +558,17 @@ public class TerminalController {
 	return "redirect:/terminals/list";
     }
 
+    /**
+     * Update terminal.
+     *
+     * @param terminal the terminal
+     * @param result the result
+     * @param map the map
+     * @param redirectAttributes the redirect attributes
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/terminals/update", method = RequestMethod.POST)
     public String updateTerminal(
 	    @Valid @ModelAttribute("terminal") Terminal terminal,
@@ -540,6 +656,18 @@ public class TerminalController {
 	return "redirect:/terminals/details/" + terminal.getId().intValue();
     }
 
+    /**
+     * List terminals by query.
+     *
+     * @param map the map
+     * @param queryId the query id
+     * @param principal the principal
+     * @param p the p
+     * @param sort the sort
+     * @param order the order
+     * @param request the request
+     * @return the string
+     */
     @RequestMapping(value="terminals/byQuery")
     public String listTerminalsByQuery(
 	        Map<String, Object> map,
@@ -611,11 +739,25 @@ public class TerminalController {
 	return "terminals";
     }
 
+    /**
+     * Redirect to terminal models.
+     *
+     * @return the string
+     */
     @RequestMapping(value = { "/terminals/models" })
     public String redirectToTerminalModels() {
 	return "redirect:/terminals/models/list";
     }
 
+    /**
+     * List terminal models.
+     *
+     * @param map the map
+     * @param principal the principal
+     * @param p the p
+     * @param request the request
+     * @return the string
+     */
     @RequestMapping(value = "/terminals/models/list", method = RequestMethod.GET)
     public String listTerminalModels(Map<String, Object> map,
 	    Principal principal, String p, HttpServletRequest request) {
@@ -645,6 +787,18 @@ public class TerminalController {
 	return "terminalModels";
     }
 
+    /**
+     * Adds the terminal model.
+     *
+     * @param terminalModel the terminal model
+     * @param photo the photo
+     * @param result the result
+     * @param map the map
+     * @param request the request
+     * @param p the p
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/terminals/models/list", method = RequestMethod.POST)
     public String addTerminalModel(
 	    @Valid @ModelAttribute("terminalModel") TerminalModel terminalModel,
@@ -695,6 +849,15 @@ public class TerminalController {
 	return "redirect:/terminals/models/list";
     }
 
+    /**
+     * Terminal model details.
+     *
+     * @param terminalModelId the terminal model id
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping("/terminals/models/details/{terminalModelId}")
     public String terminalModelDetails(
 	    @PathVariable("terminalModelId") Integer terminalModelId,
@@ -719,6 +882,17 @@ public class TerminalController {
 	return "terminalModelDetails";
     }
 
+    /**
+     * Update terminal model.
+     *
+     * @param terminalModel the terminal model
+     * @param photo the photo
+     * @param result the result
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = "/terminals/models/update", method = RequestMethod.POST)
     public String updateTerminalModel(
 	    @Valid @ModelAttribute("terminalModel") TerminalModel terminalModel,
@@ -755,6 +929,13 @@ public class TerminalController {
 		+ terminalModel.getId().intValue();
     }
 
+    /**
+     * Delete terminal model.
+     *
+     * @param terminalModelId the terminal model id
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping("/terminals/models/delete/{terminalModelId}")
     public String deleteTerminalModel(
 	    @PathVariable("terminalModelId") Integer terminalModelId,
@@ -768,6 +949,16 @@ public class TerminalController {
 	return "redirect:/terminals/models/list";
     }
 
+    /**
+     * Gets the terminal model image.
+     *
+     * @param terminalModelId the terminal model id
+     * @param request the request
+     * @param response the response
+     * @param width the width
+     * @param height the height
+     * @return the terminal model image
+     */
     @RequestMapping(value = { "terminals/models/image/{terminalModelId}" })
     public void getTerminalModelImage(
 	    @PathVariable("terminalModelId") Integer terminalModelId,
@@ -808,6 +999,14 @@ public class TerminalController {
 	    e.printStackTrace();
 	}
     }
+    
+    /**
+     * Download results csv for query.
+     *
+     * @param queryId the query id
+     * @param response the response
+     * @param request the request
+     */
     @RequestMapping(value ="/terminals/export/{queryId}", method = RequestMethod.GET)
     public void downloadResultsCsvForQuery(
 				   @PathVariable("queryId") Integer queryId,
@@ -839,6 +1038,13 @@ public class TerminalController {
 
     }
 
+    /**
+     * Download results csv.
+     *
+     * @param response the response
+     * @param request the request
+     * @param principal the principal
+     */
     @RequestMapping(value ="/terminals/exportAll", method = RequestMethod.GET)
     public void downloadResultsCsv(
 				   HttpServletResponse response, HttpServletRequest request, Principal principal) {
@@ -867,6 +1073,13 @@ public class TerminalController {
 
     }
 
+    /**
+     * New installation form.
+     *
+     * @param map the map
+     * @param matricula the matricula
+     * @return the string
+     */
     @RequestMapping(value = { "terminals/installations/new" }, method = RequestMethod.GET)
     public String newInstallationForm(Map<String, Object> map, String matricula) {
 	Terminal terminal = null;
@@ -887,6 +1100,17 @@ public class TerminalController {
 	return "terminalInstallation";
     }
 
+    /**
+     * New installation.
+     *
+     * @param installation the installation
+     * @param result the result
+     * @param map the map
+     * @param matricula the matricula
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping(value = { "terminals/installations/new" }, method = RequestMethod.POST)
     public String newInstallation(
 	    @Valid @ModelAttribute("installation") Installation installation,

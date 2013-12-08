@@ -9,28 +9,40 @@ import com.ncr.ATMMonitoring.dao.DashboardDAO;
 import com.ncr.ATMMonitoring.pojo.Dashboard;
 import com.ncr.ATMMonitoring.pojo.User;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Rafael Luque (OSOCO)
+ * The Class DashboardServiceImpl.
+ * 
+ * @author Rafael Luque (rafael.luque@osoco.es)
  */
 
 @Service("dashboardService")
 @Transactional
 public class DashboardServiceImpl implements DashboardService {
 
+	/** The widget service. */
 	@Autowired
 	private WidgetService widgetService;
 
+	/** The user service. */
 	@Autowired
 	private UserService userService;
 
+	/** The dashboard dao. */
 	@Autowired
 	private DashboardDAO dashboardDAO;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.DashboardService#findDashboardByUser(com.ncr.ATMMonitoring.pojo.User)
+     */
     @Override
     public Dashboard findDashboardByUser(User user) {
 		return (user != null) ? user.getDashboard() : null;
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.DashboardService#findOrCreateDashboardByUser(com.ncr.ATMMonitoring.pojo.User)
+     */
     @Override
     public Dashboard findOrCreateDashboardByUser(User user) {
 		Dashboard aDashboard = findDashboardByUser(user);
@@ -40,6 +52,9 @@ public class DashboardServiceImpl implements DashboardService {
 	    return aDashboard;
     }
 
+	/* (non-Javadoc)
+	 * @see com.ncr.ATMMonitoring.service.DashboardService#createDefaultDashboardForUser(com.ncr.ATMMonitoring.pojo.User)
+	 */
 	@Override
 	public Dashboard createDefaultDashboardForUser(User user) {
 		Dashboard aDashboard = new Dashboard();
@@ -51,6 +66,9 @@ public class DashboardServiceImpl implements DashboardService {
 		return aDashboard;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ncr.ATMMonitoring.service.DashboardService#saveDashboard(com.ncr.ATMMonitoring.pojo.Dashboard)
+	 */
 	@Override
 	public void saveDashboard(Dashboard dashboard) {
 		dashboardDAO.save(dashboard);

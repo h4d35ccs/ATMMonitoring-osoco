@@ -15,25 +15,119 @@ import org.hibernate.type.IntegerType;
 import org.hibernate.type.StringType;
 import org.hibernate.type.Type;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class Operation.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public abstract class Operation {
 
+    /**
+     * The Enum OperationId.
+     */
     private static enum OperationId {
-	IS_NULL, EQ_STR, EQ_STR_CASE, CONTAINS, CONTAINS_CASE, STARTS_WITH, STARTS_WITH_CASE, ENDS_WITH, ENDS_WITH_CASE, LESS_STR, GREATER_STR, LEQ_STR, GEQ_STR, EQ, LEQ, GEQ, GREATER, LESS, IS_TRUE, IS_FALSE, V_EQ, V_LEQ, V_GEQ, V_GREATER, V_LESS, V_UNDER, DATE_EQ, DATE_LESS, DATE_GREATER, DATE_LEQ, DATE_GEQ
+	
+	/** The is null. */
+	IS_NULL, 
+ /** The eq str. */
+ EQ_STR, 
+ /** The eq str case. */
+ EQ_STR_CASE, 
+ /** The contains. */
+ CONTAINS, 
+ /** The contains case. */
+ CONTAINS_CASE, 
+ /** The starts with. */
+ STARTS_WITH, 
+ /** The starts with case. */
+ STARTS_WITH_CASE, 
+ /** The ends with. */
+ ENDS_WITH, 
+ /** The ends with case. */
+ ENDS_WITH_CASE, 
+ /** The less str. */
+ LESS_STR, 
+ /** The greater str. */
+ GREATER_STR, 
+ /** The leq str. */
+ LEQ_STR, 
+ /** The geq str. */
+ GEQ_STR, 
+ /** The eq. */
+ EQ, 
+ /** The leq. */
+ LEQ, 
+ /** The geq. */
+ GEQ, 
+ /** The greater. */
+ GREATER, 
+ /** The less. */
+ LESS, 
+ /** The is true. */
+ IS_TRUE, 
+ /** The is false. */
+ IS_FALSE, 
+ /** The v eq. */
+ V_EQ, 
+ /** The v leq. */
+ V_LEQ, 
+ /** The v geq. */
+ V_GEQ, 
+ /** The v greater. */
+ V_GREATER, 
+ /** The v less. */
+ V_LESS, 
+ /** The v under. */
+ V_UNDER, 
+ /** The date eq. */
+ DATE_EQ, 
+ /** The date less. */
+ DATE_LESS, 
+ /** The date greater. */
+ DATE_GREATER, 
+ /** The date leq. */
+ DATE_LEQ, 
+ /** The date geq. */
+ DATE_GEQ
     }
 
+    /**
+     * The Enum DataType.
+     */
     public static enum DataType {
-    	NUMBER, STRING, DATE, VERSION, BOOLEAN, ALL
+    	
+	    /** The number. */
+	    NUMBER, 
+ /** The string. */
+ STRING, 
+ /** The date. */
+ DATE, 
+ /** The version. */
+ VERSION, 
+ /** The boolean. */
+ BOOLEAN, 
+ /** The all. */
+ ALL
     }
 
+    /** The Constant integerType. */
     private static final Type integerType = new IntegerType();
+    
+    /** The Constant stringType. */
     private static final Type stringType = new StringType();
+    
+    /** The Constant floatType. */
     private static final Type floatType = new FloatType();
+    
+    /** The Constant calendarType. */
     private static final Type calendarType = new CalendarType();
+    
+    /** The Constant operationIds. */
     private static final Map<String, OperationId> operationIds;
+    
+    /** The Constant operations. */
     private static final Map<DataType, Map> operations;
 
     static {
@@ -128,10 +222,27 @@ public abstract class Operation {
 		operations.put(DataType.ALL, values);
 	    }
 	
-	    public static Map<String, Map> getOperationsByType(DataType type) {
+	    /**
+    	 * Gets the operations by type.
+    	 *
+    	 * @param type the type
+    	 * @return the operations by type
+    	 */
+    	public static Map<String, Map> getOperationsByType(DataType type) {
 		return operations.get(type);
     }
 
+    /**
+     * Gets the constraint hql.
+     *
+     * @param column the column
+     * @param operation the operation
+     * @param value the value
+     * @param values the values
+     * @param types the types
+     * @param locale the locale
+     * @return the constraint hql
+     */
     public static String getConstraintHQL(String column, String operation,
 	    String value, List<Object> values, List<Type> types, Locale locale) {
 		String constraint = "";
@@ -1036,6 +1147,12 @@ public abstract class Operation {
 		}
     }
 
+    /**
+     * Needs not void value.
+     *
+     * @param operation the operation
+     * @return true, if successful
+     */
     public static boolean needsNotVoidValue(String operation) {
 		switch (operationIds.get(operation)) {
 		case EQ_STR:

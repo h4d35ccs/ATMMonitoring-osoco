@@ -11,18 +11,27 @@ import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.OperatingSystem;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class OperatingSystemDAOImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
 public class OperatingSystemDAOImpl implements OperatingSystemDAO {
 
+    /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(OperatingSystemDAOImpl.class.getName());
+    
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#addOperatingSystem(com.ncr.ATMMonitoring.pojo.OperatingSystem)
+     */
     @Override
     public void addOperatingSystem(OperatingSystem operatingSystem) {
 	sessionFactory.getCurrentSession().save(operatingSystem);
@@ -30,6 +39,9 @@ public class OperatingSystemDAOImpl implements OperatingSystemDAO {
 		+ operatingSystem.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#listOperatingSystem()
+     */
     @Override
     public List<OperatingSystem> listOperatingSystem() {
 	return sessionFactory.getCurrentSession()
@@ -42,12 +54,18 @@ public class OperatingSystemDAOImpl implements OperatingSystemDAO {
 		.addOrder(Order.desc("remaining_version")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#getOperatingSystem(java.lang.Integer)
+     */
     @Override
     public OperatingSystem getOperatingSystem(Integer id) {
 	return (OperatingSystem) sessionFactory.getCurrentSession().get(
 		OperatingSystem.class, id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#getOperatingSystemBySerialNumber(java.lang.String)
+     */
     @Override
     public OperatingSystem getOperatingSystemBySerialNumber(String number) {
 	return (OperatingSystem) sessionFactory.getCurrentSession()

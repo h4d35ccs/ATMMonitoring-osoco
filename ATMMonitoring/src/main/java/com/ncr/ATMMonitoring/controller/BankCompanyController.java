@@ -23,26 +23,51 @@ import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.BankCompanyService;
 import com.ncr.ATMMonitoring.service.UserService;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class BankCompanyController.
+ * 
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Controller
 public class BankCompanyController {
 
+    /** The bank companies page size. */
     @Value("${config.bankCompaniesPageSize}")
     private int bankCompaniesPageSize;
 
+    /** The bank company service. */
     @Autowired
     private BankCompanyService bankCompanyService;
+
+    /** The user service. */
     @Autowired
     private UserService userService;
 
+    /**
+     * Redirect to bank companys.
+     * 
+     * @return the string
+     */
     @RequestMapping(value = { "/banks" })
     public String redirectToBankCompanys() {
 	return "redirect:/banks/list";
     }
 
+    /**
+     * List bank companies.
+     * 
+     * @param map
+     *            the map
+     * @param principal
+     *            the principal
+     * @param p
+     *            the p
+     * @param request
+     *            the request
+     * @return the string
+     */
     @RequestMapping(value = "/banks/list", method = RequestMethod.GET)
     public String listBankCompanies(Map<String, Object> map,
 	    Principal principal, String p, HttpServletRequest request) {
@@ -73,6 +98,23 @@ public class BankCompanyController {
 	return "bankCompanies";
     }
 
+    /**
+     * Adds the bank company.
+     * 
+     * @param bankCompany
+     *            the bank company
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param p
+     *            the p
+     * @param principal
+     *            the principal
+     * @return the string
+     */
     @RequestMapping(value = "/banks/list", method = RequestMethod.POST)
     public String addBankCompany(
 	    @Valid @ModelAttribute("bankCompany") BankCompany bankCompany,
@@ -124,6 +166,19 @@ public class BankCompanyController {
 	return "redirect:/banks/list";
     }
 
+    /**
+     * Bank company details.
+     * 
+     * @param bankCompanyId
+     *            the bank company id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the string
+     */
     @RequestMapping("/banks/details/{bankCompanyId}")
     public String bankCompanyDetails(
 	    @PathVariable("bankCompanyId") Integer bankCompanyId,
@@ -149,6 +204,21 @@ public class BankCompanyController {
 	return "bankCompanyDetails";
     }
 
+    /**
+     * Update bank company.
+     * 
+     * @param bankCompany
+     *            the bank company
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the string
+     */
     @RequestMapping(value = "/banks/update", method = RequestMethod.POST)
     public String updateBankCompany(
 	    @Valid @ModelAttribute("bankCompany") BankCompany bankCompany,
@@ -188,6 +258,15 @@ public class BankCompanyController {
 	return "redirect:/banks/details/" + bankCompany.getId().intValue();
     }
 
+    /**
+     * Delete bank company.
+     * 
+     * @param bankCompanyId
+     *            the bank company id
+     * @param principal
+     *            the principal
+     * @return the string
+     */
     @RequestMapping("/banks/delete/{bankCompanyId}")
     public String deleteBankCompany(
 	    @PathVariable("bankCompanyId") Integer bankCompanyId,

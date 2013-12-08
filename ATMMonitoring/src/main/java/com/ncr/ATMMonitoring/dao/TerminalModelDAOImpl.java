@@ -10,18 +10,27 @@ import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.TerminalModel;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class TerminalModelDAOImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
 public class TerminalModelDAOImpl implements TerminalModelDAO {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalModelDAOImpl.class
 	    .getName());
+    
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#addTerminalModel(com.ncr.ATMMonitoring.pojo.TerminalModel)
+     */
     @Override
     public void addTerminalModel(TerminalModel terminalModel) {
 	sessionFactory.getCurrentSession().save(terminalModel);
@@ -29,18 +38,27 @@ public class TerminalModelDAOImpl implements TerminalModelDAO {
 		+ terminalModel.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#getTerminalModel(java.lang.Integer)
+     */
     @Override
     public TerminalModel getTerminalModel(Integer id) {
 	return (TerminalModel) sessionFactory.getCurrentSession().get(
 		TerminalModel.class, id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#listTerminalModels()
+     */
     @Override
     public List<TerminalModel> listTerminalModels() {
 	return sessionFactory.getCurrentSession()
 		.createCriteria(TerminalModel.class).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#updateTerminalModel(com.ncr.ATMMonitoring.pojo.TerminalModel)
+     */
     @Override
     public void updateTerminalModel(TerminalModel terminalModel) {
 	sessionFactory.getCurrentSession().update(
@@ -48,6 +66,9 @@ public class TerminalModelDAOImpl implements TerminalModelDAO {
 	logger.info("Updated Terminal Model with id " + terminalModel.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#removeTerminalModel(java.lang.Integer)
+     */
     @Override
     public void removeTerminalModel(Integer id) {
 	TerminalModel terminalModel = (TerminalModel) sessionFactory
@@ -58,6 +79,9 @@ public class TerminalModelDAOImpl implements TerminalModelDAO {
 
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#getTerminalModelByModel(java.lang.String)
+     */
     @Override
     public TerminalModel getTerminalModelByModel(String model) {
 	return (TerminalModel) sessionFactory.getCurrentSession()
@@ -65,6 +89,9 @@ public class TerminalModelDAOImpl implements TerminalModelDAO {
 		.add(Restrictions.eq("model", model)).uniqueResult();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#getTerminalModelByProductClass(java.lang.String)
+     */
     @Override
     public TerminalModel getTerminalModelByProductClass(String productClass) {
 	return (TerminalModel) sessionFactory.getCurrentSession()

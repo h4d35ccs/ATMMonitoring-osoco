@@ -4,17 +4,41 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.Hotfix;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Interface HotfixDAO.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public interface HotfixDAO {
 
+    /**
+     * Adds the hotfix.
+     *
+     * @param hotfix the hotfix
+     */
     public void addHotfix(Hotfix hotfix);
 
+    /**
+     * List hotfix.
+     *
+     * @return the list
+     */
     public List<Hotfix> listHotfix();
 
+    /**
+     * Gets the hotfix.
+     *
+     * @param id the id
+     * @return the hotfix
+     */
     public Hotfix getHotfix(Integer id);
 
+    /**
+     * Removes the hotfix.
+     *
+     * @param id the id
+     */
     public void removeHotfix(Integer id);
 }

@@ -10,24 +10,36 @@ import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Hotfix;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class HotfixDAOImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
 public class HotfixDAOImpl implements HotfixDAO {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(HotfixDAOImpl.class
 	    .getName());
+    
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.HotfixDAO#addHotfix(com.ncr.ATMMonitoring.pojo.Hotfix)
+     */
     @Override
     public void addHotfix(Hotfix hotfix) {
 	sessionFactory.getCurrentSession().save(hotfix);
 	logger.debug("Created new Hotfix with id " + hotfix.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.HotfixDAO#listHotfix()
+     */
     @Override
     public List<Hotfix> listHotfix() {
 	return sessionFactory.getCurrentSession().createCriteria(Hotfix.class)
@@ -39,12 +51,18 @@ public class HotfixDAOImpl implements HotfixDAO {
 		.addOrder(Order.asc("remaining_version")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.HotfixDAO#getHotfix(java.lang.Integer)
+     */
     @Override
     public Hotfix getHotfix(Integer id) {
 	return (Hotfix) sessionFactory.getCurrentSession()
 		.get(Hotfix.class, id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.HotfixDAO#removeHotfix(java.lang.Integer)
+     */
     @Override
     public void removeHotfix(Integer id) {
 	Hotfix hotfix = (Hotfix) sessionFactory.getCurrentSession().load(

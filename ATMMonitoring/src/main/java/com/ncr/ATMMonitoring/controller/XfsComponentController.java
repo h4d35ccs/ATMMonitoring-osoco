@@ -21,15 +21,21 @@ import com.ncr.ATMMonitoring.pojo.XfsComponent;
 import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.service.XfsComponentService;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class XfsComponentController.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Controller
 public class XfsComponentController {
 
+    /** The xfs component service. */
     @Autowired
     private XfsComponentService xfsComponentService;
+    
+    /** The user service. */
     @Autowired
     private UserService userService;
 
@@ -52,6 +58,15 @@ public class XfsComponentController {
     // return "redirect:/terminals/xfsComponents/list";
     // }
 
+    /**
+     * Xfs component details.
+     *
+     * @param xfsComponentId the xfs component id
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping("/terminals/xfsComponents/details/{xfsComponentId}")
     public String xfsComponentDetails(
 	    @PathVariable("xfsComponentId") Integer xfsComponentId,
@@ -88,6 +103,15 @@ public class XfsComponentController {
 	return "xfsComponentDetails";
     }
 
+    /**
+     * Jxfs component details.
+     *
+     * @param jxfsComponentId the jxfs component id
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping("/terminals/jxfsComponents/details/{jxfsComponentId}")
     public String jxfsComponentDetails(
 	    @PathVariable("jxfsComponentId") Integer jxfsComponentId,

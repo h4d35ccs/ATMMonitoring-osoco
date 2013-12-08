@@ -20,50 +20,65 @@ import org.apache.log4j.Logger;
 
 import com.ncr.ATMMonitoring.dao.FinancialDeviceDAOImpl;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class TerminalModel.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
 @Table(name = "terminal_models")
 public class TerminalModel {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalModel.class
 	    .getName());
 
+    /** The id. */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "terminal_models_id_seq")
     @SequenceGenerator(name = "terminal_models_id_seq", sequenceName = "terminal_models_id_seq", allocationSize = 1)
     private Integer id;
 
+    /** The model. */
     @Column(name = "model", length = 50)
     private String model;
 
+    /** The product class. */
     @Column(name = "product_class", length = 50, unique = true)
     private String productClass;
 
+    /** The nickname. */
     @Column(name = "nickname", length = 50)
     private String nickname;
 
+    /** The manufacturer. */
     @Column(name = "manufacturer", length = 50)
     private String manufacturer;
 
+    /** The height. */
     @Column(name = "height")
     private Integer height;
 
+    /** The width. */
     @Column(name = "width")
     private Integer width;
 
+    /** The depth. */
     @Column(name = "depth")
     private Integer depth;
 
+    /** The max weight. */
     @Column(name = "max_weight")
     private Double maxWeight;
 
+    /** The min weight. */
     @Column(name = "min_weight")
     private Double minWeight;
 
+    /** The photo. */
     @Column(name = "photo")
     private byte[] photo;
 
@@ -81,6 +96,8 @@ public class TerminalModel {
     // }
 
     /**
+     * Gets the id.
+     *
      * @return the id
      */
     public Integer getId() {
@@ -88,37 +105,75 @@ public class TerminalModel {
     }
 
     /**
-     * @param id
-     *            the id to set
+     * Sets the id.
+     *
+     * @param id the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
     }
 
+    /**
+     * Gets the model.
+     *
+     * @return the model
+     */
     public String getModel() {
 	return model;
     }
 
+    /**
+     * Sets the model.
+     *
+     * @param model the new model
+     */
     public void setModel(String model) {
 	this.model = model;
     }
 
+    /**
+     * Gets the manufacturer.
+     *
+     * @return the manufacturer
+     */
     public String getManufacturer() {
 	return manufacturer;
     }
 
+    /**
+     * Sets the manufacturer.
+     *
+     * @param manufacturer the new manufacturer
+     */
     public void setManufacturer(String manufacturer) {
 	this.manufacturer = manufacturer;
     }
 
+    /**
+     * Gets the photo.
+     *
+     * @return the photo
+     */
     public byte[] getPhoto() {
 	return photo;
     }
 
+    /**
+     * Sets the photo.
+     *
+     * @param photo the new photo
+     */
     public void setPhoto(byte[] photo) {
 	this.photo = photo;
     }
 
+    /**
+     * Gets the photo as image.
+     *
+     * @param width the width
+     * @param height the height
+     * @return the photo as image
+     */
     public BufferedImage getPhotoAsImage(int width, int height) {
 	ByteArrayInputStream in = new ByteArrayInputStream(photo);
 	BufferedImage img;
@@ -148,58 +203,128 @@ public class TerminalModel {
 	return img;
     }
 
+	/**
+	 * Gets the nickname.
+	 *
+	 * @return the nickname
+	 */
 	public String getNickname() {
 		return nickname;
 	}
 
+	/**
+	 * Sets the nickname.
+	 *
+	 * @param nickname the new nickname
+	 */
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
 
+	/**
+	 * Gets the height.
+	 *
+	 * @return the height
+	 */
 	public Integer getHeight() {
 		return height;
 	}
 
+	/**
+	 * Sets the height.
+	 *
+	 * @param height the new height
+	 */
 	public void setHeight(Integer height) {
 		this.height = height;
 	}
 
+	/**
+	 * Gets the width.
+	 *
+	 * @return the width
+	 */
 	public Integer getWidth() {
 		return width;
 	}
 
+	/**
+	 * Sets the width.
+	 *
+	 * @param width the new width
+	 */
 	public void setWidth(Integer width) {
 		this.width = width;
 	}
 
+	/**
+	 * Gets the depth.
+	 *
+	 * @return the depth
+	 */
 	public Integer getDepth() {
 		return depth;
 	}
 
+	/**
+	 * Sets the depth.
+	 *
+	 * @param depth the new depth
+	 */
 	public void setDepth(Integer depth) {
 		this.depth = depth;
 	}
 
+	/**
+	 * Gets the max weight.
+	 *
+	 * @return the max weight
+	 */
 	public Double getMaxWeight() {
 		return maxWeight;
 	}
 
+	/**
+	 * Sets the max weight.
+	 *
+	 * @param maxWeight the new max weight
+	 */
 	public void setMaxWeight(Double maxWeight) {
 		this.maxWeight = maxWeight;
 	}
 
+	/**
+	 * Gets the min weight.
+	 *
+	 * @return the min weight
+	 */
 	public Double getMinWeight() {
 		return minWeight;
 	}
 
+	/**
+	 * Sets the min weight.
+	 *
+	 * @param minWeight the new min weight
+	 */
 	public void setMinWeight(Double minWeight) {
 		this.minWeight = minWeight;
 	}
 
+    /**
+     * Gets the product class.
+     *
+     * @return the product class
+     */
     public String getProductClass() {
 	return productClass;
     }
 
+    /**
+     * Sets the product class.
+     *
+     * @param productClass the new product class
+     */
     public void setProductClass(String productClass) {
 	this.productClass = productClass;
     }

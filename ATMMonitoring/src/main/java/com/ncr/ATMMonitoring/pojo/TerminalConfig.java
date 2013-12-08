@@ -22,8 +22,11 @@ import javax.persistence.UniqueConstraint;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class TerminalConfig.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -31,26 +34,31 @@ import org.hibernate.annotations.CascadeType;
 	"terminal_id", "start_date" }) })
 public class TerminalConfig {
 
+    /** The id. */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "terminal_configs_id_seq")
     @SequenceGenerator(name = "terminal_configs_id_seq", sequenceName = "terminal_configs_id_seq", allocationSize = 1)
     private Integer id;
 
+    /** The start date. */
     @Column(name = "start_date")
     private Date startDate = new Date();
 
+    /** The terminal. */
     @ManyToOne(fetch = FetchType.EAGER)
     @Cascade(CascadeType.REFRESH)
     @JoinColumn(name = "terminal_id")
     private Terminal terminal = new Terminal();
 
+    /** The software. */
     @ManyToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @JoinTable(name = "terminal_config_software", joinColumns = { @JoinColumn(name = "terminal_config_id") }, inverseJoinColumns = { @JoinColumn(name = "software_id") })
     @OrderBy("name asc, major_version desc, minor_version desc, build_version desc, revision_version desc, remaining_version asc")
     private Set<Software> software = new HashSet<Software>();
 
+    /** The operating systems. */
     @ManyToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @JoinTable(name = "t_config_op_system", joinColumns = { @JoinColumn(name = "terminal_config_id") }, inverseJoinColumns = { @JoinColumn(name = "operating_system_id") })
@@ -80,6 +88,8 @@ public class TerminalConfig {
     // }
 
     /**
+     * Gets the id.
+     *
      * @return the id
      */
     public Integer getId() {
@@ -87,14 +97,17 @@ public class TerminalConfig {
     }
 
     /**
-     * @param id
-     *            the id to set
+     * Sets the id.
+     *
+     * @param id the id to set
      */
     public void setId(Integer id) {
     	this.id = id;
     }
 
     /**
+     * Gets the start date.
+     *
      * @return the startDate
      */
     public Date getStartDate() {
@@ -102,14 +115,17 @@ public class TerminalConfig {
     }
 
     /**
-     * @param startDate
-     *            the startDate to set
+     * Sets the start date.
+     *
+     * @param startDate the startDate to set
      */
     public void setStartDate(Date startDate) {
     	this.startDate = startDate;
     }
 
     /**
+     * Gets the terminal.
+     *
      * @return the terminal
      */
     public Terminal getTerminal() {
@@ -117,14 +133,17 @@ public class TerminalConfig {
     }
 
     /**
-     * @param terminal
-     *            the terminal to set
+     * Sets the terminal.
+     *
+     * @param terminal the terminal to set
      */
     public void setTerminal(Terminal terminal) {
     	this.terminal = terminal;
     }
 
     /**
+     * Gets the software.
+     *
      * @return the software
      */
     public Set<Software> getSoftware() {
@@ -132,14 +151,17 @@ public class TerminalConfig {
     }
 
     /**
-     * @param software
-     *            the software to set
+     * Sets the software.
+     *
+     * @param software the software to set
      */
     public void setSoftware(Set<Software> software) {
     	this.software = software;
     }
 
     /**
+     * Gets the operating systems.
+     *
      * @return the operatingSystems
      */
     public Set<OperatingSystem> getOperatingSystems() {
@@ -147,13 +169,17 @@ public class TerminalConfig {
     }
 
     /**
-     * @param operatingSystems
-     *            the operatingSystems to set
+     * Sets the operating systems.
+     *
+     * @param operatingSystems the operatingSystems to set
      */
     public void setOperatingSystems(Set<OperatingSystem> operatingSystems) {
     	this.operatingSystems = operatingSystems;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     public boolean equals(Object o) {
 		if (!(o instanceof TerminalConfig)) {
 		    return false;

@@ -9,32 +9,48 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.HotfixDAO;
 import com.ncr.ATMMonitoring.pojo.Hotfix;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class HotfixServiceImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Service("hotfixService")
 @Transactional
 public class HotfixServiceImpl implements HotfixService {
 
+    /** The hotfix dao. */
     @Autowired
     private HotfixDAO hotfixDAO;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.HotfixService#addHotfix(com.ncr.ATMMonitoring.pojo.Hotfix)
+     */
     @Override
     public void addHotfix(Hotfix hotfix) {
 	hotfixDAO.addHotfix(hotfix);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.HotfixService#listHotfix()
+     */
     @Override
     public List<Hotfix> listHotfix() {
 	return hotfixDAO.listHotfix();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.HotfixService#getHotfix(java.lang.Integer)
+     */
     @Override
     public Hotfix getHotfix(Integer id) {
 	return hotfixDAO.getHotfix(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.HotfixService#removeHotfix(java.lang.Integer)
+     */
     @Override
     public void removeHotfix(Integer id) {
 	hotfixDAO.removeHotfix(id);

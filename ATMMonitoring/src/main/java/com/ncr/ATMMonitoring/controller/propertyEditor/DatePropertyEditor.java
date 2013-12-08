@@ -6,21 +6,36 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.Locale;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class DatePropertyEditor.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public class DatePropertyEditor extends PropertyEditorSupport {
 
+    /** The now as default. */
     private boolean nowAsDefault = false;
 
+    /**
+     * Instantiates a new date property editor.
+     */
     public DatePropertyEditor() {
     }
 
+    /**
+     * Instantiates a new date property editor.
+     *
+     * @param nowAsDefault the now as default
+     */
     public DatePropertyEditor(boolean nowAsDefault) {
 	this.nowAsDefault = nowAsDefault;
     }
 
+    /* (non-Javadoc)
+     * @see java.beans.PropertyEditorSupport#setAsText(java.lang.String)
+     */
     @Override
     public void setAsText(final String date) {
 	try {
@@ -35,6 +50,9 @@ public class DatePropertyEditor extends PropertyEditorSupport {
 	}
     }
 
+    /* (non-Javadoc)
+     * @see java.beans.PropertyEditorSupport#getAsText()
+     */
     @Override
     public String getAsText() {
 	Date value = (Date) getValue();

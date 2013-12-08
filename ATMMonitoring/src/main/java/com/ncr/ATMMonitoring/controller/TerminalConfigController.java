@@ -22,26 +22,49 @@ import com.ncr.ATMMonitoring.service.SoftwareService;
 import com.ncr.ATMMonitoring.service.TerminalConfigService;
 import com.ncr.ATMMonitoring.service.UserService;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class TerminalConfigController.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Controller
 public class TerminalConfigController {
 
+    /** The terminal config service. */
     @Autowired
     private TerminalConfigService terminalConfigService;
+    
+    /** The software service. */
     @Autowired
     private SoftwareService softwareService;
+    
+    /** The user service. */
     @Autowired
     private UserService userService;
 
+    /**
+     * Binder.
+     *
+     * @param binder the binder
+     * @throws Exception the exception
+     */
     @InitBinder
     protected void binder(WebDataBinder binder) throws Exception {
 	binder.registerCustomEditor(Software.class, new SoftwarePropertyEditor(
 		softwareService));
     }
 
+    /**
+     * Terminal config details.
+     *
+     * @param terminalConfigId the terminal config id
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     * @return the string
+     */
     @RequestMapping("/terminals/swConfigs/details/{configId}")
     public String terminalConfigDetails(
 	    @PathVariable("configId") Integer terminalConfigId,

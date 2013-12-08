@@ -9,32 +9,48 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.SoftwareDAO;
 import com.ncr.ATMMonitoring.pojo.Software;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class SoftwareServiceImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Service("softwareService")
 @Transactional
 public class SoftwareServiceImpl implements SoftwareService {
 
+    /** The software dao. */
     @Autowired
     private SoftwareDAO softwareDAO;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.SoftwareService#addSoftware(com.ncr.ATMMonitoring.pojo.Software)
+     */
     @Override
     public void addSoftware(Software software) {
 	softwareDAO.addSoftware(software);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.SoftwareService#listSoftware()
+     */
     @Override
     public List<Software> listSoftware() {
 	return softwareDAO.listSoftware();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.SoftwareService#getSoftware(java.lang.Integer)
+     */
     @Override
     public Software getSoftware(Integer id) {
 	return softwareDAO.getSoftware(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.SoftwareService#getSoftwareByIdentifyingNumber(java.lang.String)
+     */
     @Override
     public Software getSoftwareByIdentifyingNumber(String id) {
 	return softwareDAO.getSoftwareByIdentifyingNumber(id);

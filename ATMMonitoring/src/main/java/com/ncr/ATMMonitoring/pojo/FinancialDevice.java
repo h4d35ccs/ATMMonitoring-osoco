@@ -27,14 +27,18 @@ import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.vendor.utils.FinancialDevicePojo;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class FinancialDevice.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
 @Table(name = "financial_devices")
 public class FinancialDevice {
 
+    /** The comboboxes data related to this entity for the query designer. */
     private static final Map<String, Map> comboboxes;
 
     static {
@@ -61,93 +65,121 @@ public class FinancialDevice {
 	comboboxes.put("version", stringOperations);
     }
 
+    /** The id. */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "financial_devices_id_seq")
     @SequenceGenerator(name = "financial_devices_id_seq", sequenceName = "financial_devices_id_seq", allocationSize = 1)
     private Integer id;
 
+    /** The terminal. */
     @ManyToOne(fetch = FetchType.EAGER)
     @Cascade(CascadeType.REFRESH)
     @JoinColumn(name = "terminal_id")
     private Terminal terminal;
 
+    /** The xfs components. */
     @ManyToMany(fetch = FetchType.LAZY)
     @OrderBy("xfs_class asc")
     @Cascade(CascadeType.ALL)
     @JoinTable(name = "financial_device_xfs_component", joinColumns = { @JoinColumn(name = "financial_device_id") }, inverseJoinColumns = { @JoinColumn(name = "xfs_component_id") })
     private Set<XfsComponent> xfsComponents = new HashSet<XfsComponent>();
 
+    /** The jxfs components. */
     @ManyToMany(fetch = FetchType.LAZY)
     @OrderBy("jxfs_class asc")
     @Cascade(CascadeType.ALL)
     @JoinTable(name = "financial_device_jxfs_component", joinColumns = { @JoinColumn(name = "financial_device_id") }, inverseJoinColumns = { @JoinColumn(name = "jxfs_component_id") })
     private Set<JxfsComponent> jxfsComponents = new HashSet<JxfsComponent>();
 
+    /** The device instance. */
     @Column(name = "device_instance")
     @Type(type = "text")
     private String deviceInstance;
 
+    /** The device status. */
     @Column(name = "device_status")
     @Type(type = "text")
     private String deviceStatus;
 
+    /** The hot swappable. */
     @Column(name = "hot_swappable")
     private Boolean hotSwappable;
 
+    /** The removable. */
     @Column(name = "removable")
     private Boolean removable;
 
+    /** The replaceable. */
     @Column(name = "replaceable")
     private Boolean replaceable;
 
+    /** The pm status. */
     @Column(name = "pm_status")
     @Type(type = "text")
     private String pmStatus;
 
+    /** The universal id. */
     @Column(name = "universal_id")
     @Type(type = "text")
     private String universalId;
 
+    /** The model. */
     @Column(name = "model")
     @Type(type = "text")
     private String model;
 
+    /** The variant. */
     @Column(name = "variant")
     @Type(type = "text")
     private String variant;
 
+    /** The serial number. */
     @Column(name = "serial_number")
     @Type(type = "text")
     private String serialNumber;
 
+    /** The name. */
     @Column(name = "name")
     @Type(type = "text")
     private String name;
 
+    /** The caption. */
     @Column(name = "caption")
     @Type(type = "text")
     private String caption;
 
+    /** The description. */
     @Column(name = "description")
     @Type(type = "text")
     private String description;
 
+    /** The manufacturer. */
     @Column(name = "manufacturer")
     @Type(type = "text")
     private String manufacturer;
 
+    /** The firmware version. */
     @Column(name = "firmware_version")
     @Type(type = "text")
     private String firmwareVersion;
 
+    /** The version. */
     @Column(name = "version")
     @Type(type = "text")
     private String version;
 
+    /**
+     * Instantiates a new financial device.
+     */
     public FinancialDevice() {
     }
 
+    /**
+     * Instantiates a new financial device.
+     *
+     * @param device the device
+     */
     public FinancialDevice(FinancialDevicePojo device) {
 	this.setFirmwareVersion(Utils.unescapeJsonChain(device
 		.getFirmwareversion()));
@@ -172,6 +204,8 @@ public class FinancialDevice {
     }
 
     /**
+     * Gets the comboboxes.
+     *
      * @return the comboboxes
      */
     public static Map<String, Map> getComboboxes() {
@@ -179,6 +213,8 @@ public class FinancialDevice {
     }
 
     /**
+     * Gets the id.
+     *
      * @return the id
      */
     public Integer getId() {
@@ -186,14 +222,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param id
-     *            the id to set
+     * Sets the id.
+     *
+     * @param id the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
     }
 
     /**
+     * Gets the model.
+     *
      * @return the model
      */
     public String getModel() {
@@ -201,14 +240,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param model
-     *            the model to set
+     * Sets the model.
+     *
+     * @param model the model to set
      */
     public void setModel(String model) {
 	this.model = model;
     }
 
     /**
+     * Gets the variant.
+     *
      * @return the variant
      */
     public String getVariant() {
@@ -216,14 +258,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param variant
-     *            the variant to set
+     * Sets the variant.
+     *
+     * @param variant the variant to set
      */
     public void setVariant(String variant) {
 	this.variant = variant;
     }
 
     /**
+     * Gets the serial number.
+     *
      * @return the serialNumber
      */
     public String getSerialNumber() {
@@ -231,14 +276,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param serialNumber
-     *            the serialNumber to set
+     * Sets the serial number.
+     *
+     * @param serialNumber the serialNumber to set
      */
     public void setSerialNumber(String serialNumber) {
 	this.serialNumber = serialNumber;
     }
 
     /**
+     * Gets the name.
+     *
      * @return the name
      */
     public String getName() {
@@ -246,14 +294,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param name
-     *            the name to set
+     * Sets the name.
+     *
+     * @param name the name to set
      */
     public void setName(String name) {
 	this.name = name;
     }
 
     /**
+     * Gets the terminal.
+     *
      * @return the terminal
      */
     public Terminal getTerminal() {
@@ -261,14 +312,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param terminal
-     *            the terminal to set
+     * Sets the terminal.
+     *
+     * @param terminal the terminal to set
      */
     public void setTerminal(Terminal terminal) {
 	this.terminal = terminal;
     }
 
     /**
+     * Gets the xfs components.
+     *
      * @return the xfsComponents
      */
     public Set<XfsComponent> getXfsComponents() {
@@ -276,14 +330,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param xfsComponents
-     *            the xfsComponents to set
+     * Sets the xfs components.
+     *
+     * @param xfsComponents the xfsComponents to set
      */
     public void setXfsComponents(Set<XfsComponent> xfsComponents) {
 	this.xfsComponents = xfsComponents;
     }
 
     /**
+     * Gets the firmware version.
+     *
      * @return the firmwareVersion
      */
     public String getFirmwareVersion() {
@@ -291,6 +348,8 @@ public class FinancialDevice {
     }
 
     /**
+     * Gets the version.
+     *
      * @return the version
      */
     public String getVersion() {
@@ -298,14 +357,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param firmwareVersion
-     *            the firmwareVersion to set
+     * Sets the firmware version.
+     *
+     * @param firmwareVersion the firmwareVersion to set
      */
     public void setFirmwareVersion(String firmwareVersion) {
 	this.firmwareVersion = firmwareVersion;
     }
 
     /**
+     * Gets the firmware name version.
+     *
      * @return the firmware name and version concatenated
      */
     public String getFirmwareNameVersion() {
@@ -313,14 +375,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param version
-     *            the version to set
+     * Sets the version.
+     *
+     * @param version the version to set
      */
     public void setVersion(String version) {
 	this.version = version;
     }
 
     /**
+     * Gets the name version.
+     *
      * @return the name and version concatenated
      */
     public String getNameVersion() {
@@ -328,6 +393,8 @@ public class FinancialDevice {
     }
 
     /**
+     * Gets the device instance.
+     *
      * @return the deviceInstance
      */
     public String getDeviceInstance() {
@@ -335,14 +402,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param deviceInstance
-     *            the deviceInstance to set
+     * Sets the device instance.
+     *
+     * @param deviceInstance the deviceInstance to set
      */
     public void setDeviceInstance(String deviceInstance) {
 	this.deviceInstance = deviceInstance;
     }
 
     /**
+     * Gets the device status.
+     *
      * @return the deviceStatus
      */
     public String getDeviceStatus() {
@@ -350,14 +420,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param deviceStatus
-     *            the deviceStatus to set
+     * Sets the device status.
+     *
+     * @param deviceStatus the deviceStatus to set
      */
     public void setDeviceStatus(String deviceStatus) {
 	this.deviceStatus = deviceStatus;
     }
 
     /**
+     * Gets the hot swappable.
+     *
      * @return the hotSwappable
      */
     public Boolean getHotSwappable() {
@@ -365,14 +438,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param hotSwappable
-     *            the hotSwappable to set
+     * Sets the hot swappable.
+     *
+     * @param hotSwappable the hotSwappable to set
      */
     public void setHotSwappable(Boolean hotSwappable) {
 	this.hotSwappable = hotSwappable;
     }
 
     /**
+     * Gets the removable.
+     *
      * @return the removable
      */
     public Boolean getRemovable() {
@@ -380,14 +456,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param removable
-     *            the removable to set
+     * Sets the removable.
+     *
+     * @param removable the removable to set
      */
     public void setRemovable(Boolean removable) {
 	this.removable = removable;
     }
 
     /**
+     * Gets the replaceable.
+     *
      * @return the replaceable
      */
     public Boolean getReplaceable() {
@@ -395,14 +474,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param replaceable
-     *            the replaceable to set
+     * Sets the replaceable.
+     *
+     * @param replaceable the replaceable to set
      */
     public void setReplaceable(Boolean replaceable) {
 	this.replaceable = replaceable;
     }
 
     /**
+     * Gets the pm status.
+     *
      * @return the pmStatus
      */
     public String getPmStatus() {
@@ -410,14 +492,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param pmStatus
-     *            the pmStatus to set
+     * Sets the pm status.
+     *
+     * @param pmStatus the pmStatus to set
      */
     public void setPmStatus(String pmStatus) {
 	this.pmStatus = pmStatus;
     }
 
     /**
+     * Gets the universal id.
+     *
      * @return the universalId
      */
     public String getUniversalId() {
@@ -425,14 +510,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param universalId
-     *            the universalId to set
+     * Sets the universal id.
+     *
+     * @param universalId the universalId to set
      */
     public void setUniversalId(String universalId) {
 	this.universalId = universalId;
     }
 
     /**
+     * Gets the caption.
+     *
      * @return the caption
      */
     public String getCaption() {
@@ -440,14 +528,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param caption
-     *            the caption to set
+     * Sets the caption.
+     *
+     * @param caption the caption to set
      */
     public void setCaption(String caption) {
 	this.caption = caption;
     }
 
     /**
+     * Gets the description.
+     *
      * @return the description
      */
     public String getDescription() {
@@ -455,14 +546,17 @@ public class FinancialDevice {
     }
 
     /**
-     * @param description
-     *            the description to set
+     * Sets the description.
+     *
+     * @param description the description to set
      */
     public void setDescription(String description) {
 	this.description = description;
     }
 
     /**
+     * Gets the manufacturer.
+     *
      * @return the manufacturer
      */
     public String getManufacturer() {
@@ -470,17 +564,28 @@ public class FinancialDevice {
     }
 
     /**
-     * @param manufacturer
-     *            the manufacturer to set
+     * Sets the manufacturer.
+     *
+     * @param manufacturer the manufacturer to set
      */
     public void setManufacturer(String manufacturer) {
 	this.manufacturer = manufacturer;
     }
 
+    /**
+     * Gets the jxfs components.
+     *
+     * @return the jxfs components
+     */
     public Set<JxfsComponent> getJxfsComponents() {
 	return jxfsComponents;
     }
 
+    /**
+     * Sets the jxfs components.
+     *
+     * @param jxfsComponents the new jxfs components
+     */
     public void setJxfsComponents(Set<JxfsComponent> jxfsComponents) {
 	this.jxfsComponents = jxfsComponents;
     }

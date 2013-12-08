@@ -33,15 +33,21 @@ import com.ncr.agent.baseData.os.module.NetworkAdapterSettingPojo;
 import com.ncr.agent.baseData.vendor.utils.FinancialTerminalPojo;
 
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class Terminal.
+ * 
+ * It stores the base data of an ATM.
+ * 
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
 @Table(name = "terminals")
 public class Terminal {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(Terminal.class.getName());
 
+    /** The comboboxes data related to this entity for the query designer. */
     private static final Map<String, Map> comboboxes;
 
     static {
@@ -64,111 +70,141 @@ public class Terminal {
 	comboboxes.put("mac", operations);
     }
 
+    /** The id. */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "terminals_id_seq")
     @SequenceGenerator(name = "terminals_id_seq", sequenceName = "terminals_id_seq", allocationSize = 1)
     private Integer id;
 
+    /** The installation. */
     @ManyToOne
     @JoinColumn(name = "installation_id")
     private Installation installation;
 
+    /** The bank company. */
     @ManyToOne
     @JoinColumn(name = "bank_id")
     private BankCompany bankCompany;
 
+    /** The terminal model. */
     @ManyToOne
     @JoinColumn(name = "terminal_model_id")
     private TerminalModel terminalModel;
 
+    /** The terminal type. */
     @Column(name = "terminal_type")
     @Type(type = "text")
     private String terminalType;
 
+    /** The terminal vendor. */
     @Column(name = "terminal_vendor")
     @Type(type = "text")
     private String terminalVendor;
 
+    /** The front replenish. */
     @Column(name = "front_replenish")
     private Boolean frontReplenish;
 
+    /** The geographic address. */
     @Column(name = "geographic_address")
     @Type(type = "text")
     private String geographicAddress;
 
+    /** The branch. */
     @Column(name = "branch")
     @Type(type = "text")
     private String branch;
 
+    /** The bank. */
     @Column(name = "bank")
     @Type(type = "text")
     private String bank;
 
+    /** The manufacturing site. */
     @Column(name = "manufacturing_site")
     @Type(type = "text")
     private String manufacturingSite;
 
+    /** The product class description. */
     @Column(name = "product_class_description")
     @Type(type = "text")
     private String productClassDescription;
 
+    /** The serial number. */
     @Column(name = "serial_number")
     @Type(type = "text")
     private String serialNumber;
 
+    /** The tracer number. */
     @Column(name = "tracer_number")
     @Type(type = "text")
     private String tracerNumber;
 
+    /** The matricula. */
     @Column(name = "matricula", nullable = false)
     private Long matricula;
 
+    /** The configs. */
     @OneToMany(mappedBy = "terminal", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @OrderBy("start_date desc")
     private Set<TerminalConfig> configs = new HashSet<TerminalConfig>();
 
+    /** The financial devices. */
     @OneToMany(mappedBy = "terminal", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @OrderBy("serial_number")
     private Set<FinancialDevice> financialDevices = new HashSet<FinancialDevice>();
 
+    /** The hardware devices. */
     @OneToMany(mappedBy = "terminal", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @OrderBy("hardware_class")
     private Set<HardwareDevice> hardwareDevices = new HashSet<HardwareDevice>();
 
+    /** The hotfixes. */
     @OneToMany(mappedBy = "terminal", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @OrderBy("hotfix_id")
     private Set<Hotfix> hotfixes = new HashSet<Hotfix>();
 
+    /** The software aggregates. */
     @ManyToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @JoinTable(name = "terminal_software_aggregate", joinColumns = { @JoinColumn(name = "terminal_id") }, inverseJoinColumns = { @JoinColumn(name = "software_aggregate_id") })
     @OrderBy("name asc, major_version desc, minor_version desc, build_version desc, revision_version desc, remaining_version asc")
     private Set<SoftwareAggregate> softwareAggregates = new HashSet<SoftwareAggregate>();
 
+    /** The internet explorers. */
     @ManyToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @JoinTable(name = "terminal_internet_explorer", joinColumns = { @JoinColumn(name = "terminal_id") }, inverseJoinColumns = { @JoinColumn(name = "internet_explorer_id") })
     @OrderBy("major_version desc, minor_version desc, build_version desc, revision_version desc, remaining_version asc")
     private Set<InternetExplorer> internetExplorers = new HashSet<InternetExplorer>();
 
+    /** The ip. */
     @Column(name = "ip", length = 23)
     private String ip;
 
+    /** The mac. */
     @Column(name = "mac", length = 17)
     private String mac;
 
     /**
+     * Gets the comboboxes data for the query designer.
+     * 
      * @return the comboboxes
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;
     }
 
+    /**
+     * Gets the csv header for exporting terminals' data.
+     * 
+     * @return the csv header
+     */
     public static String getCsvHeader() {
 	return "Serial Number;IP;MAC;Terminal Type;Vendor;Product Class;"
 		+ "Product Class Description;Front Replenish;Bank;"
@@ -176,9 +212,21 @@ public class Terminal {
 		+ "Tracer Number";
     }
 
+    /**
+     * Instantiates a new terminal.
+     */
     public Terminal() {
     }
 
+    /**
+     * Instantiates a new terminal using the data from the ATMDataStorePojo we
+     * received from the agent.
+     * 
+     * @param terminal
+     *            the terminal
+     * @throws ATMWrongDataException
+     *             the ATM wrong data exception
+     */
     public Terminal(ATMDataStorePojo terminal) throws ATMWrongDataException {
 	this.ip = terminal.getCurrentip();
 	this.mac = terminal.getCurrentmac();
@@ -209,6 +257,12 @@ public class Terminal {
 	}
     }
 
+    /**
+     * Replaces most terminal fields with the data from another Terminal entity.
+     * 
+     * @param terminal
+     *            the terminal with its data rewritten
+     */
     public void replaceTerminalData(Terminal terminal) {
 	this.bank = terminal.bank;
 	this.branch = terminal.branch;
@@ -227,6 +281,13 @@ public class Terminal {
 	this.terminalModel = terminal.terminalModel;
     }
 
+    /**
+     * Replaces most terminal fields with the data from another Terminal entity
+     * ignoring null or void values so they don't overwrite the original values.
+     * 
+     * @param terminal
+     *            the terminal with its data rewritten
+     */
     public void replaceTerminalDataWoVoidValues(Terminal terminal) {
 	this.bank = ((terminal.bank != null) && (terminal.bank.trim().length() > 0)) ? terminal.bank
 		: this.bank;
@@ -268,6 +329,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the id.
+     *
      * @return the id
      */
     public Integer getId() {
@@ -275,14 +338,17 @@ public class Terminal {
     }
 
     /**
-     * @param id
-     *            the id to set
+     * Sets the id.
+     *
+     * @param id the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
     }
 
     /**
+     * Gets the bank company.
+     *
      * @return the bankCompany
      */
     public BankCompany getBankCompany() {
@@ -290,14 +356,17 @@ public class Terminal {
     }
 
     /**
-     * @param bankCompany
-     *            the bankCompany to set
+     * Sets the bank company.
+     *
+     * @param bankCompany the bankCompany to set
      */
     public void setBankCompany(BankCompany bankCompany) {
 	this.bankCompany = bankCompany;
     }
 
     /**
+     * Gets the terminal type.
+     *
      * @return the terminalType
      */
     public String getTerminalType() {
@@ -305,14 +374,17 @@ public class Terminal {
     }
 
     /**
-     * @param terminalType
-     *            the terminalType to set
+     * Sets the terminal type.
+     *
+     * @param terminalType the terminalType to set
      */
     public void setTerminalType(String terminalType) {
 	this.terminalType = terminalType;
     }
 
     /**
+     * Gets the terminal vendor.
+     *
      * @return the terminalVendor
      */
     public String getTerminalVendor() {
@@ -320,14 +392,17 @@ public class Terminal {
     }
 
     /**
-     * @param terminalVendor
-     *            the terminalVendor to set
+     * Sets the terminal vendor.
+     *
+     * @param terminalVendor the terminalVendor to set
      */
     public void setTerminalVendor(String terminalVendor) {
 	this.terminalVendor = terminalVendor;
     }
 
     /**
+     * Gets the front replenish.
+     *
      * @return the frontReplenish
      */
     public Boolean getFrontReplenish() {
@@ -335,14 +410,17 @@ public class Terminal {
     }
 
     /**
-     * @param frontReplenish
-     *            the frontReplenish to set
+     * Sets the front replenish.
+     *
+     * @param frontReplenish the frontReplenish to set
      */
     public void setFrontReplenish(Boolean frontReplenish) {
 	this.frontReplenish = frontReplenish;
     }
 
     /**
+     * Gets the geographic address.
+     *
      * @return the geographicAddress
      */
     public String getGeographicAddress() {
@@ -350,14 +428,17 @@ public class Terminal {
     }
 
     /**
-     * @param geographicAddress
-     *            the geographicAddress to set
+     * Sets the geographic address.
+     *
+     * @param geographicAddress the geographicAddress to set
      */
     public void setGeographicAddress(String geographicAddress) {
 	this.geographicAddress = geographicAddress;
     }
 
     /**
+     * Gets the manufacturing site.
+     *
      * @return the manufacturingSite
      */
     public String getManufacturingSite() {
@@ -365,14 +446,17 @@ public class Terminal {
     }
 
     /**
-     * @param manufacturingSite
-     *            the manufacturingSite to set
+     * Sets the manufacturing site.
+     *
+     * @param manufacturingSite the manufacturingSite to set
      */
     public void setManufacturingSite(String manufacturingSite) {
 	this.manufacturingSite = manufacturingSite;
     }
 
     /**
+     * Gets the product class description.
+     *
      * @return the productClassDescription
      */
     public String getProductClassDescription() {
@@ -380,14 +464,17 @@ public class Terminal {
     }
 
     /**
-     * @param productClassDescription
-     *            the productClassDescription to set
+     * Sets the product class description.
+     *
+     * @param productClassDescription the productClassDescription to set
      */
     public void setProductClassDescription(String productClassDescription) {
 	this.productClassDescription = productClassDescription;
     }
 
     /**
+     * Gets the serial number.
+     *
      * @return the serialNumber
      */
     public String getSerialNumber() {
@@ -395,14 +482,17 @@ public class Terminal {
     }
 
     /**
-     * @param serialNumber
-     *            the serialNumber to set
+     * Sets the serial number.
+     *
+     * @param serialNumber the serialNumber to set
      */
     public void setSerialNumber(String serialNumber) {
 	this.serialNumber = serialNumber;
     }
 
     /**
+     * Gets the tracer number.
+     *
      * @return the tracerNumber
      */
     public String getTracerNumber() {
@@ -410,14 +500,17 @@ public class Terminal {
     }
 
     /**
-     * @param tracerNumber
-     *            the tracerNumber to set
+     * Sets the tracer number.
+     *
+     * @param tracerNumber the tracerNumber to set
      */
     public void setTracerNumber(String tracerNumber) {
 	this.tracerNumber = tracerNumber;
     }
 
     /**
+     * Gets the configs.
+     *
      * @return the configs
      */
     public Set<TerminalConfig> getConfigs() {
@@ -425,14 +518,17 @@ public class Terminal {
     }
 
     /**
-     * @param configs
-     *            the configs to set
+     * Sets the configs.
+     *
+     * @param configs the configs to set
      */
     public void setConfigs(Set<TerminalConfig> configs) {
 	this.configs = configs;
     }
 
     /**
+     * Gets the financial devices.
+     *
      * @return the financialDevices
      */
     public Set<FinancialDevice> getFinancialDevices() {
@@ -440,14 +536,17 @@ public class Terminal {
     }
 
     /**
-     * @param financialDevices
-     *            the financialDevices to set
+     * Sets the financial devices.
+     *
+     * @param financialDevices the financialDevices to set
      */
     public void setFinancialDevices(Set<FinancialDevice> financialDevices) {
 	this.financialDevices = financialDevices;
     }
 
     /**
+     * Gets the hardware devices.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getHardwareDevices() {
@@ -455,6 +554,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the computer systems.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getComputerSystems() {
@@ -462,6 +563,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the processors.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getProcessors() {
@@ -469,6 +572,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the physical memories.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getPhysicalMemories() {
@@ -476,6 +581,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the disk drives.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getDiskDrives() {
@@ -483,6 +590,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the logical disks.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getLogicalDisks() {
@@ -490,6 +599,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the base boards.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getBaseBoards() {
@@ -497,6 +608,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the network adapters.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getNetworkAdapters() {
@@ -504,6 +617,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the floppy drives.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getFloppyDrives() {
@@ -511,6 +626,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the cdrom drives.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getCdromDrives() {
@@ -518,6 +635,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the sound devices.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getSoundDevices() {
@@ -525,6 +644,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the usb controllers.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getUsbControllers() {
@@ -532,6 +653,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the serial ports.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getSerialPorts() {
@@ -539,6 +662,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the parallel ports.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getParallelPorts() {
@@ -546,6 +671,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the controllers1394.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getControllers1394() {
@@ -553,6 +680,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the scsi controllers.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getScsiControllers() {
@@ -560,6 +689,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the desktop monitors.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getDesktopMonitors() {
@@ -567,6 +698,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the keyboards.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getKeyboards() {
@@ -574,6 +707,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the pointing devices.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getPointingDevices() {
@@ -581,6 +716,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the system slots.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getSystemSlots() {
@@ -588,6 +725,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the bios.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getBios() {
@@ -595,6 +734,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the video controllers.
+     *
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getVideoControllers() {
@@ -602,14 +743,17 @@ public class Terminal {
     }
 
     /**
-     * @param hardwareDevices
-     *            the hardwareDevices to set
+     * Sets the hardware devices.
+     *
+     * @param hardwareDevices the hardwareDevices to set
      */
     public void setHardwareDevices(Set<HardwareDevice> hardwareDevices) {
 	this.hardwareDevices = hardwareDevices;
     }
 
     /**
+     * Gets the currently valid config.
+     * 
      * @return the current config
      */
     public TerminalConfig getCurrentConfig() {
@@ -620,6 +764,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the bank.
+     *
      * @return the bank
      */
     public String getBank() {
@@ -627,14 +773,17 @@ public class Terminal {
     }
 
     /**
-     * @param bank
-     *            the bank to set
+     * Sets the bank.
+     *
+     * @param bank the bank to set
      */
     public void setBank(String bank) {
 	this.bank = bank;
     }
 
     /**
+     * Gets the branch.
+     *
      * @return the branch
      */
     public String getBranch() {
@@ -642,14 +791,17 @@ public class Terminal {
     }
 
     /**
-     * @param branch
-     *            the branch to set
+     * Sets the branch.
+     *
+     * @param branch the branch to set
      */
     public void setBranch(String branch) {
 	this.branch = branch;
     }
 
     /**
+     * Gets the ip.
+     *
      * @return the ip
      */
     public String getIp() {
@@ -657,14 +809,17 @@ public class Terminal {
     }
 
     /**
-     * @param ip
-     *            the ip to set
+     * Sets the ip.
+     *
+     * @param ip the ip to set
      */
     public void setIp(String ip) {
 	this.ip = ip;
     }
 
     /**
+     * Gets the software aggregates.
+     *
      * @return the softwareAggregates
      */
     public Set<SoftwareAggregate> getSoftwareAggregates() {
@@ -672,14 +827,17 @@ public class Terminal {
     }
 
     /**
-     * @param softwareAggregates
-     *            the softwareAggregates to set
+     * Sets the software aggregates.
+     *
+     * @param softwareAggregates the softwareAggregates to set
      */
     public void setSoftwareAggregates(Set<SoftwareAggregate> softwareAggregates) {
 	this.softwareAggregates = softwareAggregates;
     }
 
     /**
+     * Gets the hotfixes.
+     *
      * @return the hotfixes
      */
     public Set<Hotfix> getHotfixes() {
@@ -687,14 +845,17 @@ public class Terminal {
     }
 
     /**
-     * @param hotfixes
-     *            the hotfixes to set
+     * Sets the hotfixes.
+     *
+     * @param hotfixes the hotfixes to set
      */
     public void setHotfixes(Set<Hotfix> hotfixes) {
 	this.hotfixes = hotfixes;
     }
 
     /**
+     * Gets the internet explorers.
+     *
      * @return the internetExplorers
      */
     public Set<InternetExplorer> getInternetExplorers() {
@@ -702,13 +863,19 @@ public class Terminal {
     }
 
     /**
-     * @param internetExplorers
-     *            the internetExplorers to set
+     * Sets the internet explorers.
+     *
+     * @param internetExplorers the internetExplorers to set
      */
     public void setInternetExplorers(Set<InternetExplorer> internetExplorers) {
 	this.internetExplorers = internetExplorers;
     }
 
+    /**
+     * Gets a recap of the terminal data in csv format.
+     * 
+     * @returna a recap of the data in csv format.
+     */
     public String getCsvDescription() {
 	return (serialNumber != null ? serialNumber.toString() : "")
 		+ ";"
@@ -745,6 +912,8 @@ public class Terminal {
     }
 
     /**
+     * Gets the mac.
+     *
      * @return the mac
      */
     public String getMac() {
@@ -752,33 +921,64 @@ public class Terminal {
     }
 
     /**
-     * @param mac
-     *            the mac to set
+     * Sets the mac.
+     *
+     * @param mac the mac to set
      */
     public void setMac(String mac) {
 	this.mac = mac;
     }
 
+    /**
+     * Gets the terminal model.
+     *
+     * @return the terminal model
+     */
     public TerminalModel getTerminalModel() {
 	return terminalModel;
     }
 
+    /**
+     * Sets the terminal model.
+     *
+     * @param terminalModel the new terminal model
+     */
     public void setTerminalModel(TerminalModel terminalModel) {
 	this.terminalModel = terminalModel;
     }
 
+    /**
+     * Gets the installation.
+     *
+     * @return the installation
+     */
     public Installation getInstallation() {
 	return installation;
     }
 
+    /**
+     * Sets the installation.
+     *
+     * @param installation the new installation
+     */
     public void setInstallation(Installation installation) {
 	this.installation = installation;
     }
 
+    /**
+     * Gets the matricula.
+     *
+     * @return the matricula
+     */
     public Long getMatricula() {
 	return matricula;
     }
 
+    /**
+     * Sets the matricula.
+     *
+     * @param matricula the new matricula
+     */
     public void setMatricula(Long matricula) {
 	this.matricula = matricula;
     }

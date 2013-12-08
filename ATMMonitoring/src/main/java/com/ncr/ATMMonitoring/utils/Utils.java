@@ -11,18 +11,35 @@ import org.apache.commons.codec.digest.DigestUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class Utils.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public abstract class Utils {
 
+    /** The gson. */
     private static Gson gson = new GsonBuilder().disableHtmlEscaping().create();
 
+    /**
+     * To json.
+     *
+     * @param object the object
+     * @return the string
+     */
     public static String toJson(Object object) {
 	return gson.toJson(object);
     }
 
+    /**
+     * Concat strings.
+     *
+     * @param strings the strings
+     * @param separator the separator
+     * @return the string
+     */
     public static String concatStrings(List<String> strings, char separator) {
 		String result = "", separatorString = String.valueOf(separator);
 		Iterator<String> iter = strings.iterator();
@@ -38,6 +55,13 @@ public abstract class Utils {
 	return result;
     }
 
+    /**
+     * Split strings.
+     *
+     * @param strings the strings
+     * @param separator the separator
+     * @return the list
+     */
     public static List<String> splitStrings(String strings, char separator) {
 		List<String> result = new ArrayList<String>();
 		String separatorString = String.valueOf(separator);
@@ -50,6 +74,13 @@ public abstract class Utils {
 		return result;
     }
 
+    /**
+     * Concat integers.
+     *
+     * @param integers the integers
+     * @param separator the separator
+     * @return the string
+     */
     public static String concatIntegers(List<Integer> integers, char separator) {
 		String result = "", separatorString = String.valueOf(separator);
 		Iterator<Integer> iter = integers.iterator();
@@ -66,6 +97,13 @@ public abstract class Utils {
 		return result;
     }
 
+    /**
+     * Split integers.
+     *
+     * @param integers the integers
+     * @param separator the separator
+     * @return the list
+     */
     public static List<Integer> splitIntegers(String integers, char separator) {
 		List<Integer> result = new ArrayList<Integer>();
 		String separatorString = String.valueOf(separator);
@@ -78,6 +116,12 @@ public abstract class Utils {
 		return result;
     }
 
+    /**
+     * Unescape json chain.
+     *
+     * @param chain the chain
+     * @return the string
+     */
     public static String unescapeJsonChain(String chain) {
 	return chain.replaceAll("\\\\\\\\", "@@@@")
 		.replaceAll("\\\\u003c", "<").replaceAll("\\\\u003d", "=")
@@ -86,6 +130,12 @@ public abstract class Utils {
 		.replaceAll("@@@@", Matcher.quoteReplacement("\\"));
     }
 
+    /**
+     * Gets the m d5 hex.
+     *
+     * @param content the content
+     * @return the m d5 hex
+     */
     public static String getMD5Hex(String content) {
 	return DigestUtils.md5Hex(content);
     }

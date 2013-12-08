@@ -12,18 +12,27 @@ import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.InternetExplorer;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class InternetExplorerDAOImpl.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
 public class InternetExplorerDAOImpl implements InternetExplorerDAO {
 
+    /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(InternetExplorerDAOImpl.class.getName());
+    
+    /** The session factory. */
     @Autowired
     private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#addInternetExplorer(com.ncr.ATMMonitoring.pojo.InternetExplorer)
+     */
     @Override
     public void addInternetExplorer(InternetExplorer internetExplorer) {
 	sessionFactory.getCurrentSession().save(internetExplorer);
@@ -31,6 +40,9 @@ public class InternetExplorerDAOImpl implements InternetExplorerDAO {
 		+ internetExplorer.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#listInternetExplorer()
+     */
     @Override
     public List<InternetExplorer> listInternetExplorer() {
 	return sessionFactory.getCurrentSession()
@@ -42,12 +54,18 @@ public class InternetExplorerDAOImpl implements InternetExplorerDAO {
 		.addOrder(Order.asc("remaining_version")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#getInternetExplorer(java.lang.Integer)
+     */
     @Override
     public InternetExplorer getInternetExplorer(Integer id) {
 	return (InternetExplorer) sessionFactory.getCurrentSession().get(
 		InternetExplorer.class, id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#removeInternetExplorer(java.lang.Integer)
+     */
     @Override
     public void removeInternetExplorer(Integer id) {
 	InternetExplorer internetExplorer = (InternetExplorer) sessionFactory
@@ -57,6 +75,9 @@ public class InternetExplorerDAOImpl implements InternetExplorerDAO {
 	}
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#getInternetExplorerByVersion(java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.String)
+     */
     @Override
     public InternetExplorer getInternetExplorerByVersion(Integer majorVersion,
 	    Integer minorVersion, Integer buildVersion,

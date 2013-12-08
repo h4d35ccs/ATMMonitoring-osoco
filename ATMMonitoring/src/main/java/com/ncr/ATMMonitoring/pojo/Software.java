@@ -20,16 +20,21 @@ import org.hibernate.annotations.Type;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.ProductPojo;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class Software.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
 @Table(name = "software")
 public class Software {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(Software.class.getName());
 
+    /** The comboboxes data related to this entity for the query designer. */
     private static final Map<String, Map> comboboxes;
 
     static {
@@ -51,67 +56,84 @@ public class Software {
 		Operation.getOperationsByType(Operation.DataType.DATE));
     }
 
+    /** The id. */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "software_id_seq")
     @SequenceGenerator(name = "software_id_seq", sequenceName = "software_id_seq", allocationSize = 1)
     private Integer id;
 
+    /** The caption. */
     @Column(name = "caption")
     @Type(type = "text")
     private String caption;
 
+    /** The name. */
     @Column(name = "name")
     @Type(type = "text")
     private String name;
 
+    /** The description. */
     @Column(name = "description")
     @Type(type = "text")
     private String description;
 
+    /** The identifying number. */
     @Column(name = "identifying_number")
     @Type(type = "text")
     private String identifyingNumber;
 
+    /** The install date. */
     @Column(name = "install_date")
     private Date installDate = new Date();
 
+    /** The vendor. */
     @Column(name = "vendor")
     @Type(type = "text")
     private String vendor;
 
+    /** The major version. */
     @Column(name = "major_version")
     private Integer majorVersion;
 
+    /** The minor version. */
     @Column(name = "minor_version")
     private Integer minorVersion;
 
+    /** The build version. */
     @Column(name = "build_version")
     private Integer buildVersion;
 
+    /** The revision version. */
     @Column(name = "revision_version")
     private Integer revisionVersion;
 
+    /** The remaining version. */
     @Column(name = "remaining_version")
     @Type(type = "text")
     private String remainingVersion;
 
+    /** The language. */
     @Column(name = "language")
     @Type(type = "text")
     private String language;
 
+    /** The local package. */
     @Column(name = "local_package")
     @Type(type = "text")
     private String localPackage;
 
+    /** The package name. */
     @Column(name = "package_name")
     @Type(type = "text")
     private String packageName;
 
+    /** The product id. */
     @Column(name = "product_id")
     @Type(type = "text")
     private String productId;
 
+    /** The sw type. */
     @Column(name = "sw_type")
     @Type(type = "text")
     private String swType;
@@ -124,9 +146,17 @@ public class Software {
     // @JoinColumn(name = "terminal_config_id") })
     // private Set<TerminalConfig> configs;
 
+    /**
+     * Instantiates a new software.
+     */
     public Software() {
     }
 
+    /**
+     * Instantiates a new software.
+     *
+     * @param sw the sw
+     */
     public Software(ProductPojo sw) {
 	this.setVersion(sw.getVersion());
 	this.caption = sw.getCaption();
@@ -152,6 +182,8 @@ public class Software {
     }
 
     /**
+     * Gets the comboboxes.
+     *
      * @return the comboboxes
      */
     public static Map<String, Map> getComboboxes() {
@@ -159,6 +191,8 @@ public class Software {
     }
 
     /**
+     * Gets the id.
+     *
      * @return the id
      */
     public Integer getId() {
@@ -166,14 +200,17 @@ public class Software {
     }
 
     /**
-     * @param id
-     *            the id to set
+     * Sets the id.
+     *
+     * @param id the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
     }
 
     /**
+     * Gets the caption.
+     *
      * @return the caption
      */
     public String getCaption() {
@@ -181,14 +218,17 @@ public class Software {
     }
 
     /**
-     * @param caption
-     *            the caption to set
+     * Sets the caption.
+     *
+     * @param caption the caption to set
      */
     public void setCaption(String caption) {
 	this.caption = caption;
     }
 
     /**
+     * Gets the name.
+     *
      * @return the name
      */
     public String getName() {
@@ -196,14 +236,17 @@ public class Software {
     }
 
     /**
-     * @param name
-     *            the name to set
+     * Sets the name.
+     *
+     * @param name the name to set
      */
     public void setName(String name) {
 	this.name = name;
     }
 
     /**
+     * Gets the description.
+     *
      * @return the description
      */
     public String getDescription() {
@@ -211,14 +254,17 @@ public class Software {
     }
 
     /**
-     * @param description
-     *            the description to set
+     * Sets the description.
+     *
+     * @param description the description to set
      */
     public void setDescription(String description) {
 	this.description = description;
     }
 
     /**
+     * Gets the identifying number.
+     *
      * @return the identifyingNumber
      */
     public String getIdentifyingNumber() {
@@ -226,14 +272,17 @@ public class Software {
     }
 
     /**
-     * @param identifyingNumber
-     *            the identifyingNumber to set
+     * Sets the identifying number.
+     *
+     * @param identifyingNumber the identifyingNumber to set
      */
     public void setIdentifyingNumber(String identifyingNumber) {
 	this.identifyingNumber = identifyingNumber;
     }
 
     /**
+     * Gets the install date.
+     *
      * @return the installDate
      */
     public Date getInstallDate() {
@@ -241,14 +290,17 @@ public class Software {
     }
 
     /**
-     * @param installDate
-     *            the installDate to set
+     * Sets the install date.
+     *
+     * @param installDate the installDate to set
      */
     public void setInstallDate(Date installDate) {
 	this.installDate = installDate;
     }
 
     /**
+     * Gets the vendor.
+     *
      * @return the vendor
      */
     public String getVendor() {
@@ -256,14 +308,17 @@ public class Software {
     }
 
     /**
-     * @param vendor
-     *            the vendor to set
+     * Sets the vendor.
+     *
+     * @param vendor the vendor to set
      */
     public void setVendor(String vendor) {
 	this.vendor = vendor;
     }
 
     /**
+     * Gets the version.
+     *
      * @return the version complete
      */
     public String getVersion() {
@@ -291,8 +346,9 @@ public class Software {
     }
 
     /**
-     * @param version
-     *            the complete version to set
+     * Sets the version.
+     *
+     * @param version the complete version to set
      */
     public void setVersion(String version) {
 	String[] versions = version.split("\\.", 5);
@@ -331,6 +387,8 @@ public class Software {
     }
 
     /**
+     * Gets the name version.
+     *
      * @return the name and version concatenated
      */
     public String getNameVersion() {
@@ -338,6 +396,8 @@ public class Software {
     }
 
     /**
+     * Gets the language.
+     *
      * @return the language
      */
     public String getLanguage() {
@@ -345,14 +405,17 @@ public class Software {
     }
 
     /**
-     * @param language
-     *            the language to set
+     * Sets the language.
+     *
+     * @param language the language to set
      */
     public void setLanguage(String language) {
 	this.language = language;
     }
 
     /**
+     * Gets the local package.
+     *
      * @return the localPackage
      */
     public String getLocalPackage() {
@@ -360,14 +423,17 @@ public class Software {
     }
 
     /**
-     * @param localPackage
-     *            the localPackage to set
+     * Sets the local package.
+     *
+     * @param localPackage the localPackage to set
      */
     public void setLocalPackage(String localPackage) {
 	this.localPackage = localPackage;
     }
 
     /**
+     * Gets the package name.
+     *
      * @return the packageName
      */
     public String getPackageName() {
@@ -375,14 +441,17 @@ public class Software {
     }
 
     /**
-     * @param packageName
-     *            the packageName to set
+     * Sets the package name.
+     *
+     * @param packageName the packageName to set
      */
     public void setPackageName(String packageName) {
 	this.packageName = packageName;
     }
 
     /**
+     * Gets the product id.
+     *
      * @return the productId
      */
     public String getProductId() {
@@ -390,14 +459,17 @@ public class Software {
     }
 
     /**
-     * @param productId
-     *            the productId to set
+     * Sets the product id.
+     *
+     * @param productId the productId to set
      */
     public void setProductId(String productId) {
 	this.productId = productId;
     }
 
     /**
+     * Gets the major version.
+     *
      * @return the majorVersion
      */
     public Integer getMajorVersion() {
@@ -405,6 +477,8 @@ public class Software {
     }
 
     /**
+     * Gets the minor version.
+     *
      * @return the minorVersion
      */
     public Integer getMinorVersion() {
@@ -412,6 +486,8 @@ public class Software {
     }
 
     /**
+     * Gets the builds the version.
+     *
      * @return the buildVersion
      */
     public Integer getBuildVersion() {
@@ -419,6 +495,8 @@ public class Software {
     }
 
     /**
+     * Gets the revision version.
+     *
      * @return the revisionVersion
      */
     public Integer getRevisionVersion() {
@@ -426,38 +504,44 @@ public class Software {
     }
 
     /**
-     * @param majorVersion
-     *            the majorVersion to set
+     * Sets the major version.
+     *
+     * @param majorVersion the majorVersion to set
      */
     public void setMajorVersion(Integer majorVersion) {
 	this.majorVersion = majorVersion;
     }
 
     /**
-     * @param minorVersion
-     *            the minorVersion to set
+     * Sets the minor version.
+     *
+     * @param minorVersion the minorVersion to set
      */
     public void setMinorVersion(Integer minorVersion) {
 	this.minorVersion = minorVersion;
     }
 
     /**
-     * @param buildVersion
-     *            the buildVersion to set
+     * Sets the builds the version.
+     *
+     * @param buildVersion the buildVersion to set
      */
     public void setBuildVersion(Integer buildVersion) {
 	this.buildVersion = buildVersion;
     }
 
     /**
-     * @param revisionVersion
-     *            the revisionVersion to set
+     * Sets the revision version.
+     *
+     * @param revisionVersion the revisionVersion to set
      */
     public void setRevisionVersion(Integer revisionVersion) {
 	this.revisionVersion = revisionVersion;
     }
 
     /**
+     * Gets the remaining version.
+     *
      * @return the remainingVersion
      */
     public String getRemainingVersion() {
@@ -465,14 +549,17 @@ public class Software {
     }
 
     /**
-     * @param remainingVersion
-     *            the remainingVersion to set
+     * Sets the remaining version.
+     *
+     * @param remainingVersion the remainingVersion to set
      */
     public void setRemainingVersion(String remainingVersion) {
 	this.remainingVersion = remainingVersion;
     }
 
     /**
+     * Gets the sw type.
+     *
      * @return the swType
      */
     public String getSwType() {
@@ -480,8 +567,9 @@ public class Software {
     }
 
     /**
-     * @param swType
-     *            the swType to set
+     * Sets the sw type.
+     *
+     * @param swType the swType to set
      */
     public void setSwType(String swType) {
 	this.swType = swType;

@@ -32,53 +32,67 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class User.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
 
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -4609857457555155113L;
 
+    /** The id. */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_seq")
     @SequenceGenerator(name = "users_id_seq", sequenceName = "users_id_seq", allocationSize = 1)
     private Integer id;
 
+    /** The firstname. */
     @Column(name = "firstname", length = 30)
     private String firstname;
 
+    /** The lastname. */
     @Column(name = "lastname", length = 60)
     private String lastname;
 
+    /** The username. */
     @NotEmpty
     @Column(name = "username", unique = true, nullable = false, length = 20)
     private String username;
 
+    /** The password. */
     @NotEmpty
     @Size(min = 5)
     @Column(name = "passw", length = 80)
     private String password;
 
+    /** The last login. */
     @Column(name = "last_login")
     private Date lastLogin;
 
+    /** The role. */
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
 
+    /** The bank company. */
     @ManyToOne
     @JoinColumn(name = "bank_id")
     private BankCompany bankCompany;
 
+    /** The queries. */
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @OrderBy("query_name")
     private Set<Query> queries = new HashSet<Query>();
 
+	/** The dashboard. */
 	@OneToOne
 	private Dashboard dashboard;
 
@@ -103,61 +117,122 @@ public class User implements UserDetails {
     // this.configs = configs;
     // }
 
+    /**
+     * Instantiates a new user.
+     */
     public User() {
 	this.role = new Role();
     };
 
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
     public Integer getId() {
 	return id;
     }
 
+    /**
+     * Sets the id.
+     *
+     * @param id the new id
+     */
     public void setId(Integer id) {
 	this.id = id;
     }
 
+    /* (non-Javadoc)
+     * @see org.springframework.security.core.userdetails.UserDetails#getUsername()
+     */
     @Override
     public String getUsername() {
 	return username;
     }
 
+    /**
+     * Sets the username.
+     *
+     * @param username the new username
+     */
     public void setUsername(String username) {
 	this.username = username;
     }
 
+    /* (non-Javadoc)
+     * @see org.springframework.security.core.userdetails.UserDetails#getPassword()
+     */
     @Override
     public String getPassword() {
 	return password;
     }
 
+    /**
+     * Sets the password.
+     *
+     * @param password the new password
+     */
     public void setPassword(String password) {
 	this.password = password;
     }
 
+    /**
+     * Gets the firstname.
+     *
+     * @return the firstname
+     */
     public String getFirstname() {
 	return firstname;
     }
 
+    /**
+     * Sets the firstname.
+     *
+     * @param firstname the new firstname
+     */
     public void setFirstname(String firstname) {
 	this.firstname = firstname;
     }
 
+    /**
+     * Gets the lastname.
+     *
+     * @return the lastname
+     */
     public String getLastname() {
 	return lastname;
     }
 
+    /**
+     * Sets the lastname.
+     *
+     * @param lastname the new lastname
+     */
     public void setLastname(String lastname) {
 	this.lastname = lastname;
     }
 
+    /**
+     * Gets the role.
+     *
+     * @return the role
+     */
     public Role getRole() {
 	return role;
     }
 
+    /**
+     * Sets the role.
+     *
+     * @param role the new role
+     */
     public void setRole(Role role) {
 	this.role = role;
     }
 
     /**
+     * Gets the bank company.
+     *
      * @return the bankCompany
      */
     public BankCompany getBankCompany() {
@@ -165,13 +240,17 @@ public class User implements UserDetails {
     }
 
     /**
-     * @param bankCompany
-     *            the bankCompany to set
+     * Sets the bank company.
+     *
+     * @param bankCompany the bankCompany to set
      */
     public void setBankCompany(BankCompany bankCompany) {
 	this.bankCompany = bankCompany;
     }
 
+    /* (non-Javadoc)
+     * @see org.springframework.security.core.userdetails.UserDetails#getAuthorities()
+     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 	List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>(1);
@@ -181,27 +260,41 @@ public class User implements UserDetails {
 	return authList;
     }
 
+    /* (non-Javadoc)
+     * @see org.springframework.security.core.userdetails.UserDetails#isAccountNonExpired()
+     */
     @Override
     public boolean isAccountNonExpired() {
 	return true;
     }
 
+    /* (non-Javadoc)
+     * @see org.springframework.security.core.userdetails.UserDetails#isAccountNonLocked()
+     */
     @Override
     public boolean isAccountNonLocked() {
 	return true;
     }
 
+    /* (non-Javadoc)
+     * @see org.springframework.security.core.userdetails.UserDetails#isCredentialsNonExpired()
+     */
     @Override
     public boolean isCredentialsNonExpired() {
 	return true;
     }
 
+    /* (non-Javadoc)
+     * @see org.springframework.security.core.userdetails.UserDetails#isEnabled()
+     */
     @Override
     public boolean isEnabled() {
 	return true;
     }
 
     /**
+     * Gets the queries.
+     *
      * @return the queries
      */
     public Set<Query> getQueries() {
@@ -209,14 +302,17 @@ public class User implements UserDetails {
     }
 
     /**
-     * @param queries
-     *            the queries to set
+     * Sets the queries.
+     *
+     * @param queries the queries to set
      */
     public void setQueries(Set<Query> queries) {
 	this.queries = queries;
     }
 
     /**
+     * Gets the last login.
+     *
      * @return the lastLogin
      */
     public Date getLastLogin() {
@@ -224,21 +320,38 @@ public class User implements UserDetails {
     }
 
     /**
-     * @param lastLogin
-     *            the lastLogin to set
+     * Sets the last login.
+     *
+     * @param lastLogin the lastLogin to set
      */
     public void setLastLogin(Date lastLogin) {
 	this.lastLogin = lastLogin;
     }
 
+    /**
+     * Gets the dashboard.
+     *
+     * @return the dashboard
+     */
     public Dashboard getDashboard() {
 		return dashboard;
     }
 
+    /**
+     * Sets the dashboard.
+     *
+     * @param dashboard the new dashboard
+     */
     public void setDashboard(Dashboard dashboard) {
 		this.dashboard = dashboard;
     }
 
+    /**
+     * Gets the html welcome message.
+     *
+     * @param locale the locale
+     * @return the html welcome message
+     */
     public String getHtmlWelcomeMessage(Locale locale) {
       	DateFormat timeFormatter = new SimpleDateFormat("H:mm");
         String lastLoginFormatted = "";
@@ -251,11 +364,21 @@ public class User implements UserDetails {
 	       "<div class=\"date\">" + lastLoginFormatted + "</div>";
     }
 
+    /**
+     * Gets the manageable bank companies.
+     *
+     * @return the manageable bank companies
+     */
     public Set<BankCompany> getManageableBankCompanies() {
 	return (bankCompany != null) ? bankCompany.getManageableBankCompanies()
 		: new HashSet<BankCompany>();
     }
 
+    /**
+     * Gets the weekly scheduled updates.
+     *
+     * @return the weekly scheduled updates
+     */
     public List<ScheduledUpdate> getWeeklyScheduledUpdates() {
 	List<ScheduledUpdate> updates = new ArrayList<ScheduledUpdate>();
 	for (Query query : queries) {
@@ -268,6 +391,11 @@ public class User implements UserDetails {
 	return updates;
     }
 
+    /**
+     * Gets the monthly scheduled updates.
+     *
+     * @return the monthly scheduled updates
+     */
     public List<ScheduledUpdate> getMonthlyScheduledUpdates() {
 	List<ScheduledUpdate> updates = new ArrayList<ScheduledUpdate>();
 	for (Query query : queries) {

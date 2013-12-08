@@ -51,17 +51,22 @@ import com.ncr.agent.baseData.os.module.UsbHubPojo;
 import com.ncr.agent.baseData.os.module.VideoControllerPojo;
 import com.ncr.agent.baseData.os.module._1394ControllerPojo;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
+ * The Class HardwareDevice.
+ *
+ * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
 @Table(name = "hardware_devices")
 public class HardwareDevice {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(HardwareDevice.class
 	    .getName());
 
+    /** The comboboxes data related to this entity for the query designer. */
     private static final Map<String, Map> comboboxes;
 
     static {
@@ -340,12 +345,63 @@ public class HardwareDevice {
 	comboboxes.put("allHwDevices", values);
     }
 
+    /** The Constant separator. */
     private static final char separator = ';';
 
+    /** The Constant deviceClasses. */
     private static final Map<DeviceClassId, String> deviceClasses;
 
+    /**
+     * The Enum DeviceClassId.
+     */
     public static enum DeviceClassId {
-	COMPUTER_SYSTEM, PROCESSOR, PHYSICAL_MEMORY, DISK_DRIVE, LOGICAL_DISK, BASE_BOARD, NETWORK_ADAPTER, FLOPPY_DRIVE, CDROM_DRIVE, SOUND_DEVICE, DISPLAY_CONFIGURATION, USB_CONTROLLER, USB_HUB, SERIAL_PORT, PARALLEL_PORT, _1394_CONTROLLER, SCSI_CONTROLLER, DESKTOP_MONITOR, KEYBOARD, POINTING_DEVICE, SYSTEM_SLOT, BIOS, VIDEO_CONTROLLER
+	
+	/** The computer system. */
+	COMPUTER_SYSTEM, 
+ /** The processor. */
+ PROCESSOR, 
+ /** The physical memory. */
+ PHYSICAL_MEMORY, 
+ /** The disk drive. */
+ DISK_DRIVE, 
+ /** The logical disk. */
+ LOGICAL_DISK, 
+ /** The base board. */
+ BASE_BOARD, 
+ /** The network adapter. */
+ NETWORK_ADAPTER, 
+ /** The floppy drive. */
+ FLOPPY_DRIVE, 
+ /** The cdrom drive. */
+ CDROM_DRIVE, 
+ /** The sound device. */
+ SOUND_DEVICE, 
+ /** The display configuration. */
+ DISPLAY_CONFIGURATION, 
+ /** The usb controller. */
+ USB_CONTROLLER, 
+ /** The usb hub. */
+ USB_HUB, 
+ /** The serial port. */
+ SERIAL_PORT, 
+ /** The parallel port. */
+ PARALLEL_PORT, 
+ /** The _1394_ controller. */
+ _1394_CONTROLLER, 
+ /** The scsi controller. */
+ SCSI_CONTROLLER, 
+ /** The desktop monitor. */
+ DESKTOP_MONITOR, 
+ /** The keyboard. */
+ KEYBOARD, 
+ /** The pointing device. */
+ POINTING_DEVICE, 
+ /** The system slot. */
+ SYSTEM_SLOT, 
+ /** The bios. */
+ BIOS, 
+ /** The video controller. */
+ VIDEO_CONTROLLER
     }
 
     static {
@@ -384,6 +440,13 @@ public class HardwareDevice {
 		"Win32_VideoController");
     }
 
+    /**
+     * Filter by class.
+     *
+     * @param hardwareDevs the hardware devs
+     * @param deviceClass the device class
+     * @return the sets the
+     */
     private static Set<HardwareDevice> filterByClass(
 	    Set<HardwareDevice> hardwareDevs, String deviceClass) {
 	Set<HardwareDevice> result = new HashSet<HardwareDevice>();
@@ -396,465 +459,702 @@ public class HardwareDevice {
 	return result;
     }
 
+    /**
+     * Filter computer system.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterComputerSystem(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.COMPUTER_SYSTEM));
     }
 
+    /**
+     * Filter processor.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterProcessor(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.PROCESSOR));
     }
 
+    /**
+     * Filter physical memory.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterPhysicalMemory(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.PHYSICAL_MEMORY));
     }
 
+    /**
+     * Filter disk drive.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterDiskDrive(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.DISK_DRIVE));
     }
 
+    /**
+     * Filter logical disk.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterLogicalDisk(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.LOGICAL_DISK));
     }
 
+    /**
+     * Filter base board.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterBaseBoard(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.BASE_BOARD));
     }
 
+    /**
+     * Filter network adapter.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterNetworkAdapter(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.NETWORK_ADAPTER));
     }
 
+    /**
+     * Filter floppy drive.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterFloppyDrive(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.FLOPPY_DRIVE));
     }
 
+    /**
+     * Filter cdrom drive.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterCdromDrive(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.CDROM_DRIVE));
     }
 
+    /**
+     * Filter sound device.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterSoundDevice(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.SOUND_DEVICE));
     }
 
+    /**
+     * Filter display configuration.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterDisplayConfiguration(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.DISPLAY_CONFIGURATION));
     }
 
+    /**
+     * Filter usb controller.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterUsbController(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.USB_CONTROLLER));
     }
 
+    /**
+     * Filter usb hub.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterUsbHub(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.USB_HUB));
     }
 
+    /**
+     * Filter serial port.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterSerialPort(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.SERIAL_PORT));
     }
 
+    /**
+     * Filter parallel port.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterParallelPort(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.PARALLEL_PORT));
     }
 
+    /**
+     * Filter1394 controller.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filter1394Controller(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId._1394_CONTROLLER));
     }
 
+    /**
+     * Filter scsi controller.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterScsiController(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.SCSI_CONTROLLER));
     }
 
+    /**
+     * Filter desktop monitor.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterDesktopMonitor(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.DESKTOP_MONITOR));
     }
 
+    /**
+     * Filter keyboard.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterKeyboard(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.KEYBOARD));
     }
 
+    /**
+     * Filter pointing device.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterPointingDevice(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.POINTING_DEVICE));
     }
 
+    /**
+     * Filter system slot.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterSystemSlot(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.SYSTEM_SLOT));
     }
 
+    /**
+     * Filter bios.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterBios(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.BIOS));
     }
 
+    /**
+     * Filter video controller.
+     *
+     * @param hardwareDevs the hardware devs
+     * @return the sets the
+     */
     public static Set<HardwareDevice> filterVideoController(
 	    Set<HardwareDevice> hardwareDevs) {
 	return filterByClass(hardwareDevs,
 		deviceClasses.get(DeviceClassId.VIDEO_CONTROLLER));
     }
 
+    /** The id. */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hardware_devices_id_seq")
     @SequenceGenerator(name = "hardware_devices_id_seq", sequenceName = "hardware_devices_id_seq", allocationSize = 1)
     private Integer id;
 
+    /** The terminal. */
     @ManyToOne(fetch = FetchType.EAGER)
     @Cascade(CascadeType.REFRESH)
     @JoinColumn(name = "terminal_id")
     private Terminal terminal;
 
+    /** The hardware class. */
     @Column(name = "hardware_class", length = 100, nullable = false)
     private String hardwareClass;
 
+    /** The name. */
     @Column(name = "name")
     @Type(type = "text")
     private String name;
 
+    /** The manufacturer. */
     @Column(name = "manufacturer")
     @Type(type = "text")
     private String manufacturer;
 
+    /** The model. */
     @Column(name = "model")
     @Type(type = "text")
     private String model;
 
+    /** The number of processors. */
     @Column(name = "number_of_processors")
     private Integer numberOfProcessors;
 
+    /** The caption. */
     @Column(name = "caption")
     @Type(type = "text")
     private String caption;
 
+    /** The total physical memory. */
     @Column(name = "total_physical_memory")
     private Long totalPhysicalMemory;
 
+    /** The description. */
     @Column(name = "description")
     @Type(type = "text")
     private String description;
 
+    /** The current time zone. */
     @Column(name = "current_time_zone")
     private Integer currentTimeZone;
 
+    /** The daylight in effect. */
     @Column(name = "daylight_in_effect")
     private Boolean daylightInEffect;
 
+    /** The domain. */
     @Column(name = "domain")
     @Type(type = "text")
     private String domain;
 
+    /** The workgroup. */
     @Column(name = "workgroup")
     @Type(type = "text")
     private String workgroup;
 
+    /** The status. */
     @Column(name = "status")
     @Type(type = "text")
     private String status;
 
+    /** The architecture. */
     @Column(name = "architecture")
     @Type(type = "text")
     private String architecture;
 
+    /** The protocol code. */
     @Column(name = "protocol_code")
     @Type(type = "text")
     private String protocolCode;
 
+    /** The address width. */
     @Column(name = "address_width")
     private Integer addressWidth;
 
+    /** The data width. */
     @Column(name = "data_width")
     private Integer dataWidth;
 
+    /** The number of ports. */
     @Column(name = "number_of_ports")
     private Integer numberOfPorts;
 
+    /** The current clock speed. */
     @Column(name = "current_clock_speed")
     private Integer currentClockSpeed;
 
+    /** The ext clock. */
     @Column(name = "ext_clock")
     private Integer extClock;
 
+    /** The stepping. */
     @Column(name = "stepping")
     private Integer stepping;
 
+    /** The capacity. */
     @Column(name = "capacity")
     private Long capacity;
 
+    /** The speed. */
     @Column(name = "speed")
     private Long speed;
 
+    /** The partitions. */
     @Column(name = "partitions")
     private Integer partitions;
 
+    /** The size. */
     @Column(name = "size_")
     private Long size;
 
+    /** The free space. */
     @Column(name = "free_space")
     private Long freeSpace;
 
+    /** The product. */
     @Column(name = "product")
     @Type(type = "text")
     private String product;
 
+    /** The file system. */
     @Column(name = "file_system")
     @Type(type = "text")
     private String fileSystem;
 
+    /** The version. */
     @Column(name = "version")
     @Type(type = "text")
     private String version;
 
+    /** The usb version. */
     @Column(name = "usb_version")
     @Type(type = "text")
     private String usbVersion;
 
+    /** The adapter type. */
     @Column(name = "adapter_type")
     @Type(type = "text")
     private String adapterType;
 
+    /** The dhcp enabled. */
     @Column(name = "dhcp_enabled")
     private Boolean dhcpEnabled;
 
+    /** The dhcp server. */
     @Column(name = "dhcp_server")
     @Type(type = "text")
     private String dhcpServer;
 
+    /** The ip address. */
     @Column(name = "ip_address")
     @Type(type = "text")
     private String ipAddress;
 
+    /** The ip subnet. */
     @Column(name = "ip_subnet")
     @Type(type = "text")
     private String ipSubnet;
 
+    /** The default ip gateway. */
     @Column(name = "default_ip_gateway")
     @Type(type = "text")
     private String defaultIpGateway;
 
+    /** The mac address. */
     @Column(name = "mac_address", length = 17)
     private String macAddress;
 
+    /** The net connection id. */
     @Column(name = "net_connection_id")
     @Type(type = "text")
     private String netConnectionId;
 
+    /** The net connection status. */
     @Column(name = "net_connection_status")
     @Type(type = "text")
     private String netConnectionStatus;
 
+    /** The video memory. */
     @Column(name = "video_memory")
     private Integer videoMemory;
 
+    /** The device id. */
     @Column(name = "device_id")
     @Type(type = "text")
     private String deviceId;
 
+    /** The max baud rate. */
     @Column(name = "max_baud_rate")
     private Integer maxBaudRate;
 
+    /** The display type. */
     @Column(name = "display_type")
     private Boolean displayType;
 
+    /** The monitor manufacturer. */
     @Column(name = "monitor_manufacturer")
     @Type(type = "text")
     private String monitorManufacturer;
 
+    /** The signature. */
     @Column(name = "signature")
     @Type(type = "text")
     private String signature;
 
+    /** The monitor type. */
     @Column(name = "monitor_type")
     @Type(type = "text")
     private String monitorType;
 
+    /** The pixels per x logical inch. */
     @Column(name = "pixels_per_x_logical_inch")
     private Integer pixelsPerXLogicalInch;
 
+    /** The pixels per y logical inch. */
     @Column(name = "pixels_per_y_logical_inch")
     private Integer pixelsPerYLogicalInch;
 
+    /** The layout. */
     @Column(name = "layout")
     @Type(type = "text")
     private String layout;
 
+    /** The hardware type. */
     @Column(name = "hardware_type")
     @Type(type = "text")
     private String hardwareType;
 
+    /** The pointing type. */
     @Column(name = "pointing_type")
     private Integer pointingType;
 
+    /** The current usage. */
     @Column(name = "current_usage")
     private Integer currentUsage;
 
+    /** The serial number. */
     @Column(name = "serial_number")
     @Type(type = "text")
     private String serialNumber;
 
+    /** The slot designation. */
     @Column(name = "slot_designation")
     @Type(type = "text")
     private String slotDesignation;
 
+    /** The tag. */
     @Column(name = "tag")
     @Type(type = "text")
     private String tag;
 
+    /** The smbios version. */
     @Column(name = "smbios_version")
     @Type(type = "text")
     private String smbiosVersion;
 
+    /** The smbios major version. */
     @Column(name = "smbios_major_version")
     private Integer smbiosMajorVersion;
 
+    /** The smbios minor version. */
     @Column(name = "smbios_minor_version")
     private Integer smbiosMinorVersion;
 
+    /** The current language. */
     @Column(name = "current_language")
     @Type(type = "text")
     private String currentLanguage;
 
+    /** The primary bios. */
     @Column(name = "primary_bios")
     private Boolean primaryBios;
 
+    /** The release date. */
     @Column(name = "release_date")
     private Date releaseDate;
 
+    /** The smbios present. */
     @Column(name = "smbios_present")
     private Boolean smbiosPresent;
 
+    /** The Bits per pixel. */
     @Column(name = "bits_per_pixel")
     private Integer BitsPerPixel;
 
+    /** The current bits per pixel. */
     @Column(name = "current_bits_per_pixel")
     private Integer currentBitsPerPixel;
 
+    /** The current number of colors. */
     @Column(name = "current_number_of_colors")
     private Long currentNumberOfColors;
 
+    /** The colors. */
     @Column(name = "colors")
     private Integer colors;
 
+    /** The current refresh rate. */
     @Column(name = "current_refresh_rate")
     private Integer currentRefreshRate;
 
+    /** The current horizontal resolution. */
     @Column(name = "current_horizontal_resolution")
     private Integer currentHorizontalResolution;
 
+    /** The current vertical resolution. */
     @Column(name = "current_vertical_resolution")
     private Integer currentVerticalResolution;
 
+    /** The refresh rate. */
     @Column(name = "refresh_rate")
     private Integer refreshRate;
 
+    /** The horizontal res. */
     @Column(name = "horizontal_res")
     private Integer horizontalRes;
 
+    /** The vertical res. */
     @Column(name = "vertical_res")
     private Integer verticalRes;
 
+    /** The adapter ram. */
     @Column(name = "adapter_ram")
     private Integer adapterRam;
 
+    /** The firmware revision. */
     @Column(name = "firmware_revision")
     @Type(type = "text")
     private String firmwareRevision;
 
+    /** The max clock speed. */
     @Column(name = "max_clock_speed")
     private Integer maxClockSpeed;
 
+    /** The max media size. */
     @Column(name = "max_media_size")
     private Integer maxMediaSize;
 
+    /** The media type. */
     @Column(name = "media_type")
     @Type(type = "text")
     private String mediaType;
 
+    /** The hardware version. */
     @Column(name = "hardware_version")
     @Type(type = "text")
     private String hardwareVersion;
 
+    /** The status info. */
     @Column(name = "status_info")
     @Type(type = "text")
     private String statusInfo;
 
+    /** The total cylinders. */
     @Column(name = "total_cylinders")
     private Integer totalCylinders;
 
+    /** The tracks per cylinder. */
     @Column(name = "tracks_per_cylinder")
     private Integer tracksPerCylinder;
 
+    /** The sectors per track. */
     @Column(name = "sectors_per_track")
     private Integer sectorsPerTrack;
 
+    /** The bytes per sector. */
     @Column(name = "bytes_per_sector")
     private Integer bytesPerSector;
 
+    /** The video processor. */
     @Column(name = "video_processor")
     @Type(type = "text")
     private String videoProcessor;
 
+    /** The volume serial number. */
     @Column(name = "volume_serial_number")
     @Type(type = "text")
     private String volumeSerialNumber;
 
+    /** The driver name. */
     @Column(name = "driver_name")
     @Type(type = "text")
     private String driverName;
 
+    /** The interface index. */
     @Column(name = "interface_index")
     private Integer interfaceIndex;
 
+    /** The protocol supported. */
     @Column(name = "protocol_supported")
     private Integer protocolSupported;
 
+    /** The volume name. */
     @Column(name = "volume_name")
     @Type(type = "text")
     private String volumeName;
 
+    /**
+     * Instantiates a new hardware device.
+     */
     public HardwareDevice() {
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(_1394ControllerPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId._1394_CONTROLLER));
 	this.caption = hw.getCaption();
@@ -865,6 +1165,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(BaseBoardPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.BASE_BOARD));
 	this.model = hw.getModel();
@@ -875,6 +1180,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(BiosPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.BIOS));
 	this.setCurrentLanguage(hw.getCurrentLanguage());
@@ -897,6 +1207,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(CDROMDrivePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.CDROM_DRIVE));
 	this.caption = hw.getCaption();
@@ -907,6 +1222,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(ComputerSystemPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.COMPUTER_SYSTEM));
 	this.caption = hw.getCaption();
@@ -953,6 +1273,11 @@ public class HardwareDevice {
 	this.workgroup = hw.getWorkgroup();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(DesktopMonitorPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.DESKTOP_MONITOR));
 	this.caption = hw.getCaption();
@@ -984,6 +1309,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(DiskDrivePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.DISK_DRIVE));
 	if ((hw.getBytesPerSector() != null)
@@ -1055,6 +1385,11 @@ public class HardwareDevice {
 	}
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(FloppyDrivePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.FLOPPY_DRIVE));
 	this.caption = hw.getCaption();
@@ -1066,6 +1401,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(KeyboardPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.KEYBOARD));
 	this.caption = hw.getCaption();
@@ -1075,6 +1415,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(LogicalDiskPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.LOGICAL_DISK));
 	this.caption = hw.getCaption();
@@ -1102,6 +1447,11 @@ public class HardwareDevice {
 	this.volumeSerialNumber = hw.getVolumeSerialNumber();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(NetworkAdapterSettingPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.NETWORK_ADAPTER));
 	this.adapterType = hw.getAdapterType();
@@ -1137,6 +1487,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(ParallelPortPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.PARALLEL_PORT));
 	this.caption = hw.getCaption();
@@ -1145,6 +1500,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(PhysicalMemoryPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.PHYSICAL_MEMORY));
 	if ((hw.getCapacity() != null) && (hw.getCapacity().length() > 0)
@@ -1160,6 +1520,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(PointingDevicePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.POINTING_DEVICE));
 	this.caption = hw.getCaption();
@@ -1179,6 +1544,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(ProcessorPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.PROCESSOR));
 	if ((hw.getAddressWidth() != null)
@@ -1235,6 +1605,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(SCSIControllerPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.SCSI_CONTROLLER));
 	this.caption = hw.getCaption();
@@ -1246,6 +1621,11 @@ public class HardwareDevice {
 	this.statusInfo = hw.getStatusInfo();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(SerialPortPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.SERIAL_PORT));
 	this.caption = hw.getCaption();
@@ -1262,6 +1642,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(SoundDevicePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.SOUND_DEVICE));
 	this.caption = hw.getCaption();
@@ -1270,6 +1655,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(SystemSlotPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.SYSTEM_SLOT));
 	this.caption = hw.getCaption();
@@ -1290,6 +1680,11 @@ public class HardwareDevice {
 	this.setVersion(Utils.unescapeJsonChain(hw.getVersion()));
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(USBControllerPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_CONTROLLER));
 	this.caption = hw.getCaption();
@@ -1309,6 +1704,11 @@ public class HardwareDevice {
 	this.status = hw.getStatus();
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(UsbHubPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_HUB));
 	this.description = hw.getDescription();
@@ -1327,6 +1727,11 @@ public class HardwareDevice {
 	this.setUsbVersion(hw.getUsbVersion());
     }
 
+    /**
+     * Instantiates a new hardware device.
+     *
+     * @param hw the hw
+     */
     public HardwareDevice(VideoControllerPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.VIDEO_CONTROLLER));
 	if ((hw.getAdapterRAM() != null) && (hw.getAdapterRAM().length() > 0)
@@ -1394,6 +1799,8 @@ public class HardwareDevice {
     }
 
     /**
+     * Gets the comboboxes.
+     *
      * @return the comboboxes
      */
     public static Map<String, Map> getComboboxes() {
@@ -1401,6 +1808,8 @@ public class HardwareDevice {
     }
 
     /**
+     * Gets the id.
+     *
      * @return the id
      */
     public Integer getId() {
@@ -1408,14 +1817,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param id
-     *            the id to set
+     * Sets the id.
+     *
+     * @param id the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
     }
 
     /**
+     * Gets the hardware class.
+     *
      * @return the hardwareClass
      */
     public String getHardwareClass() {
@@ -1423,14 +1835,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param hardwareClass
-     *            the hardwareClass to set
+     * Sets the hardware class.
+     *
+     * @param hardwareClass the hardwareClass to set
      */
     public void setHardwareClass(String hardwareClass) {
 	this.hardwareClass = hardwareClass;
     }
 
     /**
+     * Gets the name.
+     *
      * @return the name
      */
     public String getName() {
@@ -1438,14 +1853,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param name
-     *            the name to set
+     * Sets the name.
+     *
+     * @param name the name to set
      */
     public void setName(String name) {
 	this.name = name;
     }
 
     /**
+     * Gets the terminal.
+     *
      * @return the terminal
      */
     public Terminal getTerminal() {
@@ -1453,14 +1871,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param terminal
-     *            the terminal to set
+     * Sets the terminal.
+     *
+     * @param terminal the terminal to set
      */
     public void setTerminal(Terminal terminal) {
 	this.terminal = terminal;
     }
 
     /**
+     * Gets the manufacturer.
+     *
      * @return the manufacturer
      */
     public String getManufacturer() {
@@ -1468,14 +1889,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param manufacturer
-     *            the manufacturer to set
+     * Sets the manufacturer.
+     *
+     * @param manufacturer the manufacturer to set
      */
     public void setManufacturer(String manufacturer) {
 	this.manufacturer = manufacturer;
     }
 
     /**
+     * Gets the model.
+     *
      * @return the model
      */
     public String getModel() {
@@ -1483,14 +1907,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param model
-     *            the model to set
+     * Sets the model.
+     *
+     * @param model the model to set
      */
     public void setModel(String model) {
 	this.model = model;
     }
 
     /**
+     * Gets the number of processors.
+     *
      * @return the numberOfProcessors
      */
     public Integer getNumberOfProcessors() {
@@ -1498,14 +1925,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param numberOfProcessors
-     *            the numberOfProcessors to set
+     * Sets the number of processors.
+     *
+     * @param numberOfProcessors the numberOfProcessors to set
      */
     public void setNumberOfProcessors(Integer numberOfProcessors) {
 	this.numberOfProcessors = numberOfProcessors;
     }
 
     /**
+     * Gets the caption.
+     *
      * @return the caption
      */
     public String getCaption() {
@@ -1513,14 +1943,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param caption
-     *            the caption to set
+     * Sets the caption.
+     *
+     * @param caption the caption to set
      */
     public void setCaption(String caption) {
 	this.caption = caption;
     }
 
     /**
+     * Gets the total physical memory.
+     *
      * @return the totalPhysicalMemory
      */
     public Long getTotalPhysicalMemory() {
@@ -1528,14 +1961,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param totalPhysicalMemory
-     *            the totalPhysicalMemory to set
+     * Sets the total physical memory.
+     *
+     * @param totalPhysicalMemory the totalPhysicalMemory to set
      */
     public void setTotalPhysicalMemory(Long totalPhysicalMemory) {
 	this.totalPhysicalMemory = totalPhysicalMemory;
     }
 
     /**
+     * Gets the description.
+     *
      * @return the description
      */
     public String getDescription() {
@@ -1543,14 +1979,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param description
-     *            the description to set
+     * Sets the description.
+     *
+     * @param description the description to set
      */
     public void setDescription(String description) {
 	this.description = description;
     }
 
     /**
+     * Gets the current time zone.
+     *
      * @return the currentTimeZone
      */
     public Integer getCurrentTimeZone() {
@@ -1558,14 +1997,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param currentTimeZone
-     *            the currentTimeZone to set
+     * Sets the current time zone.
+     *
+     * @param currentTimeZone the currentTimeZone to set
      */
     public void setCurrentTimeZone(Integer currentTimeZone) {
 	this.currentTimeZone = currentTimeZone;
     }
 
     /**
+     * Gets the daylight in effect.
+     *
      * @return the daylightInEffect
      */
     public Boolean getDaylightInEffect() {
@@ -1573,14 +2015,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param daylightInEffect
-     *            the daylightInEffect to set
+     * Sets the daylight in effect.
+     *
+     * @param daylightInEffect the daylightInEffect to set
      */
     public void setDaylightInEffect(Boolean daylightInEffect) {
 	this.daylightInEffect = daylightInEffect;
     }
 
     /**
+     * Gets the domain.
+     *
      * @return the domain
      */
     public String getDomain() {
@@ -1588,14 +2033,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param domain
-     *            the domain to set
+     * Sets the domain.
+     *
+     * @param domain the domain to set
      */
     public void setDomain(String domain) {
 	this.domain = domain;
     }
 
     /**
+     * Gets the workgroup.
+     *
      * @return the workgroup
      */
     public String getWorkgroup() {
@@ -1603,14 +2051,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param workgroup
-     *            the workgroup to set
+     * Sets the workgroup.
+     *
+     * @param workgroup the workgroup to set
      */
     public void setWorkgroup(String workgroup) {
 	this.workgroup = workgroup;
     }
 
     /**
+     * Gets the status.
+     *
      * @return the status
      */
     public String getStatus() {
@@ -1618,14 +2069,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param status
-     *            the status to set
+     * Sets the status.
+     *
+     * @param status the status to set
      */
     public void setStatus(String status) {
 	this.status = status;
     }
 
     /**
+     * Gets the architecture.
+     *
      * @return the architecture
      */
     public String getArchitecture() {
@@ -1633,14 +2087,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param architecture
-     *            the architecture to set
+     * Sets the architecture.
+     *
+     * @param architecture the architecture to set
      */
     public void setArchitecture(String architecture) {
 	this.architecture = architecture;
     }
 
     /**
+     * Gets the address width.
+     *
      * @return the addressWidth
      */
     public Integer getAddressWidth() {
@@ -1648,14 +2105,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param addressWidth
-     *            the addressWidth to set
+     * Sets the address width.
+     *
+     * @param addressWidth the addressWidth to set
      */
     public void setAddressWidth(Integer addressWidth) {
 	this.addressWidth = addressWidth;
     }
 
     /**
+     * Gets the current clock speed.
+     *
      * @return the currentClockSpeed
      */
     public Integer getCurrentClockSpeed() {
@@ -1663,14 +2123,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param currentClockSpeed
-     *            the currentClockSpeed to set
+     * Sets the current clock speed.
+     *
+     * @param currentClockSpeed the currentClockSpeed to set
      */
     public void setCurrentClockSpeed(Integer currentClockSpeed) {
 	this.currentClockSpeed = currentClockSpeed;
     }
 
     /**
+     * Gets the ext clock.
+     *
      * @return the extClock
      */
     public Integer getExtClock() {
@@ -1678,14 +2141,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param extClock
-     *            the extClock to set
+     * Sets the ext clock.
+     *
+     * @param extClock the extClock to set
      */
     public void setExtClock(Integer extClock) {
 	this.extClock = extClock;
     }
 
     /**
+     * Gets the stepping.
+     *
      * @return the stepping
      */
     public Integer getStepping() {
@@ -1693,14 +2159,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param stepping
-     *            the stepping to set
+     * Sets the stepping.
+     *
+     * @param stepping the stepping to set
      */
     public void setStepping(Integer stepping) {
 	this.stepping = stepping;
     }
 
     /**
+     * Gets the capacity.
+     *
      * @return the capacity
      */
     public Long getCapacity() {
@@ -1708,14 +2177,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param capacity
-     *            the capacity to set
+     * Sets the capacity.
+     *
+     * @param capacity the capacity to set
      */
     public void setCapacity(Long capacity) {
 	this.capacity = capacity;
     }
 
     /**
+     * Gets the speed.
+     *
      * @return the speed
      */
     public Long getSpeed() {
@@ -1723,14 +2195,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param speed
-     *            the speed to set
+     * Sets the speed.
+     *
+     * @param speed the speed to set
      */
     public void setSpeed(Long speed) {
 	this.speed = speed;
     }
 
     /**
+     * Gets the partitions.
+     *
      * @return the partitions
      */
     public Integer getPartitions() {
@@ -1738,14 +2213,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param partitions
-     *            the partitions to set
+     * Sets the partitions.
+     *
+     * @param partitions the partitions to set
      */
     public void setPartitions(Integer partitions) {
 	this.partitions = partitions;
     }
 
     /**
+     * Gets the size.
+     *
      * @return the size
      */
     public Long getSize() {
@@ -1753,14 +2231,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param size
-     *            the size to set
+     * Sets the size.
+     *
+     * @param size the size to set
      */
     public void setSize(Long size) {
 	this.size = size;
     }
 
     /**
+     * Gets the free space.
+     *
      * @return the freeSpace
      */
     public Long getFreeSpace() {
@@ -1768,14 +2249,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param freeSpace
-     *            the freeSpace to set
+     * Sets the free space.
+     *
+     * @param freeSpace the freeSpace to set
      */
     public void setFreeSpace(Long freeSpace) {
 	this.freeSpace = freeSpace;
     }
 
     /**
+     * Gets the file system.
+     *
      * @return the fileSystem
      */
     public String getFileSystem() {
@@ -1783,14 +2267,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param fileSystem
-     *            the fileSystem to set
+     * Sets the file system.
+     *
+     * @param fileSystem the fileSystem to set
      */
     public void setFileSystem(String fileSystem) {
 	this.fileSystem = fileSystem;
     }
 
     /**
+     * Gets the version.
+     *
      * @return the version
      */
     public String getVersion() {
@@ -1798,14 +2285,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param version
-     *            the version to set
+     * Sets the version.
+     *
+     * @param version the version to set
      */
     public void setVersion(String version) {
 	this.version = version;
     }
 
     /**
+     * Gets the name version.
+     *
      * @return the name and version concatenated
      */
     public String getNameVersion() {
@@ -1813,6 +2303,8 @@ public class HardwareDevice {
     }
 
     /**
+     * Gets the adapter type.
+     *
      * @return the adapterType
      */
     public String getAdapterType() {
@@ -1820,14 +2312,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param adapterType
-     *            the adapterType to set
+     * Sets the adapter type.
+     *
+     * @param adapterType the adapterType to set
      */
     public void setAdapterType(String adapterType) {
 	this.adapterType = adapterType;
     }
 
     /**
+     * Gets the dhcp enabled.
+     *
      * @return the dhcpEnabled
      */
     public Boolean getDhcpEnabled() {
@@ -1835,14 +2330,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param dhcpEnabled
-     *            the dhcpEnabled to set
+     * Sets the dhcp enabled.
+     *
+     * @param dhcpEnabled the dhcpEnabled to set
      */
     public void setDhcpEnabled(Boolean dhcpEnabled) {
 	this.dhcpEnabled = dhcpEnabled;
     }
 
     /**
+     * Gets the dhcp server.
+     *
      * @return the dhcpServer
      */
     public String getDhcpServer() {
@@ -1850,14 +2348,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param dhcpServer
-     *            the dhcpServer to set
+     * Sets the dhcp server.
+     *
+     * @param dhcpServer the dhcpServer to set
      */
     public void setDhcpServer(String dhcpServer) {
 	this.dhcpServer = dhcpServer;
     }
 
     /**
+     * Gets the ip address.
+     *
      * @return the ipAddress
      */
     public String getIpAddress() {
@@ -1865,14 +2366,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param ipAddress
-     *            the ipAddress to set
+     * Sets the ip address.
+     *
+     * @param ipAddress the ipAddress to set
      */
     public void setIpAddress(String ipAddress) {
 	this.ipAddress = ipAddress;
     }
 
     /**
+     * Gets the ip subnet.
+     *
      * @return the ipSubnet
      */
     public String getIpSubnet() {
@@ -1880,14 +2384,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param ipSubnet
-     *            the ipSubnet to set
+     * Sets the ip subnet.
+     *
+     * @param ipSubnet the ipSubnet to set
      */
     public void setIpSubnet(String ipSubnet) {
 	this.ipSubnet = ipSubnet;
     }
 
     /**
+     * Gets the default ip gateway.
+     *
      * @return the defaultIpGateway
      */
     public String getDefaultIpGateway() {
@@ -1895,14 +2402,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param defaultIpGateway
-     *            the defaultIpGateway to set
+     * Sets the default ip gateway.
+     *
+     * @param defaultIpGateway the defaultIpGateway to set
      */
     public void setDefaultIpGateway(String defaultIpGateway) {
 	this.defaultIpGateway = defaultIpGateway;
     }
 
     /**
+     * Gets the mac address.
+     *
      * @return the macAddress
      */
     public String getMacAddress() {
@@ -1910,14 +2420,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param macAddress
-     *            the macAddress to set
+     * Sets the mac address.
+     *
+     * @param macAddress the macAddress to set
      */
     public void setMacAddress(String macAddress) {
 	this.macAddress = macAddress;
     }
 
     /**
+     * Gets the net connection id.
+     *
      * @return the netConnectionId
      */
     public String getNetConnectionId() {
@@ -1925,14 +2438,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param netConnectionId
-     *            the netConnectionId to set
+     * Sets the net connection id.
+     *
+     * @param netConnectionId the netConnectionId to set
      */
     public void setNetConnectionId(String netConnectionId) {
 	this.netConnectionId = netConnectionId;
     }
 
     /**
+     * Gets the net connection status.
+     *
      * @return the netConnectionStatus
      */
     public String getNetConnectionStatus() {
@@ -1940,14 +2456,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param netConnectionStatus
-     *            the netConnectionStatus to set
+     * Sets the net connection status.
+     *
+     * @param netConnectionStatus the netConnectionStatus to set
      */
     public void setNetConnectionStatus(String netConnectionStatus) {
 	this.netConnectionStatus = netConnectionStatus;
     }
 
     /**
+     * Gets the device id.
+     *
      * @return the deviceId
      */
     public String getDeviceId() {
@@ -1955,14 +2474,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param deviceId
-     *            the deviceId to set
+     * Sets the device id.
+     *
+     * @param deviceId the deviceId to set
      */
     public void setDeviceId(String deviceId) {
 	this.deviceId = deviceId;
     }
 
     /**
+     * Gets the max baud rate.
+     *
      * @return the maxBaudRate
      */
     public Integer getMaxBaudRate() {
@@ -1970,14 +2492,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param maxBaudRate
-     *            the maxBaudRate to set
+     * Sets the max baud rate.
+     *
+     * @param maxBaudRate the maxBaudRate to set
      */
     public void setMaxBaudRate(Integer maxBaudRate) {
 	this.maxBaudRate = maxBaudRate;
     }
 
     /**
+     * Gets the display type.
+     *
      * @return the displayType
      */
     public Boolean getDisplayType() {
@@ -1985,14 +2510,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param displayType
-     *            the displayType to set
+     * Sets the display type.
+     *
+     * @param displayType the displayType to set
      */
     public void setDisplayType(Boolean displayType) {
 	this.displayType = displayType;
     }
 
     /**
+     * Gets the monitor manufacturer.
+     *
      * @return the monitorManufacturer
      */
     public String getMonitorManufacturer() {
@@ -2000,14 +2528,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param monitorManufacturer
-     *            the monitorManufacturer to set
+     * Sets the monitor manufacturer.
+     *
+     * @param monitorManufacturer the monitorManufacturer to set
      */
     public void setMonitorManufacturer(String monitorManufacturer) {
 	this.monitorManufacturer = monitorManufacturer;
     }
 
     /**
+     * Gets the monitor type.
+     *
      * @return the monitorType
      */
     public String getMonitorType() {
@@ -2015,14 +2546,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param monitorType
-     *            the monitorType to set
+     * Sets the monitor type.
+     *
+     * @param monitorType the monitorType to set
      */
     public void setMonitorType(String monitorType) {
 	this.monitorType = monitorType;
     }
 
     /**
+     * Gets the pixels per x logical inch.
+     *
      * @return the pixelsPerXLogicalInch
      */
     public Integer getPixelsPerXLogicalInch() {
@@ -2030,14 +2564,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param pixelsPerXLogicalInch
-     *            the pixelsPerXLogicalInch to set
+     * Sets the pixels per x logical inch.
+     *
+     * @param pixelsPerXLogicalInch the pixelsPerXLogicalInch to set
      */
     public void setPixelsPerXLogicalInch(Integer pixelsPerXLogicalInch) {
 	this.pixelsPerXLogicalInch = pixelsPerXLogicalInch;
     }
 
     /**
+     * Gets the pixels per y logical inch.
+     *
      * @return the pixelsPerYLogicalInch
      */
     public Integer getPixelsPerYLogicalInch() {
@@ -2045,14 +2582,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param pixelsPerYLogicalInch
-     *            the pixelsPerYLogicalInch to set
+     * Sets the pixels per y logical inch.
+     *
+     * @param pixelsPerYLogicalInch the pixelsPerYLogicalInch to set
      */
     public void setPixelsPerYLogicalInch(Integer pixelsPerYLogicalInch) {
 	this.pixelsPerYLogicalInch = pixelsPerYLogicalInch;
     }
 
     /**
+     * Gets the layout.
+     *
      * @return the layout
      */
     public String getLayout() {
@@ -2060,14 +2600,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param layout
-     *            the layout to set
+     * Sets the layout.
+     *
+     * @param layout the layout to set
      */
     public void setLayout(String layout) {
 	this.layout = layout;
     }
 
     /**
+     * Gets the hardware type.
+     *
      * @return the hardwareType
      */
     public String getHardwareType() {
@@ -2075,14 +2618,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param hardwareType
-     *            the hardwareType to set
+     * Sets the hardware type.
+     *
+     * @param hardwareType the hardwareType to set
      */
     public void setHardwareType(String hardwareType) {
 	this.hardwareType = hardwareType;
     }
 
     /**
+     * Gets the pointing type.
+     *
      * @return the pointingType
      */
     public Integer getPointingType() {
@@ -2090,14 +2636,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param pointingType
-     *            the pointingType to set
+     * Sets the pointing type.
+     *
+     * @param pointingType the pointingType to set
      */
     public void setPointingType(Integer pointingType) {
 	this.pointingType = pointingType;
     }
 
     /**
+     * Gets the current usage.
+     *
      * @return the currentUsage
      */
     public Integer getCurrentUsage() {
@@ -2105,14 +2654,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param currentUsage
-     *            the currentUsage to set
+     * Sets the current usage.
+     *
+     * @param currentUsage the currentUsage to set
      */
     public void setCurrentUsage(Integer currentUsage) {
 	this.currentUsage = currentUsage;
     }
 
     /**
+     * Gets the serial number.
+     *
      * @return the serialNumber
      */
     public String getSerialNumber() {
@@ -2120,14 +2672,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param serialNumber
-     *            the serialNumber to set
+     * Sets the serial number.
+     *
+     * @param serialNumber the serialNumber to set
      */
     public void setSerialNumber(String serialNumber) {
 	this.serialNumber = serialNumber;
     }
 
     /**
+     * Gets the slot designation.
+     *
      * @return the slotDesignation
      */
     public String getSlotDesignation() {
@@ -2135,14 +2690,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param slotDesignation
-     *            the slotDesignation to set
+     * Sets the slot designation.
+     *
+     * @param slotDesignation the slotDesignation to set
      */
     public void setSlotDesignation(String slotDesignation) {
 	this.slotDesignation = slotDesignation;
     }
 
     /**
+     * Gets the tag.
+     *
      * @return the tag
      */
     public String getTag() {
@@ -2150,14 +2708,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param tag
-     *            the tag to set
+     * Sets the tag.
+     *
+     * @param tag the tag to set
      */
     public void setTag(String tag) {
 	this.tag = tag;
     }
 
     /**
+     * Gets the smbios version.
+     *
      * @return the smbiosVersion
      */
     public String getSmbiosVersion() {
@@ -2165,14 +2726,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param smbiosVersion
-     *            the smbiosVersion to set
+     * Sets the smbios version.
+     *
+     * @param smbiosVersion the smbiosVersion to set
      */
     public void setSmbiosVersion(String smbiosVersion) {
 	this.smbiosVersion = smbiosVersion;
     }
 
     /**
+     * Gets the smbios major version.
+     *
      * @return the smbiosMajorVersion
      */
     public Integer getSmbiosMajorVersion() {
@@ -2180,14 +2744,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param smbiosMajorVersion
-     *            the smbiosMajorVersion to set
+     * Sets the smbios major version.
+     *
+     * @param smbiosMajorVersion the smbiosMajorVersion to set
      */
     public void setSmbiosMajorVersion(Integer smbiosMajorVersion) {
 	this.smbiosMajorVersion = smbiosMajorVersion;
     }
 
     /**
+     * Gets the smbios minor version.
+     *
      * @return the smbiosMinorVersion
      */
     public Integer getSmbiosMinorVersion() {
@@ -2195,14 +2762,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param smbiosMinorVersion
-     *            the smbiosMinorVersion to set
+     * Sets the smbios minor version.
+     *
+     * @param smbiosMinorVersion the smbiosMinorVersion to set
      */
     public void setSmbiosMinorVersion(Integer smbiosMinorVersion) {
 	this.smbiosMinorVersion = smbiosMinorVersion;
     }
 
     /**
+     * Gets the current language.
+     *
      * @return the currentLanguage
      */
     public String getCurrentLanguage() {
@@ -2210,14 +2780,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param currentLanguage
-     *            the currentLanguage to set
+     * Sets the current language.
+     *
+     * @param currentLanguage the currentLanguage to set
      */
     public void setCurrentLanguage(String currentLanguage) {
 	this.currentLanguage = currentLanguage;
     }
 
     /**
+     * Gets the primary bios.
+     *
      * @return the primaryBios
      */
     public Boolean getPrimaryBios() {
@@ -2225,14 +2798,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param primaryBios
-     *            the primaryBios to set
+     * Sets the primary bios.
+     *
+     * @param primaryBios the primaryBios to set
      */
     public void setPrimaryBios(Boolean primaryBios) {
 	this.primaryBios = primaryBios;
     }
 
     /**
+     * Gets the release date.
+     *
      * @return the releaseDate
      */
     public Date getReleaseDate() {
@@ -2240,14 +2816,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param releaseDate
-     *            the releaseDate to set
+     * Sets the release date.
+     *
+     * @param releaseDate the releaseDate to set
      */
     public void setReleaseDate(Date releaseDate) {
 	this.releaseDate = releaseDate;
     }
 
     /**
+     * Gets the smbios present.
+     *
      * @return the smbiosPresent
      */
     public Boolean getSmbiosPresent() {
@@ -2255,14 +2834,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param smbiosPresent
-     *            the smbiosPresent to set
+     * Sets the smbios present.
+     *
+     * @param smbiosPresent the smbiosPresent to set
      */
     public void setSmbiosPresent(Boolean smbiosPresent) {
 	this.smbiosPresent = smbiosPresent;
     }
 
     /**
+     * Gets the bits per pixel.
+     *
      * @return the bitsPerPixel
      */
     public Integer getBitsPerPixel() {
@@ -2270,14 +2852,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param bitsPerPixel
-     *            the bitsPerPixel to set
+     * Sets the bits per pixel.
+     *
+     * @param bitsPerPixel the bitsPerPixel to set
      */
     public void setBitsPerPixel(Integer bitsPerPixel) {
 	BitsPerPixel = bitsPerPixel;
     }
 
     /**
+     * Gets the deviceclasses.
+     *
      * @return the deviceclasses
      */
     public static Map<DeviceClassId, String> getDeviceclasses() {
@@ -2285,6 +2870,8 @@ public class HardwareDevice {
     }
 
     /**
+     * Gets the current bits per pixel.
+     *
      * @return the currentBitsPerPixel
      */
     public Integer getCurrentBitsPerPixel() {
@@ -2292,14 +2879,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param currentBitsPerPixel
-     *            the currentBitsPerPixel to set
+     * Sets the current bits per pixel.
+     *
+     * @param currentBitsPerPixel the currentBitsPerPixel to set
      */
     public void setCurrentBitsPerPixel(Integer currentBitsPerPixel) {
 	this.currentBitsPerPixel = currentBitsPerPixel;
     }
 
     /**
+     * Gets the current number of colors.
+     *
      * @return the currentNumberOfColors
      */
     public Long getCurrentNumberOfColors() {
@@ -2307,14 +2897,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param currentNumberOfColors
-     *            the currentNumberOfColors to set
+     * Sets the current number of colors.
+     *
+     * @param currentNumberOfColors the currentNumberOfColors to set
      */
     public void setCurrentNumberOfColors(Long currentNumberOfColors) {
 	this.currentNumberOfColors = currentNumberOfColors;
     }
 
     /**
+     * Gets the current refresh rate.
+     *
      * @return the currentRefreshRate
      */
     public Integer getCurrentRefreshRate() {
@@ -2322,14 +2915,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param currentRefreshRate
-     *            the currentRefreshRate to set
+     * Sets the current refresh rate.
+     *
+     * @param currentRefreshRate the currentRefreshRate to set
      */
     public void setCurrentRefreshRate(Integer currentRefreshRate) {
 	this.currentRefreshRate = currentRefreshRate;
     }
 
     /**
+     * Gets the current horizontal resolution.
+     *
      * @return the currentHorizontalResolution
      */
     public Integer getCurrentHorizontalResolution() {
@@ -2337,8 +2933,9 @@ public class HardwareDevice {
     }
 
     /**
-     * @param currentHorizontalResolution
-     *            the currentHorizontalResolution to set
+     * Sets the current horizontal resolution.
+     *
+     * @param currentHorizontalResolution the currentHorizontalResolution to set
      */
     public void setCurrentHorizontalResolution(
 	    Integer currentHorizontalResolution) {
@@ -2346,6 +2943,8 @@ public class HardwareDevice {
     }
 
     /**
+     * Gets the current vertical resolution.
+     *
      * @return the currentVerticalResolution
      */
     public Integer getCurrentVerticalResolution() {
@@ -2353,14 +2952,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param currentVerticalResolution
-     *            the currentVerticalResolution to set
+     * Sets the current vertical resolution.
+     *
+     * @param currentVerticalResolution the currentVerticalResolution to set
      */
     public void setCurrentVerticalResolution(Integer currentVerticalResolution) {
 	this.currentVerticalResolution = currentVerticalResolution;
     }
 
     /**
+     * Gets the adapter ram.
+     *
      * @return the adapterRam
      */
     public Integer getAdapterRam() {
@@ -2368,14 +2970,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param adapterRam
-     *            the adapterRam to set
+     * Sets the adapter ram.
+     *
+     * @param adapterRam the adapterRam to set
      */
     public void setAdapterRam(Integer adapterRam) {
 	this.adapterRam = adapterRam;
     }
 
     /**
+     * Gets the firmware revision.
+     *
      * @return the firmwareRevision
      */
     public String getFirmwareRevision() {
@@ -2383,14 +2988,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param firmwareRevision
-     *            the firmwareRevision to set
+     * Sets the firmware revision.
+     *
+     * @param firmwareRevision the firmwareRevision to set
      */
     public void setFirmwareRevision(String firmwareRevision) {
 	this.firmwareRevision = firmwareRevision;
     }
 
     /**
+     * Gets the max clock speed.
+     *
      * @return the maxClockSpeed
      */
     public Integer getMaxClockSpeed() {
@@ -2398,14 +3006,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param maxClockSpeed
-     *            the maxClockSpeed to set
+     * Sets the max clock speed.
+     *
+     * @param maxClockSpeed the maxClockSpeed to set
      */
     public void setMaxClockSpeed(Integer maxClockSpeed) {
 	this.maxClockSpeed = maxClockSpeed;
     }
 
     /**
+     * Gets the max media size.
+     *
      * @return the maxMediaSize
      */
     public Integer getMaxMediaSize() {
@@ -2413,14 +3024,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param maxMediaSize
-     *            the maxMediaSize to set
+     * Sets the max media size.
+     *
+     * @param maxMediaSize the maxMediaSize to set
      */
     public void setMaxMediaSize(Integer maxMediaSize) {
 	this.maxMediaSize = maxMediaSize;
     }
 
     /**
+     * Gets the media type.
+     *
      * @return the mediaType
      */
     public String getMediaType() {
@@ -2428,14 +3042,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param mediaType
-     *            the mediaType to set
+     * Sets the media type.
+     *
+     * @param mediaType the mediaType to set
      */
     public void setMediaType(String mediaType) {
 	this.mediaType = mediaType;
     }
 
     /**
+     * Gets the hardware version.
+     *
      * @return the hardwareVersion
      */
     public String getHardwareVersion() {
@@ -2443,14 +3060,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param hardwareVersion
-     *            the hardwareVersion to set
+     * Sets the hardware version.
+     *
+     * @param hardwareVersion the hardwareVersion to set
      */
     public void setHardwareVersion(String hardwareVersion) {
 	this.hardwareVersion = hardwareVersion;
     }
 
     /**
+     * Gets the hardware name version.
+     *
      * @return the hardware name and version concatenated
      */
     public String getHardwareNameVersion() {
@@ -2458,6 +3078,8 @@ public class HardwareDevice {
     }
 
     /**
+     * Gets the status info.
+     *
      * @return the statusInfo
      */
     public String getStatusInfo() {
@@ -2465,14 +3087,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param statusInfo
-     *            the statusInfo to set
+     * Sets the status info.
+     *
+     * @param statusInfo the statusInfo to set
      */
     public void setStatusInfo(String statusInfo) {
 	this.statusInfo = statusInfo;
     }
 
     /**
+     * Gets the total cylinders.
+     *
      * @return the totalCylinders
      */
     public Integer getTotalCylinders() {
@@ -2480,14 +3105,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param totalCylinders
-     *            the totalCylinders to set
+     * Sets the total cylinders.
+     *
+     * @param totalCylinders the totalCylinders to set
      */
     public void setTotalCylinders(Integer totalCylinders) {
 	this.totalCylinders = totalCylinders;
     }
 
     /**
+     * Gets the tracks per cylinder.
+     *
      * @return the tracksPerCylinder
      */
     public Integer getTracksPerCylinder() {
@@ -2495,14 +3123,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param tracksPerCylinder
-     *            the tracksPerCylinder to set
+     * Sets the tracks per cylinder.
+     *
+     * @param tracksPerCylinder the tracksPerCylinder to set
      */
     public void setTracksPerCylinder(Integer tracksPerCylinder) {
 	this.tracksPerCylinder = tracksPerCylinder;
     }
 
     /**
+     * Gets the sectors per track.
+     *
      * @return the sectorsPerTrack
      */
     public Integer getSectorsPerTrack() {
@@ -2510,14 +3141,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param sectorsPerTrack
-     *            the sectorsPerTrack to set
+     * Sets the sectors per track.
+     *
+     * @param sectorsPerTrack the sectorsPerTrack to set
      */
     public void setSectorsPerTrack(Integer sectorsPerTrack) {
 	this.sectorsPerTrack = sectorsPerTrack;
     }
 
     /**
+     * Gets the video processor.
+     *
      * @return the videoProcessor
      */
     public String getVideoProcessor() {
@@ -2525,14 +3159,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param videoProcessor
-     *            the videoProcessor to set
+     * Sets the video processor.
+     *
+     * @param videoProcessor the videoProcessor to set
      */
     public void setVideoProcessor(String videoProcessor) {
 	this.videoProcessor = videoProcessor;
     }
 
     /**
+     * Gets the volume serial number.
+     *
      * @return the volumeSerialNumber
      */
     public String getVolumeSerialNumber() {
@@ -2540,14 +3177,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param volumeSerialNumber
-     *            the volumeSerialNumber to set
+     * Sets the volume serial number.
+     *
+     * @param volumeSerialNumber the volumeSerialNumber to set
      */
     public void setVolumeSerialNumber(String volumeSerialNumber) {
 	this.volumeSerialNumber = volumeSerialNumber;
     }
 
     /**
+     * Gets the driver name.
+     *
      * @return the driverName
      */
     public String getDriverName() {
@@ -2555,14 +3195,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param driverName
-     *            the driverName to set
+     * Sets the driver name.
+     *
+     * @param driverName the driverName to set
      */
     public void setDriverName(String driverName) {
 	this.driverName = driverName;
     }
 
     /**
+     * Gets the interface index.
+     *
      * @return the interfaceIndex
      */
     public Integer getInterfaceIndex() {
@@ -2570,14 +3213,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param interfaceIndex
-     *            the interfaceIndex to set
+     * Sets the interface index.
+     *
+     * @param interfaceIndex the interfaceIndex to set
      */
     public void setInterfaceIndex(Integer interfaceIndex) {
 	this.interfaceIndex = interfaceIndex;
     }
 
     /**
+     * Gets the protocol supported.
+     *
      * @return the protocolSupported
      */
     public Integer getProtocolSupported() {
@@ -2585,14 +3231,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param protocolSupported
-     *            the protocolSupported to set
+     * Sets the protocol supported.
+     *
+     * @param protocolSupported the protocolSupported to set
      */
     public void setProtocolSupported(Integer protocolSupported) {
 	this.protocolSupported = protocolSupported;
     }
 
     /**
+     * Gets the volume name.
+     *
      * @return the volumeName
      */
     public String getVolumeName() {
@@ -2600,14 +3249,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param volumeName
-     *            the volumeName to set
+     * Sets the volume name.
+     *
+     * @param volumeName the volumeName to set
      */
     public void setVolumeName(String volumeName) {
 	this.volumeName = volumeName;
     }
 
     /**
+     * Gets the bytes per sector.
+     *
      * @return the bytesPerSector
      */
     public Integer getBytesPerSector() {
@@ -2615,14 +3267,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param bytesPerSector
-     *            the bytesPerSector to set
+     * Sets the bytes per sector.
+     *
+     * @param bytesPerSector the bytesPerSector to set
      */
     public void setBytesPerSector(Integer bytesPerSector) {
 	this.bytesPerSector = bytesPerSector;
     }
 
     /**
+     * Gets the data width.
+     *
      * @return the dataWidth
      */
     public Integer getDataWidth() {
@@ -2630,14 +3285,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param dataWidth
-     *            the dataWidth to set
+     * Sets the data width.
+     *
+     * @param dataWidth the dataWidth to set
      */
     public void setDataWidth(Integer dataWidth) {
 	this.dataWidth = dataWidth;
     }
 
     /**
+     * Gets the product.
+     *
      * @return the product
      */
     public String getProduct() {
@@ -2645,14 +3303,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param product
-     *            the product to set
+     * Sets the product.
+     *
+     * @param product the product to set
      */
     public void setProduct(String product) {
 	this.product = product;
     }
 
     /**
+     * Gets the colors.
+     *
      * @return the colors
      */
     public Integer getColors() {
@@ -2660,14 +3321,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param colors
-     *            the colors to set
+     * Sets the colors.
+     *
+     * @param colors the colors to set
      */
     public void setColors(Integer colors) {
 	this.colors = colors;
     }
 
     /**
+     * Gets the refresh rate.
+     *
      * @return the refreshRate
      */
     public Integer getRefreshRate() {
@@ -2675,14 +3339,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param refreshRate
-     *            the refreshRate to set
+     * Sets the refresh rate.
+     *
+     * @param refreshRate the refreshRate to set
      */
     public void setRefreshRate(Integer refreshRate) {
 	this.refreshRate = refreshRate;
     }
 
     /**
+     * Gets the horizontal res.
+     *
      * @return the horizontalRes
      */
     public Integer getHorizontalRes() {
@@ -2690,14 +3357,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param horizontalRes
-     *            the horizontalRes to set
+     * Sets the horizontal res.
+     *
+     * @param horizontalRes the horizontalRes to set
      */
     public void setHorizontalRes(Integer horizontalRes) {
 	this.horizontalRes = horizontalRes;
     }
 
     /**
+     * Gets the vertical res.
+     *
      * @return the verticalRes
      */
     public Integer getVerticalRes() {
@@ -2705,14 +3375,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param verticalRes
-     *            the verticalRes to set
+     * Sets the vertical res.
+     *
+     * @param verticalRes the verticalRes to set
      */
     public void setVerticalRes(Integer verticalRes) {
 	this.verticalRes = verticalRes;
     }
 
     /**
+     * Gets the video memory.
+     *
      * @return the videoMemory
      */
     public Integer getVideoMemory() {
@@ -2720,14 +3393,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param videoMemory
-     *            the videoMemory to set
+     * Sets the video memory.
+     *
+     * @param videoMemory the videoMemory to set
      */
     public void setVideoMemory(Integer videoMemory) {
 	this.videoMemory = videoMemory;
     }
 
     /**
+     * Gets the protocol code.
+     *
      * @return the protocolCode
      */
     public String getProtocolCode() {
@@ -2735,14 +3411,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param protocolCode
-     *            the protocolCode to set
+     * Sets the protocol code.
+     *
+     * @param protocolCode the protocolCode to set
      */
     public void setProtocolCode(String protocolCode) {
 	this.protocolCode = protocolCode;
     }
 
     /**
+     * Gets the number of ports.
+     *
      * @return the numberOfPorts
      */
     public Integer getNumberOfPorts() {
@@ -2750,14 +3429,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param numberOfPorts
-     *            the numberOfPorts to set
+     * Sets the number of ports.
+     *
+     * @param numberOfPorts the numberOfPorts to set
      */
     public void setNumberOfPorts(Integer numberOfPorts) {
 	this.numberOfPorts = numberOfPorts;
     }
 
     /**
+     * Gets the usb version.
+     *
      * @return the usbRemainingVersion
      */
     public String getUsbVersion() {
@@ -2765,14 +3447,17 @@ public class HardwareDevice {
     }
 
     /**
-     * @param usbVersion
-     *            the usbVersion to set
+     * Sets the usb version.
+     *
+     * @param usbVersion the usbVersion to set
      */
     public void setUsbVersion(String usbVersion) {
 	this.usbVersion = usbVersion;
     }
 
     /**
+     * Gets the separator.
+     *
      * @return the separator
      */
     public static char getSeparator() {
@@ -2780,6 +3465,8 @@ public class HardwareDevice {
     }
 
     /**
+     * Gets the signature.
+     *
      * @return the signature
      */
     public String getSignature() {
@@ -2787,8 +3474,9 @@ public class HardwareDevice {
     }
 
     /**
-     * @param signature
-     *            the signature to set
+     * Sets the signature.
+     *
+     * @param signature the signature to set
      */
     public void setSignature(String signature) {
 	this.signature = signature;
