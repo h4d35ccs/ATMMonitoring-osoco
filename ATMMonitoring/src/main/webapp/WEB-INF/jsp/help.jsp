@@ -37,7 +37,7 @@
 			</ul>
 		</nav>
 	<div class="scroll">
-		<div class="content">
+		<!-- <div class="content">
 			
 			<h2>Dasboard</h2>
 				<p><a href="resources/images/ejemplo/db_b.png" class="colorbox photo right"><img src="resources/images/ejemplo/db_s.png" /></a>Scelerisque montes est et! Sit dignissim, sed, aenean ac scelerisque. Pulvinar ac! Elementum natoque penatibus scelerisque sociis tempor, hac ridiculus ac augue non et. Magna dignissim lundium rhoncus turpis! Porttitor eros dis proin pulvinar sagittis ac, facilisis porta mauris tincidunt scelerisque pulvinar. Arcu augue eu. Penatibus sit phasellus lorem in.</p>
@@ -123,6 +123,7 @@
 				<p>Nisi, lorem arcu eu ut cursus, massa! Sit, sit, turpis penatibus elit ut tristique? Placerat! Dolor turpis in integer ac phasellus vut augue, eu ridiculus et sagittis platea hac nunc et, habitasse rhoncus, elementum pulvinar parturient sit facilisis non? Platea dolor egestas diam in dapibus. Urna non eu odio.</p>
 
 				<p>Tristique? Pulvinar dis, porta! Integer? Nunc sit nisi vel, scelerisque aliquam phasellus dictumst, pid a risus mid platea tincidunt a vel, augue mid? Nunc lorem! Dolor natoque lorem elementum tristique dignissim placerat sed. Natoque, amet elementum sed? Rhoncus turpis a sociis auctor aliquam et cursus dapibus lectus porttitor proin.</p>
-		</div>
+		</div> -->
+		<c:import url="/resources/help/${localeCode}/scheduled_updates_schedules_viewer.html" />
 	</div><!-- /scroll --></div>
 </t:osoco-wrapper>
