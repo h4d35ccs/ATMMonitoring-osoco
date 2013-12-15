@@ -21,7 +21,7 @@ import com.ncr.ATMMonitoring.pojo.Terminal;
 /**
  * The Class QueryServiceImpl.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Service("queryService")
@@ -148,7 +148,7 @@ public class QueryServiceImpl implements QueryService {
 		String hql = query.getHQLGroupingBy(values, types, locale, groupByEntity, groupByField);
         logger.debug("HQL for widget's query is: " + hql);
 		if ((hql != null) && (!hql.equals(""))) {
-			results = terminalDAO.executeQuery(values, types, hql);
+			results = terminalDAO.getTerminalsByHQL(values, types, hql);
 		}
 		return results;
 	}

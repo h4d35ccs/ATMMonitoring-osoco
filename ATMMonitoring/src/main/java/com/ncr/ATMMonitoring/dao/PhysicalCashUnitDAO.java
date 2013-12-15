@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.PhysicalCashUnit;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface PhysicalCashUnitDAO.
- *
+ * 
+ * Dao with the operations for managing PhysicalCashUnit Pojos.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,17 +22,18 @@ public interface PhysicalCashUnitDAO {
     public void addPhysicalCashUnit(PhysicalCashUnit physicalCashUnit);
 
     /**
-     * List physical cash units.
-     *
+     * Lists all physical cash units.
+     * 
      * @return the list
      */
     public List<PhysicalCashUnit> listPhysicalCashUnits();
 
     /**
-     * Gets the physical cash unit.
-     *
-     * @param id the id
-     * @return the physical cash unit
+     * Gets the physical cash unit with the given id.
+     * 
+     * @param id
+     *            the id
+     * @return the physical cash unit, or null if it doesn't exist
      */
     public PhysicalCashUnit getPhysicalCashUnit(Integer id);
 }

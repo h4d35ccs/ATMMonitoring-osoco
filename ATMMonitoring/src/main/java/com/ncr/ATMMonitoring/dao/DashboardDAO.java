@@ -3,9 +3,10 @@ package com.ncr.ATMMonitoring.dao;
 
 import com.ncr.ATMMonitoring.pojo.Dashboard;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface DashboardDAO.
+ * 
+ * Dao with the operations for managing Dashboard Pojos.
  * 
  * @author Rafael Luque (rafael.luque@osoco.es)
  */
@@ -13,9 +14,10 @@ import com.ncr.ATMMonitoring.pojo.Dashboard;
 public interface DashboardDAO {
 
     /**
-     * Save.
-     *
-     * @param dashboard the dashboard
+     * Adds the Dashboard.
+     * 
+     * @param dashboard
+     *            the dashboard
      */
     public void save(Dashboard dashboard);
 

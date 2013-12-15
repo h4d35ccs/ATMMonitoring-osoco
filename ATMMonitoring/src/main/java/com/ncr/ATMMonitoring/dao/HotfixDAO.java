@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.Hotfix;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface HotfixDAO.
- *
+ * 
+ * Dao with the operations for managing Hotfix Pojos.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,24 +22,26 @@ public interface HotfixDAO {
     public void addHotfix(Hotfix hotfix);
 
     /**
-     * List hotfix.
-     *
+     * Lists all hotfixes.
+     * 
      * @return the list
      */
     public List<Hotfix> listHotfix();
 
     /**
-     * Gets the hotfix.
-     *
-     * @param id the id
-     * @return the hotfix
+     * Gets the hotfix with the given id.
+     * 
+     * @param id
+     *            the id
+     * @return the hotfix, or null if it doesn't exist
      */
     public Hotfix getHotfix(Integer id);
 
     /**
-     * Removes the hotfix.
-     *
-     * @param id the id
+     * Removes the hotfix with the given id.
+     * 
+     * @param id
+     *            the id
      */
     public void removeHotfix(Integer id);
 }

@@ -8,9 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Query;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class QueryDAOImpl.
+ * 
+ * Default implementation of QueryDAO.
  * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */

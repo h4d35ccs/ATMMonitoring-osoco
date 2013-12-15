@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.Location;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface LocationDAO.
- *
+ * 
+ * Dao with the operations for managing Location Pojos.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,31 +22,34 @@ public interface LocationDAO {
     public void addLocation(Location location);
 
     /**
-     * Gets the location.
-     *
-     * @param id the id
-     * @return the location
+     * Gets the location with the given id.
+     * 
+     * @param id
+     *            the id
+     * @return the location, or null if it doesn't exist
      */
     public Location getLocation(Integer id);
 
     /**
-     * List locations.
-     *
+     * Lists all locations.
+     * 
      * @return the list
      */
     public List<Location> listLocations();
 
     /**
-     * Update location.
-     *
-     * @param location the location
+     * Updates location.
+     * 
+     * @param location
+     *            the location
      */
     public void updateLocation(Location location);
 
     /**
-     * Removes the location.
-     *
-     * @param id the id
+     * Removes the location with the given id.
+     * 
+     * @param id
+     *            the id
      */
     public void removeLocation(Integer id);
 }

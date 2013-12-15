@@ -6,15 +6,13 @@ import java.util.Set;
 import java.util.Vector;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
-import org.hibernate.SessionFactory;
-import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.type.Type;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
@@ -23,9 +21,10 @@ import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.agent.baseData.ATMDataStorePojo;
 import com.ncr.agent.baseData.os.module.BaseBoardPojo;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TerminalDAOImpl.
+ * 
+ * Default implementation of TerminalDAO.
  * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
@@ -144,26 +143,6 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 		hql += " " + order;
 	    }
 	}
-	Query query = sessionFactory.getCurrentSession().createQuery(hql);
-	query.setParameters(values.toArray(), types.toArray(new Type[0]));
-	logger.debug("Executing the HQL sentence '" + hql
-		+ "' with the values " + values + "and types " + types);
-	try {
-	    return query.list();
-	} catch (HibernateException e) {
-	    logger.error(
-		    "There was an error while executing the HQL sentence '"
-			    + hql + "' with the values " + values
-			    + "and types " + types, e);
-	    throw e;
-	}
-    }
-
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#executeQuery(java.util.List, java.util.List, java.lang.String)
-     */
-    @Override
-    public List executeQuery(List<Object> values, List<Type> types, String hql) {
 	Query query = sessionFactory.getCurrentSession().createQuery(hql);
 	query.setParameters(values.toArray(), types.toArray(new Type[0]));
 	logger.debug("Executing the HQL sentence '" + hql

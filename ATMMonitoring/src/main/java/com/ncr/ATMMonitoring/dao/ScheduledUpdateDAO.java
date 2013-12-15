@@ -5,10 +5,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface ScheduledUpdateDAO.
- *
+ * 
+ * Dao with the operations for managing ScheduledUpdate Pojos.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -22,55 +23,60 @@ public interface ScheduledUpdateDAO {
     public void addScheduledUpdate(ScheduledUpdate scheduledUpdate);
 
     /**
-     * List monthly scheduled updates.
-     *
+     * Lists all monthly scheduled updates.
+     * 
      * @return the list
      */
     public List<ScheduledUpdate> listMonthlyScheduledUpdates();
 
     /**
-     * List weekly scheduled updates.
-     *
+     * Lists all weekly scheduled updates.
+     * 
      * @return the list
      */
     public List<ScheduledUpdate> listWeeklyScheduledUpdates();
 
     /**
-     * Gets the scheduled update.
-     *
-     * @param id the id
-     * @return the scheduled update
+     * Gets the scheduled update with the given id.
+     * 
+     * @param id
+     *            the id
+     * @return the scheduled update, or null if it doesn't exist
      */
     public ScheduledUpdate getScheduledUpdate(Integer id);
 
     /**
-     * Removes the scheduled update.
-     *
-     * @param id the id
+     * Removes the scheduled update with the given id.
+     * 
+     * @param id
+     *            the id
      */
     public void removeScheduledUpdate(Integer id);
 
     /**
-     * List valid scheduled updates.
-     *
-     * @param date the date
+     * Lists all valid scheduled updates.
+     * 
+     * @param date
+     *            the date
      * @return the list
      */
     public List<ScheduledUpdate> listValidScheduledUpdates(Calendar date);
 
     /**
-     * Exists monthly scheduled update.
-     *
-     * @param scheduledUpdate the scheduled update
-     * @return true, if successful
+     * Checks whether a monthly scheduled update already exists.
+     * 
+     * @param scheduledUpdate
+     *            the scheduled update
+     * @return true if it does exist
      */
     public boolean existsMonthlyScheduledUpdate(ScheduledUpdate scheduledUpdate);
 
     /**
-     * Exists weekly scheduled update.
-     *
-     * @param scheduledUpdate the scheduled update
-     * @return true, if successful
+     * Checks whether a weekly scheduled update already exists.
+     * 
+     * @param scheduledUpdate
+     *            the scheduled update
+     * @return true if it does exist
      */
     public boolean existsWeeklyScheduledUpdate(ScheduledUpdate scheduledUpdate);
 }

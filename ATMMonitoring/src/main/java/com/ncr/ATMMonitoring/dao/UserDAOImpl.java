@@ -4,20 +4,19 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.User;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class UserDAOImpl.
+ * 
+ * Default implementation of UserDAO.
  * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */

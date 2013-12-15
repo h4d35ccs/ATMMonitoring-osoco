@@ -4,9 +4,10 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.Widget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface WidgetDAO.
+ * 
+ * Dao with the operations for managing Widget Pojos.
  * 
  * @author Rafael Luque (rafael.luque@osoco.es)
  */
@@ -14,16 +15,18 @@ import com.ncr.ATMMonitoring.pojo.Widget;
 public interface WidgetDAO {
 
     /**
-     * Save.
-     *
-     * @param widget the widget
+     * Saves a widget.
+     * 
+     * @param widget
+     *            the widget
      */
     public void save(Widget widget);
 
     /**
-     * Update.
-     *
-     * @param widget the widget
+     * Updates widget.
+     * 
+     * @param widget
+     *            the widget
      */
     public void update(Widget widget);
 
@@ -34,12 +37,13 @@ public interface WidgetDAO {
 	 */
 	public List<Widget> findDefaultWidgets();
 
-	/**
-	 * Find by id.
-	 *
-	 * @param id the id
-	 * @return the widget
-	 */
+	    /**
+     * Find widget by id.
+     * 
+     * @param id
+     *            the id
+     * @return the widget, or null if it doesn't exist
+     */
 	public Widget findById(int id);
 
 }

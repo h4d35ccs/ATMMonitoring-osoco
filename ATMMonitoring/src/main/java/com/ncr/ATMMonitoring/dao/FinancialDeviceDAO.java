@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface FinancialDeviceDAO.
- *
+ * 
+ * Dao with the operations for managing FinancialDevice Pojos.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,17 +22,18 @@ public interface FinancialDeviceDAO {
     public void addFinancialDevice(FinancialDevice financialDevice);
 
     /**
-     * List financial devices.
-     *
+     * Lists all financial devices.
+     * 
      * @return the list
      */
     public List<FinancialDevice> listFinancialDevices();
 
     /**
-     * Gets the financial device.
-     *
-     * @param id the id
-     * @return the financial device
+     * Gets the financial device with the given id.
+     * 
+     * @param id
+     *            the id
+     * @return the financial device, or null if it doesn't exist
      */
     public FinancialDevice getFinancialDevice(Integer id);
 

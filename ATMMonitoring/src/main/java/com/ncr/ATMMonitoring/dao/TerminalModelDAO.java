@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.TerminalModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface TerminalModelDAO.
- *
+ * 
+ * Dao with the operations for managing TerminalModel Pojos.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,26 +22,29 @@ public interface TerminalModelDAO {
     public void addTerminalModel(TerminalModel terminalModel);
 
     /**
-     * Gets the terminal model.
-     *
-     * @param id the id
-     * @return the terminal model
+     * Gets the terminal model with the given id.
+     * 
+     * @param id
+     *            the id
+     * @return the terminal model, or null if it doesn't exist
      */
     public TerminalModel getTerminalModel(Integer id);
 
     /**
      * Gets the terminal model by model.
-     *
-     * @param model the model
-     * @return the terminal model by model
+     * 
+     * @param model
+     *            the model
+     * @return the terminal model by model, or null if it doesn't exist
      */
     public TerminalModel getTerminalModelByModel(String model);
 
     /**
      * Gets the terminal model by product class.
-     *
-     * @param productClass the product class
-     * @return the terminal model by product class
+     * 
+     * @param productClass
+     *            the product class
+     * @return the terminal model by product class, or null if it doesn't exist
      */
     public TerminalModel getTerminalModelByProductClass(String productClass);
 
@@ -59,9 +63,10 @@ public interface TerminalModelDAO {
     public void updateTerminalModel(TerminalModel terminalModel);
 
     /**
-     * Removes the terminal model.
-     *
-     * @param id the id
+     * Removes the terminal model with the given id.
+     * 
+     * @param id
+     *            the id
      */
     public void removeTerminalModel(Integer id);
 }

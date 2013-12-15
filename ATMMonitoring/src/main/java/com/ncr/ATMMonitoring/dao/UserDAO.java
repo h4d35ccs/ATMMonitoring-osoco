@@ -6,10 +6,11 @@ import java.util.Set;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.User;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface UserDAO.
- *
+ * 
+ * Dao with the operations for managing User Pojos.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -30,48 +31,53 @@ public interface UserDAO {
     public void updateUser(User user);
 
     /**
-     * List users by bank companies.
-     *
-     * @param bank the bank
+     * Lists all users for the given bank companies.
+     * 
+     * @param bank
+     *            the bank companies
      * @return the list
      */
     public List<User> listUsersByBankCompanies(Set<BankCompany> bank);
 
     /**
-     * List users by bank company.
-     *
-     * @param bank the bank
+     * List all users for the given bank company.
+     * 
+     * @param bank
+     *            the bank company
      * @return the list
      */
     public List<User> listUsersByBankCompany(BankCompany bank);
 
     /**
-     * List users.
-     *
+     * Lists all users.
+     * 
      * @return the list
      */
     public List<User> listUsers();
 
     /**
-     * Gets the user.
-     *
-     * @param id the id
-     * @return the user
+     * Gets the user with the given id.
+     * 
+     * @param id
+     *            the id
+     * @return the user, or null if it doesn't exist
      */
     public User getUser(Integer id);
 
     /**
-     * Removes the user.
-     *
-     * @param id the id
+     * Removes the user with the given id.
+     * 
+     * @param id
+     *            the id
      */
     public void removeUser(Integer id);
 
     /**
      * Gets the user by username.
-     *
-     * @param username the username
-     * @return the user by username
+     * 
+     * @param username
+     *            the username
+     * @return the user by username, or null if it doesn't exist
      */
     public User getUserByUsername(String username);
 }

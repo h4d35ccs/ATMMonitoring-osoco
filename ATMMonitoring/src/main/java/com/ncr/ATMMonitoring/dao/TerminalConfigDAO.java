@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.TerminalConfig;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface TerminalConfigDAO.
- *
+ * 
+ * Dao with the operations for managing TerminalConfig Pojos.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,17 +22,18 @@ public interface TerminalConfigDAO {
     public void addTerminalConfig(TerminalConfig terminalConfig);
 
     /**
-     * List terminal config.
-     *
+     * Lists all terminal config.
+     * 
      * @return the list
      */
     public List<TerminalConfig> listTerminalConfig();
 
     /**
-     * Gets the terminal config.
-     *
-     * @param id the id
-     * @return the terminal config
+     * Gets the terminal config with the given id.
+     * 
+     * @param id
+     *            the id
+     * @return the terminal config, or null if it doesn't exist
      */
     public TerminalConfig getTerminalConfig(Integer id);
 }

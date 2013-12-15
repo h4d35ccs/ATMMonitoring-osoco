@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.Role;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface RoleDAO.
- *
+ * 
+ * Dao with the operations for managing Role Pojos.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,16 +22,17 @@ public interface RoleDAO {
     public void addRole(Role role);
 
     /**
-     * Gets the role.
-     *
-     * @param id the id
-     * @return the role
+     * Gets the role with the given id.
+     * 
+     * @param id
+     *            the id
+     * @return the role, or null if it doesn't exist
      */
     public Role getRole(Integer id);
 
     /**
-     * List roles.
-     *
+     * Lists all roles.
+     * 
      * @return the list
      */
     public List<Role> listRoles();
@@ -43,9 +45,10 @@ public interface RoleDAO {
     public List<Role> listManageableRoles();
 
     /**
-     * Removes the role.
-     *
-     * @param id the id
+     * Removes the role with the given id.
+     * 
+     * @param id
+     *            the id
      */
     public void removeRole(Integer id);
 }
