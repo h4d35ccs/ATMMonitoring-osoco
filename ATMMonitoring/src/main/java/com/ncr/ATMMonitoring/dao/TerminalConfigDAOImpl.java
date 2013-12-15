@@ -7,31 +7,29 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.TerminalConfig;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class TerminalConfigDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class TerminalConfigDAOImpl implements TerminalConfigDAO {
+public class TerminalConfigDAOImpl extends AbstractGenericDAO<TerminalConfig>
+	implements TerminalConfigDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalConfigDAOImpl.class.getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.TerminalConfigDAO#addTerminalConfig(com.ncr.ATMMonitoring.pojo.TerminalConfig)
      */
     @Override
     public void addTerminalConfig(TerminalConfig terminalConfig) {
-		sessionFactory.getCurrentSession().save(terminalConfig);
+	add(terminalConfig);
 		logger.debug("Created new Terminal Config with id " + terminalConfig.getId());
     }
 
@@ -40,7 +38,7 @@ public class TerminalConfigDAOImpl implements TerminalConfigDAO {
      */
     @Override
     public List<TerminalConfig> listTerminalConfig() {
-		return sessionFactory.getCurrentSession().createCriteria(TerminalConfig.class).list();
+	return list();
     }
 
     /* (non-Javadoc)
@@ -48,6 +46,6 @@ public class TerminalConfigDAOImpl implements TerminalConfigDAO {
      */
     @Override
     public TerminalConfig getTerminalConfig(Integer id) {
-		return (TerminalConfig) sessionFactory.getCurrentSession().get(TerminalConfig.class, id);
+	return get(id);
     }
 }

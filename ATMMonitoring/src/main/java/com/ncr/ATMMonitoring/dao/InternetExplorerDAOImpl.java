@@ -10,32 +10,30 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.InternetExplorer;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class InternetExplorerDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class InternetExplorerDAOImpl implements InternetExplorerDAO {
+public class InternetExplorerDAOImpl extends
+	AbstractGenericDAO<InternetExplorer> implements InternetExplorerDAO {
 
     /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(InternetExplorerDAOImpl.class.getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#addInternetExplorer(com.ncr.ATMMonitoring.pojo.InternetExplorer)
      */
     @Override
     public void addInternetExplorer(InternetExplorer internetExplorer) {
-	sessionFactory.getCurrentSession().save(internetExplorer);
+	add(internetExplorer);
 	logger.debug("Created new Internet Explorer with id "
 		+ internetExplorer.getId());
     }
@@ -59,8 +57,7 @@ public class InternetExplorerDAOImpl implements InternetExplorerDAO {
      */
     @Override
     public InternetExplorer getInternetExplorer(Integer id) {
-	return (InternetExplorer) sessionFactory.getCurrentSession().get(
-		InternetExplorer.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
@@ -68,11 +65,7 @@ public class InternetExplorerDAOImpl implements InternetExplorerDAO {
      */
     @Override
     public void removeInternetExplorer(Integer id) {
-	InternetExplorer internetExplorer = (InternetExplorer) sessionFactory
-		.getCurrentSession().load(InternetExplorer.class, id);
-	if (internetExplorer != null) {
-	    sessionFactory.getCurrentSession().delete(internetExplorer);
-	}
+	delete(id);
     }
 
     /* (non-Javadoc)

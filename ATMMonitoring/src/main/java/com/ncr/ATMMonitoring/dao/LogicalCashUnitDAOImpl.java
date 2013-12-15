@@ -7,32 +7,30 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.LogicalCashUnit;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class LogicalCashUnitDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class LogicalCashUnitDAOImpl implements LogicalCashUnitDAO {
+public class LogicalCashUnitDAOImpl extends AbstractGenericDAO<LogicalCashUnit>
+	implements LogicalCashUnitDAO {
 
     /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(LogicalCashUnitDAOImpl.class.getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.LogicalCashUnitDAO#addLogicalCashUnit(com.ncr.ATMMonitoring.pojo.LogicalCashUnit)
      */
     @Override
     public void addLogicalCashUnit(LogicalCashUnit logicalCashUnit) {
-	sessionFactory.getCurrentSession().save(logicalCashUnit);
+	add(logicalCashUnit);
 	logger.debug("Created new Logical Cash Unit with id "
 		+ logicalCashUnit.getId());
     }
@@ -42,8 +40,7 @@ public class LogicalCashUnitDAOImpl implements LogicalCashUnitDAO {
      */
     @Override
     public List<LogicalCashUnit> listLogicalCashUnits() {
-	return sessionFactory.getCurrentSession()
-		.createCriteria(LogicalCashUnit.class).list();
+	return list();
     }
 
     /* (non-Javadoc)
@@ -51,7 +48,6 @@ public class LogicalCashUnitDAOImpl implements LogicalCashUnitDAO {
      */
     @Override
     public LogicalCashUnit getLogicalCashUnit(Integer id) {
-	return (LogicalCashUnit) sessionFactory.getCurrentSession().get(
-		LogicalCashUnit.class, id);
+	return get(id);
     }
 }

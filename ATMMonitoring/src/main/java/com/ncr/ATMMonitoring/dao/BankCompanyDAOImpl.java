@@ -8,31 +8,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
+import com.ncr.ATMMonitoring.pojo.Query;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class BankCompanyDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class BankCompanyDAOImpl implements BankCompanyDAO {
+public class BankCompanyDAOImpl extends AbstractGenericDAO<BankCompany>
+	implements BankCompanyDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(BankCompanyDAOImpl.class
 	    .getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.BankCompanyDAO#addBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
      */
     @Override
     public void addBankCompany(BankCompany bank) {
-	sessionFactory.getCurrentSession().save(bank);
+	add(bank);
 	logger.debug("Created new Bank Company with id " + bank.getId());
     }
 
@@ -41,8 +39,7 @@ public class BankCompanyDAOImpl implements BankCompanyDAO {
      */
     @Override
     public BankCompany getBankCompany(Integer id) {
-	return (BankCompany) sessionFactory.getCurrentSession().get(
-		BankCompany.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
@@ -50,8 +47,7 @@ public class BankCompanyDAOImpl implements BankCompanyDAO {
      */
     @Override
     public List<BankCompany> listBankCompanies() {
-	return sessionFactory.getCurrentSession()
-		.createCriteria(BankCompany.class).list();
+	return list();
     }
 
     /* (non-Javadoc)
@@ -59,8 +55,7 @@ public class BankCompanyDAOImpl implements BankCompanyDAO {
      */
     @Override
     public void updateBankCompany(BankCompany bankCompany) {
-	sessionFactory.getCurrentSession().update(
-		sessionFactory.getCurrentSession().merge(bankCompany));
+	update(bankCompany);
 	logger.info("Updated Bank Company with id " + bankCompany.getId());
     }
 
@@ -69,11 +64,6 @@ public class BankCompanyDAOImpl implements BankCompanyDAO {
      */
     @Override
     public void removeBankCompany(Integer id) {
-	BankCompany bank = (BankCompany) sessionFactory.getCurrentSession()
-		.load(BankCompany.class, id);
-	if (null != bank) {
-	    sessionFactory.getCurrentSession().delete(bank);
-	}
-
+	delete(id);
     }
 }

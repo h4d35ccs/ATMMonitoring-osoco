@@ -8,32 +8,29 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Role;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class RoleDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class RoleDAOImpl implements RoleDAO {
+public class RoleDAOImpl extends AbstractGenericDAO<Role> implements RoleDAO {
 
     /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(RoleDAOImpl.class.getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.RoleDAO#addRole(com.ncr.ATMMonitoring.pojo.Role)
      */
     @Override
     public void addRole(Role role) {
-	sessionFactory.getCurrentSession().save(role);
+	add(role);
 	logger.debug("Created new Role with id " + role.getId());
     }
 
@@ -42,7 +39,7 @@ public class RoleDAOImpl implements RoleDAO {
      */
     @Override
     public Role getRole(Integer id) {
-	return (Role) sessionFactory.getCurrentSession().get(Role.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
@@ -50,8 +47,7 @@ public class RoleDAOImpl implements RoleDAO {
      */
     @Override
     public List<Role> listRoles() {
-	return sessionFactory.getCurrentSession().createCriteria(Role.class)
-		.list();
+	return list();
     }
 
     /* (non-Javadoc)
@@ -68,11 +64,6 @@ public class RoleDAOImpl implements RoleDAO {
      */
     @Override
     public void removeRole(Integer id) {
-	Role role = (Role) sessionFactory.getCurrentSession().load(Role.class,
-		id);
-	if (null != role) {
-	    sessionFactory.getCurrentSession().delete(role);
-	}
-
+	delete(id);
     }
 }

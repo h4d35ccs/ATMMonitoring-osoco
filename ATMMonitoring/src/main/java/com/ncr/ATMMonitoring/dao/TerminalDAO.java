@@ -13,7 +13,7 @@ import com.ncr.agent.baseData.ATMDataStorePojo;
 /**
  * The Interface TerminalDAO.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public interface TerminalDAO {

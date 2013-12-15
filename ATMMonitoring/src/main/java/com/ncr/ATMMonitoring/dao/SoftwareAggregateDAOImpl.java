@@ -10,32 +10,30 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.SoftwareAggregate;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class SoftwareAggregateDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class SoftwareAggregateDAOImpl implements SoftwareAggregateDAO {
+public class SoftwareAggregateDAOImpl extends
+	AbstractGenericDAO<SoftwareAggregate> implements SoftwareAggregateDAO {
 
     /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(SoftwareAggregateDAOImpl.class.getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#addSoftwareAggregate(com.ncr.ATMMonitoring.pojo.SoftwareAggregate)
      */
     @Override
     public void addSoftwareAggregate(SoftwareAggregate softwareAggregate) {
-    	sessionFactory.getCurrentSession().save(softwareAggregate);
+	add(softwareAggregate);
     	logger.debug("Created new Software Aggregate with id " + softwareAggregate.getId());
     }
 
@@ -59,7 +57,7 @@ public class SoftwareAggregateDAOImpl implements SoftwareAggregateDAO {
      */
     @Override
     public SoftwareAggregate getSoftwareAggregate(Integer id) {
-    	return (SoftwareAggregate) sessionFactory.getCurrentSession().get(SoftwareAggregate.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
@@ -108,9 +106,6 @@ public class SoftwareAggregateDAOImpl implements SoftwareAggregateDAO {
      */
     @Override
     public void removeSoftwareAggregate(Integer id) {
-    	SoftwareAggregate softwareAggregate = (SoftwareAggregate) sessionFactory.getCurrentSession().load(SoftwareAggregate.class, id);
-		if (softwareAggregate != null) {
-		    sessionFactory.getCurrentSession().delete(softwareAggregate);
-		}
+	delete(id);
     }
 }

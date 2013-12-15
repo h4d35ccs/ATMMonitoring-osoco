@@ -8,32 +8,30 @@ import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Hotfix;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class HotfixDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class HotfixDAOImpl implements HotfixDAO {
+public class HotfixDAOImpl extends AbstractGenericDAO<Hotfix> implements
+	HotfixDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(HotfixDAOImpl.class
 	    .getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.HotfixDAO#addHotfix(com.ncr.ATMMonitoring.pojo.Hotfix)
      */
     @Override
     public void addHotfix(Hotfix hotfix) {
-	sessionFactory.getCurrentSession().save(hotfix);
+	add(hotfix);
 	logger.debug("Created new Hotfix with id " + hotfix.getId());
     }
 
@@ -56,8 +54,7 @@ public class HotfixDAOImpl implements HotfixDAO {
      */
     @Override
     public Hotfix getHotfix(Integer id) {
-	return (Hotfix) sessionFactory.getCurrentSession()
-		.get(Hotfix.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
@@ -65,10 +62,6 @@ public class HotfixDAOImpl implements HotfixDAO {
      */
     @Override
     public void removeHotfix(Integer id) {
-	Hotfix hotfix = (Hotfix) sessionFactory.getCurrentSession().load(
-		Hotfix.class, id);
-	if (hotfix != null) {
-	    sessionFactory.getCurrentSession().delete(hotfix);
-	}
+	delete(id);
     }
 }

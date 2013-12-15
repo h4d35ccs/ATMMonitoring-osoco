@@ -12,26 +12,23 @@ import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 // TODO: Auto-generated Javadoc
 /**
  * The Class FinancialDeviceDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class FinancialDeviceDAOImpl implements FinancialDeviceDAO {
+public class FinancialDeviceDAOImpl extends AbstractGenericDAO<FinancialDevice>
+	implements FinancialDeviceDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(FinancialDeviceDAOImpl.class.getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.FinancialDeviceDAO#addFinancialDevice(com.ncr.ATMMonitoring.pojo.FinancialDevice)
      */
     @Override
     public void addFinancialDevice(FinancialDevice financialDevice) {
-		sessionFactory.getCurrentSession().save(financialDevice);
+	add(financialDevice);
 		logger.debug("Created new Financial Device with id "+ financialDevice.getId());
     }
 
@@ -40,7 +37,7 @@ public class FinancialDeviceDAOImpl implements FinancialDeviceDAO {
      */
     @Override
     public List<FinancialDevice> listFinancialDevices() {
-		return sessionFactory.getCurrentSession().createCriteria(FinancialDevice.class).list();
+	return list();
     }
 
     /* (non-Javadoc)
@@ -48,7 +45,7 @@ public class FinancialDeviceDAOImpl implements FinancialDeviceDAO {
      */
     @Override
     public FinancialDevice getFinancialDevice(Integer id) {
-		return (FinancialDevice) sessionFactory.getCurrentSession().get(FinancialDevice.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
@@ -56,9 +53,6 @@ public class FinancialDeviceDAOImpl implements FinancialDeviceDAO {
      */
     @Override
     public void removeFinancialDevice(Integer id) {
-		FinancialDevice financialDevice = (FinancialDevice) sessionFactory.getCurrentSession().load(FinancialDevice.class, id);
-		if (financialDevice != null) {
-		    sessionFactory.getCurrentSession().delete(financialDevice);
-		}
+	delete(id);
     }
 }

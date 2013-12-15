@@ -9,31 +9,29 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Software;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class SoftwareDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class SoftwareDAOImpl implements SoftwareDAO {
+public class SoftwareDAOImpl extends AbstractGenericDAO<Software> implements
+	SoftwareDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(SoftwareDAOImpl.class.getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.SoftwareDAO#addSoftware(com.ncr.ATMMonitoring.pojo.Software)
      */
     @Override
     public void addSoftware(Software software) {
-		sessionFactory.getCurrentSession().save(software);
+	add(software);
 		logger.debug("Created new Software with id " + software.getId());
     }
 
@@ -56,8 +54,7 @@ public class SoftwareDAOImpl implements SoftwareDAO {
      */
     @Override
     public Software getSoftware(Integer id) {
-		return (Software) sessionFactory.getCurrentSession().get(
-			Software.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)

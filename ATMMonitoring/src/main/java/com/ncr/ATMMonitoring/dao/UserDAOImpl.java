@@ -18,27 +18,23 @@ import com.ncr.ATMMonitoring.pojo.User;
 // TODO: Auto-generated Javadoc
 /**
  * The Class UserDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 
     /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(UserDAOImpl.class.getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.UserDAO#addUser(com.ncr.ATMMonitoring.pojo.User)
      */
     @Override
     public void addUser(User user) {
-	sessionFactory.getCurrentSession().save(user);
+	add(user);
 	logger.info("Created new User with id " + user.getId()
 		+ " and username " + user.getUsername());
     }
@@ -48,8 +44,7 @@ public class UserDAOImpl implements UserDAO {
      */
     @Override
     public void updateUser(User user) {
-	sessionFactory.getCurrentSession().update(
-		sessionFactory.getCurrentSession().merge(user));
+	update(user);
 	logger.info("Updated User with id " + user.getId() + " and username "
 		+ user.getUsername());
     }
@@ -97,7 +92,7 @@ public class UserDAOImpl implements UserDAO {
      */
     @Override
     public User getUser(Integer id) {
-	return (User) sessionFactory.getCurrentSession().get(User.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
@@ -108,7 +103,7 @@ public class UserDAOImpl implements UserDAO {
 	User user = (User) sessionFactory.getCurrentSession().load(User.class,
 		id);
 	if (user != null) {
-	    sessionFactory.getCurrentSession().delete(user);
+	    delete(user);
 	    logger.info("Deleted User with id " + id + " and username "
 		    + user.getUsername());
 	}

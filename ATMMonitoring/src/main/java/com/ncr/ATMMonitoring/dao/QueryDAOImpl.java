@@ -3,9 +3,7 @@ package com.ncr.ATMMonitoring.dao;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Query;
@@ -13,27 +11,23 @@ import com.ncr.ATMMonitoring.pojo.Query;
 // TODO: Auto-generated Javadoc
 /**
  * The Class QueryDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class QueryDAOImpl implements QueryDAO {
+public class QueryDAOImpl extends AbstractGenericDAO<Query> implements QueryDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(QueryDAOImpl.class
 	    .getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.QueryDAO#addQuery(com.ncr.ATMMonitoring.pojo.Query)
      */
     @Override
     public void addQuery(Query query) {
-	sessionFactory.getCurrentSession().save(query);
+	add(query);
 	logger.debug("Created new Query with id " + query.getId());
     }
 
@@ -42,7 +36,8 @@ public class QueryDAOImpl implements QueryDAO {
      */
     @Override
     public void deleteQuery(Query query) {
-	sessionFactory.getCurrentSession().delete(query);
+	delete(query);
+	logger.debug("Deleted Query with id " + query.getId());
     }
 
     /* (non-Javadoc)
@@ -50,8 +45,8 @@ public class QueryDAOImpl implements QueryDAO {
      */
     @Override
     public void updateQuery(Query query) {
-	sessionFactory.getCurrentSession().update(
-		sessionFactory.getCurrentSession().merge(query));
+	update(query);
+	logger.debug("Updated Query with id " + query.getId());
     }
 
     /* (non-Javadoc)
@@ -68,6 +63,6 @@ public class QueryDAOImpl implements QueryDAO {
      */
     @Override
     public Query getQuery(Integer id) {
-	return (Query) sessionFactory.getCurrentSession().get(Query.class, id);
+	return get(id);
     }
 }

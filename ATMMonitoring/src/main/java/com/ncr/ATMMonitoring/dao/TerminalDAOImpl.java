@@ -26,20 +26,17 @@ import com.ncr.agent.baseData.os.module.BaseBoardPojo;
 // TODO: Auto-generated Javadoc
 /**
  * The Class TerminalDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class TerminalDAOImpl implements TerminalDAO {
+public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
+	TerminalDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalDAOImpl.class
 	    .getName());
-
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.TerminalDAO#addTerminal(com.ncr.ATMMonitoring.pojo.Terminal)
@@ -65,8 +62,7 @@ public class TerminalDAOImpl implements TerminalDAO {
      */
     @Override
     public void updateTerminal(Terminal terminal) {
-	sessionFactory.getCurrentSession().update(
-		sessionFactory.getCurrentSession().merge(terminal));
+	update(terminal);
 	logger.info("Updated terminal with id " + terminal.getId() + ", IP "
 		+ terminal.getIp() + " and matricula "
 		+ terminal.getMatricula());
@@ -188,8 +184,7 @@ public class TerminalDAOImpl implements TerminalDAO {
      */
     @Override
     public Terminal getTerminal(Integer id) {
-	return (Terminal) sessionFactory.getCurrentSession().get(
-		Terminal.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)

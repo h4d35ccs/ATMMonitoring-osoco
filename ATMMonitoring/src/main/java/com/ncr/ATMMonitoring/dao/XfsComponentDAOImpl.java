@@ -7,32 +7,30 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.XfsComponent;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class XfsComponentDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class XfsComponentDAOImpl implements XfsComponentDAO {
+public class XfsComponentDAOImpl extends AbstractGenericDAO<XfsComponent>
+	implements XfsComponentDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(XfsComponentDAOImpl.class
 	    .getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.XfsComponentDAO#addXfsComponent(com.ncr.ATMMonitoring.pojo.XfsComponent)
      */
     @Override
     public void addXfsComponent(XfsComponent xfsComponent) {
-	sessionFactory.getCurrentSession().save(xfsComponent);
+	add(xfsComponent);
 	logger.debug("Created new Xfs Component with id "
 		+ xfsComponent.getId());
     }
@@ -42,8 +40,7 @@ public class XfsComponentDAOImpl implements XfsComponentDAO {
      */
     @Override
     public List<XfsComponent> listXfsComponents() {
-	return sessionFactory.getCurrentSession()
-		.createCriteria(XfsComponent.class).list();
+	return list();
     }
 
     /* (non-Javadoc)
@@ -51,7 +48,6 @@ public class XfsComponentDAOImpl implements XfsComponentDAO {
      */
     @Override
     public XfsComponent getXfsComponent(Integer id) {
-	return (XfsComponent) sessionFactory.getCurrentSession().get(
-		XfsComponent.class, id);
+	return get(id);
     }
 }

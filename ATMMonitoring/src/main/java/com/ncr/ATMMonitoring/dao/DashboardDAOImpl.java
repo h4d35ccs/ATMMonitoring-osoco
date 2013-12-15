@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Dashboard;
+import com.ncr.ATMMonitoring.pojo.Query;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -17,22 +18,19 @@ import com.ncr.ATMMonitoring.pojo.Dashboard;
  */
 
 @Repository
-public class DashboardDAOImpl implements DashboardDAO {
+public class DashboardDAOImpl extends AbstractGenericDAO<Dashboard> implements
+	DashboardDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(DashboardDAOImpl.class.getName());
-
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.DashboardDAO#save(com.ncr.ATMMonitoring.pojo.Dashboard)
      */
     @Override
     public void save(Dashboard dashboard) {
-		sessionFactory.getCurrentSession().save(dashboard);
-		logger.debug("Created new Dashboard with id " + dashboard.getId());
+	add(dashboard);
+	logger.debug("Created new Dashboard with id " + dashboard.getId());
     }
 
 }

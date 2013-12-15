@@ -13,32 +13,30 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class ScheduledUpdateDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
+public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
+	implements ScheduledUpdateDAO {
 
     /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(ScheduledUpdateDAOImpl.class.getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#addScheduledUpdate(com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
      */
     @Override
     public void addScheduledUpdate(ScheduledUpdate scheduledUpdate) {
-	sessionFactory.getCurrentSession().save(scheduledUpdate);
+	add(scheduledUpdate);
 	logger.debug("Created new Scheduled Update with id "
 		+ scheduledUpdate.getId());
     }
@@ -72,8 +70,7 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
      */
     @Override
     public ScheduledUpdate getScheduledUpdate(Integer id) {
-	return (ScheduledUpdate) sessionFactory.getCurrentSession().get(
-		ScheduledUpdate.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
@@ -81,11 +78,7 @@ public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO {
      */
     @Override
     public void removeScheduledUpdate(Integer id) {
-	ScheduledUpdate scheduledUpdate = (ScheduledUpdate) sessionFactory
-		.getCurrentSession().load(ScheduledUpdate.class, id);
-	if (scheduledUpdate != null) {
-	    sessionFactory.getCurrentSession().delete(scheduledUpdate);
-	}
+	delete(id);
     }
 
     /* (non-Javadoc)

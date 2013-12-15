@@ -8,32 +8,30 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.TerminalModel;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class TerminalModelDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class TerminalModelDAOImpl implements TerminalModelDAO {
+public class TerminalModelDAOImpl extends AbstractGenericDAO<TerminalModel>
+	implements TerminalModelDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalModelDAOImpl.class
 	    .getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#addTerminalModel(com.ncr.ATMMonitoring.pojo.TerminalModel)
      */
     @Override
     public void addTerminalModel(TerminalModel terminalModel) {
-	sessionFactory.getCurrentSession().save(terminalModel);
+	add(terminalModel);
 	logger.debug("Created new Terminal Model with id "
 		+ terminalModel.getId());
     }
@@ -43,8 +41,7 @@ public class TerminalModelDAOImpl implements TerminalModelDAO {
      */
     @Override
     public TerminalModel getTerminalModel(Integer id) {
-	return (TerminalModel) sessionFactory.getCurrentSession().get(
-		TerminalModel.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
@@ -52,8 +49,7 @@ public class TerminalModelDAOImpl implements TerminalModelDAO {
      */
     @Override
     public List<TerminalModel> listTerminalModels() {
-	return sessionFactory.getCurrentSession()
-		.createCriteria(TerminalModel.class).list();
+	return list();
     }
 
     /* (non-Javadoc)
@@ -61,8 +57,7 @@ public class TerminalModelDAOImpl implements TerminalModelDAO {
      */
     @Override
     public void updateTerminalModel(TerminalModel terminalModel) {
-	sessionFactory.getCurrentSession().update(
-		sessionFactory.getCurrentSession().merge(terminalModel));
+	update(terminalModel);
 	logger.info("Updated Terminal Model with id " + terminalModel.getId());
     }
 
@@ -71,12 +66,7 @@ public class TerminalModelDAOImpl implements TerminalModelDAO {
      */
     @Override
     public void removeTerminalModel(Integer id) {
-	TerminalModel terminalModel = (TerminalModel) sessionFactory
-		.getCurrentSession().load(TerminalModel.class, id);
-	if (null != terminalModel) {
-	    sessionFactory.getCurrentSession().delete(terminalModel);
-	}
-
+	delete(id);
     }
 
     /* (non-Javadoc)

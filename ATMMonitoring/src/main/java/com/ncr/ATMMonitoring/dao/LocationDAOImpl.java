@@ -7,25 +7,23 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Location;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class LocationDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class LocationDAOImpl implements LocationDAO {
+public class LocationDAOImpl extends AbstractGenericDAO<Location> implements
+	LocationDAO {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(LocationDAOImpl.class
 	    .getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.LocationDAO#addLocation(com.ncr.ATMMonitoring.pojo.Location)
@@ -41,8 +39,7 @@ public class LocationDAOImpl implements LocationDAO {
      */
     @Override
     public Location getLocation(Integer id) {
-	return (Location) sessionFactory.getCurrentSession().get(
-		Location.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
@@ -50,8 +47,7 @@ public class LocationDAOImpl implements LocationDAO {
      */
     @Override
     public List<Location> listLocations() {
-	return sessionFactory.getCurrentSession()
-		.createCriteria(Location.class).list();
+	return list();
     }
 
     /* (non-Javadoc)
@@ -59,8 +55,7 @@ public class LocationDAOImpl implements LocationDAO {
      */
     @Override
     public void updateLocation(Location location) {
-	sessionFactory.getCurrentSession().update(
-		sessionFactory.getCurrentSession().merge(location));
+	update(location);
 	logger.info("Updated Location with id " + location.getId());
     }
 
@@ -69,11 +64,6 @@ public class LocationDAOImpl implements LocationDAO {
      */
     @Override
     public void removeLocation(Integer id) {
-	Location location = (Location) sessionFactory.getCurrentSession().load(
-		Location.class, id);
-	if (null != location) {
-	    sessionFactory.getCurrentSession().delete(location);
-	}
-
+	delete(id);
     }
 }

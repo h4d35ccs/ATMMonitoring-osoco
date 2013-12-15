@@ -9,32 +9,30 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.OperatingSystem;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class OperatingSystemDAOImpl.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class OperatingSystemDAOImpl implements OperatingSystemDAO {
+public class OperatingSystemDAOImpl extends AbstractGenericDAO<OperatingSystem>
+	implements OperatingSystemDAO {
 
     /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(OperatingSystemDAOImpl.class.getName());
-    
-    /** The session factory. */
-    @Autowired
-    private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#addOperatingSystem(com.ncr.ATMMonitoring.pojo.OperatingSystem)
      */
     @Override
     public void addOperatingSystem(OperatingSystem operatingSystem) {
-	sessionFactory.getCurrentSession().save(operatingSystem);
+	add(operatingSystem);
 	logger.debug("Created new Operating System with id "
 		+ operatingSystem.getId());
     }
@@ -59,8 +57,7 @@ public class OperatingSystemDAOImpl implements OperatingSystemDAO {
      */
     @Override
     public OperatingSystem getOperatingSystem(Integer id) {
-	return (OperatingSystem) sessionFactory.getCurrentSession().get(
-		OperatingSystem.class, id);
+	return get(id);
     }
 
     /* (non-Javadoc)
