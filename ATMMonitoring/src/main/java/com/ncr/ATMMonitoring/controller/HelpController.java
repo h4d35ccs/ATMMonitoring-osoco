@@ -23,16 +23,54 @@ public class HelpController {
 
 
     /**
-     * Show dashboard.
-     *
-     * @param map the map
-     * @param principal the principal
-     * @param request the request
+     * Show default help.
+     * 
+     * @param map
+     *            the map
+     * @param principal
+     *            the principal
+     * @param request
+     *            the request
      * @return the string
      */
     @RequestMapping(value = "/help", method = RequestMethod.GET)
-    public String showDashboard(Map<String, Object> map, Principal principal, HttpServletRequest request) {
-        return "help";
+    public String showHelp(Map<String, Object> map, Principal principal,
+	    HttpServletRequest request) {
+	return "redirect:/help/dashboard";
+    }
+
+    /**
+     * Show dashboard help.
+     * 
+     * @param map
+     *            the map
+     * @param principal
+     *            the principal
+     * @param request
+     *            the request
+     * @return the string
+     */
+    @RequestMapping(value = "/help/dashboard", method = RequestMethod.GET)
+    public String showDashboardHelp(Map<String, Object> map,
+	    Principal principal, HttpServletRequest request) {
+	return "helpDashboard";
+    }
+
+    /**
+     * Show terminals help.
+     * 
+     * @param map
+     *            the map
+     * @param principal
+     *            the principal
+     * @param request
+     *            the request
+     * @return the string
+     */
+    @RequestMapping(value = "/help/terminals", method = RequestMethod.GET)
+    public String showTerminalsHelp(Map<String, Object> map,
+	    Principal principal, HttpServletRequest request) {
+	return "helpTerminals";
     }
 
 }

@@ -221,7 +221,7 @@
 
 		<div class="hide">
 			<div id="help_pop" class="inline">
-				<div class="content">
+				<!-- <div class="content">
 					<h1>
 						<spring:message code="label.terminals"/>
 					</h1>
@@ -259,7 +259,8 @@
 					<p>
 						Tristique? Pulvinar dis, porta! Integer? Nunc sit nisi vel, scelerisque aliquam phasellus dictumst, pid a risus mid platea tincidunt a vel, augue mid? Nunc lorem! Dolor natoque lorem elementum tristique dignissim placerat sed. Natoque, amet elementum sed? Rhoncus turpis a sociis auctor aliquam et cursus dapibus lectus porttitor proin.
 					</p>
-				</div>
+				</div> -->
+				<c:import url="/resources/help/${localeCode}/terminals.html" />
 			</div>
 		</div>
 	</article>
