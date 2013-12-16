@@ -13,11 +13,10 @@ import org.hibernate.annotations.Type;
 
 import com.ncr.agent.baseData.vendor.utils.FinancialPackagePojo;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class SoftwareAggregate.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The SoftwareAggregate Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -88,9 +87,11 @@ public class SoftwareAggregate {
     }
 
     /**
-     * Instantiates a new software aggregate.
-     *
-     * @param pkg the pkg
+     * Instantiates a new software aggregate with the given software aggregate
+     * data from the agent.
+     * 
+     * @param pkg
+     *            the pkg
      */
     public SoftwareAggregate(FinancialPackagePojo pkg) {
 	this.setVersion(pkg.getVersion());

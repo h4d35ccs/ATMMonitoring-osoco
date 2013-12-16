@@ -3,7 +3,6 @@ package com.ncr.ATMMonitoring.pojo;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
@@ -18,13 +17,10 @@ import javax.persistence.Table;
 
 import org.apache.log4j.Logger;
 
-import com.ncr.ATMMonitoring.dao.FinancialDeviceDAOImpl;
-
-// TODO: Auto-generated Javadoc
 /**
- * The Class TerminalModel.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The TerminalModel Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity

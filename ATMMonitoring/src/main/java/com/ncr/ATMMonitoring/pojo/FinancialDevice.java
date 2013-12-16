@@ -27,11 +27,10 @@ import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.vendor.utils.FinancialDevicePojo;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class FinancialDevice.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The FinancialDevice Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -176,9 +175,11 @@ public class FinancialDevice {
     }
 
     /**
-     * Instantiates a new financial device.
-     *
-     * @param device the device
+     * Instantiates a new financial device with the given financial device data
+     * from the agent.
+     * 
+     * @param device
+     *            the device
      */
     public FinancialDevice(FinancialDevicePojo device) {
 	this.setFirmwareVersion(Utils.unescapeJsonChain(device
@@ -204,9 +205,9 @@ public class FinancialDevice {
     }
 
     /**
-     * Gets the comboboxes.
+     * Gets the comboboxes data for the query GUI.
      *
-     * @return the comboboxes
+     * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;
@@ -366,8 +367,8 @@ public class FinancialDevice {
     }
 
     /**
-     * Gets the firmware name version.
-     *
+     * Gets a string with the firmware name and version.
+     * 
      * @return the firmware name and version concatenated
      */
     public String getFirmwareNameVersion() {

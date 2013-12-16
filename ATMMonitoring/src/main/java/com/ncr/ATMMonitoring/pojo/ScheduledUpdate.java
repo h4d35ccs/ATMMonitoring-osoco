@@ -24,11 +24,10 @@ import javax.validation.constraints.Min;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Formula;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class ScheduledUpdate.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The ScheduledUpdate Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -315,18 +314,19 @@ public class ScheduledUpdate {
     }
 
     /**
-     * Gets the gmt hour.
-     *
-     * @return the gmt hour
+     * Gets the hour translated to GMT time.
+     * 
+     * @return the GMT hour
      */
     public Short getGmtHour() {
 	return gmtHour;
     }
 
     /**
-     * Sets the gmt hour.
-     *
-     * @param gmtHour the new gmt hour
+     * Sets the GMT hour.
+     * 
+     * @param gmtHour
+     *            the new GMT hour
      */
     public void setGmtHour(Short gmtHour) {
 	this.gmtHour = gmtHour;
@@ -397,36 +397,38 @@ public class ScheduledUpdate {
     }
 
     /**
-     * Gets the gmt week day.
-     *
-     * @return the gmt week day
+     * Gets the week day translated to GMT time.
+     * 
+     * @return the GMT week day
      */
     public Short getGmtWeekDay() {
 	return gmtWeekDay;
     }
 
     /**
-     * Sets the gmt week day.
-     *
-     * @param gmtWeekDay the new gmt week day
+     * Sets the GMT week day.
+     * 
+     * @param gmtWeekDay
+     *            the new GMT week day
      */
     public void setGmtWeekDay(Short gmtWeekDay) {
 	this.gmtWeekDay = gmtWeekDay;
     }
 
     /**
-     * Gets the gmt month day.
-     *
-     * @return the gmt month day
+     * Gets the month day translated to GMT time.
+     * 
+     * @return the GMT month day
      */
     public Short getGmtMonthDay() {
 	return gmtMonthDay;
     }
 
     /**
-     * Sets the gmt month day.
-     *
-     * @param gmtMonthDay the new gmt month day
+     * Sets the month day translated to GMT time.
+     * 
+     * @param gmtMonthDay
+     *            the new GMT month day
      */
     public void setGmtMonthDay(Short gmtMonthDay) {
 	this.gmtMonthDay = gmtMonthDay;

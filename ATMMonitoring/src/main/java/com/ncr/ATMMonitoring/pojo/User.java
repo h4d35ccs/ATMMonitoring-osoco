@@ -32,11 +32,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class User.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The User Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -311,18 +310,19 @@ public class User implements UserDetails {
     }
 
     /**
-     * Gets the last login.
-     *
-     * @return the lastLogin
+     * Gets the last login date.
+     * 
+     * @return the last login date, or null if there is no previous login info
      */
     public Date getLastLogin() {
 	return lastLogin;
     }
 
     /**
-     * Sets the last login.
-     *
-     * @param lastLogin the lastLogin to set
+     * Sets the last login date.
+     * 
+     * @param lastLogin
+     *            the last login date to set
      */
     public void setLastLogin(Date lastLogin) {
 	this.lastLogin = lastLogin;
@@ -347,9 +347,10 @@ public class User implements UserDetails {
     }
 
     /**
-     * Gets the html welcome message.
-     *
-     * @param locale the locale
+     * Gets the html welcome message customized with the user data.
+     * 
+     * @param locale
+     *            the locale
      * @return the html welcome message
      */
     public String getHtmlWelcomeMessage(Locale locale) {
@@ -375,8 +376,8 @@ public class User implements UserDetails {
     }
 
     /**
-     * Gets the weekly scheduled updates.
-     *
+     * Gets the weekly scheduled updates for the user's queries.
+     * 
      * @return the weekly scheduled updates
      */
     public List<ScheduledUpdate> getWeeklyScheduledUpdates() {
@@ -392,8 +393,8 @@ public class User implements UserDetails {
     }
 
     /**
-     * Gets the monthly scheduled updates.
-     *
+     * Gets the monthly scheduled updates for the user's queries.
+     * 
      * @return the monthly scheduled updates
      */
     public List<ScheduledUpdate> getMonthlyScheduledUpdates() {

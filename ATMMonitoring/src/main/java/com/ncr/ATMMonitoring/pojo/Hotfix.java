@@ -25,11 +25,10 @@ import org.hibernate.annotations.Type;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.HotfixPojo;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Hotfix.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The Hotfix Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -98,9 +97,10 @@ public class Hotfix {
     }
 
     /**
-     * Instantiates a new hotfix.
-     *
-     * @param hotfix the hotfix
+     * Instantiates a new hotfix with the given hotfix data from the agent.
+     * 
+     * @param hotfix
+     *            the hotfix
      */
     public Hotfix(HotfixPojo hotfix) {
 	this.description = hotfix.getDescription();
@@ -153,9 +153,9 @@ public class Hotfix {
     }
 
     /**
-     * Gets the comboboxes.
+     * Gets the comboboxes data for the query GUI.
      *
-     * @return the comboboxes
+     * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;
@@ -252,18 +252,19 @@ public class Hotfix {
     }
 
     /**
-     * Gets the installed on.
-     *
-     * @return the installedOn
+     * Gets the date it was installed on.
+     * 
+     * @return the date
      */
     public Date getInstalledOn() {
 	return installedOn;
     }
 
     /**
-     * Sets the installed on.
-     *
-     * @param installedOn the installedOn to set
+     * Sets the date it wass installed on.
+     * 
+     * @param installedOn
+     *            the date to set
      */
     public void setInstalledOn(Date installedOn) {
 	this.installedOn = installedOn;

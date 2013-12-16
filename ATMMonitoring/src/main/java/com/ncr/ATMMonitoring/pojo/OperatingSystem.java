@@ -16,11 +16,10 @@ import org.hibernate.annotations.Type;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.OperatingSystemPojo;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class OperatingSystem.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The OperatingSystem Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -140,9 +139,11 @@ public class OperatingSystem {
     }
 
     /**
-     * Instantiates a new operating system.
-     *
-     * @param os the os
+     * Instantiates a new operating system with the given operating system data
+     * from the agent.
+     * 
+     * @param os
+     *            the os
      */
     public OperatingSystem(OperatingSystemPojo os) {
 	if (os.getVersion() != null) {
@@ -164,9 +165,9 @@ public class OperatingSystem {
     }
 
     /**
-     * Gets the comboboxes.
+     * Gets the comboboxes data for the query GUI.
      *
-     * @return the comboboxes
+     * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;

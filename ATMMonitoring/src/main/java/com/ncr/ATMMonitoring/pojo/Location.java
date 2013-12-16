@@ -11,11 +11,10 @@ import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Type;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Location.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The Location Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity

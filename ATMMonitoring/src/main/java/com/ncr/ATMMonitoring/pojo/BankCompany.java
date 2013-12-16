@@ -17,11 +17,10 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Index;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class BankCompany.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The BankCompany Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -111,9 +110,9 @@ public class BankCompany implements Serializable {
     }
 
     /**
-     * Gets the sub bank companies.
-     *
-     * @return the sub bank companies
+     * Gets the subcompanies.
+     * 
+     * @return the subcompanies
      */
     public Set<BankCompany> getSubBankCompanies() {
 	return subBankCompanies;
@@ -129,8 +128,9 @@ public class BankCompany implements Serializable {
     }
 
     /**
-     * Gets the manageable bank companies.
-     *
+     * Gets the manageable bank companies (i.e. this bank company and its
+     * subcompanies)
+     * 
      * @return the manageable bank companies
      */
     public Set<BankCompany> getManageableBankCompanies() {

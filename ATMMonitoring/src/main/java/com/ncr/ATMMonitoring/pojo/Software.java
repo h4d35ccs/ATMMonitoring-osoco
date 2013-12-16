@@ -20,11 +20,10 @@ import org.hibernate.annotations.Type;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.ProductPojo;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Software.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The Software Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -153,9 +152,10 @@ public class Software {
     }
 
     /**
-     * Instantiates a new software.
-     *
-     * @param sw the sw
+     * Instantiates a new software with the given software data from the agent.
+     * 
+     * @param sw
+     *            the sw
      */
     public Software(ProductPojo sw) {
 	this.setVersion(sw.getVersion());
@@ -182,9 +182,9 @@ public class Software {
     }
 
     /**
-     * Gets the comboboxes.
+     * Gets the comboboxes data for the query GUI.
      *
-     * @return the comboboxes
+     * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;

@@ -23,11 +23,10 @@ import org.hibernate.annotations.Type;
 
 import com.ncr.ATMMonitoring.utils.Utils;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class LogicalCashUnit.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The LogicalCashUnit Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -233,8 +232,8 @@ public class LogicalCashUnit {
     }
 
     /**
-     * Gets the values split.
-     *
+     * Gets the values split by the separator.
+     * 
      * @return the values
      */
     public List<Integer> getValuesSplit() {

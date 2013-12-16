@@ -44,11 +44,10 @@ import com.ncr.agent.baseData.standard.xfs.module.SIU;
 import com.ncr.agent.baseData.standard.xfs.module.TTU;
 import com.ncr.agent.baseData.standard.xfs.module.VDM;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class XfsComponent.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The XfsComponent Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -888,9 +887,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on ALM data from the agent.
+     * 
+     * @param xfs
+     *            the ALM
      */
     public XfsComponent(ALM xfs) {
 	xfsClass = "ALM";
@@ -901,9 +901,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on BCR data from the agent.
+     * 
+     * @param xfs
+     *            the BCR
      */
     public XfsComponent(BCR xfs) {
 	xfsClass = "BCR";
@@ -918,9 +919,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on CAM data from the agent.
+     * 
+     * @param xfs
+     *            the CAM
      */
     public XfsComponent(CAM xfs) {
 	xfsClass = "CAM";
@@ -936,9 +938,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on CDM data from the agent.
+     * 
+     * @param xfs
+     *            the CDM
      */
     public XfsComponent(CDM xfs) {
 	xfsClass = "CDM";
@@ -966,9 +969,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on CEU data from the agent.
+     * 
+     * @param xfs
+     *            the CEU
      */
     public XfsComponent(CEU xfs) {
 	xfsClass = "CEU";
@@ -985,9 +989,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on CHK data from the agent.
+     * 
+     * @param xfs
+     *            the CHK
      */
     public XfsComponent(CHK xfs) {
 	xfsClass = "CHK";
@@ -1011,9 +1016,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on CIM data from the agent.
+     * 
+     * @param xfs
+     *            the CIM
      */
     public XfsComponent(CIM xfs) {
 	xfsClass = "CIM";
@@ -1043,9 +1049,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on CRD data from the agent.
+     * 
+     * @param xfs
+     *            the CRD
      */
     public XfsComponent(CRD xfs) {
 	xfsClass = "CRD";
@@ -1062,9 +1069,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on DEP data from the agent.
+     * 
+     * @param xfs
+     *            the DEP
      */
     public XfsComponent(DEP xfs) {
 	xfsClass = "DEP";
@@ -1086,9 +1094,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on IDC data from the agent.
+     * 
+     * @param xfs
+     *            the IDC
      */
     public XfsComponent(IDC xfs) {
 	xfsClass = "IDC";
@@ -1112,9 +1121,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on IPM data from the agent.
+     * 
+     * @param xfs
+     *            the IPM
      */
     public XfsComponent(IPM xfs) {
 	xfsClass = "IPM";
@@ -1148,9 +1158,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on PIN data from the agent.
+     * 
+     * @param xfs
+     *            the PIN
      */
     public XfsComponent(PIN xfs) {
 	xfsClass = "PIN";
@@ -1190,9 +1201,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on PTR data from the agent.
+     * 
+     * @param xfs
+     *            the PTR
      */
     public XfsComponent(PTR xfs) {
 	xfsClass = "PTR";
@@ -1229,9 +1241,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on SIU data from the agent.
+     * 
+     * @param xfs
+     *            the SIU
      */
     public XfsComponent(SIU xfs) {
 	xfsClass = "SIU";
@@ -1248,9 +1261,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on TTU data from the agent.
+     * 
+     * @param xfs
+     *            the TTU
      */
     public XfsComponent(TTU xfs) {
 	xfsClass = "TTU";
@@ -1269,9 +1283,10 @@ public class XfsComponent {
     }
 
     /**
-     * Instantiates a new xfs component.
-     *
-     * @param xfs the xfs
+     * Instantiates a new xfs component based on VDM data from the agent.
+     * 
+     * @param xfs
+     *            the VDM
      */
     public XfsComponent(VDM xfs) {
 	xfsClass = "VDM";
@@ -3837,8 +3852,8 @@ public class XfsComponent {
     }
 
     /**
-     * Gets the xfsclasses.
-     *
+     * Gets the xfsclasses (i.e. ALM, BCR, CAM, CDM...).
+     * 
      * @return the xfsclasses
      */
     public static Set<String> getXfsclasses() {
@@ -3846,9 +3861,9 @@ public class XfsComponent {
     }
 
     /**
-     * Gets the comboboxes.
-     *
-     * @return the comboboxes
+     * Gets the comboboxes data for the query GUI.
+     * 
+     * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;

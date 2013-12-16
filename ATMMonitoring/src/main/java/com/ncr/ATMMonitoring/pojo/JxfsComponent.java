@@ -42,11 +42,10 @@ import com.ncr.agent.baseData.standard.jxfs.siu.CapabilitiesJxfsSIUCollector;
 import com.ncr.agent.baseData.standard.jxfs.tio.CapabilitiesJxfsTIOCollector;
 import com.ncr.agent.baseData.standard.jxfs.vdm.CapabilitiesJxfsVDMCollector;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class JxfsComponent.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The JxfsComponent Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -901,9 +900,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given ALM data from the agent.
+     * 
+     * @param jxfs
+     *            the ALM
      */
     public JxfsComponent(CapabilitiesJxfsALMCollector jxfs) {
 	jxfsClass = "ALM";
@@ -916,9 +916,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given CAM data from the agent.
+     * 
+     * @param jxfs
+     *            the CAM
      */
     public JxfsComponent(CapabilitiesJxfsCAMCollector jxfs) {
 	jxfsClass = "CAM";
@@ -934,9 +935,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given CDR data from the agent.
+     * 
+     * @param jxfs
+     *            the CDR
      */
     public JxfsComponent(CapabilitiesJxfsCDRCollector jxfs) {
 	jxfsClass = "CDR";
@@ -997,9 +999,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given CHK data from the agent.
+     * 
+     * @param jxfs
+     *            the CHK
      */
     public JxfsComponent(CapabilitiesJxfsCHKCollector jxfs) {
 	jxfsClass = "CHK";
@@ -1017,9 +1020,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given DEP data from the agent.
+     * 
+     * @param jxfs
+     *            the DEP
      */
     public JxfsComponent(CapabilitiesJxfsDEPCollector jxfs) {
 	jxfsClass = "DEP";
@@ -1037,9 +1041,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given MSD data from the agent.
+     * 
+     * @param jxfs
+     *            the MSD
      */
     public JxfsComponent(CapabilitiesJxfsMSDCollector jxfs) {
 	jxfsClass = "MSD";
@@ -1061,9 +1066,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given PIN data from the agent.
+     * 
+     * @param jxfs
+     *            the PIN
      */
     public JxfsComponent(CapabilitiesJxfsPINCollector jxfs) {
 	jxfsClass = "PIN";
@@ -1094,9 +1100,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given PTR data from the agent.
+     * 
+     * @param jxfs
+     *            the PTR
      */
     public JxfsComponent(CapabilitiesJxfsPTRCollector jxfs) {
 	jxfsClass = "PTR";
@@ -1121,9 +1128,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given SCN data from the agent.
+     * 
+     * @param jxfs
+     *            the SCN
      */
     public JxfsComponent(CapabilitiesJxfsSCNCollector jxfs) {
 	jxfsClass = "SCN";
@@ -1148,9 +1156,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given SIU data from the agent.
+     * 
+     * @param jxfs
+     *            the SIU
      */
     public JxfsComponent(CapabilitiesJxfsSIUCollector jxfs) {
 	jxfsClass = "SIU";
@@ -1168,9 +1177,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given TIO data from the agent.
+     * 
+     * @param jxfs
+     *            the TIO
      */
     public JxfsComponent(CapabilitiesJxfsTIOCollector jxfs) {
 	jxfsClass = "TIO";
@@ -1193,9 +1203,10 @@ public class JxfsComponent {
     }
 
     /**
-     * Instantiates a new jxfs component.
-     *
-     * @param jxfs the jxfs
+     * Instantiates a new jxfs component with the given VDM data from the agent.
+     * 
+     * @param jxfs
+     *            the VDM
      */
     public JxfsComponent(CapabilitiesJxfsVDMCollector jxfs) {
 	jxfsClass = "VDM";
@@ -3265,18 +3276,18 @@ public class JxfsComponent {
     }
 
     /**
-     * Gets the jxfsclasses.
-     *
-     * @return the jxfsclasses
+     * Gets the jxfs classes (i.e. ALM, CAM, CDM...).
+     * 
+     * @return the jxfs classes
      */
     public static Set<String> getJxfsclasses() {
 	return jxfsClasses;
     }
 
     /**
-     * Gets the comboboxes.
+     * Gets the comboboxes data for the query GUI.
      *
-     * @return the comboboxes
+     * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;

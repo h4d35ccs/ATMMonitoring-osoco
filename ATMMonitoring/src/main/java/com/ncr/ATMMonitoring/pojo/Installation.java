@@ -15,11 +15,10 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Installation.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The Installation Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -269,9 +268,9 @@ public class Installation {
     }
 
     /**
-     * Gets the locationclasses.
-     *
-     * @return the locationclasses
+     * Gets the location classes.
+     * 
+     * @return the location classes
      */
     public static String[] getLocationclasses() {
 	return locationClasses;

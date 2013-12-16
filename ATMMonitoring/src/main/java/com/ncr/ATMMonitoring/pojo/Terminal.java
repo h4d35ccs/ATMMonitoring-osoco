@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.Vector;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,15 +28,12 @@ import org.hibernate.annotations.Type;
 import com.ncr.ATMMonitoring.socket.ATMWrongDataException;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.ATMDataStorePojo;
-import com.ncr.agent.baseData.os.module.NetworkAdapterSettingPojo;
 import com.ncr.agent.baseData.vendor.utils.FinancialTerminalPojo;
 
 /**
- * The Class Terminal.
+ * The Terminal Pojo.
  * 
- * It stores the base data of an ATM.
- * 
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -194,7 +190,7 @@ public class Terminal {
     /**
      * Gets the comboboxes data for the query designer.
      * 
-     * @return the comboboxes
+     * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;
@@ -219,8 +215,7 @@ public class Terminal {
     }
 
     /**
-     * Instantiates a new terminal using the data from the ATMDataStorePojo we
-     * received from the agent.
+     * Instantiates a new terminal with the given terminal data from the agent.
      * 
      * @param terminal
      *            the terminal

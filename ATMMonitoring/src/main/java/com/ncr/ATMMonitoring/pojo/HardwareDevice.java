@@ -2,7 +2,6 @@ package com.ncr.ATMMonitoring.pojo;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -51,11 +50,10 @@ import com.ncr.agent.baseData.os.module.UsbHubPojo;
 import com.ncr.agent.baseData.os.module.VideoControllerPojo;
 import com.ncr.agent.baseData.os.module._1394ControllerPojo;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class HardwareDevice.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The HardwareDevice Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -441,11 +439,13 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter by class.
-     *
-     * @param hardwareDevs the hardware devs
-     * @param deviceClass the device class
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @param deviceClass
+     *            the device type
+     * @return the filtered hardware devs
      */
     private static Set<HardwareDevice> filterByClass(
 	    Set<HardwareDevice> hardwareDevs, String deviceClass) {
@@ -460,10 +460,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter computer system.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'computer system'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterComputerSystem(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -472,10 +473,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter processor.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device 'type processor'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterProcessor(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -484,10 +486,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter physical memory.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'physical memory'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterPhysicalMemory(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -496,10 +499,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter disk drive.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'disk drive'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterDiskDrive(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -508,10 +512,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter logical disk.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'logical disk'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterLogicalDisk(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -520,10 +525,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter base board.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'base board'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterBaseBoard(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -532,10 +538,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter network adapter.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'network adapter'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterNetworkAdapter(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -544,10 +551,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter floppy drive.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'floppy drive'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterFloppyDrive(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -556,10 +564,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter cdrom drive.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'cdrom drive'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterCdromDrive(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -568,10 +577,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter sound device.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'sound device'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterSoundDevice(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -580,10 +590,12 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter display configuration.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'display
+     * configuration'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterDisplayConfiguration(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -592,10 +604,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter usb controller.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'usb controller'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterUsbController(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -604,10 +617,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter usb hub.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'usb hub'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterUsbHub(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -616,10 +630,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter serial port.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'serial port'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterSerialPort(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -628,10 +643,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter parallel port.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'parallel port'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterParallelPort(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -640,10 +656,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter1394 controller.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by type '1394 controller'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filter1394Controller(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -652,10 +669,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter scsi controller.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'scsi controller'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterScsiController(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -664,10 +682,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter desktop monitor.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'desktop monitor'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterDesktopMonitor(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -676,10 +695,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter keyboard.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'keyboard'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterKeyboard(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -688,10 +708,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter pointing device.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'pointing device'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterPointingDevice(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -700,10 +721,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter system slot.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'system slot'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterSystemSlot(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -712,10 +734,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter bios.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'bios'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterBios(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -724,10 +747,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Filter video controller.
-     *
-     * @param hardwareDevs the hardware devs
-     * @return the sets the
+     * Filter a collecion of hardware devices by device type 'video controller'.
+     * 
+     * @param hardwareDevs
+     *            the hardware devs
+     * @return the filtered hardware devs
      */
     public static Set<HardwareDevice> filterVideoController(
 	    Set<HardwareDevice> hardwareDevs) {
@@ -1151,9 +1175,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given 1394 controller data
+     * from the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(_1394ControllerPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId._1394_CONTROLLER));
@@ -1166,9 +1192,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given base board data from
+     * the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(BaseBoardPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.BASE_BOARD));
@@ -1181,9 +1209,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given bios data from the
+     * agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(BiosPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.BIOS));
@@ -1208,9 +1238,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given cd rom drive data from
+     * the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(CDROMDrivePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.CDROM_DRIVE));
@@ -1223,9 +1255,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given computer system data
+     * from the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(ComputerSystemPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.COMPUTER_SYSTEM));
@@ -1274,9 +1308,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given desktop monitor data
+     * from the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(DesktopMonitorPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.DESKTOP_MONITOR));
@@ -1310,9 +1346,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given disk drive data from
+     * the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(DiskDrivePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.DISK_DRIVE));
@@ -1386,9 +1424,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given floppy drive data from
+     * the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(FloppyDrivePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.FLOPPY_DRIVE));
@@ -1402,9 +1442,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given keyboard data from the
+     * agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(KeyboardPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.KEYBOARD));
@@ -1416,9 +1458,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given logical disk data from
+     * the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(LogicalDiskPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.LOGICAL_DISK));
@@ -1448,9 +1492,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given network adapter setting
+     * data from the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(NetworkAdapterSettingPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.NETWORK_ADAPTER));
@@ -1488,9 +1534,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given parallel port data from
+     * the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(ParallelPortPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.PARALLEL_PORT));
@@ -1501,9 +1549,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given physical memory data
+     * from the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(PhysicalMemoryPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.PHYSICAL_MEMORY));
@@ -1521,9 +1571,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given pointing device data
+     * from the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(PointingDevicePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.POINTING_DEVICE));
@@ -1545,9 +1597,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given processor data from the
+     * agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(ProcessorPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.PROCESSOR));
@@ -1606,9 +1660,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given scsi controller data
+     * from the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(SCSIControllerPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.SCSI_CONTROLLER));
@@ -1622,9 +1678,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given serial port data from
+     * the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(SerialPortPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.SERIAL_PORT));
@@ -1643,9 +1701,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given sound device data from
+     * the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(SoundDevicePojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.SOUND_DEVICE));
@@ -1656,9 +1716,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given system slot data from
+     * the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(SystemSlotPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.SYSTEM_SLOT));
@@ -1681,9 +1743,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given usb controller data
+     * from the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(USBControllerPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_CONTROLLER));
@@ -1705,9 +1769,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given usb hub data from the
+     * agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(UsbHubPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.USB_HUB));
@@ -1728,9 +1794,11 @@ public class HardwareDevice {
     }
 
     /**
-     * Instantiates a new hardware device.
-     *
-     * @param hw the hw
+     * Instantiates a new hardware device with the given video controller data
+     * from the agent.
+     * 
+     * @param hw
+     *            the hw
      */
     public HardwareDevice(VideoControllerPojo hw) {
 	this.setHardwareClass(deviceClasses.get(DeviceClassId.VIDEO_CONTROLLER));
@@ -1799,9 +1867,9 @@ public class HardwareDevice {
     }
 
     /**
-     * Gets the comboboxes.
+     * Gets the comboboxes data for the query GUI.
      *
-     * @return the comboboxes
+     * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;
@@ -2861,8 +2929,9 @@ public class HardwareDevice {
     }
 
     /**
-     * Gets the deviceclasses.
-     *
+     * Gets the deviceclasses (i.e. 'desktop monitor', 'usb hub',
+     * 'keyboard'...).
+     * 
      * @return the deviceclasses
      */
     public static Map<DeviceClassId, String> getDeviceclasses() {

@@ -17,11 +17,10 @@ import org.hibernate.annotations.Type;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.IExplorerPojo;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class InternetExplorer.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The InternetExplorer Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -82,18 +81,20 @@ public class InternetExplorer {
     }
 
     /**
-     * Instantiates a new internet explorer.
-     *
-     * @param ie the ie
+     * Instantiates a new internet explorer with the given internet explorer
+     * data from the agent.
+     * 
+     * @param ie
+     *            the ie
      */
     public InternetExplorer(IExplorerPojo ie) {
 	this.setVersion(ie.getVersion());
     }
 
     /**
-     * Gets the comboboxes.
+     * Gets the comboboxes data for the query GUI.
      *
-     * @return the comboboxes
+     * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;
@@ -208,8 +209,8 @@ public class InternetExplorer {
     }
 
     /**
-     * Gets the version.
-     *
+     * Gets the whole version.
+     * 
      * @return the version complete
      */
     public String getVersion() {

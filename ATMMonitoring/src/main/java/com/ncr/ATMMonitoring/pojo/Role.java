@@ -10,11 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Role.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The Role Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
@@ -35,7 +34,7 @@ public class Role implements Serializable {
     @Column(name = "name", length = 100, unique = true, nullable = false)
     private String name;
 
-    /** The manageable. */
+    /** The manageable flag (i.e. can be assigned and modified). */
     @Column(name = "manageable")
     private Boolean manageable;
 
@@ -89,18 +88,19 @@ public class Role implements Serializable {
     }
 
     /**
-     * Gets the manageable.
-     *
-     * @return the manageable
+     * Whether the role is manageable (i.e. can be assigned and modified).
+     * 
+     * @return the manageable flag
      */
     public Boolean getManageable() {
 	return manageable;
     }
 
     /**
-     * Sets the manageable.
-     *
-     * @param manageable the manageable to set
+     * Sets the manageable flag.
+     * 
+     * @param manageable
+     *            the manageable flag to set
      */
     public void setManageable(Boolean manageable) {
 	this.manageable = manageable;

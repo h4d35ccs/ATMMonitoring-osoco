@@ -22,11 +22,10 @@ import javax.persistence.UniqueConstraint;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class TerminalConfig.
- *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * The TerminalConfig Pojo.
+ * 
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Entity
