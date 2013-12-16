@@ -264,6 +264,10 @@ public class XfsComponent {
     @Type(type = "text")
     private String autobeep;
 
+    /** The autodeposit. */
+    @Column(name = "autodeposit")
+    private Boolean autodeposit;
+
     /** The autoretract period. */
     @Column(name = "autoretract_period")
     private Integer autoretractPeriod;
@@ -321,6 +325,10 @@ public class XfsComponent {
     @Type(type = "text")
     private String codeLineFormat;
 
+    /** The coins. */
+    @Column(name = "coins")
+    private Boolean coins;
+
     /** The compound. */
     @Column(name = "compound")
     private Boolean compound;
@@ -337,6 +345,10 @@ public class XfsComponent {
     /** The cursor. */
     @Column(name = "cursor")
     private Boolean cursor;
+
+    /** The cylinders. */
+    @Column(name = "cylinders")
+    private Boolean cylinders;
 
     /** The default backscan color. */
     @Column(name = "default_backscan_color")
@@ -616,6 +628,11 @@ public class XfsComponent {
     @Column(name = "key_num")
     private Integer keyNum;
 
+    /** The keys. */
+    @Column(name = "keys")
+    @Type(type = "text")
+    private String keys;
+
     /** The logical. */
     @Column(name = "logical")
     @Type(type = "text")
@@ -629,9 +646,21 @@ public class XfsComponent {
     @Column(name = "magnetic_stripe_write")
     private Boolean magneticstripewrite;
 
+    /** The max 2 retract. */
+    @Column(name = "max_2_retract")
+    private Integer max2Retract;
+
+    /** The max bills. */
+    @Column(name = "max_bills")
+    private Integer maxBills;
+
     /** The max cash in items. */
     @Column(name = "max_cash_in_items")
     private Integer maxCashInItems;
+
+    /** The max coins. */
+    @Column(name = "max_coins")
+    private Integer maxCoins;
     
     /** The max data length. */
     @Column(name = "max_data_length")
@@ -688,6 +717,11 @@ public class XfsComponent {
     @Column(name = "ocr")
     private Boolean ocr;
 
+    /** The output positions. */
+    @Column(name = "output_positions")
+    @Type(type = "text")
+    private String outputPositions;
+
     /** The paper sources. */
     @Column(name = "paper_sources")
     @Type(type = "text")
@@ -697,6 +731,10 @@ public class XfsComponent {
     @Column(name = "pin_formats")
     @Type(type = "text")
     private String pinFormats;
+
+    /** The pockets. */
+    @Column(name = "pockets")
+    private Integer pockets;
 
     /** The power off. */
     @Column(name = "power_off")
@@ -783,6 +821,10 @@ public class XfsComponent {
     @Type(type = "text")
     private String retractStackerActions;
 
+    /** The retract to deposit. */
+    @Column(name = "retract_to_deposit")
+    private Boolean retractToDeposit;
+
     /** The retract transport actions. */
     @Column(name = "retract_transport_actions")
     @Type(type = "text")
@@ -859,6 +901,10 @@ public class XfsComponent {
     @Column(name = "validation_algorithms")
     @Type(type = "text")
     private String validationAlgorithms;
+
+    /** The vandal check. */
+    @Column(name = "vandal_check")
+    private Boolean vandalCheck;
 
     /** The windows printer. */
     @Column(name = "windows_printer")
@@ -949,23 +995,31 @@ public class XfsComponent {
 	extra = Utils.unescapeJsonChain(xfs.getExtra());
 	guidlights = xfs.getGuidlights();
 	logical = xfs.getLogical();
+	maxBills = xfs.getMaxbills();
+	maxCoins = xfs.getMaxcoins();
 	maxDispenseItems = xfs.getMaxdispenseitems();
 	moveItems = xfs.getMoveitems();
+	outputPositions = xfs.getOutputpositions();
 	positions = xfs.getPositions();
 	provider = xfs.getProvider();
 	retractAreas = xfs.getRetractareas();
 	retractStackerActions = xfs.getRetractstackeractions();
 	retractTransportActions = xfs.getRetracttransportactions();
 	type = xfs.getType();
+	autodeposit = xfs.isAutodeposit();
 	hasCashBox = xfs.isCashbox();
+	coins = xfs.isCoins();
 	compound = xfs.isCompound();
+	cylinders = xfs.isCylinders();
 	isIntermediateStacker = xfs.isIntermediatestacker();
 	hasTakenSensor = xfs.isItemstakensensor();
 	powerSaveControl = xfs.isPowersavecontrol();
 	isPrepareDispense = xfs.isPreparedispense();
+	refill = xfs.isRefill();
 	isSafeDoor = xfs.isSafedoor();
 	hasShutter = xfs.isShutter();
 	shutterControl = xfs.isShuttercontrol();
+	vandalCheck = xfs.isVandalcheck();
     }
 
     /**
@@ -1003,6 +1057,7 @@ public class XfsComponent {
 	guidlights = xfs.getGuidlights();
 	imagecapture = xfs.getImagecapture();
 	logical = xfs.getLogical();
+	pockets = xfs.getPockets();
 	provider = xfs.getProvider();
 	stamp = xfs.getStamp();
 	type = xfs.getType();
@@ -1089,6 +1144,7 @@ public class XfsComponent {
 	powerSaveControl = xfs.isPowersavecontrol();
 	printer = xfs.isPrinter();
 	printOnRetracts = xfs.isPrintonretracts();
+	retractToDeposit = xfs.isRetracttodeposit();
 	hasShutter = xfs.isShutter();
 	toner = xfs.isToner();
     }
@@ -1220,6 +1276,7 @@ public class XfsComponent {
 	imageType = xfs.getImagetype();
 	logical = xfs.getLogical();
 	maxMediaOnStacker = xfs.getMaxmediaonstacker();
+	max2Retract = xfs.getMax2retract();
 	paperSources = xfs.getPapersources();
 	provider = xfs.getProvider();
 	readForm = xfs.getReadform();
@@ -1270,6 +1327,7 @@ public class XfsComponent {
 	xfsClass = "TTU";
 	charSupport = xfs.getCharsupport();
 	extra = Utils.unescapeJsonChain(xfs.getExtra());
+	keys = xfs.getKeys();
 	logical = xfs.getLogical();
 	numLeds = xfs.getNumofleds();
 	provider = xfs.getProvider();
@@ -3867,5 +3925,93 @@ public class XfsComponent {
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;
+    }
+
+    public Boolean getAutodeposit() {
+	return autodeposit;
+    }
+
+    public void setAutodeposit(Boolean autodeposit) {
+	this.autodeposit = autodeposit;
+    }
+
+    public Boolean getCoins() {
+	return coins;
+    }
+
+    public void setCoins(Boolean coins) {
+	this.coins = coins;
+    }
+
+    public Boolean getCylinders() {
+	return cylinders;
+    }
+
+    public void setCylinders(Boolean cylinders) {
+	this.cylinders = cylinders;
+    }
+
+    public String getKeys() {
+	return keys;
+    }
+
+    public void setKeys(String keys) {
+	this.keys = keys;
+    }
+
+    public Integer getMax2Retract() {
+	return max2Retract;
+    }
+
+    public void setMax2Retract(Integer max2Retract) {
+	this.max2Retract = max2Retract;
+    }
+
+    public Integer getMaxBills() {
+	return maxBills;
+    }
+
+    public void setMaxBills(Integer maxBills) {
+	this.maxBills = maxBills;
+    }
+
+    public Integer getMaxCoins() {
+	return maxCoins;
+    }
+
+    public void setMaxCoins(Integer maxCoins) {
+	this.maxCoins = maxCoins;
+    }
+
+    public String getOutputPositions() {
+	return outputPositions;
+    }
+
+    public void setOutputPositions(String outputPositions) {
+	this.outputPositions = outputPositions;
+    }
+
+    public Integer getPockets() {
+	return pockets;
+    }
+
+    public void setPockets(Integer pockets) {
+	this.pockets = pockets;
+    }
+
+    public Boolean getRetractToDeposit() {
+	return retractToDeposit;
+    }
+
+    public void setRetractToDeposit(Boolean retractToDeposit) {
+	this.retractToDeposit = retractToDeposit;
+    }
+
+    public Boolean getVandalCheck() {
+	return vandalCheck;
+    }
+
+    public void setVandalCheck(Boolean vandalCheck) {
+	this.vandalCheck = vandalCheck;
     }
 }
