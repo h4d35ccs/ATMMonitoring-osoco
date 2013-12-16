@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * The Class LoginController.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Controller

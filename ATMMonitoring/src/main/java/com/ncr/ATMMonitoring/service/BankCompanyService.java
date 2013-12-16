@@ -8,7 +8,7 @@ import com.ncr.ATMMonitoring.pojo.BankCompany;
 /**
  * The Interface BankCompanyService.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public interface BankCompanyService {

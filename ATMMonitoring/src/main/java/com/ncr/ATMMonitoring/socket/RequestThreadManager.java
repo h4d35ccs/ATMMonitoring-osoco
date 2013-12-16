@@ -28,7 +28,7 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
  * The class in charge of distributing the pending to request data ip's among
  * multiple RequestThread's.
  * 
- * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge LÃ³pez FernÃ¡ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public class RequestThreadManager extends Thread {
@@ -172,9 +172,9 @@ public class RequestThreadManager extends Thread {
 	    String ip;
 	    RequestThread thread;
 	    if (ips.size() > (maxThreads * maxTerminals)) {
-		// El nÃºmero de ips no nos permite mantener el nÃºmero máximo de
-		// threads y de ips por cada una. Dividimos de la manera más
-		// equitativa entre el nÃºmero máximo de threads.
+		// El nÃºmero de ips no nos permite mantener el nÃºmero mï¿½ximo de
+		// threads y de ips por cada una. Dividimos de la manera mï¿½s
+		// equitativa entre el nÃºmero mï¿½ximo de threads.
 		double size = ips.size() / maxThreads;
 		double roundedSize = Math.floor(size);
 		int remainingTerminals = 0;
@@ -209,7 +209,7 @@ public class RequestThreadManager extends Thread {
 		}
 	    } else {
 		// Podemos dividirlo entre n threads que no sobrepasan el nÃºmero
-		// máximo de ips
+		// mï¿½ximo de ips
 		int j = 0, i = 1;
 		subSet = new HashSet<String>();
 		while (iterator.hasNext()) {
@@ -228,7 +228,7 @@ public class RequestThreadManager extends Thread {
 		    }
 		}
 	    }
-	    // Calculamos el nÂº máximo de ciclos de comprobación
+	    // Calculamos el nÂº mï¿½ximo de ciclos de comprobaciï¿½n
 	    double cycles = Math.ceil(maxTime / sleepTime);
 	    while (!threads.isEmpty() && (cycles-- > 0)) {
 		try {
@@ -244,7 +244,7 @@ public class RequestThreadManager extends Thread {
 			    + " between request threads checks...", e);
 		}
 	    }
-	    // Si la colección no está vacÃ­a, es que no han terminado a tiempo.
+	    // Si la colecciï¿½n no estï¿½ vacÃ­a, es que no han terminado a tiempo.
 	    if (!threads.isEmpty()) {
 		logger.warn("Some request threads somehow couldn't finish in the configured max time."
 			+ " Their ips will be requested again at next request phase...");

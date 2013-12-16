@@ -19,7 +19,7 @@ import com.ncr.ATMMonitoring.utils.Utils;
  * 
  * This class retrieves the data from a series of ATM's by their ip's.
  * 
- * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge LÃ³pez FernÃ¡ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public class RequestThread extends Thread {
@@ -119,7 +119,7 @@ public class RequestThread extends Thread {
 	    String hash = Utils.getMD5Hex(Utils.getMD5Hex(parentSeed)
 		    + Utils.getMD5Hex(hashSeed) + Utils.getMD5Hex(randomSeed));
 	    if (response.equals(hash)) {
-		// Confirmamos al agente que la autenticación fue correcta
+		// Confirmamos al agente que la autenticaciï¿½n fue correcta
 		out.println(authOkMsg);
 		return true;
 	    } else {
@@ -133,7 +133,7 @@ public class RequestThread extends Thread {
 			logger.warn("Old hash seed has been detected in IP "
 				+ socket.getInetAddress().getHostAddress()
 				+ ". New one will be sent.");
-			// Confirmamos al agente que la autenticación fue
+			// Confirmamos al agente que la autenticaciï¿½n fue
 			// correcta y le pedimos que actualice su hash
 			out.println(authUpdateMsg + ":" + oldParentSeed + ":"
 				+ parentSeed);
@@ -142,7 +142,7 @@ public class RequestThread extends Thread {
 		}
 	    }
 
-	    // La autenticación ha fallado, avisamos al agente y terminamos
+	    // La autenticaciï¿½n ha fallado, avisamos al agente y terminamos
 	    out.println(authErrorMsg);
 	} catch (SocketTimeoutException e) {
 	    logger.error("We received no response during"
@@ -171,7 +171,7 @@ public class RequestThread extends Thread {
 	    Socket socket = RequestThreadManager.getClientSocketFactory()
 		    .createSocket(ip, agentPort);
 
-	    // Ponemos un timeout para la recepción de datos
+	    // Ponemos un timeout para la recepciï¿½n de datos
 	    socket.setSoTimeout(timeOut * 1000);
 
 	    // Confirmamos la identidad del agente
@@ -206,7 +206,7 @@ public class RequestThread extends Thread {
 			    "An error happened while saving data received from ip: "
 				    + ip + "\nJson: " + json, e);
 		}
-		// Enviamos el mensaje que confirma el final de la comunicación
+		// Enviamos el mensaje que confirma el final de la comunicaciï¿½n
 		logger.info("Sending final comm message to IP: " + ip);
 		out.println(endMsg);
 	    } catch (SocketTimeoutException e) {

@@ -9,7 +9,7 @@ import com.ncr.ATMMonitoring.pojo.TerminalModel;
 /**
  * The Interface TerminalModelService.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public interface TerminalModelService {

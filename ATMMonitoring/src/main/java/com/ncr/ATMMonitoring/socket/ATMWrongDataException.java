@@ -6,7 +6,7 @@ package com.ncr.ATMMonitoring.socket;
  * This exception is thrown when data received from an ATM's agent is invalid
  * for our model.
  * 
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public class ATMWrongDataException extends Exception {

@@ -13,7 +13,7 @@ import com.ncr.ATMMonitoring.pojo.HardwareDevice;
 /**
  * The Class HardwareDeviceServiceImpl.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Service("hardwareDeviceService")

@@ -15,7 +15,7 @@ import com.google.gson.GsonBuilder;
 /**
  * The Class Utils.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public abstract class Utils {

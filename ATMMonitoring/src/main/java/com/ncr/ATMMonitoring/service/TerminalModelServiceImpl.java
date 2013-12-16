@@ -16,7 +16,7 @@ import com.ncr.ATMMonitoring.pojo.TerminalModel;
 /**
  * The Class TerminalModelServiceImpl.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Service("terminalModelService")

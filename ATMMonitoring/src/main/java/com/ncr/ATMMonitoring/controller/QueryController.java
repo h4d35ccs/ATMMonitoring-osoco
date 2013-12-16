@@ -39,7 +39,7 @@ import org.apache.log4j.Logger;
 /**
  * The Class QueryController.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 @Controller
 public class QueryController {

@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
  * Threads which process the incoming connections when listening for the ATMs'
  * agents.
  * 
- * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge LÃ³pez FernÃ¡ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public class SocketListenerThread extends Thread {
@@ -58,7 +58,7 @@ public class SocketListenerThread extends Thread {
 	    try {
 		PrintWriter out = new PrintWriter(socket.getOutputStream(),
 			true);
-		// Confirmamos al agente que hemos recibido la petición
+		// Confirmamos al agente que hemos recibido la peticiï¿½n
 		out.println(okMessage);
 		logger.info("Update request confirmed ('" + okMessage
 			+ "') to IP: " + ip);

@@ -19,7 +19,7 @@ import org.hibernate.type.Type;
 /**
  * The Class Operation.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public abstract class Operation {

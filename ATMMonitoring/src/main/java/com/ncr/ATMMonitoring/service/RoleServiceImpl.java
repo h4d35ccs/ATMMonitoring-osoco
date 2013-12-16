@@ -13,7 +13,7 @@ import com.ncr.ATMMonitoring.pojo.Role;
 /**
  * The Class RoleServiceImpl.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Service

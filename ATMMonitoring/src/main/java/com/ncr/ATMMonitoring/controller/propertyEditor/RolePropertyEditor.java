@@ -8,7 +8,7 @@ import com.ncr.ATMMonitoring.service.RoleService;
 /**
  * The Class RolePropertyEditor.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public class RolePropertyEditor extends PropertyEditorSupport {

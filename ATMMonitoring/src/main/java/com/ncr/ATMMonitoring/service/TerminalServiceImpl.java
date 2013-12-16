@@ -93,7 +93,7 @@ import com.ncr.agent.baseData.vendor.utils.FinancialTerminalPojo;
 /**
  * The Class TerminalServiceImpl.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Service("terminalService")

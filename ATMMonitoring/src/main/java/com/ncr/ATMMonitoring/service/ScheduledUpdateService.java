@@ -8,7 +8,7 @@ import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 /**
  * The Interface ScheduledUpdateService.
  *
- * @author Jorge LÛpez Fern·ndez (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge L√≥pez Fern√°ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 public interface ScheduledUpdateService {

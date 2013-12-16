@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
  * the socket event occurs, that object's appropriate
  * method is invoked.
  *
- * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
+ * @author Jorge LÃ³pez FernÃ¡ndez (lopez.fernandez.jorge@gmail.com)
  */
 
 @Component
@@ -94,14 +94,14 @@ public class SocketListener extends Thread {
      * @see java.lang.Thread#run()
      */
     public void run() {
-	// Cada vez que nos llegue una petición de conexión, la desviamos a un
+	// Cada vez que nos llegue una peticiï¿½n de conexiï¿½n, la desviamos a un
 	// hilo nuevo
 	while (true) {
 	    try {
 		new SocketListenerThread(serverSocket.accept(), okMessage, this)
 			.start();
 	    } catch (SocketException e) {
-		// Si el listener está a nulo, eso quiere decir que se están
+		// Si el listener estï¿½ a nulo, eso quiere decir que se estï¿½n
 		// liberando los recursos y no es un error
 		if (listener == null) {
 		    return;
