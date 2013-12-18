@@ -4,10 +4,11 @@ import java.beans.PropertyEditorSupport;
 
 import com.ncr.ATMMonitoring.service.RoleService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RolePropertyEditor.
- *
+ * 
+ * Custom PropertyEditor for Role input values (Role id as an integer).
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

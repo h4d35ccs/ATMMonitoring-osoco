@@ -6,16 +6,20 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.Locale;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class DatePropertyEditor.
- *
+ * 
+ * Custom PropertyEditor for Date input values.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 public class DatePropertyEditor extends PropertyEditorSupport {
 
-    /** The now as default. */
+    /**
+     * Flag for using current time as default value if a void or invalid one is
+     * supplied.
+     */
     private boolean nowAsDefault = false;
 
     /**
@@ -26,8 +30,10 @@ public class DatePropertyEditor extends PropertyEditorSupport {
 
     /**
      * Instantiates a new date property editor.
-     *
-     * @param nowAsDefault the now as default
+     * 
+     * @param nowAsDefault
+     *            flag for using current time as default value if a void or
+     *            invalid one is supplied.
      */
     public DatePropertyEditor(boolean nowAsDefault) {
 	this.nowAsDefault = nowAsDefault;

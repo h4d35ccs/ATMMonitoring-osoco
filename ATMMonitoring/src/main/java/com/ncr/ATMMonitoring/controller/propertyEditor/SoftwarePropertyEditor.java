@@ -4,10 +4,11 @@ import java.beans.PropertyEditorSupport;
 
 import com.ncr.ATMMonitoring.service.SoftwareService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SoftwarePropertyEditor.
- *
+ * 
+ * Custom PropertyEditor for Software input values (Software id as an integer).
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
