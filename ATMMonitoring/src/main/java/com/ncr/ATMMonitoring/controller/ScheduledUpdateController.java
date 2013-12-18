@@ -36,10 +36,11 @@ import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.ScheduledUpdateService;
 import com.ncr.ATMMonitoring.service.UserService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ScheduledUpdateController.
- *
+ * 
+ * Controller for handling scheduled update related HTTP petitions.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -47,19 +48,23 @@ import com.ncr.ATMMonitoring.service.UserService;
 public class ScheduledUpdateController {
 
     /** The logger. */
-    private static Logger logger = Logger.getLogger(ScheduledUpdateController.class.getName());
-	
-	/** The event date format. */
-	private static SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-	
-	/** The weekly title date format. */
-	private static SimpleDateFormat weeklyTitleDateFormat = new SimpleDateFormat("EEEE");
-	
-	/** The monthly title date format. */
-	private static SimpleDateFormat monthlyTitleDateFormat = new SimpleDateFormat("'día' d");
-	
-	/** The event duration in millis. */
-	private static long EVENT_DURATION_IN_MILLIS = 60 * 60 * 1000;
+    private static Logger logger = Logger
+	    .getLogger(ScheduledUpdateController.class.getName());
+
+    /** The event date formatter. */
+    private static SimpleDateFormat eventDateFormat = new SimpleDateFormat(
+	    "yyyy-MM-dd'T'HH:mm:ss'Z'");
+
+    /** The weekly title date formatter. */
+    private static SimpleDateFormat weeklyTitleDateFormat = new SimpleDateFormat(
+	    "EEEE");
+
+    /** The monthly title date formatter. */
+    private static SimpleDateFormat monthlyTitleDateFormat = new SimpleDateFormat(
+	    "'día' d");
+
+    /** The event duration in milliseconds. */
+    private static long EVENT_DURATION_IN_MILLIS = 60 * 60 * 1000;
 
     /** The scheduled update service. */
     @Autowired
@@ -70,157 +75,180 @@ public class ScheduledUpdateController {
     private UserService userService;
 
     /**
-     * Binder.
-     *
-     * @param binder the binder
-     * @throws Exception the exception
+     * Binds custom property editors.
+     * 
+     * @param binder
+     *            the binder
+     * @throws Exception
+     *             the exception
      */
     @InitBinder
     protected void binder(WebDataBinder binder) throws Exception {
-    	binder.registerCustomEditor(Date.class, new DatePropertyEditor(true));
+	binder.registerCustomEditor(Date.class, new DatePropertyEditor(true));
     }
 
     /**
-     * List schedules.
-     *
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * List schedules URL.
+     * 
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/schedules/list", method = RequestMethod.GET)
     public String listSchedules(Map<String, Object> map,
-								HttpServletRequest request, Principal principal) {
-		String userMsg = "";
-		Locale locale = RequestContextUtils.getLocale(request);
-		if (principal != null) {
-			User loggedUser = userService
-				.getUserByUsername(principal.getName());
-			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-			map.put("userMsg", userMsg);
-			map.put("weeklyScheduledUpdates",
-					loggedUser.getWeeklyScheduledUpdates());
-			map.put("monthlyScheduledUpdates",
-					loggedUser.getMonthlyScheduledUpdates());
-		}
-		return "scheduledUpdates";
+	    HttpServletRequest request, Principal principal) {
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    map.put("userMsg", userMsg);
+	    map.put("weeklyScheduledUpdates",
+		    loggedUser.getWeeklyScheduledUpdates());
+	    map.put("monthlyScheduledUpdates",
+		    loggedUser.getMonthlyScheduledUpdates());
+	}
+	return "scheduledUpdates";
     }
 
     /**
      * New scheduled update.
-     *
-     * @param map the map
-     * @param queryId the query id
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * 
+     * @param map
+     *            the map
+     * @param queryId
+     *            the query id
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/schedules/new", method = RequestMethod.GET)
-    public String newScheduledUpdate(Map<String, Object> map,
-				     String queryId,
-				     HttpServletRequest request, Principal principal) {
-		String userMsg = "";
-		Locale locale = RequestContextUtils.getLocale(request);
-		if (principal != null) {
-			User loggedUser = userService
-				.getUserByUsername(principal.getName());
-			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-			Set userQueries = loggedUser.getQueries();
-			map.put("userQueries", userQueries);
-			map.put("userMsg", userMsg);
-			map.put("scheduledUpdate", new ScheduledUpdate());
-		}
-		if (queryId != null) {
+    public String newScheduledUpdate(Map<String, Object> map, String queryId,
+	    HttpServletRequest request, Principal principal) {
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    Set userQueries = loggedUser.getQueries();
+	    map.put("userQueries", userQueries);
+	    map.put("userMsg", userMsg);
+	    map.put("scheduledUpdate", new ScheduledUpdate());
+	}
+	if (queryId != null) {
 
-		    Query query = new Query();
-		    query.setId(Integer.parseInt(queryId));
-		    map.put("query", query);
-		}
-		return "newScheduledUpdate";
+	    Query query = new Query();
+	    query.setId(Integer.parseInt(queryId));
+	    map.put("query", query);
+	}
+	return "newScheduledUpdate";
     }
 
     /**
-     * List update events.
-     *
-     * @param start the start
-     * @param end the end
-     * @param request the request
-     * @param principal the principal
-     * @return the list
+     * List update events between two dates.
+     * 
+     * @param start
+     *            the start date
+     * @param end
+     *            the end date
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the list of update events
      */
     @RequestMapping(value = "/terminals/schedules/updates", method = RequestMethod.GET)
-	@ResponseBody
-    public List listUpdateEvents(long start, long end, HttpServletRequest request, Principal principal) {
-		logger.debug("update events from " + start + " to " + end);
-		List updates = null;
-		if (principal != null) {
-			User loggedUser = userService.getUserByUsername(principal.getName());
-			updates = new ArrayList();
-			List<ScheduledUpdate> weeklyUpdates = loggedUser.getWeeklyScheduledUpdates();
-			List<ScheduledUpdate> monthlyUpdates = loggedUser.getMonthlyScheduledUpdates();
-			updates = new ArrayList();
-			updates.addAll(weeklyUpdates);
-			updates.addAll(monthlyUpdates);
-		}
-		return toCalendarEventsJSON(updates, start, end);
+    @ResponseBody
+    public List listUpdateEvents(long start, long end,
+	    HttpServletRequest request, Principal principal) {
+	logger.debug("update events from " + start + " to " + end);
+	List updates = null;
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    updates = new ArrayList();
+	    List<ScheduledUpdate> weeklyUpdates = loggedUser
+		    .getWeeklyScheduledUpdates();
+	    List<ScheduledUpdate> monthlyUpdates = loggedUser
+		    .getMonthlyScheduledUpdates();
+	    updates = new ArrayList();
+	    updates.addAll(weeklyUpdates);
+	    updates.addAll(monthlyUpdates);
+	}
+	return toCalendarEventsJSON(updates, start, end);
     }
 
     /**
      * Adds the scheduled update.
-     *
-     * @param scheduledUpdate the scheduled update
-     * @param result the result
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @param redirectAttributes the redirect attributes
-     * @return the string
+     * 
+     * @param scheduledUpdate
+     *            the scheduled update
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @param redirectAttributes
+     *            the redirect attributes
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/schedules/list", method = RequestMethod.POST)
     public String addScheduledUpdate(
-            @Valid @ModelAttribute("scheduledUpdate")
-			ScheduledUpdate scheduledUpdate,
-			BindingResult result,
-			Map<String, Object> map,
-			HttpServletRequest request,
-			Principal principal,
-		    RedirectAttributes redirectAttributes) {
-		String userMsg = "";
-		Locale locale = RequestContextUtils.getLocale(request);
-		if (principal != null) {
-			User loggedUser = userService
-				.getUserByUsername(principal.getName());
-			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-			Set userQueries = loggedUser.getQueries();
-			map.put("userQueries", userQueries);
-			map.put("userMsg", userMsg);
-		}
-
-		logger.debug("update's query': " + scheduledUpdate.getQuery().getId());
-
-		if ((scheduledUpdate.getQuery() == null) || (scheduledUpdate.getQuery().getId() == null)) {
-			map.put("error", "scheduledUpdate.nullQuery");
-		} else if ((scheduledUpdate.getWeekDay() == null) && (scheduledUpdate.getMonthDay() == null)) {
-			map.put("error", "scheduledUpdate.missing.mandatory.fields");
-		} else if (scheduledUpdateService.existsScheduledUpdate(scheduledUpdate)) {
-			map.put("error", "duplicated.scheduledUpdate");
-		}
-
-		if (map.get("error") != null) {
-			ScheduledUpdate newScheduledUpdate = scheduledUpdate;
-			map.put("scheduledUpdate", newScheduledUpdate);
-			return "newScheduledUpdate";
-		} else {
-			scheduledUpdateService.addScheduledUpdate(scheduledUpdate);
-			redirectAttributes.addFlashAttribute("success", "label.new.scheduledUpdate.created");
-			return "redirect:/terminals/schedules/list";
-		}
+	    @Valid @ModelAttribute("scheduledUpdate") ScheduledUpdate scheduledUpdate,
+	    BindingResult result, Map<String, Object> map,
+	    HttpServletRequest request, Principal principal,
+	    RedirectAttributes redirectAttributes) {
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    Set userQueries = loggedUser.getQueries();
+	    map.put("userQueries", userQueries);
+	    map.put("userMsg", userMsg);
 	}
+
+	logger.debug("update's query': " + scheduledUpdate.getQuery().getId());
+
+	if ((scheduledUpdate.getQuery() == null)
+		|| (scheduledUpdate.getQuery().getId() == null)) {
+	    map.put("error", "scheduledUpdate.nullQuery");
+	} else if ((scheduledUpdate.getWeekDay() == null)
+		&& (scheduledUpdate.getMonthDay() == null)) {
+	    map.put("error", "scheduledUpdate.missing.mandatory.fields");
+	} else if (scheduledUpdateService
+		.existsScheduledUpdate(scheduledUpdate)) {
+	    map.put("error", "duplicated.scheduledUpdate");
+	}
+
+	if (map.get("error") != null) {
+	    ScheduledUpdate newScheduledUpdate = scheduledUpdate;
+	    map.put("scheduledUpdate", newScheduledUpdate);
+	    return "newScheduledUpdate";
+	} else {
+	    scheduledUpdateService.addScheduledUpdate(scheduledUpdate);
+	    redirectAttributes.addFlashAttribute("success",
+		    "label.new.scheduledUpdate.created");
+	    return "redirect:/terminals/schedules/list";
+	}
+    }
 
     /**
      * Redirect to schedules.
-     *
-     * @return the string
+     * 
+     * @return the petition response
      */
     @RequestMapping("/terminals/schedules")
     public String redirectToSchedules() {
@@ -229,49 +257,59 @@ public class ScheduledUpdateController {
 
     /**
      * Delete scheduled update.
-     *
-     * @param scheduledUpdateId the scheduled update id
-     * @param redirectAttributes the redirect attributes
-     * @return the string
+     * 
+     * @param scheduledUpdateId
+     *            the scheduled update id
+     * @param redirectAttributes
+     *            the redirect attributes
+     * @return the petition response
      */
     @RequestMapping("/terminals/schedules/delete/{scheduledUpdateId}")
     public String deleteScheduledUpdate(
-		    @PathVariable("scheduledUpdateId") Integer scheduledUpdateId,
-			RedirectAttributes redirectAttributes) {
-		scheduledUpdateService.removeScheduledUpdate(scheduledUpdateId);
-		redirectAttributes.addFlashAttribute("success", "label.new.scheduledUpdate.deleted");
-		return "redirect:/terminals/schedules/list";
+	    @PathVariable("scheduledUpdateId") Integer scheduledUpdateId,
+	    RedirectAttributes redirectAttributes) {
+	scheduledUpdateService.removeScheduledUpdate(scheduledUpdateId);
+	redirectAttributes.addFlashAttribute("success",
+		"label.new.scheduledUpdate.deleted");
+	return "redirect:/terminals/schedules/list";
     }
 
-	/**
-	 * To calendar events json.
-	 *
-	 * @param updates the updates
-	 * @param from the from
-	 * @param to the to
-	 * @return the list
-	 */
-	private List<Map> toCalendarEventsJSON(List<ScheduledUpdate> updates, long from, long to) {
-		logger.debug("updates: " + updates);
-		List json = new ArrayList();
-		if (updates != null) {
-			for(ScheduledUpdate update: updates) {
-				List<Date> eventDates = update.getEventDates(from, to);
-				for (Date eventDate: eventDates) {
-					Map event = new HashMap();
-					event.put("id", update.getId());
-					event.put("className", (update.isWeekly()) ? "weekly" : "monthly");
-					SimpleDateFormat titleDateFormat =
-						(update.isWeekly()) ? weeklyTitleDateFormat : monthlyTitleDateFormat;
-					event.put("title", titleDateFormat.format(eventDate));
-					event.put("start", eventDateFormat.format(eventDate.getTime()));
-					Date endDate = new Date(eventDate.getTime() + EVENT_DURATION_IN_MILLIS);
-					event.put("end", eventDateFormat.format(endDate.getTime()));
-					json.add(event);
-				}
-			}
+    /**
+     * Transforms a json with events into a list of HashMaps with their data.
+     * 
+     * @param updates
+     *            the updates
+     * @param from
+     *            the start date
+     * @param to
+     *            the end date
+     * @return the list of HashMap events
+     */
+    private List<Map> toCalendarEventsJSON(List<ScheduledUpdate> updates,
+	    long from, long to) {
+	logger.debug("updates: " + updates);
+	List json = new ArrayList();
+	if (updates != null) {
+	    for (ScheduledUpdate update : updates) {
+		List<Date> eventDates = update.getEventDates(from, to);
+		for (Date eventDate : eventDates) {
+		    Map event = new HashMap();
+		    event.put("id", update.getId());
+		    event.put("className", (update.isWeekly()) ? "weekly"
+			    : "monthly");
+		    SimpleDateFormat titleDateFormat = (update.isWeekly()) ? weeklyTitleDateFormat
+			    : monthlyTitleDateFormat;
+		    event.put("title", titleDateFormat.format(eventDate));
+		    event.put("start",
+			    eventDateFormat.format(eventDate.getTime()));
+		    Date endDate = new Date(eventDate.getTime()
+			    + EVENT_DURATION_IN_MILLIS);
+		    event.put("end", eventDateFormat.format(endDate.getTime()));
+		    json.add(event);
 		}
-		return json;
+	    }
 	}
+	return json;
+    }
 
 }

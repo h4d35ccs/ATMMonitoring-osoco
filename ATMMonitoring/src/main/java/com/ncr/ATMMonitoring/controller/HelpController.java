@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class HelpController.
+ * 
+ * Controller for handling help related HTTP petitions.
  * 
  * @author Rafael Luque (rafael.luque@osoco.es)
  */
@@ -23,7 +24,7 @@ public class HelpController {
 
 
     /**
-     * Show default help.
+     * Show default help URL.
      * 
      * @param map
      *            the map
@@ -31,7 +32,7 @@ public class HelpController {
      *            the principal
      * @param request
      *            the request
-     * @return the string
+     * @return the petition response
      */
     @RequestMapping(value = "/help", method = RequestMethod.GET)
     public String showHelp(Map<String, Object> map, Principal principal,
@@ -40,7 +41,7 @@ public class HelpController {
     }
 
     /**
-     * Show dashboard help.
+     * Show dashboard help URL.
      * 
      * @param map
      *            the map
@@ -48,7 +49,7 @@ public class HelpController {
      *            the principal
      * @param request
      *            the request
-     * @return the string
+     * @return the petition response
      */
     @RequestMapping(value = "/help/dashboard", method = RequestMethod.GET)
     public String showDashboardHelp(Map<String, Object> map,
@@ -57,7 +58,7 @@ public class HelpController {
     }
 
     /**
-     * Show terminals help.
+     * Show terminals help URL.
      * 
      * @param map
      *            the map
@@ -65,7 +66,7 @@ public class HelpController {
      *            the principal
      * @param request
      *            the request
-     * @return the string
+     * @return the petition response
      */
     @RequestMapping(value = "/help/terminals", method = RequestMethod.GET)
     public String showTerminalsHelp(Map<String, Object> map,

@@ -35,44 +35,48 @@ import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.UserService;
 import org.apache.log4j.Logger;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class QueryController.
- *
+ * 
+ * Controller for handling query related HTTP petitions.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 @Controller
 public class QueryController {
 
     /** The logger. */
-    static private Logger logger = Logger.getLogger(QueryController.class.getName());
+    static private Logger logger = Logger.getLogger(QueryController.class
+	    .getName());
 
-	/** The Constant DEFAULT_SORT. */
-	public static final String DEFAULT_SORT = "serialNumber";
+    /** The default field for sorting terminals in csv downloads. */
+    public static final String DEFAULT_SORT = "serialNumber";
 
-	/** The Constant DEFAULT_ORDER. */
-	public static final String DEFAULT_ORDER = "asc";
+    /** The default sorting order for terminals in csv downloads. */
+    public static final String DEFAULT_ORDER = "asc";
 
-    /** The page size. */
+    /** The query page size. */
     @Value("${config.queriesPageSize}")
     private int pageSize;
-    
+
     /** The query service. */
     @Autowired
     private QueryService queryService;
-    
+
     /** The user service. */
     @Autowired
     private UserService userService;
 
-
     /**
-     * Creates the query.
-     *
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Create query URL.
+     * 
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/queries/create", method = RequestMethod.GET)
     public String createQuery(Map<String, Object> map,
@@ -95,7 +99,6 @@ public class QueryController {
 	    datePattern = datePattern.replace("d", "dd");
 	}
 
-
 	map.put("userMsg", userMsg);
 	map.put("query", new Query());
 	map.put("values", Query.getComboboxes());
@@ -104,24 +107,25 @@ public class QueryController {
 
     }
 
-
-
     /**
-     * Show user query.
-     *
-     * @param queryId the query id
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Show user query URL.
+     * 
+     * @param queryId
+     *            the query id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/queries/show", method = RequestMethod.GET)
-    public String showUserQuery(Integer queryId,
-	    Map<String, Object> map, HttpServletRequest request,
-	    Principal principal) {
+    public String showUserQuery(Integer queryId, Map<String, Object> map,
+	    HttpServletRequest request, Principal principal) {
 
 	String userMsg = "";
-        Query query = null;
+	Query query = null;
 	Locale locale = RequestContextUtils.getLocale(request);
 
 	if (queryId != null) {
@@ -133,7 +137,6 @@ public class QueryController {
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
-
 
 	map.put("userMsg", userMsg);
 	map.put("query", query);
@@ -143,23 +146,26 @@ public class QueryController {
 
     }
 
- /**
-  * Delete user query.
-  *
-  * @param queryId the query id
-  * @param map the map
-  * @param request the request
-  * @param principal the principal
-  * @return the string
-  */
- @RequestMapping(value = "/queries/delete", method = RequestMethod.GET)
-    public String deleteUserQuery(Integer queryId,
-	    Map<String, Object> map, HttpServletRequest request,
-				  Principal principal) {
+    /**
+     * Delete user query URL.
+     * 
+     * @param queryId
+     *            the query id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
+    @RequestMapping(value = "/queries/delete", method = RequestMethod.GET)
+    public String deleteUserQuery(Integer queryId, Map<String, Object> map,
+	    HttpServletRequest request, Principal principal) {
 
 	String userMsg = "";
-        Query query = null;
-        Set<Query> userQueries = null;
+	Query query = null;
+	Set<Query> userQueries = null;
 	Locale locale = RequestContextUtils.getLocale(request);
 
 	if (queryId != null) {
@@ -168,42 +174,44 @@ public class QueryController {
 		try {
 		    queryService.deleteQuery(query);
 		    map.put("success", "success.deletingNewQuery");
-	        }catch (Throwable e) {
+		} catch (Throwable e) {
 		    map.put("error", "error.deletingQuery");
 		}
-            }
+	    }
 	}
 
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-            userQueries = loggedUser.getQueries();
+	    userQueries = loggedUser.getQueries();
 	}
-	PagedListHolder<Query> pagedListHolder =
-	    new PagedListHolder<Query>( new ArrayList(userQueries));
+	PagedListHolder<Query> pagedListHolder = new PagedListHolder<Query>(
+		new ArrayList(userQueries));
 	int page = 0;
 
 	pagedListHolder.setPage(page);
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
 
-        map.put("userMsg", userMsg);
+	map.put("userMsg", userMsg);
 
 	return "queryList";
 
     }
 
-
-
     /**
-     * Select user query.
-     *
-     * @param query the query
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Select user query URL.
+     * 
+     * @param query
+     *            the query
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/queries/create", method = RequestMethod.POST)
     public String selectUserQuery(@ModelAttribute("query") Query query,
@@ -249,30 +257,32 @@ public class QueryController {
     }
 
     /**
-     * Redirect to queries.
-     *
-     * @return the string
+     * Redirect to queries URL.
+     * 
+     * @return the petition response
      */
     @RequestMapping("/queries")
     public String redirectToQueries() {
-		return "redirect:/queries/list";
+	return "redirect:/queries/list";
     }
 
     /**
-     * List queries.
-     *
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @param p the p
-     * @return the string
+     * List queries URL.
+     * 
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @param p
+     *            the page number
+     * @return the petition response
      */
     @RequestMapping("/queries/list")
     public String listQueries(Map<String, Object> map,
-			      HttpServletRequest request,
-			      Principal principal,
-                              String p) {
-        Set<Query> userQueries = null;
+	    HttpServletRequest request, Principal principal, String p) {
+	Set<Query> userQueries = null;
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
 
@@ -283,8 +293,8 @@ public class QueryController {
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
 
-	PagedListHolder<Query> pagedListHolder =
-	    new PagedListHolder<Query>( new ArrayList(userQueries));
+	PagedListHolder<Query> pagedListHolder = new PagedListHolder<Query>(
+		new ArrayList(userQueries));
 	int page = 0;
 	if (p != null) {
 	    try {
@@ -297,36 +307,44 @@ public class QueryController {
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
 
-	//  map.put("userQueries", userQueries);
-        map.put("userMsg", userMsg);
+	// map.put("userQueries", userQueries);
+	map.put("userMsg", userMsg);
 	return "queryList";
     }
 
-
     /**
-     * Save or update query.
-     *
-     * @param query the query
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @param redirectAttributes the redirect attributes
-     * @param p the p
-     * @param sort the sort
-     * @param order the order
-     * @return the string
-     * @throws Exception the exception
+     * Save or update query URL.
+     * 
+     * @param query
+     *            the query
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @param redirectAttributes
+     *            the redirect attributes
+     * @param p
+     *            the page number
+     * @param sort
+     *            the sort
+     * @param order
+     *            the order
+     * @return the petition response
+     * @throws Exception
+     *             the exception
      */
     @RequestMapping(value = "/queries/results", method = RequestMethod.POST)
     public String saveOrUpdateQuery(@ModelAttribute("query") Query query,
 	    Map<String, Object> map, HttpServletRequest request,
-		Principal principal, RedirectAttributes redirectAttributes,
-        String p, String sort, String order) throws Exception {
+	    Principal principal, RedirectAttributes redirectAttributes,
+	    String p, String sort, String order) throws Exception {
 
 	Locale locale = RequestContextUtils.getLocale(request);
 	User loggedUser = null;
 	if (principal != null) {
-		loggedUser = userService.getUserByUsername(principal.getName());
+	    loggedUser = userService.getUserByUsername(principal.getName());
 	}
 
 	if (WebUtils.hasSubmitParameter(request, "save")) {
@@ -336,19 +354,24 @@ public class QueryController {
 		    try {
 			logger.debug("Updating query - " + query.getName());
 			queryService.updateQuery(query);
-			redirectAttributes.addFlashAttribute("success", "success.updatingQuery");
+			redirectAttributes.addFlashAttribute("success",
+				"success.updatingQuery");
 		    } catch (Exception e) {
-			redirectAttributes.addFlashAttribute("error", "error.updatingQuery");
+			redirectAttributes.addFlashAttribute("error",
+				"error.updatingQuery");
 		    }
 		} else {
 		    query.setCreationDate(new Date());
-			query.setTrueLocale(locale);
+		    query.setTrueLocale(locale);
 		    try {
-			logger.debug("Guardando nueva query- " + query.getName());
+			logger.debug("Guardando nueva query- "
+				+ query.getName());
 			queryService.addQuery(query);
-			redirectAttributes.addFlashAttribute("success", "success.savingNewQuery");
+			redirectAttributes.addFlashAttribute("success",
+				"success.savingNewQuery");
 		    } catch (Exception e) {
-			redirectAttributes.addFlashAttribute("error", "error.savingNewQuery");
+			redirectAttributes.addFlashAttribute("error",
+				"error.savingNewQuery");
 		    }
 		}
 	    }
@@ -358,51 +381,52 @@ public class QueryController {
 		query.setUser(loggedUser);
 	    }
 	    logger.debug("Executing query... " + query.getName());
-		String sortValue = (sort == null) ? DEFAULT_SORT : sort;
-		String orderValue = (order == null) ? DEFAULT_ORDER : order;
-		List<Terminal> terminals = queryService.executeQuery(query, locale, sortValue, orderValue);
+	    String sortValue = (sort == null) ? DEFAULT_SORT : sort;
+	    String orderValue = (order == null) ? DEFAULT_ORDER : order;
+	    List<Terminal> terminals = queryService.executeQuery(query, locale,
+		    sortValue, orderValue);
 
-		logger.debug("terminals " + terminals);
+	    logger.debug("terminals " + terminals);
 
-		if (terminals == null) {
-		    throw new Exception("Query execution returned a NULL list.");
+	    if (terminals == null) {
+		throw new Exception("Query execution returned a NULL list.");
+	    }
+
+	    PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
+		    terminals);
+	    int page = 0;
+	    if (p != null) {
+		try {
+		    page = Integer.parseInt(p);
+		} catch (NumberFormatException e) {
+		    e.printStackTrace();
 		}
+	    }
+	    pagedListHolder.setPage(page);
+	    pagedListHolder.setPageSize(pageSize);
 
-		PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
-											  terminals);
-		int page = 0;
-		if (p != null) {
-		    try {
-			page = Integer.parseInt(p);
-		    } catch (NumberFormatException e) {
-			e.printStackTrace();
-		    }
-		}
-		pagedListHolder.setPage(page);
-		pagedListHolder.setPageSize(pageSize);
+	    logger.debug("pageListHolder " + pagedListHolder);
 
-		logger.debug("pageListHolder " + pagedListHolder);
+	    map.put("userMsg", loggedUser.getHtmlWelcomeMessage(locale));
+	    map.put("pagedListHolder", pagedListHolder);
+	    map.put("query", query);
+	    map.put("values", Query.getComboboxes());
+	    map.put("p", page);
+	    map.put("sort", sortValue);
+	    map.put("order", orderValue);
 
-		map.put("userMsg", loggedUser.getHtmlWelcomeMessage(locale));
-		map.put("pagedListHolder", pagedListHolder);
-		map.put("query", query);
-		map.put("values", Query.getComboboxes());
-		map.put("p", page);
-		map.put("sort", sortValue);
-		map.put("order", orderValue);
-
-	}  else if (WebUtils.hasSubmitParameter(request, "delete")) {
-	   logger.debug("Deleting query -" + query.getName());
-	    return "redirect:/queries/delete?queryId="+query.getId();
+	} else if (WebUtils.hasSubmitParameter(request, "delete")) {
+	    logger.debug("Deleting query -" + query.getName());
+	    return "redirect:/queries/delete?queryId=" + query.getId();
 	}
 	return "queryResults";
 
     }
 
     /**
-     * Redirect from wrong results.
-     *
-     * @return the string
+     * Wrong download query results as csv URL.
+     * 
+     * @return the petition response
      */
     @RequestMapping(value = "/queries/results", method = RequestMethod.GET)
     public String redirectFromWrongResults() {
@@ -410,9 +434,9 @@ public class QueryController {
     }
 
     /**
-     * Redirect from wrong results export.
-     *
-     * @return the string
+     * Wrong download query results as csv URL.
+     * 
+     * @return the petition response
      */
     @RequestMapping(value = "/queries/results/export", method = RequestMethod.GET)
     public String redirectFromWrongResultsExport() {
@@ -420,21 +444,26 @@ public class QueryController {
     }
 
     /**
-     * Download results csv.
-     *
-     * @param query the query
-     * @param response the response
-     * @param request the request
-     * @param sort the sort
-     * @param order the order
+     * Download query results as csv URL.
+     * 
+     * @param query
+     *            the query
+     * @param response
+     *            the response
+     * @param request
+     *            the request
+     * @param sort
+     *            the fields for sorting the results
+     * @param order
+     *            the sorting order
      */
     @RequestMapping(value = "/queries/results/export", method = RequestMethod.POST)
     public void downloadResultsCsv(@ModelAttribute("query") Query query,
-            HttpServletResponse response, HttpServletRequest request,
-			String sort, String order) {
+	    HttpServletResponse response, HttpServletRequest request,
+	    String sort, String order) {
 	try {
-		String sortValue = (sort == null) ? DEFAULT_SORT : sort;
-		String orderValue = (order == null) ? DEFAULT_ORDER : order;
+	    String sortValue = (sort == null) ? DEFAULT_SORT : sort;
+	    String orderValue = (order == null) ? DEFAULT_ORDER : order;
 	    response.setContentType("text/csv;charset=utf-8");
 	    response.setHeader("Content-Disposition",
 		    "attachment; filename=\"terminals.csv\"");
@@ -442,7 +471,9 @@ public class QueryController {
 	    OutputStream buffOs = new BufferedOutputStream(resOs);
 	    OutputStreamWriter outputwriter = new OutputStreamWriter(buffOs);
 	    outputwriter.write(Terminal.getCsvHeader());
-	    List<Terminal> terminals = queryService.executeQuery(query, RequestContextUtils.getLocale(request), sortValue, orderValue);
+	    List<Terminal> terminals = queryService.executeQuery(query,
+		    RequestContextUtils.getLocale(request), sortValue,
+		    orderValue);
 	    for (Terminal terminal : terminals) {
 		outputwriter.write("\n" + terminal.getCsvDescription());
 	    }

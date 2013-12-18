@@ -23,9 +23,10 @@ import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.BankCompanyService;
 import com.ncr.ATMMonitoring.service.UserService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class BankCompanyController.
+ * 
+ * Controller for handling bank company related HTTP petitions.
  * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
@@ -46,27 +47,27 @@ public class BankCompanyController {
     private UserService userService;
 
     /**
-     * Redirect to bank companys.
+     * Redirect to bank companies URL.
      * 
-     * @return the string
+     * @return the petition response
      */
     @RequestMapping(value = { "/banks" })
-    public String redirectToBankCompanys() {
+    public String redirectToBankCompanies() {
 	return "redirect:/banks/list";
     }
 
     /**
-     * List bank companies.
+     * List bank companies URL.
      * 
      * @param map
      *            the map
      * @param principal
      *            the principal
      * @param p
-     *            the p
+     *            the page number
      * @param request
      *            the request
-     * @return the string
+     * @return the petition response
      */
     @RequestMapping(value = "/banks/list", method = RequestMethod.GET)
     public String listBankCompanies(Map<String, Object> map,
@@ -99,7 +100,7 @@ public class BankCompanyController {
     }
 
     /**
-     * Adds the bank company.
+     * Add bank company URL.
      * 
      * @param bankCompany
      *            the bank company
@@ -110,10 +111,10 @@ public class BankCompanyController {
      * @param request
      *            the request
      * @param p
-     *            the p
+     *            the page number
      * @param principal
      *            the principal
-     * @return the string
+     * @return the petition response
      */
     @RequestMapping(value = "/banks/list", method = RequestMethod.POST)
     public String addBankCompany(
@@ -167,7 +168,7 @@ public class BankCompanyController {
     }
 
     /**
-     * Bank company details.
+     * Bank company details URL.
      * 
      * @param bankCompanyId
      *            the bank company id
@@ -177,7 +178,7 @@ public class BankCompanyController {
      *            the request
      * @param principal
      *            the principal
-     * @return the string
+     * @return the petition response
      */
     @RequestMapping("/banks/details/{bankCompanyId}")
     public String bankCompanyDetails(
@@ -205,7 +206,7 @@ public class BankCompanyController {
     }
 
     /**
-     * Update bank company.
+     * Update bank company URL.
      * 
      * @param bankCompany
      *            the bank company
@@ -217,7 +218,7 @@ public class BankCompanyController {
      *            the request
      * @param principal
      *            the principal
-     * @return the string
+     * @return the petition response
      */
     @RequestMapping(value = "/banks/update", method = RequestMethod.POST)
     public String updateBankCompany(
@@ -259,13 +260,13 @@ public class BankCompanyController {
     }
 
     /**
-     * Delete bank company.
+     * Delete bank company URL.
      * 
      * @param bankCompanyId
      *            the bank company id
      * @param principal
      *            the principal
-     * @return the string
+     * @return the petition response
      */
     @RequestMapping("/banks/delete/{bankCompanyId}")
     public String deleteBankCompany(

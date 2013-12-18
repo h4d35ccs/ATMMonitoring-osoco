@@ -51,10 +51,11 @@ import com.ncr.ATMMonitoring.service.TerminalService;
 import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.socket.SocketService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TerminalController.
- *
+ * 
+ * Controller for handling terminal related HTTP petitions.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -62,26 +63,27 @@ import com.ncr.ATMMonitoring.socket.SocketService;
 public class TerminalController {
 
     /** The logger. */
-    static private Logger logger = Logger.getLogger(TerminalController.class.getName());
+    static private Logger logger = Logger.getLogger(TerminalController.class
+	    .getName());
 
-	/** The Constant DEFAULT_SORT. */
-	public static final String DEFAULT_SORT = "serialNumber";
+    /** The Constant DEFAULT_SORT. */
+    public static final String DEFAULT_SORT = "serialNumber";
 
-	/** The Constant DEFAULT_ORDER. */
-	public static final String DEFAULT_ORDER = "asc";
+    /** The Constant DEFAULT_ORDER. */
+    public static final String DEFAULT_ORDER = "asc";
 
     /** The can alter terminals roles. */
     @Value("${security.terminalsManagementAllowedRoles}")
     private String canAlterTerminalsRoles;
-    
+
     /** The can manage scheduled updates roles. */
     @Value("${security.scheduledUpdatesAccessAllowedRoles}")
     private String canManageScheduledUpdatesRoles;
-    
+
     /** The page size. */
     @Value("${config.terminalsPageSize}")
     private int pageSize;
-    
+
     /** The terminal models page size. */
     @Value("${config.terminalModelsPageSize}")
     private int terminalModelsPageSize;
@@ -89,27 +91,27 @@ public class TerminalController {
     /** The terminal service. */
     @Autowired
     private TerminalService terminalService;
-    
+
     /** The terminal model service. */
     @Autowired
     private TerminalModelService terminalModelService;
-    
+
     /** The installation service. */
     @Autowired
     private InstallationService installationService;
-    
+
     /** The query service. */
     @Autowired
     private QueryService queryService;
-    
+
     /** The user service. */
     @Autowired
     private UserService userService;
-    
+
     /** The socket service. */
     @Autowired
     private SocketService socketService;
-    
+
     /** The location service. */
     @Autowired
     private LocationService locationService;
@@ -118,93 +120,106 @@ public class TerminalController {
     // private SoftwareService softwareService;
 
     /**
-     * Binder.
-     *
-     * @param binder the binder
-     * @throws Exception the exception
+     * Binds custom property editors.
+     * 
+     * @param binder
+     *            the binder
+     * @throws Exception
+     *             the exception
      */
     @InitBinder
     protected void binder(WebDataBinder binder) throws Exception {
-		binder.registerCustomEditor(Date.class, new DatePropertyEditor());
+	binder.registerCustomEditor(Date.class, new DatePropertyEditor());
     }
 
     /**
-     * Request terminals update.
-     *
-     * @param map the map
-     * @param queryId the query id
-     * @param request the request
-     * @param principal the principal
-     * @param redirectAttributes the redirect attributes
-     * @return the string
+     * Request query results' terminals update URL.
+     * 
+     * @param map
+     *            the map
+     * @param queryId
+     *            the query id
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @param redirectAttributes
+     *            the redirect attributes
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/request", method = RequestMethod.GET)
-    public String requestTerminalsUpdate(Map<String, Object> map, String queryId, HttpServletRequest request,
-					 Principal principal,
-					  RedirectAttributes redirectAttributes) {
-    	if ((queryId != null) && (principal != null)) {
-			User loggedUser = userService
-					.getUserByUsername(principal.getName());
-    		Query query = queryService.getQuery(Integer.parseInt(queryId));
-    		if (query.getUser().getId().equals(loggedUser.getId())) {
-    			socketService.updateTerminalsSocket(query);
-    		}
-    	} else {
+    public String requestTerminalsUpdate(Map<String, Object> map,
+	    String queryId, HttpServletRequest request, Principal principal,
+	    RedirectAttributes redirectAttributes) {
+	if ((queryId != null) && (principal != null)) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    Query query = queryService.getQuery(Integer.parseInt(queryId));
+	    if (query.getUser().getId().equals(loggedUser.getId())) {
+		socketService.updateTerminalsSocket(query);
+	    }
+	} else {
 	    // try {
-		    socketService.updateAllTerminalsSocket();
-		    redirectAttributes.addFlashAttribute("success", "success.snmpUpdateAll");
-//		} catch (SnmpTimeOutException e) {
-//		    String userMsg = "";
-//		    Locale locale = RequestContextUtils.getLocale(request);
-//		    if (principal != null) {
-//			User loggedUser = userService.getUserByUsername(principal
-//				.getName());
-//			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-//
-//		    }
-//		    map.put("userMsg", userMsg);
-//		    map.put("ips", e.getIpsHtmlList());
-//		    redirectAttributes.addFlashAttribute("timeout", "timeout.snmpUpdateAll");
-//		}
-    	}
+	    socketService.updateAllTerminalsSocket();
+	    redirectAttributes.addFlashAttribute("success",
+		    "success.snmpUpdateAll");
+	    // } catch (SnmpTimeOutException e) {
+	    // String userMsg = "";
+	    // Locale locale = RequestContextUtils.getLocale(request);
+	    // if (principal != null) {
+	    // User loggedUser = userService.getUserByUsername(principal
+	    // .getName());
+	    // userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    //
+	    // }
+	    // map.put("userMsg", userMsg);
+	    // map.put("ips", e.getIpsHtmlList());
+	    // redirectAttributes.addFlashAttribute("timeout",
+	    // "timeout.snmpUpdateAll");
+	    // }
+	}
 
-		try {
-		    // We wait to avoid not loading the recently added DB data
-		    Thread.sleep(1000);
-		} catch (InterruptedException e) {
-		    e.printStackTrace();
-		}
+	try {
+	    // We wait to avoid not loading the recently added DB data
+	    Thread.sleep(1000);
+	} catch (InterruptedException e) {
+	    e.printStackTrace();
+	}
 
-		map.clear();
-		return "redirect:/terminals/list";
+	map.clear();
+	return "redirect:/terminals/list";
     }
 
     /**
-     * Request terminal update.
-     *
-     * @param terminalId the terminal id
-     * @param map the map
-     * @param request the request
-     * @param redirectAttributes the redirect attributes
-     * @param principal the principal
-     * @return the string
+     * Request terminal update URL.
+     * 
+     * @param terminalId
+     *            the terminal id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param redirectAttributes
+     *            the redirect attributes
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/request/{terminalId}")
     public String requestTerminalUpdate(
 	    @PathVariable("terminalId") Integer terminalId,
 	    Map<String, Object> map, HttpServletRequest request,
-	    RedirectAttributes redirectAttributes,
-	    Principal principal)
-    {
-		Terminal terminal = terminalService.getTerminal(terminalId);
-		if (terminal == null) {
-			map.clear();
-			return "redirect:/terminals/list";
-		}
+	    RedirectAttributes redirectAttributes, Principal principal) {
+	Terminal terminal = terminalService.getTerminal(terminalId);
+	if (terminal == null) {
+	    map.clear();
+	    return "redirect:/terminals/list";
+	}
 	// try {
-		    logger.debug("request snmp update for terminal" + terminalId);
+	logger.debug("request snmp update for terminal" + terminalId);
 	socketService.updateTerminalSocket(terminal);
-			redirectAttributes.addFlashAttribute("success", "success.snmpUpdateTerminal");
+	redirectAttributes.addFlashAttribute("success",
+		"success.snmpUpdateTerminal");
 	// } catch (SnmpTimeOutException e) {
 	// String userMsg = "";
 	// Locale locale = RequestContextUtils.getLocale(request);
@@ -226,98 +241,100 @@ public class TerminalController {
 	// return "redirect:/terminals/details/" + terminalId;
 	// }
 
-		try {
-			// We wait to avoid not loading the recently added DB data
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	try {
+	    // We wait to avoid not loading the recently added DB data
+	    Thread.sleep(1000);
+	} catch (InterruptedException e) {
+	    e.printStackTrace();
+	}
 
-		map.clear();
-		return "redirect:/terminals/details/" + terminalId;
+	map.clear();
+	return "redirect:/terminals/details/" + terminalId;
     }
 
     /**
-     * List terminals.
-     *
-     * @param map the map
-     * @param principal the principal
-     * @param p the p
-     * @param sort the sort
-     * @param order the order
-     * @param request the request
-     * @return the string
+     * List terminals URL.
+     * 
+     * @param map
+     *            the map
+     * @param principal
+     *            the principal
+     * @param p
+     *            the page number
+     * @param sort
+     *            the fields for sorting terminals
+     * @param order
+     *            the order for sorting terminals
+     * @param request
+     *            the request
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/list", method = RequestMethod.GET)
-    public String listTerminals(
-            Map<String, Object> map,
-			Principal principal,
-			String p,
-			String sort,
-			String order,
-			HttpServletRequest request) {
-		String userMsg = "";
-		Locale locale = RequestContextUtils.getLocale(request);
-		if (principal != null) {
-			User loggedUser = userService
-				.getUserByUsername(principal.getName());
-			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-		}
-		boolean canAdd = false, canManageScheduled = false;
-		PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
-		Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
-		Set<Query> userQueries = null;
-		String sortValue = (sort == null) ? DEFAULT_SORT : sort;
-		String orderValue = (order == null) ? DEFAULT_ORDER : order;
-		if (principal != null) {
-			User loggedUser = userService
-				.getUserByUsername(principal.getName());
-			if ((loggedUser.getRole() != null)
-				&& (canAlterTerminalsRoles.contains("'ROLE_"
-													+ loggedUser.getRole().getName().toUpperCase()
-													+ "'"))) {
-				canAdd = true;
-			}
-			if ((loggedUser.getRole() != null)
-				&& (canManageScheduledUpdatesRoles.contains("'ROLE_"
-															+ loggedUser.getRole().getName().toUpperCase()
-															+ "'"))) {
-				canManageScheduled = true;
-			}
-			pagedListHolder = new PagedListHolder<Terminal>(
-			    terminalService.listTerminalsByBankCompanies(
-				   loggedUser.getManageableBankCompanies(), sortValue, orderValue));
-			bankCompanies = loggedUser.getManageableBankCompanies();
-			userQueries = loggedUser.getQueries();
-		}
-		map.put("banksList", bankCompanies);
-		map.put("installationsList", installationService.listInstallations());
-		map.put("userQueries", userQueries);
-		map.put("userMsg", userMsg);
-		map.put("canAdd", canAdd);
-		map.put("canManageScheduled", canManageScheduled);
-		map.put("terminal", new Terminal());
-		map.put("sort", sortValue);
-		map.put("order", orderValue);
-		int page = 0;
-		if (p != null) {
-			try {
-				page = Integer.parseInt(p);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			}
-		}
-		pagedListHolder.setPage(page);
-		pagedListHolder.setPageSize(pageSize);
-		map.put("pagedListHolder", pagedListHolder);
+    public String listTerminals(Map<String, Object> map, Principal principal,
+	    String p, String sort, String order, HttpServletRequest request) {
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	}
+	boolean canAdd = false, canManageScheduled = false;
+	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
+	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
+	Set<Query> userQueries = null;
+	String sortValue = (sort == null) ? DEFAULT_SORT : sort;
+	String orderValue = (order == null) ? DEFAULT_ORDER : order;
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    if ((loggedUser.getRole() != null)
+		    && (canAlterTerminalsRoles.contains("'ROLE_"
+			    + loggedUser.getRole().getName().toUpperCase()
+			    + "'"))) {
+		canAdd = true;
+	    }
+	    if ((loggedUser.getRole() != null)
+		    && (canManageScheduledUpdatesRoles.contains("'ROLE_"
+			    + loggedUser.getRole().getName().toUpperCase()
+			    + "'"))) {
+		canManageScheduled = true;
+	    }
+	    pagedListHolder = new PagedListHolder<Terminal>(
+		    terminalService.listTerminalsByBankCompanies(
+			    loggedUser.getManageableBankCompanies(), sortValue,
+			    orderValue));
+	    bankCompanies = loggedUser.getManageableBankCompanies();
+	    userQueries = loggedUser.getQueries();
+	}
+	map.put("banksList", bankCompanies);
+	map.put("installationsList", installationService.listInstallations());
+	map.put("userQueries", userQueries);
+	map.put("userMsg", userMsg);
+	map.put("canAdd", canAdd);
+	map.put("canManageScheduled", canManageScheduled);
+	map.put("terminal", new Terminal());
+	map.put("sort", sortValue);
+	map.put("order", orderValue);
+	int page = 0;
+	if (p != null) {
+	    try {
+		page = Integer.parseInt(p);
+	    } catch (NumberFormatException e) {
+		e.printStackTrace();
+	    }
+	}
+	pagedListHolder.setPage(page);
+	pagedListHolder.setPageSize(pageSize);
+	map.put("pagedListHolder", pagedListHolder);
 
-		return "terminals";
+	return "terminals";
     }
 
     /**
-     * Redirect to terminals.
-     *
-     * @return the string
+     * Redirect to terminals URL.
+     * 
+     * @return the petition response
      */
     @RequestMapping(value = { "/terminals" })
     public String redirectToTerminals() {
@@ -325,13 +342,17 @@ public class TerminalController {
     }
 
     /**
-     * Terminal details.
-     *
-     * @param terminalId the terminal id
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Terminal details URL.
+     * 
+     * @param terminalId
+     *            the terminal id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/details/{terminalId}")
     public String terminalDetails(
@@ -364,8 +385,8 @@ public class TerminalController {
 	    bankCompanies = loggedUser.getManageableBankCompanies();
 	    if ((terminal.getBankCompany() != null)
 		    && (!bankCompanies.contains(terminal.getBankCompany()))) {
-			map.clear();
-			return "redirect:/terminals/list";
+		map.clear();
+		return "redirect:/terminals/list";
 	    }
 	}
 	map.put("banksList", bankCompanies);
@@ -390,13 +411,17 @@ public class TerminalController {
     }
 
     /**
-     * Import terminal.
-     *
-     * @param file the file
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Import terminals from json file URL.
+     * 
+     * @param file
+     *            the json file
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/import", method = RequestMethod.POST)
     public String importTerminal(
@@ -412,17 +437,19 @@ public class TerminalController {
     }
 
     /**
-     * View new terminal.
-     *
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * New terminal form URL.
+     * 
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
-    @RequestMapping(value="/terminals/new", method = RequestMethod.GET)
+    @RequestMapping(value = "/terminals/new", method = RequestMethod.GET)
     public String viewNewTerminal(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
-	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
 	boolean canAdd = false;
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
@@ -436,29 +463,35 @@ public class TerminalController {
 		canAdd = true;
 	    }
 	    bankCompanies = loggedUser.getManageableBankCompanies();
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
 
-        map.put("values", terminalModelService.listTerminalModelsByManufacturer());
-        map.put("banksList", bankCompanies);
+	map.put("values",
+		terminalModelService.listTerminalModelsByManufacturer());
+	map.put("banksList", bankCompanies);
 	map.put("canAdd", canAdd);
-        map.put("terminal", new Terminal());
+	map.put("terminal", new Terminal());
 
 	return "newTerminal";
-   }
+    }
 
-   /**
-    * Adds the terminal.
-    *
-    * @param terminal the terminal
-    * @param result the result
-    * @param map the map
-    * @param request the request
-    * @param principal the principal
-    * @param p the p
-    * @return the string
-    */
-   @RequestMapping(value = "/terminals/list", method = RequestMethod.POST)
+    /**
+     * Add terminal URL.
+     * 
+     * @param terminal
+     *            the terminal
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @param p
+     *            the page number
+     * @return the petition response
+     */
+    @RequestMapping(value = "/terminals/list", method = RequestMethod.POST)
     public String addTerminal(
 	    @Valid @ModelAttribute("terminal") Terminal terminal,
 	    BindingResult result, Map<String, Object> map,
@@ -559,22 +592,28 @@ public class TerminalController {
     }
 
     /**
-     * Update terminal.
-     *
-     * @param terminal the terminal
-     * @param result the result
-     * @param map the map
-     * @param redirectAttributes the redirect attributes
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Update terminal URL.
+     * 
+     * @param terminal
+     *            the terminal
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param redirectAttributes
+     *            the redirect attributes
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/update", method = RequestMethod.POST)
     public String updateTerminal(
 	    @Valid @ModelAttribute("terminal") Terminal terminal,
 	    BindingResult result, Map<String, Object> map,
-	    	    RedirectAttributes redirectAttributes,
-	    HttpServletRequest request, Principal principal) {
+	    RedirectAttributes redirectAttributes, HttpServletRequest request,
+	    Principal principal) {
 	if ((terminal.getBankCompany() != null)
 		&& (terminal.getBankCompany().getId() == null)) {
 	    terminal.setBankCompany(null);
@@ -644,7 +683,8 @@ public class TerminalController {
 	Terminal auxTerminal = terminalService.getTerminal(terminal.getId());
 	auxTerminal.replaceTerminalData(terminal);
 	terminalService.updateTerminal(auxTerminal);
-	redirectAttributes.addFlashAttribute("success", "success.updatingTerminal");
+	redirectAttributes.addFlashAttribute("success",
+		"success.updatingTerminal");
 	try {
 	    // We wait to avoid not loading the recently added DB data
 	    Thread.sleep(500);
@@ -657,29 +697,31 @@ public class TerminalController {
     }
 
     /**
-     * List terminals by query.
-     *
-     * @param map the map
-     * @param queryId the query id
-     * @param principal the principal
-     * @param p the p
-     * @param sort the sort
-     * @param order the order
-     * @param request the request
-     * @return the string
+     * List terminals by query URL.
+     * 
+     * @param map
+     *            the map
+     * @param queryId
+     *            the query id
+     * @param principal
+     *            the principal
+     * @param p
+     *            the page number
+     * @param sort
+     *            the fields for sorting terminals
+     * @param order
+     *            the order for sorting terminals
+     * @param request
+     *            the request
+     * @return the petition response
      */
-    @RequestMapping(value="terminals/byQuery")
-    public String listTerminalsByQuery(
-	        Map<String, Object> map,
-			Integer queryId,
-			Principal principal,
-			String p,
-			String sort,
-			String order,
-			HttpServletRequest request) {
+    @RequestMapping(value = "terminals/byQuery")
+    public String listTerminalsByQuery(Map<String, Object> map,
+	    Integer queryId, Principal principal, String p, String sort,
+	    String order, HttpServletRequest request) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-        Set<Query> userQueries = null;
+	Set<Query> userQueries = null;
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
@@ -705,20 +747,21 @@ public class TerminalController {
 	    }
 	    userQueries = loggedUser.getQueries();
 	}
-        map.put("userQueries", userQueries);
+	map.put("userQueries", userQueries);
 	map.put("userMsg", userMsg);
 	map.put("canAdd", canAdd);
 	map.put("canManageScheduled", canManageScheduled);
-        Query query= null;
+	Query query = null;
 	List<Terminal> terminals = null;
-        if (queryId != null) {
+	if (queryId != null) {
 	    query = queryService.getQuery(queryId);
-	    terminals= queryService.executeQuery(query, locale, sortValue, orderValue);
-        }
-        if (terminals == null) {
-            terminals = terminalService.listTerminals();
+	    terminals = queryService.executeQuery(query, locale, sortValue,
+		    orderValue);
+	}
+	if (terminals == null) {
+	    terminals = terminalService.listTerminals();
 
-        }
+	}
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
 		terminals);
 	int page = 0;
@@ -740,9 +783,9 @@ public class TerminalController {
     }
 
     /**
-     * Redirect to terminal models.
-     *
-     * @return the string
+     * Redirect to terminal models URL.
+     * 
+     * @return the petition response
      */
     @RequestMapping(value = { "/terminals/models" })
     public String redirectToTerminalModels() {
@@ -750,13 +793,17 @@ public class TerminalController {
     }
 
     /**
-     * List terminal models.
-     *
-     * @param map the map
-     * @param principal the principal
-     * @param p the p
-     * @param request the request
-     * @return the string
+     * List terminal models URL.
+     * 
+     * @param map
+     *            the map
+     * @param principal
+     *            the principal
+     * @param p
+     *            the page number
+     * @param request
+     *            the request
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/models/list", method = RequestMethod.GET)
     public String listTerminalModels(Map<String, Object> map,
@@ -788,16 +835,23 @@ public class TerminalController {
     }
 
     /**
-     * Adds the terminal model.
-     *
-     * @param terminalModel the terminal model
-     * @param photo the photo
-     * @param result the result
-     * @param map the map
-     * @param request the request
-     * @param p the p
-     * @param principal the principal
-     * @return the string
+     * Add terminal model URL.
+     * 
+     * @param terminalModel
+     *            the terminal model
+     * @param photo
+     *            the photo
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param p
+     *            the page number
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/models/list", method = RequestMethod.POST)
     public String addTerminalModel(
@@ -850,13 +904,17 @@ public class TerminalController {
     }
 
     /**
-     * Terminal model details.
-     *
-     * @param terminalModelId the terminal model id
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Terminal model details URL.
+     * 
+     * @param terminalModelId
+     *            the terminal model id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/models/details/{terminalModelId}")
     public String terminalModelDetails(
@@ -883,15 +941,21 @@ public class TerminalController {
     }
 
     /**
-     * Update terminal model.
-     *
-     * @param terminalModel the terminal model
-     * @param photo the photo
-     * @param result the result
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Update terminal model URL.
+     * 
+     * @param terminalModel
+     *            the terminal model
+     * @param photo
+     *            the photo
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/models/update", method = RequestMethod.POST)
     public String updateTerminalModel(
@@ -930,11 +994,13 @@ public class TerminalController {
     }
 
     /**
-     * Delete terminal model.
-     *
-     * @param terminalModelId the terminal model id
-     * @param principal the principal
-     * @return the string
+     * Delete terminal model URL.
+     * 
+     * @param terminalModelId
+     *            the terminal model id
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/models/delete/{terminalModelId}")
     public String deleteTerminalModel(
@@ -950,13 +1016,18 @@ public class TerminalController {
     }
 
     /**
-     * Gets the terminal model image.
-     *
-     * @param terminalModelId the terminal model id
-     * @param request the request
-     * @param response the response
-     * @param width the width
-     * @param height the height
+     * Get terminal model image URL.
+     * 
+     * @param terminalModelId
+     *            the terminal model id
+     * @param request
+     *            the request
+     * @param response
+     *            the response
+     * @param width
+     *            the width
+     * @param height
+     *            the height
      * @return the terminal model image
      */
     @RequestMapping(value = { "terminals/models/image/{terminalModelId}" })
@@ -983,7 +1054,8 @@ public class TerminalController {
 		    }
 		}
 
-		BufferedImage img = model.getPhotoAsImage(realWidth, realHeight);
+		BufferedImage img = model
+			.getPhotoAsImage(realWidth, realHeight);
 		if (img == null) {
 		    response.sendRedirect("../../list");
 		} else {
@@ -999,18 +1071,21 @@ public class TerminalController {
 	    e.printStackTrace();
 	}
     }
-    
+
     /**
-     * Download results csv for query.
-     *
-     * @param queryId the query id
-     * @param response the response
-     * @param request the request
+     * Download terminals data csv from query URL.
+     * 
+     * @param queryId
+     *            the query id
+     * @param response
+     *            the response
+     * @param request
+     *            the request
      */
-    @RequestMapping(value ="/terminals/export/{queryId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/terminals/export/{queryId}", method = RequestMethod.GET)
     public void downloadResultsCsvForQuery(
-				   @PathVariable("queryId") Integer queryId,
-				   HttpServletResponse response, HttpServletRequest request) {
+	    @PathVariable("queryId") Integer queryId,
+	    HttpServletResponse response, HttpServletRequest request) {
 	try {
 	    response.setContentType("text/csv;charset=utf-8");
 	    response.setHeader("Content-Disposition",
@@ -1022,14 +1097,15 @@ public class TerminalController {
 	    List<Terminal> terminals = null;
 	    if (queryId != null) {
 		Query query = queryService.getQuery(queryId);
-		    if (query != null) {
-			logger.debug("Retriving terminals from query ${query.id} for csv export");
-			 terminals= queryService.executeQuery(query,RequestContextUtils.getLocale(request));
-		    }
+		if (query != null) {
+		    logger.debug("Retriving terminals from query ${query.id} for csv export");
+		    terminals = queryService.executeQuery(query,
+			    RequestContextUtils.getLocale(request));
+		}
 	    }
 	    for (Terminal terminal : terminals) {
-			    outputwriter.write("\n" + terminal.getCsvDescription());
-	   }
+		outputwriter.write("\n" + terminal.getCsvDescription());
+	    }
 	    outputwriter.flush();
 	    outputwriter.close();
 	} catch (IOException e) {
@@ -1039,15 +1115,18 @@ public class TerminalController {
     }
 
     /**
-     * Download results csv.
-     *
-     * @param response the response
-     * @param request the request
-     * @param principal the principal
+     * Download all terminals data as csv URL.
+     * 
+     * @param response
+     *            the response
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
      */
-    @RequestMapping(value ="/terminals/exportAll", method = RequestMethod.GET)
-    public void downloadResultsCsv(
-				   HttpServletResponse response, HttpServletRequest request, Principal principal) {
+    @RequestMapping(value = "/terminals/exportAll", method = RequestMethod.GET)
+    public void downloadResultsCsv(HttpServletResponse response,
+	    HttpServletRequest request, Principal principal) {
 	try {
 	    response.setContentType("text/csv;charset=utf-8");
 	    response.setHeader("Content-Disposition",
@@ -1056,15 +1135,16 @@ public class TerminalController {
 	    OutputStream buffOs = new BufferedOutputStream(resOs);
 	    OutputStreamWriter outputwriter = new OutputStreamWriter(buffOs);
 	    outputwriter.write(Terminal.getCsvHeader());
-	    User loggedUser = userService.getUserByUsername(principal.getName());
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
 	    List<Terminal> terminals = null;
-	    logger.debug ("Exporting to CSV all terminals");
-	    terminals =
-		terminalService.listTerminalsByBankCompanies(loggedUser.getManageableBankCompanies());
+	    logger.debug("Exporting to CSV all terminals");
+	    terminals = terminalService.listTerminalsByBankCompanies(loggedUser
+		    .getManageableBankCompanies());
 
 	    for (Terminal terminal : terminals) {
-			    outputwriter.write("\n" + terminal.getCsvDescription());
-	   }
+		outputwriter.write("\n" + terminal.getCsvDescription());
+	    }
 	    outputwriter.flush();
 	    outputwriter.close();
 	} catch (IOException e) {
@@ -1074,11 +1154,13 @@ public class TerminalController {
     }
 
     /**
-     * New installation form.
-     *
-     * @param map the map
-     * @param matricula the matricula
-     * @return the string
+     * New installation form URL.
+     * 
+     * @param map
+     *            the map
+     * @param matricula
+     *            the matricula
+     * @return the petition response
      */
     @RequestMapping(value = { "terminals/installations/new" }, method = RequestMethod.GET)
     public String newInstallationForm(Map<String, Object> map, String matricula) {
@@ -1101,15 +1183,21 @@ public class TerminalController {
     }
 
     /**
-     * New installation.
-     *
-     * @param installation the installation
-     * @param result the result
-     * @param map the map
-     * @param matricula the matricula
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * New installation URL.
+     * 
+     * @param installation
+     *            the installation
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param matricula
+     *            the matricula
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = { "terminals/installations/new" }, method = RequestMethod.POST)
     public String newInstallation(

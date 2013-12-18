@@ -29,10 +29,11 @@ import com.ncr.ATMMonitoring.service.InstallationService;
 import com.ncr.ATMMonitoring.service.LocationService;
 import com.ncr.ATMMonitoring.service.UserService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class InstallationController.
- *
+ * 
+ * Controller for handling installation related HTTP petitions.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -60,10 +61,12 @@ public class InstallationController {
     private UserService userService;
 
     /**
-     * Binder.
-     *
-     * @param binder the binder
-     * @throws Exception the exception
+     * Binds custom editors.
+     * 
+     * @param binder
+     *            the binder
+     * @throws Exception
+     *             the exception
      */
     @InitBinder
     protected void binder(WebDataBinder binder) throws Exception {
@@ -71,9 +74,9 @@ public class InstallationController {
     }
 
     /**
-     * Redirect to installations.
-     *
-     * @return the string
+     * Redirect to installations list URL.
+     * 
+     * @return the petition response
      */
     @RequestMapping(value = { "/terminals/installations" })
     public String redirectToInstallations() {
@@ -81,13 +84,17 @@ public class InstallationController {
     }
 
     /**
-     * List installations.
-     *
-     * @param map the map
-     * @param principal the principal
-     * @param p the p
-     * @param request the request
-     * @return the string
+     * List installations URL.
+     * 
+     * @param map
+     *            the map
+     * @param principal
+     *            the principal
+     * @param p
+     *            the page number
+     * @param request
+     *            the request
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/installations/list", method = RequestMethod.GET)
     public String listInstallations(Map<String, Object> map,
@@ -120,15 +127,21 @@ public class InstallationController {
     }
 
     /**
-     * Adds the installation.
-     *
-     * @param installation the installation
-     * @param result the result
-     * @param map the map
-     * @param request the request
-     * @param p the p
-     * @param principal the principal
-     * @return the string
+     * Add installation URL.
+     * 
+     * @param installation
+     *            the installation
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param p
+     *            the page number
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/installations/list", method = RequestMethod.POST)
     public String addInstallation(
@@ -182,13 +195,17 @@ public class InstallationController {
     }
 
     /**
-     * Installation details.
-     *
-     * @param installationId the installation id
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Installation details URL.
+     * 
+     * @param installationId
+     *            the installation id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/installations/details/{installationId}")
     public String installationDetails(
@@ -216,14 +233,19 @@ public class InstallationController {
     }
 
     /**
-     * Update installation.
-     *
-     * @param installation the installation
-     * @param result the result
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Update installation URL.
+     * 
+     * @param installation
+     *            the installation
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/installations/update", method = RequestMethod.POST)
     public String updateInstallation(
@@ -262,11 +284,13 @@ public class InstallationController {
     }
 
     /**
-     * Delete installation.
-     *
-     * @param installationId the installation id
-     * @param principal the principal
-     * @return the string
+     * Delete installation URL.
+     * 
+     * @param installationId
+     *            the installation id
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/installations/delete/{installationId}")
     public String deleteInstallation(
@@ -282,9 +306,9 @@ public class InstallationController {
     }
 
     /**
-     * Redirect to locations.
-     *
-     * @return the string
+     * Redirect to locations URL.
+     * 
+     * @return the petition response
      */
     @RequestMapping(value = { "/terminals/locations" })
     public String redirectToLocations() {
@@ -292,13 +316,17 @@ public class InstallationController {
     }
 
     /**
-     * List locations.
-     *
-     * @param map the map
-     * @param principal the principal
-     * @param p the p
-     * @param request the request
-     * @return the string
+     * List locations URL.
+     * 
+     * @param map
+     *            the map
+     * @param principal
+     *            the principal
+     * @param p
+     *            the page number
+     * @param request
+     *            the request
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/locations/list", method = RequestMethod.GET)
     public String listLocations(Map<String, Object> map, Principal principal,
@@ -330,15 +358,21 @@ public class InstallationController {
     }
 
     /**
-     * Adds the location.
-     *
-     * @param location the location
-     * @param result the result
-     * @param map the map
-     * @param request the request
-     * @param p the p
-     * @param principal the principal
-     * @return the string
+     * Add location URL.
+     * 
+     * @param location
+     *            the location
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param p
+     *            the page number
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/locations/list", method = RequestMethod.POST)
     public String addLocation(
@@ -387,13 +421,17 @@ public class InstallationController {
     }
 
     /**
-     * Location details.
-     *
-     * @param locationId the location id
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Location details URL.
+     * 
+     * @param locationId
+     *            the location id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/locations/details/{locationId}")
     public String locationDetails(
@@ -419,14 +457,19 @@ public class InstallationController {
     }
 
     /**
-     * Update location.
-     *
-     * @param location the location
-     * @param result the result
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Update location URL.
+     * 
+     * @param location
+     *            the location
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/locations/update", method = RequestMethod.POST)
     public String updateLocation(
@@ -460,11 +503,13 @@ public class InstallationController {
     }
 
     /**
-     * Delete location.
-     *
-     * @param locationId the location id
-     * @param principal the principal
-     * @return the string
+     * Delete location URL.
+     * 
+     * @param locationId
+     *            the location id
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/locations/delete/{locationId}")
     public String deleteLocation(

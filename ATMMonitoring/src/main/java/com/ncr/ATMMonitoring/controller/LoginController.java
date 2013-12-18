@@ -6,10 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class LoginController.
- *
+ * 
+ * Controller for handling login related HTTP petitions.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -17,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 
     /**
-     * Prints the welcome.
-     *
-     * @return the string
+     * Index URL.
+     * 
+     * @return the petition response
      */
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String printWelcome() {
@@ -27,9 +28,9 @@ public class LoginController {
     }
 
     /**
-     * Redirect to index.
-     *
-     * @return the string
+     * Base URL.
+     * 
+     * @return the petition response
      */
     @RequestMapping("/")
     public String redirectToIndex() {
@@ -37,9 +38,9 @@ public class LoginController {
     }
 
     /**
-     * Login.
-     *
-     * @return the string
+     * Login URL.
+     * 
+     * @return the petition response
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
@@ -47,10 +48,11 @@ public class LoginController {
     }
 
     /**
-     * Login failed.
-     *
-     * @param map the map
-     * @return the string
+     * Login failed URL.
+     * 
+     * @param map
+     *            the map
+     * @return the petition response
      */
     @RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
     public String loginFailed(Map<String, Object> map) {

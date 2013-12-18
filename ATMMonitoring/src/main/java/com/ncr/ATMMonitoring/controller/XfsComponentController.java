@@ -21,10 +21,11 @@ import com.ncr.ATMMonitoring.pojo.XfsComponent;
 import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.service.XfsComponentService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class XfsComponentController.
- *
+ * 
+ * Controller for handling user related HTTP petitions.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -59,13 +60,17 @@ public class XfsComponentController {
     // }
 
     /**
-     * Xfs component details.
-     *
-     * @param xfsComponentId the xfs component id
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Xfs component details URL.
+     * 
+     * @param xfsComponentId
+     *            the xfs component id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/xfsComponents/details/{xfsComponentId}")
     public String xfsComponentDetails(
@@ -104,13 +109,17 @@ public class XfsComponentController {
     }
 
     /**
-     * Jxfs component details.
-     *
-     * @param jxfsComponentId the jxfs component id
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Jxfs component details URL.
+     * 
+     * @param jxfsComponentId
+     *            the jxfs component id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/jxfsComponents/details/{jxfsComponentId}")
     public String jxfsComponentDetails(

@@ -22,10 +22,11 @@ import com.ncr.ATMMonitoring.service.SoftwareService;
 import com.ncr.ATMMonitoring.service.TerminalConfigService;
 import com.ncr.ATMMonitoring.service.UserService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TerminalConfigController.
- *
+ * 
+ * Controller for handling terminal config related HTTP petitions.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -45,10 +46,12 @@ public class TerminalConfigController {
     private UserService userService;
 
     /**
-     * Binder.
-     *
-     * @param binder the binder
-     * @throws Exception the exception
+     * Binds custom property editors.
+     * 
+     * @param binder
+     *            the binder
+     * @throws Exception
+     *             the exception
      */
     @InitBinder
     protected void binder(WebDataBinder binder) throws Exception {
@@ -57,13 +60,17 @@ public class TerminalConfigController {
     }
 
     /**
-     * Terminal config details.
-     *
-     * @param terminalConfigId the terminal config id
-     * @param map the map
-     * @param request the request
-     * @param principal the principal
-     * @return the string
+     * Terminal config details URL.
+     * 
+     * @param terminalConfigId
+     *            the terminal config id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
      */
     @RequestMapping("/terminals/swConfigs/details/{configId}")
     public String terminalConfigDetails(
