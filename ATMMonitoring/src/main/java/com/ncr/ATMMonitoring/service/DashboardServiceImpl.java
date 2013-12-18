@@ -13,6 +13,8 @@ import com.ncr.ATMMonitoring.pojo.User;
 /**
  * The Class DashboardServiceImpl.
  * 
+ * Default implementation of the DashboardService.
+ * 
  * @author Rafael Luque (rafael.luque@osoco.es)
  */
 

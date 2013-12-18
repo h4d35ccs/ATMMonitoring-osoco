@@ -3,9 +3,10 @@ package com.ncr.ATMMonitoring.service;
 import com.ncr.ATMMonitoring.pojo.Dashboard;
 import com.ncr.ATMMonitoring.pojo.User;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface DashboardService.
+ * 
+ * It contains the dashboard related methods.
  * 
  * @author Rafael Luque (rafael.luque@osoco.es)
  */

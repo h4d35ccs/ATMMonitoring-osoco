@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface FinancialDeviceService.
- *
+ * 
+ * It contains the financial device related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,23 +22,25 @@ public interface FinancialDeviceService {
     public void addFinancialDevice(FinancialDevice financialDevice);
 
     /**
-     * Removes the financial device.
-     *
-     * @param id the id
+     * Removes the financial device by its id..
+     * 
+     * @param id
+     *            the financial device id
      */
     public void removeFinancialDevice(Integer id);
 
     /**
-     * Gets the financial device.
-     *
-     * @param id the id
+     * Gets the financial device by its id.
+     * 
+     * @param id
+     *            the financial device id
      * @return the financial device
      */
     public FinancialDevice getFinancialDevice(Integer id);
 
     /**
-     * List financial devices.
-     *
+     * List all financial devices.
+     * 
      * @return the list
      */
     public List<FinancialDevice> listFinancialDevices();

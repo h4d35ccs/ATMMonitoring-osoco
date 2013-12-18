@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.TerminalConfig;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface TerminalConfigService.
- *
+ * 
+ * It contains the terminal config related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,17 +22,18 @@ public interface TerminalConfigService {
     public void addTerminalConfig(TerminalConfig terminalConfig);
 
     /**
-     * Gets the terminal config.
-     *
-     * @param id the id
+     * Gets the terminal config by its id.
+     * 
+     * @param id
+     *            the terminal config id
      * @return the terminal config
      */
     public TerminalConfig getTerminalConfig(Integer id);
 
     /**
      * List terminal config.
-     *
-     * @return the list
+     * 
+     * @return the terminal config list
      */
     public List<TerminalConfig> listTerminalConfig();
 }

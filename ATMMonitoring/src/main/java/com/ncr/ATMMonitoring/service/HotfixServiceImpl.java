@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.HotfixDAO;
 import com.ncr.ATMMonitoring.pojo.Hotfix;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class HotfixServiceImpl.
- *
+ * 
+ * Default implementation of the HotfixService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

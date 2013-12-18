@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.LocationDAO;
 import com.ncr.ATMMonitoring.pojo.Location;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class LocationServiceImpl.
- *
+ * 
+ * Default implementation of the LocationService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

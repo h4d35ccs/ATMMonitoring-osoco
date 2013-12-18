@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.InternetExplorer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface InternetExplorerService.
- *
+ * 
+ * It contains the Internet Explorer related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,9 +22,10 @@ public interface InternetExplorerService {
     public void addInternetExplorer(InternetExplorer internetExplorer);
 
     /**
-     * Removes the internet explorer.
-     *
-     * @param id the id
+     * Removes the internet explorer by its id.
+     * 
+     * @param id
+     *            the internet explorer id
      */
     public void removeInternetExplorer(Integer id);
 
@@ -42,17 +44,18 @@ public interface InternetExplorerService {
 	    Integer revisionVersion, String remainingVersion);
 
     /**
-     * Gets the internet explorer.
-     *
-     * @param id the id
+     * Gets the internet explorer by its id.
+     * 
+     * @param id
+     *            the internet explorer id
      * @return the internet explorer
      */
     public InternetExplorer getInternetExplorer(Integer id);
 
     /**
      * List internet explorer.
-     *
-     * @return the list
+     * 
+     * @return the internet explorer list
      */
     public List<InternetExplorer> listInternetExplorer();
 }

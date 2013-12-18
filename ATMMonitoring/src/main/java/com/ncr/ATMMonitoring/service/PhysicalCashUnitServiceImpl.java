@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.PhysicalCashUnitDAO;
 import com.ncr.ATMMonitoring.pojo.PhysicalCashUnit;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PhysicalCashUnitServiceImpl.
- *
+ * 
+ * Default implementation of the PhysicalCashUnitService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

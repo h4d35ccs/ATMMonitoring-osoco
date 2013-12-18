@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.InstallationDAO;
 import com.ncr.ATMMonitoring.pojo.Installation;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class InstallationServiceImpl.
- *
+ * 
+ * Default implementation of the InstallationService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

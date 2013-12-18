@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.SoftwareAggregate;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface SoftwareAggregateService.
- *
+ * 
+ * It contains the software aggregate related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,9 +22,10 @@ public interface SoftwareAggregateService {
     public void addSoftwareAggregate(SoftwareAggregate softwareAggregate);
 
     /**
-     * Removes the software aggregate.
-     *
-     * @param id the id
+     * Removes the software aggregate by its id.
+     * 
+     * @param id
+     *            the software aggregate id
      */
     public void removeSoftwareAggregate(Integer id);
 
@@ -44,16 +46,17 @@ public interface SoftwareAggregateService {
 
     /**
      * Gets the software aggregate.
-     *
-     * @param id the id
+     * 
+     * @param id
+     *            the software aggregate id
      * @return the software aggregate
      */
     public SoftwareAggregate getSoftwareAggregate(Integer id);
 
     /**
      * List software aggregate.
-     *
-     * @return the list
+     * 
+     * @return the software aggregate list
      */
     public List<SoftwareAggregate> listSoftwareAggregate();
 }

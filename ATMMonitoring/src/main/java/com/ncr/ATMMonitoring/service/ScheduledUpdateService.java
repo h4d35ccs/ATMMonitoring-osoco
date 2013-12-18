@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface ScheduledUpdateService.
- *
+ * 
+ * It contains the scheduled update related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,23 +22,24 @@ public interface ScheduledUpdateService {
     public void addScheduledUpdate(ScheduledUpdate scheduledUpdate);
 
     /**
-     * Removes the scheduled update.
-     *
-     * @param id the id
+     * Removes the scheduled update by its id.
+     * 
+     * @param id
+     *            the scheduled update id
      */
     public void removeScheduledUpdate(Integer id);
 
     /**
      * List weekly scheduled updates.
-     *
-     * @return the list
+     * 
+     * @return the scheduled update list
      */
     public List<ScheduledUpdate> listWeeklyScheduledUpdates();
 
     /**
      * List monthly scheduled updates.
-     *
-     * @return the list
+     * 
+     * @return the scheduled update list
      */
     public List<ScheduledUpdate> listMonthlyScheduledUpdates();
 

@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.LogicalCashUnitDAO;
 import com.ncr.ATMMonitoring.pojo.LogicalCashUnit;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class LogicalCashUnitServiceImpl.
- *
+ * 
+ * Default implementation of the LogicalCashUnitService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

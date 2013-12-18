@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.Role;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface RoleService.
- *
+ * 
+ * It contains the role related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,31 +22,33 @@ public interface RoleService {
     public void addRole(Role role);
 
     /**
-     * Gets the role.
-     *
-     * @param id the id
+     * Gets the role by its id.
+     * 
+     * @param id
+     *            the role id
      * @return the role
      */
     public Role getRole(Integer id);
 
     /**
      * List roles.
-     *
-     * @return the list
+     * 
+     * @return the role list
      */
     public List<Role> listRoles();
 
     /**
      * List manageable roles.
-     *
-     * @return the list
+     * 
+     * @return the role list
      */
     public List<Role> listManageableRoles();
 
     /**
-     * Removes the role.
-     *
-     * @param id the id
+     * Removes the role by its id.
+     * 
+     * @param id
+     *            the role id
      */
     public void removeRole(Integer id);
 }

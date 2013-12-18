@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.Location;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface LocationService.
- *
+ * 
+ * It contains the location related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,17 +22,18 @@ public interface LocationService {
     public void addLocation(Location location);
 
     /**
-     * Gets the location.
-     *
-     * @param id the id
+     * Gets the location by its id.
+     * 
+     * @param id
+     *            the location id
      * @return the location
      */
     public Location getLocation(Integer id);
 
     /**
      * List locations.
-     *
-     * @return the list
+     * 
+     * @return the location list
      */
     public List<Location> listLocations();
 
@@ -43,9 +45,10 @@ public interface LocationService {
     public void updateLocation(Location location);
 
     /**
-     * Removes the location.
-     *
-     * @param id the id
+     * Removes the location by its id.
+     * 
+     * @param id
+     *            the location id
      */
     public void removeLocation(Integer id);
 }

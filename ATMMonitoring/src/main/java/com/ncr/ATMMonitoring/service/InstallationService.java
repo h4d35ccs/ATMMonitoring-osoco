@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.Installation;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface InstallationService.
- *
+ * 
+ * It contains the installation related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,17 +22,18 @@ public interface InstallationService {
     public void addInstallation(Installation installation);
 
     /**
-     * Gets the installation.
-     *
-     * @param id the id
+     * Gets the installation by its id.
+     * 
+     * @param id
+     *            the installation id
      * @return the installation
      */
     public Installation getInstallation(Integer id);
 
     /**
      * List installations.
-     *
-     * @return the list
+     * 
+     * @return the installation list
      */
     public List<Installation> listInstallations();
 
@@ -43,9 +45,10 @@ public interface InstallationService {
     public void updateInstallation(Installation installation);
 
     /**
-     * Removes the installation.
-     *
-     * @param id the id
+     * Removes the installation by its id.
+     * 
+     * @param id
+     *            the installation id
      */
     public void removeInstallation(Integer id);
 }

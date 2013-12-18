@@ -89,10 +89,11 @@ import com.ncr.agent.baseData.vendor.utils.FinancialDevicePojo;
 import com.ncr.agent.baseData.vendor.utils.FinancialPackagePojo;
 import com.ncr.agent.baseData.vendor.utils.FinancialTerminalPojo;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TerminalServiceImpl.
- *
+ * 
+ * Default implementation of the TerminalService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -256,9 +257,10 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Removes the related entities.
-     *
-     * @param terminal the terminal
+     * Removes all entities that depend onto a terminal.
+     * 
+     * @param terminal
+     *            the terminal
      */
     @SuppressWarnings("rawtypes")
     private void removeRelatedEntities(Terminal terminal) {
@@ -292,10 +294,12 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Adds the new entities.
-     *
-     * @param terminal the terminal
-     * @param dataStoreTerminal the data store terminal
+     * Adds the entities related to a terminal from an agent's pojo data.
+     * 
+     * @param terminal
+     *            the terminal
+     * @param dataStoreTerminal
+     *            the agent's pojo
      */
     private void addNewEntities(Terminal terminal,
 	    ATMDataStorePojo dataStoreTerminal) {
@@ -439,9 +443,10 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Gets the terminal model.
-     *
-     * @param dataStoreTerminal the data store terminal
+     * Gets the terminal model from an agent's pojo data.
+     * 
+     * @param dataStoreTerminal
+     *            the agent's pojo
      * @return the terminal model
      */
     private TerminalModel getTerminalModel(ATMDataStorePojo dataStoreTerminal) {
@@ -462,9 +467,10 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Gets the sw aggregates.
-     *
-     * @param dataStoreTerminal the data store terminal
+     * Gets the sw aggregates from an agent's pojo data.
+     * 
+     * @param dataStoreTerminal
+     *            the agent's pojo
      * @return the sw aggregates
      */
     private Set<SoftwareAggregate> getSwAggregates(
@@ -482,9 +488,10 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Gets the internet explorers.
-     *
-     * @param dataStoreTerminal the data store terminal
+     * Gets the internet explorers from an agent's pojo data.
+     * 
+     * @param dataStoreTerminal
+     *            the agent's pojo
      * @return the internet explorers
      */
     private Set<InternetExplorer> getInternetExplorers(
@@ -501,9 +508,10 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Gets the software.
-     *
-     * @param dataStoreTerminal the data store terminal
+     * Gets the software from an agent's pojo data.
+     * 
+     * @param dataStoreTerminal
+     *            the agent's pojo
      * @return the software
      */
     private Set<Software> getSoftware(ATMDataStorePojo dataStoreTerminal) {
@@ -519,9 +527,10 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Gets the operating systems.
-     *
-     * @param dataStoreTerminal the data store terminal
+     * Gets the operating systems from an agent's pojo data.
+     * 
+     * @param dataStoreTerminal
+     *            the agent's pojo
      * @return the operating systems
      */
     private Set<OperatingSystem> getOperatingSystems(
@@ -539,11 +548,14 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Assign xfs component.
-     *
-     * @param xfs the xfs
-     * @param finDevs the fin devs
-     * @param names the names
+     * Assign an xfs component to its financial devices by their names.
+     * 
+     * @param xfs
+     *            the xfs component
+     * @param finDevs
+     *            the financial devices we have
+     * @param names
+     *            the xfs' financial device names
      */
     private void assignXfsComponent(XfsComponent xfs,
 	    Collection<FinancialDevice> finDevs, String[] names) {
@@ -565,11 +577,14 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Assign jxfs component.
-     *
-     * @param jxfs the jxfs
-     * @param finDevs the fin devs
-     * @param names the names
+     * Assign an jxfs component to its financial devices by their names.
+     * 
+     * @param jxfs
+     *            the jxfs component
+     * @param finDevs
+     *            the financial devices we have
+     * @param names
+     *            the jxfs' financial device names
      */
     private void assignJxfsComponent(JxfsComponent jxfs,
 	    Collection<FinancialDevice> finDevs, String[] names) {
@@ -591,10 +606,13 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Gets the financial devs.
-     *
-     * @param terminal the terminal
-     * @param dataStoreTerminal the data store terminal
+     * Gets the financial devs from an agent's pojo data. It also assigns the
+     * passed terminal to them.
+     * 
+     * @param terminal
+     *            the terminal
+     * @param dataStoreTerminal
+     *            the agent's pojo
      * @return the financial devs
      */
     private Set<FinancialDevice> getFinancialDevs(Terminal terminal,
@@ -992,10 +1010,13 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Gets the hotfixes.
-     *
-     * @param terminal the terminal
-     * @param dataStoreTerminal the data store terminal
+     * Gets the hotfixes from an agent's pojo data. It also assigns the passed
+     * terminal to them.
+     * 
+     * @param terminal
+     *            the terminal
+     * @param dataStoreTerminal
+     *            the agent's pojo
      * @return the hotfixes
      */
     private Set<Hotfix> getHotfixes(Terminal terminal,
@@ -1013,11 +1034,14 @@ public class TerminalServiceImpl implements TerminalService {
     }
 
     /**
-     * Gets the hw devs.
-     *
-     * @param terminal the terminal
-     * @param dataStoreTerminal the data store terminal
-     * @return the hw devs
+     * Gets the hardware devices from an agent's pojo data. It also assigns the
+     * passed terminal to them.
+     * 
+     * @param terminal
+     *            the terminal
+     * @param dataStoreTerminal
+     *            the agent's pojo
+     * @return the hardware devices
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     private Set<HardwareDevice> getHwDevs(Terminal terminal,

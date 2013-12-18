@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.SoftwareDAO;
 import com.ncr.ATMMonitoring.pojo.Software;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SoftwareServiceImpl.
- *
+ * 
+ * Default implementation of the SoftwareService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

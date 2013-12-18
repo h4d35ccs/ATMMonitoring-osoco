@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.TerminalConfigDAO;
 import com.ncr.ATMMonitoring.pojo.TerminalConfig;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TerminalConfigServiceImpl.
- *
+ * 
+ * Default implementation of the TerminalConfigService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

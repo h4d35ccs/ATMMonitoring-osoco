@@ -12,6 +12,8 @@ import com.ncr.ATMMonitoring.pojo.Widget;
 /**
  * The Interface WidgetService.
  * 
+ * It contains the widget related methods.
+ * 
  * @author Rafael Luque (rafael.luque@osoco.es)
  */
 public interface WidgetService {

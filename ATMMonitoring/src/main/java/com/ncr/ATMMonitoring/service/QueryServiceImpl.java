@@ -17,10 +17,11 @@ import com.ncr.ATMMonitoring.dao.TerminalDAO;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class QueryServiceImpl.
- *
+ * 
+ * Default implementation of the QueryService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

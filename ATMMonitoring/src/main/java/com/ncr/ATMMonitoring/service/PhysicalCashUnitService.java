@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.PhysicalCashUnit;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface PhysicalCashUnitService.
- *
+ * 
+ * It contains the physical cash unit related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,17 +22,18 @@ public interface PhysicalCashUnitService {
     public void addPhysicalCashUnit(PhysicalCashUnit physicalCashUnit);
 
     /**
-     * Gets the physical cash unit.
-     *
-     * @param id the id
+     * Gets the physical cash unit by its id.
+     * 
+     * @param id
+     *            the physical cash unit id
      * @return the physical cash unit
      */
     public PhysicalCashUnit getPhysicalCashUnit(Integer id);
 
     /**
      * List physical cash units.
-     *
-     * @return the list
+     * 
+     * @return the physical cash unit list
      */
     public List<PhysicalCashUnit> listPhysicalCashUnits();
 }

@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.BankCompanyDAO;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class BankCompanyServiceImpl.
- *
+ * 
+ * Default implementation of the BankCompanyService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

@@ -17,10 +17,11 @@ import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.socket.SocketService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ScheduledUpdateServiceImpl.
- *
+ * 
+ * Default implementation of the ScheduledUpdateService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

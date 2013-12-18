@@ -12,10 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.TerminalModelDAO;
 import com.ncr.ATMMonitoring.pojo.TerminalModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TerminalModelServiceImpl.
- *
+ * 
+ * Default implementation of the TerminalModelService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

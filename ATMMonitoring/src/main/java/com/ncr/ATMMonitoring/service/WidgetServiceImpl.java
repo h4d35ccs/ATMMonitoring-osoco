@@ -22,6 +22,8 @@ import com.ncr.ATMMonitoring.dao.WidgetDAO;
 /**
  * The Class WidgetServiceImpl.
  * 
+ * Default implementation of the WidgetService.
+ * 
  * @author Rafael Luque (rafael.luque@osoco.es)
  */
 

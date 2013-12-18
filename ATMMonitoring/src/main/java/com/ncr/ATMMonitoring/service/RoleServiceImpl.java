@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.RoleDAO;
 import com.ncr.ATMMonitoring.pojo.Role;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RoleServiceImpl.
- *
+ * 
+ * Default implementation of the RoleService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

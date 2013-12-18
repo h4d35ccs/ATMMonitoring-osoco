@@ -11,10 +11,11 @@ import com.ncr.ATMMonitoring.dao.XfsComponentDAO;
 import com.ncr.ATMMonitoring.pojo.JxfsComponent;
 import com.ncr.ATMMonitoring.pojo.XfsComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class XfsComponentServiceImpl.
- *
+ * 
+ * Default implementation of the XfsComponentService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

@@ -5,10 +5,11 @@ import java.util.Map;
 
 import com.ncr.ATMMonitoring.pojo.TerminalModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface TerminalModelService.
- *
+ * 
+ * It contains the terminal model related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -22,9 +23,10 @@ public interface TerminalModelService {
     public void addTerminalModel(TerminalModel terminalModel);
 
     /**
-     * Gets the terminal model.
-     *
-     * @param id the id
+     * Gets the terminal model by its id.
+     * 
+     * @param id
+     *            the terminal model id
      * @return the terminal model
      */
     public TerminalModel getTerminalModel(Integer id);
@@ -47,15 +49,15 @@ public interface TerminalModelService {
 
     /**
      * List terminal models.
-     *
-     * @return the list
+     * 
+     * @return the terminal model list
      */
     public List<TerminalModel> listTerminalModels();
 
     /**
      * List terminal models by manufacturer.
-     *
-     * @return the map
+     * 
+     * @return the map with a terminal list for each manufacturer name
      */
     public Map<String, List<TerminalModel>> listTerminalModelsByManufacturer();
 
@@ -67,9 +69,10 @@ public interface TerminalModelService {
     public void updateTerminalModel(TerminalModel terminalModel);
 
     /**
-     * Removes the terminal model.
-     *
-     * @param id the id
+     * Removes the terminal model by its id.
+     * 
+     * @param id
+     *            , if successful the terminal model id
      */
     public void removeTerminalModel(Integer id);
 }

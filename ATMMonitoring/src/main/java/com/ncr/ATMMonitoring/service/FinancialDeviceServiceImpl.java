@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.FinancialDeviceDAO;
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class FinancialDeviceServiceImpl.
- *
+ * 
+ * Default implementation of the FinancialDeviceService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

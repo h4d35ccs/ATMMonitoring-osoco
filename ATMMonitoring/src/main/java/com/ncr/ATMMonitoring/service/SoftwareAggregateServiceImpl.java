@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO;
 import com.ncr.ATMMonitoring.pojo.SoftwareAggregate;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SoftwareAggregateServiceImpl.
- *
+ * 
+ * Default implementation of the SoftwareAggregateService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

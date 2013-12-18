@@ -14,10 +14,11 @@ import com.ncr.ATMMonitoring.dao.UserDAO;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.User;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class UserServiceImpl.
- *
+ * 
+ * Default implementation of the UserService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 

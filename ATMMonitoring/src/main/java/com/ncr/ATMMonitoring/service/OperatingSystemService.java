@@ -4,10 +4,11 @@ import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.OperatingSystem;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface OperatingSystemService.
- *
+ * 
+ * It contains the operating system related methods.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,9 +22,10 @@ public interface OperatingSystemService {
     public void addOperatingSystem(OperatingSystem operatingSystem);
 
     /**
-     * Gets the operating system.
-     *
-     * @param id the id
+     * Gets the operating system by its id.
+     * 
+     * @param id
+     *            the operating system id
      * @return the operating system
      */
     public OperatingSystem getOperatingSystem(Integer id);
@@ -38,8 +40,8 @@ public interface OperatingSystemService {
 
     /**
      * List operating system.
-     *
-     * @return the list
+     * 
+     * @return the operating system list
      */
     public List<OperatingSystem> listOperatingSystem();
 }

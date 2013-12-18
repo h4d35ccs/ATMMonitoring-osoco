@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ncr.ATMMonitoring.dao.InternetExplorerDAO;
 import com.ncr.ATMMonitoring.pojo.InternetExplorer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class InternetExplorerServiceImpl.
- *
+ * 
+ * Default implementation of the InternetExplorerService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
