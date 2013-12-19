@@ -18,7 +18,7 @@ SoftwareServiceImpl
 
 .. java:type:: @Service @Transactional public class SoftwareServiceImpl implements SoftwareService
 
-   The Class SoftwareServiceImpl.
+   The Class SoftwareServiceImpl. Default implementation of the SoftwareService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

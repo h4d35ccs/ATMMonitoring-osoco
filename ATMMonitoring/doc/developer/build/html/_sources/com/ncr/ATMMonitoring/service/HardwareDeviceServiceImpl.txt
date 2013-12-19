@@ -18,7 +18,7 @@ HardwareDeviceServiceImpl
 
 .. java:type:: @Service @Transactional public class HardwareDeviceServiceImpl implements HardwareDeviceService
 
-   The Class HardwareDeviceServiceImpl.
+   The Class HardwareDeviceServiceImpl. Default implementation of the HardwareDeviceService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

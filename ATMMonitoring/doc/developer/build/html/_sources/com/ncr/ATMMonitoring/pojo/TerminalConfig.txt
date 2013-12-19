@@ -44,7 +44,7 @@ TerminalConfig
 
 .. java:type:: @Entity @Table public class TerminalConfig
 
-   The Class TerminalConfig.
+   The TerminalConfig Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

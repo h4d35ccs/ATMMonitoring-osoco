@@ -10,7 +10,7 @@ LogicalCashUnitService
 
 .. java:type:: public interface LogicalCashUnitService
 
-   The Interface LogicalCashUnitService.
+   The Interface LogicalCashUnitService. It contains the logical cash unit related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getLogicalCashUnit
 .. java:method:: public LogicalCashUnit getLogicalCashUnit(Integer id)
    :outertype: LogicalCashUnitService
 
-   Gets the logical cash unit.
+   Gets the logical cash unit by its id.
 
-   :param id: the id
+   :param id: the logical cash unit id
    :return: the logical cash unit
 
 listLogicalCashUnits
@@ -45,5 +45,5 @@ listLogicalCashUnits
 
    List logical cash units.
 
-   :return: the list
+   :return: the logical cash unit list
 

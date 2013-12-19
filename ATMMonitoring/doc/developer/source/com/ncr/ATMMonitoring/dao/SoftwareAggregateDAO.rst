@@ -10,7 +10,7 @@ SoftwareAggregateDAO
 
 .. java:type:: public interface SoftwareAggregateDAO
 
-   The Interface SoftwareAggregateDAO.
+   The Interface SoftwareAggregateDAO. Dao with the operations for managing SoftwareAggregate Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getSoftwareAggregate
 .. java:method:: public SoftwareAggregate getSoftwareAggregate(Integer id)
    :outertype: SoftwareAggregateDAO
 
-   Gets the software aggregate.
+   Gets the software aggregate with the given id.
 
    :param id: the id
-   :return: the software aggregate
+   :return: the software aggregate, or null if it doesn't exist
 
 getSoftwareAggregateByVersionName
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ getSoftwareAggregateByVersionName
 .. java:method:: public SoftwareAggregate getSoftwareAggregateByVersionName(Integer majorVersion, Integer minorVersion, Integer buildVersion, Integer revisionVersion, String remainingVersion, String name)
    :outertype: SoftwareAggregateDAO
 
-   Gets the software aggregate by version name.
+   Gets the software aggregate by version and name.
 
    :param majorVersion: the major version
    :param minorVersion: the minor version
@@ -51,7 +51,7 @@ getSoftwareAggregateByVersionName
    :param revisionVersion: the revision version
    :param remainingVersion: the remaining version
    :param name: the name
-   :return: the software aggregate by version name
+   :return: the software aggregate by version and name, or null if it doesn't exist
 
 listSoftwareAggregate
 ^^^^^^^^^^^^^^^^^^^^^
@@ -59,7 +59,7 @@ listSoftwareAggregate
 .. java:method:: public List<SoftwareAggregate> listSoftwareAggregate()
    :outertype: SoftwareAggregateDAO
 
-   List software aggregate.
+   Lists all software aggregates.
 
    :return: the list
 
@@ -69,7 +69,7 @@ removeSoftwareAggregate
 .. java:method:: public void removeSoftwareAggregate(Integer id)
    :outertype: SoftwareAggregateDAO
 
-   Removes the software aggregate.
+   Removes the software aggregate with the given id.
 
    :param id: the id
 

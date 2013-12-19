@@ -10,7 +10,7 @@ SoftwareService
 
 .. java:type:: public interface SoftwareService
 
-   The Interface SoftwareService.
+   The Interface SoftwareService. It contains the software related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getSoftware
 .. java:method:: public Software getSoftware(Integer id)
    :outertype: SoftwareService
 
-   Gets the software.
+   Gets the software by its id.
 
-   :param id: the id
+   :param id: the software id
    :return: the software
 
 getSoftwareByIdentifyingNumber
@@ -45,7 +45,7 @@ getSoftwareByIdentifyingNumber
 
    Gets the software by identifying number.
 
-   :param id: the id
+   :param id: the software id
    :return: the software by identifying number
 
 listSoftware
@@ -56,5 +56,5 @@ listSoftware
 
    List software.
 
-   :return: the list
+   :return: the software list
 

@@ -2,13 +2,9 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
 .. java:import:: org.hibernate.criterion Order
 
 .. java:import:: org.hibernate.criterion Restrictions
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Repository
 
@@ -20,9 +16,9 @@ OperatingSystemDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class OperatingSystemDAOImpl implements OperatingSystemDAO
+.. java:type:: @Repository public class OperatingSystemDAOImpl extends AbstractGenericDAO<OperatingSystem> implements OperatingSystemDAO
 
-   The Class OperatingSystemDAOImpl.
+   The Class OperatingSystemDAOImpl. Default implementation of OperatingSystemDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

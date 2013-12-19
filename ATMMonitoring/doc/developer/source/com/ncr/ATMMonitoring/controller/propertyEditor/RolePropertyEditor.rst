@@ -10,7 +10,7 @@ RolePropertyEditor
 
 .. java:type:: public class RolePropertyEditor extends PropertyEditorSupport
 
-   The Class RolePropertyEditor.
+   The Class RolePropertyEditor. Custom PropertyEditor for Role input values (Role id as an integer).
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

@@ -10,7 +10,7 @@ QueryDAO
 
 .. java:type:: public interface QueryDAO
 
-   The Interface QueryDAO.
+   The Interface QueryDAO. Dao with the operations for managing Query Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -42,10 +42,10 @@ getQuery
 .. java:method:: public Query getQuery(Integer id)
    :outertype: QueryDAO
 
-   Gets the query.
+   Gets the query with the given id.
 
    :param id: the id
-   :return: the query
+   :return: the query, or null if it doesn't exist
 
 listQueries
 ^^^^^^^^^^^
@@ -53,7 +53,7 @@ listQueries
 .. java:method:: public List<Query> listQueries()
    :outertype: QueryDAO
 
-   List queries.
+   Lists all queries.
 
    :return: the list
 
@@ -63,7 +63,7 @@ updateQuery
 .. java:method:: public void updateQuery(Query query)
    :outertype: QueryDAO
 
-   Update query.
+   Updates query.
 
    :param query: the query
 

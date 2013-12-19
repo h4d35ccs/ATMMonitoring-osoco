@@ -10,7 +10,7 @@ LocationDAO
 
 .. java:type:: public interface LocationDAO
 
-   The Interface LocationDAO.
+   The Interface LocationDAO. Dao with the operations for managing Location Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getLocation
 .. java:method:: public Location getLocation(Integer id)
    :outertype: LocationDAO
 
-   Gets the location.
+   Gets the location with the given id.
 
    :param id: the id
-   :return: the location
+   :return: the location, or null if it doesn't exist
 
 listLocations
 ^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ listLocations
 .. java:method:: public List<Location> listLocations()
    :outertype: LocationDAO
 
-   List locations.
+   Lists all locations.
 
    :return: the list
 
@@ -53,7 +53,7 @@ removeLocation
 .. java:method:: public void removeLocation(Integer id)
    :outertype: LocationDAO
 
-   Removes the location.
+   Removes the location with the given id.
 
    :param id: the id
 
@@ -63,7 +63,7 @@ updateLocation
 .. java:method:: public void updateLocation(Location location)
    :outertype: LocationDAO
 
-   Update location.
+   Updates location.
 
    :param location: the location
 

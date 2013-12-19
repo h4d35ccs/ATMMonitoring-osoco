@@ -10,7 +10,7 @@ TerminalModelDAO
 
 .. java:type:: public interface TerminalModelDAO
 
-   The Interface TerminalModelDAO.
+   The Interface TerminalModelDAO. Dao with the operations for managing TerminalModel Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getTerminalModel
 .. java:method:: public TerminalModel getTerminalModel(Integer id)
    :outertype: TerminalModelDAO
 
-   Gets the terminal model.
+   Gets the terminal model with the given id.
 
    :param id: the id
-   :return: the terminal model
+   :return: the terminal model, or null if it doesn't exist
 
 getTerminalModelByModel
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -46,7 +46,7 @@ getTerminalModelByModel
    Gets the terminal model by model.
 
    :param model: the model
-   :return: the terminal model by model
+   :return: the terminal model by model, or null if it doesn't exist
 
 getTerminalModelByProductClass
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,7 +57,7 @@ getTerminalModelByProductClass
    Gets the terminal model by product class.
 
    :param productClass: the product class
-   :return: the terminal model by product class
+   :return: the terminal model by product class, or null if it doesn't exist
 
 listTerminalModels
 ^^^^^^^^^^^^^^^^^^
@@ -75,7 +75,7 @@ removeTerminalModel
 .. java:method:: public void removeTerminalModel(Integer id)
    :outertype: TerminalModelDAO
 
-   Removes the terminal model.
+   Removes the terminal model with the given id.
 
    :param id: the id
 

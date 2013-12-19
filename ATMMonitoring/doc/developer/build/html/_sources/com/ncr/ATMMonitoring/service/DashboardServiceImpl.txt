@@ -18,7 +18,7 @@ DashboardServiceImpl
 
 .. java:type:: @Service @Transactional public class DashboardServiceImpl implements DashboardService
 
-   The Class DashboardServiceImpl.
+   The Class DashboardServiceImpl. Default implementation of the DashboardService.
 
    :author: Rafael Luque (rafael.luque@osoco.es)
 

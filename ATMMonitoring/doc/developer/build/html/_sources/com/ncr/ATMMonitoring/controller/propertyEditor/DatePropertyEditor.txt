@@ -16,7 +16,7 @@ DatePropertyEditor
 
 .. java:type:: public class DatePropertyEditor extends PropertyEditorSupport
 
-   The Class DatePropertyEditor.
+   The Class DatePropertyEditor. Custom PropertyEditor for Date input values.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -38,7 +38,7 @@ DatePropertyEditor
 
    Instantiates a new date property editor.
 
-   :param nowAsDefault: the now as default
+   :param nowAsDefault: flag for using current time as default value if a void or invalid one is supplied.
 
 Methods
 -------

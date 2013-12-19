@@ -58,7 +58,7 @@
 <dl class="type">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController">
 public class <tt class="descname">TerminalController</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Class TerminalController.</p>
+<dd><p>The Class TerminalController. Controller for handling terminal related HTTP petitions.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -97,7 +97,7 @@ public static final String <tt class="descname">DEFAULT_SORT</tt><a class="heade
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.addTerminal(Terminal, BindingResult, Map, HttpServletRequest, Principal, String)">
 public String <tt class="descname">addTerminal</tt><big>(</big><a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a><em> terminal</em>, BindingResult<em> result</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, String<em> p</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.addTerminal(Terminal, BindingResult, Map, HttpServletRequest, Principal, String)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds the terminal.</p>
+<dd><p>Add terminal URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -108,11 +108,11 @@ public String <tt class="descname">addTerminal</tt><big>(</big><a class="referen
 <li><strong>map</strong> &#8211; the map</li>
 <li><strong>request</strong> &#8211; the request</li>
 <li><strong>principal</strong> &#8211; the principal</li>
-<li><strong>p</strong> &#8211; the p</li>
+<li><strong>p</strong> &#8211; the page number</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -125,7 +125,7 @@ public String <tt class="descname">addTerminal</tt><big>(</big><a class="referen
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.addTerminalModel(TerminalModel, CommonsMultipartFile, BindingResult, Map, HttpServletRequest, String, Principal)">
 public String <tt class="descname">addTerminalModel</tt><big>(</big><a class="reference internal" href="../pojo/TerminalModel.html#com.ncr.ATMMonitoring.pojo.TerminalModel" title="com.ncr.ATMMonitoring.pojo.TerminalModel">TerminalModel</a><em> terminalModel</em>, CommonsMultipartFile<em> photo</em>, BindingResult<em> result</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, String<em> p</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.addTerminalModel(TerminalModel, CommonsMultipartFile, BindingResult, Map, HttpServletRequest, String, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds the terminal model.</p>
+<dd><p>Add terminal model URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -136,12 +136,12 @@ public String <tt class="descname">addTerminalModel</tt><big>(</big><a class="re
 <li><strong>result</strong> &#8211; the result</li>
 <li><strong>map</strong> &#8211; the map</li>
 <li><strong>request</strong> &#8211; the request</li>
-<li><strong>p</strong> &#8211; the p</li>
+<li><strong>p</strong> &#8211; the page number</li>
 <li><strong>principal</strong> &#8211; the principal</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -154,7 +154,7 @@ public String <tt class="descname">addTerminalModel</tt><big>(</big><a class="re
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.binder(WebDataBinder)">
 protected void <tt class="descname">binder</tt><big>(</big>WebDataBinder<em> binder</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.binder(WebDataBinder)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Binder.</p>
+<dd><p>Binds custom property editors.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -174,7 +174,7 @@ protected void <tt class="descname">binder</tt><big>(</big>WebDataBinder<em> bin
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.deleteTerminalModel(Integer, Principal)">
 public String <tt class="descname">deleteTerminalModel</tt><big>(</big>Integer<em> terminalModelId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.deleteTerminalModel(Integer, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete terminal model.</p>
+<dd><p>Delete terminal model URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -185,7 +185,7 @@ public String <tt class="descname">deleteTerminalModel</tt><big>(</big>Integer<e
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -198,7 +198,7 @@ public String <tt class="descname">deleteTerminalModel</tt><big>(</big>Integer<e
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.downloadResultsCsv(HttpServletResponse, HttpServletRequest, Principal)">
 public void <tt class="descname">downloadResultsCsv</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletResponse.html" title="javax.servlet.http.HttpServletResponse">HttpServletResponse</a><em> response</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.downloadResultsCsv(HttpServletResponse, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download results csv.</p>
+<dd><p>Download all terminals data as csv URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -220,7 +220,7 @@ public void <tt class="descname">downloadResultsCsv</tt><big>(</big><a class="re
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.downloadResultsCsvForQuery(Integer, HttpServletResponse, HttpServletRequest)">
 public void <tt class="descname">downloadResultsCsvForQuery</tt><big>(</big>Integer<em> queryId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletResponse.html" title="javax.servlet.http.HttpServletResponse">HttpServletResponse</a><em> response</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.downloadResultsCsvForQuery(Integer, HttpServletResponse, HttpServletRequest)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Download results csv for query.</p>
+<dd><p>Download terminals data csv from query URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -242,7 +242,7 @@ public void <tt class="descname">downloadResultsCsvForQuery</tt><big>(</big>Inte
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.getTerminalModelImage(Integer, HttpServletRequest, HttpServletResponse, String, String)">
 public void <tt class="descname">getTerminalModelImage</tt><big>(</big>Integer<em> terminalModelId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletResponse.html" title="javax.servlet.http.HttpServletResponse">HttpServletResponse</a><em> response</em>, String<em> width</em>, String<em> height</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.getTerminalModelImage(Integer, HttpServletRequest, HttpServletResponse, String, String)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the terminal model image.</p>
+<dd><p>Get terminal model image URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -269,20 +269,20 @@ public void <tt class="descname">getTerminalModelImage</tt><big>(</big>Integer<e
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.importTerminal(CommonsMultipartFile, Map, HttpServletRequest, Principal)">
 public String <tt class="descname">importTerminal</tt><big>(</big>CommonsMultipartFile<em> file</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.importTerminal(CommonsMultipartFile, Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Import terminal.</p>
+<dd><p>Import terminals from json file URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>file</strong> &#8211; the file</li>
+<li><strong>file</strong> &#8211; the json file</li>
 <li><strong>map</strong> &#8211; the map</li>
 <li><strong>request</strong> &#8211; the request</li>
 <li><strong>principal</strong> &#8211; the principal</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -295,7 +295,7 @@ public String <tt class="descname">importTerminal</tt><big>(</big>CommonsMultipa
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.listTerminalModels(Map, Principal, String, HttpServletRequest)">
 public String <tt class="descname">listTerminalModels</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, String<em> p</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.listTerminalModels(Map, Principal, String, HttpServletRequest)" title="Permalink to this definition">¶</a></dt>
-<dd><p>List terminal models.</p>
+<dd><p>List terminal models URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -303,12 +303,12 @@ public String <tt class="descname">listTerminalModels</tt><big>(</big><a class="
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>map</strong> &#8211; the map</li>
 <li><strong>principal</strong> &#8211; the principal</li>
-<li><strong>p</strong> &#8211; the p</li>
+<li><strong>p</strong> &#8211; the page number</li>
 <li><strong>request</strong> &#8211; the request</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -321,7 +321,7 @@ public String <tt class="descname">listTerminalModels</tt><big>(</big><a class="
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.listTerminals(Map, Principal, String, String, String, HttpServletRequest)">
 public String <tt class="descname">listTerminals</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, String<em> p</em>, String<em> sort</em>, String<em> order</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.listTerminals(Map, Principal, String, String, String, HttpServletRequest)" title="Permalink to this definition">¶</a></dt>
-<dd><p>List terminals.</p>
+<dd><p>List terminals URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -329,14 +329,14 @@ public String <tt class="descname">listTerminals</tt><big>(</big><a class="refer
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>map</strong> &#8211; the map</li>
 <li><strong>principal</strong> &#8211; the principal</li>
-<li><strong>p</strong> &#8211; the p</li>
-<li><strong>sort</strong> &#8211; the sort</li>
-<li><strong>order</strong> &#8211; the order</li>
+<li><strong>p</strong> &#8211; the page number</li>
+<li><strong>sort</strong> &#8211; the fields for sorting terminals</li>
+<li><strong>order</strong> &#8211; the order for sorting terminals</li>
 <li><strong>request</strong> &#8211; the request</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -349,7 +349,7 @@ public String <tt class="descname">listTerminals</tt><big>(</big><a class="refer
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.listTerminalsByQuery(Map, Integer, Principal, String, String, String, HttpServletRequest)">
 public String <tt class="descname">listTerminalsByQuery</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, Integer<em> queryId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, String<em> p</em>, String<em> sort</em>, String<em> order</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.listTerminalsByQuery(Map, Integer, Principal, String, String, String, HttpServletRequest)" title="Permalink to this definition">¶</a></dt>
-<dd><p>List terminals by query.</p>
+<dd><p>List terminals by query URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -358,14 +358,14 @@ public String <tt class="descname">listTerminalsByQuery</tt><big>(</big><a class
 <li><strong>map</strong> &#8211; the map</li>
 <li><strong>queryId</strong> &#8211; the query id</li>
 <li><strong>principal</strong> &#8211; the principal</li>
-<li><strong>p</strong> &#8211; the p</li>
-<li><strong>sort</strong> &#8211; the sort</li>
-<li><strong>order</strong> &#8211; the order</li>
+<li><strong>p</strong> &#8211; the page number</li>
+<li><strong>sort</strong> &#8211; the fields for sorting terminals</li>
+<li><strong>order</strong> &#8211; the order for sorting terminals</li>
 <li><strong>request</strong> &#8211; the request</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -378,7 +378,7 @@ public String <tt class="descname">listTerminalsByQuery</tt><big>(</big><a class
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.newInstallation(Installation, BindingResult, Map, String, HttpServletRequest, Principal)">
 public String <tt class="descname">newInstallation</tt><big>(</big><a class="reference internal" href="../pojo/Installation.html#com.ncr.ATMMonitoring.pojo.Installation" title="com.ncr.ATMMonitoring.pojo.Installation">Installation</a><em> installation</em>, BindingResult<em> result</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, String<em> matricula</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.newInstallation(Installation, BindingResult, Map, String, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>New installation.</p>
+<dd><p>New installation URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -393,7 +393,7 @@ public String <tt class="descname">newInstallation</tt><big>(</big><a class="ref
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -406,7 +406,7 @@ public String <tt class="descname">newInstallation</tt><big>(</big><a class="ref
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.newInstallationForm(Map, String)">
 public String <tt class="descname">newInstallationForm</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, String<em> matricula</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.newInstallationForm(Map, String)" title="Permalink to this definition">¶</a></dt>
-<dd><p>New installation form.</p>
+<dd><p>New installation form URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -417,7 +417,7 @@ public String <tt class="descname">newInstallationForm</tt><big>(</big><a class=
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -430,12 +430,12 @@ public String <tt class="descname">newInstallationForm</tt><big>(</big><a class=
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.redirectToTerminalModels()">
 public String <tt class="descname">redirectToTerminalModels</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.redirectToTerminalModels()" title="Permalink to this definition">¶</a></dt>
-<dd><p>Redirect to terminal models.</p>
+<dd><p>Redirect to terminal models URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the string</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the petition response</td>
 </tr>
 </tbody>
 </table>
@@ -447,12 +447,12 @@ public String <tt class="descname">redirectToTerminalModels</tt><big>(</big><big
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.redirectToTerminals()">
 public String <tt class="descname">redirectToTerminals</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.redirectToTerminals()" title="Permalink to this definition">¶</a></dt>
-<dd><p>Redirect to terminals.</p>
+<dd><p>Redirect to terminals URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the string</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the petition response</td>
 </tr>
 </tbody>
 </table>
@@ -464,7 +464,7 @@ public String <tt class="descname">redirectToTerminals</tt><big>(</big><big>)</b
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalUpdate(Integer, Map, HttpServletRequest, RedirectAttributes, Principal)">
 public String <tt class="descname">requestTerminalUpdate</tt><big>(</big>Integer<em> terminalId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, RedirectAttributes<em> redirectAttributes</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalUpdate(Integer, Map, HttpServletRequest, RedirectAttributes, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Request terminal update.</p>
+<dd><p>Request terminal update URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -478,7 +478,7 @@ public String <tt class="descname">requestTerminalUpdate</tt><big>(</big>Integer
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -491,7 +491,7 @@ public String <tt class="descname">requestTerminalUpdate</tt><big>(</big>Integer
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalsUpdate(Map, String, HttpServletRequest, Principal, RedirectAttributes)">
 public String <tt class="descname">requestTerminalsUpdate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, String<em> queryId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, RedirectAttributes<em> redirectAttributes</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalsUpdate(Map, String, HttpServletRequest, Principal, RedirectAttributes)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Request terminals update.</p>
+<dd><p>Request query results&#8217; terminals update URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -505,7 +505,7 @@ public String <tt class="descname">requestTerminalsUpdate</tt><big>(</big><a cla
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -518,7 +518,7 @@ public String <tt class="descname">requestTerminalsUpdate</tt><big>(</big><a cla
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.terminalDetails(Integer, Map, HttpServletRequest, Principal)">
 public String <tt class="descname">terminalDetails</tt><big>(</big>Integer<em> terminalId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.terminalDetails(Integer, Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Terminal details.</p>
+<dd><p>Terminal details URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -531,7 +531,7 @@ public String <tt class="descname">terminalDetails</tt><big>(</big>Integer<em> t
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -544,7 +544,7 @@ public String <tt class="descname">terminalDetails</tt><big>(</big>Integer<em> t
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.terminalModelDetails(Integer, Map, HttpServletRequest, Principal)">
 public String <tt class="descname">terminalModelDetails</tt><big>(</big>Integer<em> terminalModelId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.terminalModelDetails(Integer, Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Terminal model details.</p>
+<dd><p>Terminal model details URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -557,7 +557,7 @@ public String <tt class="descname">terminalModelDetails</tt><big>(</big>Integer<
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -570,7 +570,7 @@ public String <tt class="descname">terminalModelDetails</tt><big>(</big>Integer<
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.updateTerminal(Terminal, BindingResult, Map, RedirectAttributes, HttpServletRequest, Principal)">
 public String <tt class="descname">updateTerminal</tt><big>(</big><a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a><em> terminal</em>, BindingResult<em> result</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, RedirectAttributes<em> redirectAttributes</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.updateTerminal(Terminal, BindingResult, Map, RedirectAttributes, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update terminal.</p>
+<dd><p>Update terminal URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -585,7 +585,7 @@ public String <tt class="descname">updateTerminal</tt><big>(</big><a class="refe
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -598,7 +598,7 @@ public String <tt class="descname">updateTerminal</tt><big>(</big><a class="refe
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.updateTerminalModel(TerminalModel, CommonsMultipartFile, BindingResult, Map, HttpServletRequest, Principal)">
 public String <tt class="descname">updateTerminalModel</tt><big>(</big><a class="reference internal" href="../pojo/TerminalModel.html#com.ncr.ATMMonitoring.pojo.TerminalModel" title="com.ncr.ATMMonitoring.pojo.TerminalModel">TerminalModel</a><em> terminalModel</em>, CommonsMultipartFile<em> photo</em>, BindingResult<em> result</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.updateTerminalModel(TerminalModel, CommonsMultipartFile, BindingResult, Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update terminal model.</p>
+<dd><p>Update terminal model URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -613,7 +613,7 @@ public String <tt class="descname">updateTerminalModel</tt><big>(</big><a class=
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>
@@ -626,7 +626,7 @@ public String <tt class="descname">updateTerminalModel</tt><big>(</big><a class=
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalController.viewNewTerminal(Map, HttpServletRequest, Principal)">
 public String <tt class="descname">viewNewTerminal</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.viewNewTerminal(Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>View new terminal.</p>
+<dd><p>New terminal form URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -638,7 +638,7 @@ public String <tt class="descname">viewNewTerminal</tt><big>(</big><a class="ref
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>

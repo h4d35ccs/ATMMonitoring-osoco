@@ -10,7 +10,7 @@ OperatingSystemService
 
 .. java:type:: public interface OperatingSystemService
 
-   The Interface OperatingSystemService.
+   The Interface OperatingSystemService. It contains the operating system related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getOperatingSystem
 .. java:method:: public OperatingSystem getOperatingSystem(Integer id)
    :outertype: OperatingSystemService
 
-   Gets the operating system.
+   Gets the operating system by its id.
 
-   :param id: the id
+   :param id: the operating system id
    :return: the operating system
 
 getOperatingSystemBySerialNumber
@@ -56,5 +56,5 @@ listOperatingSystem
 
    List operating system.
 
-   :return: the list
+   :return: the operating system list
 

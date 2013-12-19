@@ -10,7 +10,7 @@ FinancialDeviceDAO
 
 .. java:type:: public interface FinancialDeviceDAO
 
-   The Interface FinancialDeviceDAO.
+   The Interface FinancialDeviceDAO. Dao with the operations for managing FinancialDevice Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getFinancialDevice
 .. java:method:: public FinancialDevice getFinancialDevice(Integer id)
    :outertype: FinancialDeviceDAO
 
-   Gets the financial device.
+   Gets the financial device with the given id.
 
    :param id: the id
-   :return: the financial device
+   :return: the financial device, or null if it doesn't exist
 
 listFinancialDevices
 ^^^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ listFinancialDevices
 .. java:method:: public List<FinancialDevice> listFinancialDevices()
    :outertype: FinancialDeviceDAO
 
-   List financial devices.
+   Lists all financial devices.
 
    :return: the list
 

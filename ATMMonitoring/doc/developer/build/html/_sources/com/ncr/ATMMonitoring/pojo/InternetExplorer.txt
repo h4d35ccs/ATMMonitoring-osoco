@@ -32,7 +32,7 @@ InternetExplorer
 
 .. java:type:: @Entity @Table public class InternetExplorer
 
-   The Class InternetExplorer.
+   The InternetExplorer Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -52,7 +52,7 @@ InternetExplorer
 .. java:constructor:: public InternetExplorer(IExplorerPojo ie)
    :outertype: InternetExplorer
 
-   Instantiates a new internet explorer.
+   Instantiates a new internet explorer with the given internet explorer data from the agent.
 
    :param ie: the ie
 
@@ -74,9 +74,9 @@ getComboboxes
 .. java:method:: public static Map<String, Map> getComboboxes()
    :outertype: InternetExplorer
 
-   Gets the comboboxes.
+   Gets the comboboxes data for the query GUI.
 
-   :return: the comboboxes
+   :return: the comboboxes data
 
 getId
 ^^^^^
@@ -134,7 +134,7 @@ getVersion
 .. java:method:: public String getVersion()
    :outertype: InternetExplorer
 
-   Gets the version.
+   Gets the whole version.
 
    :return: the version complete
 

@@ -34,7 +34,7 @@ QueryServiceImpl
 
 .. java:type:: @Service @Transactional public class QueryServiceImpl implements QueryService
 
-   The Class QueryServiceImpl.
+   The Class QueryServiceImpl. Default implementation of the QueryService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

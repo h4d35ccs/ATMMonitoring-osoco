@@ -10,7 +10,7 @@ LocationService
 
 .. java:type:: public interface LocationService
 
-   The Interface LocationService.
+   The Interface LocationService. It contains the location related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getLocation
 .. java:method:: public Location getLocation(Integer id)
    :outertype: LocationService
 
-   Gets the location.
+   Gets the location by its id.
 
-   :param id: the id
+   :param id: the location id
    :return: the location
 
 listLocations
@@ -45,7 +45,7 @@ listLocations
 
    List locations.
 
-   :return: the list
+   :return: the location list
 
 removeLocation
 ^^^^^^^^^^^^^^
@@ -53,9 +53,9 @@ removeLocation
 .. java:method:: public void removeLocation(Integer id)
    :outertype: LocationService
 
-   Removes the location.
+   Removes the location by its id.
 
-   :param id: the id
+   :param id: the location id
 
 updateLocation
 ^^^^^^^^^^^^^^

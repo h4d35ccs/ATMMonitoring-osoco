@@ -2,10 +2,6 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.FinancialDevice
@@ -16,9 +12,9 @@ FinancialDeviceDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class FinancialDeviceDAOImpl implements FinancialDeviceDAO
+.. java:type:: @Repository public class FinancialDeviceDAOImpl extends AbstractGenericDAO<FinancialDevice> implements FinancialDeviceDAO
 
-   The Class FinancialDeviceDAOImpl.
+   The Class FinancialDeviceDAOImpl. Default implementation of FinancialDeviceDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

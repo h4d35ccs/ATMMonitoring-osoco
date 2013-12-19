@@ -18,7 +18,7 @@ WidgetService
 
 .. java:type:: public interface WidgetService
 
-   The Interface WidgetService.
+   The Interface WidgetService. It contains the widget related methods.
 
    :author: Rafael Luque (rafael.luque@osoco.es)
 

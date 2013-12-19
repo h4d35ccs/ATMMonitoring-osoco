@@ -10,7 +10,7 @@ InternetExplorerService
 
 .. java:type:: public interface InternetExplorerService
 
-   The Interface InternetExplorerService.
+   The Interface InternetExplorerService. It contains the Internet Explorer related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getInternetExplorer
 .. java:method:: public InternetExplorer getInternetExplorer(Integer id)
    :outertype: InternetExplorerService
 
-   Gets the internet explorer.
+   Gets the internet explorer by its id.
 
-   :param id: the id
+   :param id: the internet explorer id
    :return: the internet explorer
 
 getInternetExplorerByVersion
@@ -60,7 +60,7 @@ listInternetExplorer
 
    List internet explorer.
 
-   :return: the list
+   :return: the internet explorer list
 
 removeInternetExplorer
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -68,7 +68,7 @@ removeInternetExplorer
 .. java:method:: public void removeInternetExplorer(Integer id)
    :outertype: InternetExplorerService
 
-   Removes the internet explorer.
+   Removes the internet explorer by its id.
 
-   :param id: the id
+   :param id: the internet explorer id
 

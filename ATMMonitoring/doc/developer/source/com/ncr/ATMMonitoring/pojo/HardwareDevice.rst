@@ -2,8 +2,6 @@
 
 .. java:import:: java.text SimpleDateFormat
 
-.. java:import:: java.util Collection
-
 .. java:import:: java.util Date
 
 .. java:import:: java.util HashMap
@@ -100,7 +98,7 @@ HardwareDevice
 
 .. java:type:: @Entity @Table public class HardwareDevice
 
-   The Class HardwareDevice.
+   The HardwareDevice Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -120,7 +118,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(_1394ControllerPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given 1394 controller data from the agent.
 
    :param hw: the hw
 
@@ -130,7 +128,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(BaseBoardPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given base board data from the agent.
 
    :param hw: the hw
 
@@ -140,7 +138,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(BiosPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given bios data from the agent.
 
    :param hw: the hw
 
@@ -150,7 +148,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(CDROMDrivePojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given cd rom drive data from the agent.
 
    :param hw: the hw
 
@@ -160,7 +158,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(ComputerSystemPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given computer system data from the agent.
 
    :param hw: the hw
 
@@ -170,7 +168,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(DesktopMonitorPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given desktop monitor data from the agent.
 
    :param hw: the hw
 
@@ -180,7 +178,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(DiskDrivePojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given disk drive data from the agent.
 
    :param hw: the hw
 
@@ -190,7 +188,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(FloppyDrivePojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given floppy drive data from the agent.
 
    :param hw: the hw
 
@@ -200,7 +198,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(KeyboardPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given keyboard data from the agent.
 
    :param hw: the hw
 
@@ -210,7 +208,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(LogicalDiskPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given logical disk data from the agent.
 
    :param hw: the hw
 
@@ -220,7 +218,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(NetworkAdapterSettingPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given network adapter setting data from the agent.
 
    :param hw: the hw
 
@@ -230,7 +228,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(ParallelPortPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given parallel port data from the agent.
 
    :param hw: the hw
 
@@ -240,7 +238,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(PhysicalMemoryPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given physical memory data from the agent.
 
    :param hw: the hw
 
@@ -250,7 +248,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(PointingDevicePojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given pointing device data from the agent.
 
    :param hw: the hw
 
@@ -260,7 +258,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(ProcessorPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given processor data from the agent.
 
    :param hw: the hw
 
@@ -270,7 +268,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(SCSIControllerPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given scsi controller data from the agent.
 
    :param hw: the hw
 
@@ -280,7 +278,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(SerialPortPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given serial port data from the agent.
 
    :param hw: the hw
 
@@ -290,7 +288,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(SoundDevicePojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given sound device data from the agent.
 
    :param hw: the hw
 
@@ -300,7 +298,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(SystemSlotPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given system slot data from the agent.
 
    :param hw: the hw
 
@@ -310,7 +308,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(USBControllerPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given usb controller data from the agent.
 
    :param hw: the hw
 
@@ -320,7 +318,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(UsbHubPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given usb hub data from the agent.
 
    :param hw: the hw
 
@@ -330,7 +328,7 @@ HardwareDevice
 .. java:constructor:: public HardwareDevice(VideoControllerPojo hw)
    :outertype: HardwareDevice
 
-   Instantiates a new hardware device.
+   Instantiates a new hardware device with the given video controller data from the agent.
 
    :param hw: the hw
 
@@ -342,10 +340,10 @@ filter1394Controller
 .. java:method:: public static Set<HardwareDevice> filter1394Controller(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter1394 controller.
+   Filter a collecion of hardware devices by type '1394 controller'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterBaseBoard
 ^^^^^^^^^^^^^^^
@@ -353,10 +351,10 @@ filterBaseBoard
 .. java:method:: public static Set<HardwareDevice> filterBaseBoard(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter base board.
+   Filter a collecion of hardware devices by device type 'base board'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterBios
 ^^^^^^^^^^
@@ -364,10 +362,10 @@ filterBios
 .. java:method:: public static Set<HardwareDevice> filterBios(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter bios.
+   Filter a collecion of hardware devices by device type 'bios'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterCdromDrive
 ^^^^^^^^^^^^^^^^
@@ -375,10 +373,10 @@ filterCdromDrive
 .. java:method:: public static Set<HardwareDevice> filterCdromDrive(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter cdrom drive.
+   Filter a collecion of hardware devices by device type 'cdrom drive'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterComputerSystem
 ^^^^^^^^^^^^^^^^^^^^
@@ -386,10 +384,10 @@ filterComputerSystem
 .. java:method:: public static Set<HardwareDevice> filterComputerSystem(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter computer system.
+   Filter a collecion of hardware devices by device type 'computer system'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterDesktopMonitor
 ^^^^^^^^^^^^^^^^^^^^
@@ -397,10 +395,10 @@ filterDesktopMonitor
 .. java:method:: public static Set<HardwareDevice> filterDesktopMonitor(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter desktop monitor.
+   Filter a collecion of hardware devices by device type 'desktop monitor'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterDiskDrive
 ^^^^^^^^^^^^^^^
@@ -408,10 +406,10 @@ filterDiskDrive
 .. java:method:: public static Set<HardwareDevice> filterDiskDrive(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter disk drive.
+   Filter a collecion of hardware devices by device type 'disk drive'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterDisplayConfiguration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -419,10 +417,10 @@ filterDisplayConfiguration
 .. java:method:: public static Set<HardwareDevice> filterDisplayConfiguration(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter display configuration.
+   Filter a collecion of hardware devices by device type 'display configuration'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterFloppyDrive
 ^^^^^^^^^^^^^^^^^
@@ -430,10 +428,10 @@ filterFloppyDrive
 .. java:method:: public static Set<HardwareDevice> filterFloppyDrive(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter floppy drive.
+   Filter a collecion of hardware devices by device type 'floppy drive'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterKeyboard
 ^^^^^^^^^^^^^^
@@ -441,10 +439,10 @@ filterKeyboard
 .. java:method:: public static Set<HardwareDevice> filterKeyboard(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter keyboard.
+   Filter a collecion of hardware devices by device type 'keyboard'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterLogicalDisk
 ^^^^^^^^^^^^^^^^^
@@ -452,10 +450,10 @@ filterLogicalDisk
 .. java:method:: public static Set<HardwareDevice> filterLogicalDisk(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter logical disk.
+   Filter a collecion of hardware devices by device type 'logical disk'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterNetworkAdapter
 ^^^^^^^^^^^^^^^^^^^^
@@ -463,10 +461,10 @@ filterNetworkAdapter
 .. java:method:: public static Set<HardwareDevice> filterNetworkAdapter(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter network adapter.
+   Filter a collecion of hardware devices by device type 'network adapter'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterParallelPort
 ^^^^^^^^^^^^^^^^^^
@@ -474,10 +472,10 @@ filterParallelPort
 .. java:method:: public static Set<HardwareDevice> filterParallelPort(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter parallel port.
+   Filter a collecion of hardware devices by device type 'parallel port'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterPhysicalMemory
 ^^^^^^^^^^^^^^^^^^^^
@@ -485,10 +483,10 @@ filterPhysicalMemory
 .. java:method:: public static Set<HardwareDevice> filterPhysicalMemory(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter physical memory.
+   Filter a collecion of hardware devices by device type 'physical memory'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterPointingDevice
 ^^^^^^^^^^^^^^^^^^^^
@@ -496,10 +494,10 @@ filterPointingDevice
 .. java:method:: public static Set<HardwareDevice> filterPointingDevice(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter pointing device.
+   Filter a collecion of hardware devices by device type 'pointing device'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterProcessor
 ^^^^^^^^^^^^^^^
@@ -507,10 +505,10 @@ filterProcessor
 .. java:method:: public static Set<HardwareDevice> filterProcessor(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter processor.
+   Filter a collecion of hardware devices by device 'type processor'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterScsiController
 ^^^^^^^^^^^^^^^^^^^^
@@ -518,10 +516,10 @@ filterScsiController
 .. java:method:: public static Set<HardwareDevice> filterScsiController(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter scsi controller.
+   Filter a collecion of hardware devices by device type 'scsi controller'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterSerialPort
 ^^^^^^^^^^^^^^^^
@@ -529,10 +527,10 @@ filterSerialPort
 .. java:method:: public static Set<HardwareDevice> filterSerialPort(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter serial port.
+   Filter a collecion of hardware devices by device type 'serial port'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterSoundDevice
 ^^^^^^^^^^^^^^^^^
@@ -540,10 +538,10 @@ filterSoundDevice
 .. java:method:: public static Set<HardwareDevice> filterSoundDevice(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter sound device.
+   Filter a collecion of hardware devices by device type 'sound device'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterSystemSlot
 ^^^^^^^^^^^^^^^^
@@ -551,10 +549,10 @@ filterSystemSlot
 .. java:method:: public static Set<HardwareDevice> filterSystemSlot(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter system slot.
+   Filter a collecion of hardware devices by device type 'system slot'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterUsbController
 ^^^^^^^^^^^^^^^^^^^
@@ -562,10 +560,10 @@ filterUsbController
 .. java:method:: public static Set<HardwareDevice> filterUsbController(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter usb controller.
+   Filter a collecion of hardware devices by device type 'usb controller'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterUsbHub
 ^^^^^^^^^^^^
@@ -573,10 +571,10 @@ filterUsbHub
 .. java:method:: public static Set<HardwareDevice> filterUsbHub(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter usb hub.
+   Filter a collecion of hardware devices by device type 'usb hub'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 filterVideoController
 ^^^^^^^^^^^^^^^^^^^^^
@@ -584,10 +582,10 @@ filterVideoController
 .. java:method:: public static Set<HardwareDevice> filterVideoController(Set<HardwareDevice> hardwareDevs)
    :outertype: HardwareDevice
 
-   Filter video controller.
+   Filter a collecion of hardware devices by device type 'video controller'.
 
    :param hardwareDevs: the hardware devs
-   :return: the sets the
+   :return: the filtered hardware devs
 
 getAdapterRam
 ^^^^^^^^^^^^^
@@ -685,9 +683,9 @@ getComboboxes
 .. java:method:: public static Map<String, Map> getComboboxes()
    :outertype: HardwareDevice
 
-   Gets the comboboxes.
+   Gets the comboboxes data for the query GUI.
 
-   :return: the comboboxes
+   :return: the comboboxes data
 
 getCurrentBitsPerPixel
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -835,7 +833,7 @@ getDeviceclasses
 .. java:method:: public static Map<DeviceClassId, String> getDeviceclasses()
    :outertype: HardwareDevice
 
-   Gets the deviceclasses.
+   Gets the deviceclasses (i.e. 'desktop monitor', 'usb hub', 'keyboard'...).
 
    :return: the deviceclasses
 

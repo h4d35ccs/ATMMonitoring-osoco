@@ -68,7 +68,7 @@ QueryController
 
 .. java:type:: @Controller public class QueryController
 
-   The Class QueryController.
+   The Class QueryController. Controller for handling query related HTTP petitions.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -80,7 +80,7 @@ DEFAULT_ORDER
 .. java:field:: public static final String DEFAULT_ORDER
    :outertype: QueryController
 
-   The Constant DEFAULT_ORDER.
+   The default sorting order for terminals in csv downloads.
 
 DEFAULT_SORT
 ^^^^^^^^^^^^
@@ -88,7 +88,7 @@ DEFAULT_SORT
 .. java:field:: public static final String DEFAULT_SORT
    :outertype: QueryController
 
-   The Constant DEFAULT_SORT.
+   The default field for sorting terminals in csv downloads.
 
 Methods
 -------
@@ -98,12 +98,12 @@ createQuery
 .. java:method:: @RequestMapping public String createQuery(Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: QueryController
 
-   Creates the query.
+   Create query URL.
 
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 deleteUserQuery
 ^^^^^^^^^^^^^^^
@@ -111,13 +111,13 @@ deleteUserQuery
 .. java:method:: @RequestMapping public String deleteUserQuery(Integer queryId, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: QueryController
 
-   Delete user query.
+   Delete user query URL.
 
    :param queryId: the query id
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 downloadResultsCsv
 ^^^^^^^^^^^^^^^^^^
@@ -125,13 +125,13 @@ downloadResultsCsv
 .. java:method:: @RequestMapping public void downloadResultsCsv(Query query, HttpServletResponse response, HttpServletRequest request, String sort, String order)
    :outertype: QueryController
 
-   Download results csv.
+   Download query results as csv URL.
 
    :param query: the query
    :param response: the response
    :param request: the request
-   :param sort: the sort
-   :param order: the order
+   :param sort: the fields for sorting the results
+   :param order: the sorting order
 
 listQueries
 ^^^^^^^^^^^
@@ -139,13 +139,13 @@ listQueries
 .. java:method:: @RequestMapping public String listQueries(Map<String, Object> map, HttpServletRequest request, Principal principal, String p)
    :outertype: QueryController
 
-   List queries.
+   List queries URL.
 
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :param p: the p
-   :return: the string
+   :param p: the page number
+   :return: the petition response
 
 redirectFromWrongResults
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -153,9 +153,9 @@ redirectFromWrongResults
 .. java:method:: @RequestMapping public String redirectFromWrongResults()
    :outertype: QueryController
 
-   Redirect from wrong results.
+   Wrong download query results as csv URL.
 
-   :return: the string
+   :return: the petition response
 
 redirectFromWrongResultsExport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -163,9 +163,9 @@ redirectFromWrongResultsExport
 .. java:method:: @RequestMapping public String redirectFromWrongResultsExport()
    :outertype: QueryController
 
-   Redirect from wrong results export.
+   Wrong download query results as csv URL.
 
-   :return: the string
+   :return: the petition response
 
 redirectToQueries
 ^^^^^^^^^^^^^^^^^
@@ -173,9 +173,9 @@ redirectToQueries
 .. java:method:: @RequestMapping public String redirectToQueries()
    :outertype: QueryController
 
-   Redirect to queries.
+   Redirect to queries URL.
 
-   :return: the string
+   :return: the petition response
 
 saveOrUpdateQuery
 ^^^^^^^^^^^^^^^^^
@@ -183,17 +183,17 @@ saveOrUpdateQuery
 .. java:method:: @RequestMapping public String saveOrUpdateQuery(Query query, Map<String, Object> map, HttpServletRequest request, Principal principal, RedirectAttributes redirectAttributes, String p, String sort, String order) throws Exception
    :outertype: QueryController
 
-   Save or update query.
+   Save or update query URL.
 
    :param query: the query
    :param map: the map
    :param request: the request
    :param principal: the principal
    :param redirectAttributes: the redirect attributes
-   :param p: the p
+   :param p: the page number
    :param sort: the sort
    :param order: the order
-   :return: the string
+   :return: the petition response
 
 selectUserQuery
 ^^^^^^^^^^^^^^^
@@ -201,13 +201,13 @@ selectUserQuery
 .. java:method:: @RequestMapping public String selectUserQuery(Query query, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: QueryController
 
-   Select user query.
+   Select user query URL.
 
    :param query: the query
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 showUserQuery
 ^^^^^^^^^^^^^
@@ -215,11 +215,11 @@ showUserQuery
 .. java:method:: @RequestMapping public String showUserQuery(Integer queryId, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: QueryController
 
-   Show user query.
+   Show user query URL.
 
    :param queryId: the query id
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 

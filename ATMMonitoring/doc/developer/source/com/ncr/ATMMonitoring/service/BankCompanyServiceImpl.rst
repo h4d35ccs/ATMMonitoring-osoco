@@ -18,7 +18,7 @@ BankCompanyServiceImpl
 
 .. java:type:: @Service @Transactional public class BankCompanyServiceImpl implements BankCompanyService
 
-   The Class BankCompanyServiceImpl.
+   The Class BankCompanyServiceImpl. Default implementation of the BankCompanyService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

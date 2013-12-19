@@ -10,7 +10,7 @@ WidgetDAO
 
 .. java:type:: public interface WidgetDAO
 
-   The Interface WidgetDAO.
+   The Interface WidgetDAO. Dao with the operations for managing Widget Pojos.
 
    :author: Rafael Luque (rafael.luque@osoco.es)
 
@@ -22,10 +22,10 @@ findById
 .. java:method:: public Widget findById(int id)
    :outertype: WidgetDAO
 
-   Find by id.
+   Find widget by id.
 
    :param id: the id
-   :return: the widget
+   :return: the widget, or null if it doesn't exist
 
 findDefaultWidgets
 ^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ save
 .. java:method:: public void save(Widget widget)
    :outertype: WidgetDAO
 
-   Save.
+   Saves a widget.
 
    :param widget: the widget
 
@@ -53,7 +53,7 @@ update
 .. java:method:: public void update(Widget widget)
    :outertype: WidgetDAO
 
-   Update.
+   Updates widget.
 
    :param widget: the widget
 

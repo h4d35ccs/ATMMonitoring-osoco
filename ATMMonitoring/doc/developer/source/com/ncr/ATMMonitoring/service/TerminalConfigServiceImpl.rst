@@ -18,7 +18,7 @@ TerminalConfigServiceImpl
 
 .. java:type:: @Service @Transactional public class TerminalConfigServiceImpl implements TerminalConfigService
 
-   The Class TerminalConfigServiceImpl.
+   The Class TerminalConfigServiceImpl. Default implementation of the TerminalConfigService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

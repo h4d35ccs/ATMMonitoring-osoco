@@ -10,7 +10,7 @@ InternetExplorerDAO
 
 .. java:type:: public interface InternetExplorerDAO
 
-   The Interface InternetExplorerDAO.
+   The Interface InternetExplorerDAO. Dao with the operations for managing InternetExplorer Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getInternetExplorer
 .. java:method:: public InternetExplorer getInternetExplorer(Integer id)
    :outertype: InternetExplorerDAO
 
-   Gets the internet explorer.
+   Gets the internet explorer with the given id.
 
    :param id: the id
-   :return: the internet explorer
+   :return: the internet explorer, or null if it doesn't exist
 
 getInternetExplorerByVersion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -50,7 +50,7 @@ getInternetExplorerByVersion
    :param buildVersion: the build version
    :param revisionVersion: the revision version
    :param remainingVersion: the remaining version
-   :return: the internet explorer by version
+   :return: the internet explorer by version, or null if it doesn't exist
 
 listInternetExplorer
 ^^^^^^^^^^^^^^^^^^^^
@@ -58,7 +58,7 @@ listInternetExplorer
 .. java:method:: public List<InternetExplorer> listInternetExplorer()
    :outertype: InternetExplorerDAO
 
-   List internet explorer.
+   Lists all internet explorers.
 
    :return: the list
 
@@ -68,7 +68,7 @@ removeInternetExplorer
 .. java:method:: public void removeInternetExplorer(Integer id)
    :outertype: InternetExplorerDAO
 
-   Removes the internet explorer.
+   Removes the internet explorer with the given id.
 
    :param id: the id
 

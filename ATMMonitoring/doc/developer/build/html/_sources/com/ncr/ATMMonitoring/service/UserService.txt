@@ -18,7 +18,7 @@ UserService
 
 .. java:type:: public interface UserService extends UserDetailsService
 
-   The Interface UserService.
+   The Interface UserService. It contains the user related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -40,9 +40,9 @@ getUser
 .. java:method:: public User getUser(Integer id)
    :outertype: UserService
 
-   Gets the user.
+   Gets the user by its id.
 
-   :param id: the id
+   :param id: the user id
    :return: the user
 
 getUserByUsername
@@ -64,7 +64,7 @@ listUsers
 
    List users.
 
-   :return: the list
+   :return: the user list
 
 listUsersByBankCompanies
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,8 +74,8 @@ listUsersByBankCompanies
 
    List users by bank companies.
 
-   :param banks: the banks
-   :return: the list
+   :param banks: the bank companies
+   :return: the user list
 
 listUsersByBankCompany
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -85,8 +85,8 @@ listUsersByBankCompany
 
    List users by bank company.
 
-   :param bank: the bank
-   :return: the list
+   :param bank: the bank company
+   :return: the user list
 
 loadUserByUsername
 ^^^^^^^^^^^^^^^^^^
@@ -100,9 +100,9 @@ removeUser
 .. java:method:: public void removeUser(Integer id)
    :outertype: UserService
 
-   Removes the user.
+   Removes the user by its id.
 
-   :param id: the id
+   :param id: the user id
 
 updatePassword
 ^^^^^^^^^^^^^^

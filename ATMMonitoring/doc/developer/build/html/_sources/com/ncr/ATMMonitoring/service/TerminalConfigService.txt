@@ -10,7 +10,7 @@ TerminalConfigService
 
 .. java:type:: public interface TerminalConfigService
 
-   The Interface TerminalConfigService.
+   The Interface TerminalConfigService. It contains the terminal config related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getTerminalConfig
 .. java:method:: public TerminalConfig getTerminalConfig(Integer id)
    :outertype: TerminalConfigService
 
-   Gets the terminal config.
+   Gets the terminal config by its id.
 
-   :param id: the id
+   :param id: the terminal config id
    :return: the terminal config
 
 listTerminalConfig
@@ -45,5 +45,5 @@ listTerminalConfig
 
    List terminal config.
 
-   :return: the list
+   :return: the terminal config list
 

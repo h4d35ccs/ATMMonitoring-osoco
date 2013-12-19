@@ -38,7 +38,7 @@ Software
 
 .. java:type:: @Entity @Table public class Software
 
-   The Class Software.
+   The Software Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -58,7 +58,7 @@ Software
 .. java:constructor:: public Software(ProductPojo sw)
    :outertype: Software
 
-   Instantiates a new software.
+   Instantiates a new software with the given software data from the agent.
 
    :param sw: the sw
 
@@ -90,9 +90,9 @@ getComboboxes
 .. java:method:: public static Map<String, Map> getComboboxes()
    :outertype: Software
 
-   Gets the comboboxes.
+   Gets the comboboxes data for the query GUI.
 
-   :return: the comboboxes
+   :return: the comboboxes data
 
 getDescription
 ^^^^^^^^^^^^^^

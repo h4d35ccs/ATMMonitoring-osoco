@@ -10,7 +10,7 @@ RoleDAO
 
 .. java:type:: public interface RoleDAO
 
-   The Interface RoleDAO.
+   The Interface RoleDAO. Dao with the operations for managing Role Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getRole
 .. java:method:: public Role getRole(Integer id)
    :outertype: RoleDAO
 
-   Gets the role.
+   Gets the role with the given id.
 
    :param id: the id
-   :return: the role
+   :return: the role, or null if it doesn't exist
 
 listManageableRoles
 ^^^^^^^^^^^^^^^^^^^
@@ -53,7 +53,7 @@ listRoles
 .. java:method:: public List<Role> listRoles()
    :outertype: RoleDAO
 
-   List roles.
+   Lists all roles.
 
    :return: the list
 
@@ -63,7 +63,7 @@ removeRole
 .. java:method:: public void removeRole(Integer id)
    :outertype: RoleDAO
 
-   Removes the role.
+   Removes the role with the given id.
 
    :param id: the id
 

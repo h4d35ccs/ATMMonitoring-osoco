@@ -10,7 +10,7 @@ BankCompanyService
 
 .. java:type:: public interface BankCompanyService
 
-   The Interface BankCompanyService.
+   The Interface BankCompanyService. It contains the bank related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -24,7 +24,7 @@ addBankCompany
 
    Adds the bank company.
 
-   :param bank: the bank
+   :param bank: the bank company
 
 getBankCompany
 ^^^^^^^^^^^^^^
@@ -32,9 +32,9 @@ getBankCompany
 .. java:method:: public BankCompany getBankCompany(Integer id)
    :outertype: BankCompanyService
 
-   Gets the bank company.
+   Gets the bank company by its id.
 
-   :param id: the id
+   :param id: the bank company id
    :return: the bank company
 
 listBankCompanies
@@ -45,7 +45,7 @@ listBankCompanies
 
    List bank companies.
 
-   :return: the list
+   :return: the bank companies list
 
 removeBankCompany
 ^^^^^^^^^^^^^^^^^
@@ -53,9 +53,9 @@ removeBankCompany
 .. java:method:: public void removeBankCompany(Integer id)
    :outertype: BankCompanyService
 
-   Removes the bank company.
+   Removes the bank company by its id..
 
-   :param id: the id
+   :param id: the bank company id
 
 updateBankCompany
 ^^^^^^^^^^^^^^^^^
@@ -65,5 +65,5 @@ updateBankCompany
 
    Update bank company.
 
-   :param bank: the bank
+   :param bank: the bank company
 

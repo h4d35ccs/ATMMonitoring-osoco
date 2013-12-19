@@ -178,7 +178,7 @@ TerminalServiceImpl
 
 .. java:type:: @Service @Transactional public class TerminalServiceImpl implements TerminalService
 
-   The Class TerminalServiceImpl.
+   The Class TerminalServiceImpl. Default implementation of the TerminalService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

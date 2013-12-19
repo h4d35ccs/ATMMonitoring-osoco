@@ -2,10 +2,6 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.TerminalConfig
@@ -16,9 +12,9 @@ TerminalConfigDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class TerminalConfigDAOImpl implements TerminalConfigDAO
+.. java:type:: @Repository public class TerminalConfigDAOImpl extends AbstractGenericDAO<TerminalConfig> implements TerminalConfigDAO
 
-   The Class TerminalConfigDAOImpl.
+   The Class TerminalConfigDAOImpl. Default implementation of TerminalConfigDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

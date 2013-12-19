@@ -18,7 +18,7 @@ HotfixServiceImpl
 
 .. java:type:: @Service @Transactional public class HotfixServiceImpl implements HotfixService
 
-   The Class HotfixServiceImpl.
+   The Class HotfixServiceImpl. Default implementation of the HotfixService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

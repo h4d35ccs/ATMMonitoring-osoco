@@ -1,13 +1,5 @@
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.hibernate.criterion Order
-
-.. java:import:: org.hibernate.criterion Restrictions
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Dashboard
@@ -18,9 +10,9 @@ DashboardDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class DashboardDAOImpl implements DashboardDAO
+.. java:type:: @Repository public class DashboardDAOImpl extends AbstractGenericDAO<Dashboard> implements DashboardDAO
 
-   The Class DashboardDAOImpl.
+   The Class DashboardDAOImpl. Default implementation of DashboardDAO.
 
    :author: Rafael Luque (rafael.luque@osoco.es)
 

@@ -28,7 +28,7 @@ UserServiceImpl
 
 .. java:type:: @Service @Transactional public class UserServiceImpl implements UserService
 
-   The Class UserServiceImpl.
+   The Class UserServiceImpl. Default implementation of the UserService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

@@ -34,7 +34,7 @@ WidgetServiceImpl
 
 .. java:type:: @Service @Transactional public class WidgetServiceImpl implements WidgetService
 
-   The Class WidgetServiceImpl.
+   The Class WidgetServiceImpl. Default implementation of the WidgetService.
 
    :author: Rafael Luque (rafael.luque@osoco.es)
 

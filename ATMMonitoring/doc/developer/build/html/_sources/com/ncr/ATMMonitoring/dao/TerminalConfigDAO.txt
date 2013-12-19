@@ -10,7 +10,7 @@ TerminalConfigDAO
 
 .. java:type:: public interface TerminalConfigDAO
 
-   The Interface TerminalConfigDAO.
+   The Interface TerminalConfigDAO. Dao with the operations for managing TerminalConfig Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getTerminalConfig
 .. java:method:: public TerminalConfig getTerminalConfig(Integer id)
    :outertype: TerminalConfigDAO
 
-   Gets the terminal config.
+   Gets the terminal config with the given id.
 
    :param id: the id
-   :return: the terminal config
+   :return: the terminal config, or null if it doesn't exist
 
 listTerminalConfig
 ^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ listTerminalConfig
 .. java:method:: public List<TerminalConfig> listTerminalConfig()
    :outertype: TerminalConfigDAO
 
-   List terminal config.
+   Lists all terminal config.
 
    :return: the list
 

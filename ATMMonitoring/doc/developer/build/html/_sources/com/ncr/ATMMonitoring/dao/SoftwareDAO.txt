@@ -10,7 +10,7 @@ SoftwareDAO
 
 .. java:type:: public interface SoftwareDAO
 
-   The Interface SoftwareDAO.
+   The Interface SoftwareDAO. Dao with the operations for managing Software Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getSoftware
 .. java:method:: public Software getSoftware(Integer id)
    :outertype: SoftwareDAO
 
-   Gets the software.
+   Gets the software with the given id.
 
    :param id: the id
-   :return: the software
+   :return: the software, or null if it doesn't exist
 
 getSoftwareByIdentifyingNumber
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -46,7 +46,7 @@ getSoftwareByIdentifyingNumber
    Gets the software by identifying number.
 
    :param id: the id
-   :return: the software by identifying number
+   :return: the software by identifying number, or null if it doesn't exist
 
 listSoftware
 ^^^^^^^^^^^^
@@ -54,7 +54,7 @@ listSoftware
 .. java:method:: public List<Software> listSoftware()
    :outertype: SoftwareDAO
 
-   List software.
+   Lists all software.
 
    :return: the list
 

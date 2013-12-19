@@ -10,7 +10,7 @@ PhysicalCashUnitDAO
 
 .. java:type:: public interface PhysicalCashUnitDAO
 
-   The Interface PhysicalCashUnitDAO.
+   The Interface PhysicalCashUnitDAO. Dao with the operations for managing PhysicalCashUnit Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getPhysicalCashUnit
 .. java:method:: public PhysicalCashUnit getPhysicalCashUnit(Integer id)
    :outertype: PhysicalCashUnitDAO
 
-   Gets the physical cash unit.
+   Gets the physical cash unit with the given id.
 
    :param id: the id
-   :return: the physical cash unit
+   :return: the physical cash unit, or null if it doesn't exist
 
 listPhysicalCashUnits
 ^^^^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ listPhysicalCashUnits
 .. java:method:: public List<PhysicalCashUnit> listPhysicalCashUnits()
    :outertype: PhysicalCashUnitDAO
 
-   List physical cash units.
+   Lists all physical cash units.
 
    :return: the list
 

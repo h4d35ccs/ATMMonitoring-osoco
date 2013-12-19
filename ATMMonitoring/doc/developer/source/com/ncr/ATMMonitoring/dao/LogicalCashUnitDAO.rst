@@ -10,7 +10,7 @@ LogicalCashUnitDAO
 
 .. java:type:: public interface LogicalCashUnitDAO
 
-   The Interface LogicalCashUnitDAO.
+   The Interface LogicalCashUnitDAO. Dao with the operations for managing LogicalCashUnit Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getLogicalCashUnit
 .. java:method:: public LogicalCashUnit getLogicalCashUnit(Integer id)
    :outertype: LogicalCashUnitDAO
 
-   Gets the logical cash unit.
+   Gets the logical cash unit with the given id.
 
    :param id: the id
-   :return: the logical cash unit
+   :return: the logical cash unit, or null if it doesn't exist
 
 listLogicalCashUnits
 ^^^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ listLogicalCashUnits
 .. java:method:: public List<LogicalCashUnit> listLogicalCashUnits()
    :outertype: LogicalCashUnitDAO
 
-   List logical cash units.
+   Lists all logical cash units.
 
    :return: the list
 

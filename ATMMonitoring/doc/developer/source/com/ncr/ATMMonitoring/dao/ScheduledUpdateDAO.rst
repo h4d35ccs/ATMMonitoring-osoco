@@ -12,7 +12,7 @@ ScheduledUpdateDAO
 
 .. java:type:: public interface ScheduledUpdateDAO
 
-   The Interface ScheduledUpdateDAO.
+   The Interface ScheduledUpdateDAO. Dao with the operations for managing ScheduledUpdate Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -34,10 +34,10 @@ existsMonthlyScheduledUpdate
 .. java:method:: public boolean existsMonthlyScheduledUpdate(ScheduledUpdate scheduledUpdate)
    :outertype: ScheduledUpdateDAO
 
-   Exists monthly scheduled update.
+   Checks whether a monthly scheduled update already exists.
 
    :param scheduledUpdate: the scheduled update
-   :return: true, if successful
+   :return: true if it does exist
 
 existsWeeklyScheduledUpdate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -45,10 +45,10 @@ existsWeeklyScheduledUpdate
 .. java:method:: public boolean existsWeeklyScheduledUpdate(ScheduledUpdate scheduledUpdate)
    :outertype: ScheduledUpdateDAO
 
-   Exists weekly scheduled update.
+   Checks whether a weekly scheduled update already exists.
 
    :param scheduledUpdate: the scheduled update
-   :return: true, if successful
+   :return: true if it does exist
 
 getScheduledUpdate
 ^^^^^^^^^^^^^^^^^^
@@ -56,10 +56,10 @@ getScheduledUpdate
 .. java:method:: public ScheduledUpdate getScheduledUpdate(Integer id)
    :outertype: ScheduledUpdateDAO
 
-   Gets the scheduled update.
+   Gets the scheduled update with the given id.
 
    :param id: the id
-   :return: the scheduled update
+   :return: the scheduled update, or null if it doesn't exist
 
 listMonthlyScheduledUpdates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,7 +67,7 @@ listMonthlyScheduledUpdates
 .. java:method:: public List<ScheduledUpdate> listMonthlyScheduledUpdates()
    :outertype: ScheduledUpdateDAO
 
-   List monthly scheduled updates.
+   Lists all monthly scheduled updates.
 
    :return: the list
 
@@ -77,7 +77,7 @@ listValidScheduledUpdates
 .. java:method:: public List<ScheduledUpdate> listValidScheduledUpdates(Calendar date)
    :outertype: ScheduledUpdateDAO
 
-   List valid scheduled updates.
+   Lists all valid scheduled updates.
 
    :param date: the date
    :return: the list
@@ -88,7 +88,7 @@ listWeeklyScheduledUpdates
 .. java:method:: public List<ScheduledUpdate> listWeeklyScheduledUpdates()
    :outertype: ScheduledUpdateDAO
 
-   List weekly scheduled updates.
+   Lists all weekly scheduled updates.
 
    :return: the list
 
@@ -98,7 +98,7 @@ removeScheduledUpdate
 .. java:method:: public void removeScheduledUpdate(Integer id)
    :outertype: ScheduledUpdateDAO
 
-   Removes the scheduled update.
+   Removes the scheduled update with the given id.
 
    :param id: the id
 

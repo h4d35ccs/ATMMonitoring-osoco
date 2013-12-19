@@ -64,7 +64,7 @@ User
 
 .. java:type:: @Entity @Table public class User implements UserDetails
 
-   The Class User.
+   The User Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -122,7 +122,7 @@ getHtmlWelcomeMessage
 .. java:method:: public String getHtmlWelcomeMessage(Locale locale)
    :outertype: User
 
-   Gets the html welcome message.
+   Gets the html welcome message customized with the user data.
 
    :param locale: the locale
    :return: the html welcome message
@@ -143,9 +143,9 @@ getLastLogin
 .. java:method:: public Date getLastLogin()
    :outertype: User
 
-   Gets the last login.
+   Gets the last login date.
 
-   :return: the lastLogin
+   :return: the last login date, or null if there is no previous login info
 
 getLastname
 ^^^^^^^^^^^
@@ -173,7 +173,7 @@ getMonthlyScheduledUpdates
 .. java:method:: public List<ScheduledUpdate> getMonthlyScheduledUpdates()
    :outertype: User
 
-   Gets the monthly scheduled updates.
+   Gets the monthly scheduled updates for the user's queries.
 
    :return: the monthly scheduled updates
 
@@ -215,7 +215,7 @@ getWeeklyScheduledUpdates
 .. java:method:: public List<ScheduledUpdate> getWeeklyScheduledUpdates()
    :outertype: User
 
-   Gets the weekly scheduled updates.
+   Gets the weekly scheduled updates for the user's queries.
 
    :return: the weekly scheduled updates
 
@@ -289,9 +289,9 @@ setLastLogin
 .. java:method:: public void setLastLogin(Date lastLogin)
    :outertype: User
 
-   Sets the last login.
+   Sets the last login date.
 
-   :param lastLogin: the lastLogin to set
+   :param lastLogin: the last login date to set
 
 setLastname
 ^^^^^^^^^^^

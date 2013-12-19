@@ -82,7 +82,7 @@ JxfsComponent
 
 .. java:type:: @Entity @Table public class JxfsComponent
 
-   The Class JxfsComponent.
+   The JxfsComponent Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -102,9 +102,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsALMCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given ALM data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the ALM
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -112,9 +112,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsCAMCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given CAM data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the CAM
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -122,9 +122,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsCDRCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given CDR data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the CDR
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -132,9 +132,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsCHKCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given CHK data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the CHK
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -142,9 +142,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsDEPCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given DEP data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the DEP
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -152,9 +152,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsMSDCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given MSD data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the MSD
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -162,9 +162,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsPINCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given PIN data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the PIN
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -172,9 +172,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsPTRCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given PTR data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the PTR
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -182,9 +182,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsSCNCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given SCN data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the SCN
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -192,9 +192,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsSIUCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given SIU data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the SIU
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -202,9 +202,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsTIOCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given TIO data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the TIO
 
 JxfsComponent
 ^^^^^^^^^^^^^
@@ -212,9 +212,9 @@ JxfsComponent
 .. java:constructor:: public JxfsComponent(CapabilitiesJxfsVDMCollector jxfs)
    :outertype: JxfsComponent
 
-   Instantiates a new jxfs component.
+   Instantiates a new jxfs component with the given VDM data from the agent.
 
-   :param jxfs: the jxfs
+   :param jxfs: the VDM
 
 Methods
 -------
@@ -384,9 +384,9 @@ getComboboxes
 .. java:method:: public static Map<String, Map> getComboboxes()
    :outertype: JxfsComponent
 
-   Gets the comboboxes.
+   Gets the comboboxes data for the query GUI.
 
-   :return: the comboboxes
+   :return: the comboboxes data
 
 getComplex
 ^^^^^^^^^^
@@ -804,9 +804,9 @@ getJxfsclasses
 .. java:method:: public static Set<String> getJxfsclasses()
    :outertype: JxfsComponent
 
-   Gets the jxfsclasses.
+   Gets the jxfs classes (i.e. ALM, CAM, CDM...).
 
-   :return: the jxfsclasses
+   :return: the jxfs classes
 
 getKeyboardLockSupported
 ^^^^^^^^^^^^^^^^^^^^^^^^

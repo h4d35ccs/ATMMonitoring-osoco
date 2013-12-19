@@ -10,7 +10,7 @@ InstallationService
 
 .. java:type:: public interface InstallationService
 
-   The Interface InstallationService.
+   The Interface InstallationService. It contains the installation related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getInstallation
 .. java:method:: public Installation getInstallation(Integer id)
    :outertype: InstallationService
 
-   Gets the installation.
+   Gets the installation by its id.
 
-   :param id: the id
+   :param id: the installation id
    :return: the installation
 
 listInstallations
@@ -45,7 +45,7 @@ listInstallations
 
    List installations.
 
-   :return: the list
+   :return: the installation list
 
 removeInstallation
 ^^^^^^^^^^^^^^^^^^
@@ -53,9 +53,9 @@ removeInstallation
 .. java:method:: public void removeInstallation(Integer id)
    :outertype: InstallationService
 
-   Removes the installation.
+   Removes the installation by its id.
 
-   :param id: the id
+   :param id: the installation id
 
 updateInstallation
 ^^^^^^^^^^^^^^^^^^

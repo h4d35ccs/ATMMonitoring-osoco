@@ -44,7 +44,7 @@ BankCompanyController
 
 .. java:type:: @Controller public class BankCompanyController
 
-   The Class BankCompanyController.
+   The Class BankCompanyController. Controller for handling bank company related HTTP petitions.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -56,15 +56,15 @@ addBankCompany
 .. java:method:: @RequestMapping public String addBankCompany(BankCompany bankCompany, BindingResult result, Map<String, Object> map, HttpServletRequest request, String p, Principal principal)
    :outertype: BankCompanyController
 
-   Adds the bank company.
+   Add bank company URL.
 
    :param bankCompany: the bank company
    :param result: the result
    :param map: the map
    :param request: the request
-   :param p: the p
+   :param p: the page number
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 bankCompanyDetails
 ^^^^^^^^^^^^^^^^^^
@@ -72,13 +72,13 @@ bankCompanyDetails
 .. java:method:: @RequestMapping public String bankCompanyDetails(Integer bankCompanyId, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: BankCompanyController
 
-   Bank company details.
+   Bank company details URL.
 
    :param bankCompanyId: the bank company id
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 deleteBankCompany
 ^^^^^^^^^^^^^^^^^
@@ -86,11 +86,11 @@ deleteBankCompany
 .. java:method:: @RequestMapping public String deleteBankCompany(Integer bankCompanyId, Principal principal)
    :outertype: BankCompanyController
 
-   Delete bank company.
+   Delete bank company URL.
 
    :param bankCompanyId: the bank company id
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 listBankCompanies
 ^^^^^^^^^^^^^^^^^
@@ -98,23 +98,23 @@ listBankCompanies
 .. java:method:: @RequestMapping public String listBankCompanies(Map<String, Object> map, Principal principal, String p, HttpServletRequest request)
    :outertype: BankCompanyController
 
-   List bank companies.
+   List bank companies URL.
 
    :param map: the map
    :param principal: the principal
-   :param p: the p
+   :param p: the page number
    :param request: the request
-   :return: the string
+   :return: the petition response
 
-redirectToBankCompanys
-^^^^^^^^^^^^^^^^^^^^^^
+redirectToBankCompanies
+^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String redirectToBankCompanys()
+.. java:method:: @RequestMapping public String redirectToBankCompanies()
    :outertype: BankCompanyController
 
-   Redirect to bank companys.
+   Redirect to bank companies URL.
 
-   :return: the string
+   :return: the petition response
 
 updateBankCompany
 ^^^^^^^^^^^^^^^^^
@@ -122,12 +122,12 @@ updateBankCompany
 .. java:method:: @RequestMapping public String updateBankCompany(BankCompany bankCompany, BindingResult result, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: BankCompanyController
 
-   Update bank company.
+   Update bank company URL.
 
    :param bankCompany: the bank company
    :param result: the result
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 

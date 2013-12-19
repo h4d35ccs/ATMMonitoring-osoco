@@ -2,10 +2,6 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Location
@@ -16,9 +12,9 @@ LocationDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class LocationDAOImpl implements LocationDAO
+.. java:type:: @Repository public class LocationDAOImpl extends AbstractGenericDAO<Location> implements LocationDAO
 
-   The Class LocationDAOImpl.
+   The Class LocationDAOImpl. Default implementation of LocationDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

@@ -18,7 +18,7 @@ RoleServiceImpl
 
 .. java:type:: @Service @Transactional public class RoleServiceImpl implements RoleService
 
-   The Class RoleServiceImpl.
+   The Class RoleServiceImpl. Default implementation of the RoleService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

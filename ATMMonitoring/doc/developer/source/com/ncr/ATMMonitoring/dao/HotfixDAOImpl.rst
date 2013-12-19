@@ -2,11 +2,7 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
 .. java:import:: org.hibernate.criterion Order
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Repository
 
@@ -18,9 +14,9 @@ HotfixDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class HotfixDAOImpl implements HotfixDAO
+.. java:type:: @Repository public class HotfixDAOImpl extends AbstractGenericDAO<Hotfix> implements HotfixDAO
 
-   The Class HotfixDAOImpl.
+   The Class HotfixDAOImpl. Default implementation of HotfixDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

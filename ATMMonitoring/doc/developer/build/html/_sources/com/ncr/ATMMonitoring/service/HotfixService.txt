@@ -10,7 +10,7 @@ HotfixService
 
 .. java:type:: public interface HotfixService
 
-   The Interface HotfixService.
+   The Interface HotfixService. It contains the hotfix related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getHotfix
 .. java:method:: public Hotfix getHotfix(Integer id)
    :outertype: HotfixService
 
-   Gets the hotfix.
+   Gets the hotfix by its id.
 
-   :param id: the id
+   :param id: the hotfix id
    :return: the hotfix
 
 listHotfix
@@ -45,7 +45,7 @@ listHotfix
 
    List hotfix.
 
-   :return: the list
+   :return: the hotfix list
 
 removeHotfix
 ^^^^^^^^^^^^
@@ -53,7 +53,7 @@ removeHotfix
 .. java:method:: public void removeHotfix(Integer id)
    :outertype: HotfixService
 
-   Removes the hotfix.
+   Removes the hotfix by its id.
 
-   :param id: the id
+   :param id: the hotfix id
 

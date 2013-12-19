@@ -14,7 +14,7 @@ LoginController
 
 .. java:type:: @Controller public class LoginController
 
-   The Class LoginController.
+   The Class LoginController. Controller for handling login related HTTP petitions.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -26,9 +26,9 @@ login
 .. java:method:: @RequestMapping public String login()
    :outertype: LoginController
 
-   Login.
+   Login URL.
 
-   :return: the string
+   :return: the petition response
 
 loginFailed
 ^^^^^^^^^^^
@@ -36,10 +36,10 @@ loginFailed
 .. java:method:: @RequestMapping public String loginFailed(Map<String, Object> map)
    :outertype: LoginController
 
-   Login failed.
+   Login failed URL.
 
    :param map: the map
-   :return: the string
+   :return: the petition response
 
 printWelcome
 ^^^^^^^^^^^^
@@ -47,9 +47,9 @@ printWelcome
 .. java:method:: @RequestMapping public String printWelcome()
    :outertype: LoginController
 
-   Prints the welcome.
+   Index URL.
 
-   :return: the string
+   :return: the petition response
 
 redirectToIndex
 ^^^^^^^^^^^^^^^
@@ -57,7 +57,7 @@ redirectToIndex
 .. java:method:: @RequestMapping public String redirectToIndex()
    :outertype: LoginController
 
-   Redirect to index.
+   Base URL.
 
-   :return: the string
+   :return: the petition response
 

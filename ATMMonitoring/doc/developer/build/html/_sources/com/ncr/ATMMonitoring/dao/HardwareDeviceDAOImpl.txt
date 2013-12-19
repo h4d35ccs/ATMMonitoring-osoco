@@ -2,10 +2,6 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.HardwareDevice
@@ -16,9 +12,9 @@ HardwareDeviceDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class HardwareDeviceDAOImpl implements HardwareDeviceDAO
+.. java:type:: @Repository public class HardwareDeviceDAOImpl extends AbstractGenericDAO<HardwareDevice> implements HardwareDeviceDAO
 
-   The Class HardwareDeviceDAOImpl.
+   The Class HardwareDeviceDAOImpl. Default implementation of HardwareDeviceDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

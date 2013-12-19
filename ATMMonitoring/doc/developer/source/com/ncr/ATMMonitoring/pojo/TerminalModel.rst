@@ -4,8 +4,6 @@
 
 .. java:import:: java.awt.image BufferedImage
 
-.. java:import:: java.io BufferedOutputStream
-
 .. java:import:: java.io ByteArrayInputStream
 
 .. java:import:: java.io IOException
@@ -28,8 +26,6 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: com.ncr ATMMonitoring.dao.FinancialDeviceDAOImpl
-
 TerminalModel
 =============
 
@@ -38,7 +34,7 @@ TerminalModel
 
 .. java:type:: @Entity @Table public class TerminalModel
 
-   The Class TerminalModel.
+   The TerminalModel Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

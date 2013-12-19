@@ -22,7 +22,7 @@ XfsComponentServiceImpl
 
 .. java:type:: @Service @Transactional public class XfsComponentServiceImpl implements XfsComponentService
 
-   The Class XfsComponentServiceImpl.
+   The Class XfsComponentServiceImpl. Default implementation of the XfsComponentService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

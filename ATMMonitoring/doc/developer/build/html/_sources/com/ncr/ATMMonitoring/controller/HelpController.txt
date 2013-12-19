@@ -24,22 +24,48 @@ HelpController
 
 .. java:type:: @Controller public class HelpController
 
-   The Class HelpController.
+   The Class HelpController. Controller for handling help related HTTP petitions.
 
    :author: Rafael Luque (rafael.luque@osoco.es)
 
 Methods
 -------
-showDashboard
-^^^^^^^^^^^^^
+showDashboardHelp
+^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String showDashboard(Map<String, Object> map, Principal principal, HttpServletRequest request)
+.. java:method:: @RequestMapping public String showDashboardHelp(Map<String, Object> map, Principal principal, HttpServletRequest request)
    :outertype: HelpController
 
-   Show dashboard.
+   Show dashboard help URL.
 
    :param map: the map
    :param principal: the principal
    :param request: the request
-   :return: the string
+   :return: the petition response
+
+showHelp
+^^^^^^^^
+
+.. java:method:: @RequestMapping public String showHelp(Map<String, Object> map, Principal principal, HttpServletRequest request)
+   :outertype: HelpController
+
+   Show default help URL.
+
+   :param map: the map
+   :param principal: the principal
+   :param request: the request
+   :return: the petition response
+
+showTerminalsHelp
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: @RequestMapping public String showTerminalsHelp(Map<String, Object> map, Principal principal, HttpServletRequest request)
+   :outertype: HelpController
+
+   Show terminals help URL.
+
+   :param map: the map
+   :param principal: the principal
+   :param request: the request
+   :return: the petition response
 

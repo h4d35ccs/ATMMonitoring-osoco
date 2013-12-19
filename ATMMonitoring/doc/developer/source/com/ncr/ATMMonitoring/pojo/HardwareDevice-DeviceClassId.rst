@@ -2,8 +2,6 @@
 
 .. java:import:: java.text SimpleDateFormat
 
-.. java:import:: java.util Collection
-
 .. java:import:: java.util Date
 
 .. java:import:: java.util HashMap

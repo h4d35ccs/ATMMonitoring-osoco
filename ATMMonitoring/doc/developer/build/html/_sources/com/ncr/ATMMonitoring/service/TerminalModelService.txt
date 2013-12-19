@@ -12,7 +12,7 @@ TerminalModelService
 
 .. java:type:: public interface TerminalModelService
 
-   The Interface TerminalModelService.
+   The Interface TerminalModelService. It contains the terminal model related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -34,9 +34,9 @@ getTerminalModel
 .. java:method:: public TerminalModel getTerminalModel(Integer id)
    :outertype: TerminalModelService
 
-   Gets the terminal model.
+   Gets the terminal model by its id.
 
-   :param id: the id
+   :param id: the terminal model id
    :return: the terminal model
 
 getTerminalModelByModel
@@ -69,7 +69,7 @@ listTerminalModels
 
    List terminal models.
 
-   :return: the list
+   :return: the terminal model list
 
 listTerminalModelsByManufacturer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -79,7 +79,7 @@ listTerminalModelsByManufacturer
 
    List terminal models by manufacturer.
 
-   :return: the map
+   :return: the map with a terminal list for each manufacturer name
 
 removeTerminalModel
 ^^^^^^^^^^^^^^^^^^^
@@ -87,9 +87,9 @@ removeTerminalModel
 .. java:method:: public void removeTerminalModel(Integer id)
    :outertype: TerminalModelService
 
-   Removes the terminal model.
+   Removes the terminal model by its id.
 
-   :param id: the id
+   :param id: , if successful the terminal model id
 
 updateTerminalModel
 ^^^^^^^^^^^^^^^^^^^

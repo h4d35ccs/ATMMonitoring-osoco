@@ -8,7 +8,7 @@ DashboardDAO
 
 .. java:type:: public interface DashboardDAO
 
-   The Interface DashboardDAO.
+   The Interface DashboardDAO. Dao with the operations for managing Dashboard Pojos.
 
    :author: Rafael Luque (rafael.luque@osoco.es)
 
@@ -20,7 +20,7 @@ save
 .. java:method:: public void save(Dashboard dashboard)
    :outertype: DashboardDAO
 
-   Save.
+   Adds the Dashboard.
 
    :param dashboard: the dashboard
 

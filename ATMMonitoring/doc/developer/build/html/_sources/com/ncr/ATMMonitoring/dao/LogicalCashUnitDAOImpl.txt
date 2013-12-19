@@ -2,10 +2,6 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.LogicalCashUnit
@@ -16,9 +12,9 @@ LogicalCashUnitDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class LogicalCashUnitDAOImpl implements LogicalCashUnitDAO
+.. java:type:: @Repository public class LogicalCashUnitDAOImpl extends AbstractGenericDAO<LogicalCashUnit> implements LogicalCashUnitDAO
 
-   The Class LogicalCashUnitDAOImpl.
+   The Class LogicalCashUnitDAOImpl. Default implementation of LogicalCashUnitDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

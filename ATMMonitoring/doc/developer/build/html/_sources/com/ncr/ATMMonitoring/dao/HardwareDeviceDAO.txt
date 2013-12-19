@@ -10,7 +10,7 @@ HardwareDeviceDAO
 
 .. java:type:: public interface HardwareDeviceDAO
 
-   The Interface HardwareDeviceDAO.
+   The Interface HardwareDeviceDAO. Dao with the operations for managing HardwareDevice Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getHardwareDevice
 .. java:method:: public HardwareDevice getHardwareDevice(Integer id)
    :outertype: HardwareDeviceDAO
 
-   Gets the hardware device.
+   Gets the hardware device with the given id.
 
    :param id: the id
-   :return: the hardware device
+   :return: the hardware device, or null if it doesn't exist
 
 listHardwareDevices
 ^^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ listHardwareDevices
 .. java:method:: public List<HardwareDevice> listHardwareDevices()
    :outertype: HardwareDeviceDAO
 
-   List hardware devices.
+   Lists all hardware devices.
 
    :return: the list
 
@@ -53,7 +53,7 @@ removeHardwareDevice
 .. java:method:: public void removeHardwareDevice(Integer id)
    :outertype: HardwareDeviceDAO
 
-   Removes the hardware device.
+   Removes the hardware device with the given id.
 
    :param id: the id
 

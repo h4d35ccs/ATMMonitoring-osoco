@@ -48,7 +48,7 @@ ScheduledUpdate
 
 .. java:type:: @Entity @Table public class ScheduledUpdate
 
-   The Class ScheduledUpdate.
+   The ScheduledUpdate Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -92,9 +92,9 @@ getGmtHour
 .. java:method:: public Short getGmtHour()
    :outertype: ScheduledUpdate
 
-   Gets the gmt hour.
+   Gets the hour translated to GMT time.
 
-   :return: the gmt hour
+   :return: the GMT hour
 
 getGmtMonthDay
 ^^^^^^^^^^^^^^
@@ -102,9 +102,9 @@ getGmtMonthDay
 .. java:method:: public Short getGmtMonthDay()
    :outertype: ScheduledUpdate
 
-   Gets the gmt month day.
+   Gets the month day translated to GMT time.
 
-   :return: the gmt month day
+   :return: the GMT month day
 
 getGmtWeekDay
 ^^^^^^^^^^^^^
@@ -112,9 +112,9 @@ getGmtWeekDay
 .. java:method:: public Short getGmtWeekDay()
    :outertype: ScheduledUpdate
 
-   Gets the gmt week day.
+   Gets the week day translated to GMT time.
 
-   :return: the gmt week day
+   :return: the GMT week day
 
 getHour
 ^^^^^^^
@@ -252,9 +252,9 @@ setGmtHour
 .. java:method:: public void setGmtHour(Short gmtHour)
    :outertype: ScheduledUpdate
 
-   Sets the gmt hour.
+   Sets the GMT hour.
 
-   :param gmtHour: the new gmt hour
+   :param gmtHour: the new GMT hour
 
 setGmtMonthDay
 ^^^^^^^^^^^^^^
@@ -262,9 +262,9 @@ setGmtMonthDay
 .. java:method:: public void setGmtMonthDay(Short gmtMonthDay)
    :outertype: ScheduledUpdate
 
-   Sets the gmt month day.
+   Sets the month day translated to GMT time.
 
-   :param gmtMonthDay: the new gmt month day
+   :param gmtMonthDay: the new GMT month day
 
 setGmtWeekDay
 ^^^^^^^^^^^^^
@@ -272,9 +272,9 @@ setGmtWeekDay
 .. java:method:: public void setGmtWeekDay(Short gmtWeekDay)
    :outertype: ScheduledUpdate
 
-   Sets the gmt week day.
+   Sets the GMT week day.
 
-   :param gmtWeekDay: the new gmt week day
+   :param gmtWeekDay: the new GMT week day
 
 setHour
 ^^^^^^^

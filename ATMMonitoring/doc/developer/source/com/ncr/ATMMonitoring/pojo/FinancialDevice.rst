@@ -52,7 +52,7 @@ FinancialDevice
 
 .. java:type:: @Entity @Table public class FinancialDevice
 
-   The Class FinancialDevice.
+   The FinancialDevice Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -72,7 +72,7 @@ FinancialDevice
 .. java:constructor:: public FinancialDevice(FinancialDevicePojo device)
    :outertype: FinancialDevice
 
-   Instantiates a new financial device.
+   Instantiates a new financial device with the given financial device data from the agent.
 
    :param device: the device
 
@@ -94,9 +94,9 @@ getComboboxes
 .. java:method:: public static Map<String, Map> getComboboxes()
    :outertype: FinancialDevice
 
-   Gets the comboboxes.
+   Gets the comboboxes data for the query GUI.
 
-   :return: the comboboxes
+   :return: the comboboxes data
 
 getDescription
 ^^^^^^^^^^^^^^
@@ -134,7 +134,7 @@ getFirmwareNameVersion
 .. java:method:: public String getFirmwareNameVersion()
    :outertype: FinancialDevice
 
-   Gets the firmware name version.
+   Gets a string with the firmware name and version.
 
    :return: the firmware name and version concatenated
 

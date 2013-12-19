@@ -22,7 +22,7 @@ Role
 
 .. java:type:: @Entity @Table public class Role implements Serializable
 
-   The Class Role.
+   The Role Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -44,9 +44,9 @@ getManageable
 .. java:method:: public Boolean getManageable()
    :outertype: Role
 
-   Gets the manageable.
+   Whether the role is manageable (i.e. can be assigned and modified).
 
-   :return: the manageable
+   :return: the manageable flag
 
 getName
 ^^^^^^^
@@ -74,9 +74,9 @@ setManageable
 .. java:method:: public void setManageable(Boolean manageable)
    :outertype: Role
 
-   Sets the manageable.
+   Sets the manageable flag.
 
-   :param manageable: the manageable to set
+   :param manageable: the manageable flag to set
 
 setName
 ^^^^^^^

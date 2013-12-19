@@ -30,7 +30,7 @@ Installation
 
 .. java:type:: @Entity @Table public class Installation
 
-   The Class Installation.
+   The Installation Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -92,9 +92,9 @@ getLocationclasses
 .. java:method:: public static String getLocationclasses()
    :outertype: Installation
 
-   Gets the locationclasses.
+   Gets the location classes.
 
-   :return: the locationclasses
+   :return: the location classes
 
 getLuCode
 ^^^^^^^^^

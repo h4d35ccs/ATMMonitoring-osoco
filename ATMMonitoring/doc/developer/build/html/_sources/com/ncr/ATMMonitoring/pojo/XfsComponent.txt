@@ -86,7 +86,7 @@ XfsComponent
 
 .. java:type:: @Entity @Table public class XfsComponent
 
-   The Class XfsComponent.
+   The XfsComponent Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -106,9 +106,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(ALM xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on ALM data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the ALM
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -116,9 +116,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(BCR xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on BCR data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the BCR
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -126,9 +126,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(CAM xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on CAM data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the CAM
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -136,9 +136,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(CDM xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on CDM data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the CDM
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -146,9 +146,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(CEU xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on CEU data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the CEU
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -156,9 +156,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(CHK xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on CHK data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the CHK
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -166,9 +166,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(CIM xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on CIM data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the CIM
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -176,9 +176,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(CRD xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on CRD data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the CRD
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -186,9 +186,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(DEP xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on DEP data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the DEP
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -196,9 +196,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(IDC xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on IDC data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the IDC
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -206,9 +206,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(IPM xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on IPM data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the IPM
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -216,9 +216,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(PIN xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on PIN data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the PIN
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -226,9 +226,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(PTR xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on PTR data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the PTR
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -236,9 +236,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(SIU xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on SIU data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the SIU
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -246,9 +246,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(TTU xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on TTU data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the TTU
 
 XfsComponent
 ^^^^^^^^^^^^
@@ -256,9 +256,9 @@ XfsComponent
 .. java:constructor:: public XfsComponent(VDM xfs)
    :outertype: XfsComponent
 
-   Instantiates a new xfs component.
+   Instantiates a new xfs component based on VDM data from the agent.
 
-   :param xfs: the xfs
+   :param xfs: the VDM
 
 Methods
 -------
@@ -291,6 +291,12 @@ getAutobeep
    Gets the autobeep.
 
    :return: the autobeep
+
+getAutodeposit
+^^^^^^^^^^^^^^
+
+.. java:method:: public Boolean getAutodeposit()
+   :outertype: XfsComponent
 
 getAutoretractPeriod
 ^^^^^^^^^^^^^^^^^^^^
@@ -422,15 +428,21 @@ getCodeLineFormat
 
    :return: the code line format
 
+getCoins
+^^^^^^^^
+
+.. java:method:: public Boolean getCoins()
+   :outertype: XfsComponent
+
 getComboboxes
 ^^^^^^^^^^^^^
 
 .. java:method:: public static Map<String, Map> getComboboxes()
    :outertype: XfsComponent
 
-   Gets the comboboxes.
+   Gets the comboboxes data for the query GUI.
 
-   :return: the comboboxes
+   :return: the comboboxes data
 
 getComparemagneticstripe
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -471,6 +483,12 @@ getCursor
    Gets the cursor.
 
    :return: the cursor
+
+getCylinders
+^^^^^^^^^^^^
+
+.. java:method:: public Boolean getCylinders()
+   :outertype: XfsComponent
 
 getDefaultBackscanColor
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -1112,6 +1130,12 @@ getKeyNum
 
    :return: the key num
 
+getKeys
+^^^^^^^
+
+.. java:method:: public String getKeys()
+   :outertype: XfsComponent
+
 getLogical
 ^^^^^^^^^^
 
@@ -1152,6 +1176,18 @@ getMagneticstripewrite
 
    :return: the magneticstripewrite
 
+getMax2Retract
+^^^^^^^^^^^^^^
+
+.. java:method:: public Integer getMax2Retract()
+   :outertype: XfsComponent
+
+getMaxBills
+^^^^^^^^^^^
+
+.. java:method:: public Integer getMaxBills()
+   :outertype: XfsComponent
+
 getMaxCashInItems
 ^^^^^^^^^^^^^^^^^
 
@@ -1161,6 +1197,12 @@ getMaxCashInItems
    Gets the max cash in items.
 
    :return: the max cash in items
+
+getMaxCoins
+^^^^^^^^^^^
+
+.. java:method:: public Integer getMaxCoins()
+   :outertype: XfsComponent
 
 getMaxDataLength
 ^^^^^^^^^^^^^^^^
@@ -1292,6 +1334,12 @@ getOcr
 
    :return: the ocr
 
+getOutputPositions
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public String getOutputPositions()
+   :outertype: XfsComponent
+
 getPaperSources
 ^^^^^^^^^^^^^^^
 
@@ -1311,6 +1359,12 @@ getPinFormats
    Gets the pin formats.
 
    :return: the pin formats
+
+getPockets
+^^^^^^^^^^
+
+.. java:method:: public Integer getPockets()
+   :outertype: XfsComponent
 
 getPositions
 ^^^^^^^^^^^^
@@ -1492,6 +1546,12 @@ getRetractStackerActions
 
    :return: the retract stacker actions
 
+getRetractToDeposit
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Boolean getRetractToDeposit()
+   :outertype: XfsComponent
+
 getRetractTransportActions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1642,6 +1702,12 @@ getValidationAlgorithms
 
    :return: the validation algorithms
 
+getVandalCheck
+^^^^^^^^^^^^^^
+
+.. java:method:: public Boolean getVandalCheck()
+   :outertype: XfsComponent
+
 getWindowsPrinter
 ^^^^^^^^^^^^^^^^^
 
@@ -1698,7 +1764,7 @@ getXfsclasses
 .. java:method:: public static Set<String> getXfsclasses()
    :outertype: XfsComponent
 
-   Gets the xfsclasses.
+   Gets the xfsclasses (i.e. ALM, BCR, CAM, CDM...).
 
    :return: the xfsclasses
 
@@ -1731,6 +1797,12 @@ setAutobeep
    Sets the autobeep.
 
    :param autobeep: the new autobeep
+
+setAutodeposit
+^^^^^^^^^^^^^^
+
+.. java:method:: public void setAutodeposit(Boolean autodeposit)
+   :outertype: XfsComponent
 
 setAutoretractPeriod
 ^^^^^^^^^^^^^^^^^^^^
@@ -1862,6 +1934,12 @@ setCodeLineFormat
 
    :param codeLineFormat: the new code line format
 
+setCoins
+^^^^^^^^
+
+.. java:method:: public void setCoins(Boolean coins)
+   :outertype: XfsComponent
+
 setComparemagneticstripe
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1901,6 +1979,12 @@ setCursor
    Sets the cursor.
 
    :param cursor: the new cursor
+
+setCylinders
+^^^^^^^^^^^^
+
+.. java:method:: public void setCylinders(Boolean cylinders)
+   :outertype: XfsComponent
 
 setDefaultBackscanColor
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -2542,6 +2626,12 @@ setKeyNum
 
    :param keyNum: the new key num
 
+setKeys
+^^^^^^^
+
+.. java:method:: public void setKeys(String keys)
+   :outertype: XfsComponent
+
 setLogical
 ^^^^^^^^^^
 
@@ -2582,6 +2672,18 @@ setMagneticstripewrite
 
    :param magneticstripewrite: the new magneticstripewrite
 
+setMax2Retract
+^^^^^^^^^^^^^^
+
+.. java:method:: public void setMax2Retract(Integer max2Retract)
+   :outertype: XfsComponent
+
+setMaxBills
+^^^^^^^^^^^
+
+.. java:method:: public void setMaxBills(Integer maxBills)
+   :outertype: XfsComponent
+
 setMaxCashInItems
 ^^^^^^^^^^^^^^^^^
 
@@ -2591,6 +2693,12 @@ setMaxCashInItems
    Sets the max cash in items.
 
    :param maxCashInItems: the new max cash in items
+
+setMaxCoins
+^^^^^^^^^^^
+
+.. java:method:: public void setMaxCoins(Integer maxCoins)
+   :outertype: XfsComponent
 
 setMaxDataLength
 ^^^^^^^^^^^^^^^^
@@ -2722,6 +2830,12 @@ setOcr
 
    :param ocr: the new ocr
 
+setOutputPositions
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setOutputPositions(String outputPositions)
+   :outertype: XfsComponent
+
 setPaperSources
 ^^^^^^^^^^^^^^^
 
@@ -2741,6 +2855,12 @@ setPinFormats
    Sets the pin formats.
 
    :param pinFormats: the new pin formats
+
+setPockets
+^^^^^^^^^^
+
+.. java:method:: public void setPockets(Integer pockets)
+   :outertype: XfsComponent
 
 setPositions
 ^^^^^^^^^^^^
@@ -2922,6 +3042,12 @@ setRetractStackerActions
 
    :param retractStackerActions: the new retract stacker actions
 
+setRetractToDeposit
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setRetractToDeposit(Boolean retractToDeposit)
+   :outertype: XfsComponent
+
 setRetractTransportActions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -3071,6 +3197,12 @@ setValidationAlgorithms
    Sets the validation algorithms.
 
    :param validationAlgorithms: the new validation algorithms
+
+setVandalCheck
+^^^^^^^^^^^^^^
+
+.. java:method:: public void setVandalCheck(Boolean vandalCheck)
+   :outertype: XfsComponent
 
 setWindowsPrinter
 ^^^^^^^^^^^^^^^^^

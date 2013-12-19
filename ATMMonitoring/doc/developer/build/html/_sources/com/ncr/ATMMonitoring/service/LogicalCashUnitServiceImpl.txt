@@ -18,7 +18,7 @@ LogicalCashUnitServiceImpl
 
 .. java:type:: @Service @Transactional public class LogicalCashUnitServiceImpl implements LogicalCashUnitService
 
-   The Class LogicalCashUnitServiceImpl.
+   The Class LogicalCashUnitServiceImpl. Default implementation of the LogicalCashUnitService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

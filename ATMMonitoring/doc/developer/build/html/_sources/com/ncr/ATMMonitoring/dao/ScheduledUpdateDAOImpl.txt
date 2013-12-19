@@ -10,13 +10,9 @@
 
 .. java:import:: org.hibernate Criteria
 
-.. java:import:: org.hibernate SessionFactory
-
 .. java:import:: org.hibernate.criterion Order
 
 .. java:import:: org.hibernate.criterion Restrictions
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Repository
 
@@ -28,9 +24,9 @@ ScheduledUpdateDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class ScheduledUpdateDAOImpl implements ScheduledUpdateDAO
+.. java:type:: @Repository public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate> implements ScheduledUpdateDAO
 
-   The Class ScheduledUpdateDAOImpl.
+   The Class ScheduledUpdateDAOImpl. Default implementation of ScheduledUpdateDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

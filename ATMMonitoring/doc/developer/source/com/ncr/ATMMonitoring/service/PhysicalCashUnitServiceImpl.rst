@@ -18,7 +18,7 @@ PhysicalCashUnitServiceImpl
 
 .. java:type:: @Service @Transactional public class PhysicalCashUnitServiceImpl implements PhysicalCashUnitService
 
-   The Class PhysicalCashUnitServiceImpl.
+   The Class PhysicalCashUnitServiceImpl. Default implementation of the PhysicalCashUnitService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

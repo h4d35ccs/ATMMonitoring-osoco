@@ -58,7 +58,7 @@
 <dl class="type">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalConfigController">
 public class <tt class="descname">TerminalConfigController</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalConfigController" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Class TerminalConfigController.</p>
+<dd><p>The Class TerminalConfigController. Controller for handling terminal config related HTTP petitions.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -76,7 +76,7 @@ public class <tt class="descname">TerminalConfigController</tt><a class="headerl
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalConfigController.binder(WebDataBinder)">
 protected void <tt class="descname">binder</tt><big>(</big>WebDataBinder<em> binder</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalConfigController.binder(WebDataBinder)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Binder.</p>
+<dd><p>Binds custom property editors.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -96,7 +96,7 @@ protected void <tt class="descname">binder</tt><big>(</big>WebDataBinder<em> bin
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.controller.TerminalConfigController.terminalConfigDetails(Integer, Map, HttpServletRequest, Principal)">
 public String <tt class="descname">terminalConfigDetails</tt><big>(</big>Integer<em> terminalConfigId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalConfigController.terminalConfigDetails(Integer, Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Terminal config details.</p>
+<dd><p>Terminal config details URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -109,7 +109,7 @@ public String <tt class="descname">terminalConfigDetails</tt><big>(</big>Integer
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
 </td>
 </tr>
 </tbody>

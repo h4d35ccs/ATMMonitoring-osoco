@@ -33,7 +33,7 @@ Operation.DataType
 .. java:type:: public static enum DataType
    :outertype: Operation
 
-   The Enum DataType.
+   The Enum with all the data types.
 
 Enum Constants
 --------------
@@ -43,7 +43,7 @@ ALL
 .. java:field:: public static final Operation.DataType ALL
    :outertype: Operation.DataType
 
-   The all.
+   All value types.
 
 BOOLEAN
 ^^^^^^^
@@ -51,7 +51,7 @@ BOOLEAN
 .. java:field:: public static final Operation.DataType BOOLEAN
    :outertype: Operation.DataType
 
-   The boolean.
+   Boolean values.
 
 DATE
 ^^^^
@@ -59,7 +59,7 @@ DATE
 .. java:field:: public static final Operation.DataType DATE
    :outertype: Operation.DataType
 
-   The date.
+   Date values.
 
 NUMBER
 ^^^^^^
@@ -67,7 +67,7 @@ NUMBER
 .. java:field:: public static final Operation.DataType NUMBER
    :outertype: Operation.DataType
 
-   The number.
+   Numeric values.
 
 STRING
 ^^^^^^
@@ -75,7 +75,7 @@ STRING
 .. java:field:: public static final Operation.DataType STRING
    :outertype: Operation.DataType
 
-   The string.
+   String values.
 
 VERSION
 ^^^^^^^
@@ -83,5 +83,5 @@ VERSION
 .. java:field:: public static final Operation.DataType VERSION
    :outertype: Operation.DataType
 
-   The version.
+   Composite version values.
 

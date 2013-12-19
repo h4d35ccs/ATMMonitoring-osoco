@@ -4,13 +4,9 @@
 
 .. java:import:: org.hibernate Criteria
 
-.. java:import:: org.hibernate SessionFactory
-
 .. java:import:: org.hibernate.criterion Order
 
 .. java:import:: org.hibernate.criterion Restrictions
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Repository
 
@@ -22,9 +18,9 @@ SoftwareAggregateDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class SoftwareAggregateDAOImpl implements SoftwareAggregateDAO
+.. java:type:: @Repository public class SoftwareAggregateDAOImpl extends AbstractGenericDAO<SoftwareAggregate> implements SoftwareAggregateDAO
 
-   The Class SoftwareAggregateDAOImpl.
+   The Class SoftwareAggregateDAOImpl. Default implementation of SoftwareAggregateDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

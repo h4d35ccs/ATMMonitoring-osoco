@@ -2,10 +2,6 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.XfsComponent
@@ -16,9 +12,9 @@ XfsComponentDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class XfsComponentDAOImpl implements XfsComponentDAO
+.. java:type:: @Repository public class XfsComponentDAOImpl extends AbstractGenericDAO<XfsComponent> implements XfsComponentDAO
 
-   The Class XfsComponentDAOImpl.
+   The Class XfsComponentDAOImpl. Default implementation of XfsComponentDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

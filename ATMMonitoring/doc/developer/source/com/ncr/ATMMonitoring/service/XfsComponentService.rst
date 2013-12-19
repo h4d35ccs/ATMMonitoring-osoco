@@ -12,7 +12,7 @@ XfsComponentService
 
 .. java:type:: public interface XfsComponentService
 
-   The Interface XfsComponentService.
+   The Interface XfsComponentService. It contains the xfs/jxfs component related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -44,9 +44,9 @@ getJxfsComponent
 .. java:method:: public JxfsComponent getJxfsComponent(Integer id)
    :outertype: XfsComponentService
 
-   Gets the jxfs component.
+   Gets the jxfs component by its id.
 
-   :param id: the id
+   :param id: the jxfs component id
    :return: the jxfs component
 
 getXfsComponent
@@ -55,9 +55,9 @@ getXfsComponent
 .. java:method:: public XfsComponent getXfsComponent(Integer id)
    :outertype: XfsComponentService
 
-   Gets the xfs component.
+   Gets the xfs component by its id.
 
-   :param id: the id
+   :param id: the xfs component id
    :return: the xfs component
 
 listJxfsComponents
@@ -68,7 +68,7 @@ listJxfsComponents
 
    List jxfs components.
 
-   :return: the list
+   :return: the jxfs component list
 
 listXfsComponents
 ^^^^^^^^^^^^^^^^^
@@ -78,5 +78,5 @@ listXfsComponents
 
    List xfs components.
 
-   :return: the list
+   :return: the xfs component list
 

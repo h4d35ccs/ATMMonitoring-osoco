@@ -16,7 +16,7 @@ QueryService
 
 .. java:type:: public interface QueryService
 
-   The Interface QueryService.
+   The Interface QueryService. It contains the query related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -52,9 +52,9 @@ executeQuery
 
    :param query: the query
    :param locale: the locale
-   :param sort: the sort
-   :param order: the order
-   :return: the list
+   :param sort: the fields for sorting terminals
+   :param order: the order for sorting terminals
+   :return: the terminal list
 
 executeQuery
 ^^^^^^^^^^^^
@@ -66,7 +66,7 @@ executeQuery
 
    :param query: the query
    :param locale: the locale
-   :return: the list
+   :return: the terminal list
 
 executeQuery
 ^^^^^^^^^^^^
@@ -77,7 +77,7 @@ executeQuery
    Execute query.
 
    :param query: the query
-   :return: the list
+   :return: the terminal list
 
 executeQueryGroupingBy
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -91,7 +91,7 @@ executeQueryGroupingBy
    :param groupByEntity: the group by entity
    :param groupBy: the group by
    :param locale: the locale
-   :return: the list
+   :return: the query list
 
 findOrCreateQuery
 ^^^^^^^^^^^^^^^^^
@@ -110,9 +110,9 @@ getQuery
 .. java:method:: public Query getQuery(Integer id)
    :outertype: QueryService
 
-   Gets the query.
+   Gets the query by its id.
 
-   :param id: the id
+   :param id: the query id
    :return: the query
 
 listQueries
@@ -123,7 +123,7 @@ listQueries
 
    List queries.
 
-   :return: the list
+   :return: the query list
 
 updateQuery
 ^^^^^^^^^^^

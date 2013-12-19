@@ -10,7 +10,7 @@ FinancialDeviceService
 
 .. java:type:: public interface FinancialDeviceService
 
-   The Interface FinancialDeviceService.
+   The Interface FinancialDeviceService. It contains the financial device related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getFinancialDevice
 .. java:method:: public FinancialDevice getFinancialDevice(Integer id)
    :outertype: FinancialDeviceService
 
-   Gets the financial device.
+   Gets the financial device by its id.
 
-   :param id: the id
+   :param id: the financial device id
    :return: the financial device
 
 listFinancialDevices
@@ -43,7 +43,7 @@ listFinancialDevices
 .. java:method:: public List<FinancialDevice> listFinancialDevices()
    :outertype: FinancialDeviceService
 
-   List financial devices.
+   List all financial devices.
 
    :return: the list
 
@@ -53,7 +53,7 @@ removeFinancialDevice
 .. java:method:: public void removeFinancialDevice(Integer id)
    :outertype: FinancialDeviceService
 
-   Removes the financial device.
+   Removes the financial device by its id..
 
-   :param id: the id
+   :param id: the financial device id
 

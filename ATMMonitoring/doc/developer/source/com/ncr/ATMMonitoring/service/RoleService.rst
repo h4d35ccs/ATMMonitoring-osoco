@@ -10,7 +10,7 @@ RoleService
 
 .. java:type:: public interface RoleService
 
-   The Interface RoleService.
+   The Interface RoleService. It contains the role related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getRole
 .. java:method:: public Role getRole(Integer id)
    :outertype: RoleService
 
-   Gets the role.
+   Gets the role by its id.
 
-   :param id: the id
+   :param id: the role id
    :return: the role
 
 listManageableRoles
@@ -45,7 +45,7 @@ listManageableRoles
 
    List manageable roles.
 
-   :return: the list
+   :return: the role list
 
 listRoles
 ^^^^^^^^^
@@ -55,7 +55,7 @@ listRoles
 
    List roles.
 
-   :return: the list
+   :return: the role list
 
 removeRole
 ^^^^^^^^^^
@@ -63,7 +63,7 @@ removeRole
 .. java:method:: public void removeRole(Integer id)
    :outertype: RoleService
 
-   Removes the role.
+   Removes the role by its id.
 
-   :param id: the id
+   :param id: the role id
 

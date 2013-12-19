@@ -6,8 +6,6 @@
 
 .. java:import:: java.util TreeMap
 
-.. java:import:: java.util Vector
-
 .. java:import:: javax.persistence Column
 
 .. java:import:: javax.persistence Entity
@@ -50,8 +48,6 @@
 
 .. java:import:: com.ncr.agent.baseData ATMDataStorePojo
 
-.. java:import:: com.ncr.agent.baseData.os.module NetworkAdapterSettingPojo
-
 .. java:import:: com.ncr.agent.baseData.vendor.utils FinancialTerminalPojo
 
 Terminal
@@ -62,7 +58,7 @@ Terminal
 
 .. java:type:: @Entity @Table public class Terminal
 
-   The Class Terminal. It stores the base data of an ATM.
+   The Terminal Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -82,7 +78,7 @@ Terminal
 .. java:constructor:: public Terminal(ATMDataStorePojo terminal) throws ATMWrongDataException
    :outertype: Terminal
 
-   Instantiates a new terminal using the data from the ATMDataStorePojo we received from the agent.
+   Instantiates a new terminal with the given terminal data from the agent.
 
    :param terminal: the terminal
 
@@ -156,7 +152,7 @@ getComboboxes
 
    Gets the comboboxes data for the query designer.
 
-   :return: the comboboxes
+   :return: the comboboxes data
 
 getComputerSystems
 ^^^^^^^^^^^^^^^^^^

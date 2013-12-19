@@ -40,7 +40,7 @@ XfsComponentController
 
 .. java:type:: @Controller public class XfsComponentController
 
-   The Class XfsComponentController.
+   The Class XfsComponentController. Controller for handling user related HTTP petitions.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -52,13 +52,13 @@ jxfsComponentDetails
 .. java:method:: @RequestMapping public String jxfsComponentDetails(Integer jxfsComponentId, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: XfsComponentController
 
-   Jxfs component details.
+   Jxfs component details URL.
 
    :param jxfsComponentId: the jxfs component id
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 xfsComponentDetails
 ^^^^^^^^^^^^^^^^^^^
@@ -66,11 +66,11 @@ xfsComponentDetails
 .. java:method:: @RequestMapping public String xfsComponentDetails(Integer xfsComponentId, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: XfsComponentController
 
-   Xfs component details.
+   Xfs component details URL.
 
    :param xfsComponentId: the xfs component id
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 

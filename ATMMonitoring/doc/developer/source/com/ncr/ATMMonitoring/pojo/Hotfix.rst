@@ -48,7 +48,7 @@ Hotfix
 
 .. java:type:: @Entity @Table public class Hotfix
 
-   The Class Hotfix.
+   The Hotfix Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -68,7 +68,7 @@ Hotfix
 .. java:constructor:: public Hotfix(HotfixPojo hotfix)
    :outertype: Hotfix
 
-   Instantiates a new hotfix.
+   Instantiates a new hotfix with the given hotfix data from the agent.
 
    :param hotfix: the hotfix
 
@@ -80,9 +80,9 @@ getComboboxes
 .. java:method:: public static Map<String, Map> getComboboxes()
    :outertype: Hotfix
 
-   Gets the comboboxes.
+   Gets the comboboxes data for the query GUI.
 
-   :return: the comboboxes
+   :return: the comboboxes data
 
 getDescription
 ^^^^^^^^^^^^^^
@@ -130,9 +130,9 @@ getInstalledOn
 .. java:method:: public Date getInstalledOn()
    :outertype: Hotfix
 
-   Gets the installed on.
+   Gets the date it was installed on.
 
-   :return: the installedOn
+   :return: the date
 
 getNumber
 ^^^^^^^^^
@@ -200,9 +200,9 @@ setInstalledOn
 .. java:method:: public void setInstalledOn(Date installedOn)
    :outertype: Hotfix
 
-   Sets the installed on.
+   Sets the date it wass installed on.
 
-   :param installedOn: the installedOn to set
+   :param installedOn: the date to set
 
 setNumber
 ^^^^^^^^^

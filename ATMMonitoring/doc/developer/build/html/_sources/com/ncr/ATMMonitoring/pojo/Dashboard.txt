@@ -1,22 +1,8 @@
 .. java:import:: java.io Serializable
 
-.. java:import:: java.text DateFormat
-
-.. java:import:: java.text SimpleDateFormat
-
 .. java:import:: java.util ArrayList
 
-.. java:import:: java.util Collection
-
-.. java:import:: java.util Date
-
-.. java:import:: java.util HashSet
-
 .. java:import:: java.util List
-
-.. java:import:: java.util Locale
-
-.. java:import:: java.util Set
 
 .. java:import:: javax.persistence Column
 
@@ -30,10 +16,6 @@
 
 .. java:import:: javax.persistence Id
 
-.. java:import:: javax.persistence JoinColumn
-
-.. java:import:: javax.persistence ManyToOne
-
 .. java:import:: javax.persistence OneToMany
 
 .. java:import:: javax.persistence OrderBy
@@ -42,13 +24,9 @@
 
 .. java:import:: javax.persistence Table
 
-.. java:import:: javax.validation.constraints Size
-
 .. java:import:: org.hibernate.annotations Cascade
 
 .. java:import:: org.hibernate.annotations CascadeType
-
-.. java:import:: org.hibernate.validator.constraints NotEmpty
 
 Dashboard
 =========
@@ -58,7 +36,7 @@ Dashboard
 
 .. java:type:: @Entity @Table public class Dashboard implements Serializable
 
-   The Class Dashboard.
+   The Dashboard Pojo.
 
    :author: Rafael Luque (rafael.luque@osoco.es)
 

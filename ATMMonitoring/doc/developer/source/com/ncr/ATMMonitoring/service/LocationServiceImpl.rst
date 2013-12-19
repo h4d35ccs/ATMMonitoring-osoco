@@ -18,7 +18,7 @@ LocationServiceImpl
 
 .. java:type:: @Service @Transactional public class LocationServiceImpl implements LocationService
 
-   The Class LocationServiceImpl.
+   The Class LocationServiceImpl. Default implementation of the LocationService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

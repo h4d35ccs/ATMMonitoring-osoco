@@ -18,7 +18,7 @@ InstallationServiceImpl
 
 .. java:type:: @Service @Transactional public class InstallationServiceImpl implements InstallationService
 
-   The Class InstallationServiceImpl.
+   The Class InstallationServiceImpl. Default implementation of the InstallationService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

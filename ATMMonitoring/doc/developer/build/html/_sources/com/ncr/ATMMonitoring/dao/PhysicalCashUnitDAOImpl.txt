@@ -2,10 +2,6 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.PhysicalCashUnit
@@ -16,9 +12,9 @@ PhysicalCashUnitDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class PhysicalCashUnitDAOImpl implements PhysicalCashUnitDAO
+.. java:type:: @Repository public class PhysicalCashUnitDAOImpl extends AbstractGenericDAO<PhysicalCashUnit> implements PhysicalCashUnitDAO
 
-   The Class PhysicalCashUnitDAOImpl.
+   The Class PhysicalCashUnitDAOImpl. Default implementation of PhysicalCashUnitDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

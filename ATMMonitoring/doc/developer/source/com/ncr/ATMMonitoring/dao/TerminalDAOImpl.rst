@@ -8,13 +8,11 @@
 
 .. java:import:: org.apache.log4j Logger
 
+.. java:import:: org.hibernate Criteria
+
 .. java:import:: org.hibernate HibernateException
 
 .. java:import:: org.hibernate Query
-
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.hibernate Criteria
 
 .. java:import:: org.hibernate.criterion Criterion
 
@@ -23,8 +21,6 @@
 .. java:import:: org.hibernate.criterion Restrictions
 
 .. java:import:: org.hibernate.type Type
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Repository
 
@@ -44,9 +40,9 @@ TerminalDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class TerminalDAOImpl implements TerminalDAO
+.. java:type:: @Repository public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements TerminalDAO
 
-   The Class TerminalDAOImpl.
+   The Class TerminalDAOImpl. Default implementation of TerminalDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -56,12 +52,6 @@ addTerminal
 ^^^^^^^^^^^
 
 .. java:method:: @Override public void addTerminal(Terminal terminal)
-   :outertype: TerminalDAOImpl
-
-executeQuery
-^^^^^^^^^^^^
-
-.. java:method:: @Override public List executeQuery(List<Object> values, List<Type> types, String hql)
    :outertype: TerminalDAOImpl
 
 getTerminal

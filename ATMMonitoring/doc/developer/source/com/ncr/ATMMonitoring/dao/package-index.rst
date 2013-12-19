@@ -6,6 +6,7 @@ com.ncr.ATMMonitoring.dao
 .. toctree::
    :maxdepth: 1
 
+   AbstractGenericDAO
    BankCompanyDAO
    BankCompanyDAOImpl
    DashboardDAO

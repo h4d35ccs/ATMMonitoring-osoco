@@ -2,10 +2,6 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
@@ -16,9 +12,9 @@ BankCompanyDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class BankCompanyDAOImpl implements BankCompanyDAO
+.. java:type:: @Repository public class BankCompanyDAOImpl extends AbstractGenericDAO<BankCompany> implements BankCompanyDAO
 
-   The Class BankCompanyDAOImpl.
+   The Class BankCompanyDAOImpl. Default implementation of BankCompanyDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

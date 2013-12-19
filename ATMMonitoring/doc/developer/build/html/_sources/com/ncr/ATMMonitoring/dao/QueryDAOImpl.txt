@@ -2,11 +2,7 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
 .. java:import:: org.hibernate.criterion Order
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Repository
 
@@ -18,9 +14,9 @@ QueryDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class QueryDAOImpl implements QueryDAO
+.. java:type:: @Repository public class QueryDAOImpl extends AbstractGenericDAO<Query> implements QueryDAO
 
-   The Class QueryDAOImpl.
+   The Class QueryDAOImpl. Default implementation of QueryDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

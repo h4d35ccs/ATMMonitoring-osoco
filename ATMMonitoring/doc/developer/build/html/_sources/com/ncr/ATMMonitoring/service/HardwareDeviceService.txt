@@ -10,7 +10,7 @@ HardwareDeviceService
 
 .. java:type:: public interface HardwareDeviceService
 
-   The Interface HardwareDeviceService.
+   The Interface HardwareDeviceService. It contains the hardware related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getHardwareDevice
 .. java:method:: public HardwareDevice getHardwareDevice(Integer id)
    :outertype: HardwareDeviceService
 
-   Gets the hardware device.
+   Gets the hardware device by its id.
 
-   :param id: the id
+   :param id: the hardware device id
    :return: the hardware device
 
 listHardwareDevices
@@ -43,9 +43,9 @@ listHardwareDevices
 .. java:method:: public List<HardwareDevice> listHardwareDevices()
    :outertype: HardwareDeviceService
 
-   List hardware devices.
+   List all hardware devices.
 
-   :return: the list
+   :return: the hardware device list
 
 removeHardwareDevice
 ^^^^^^^^^^^^^^^^^^^^
@@ -53,7 +53,7 @@ removeHardwareDevice
 .. java:method:: public void removeHardwareDevice(Integer id)
    :outertype: HardwareDeviceService
 
-   Removes the hardware device.
+   Removes the hardware device by its id.
 
-   :param id: the id
+   :param id: the hardware device id
 

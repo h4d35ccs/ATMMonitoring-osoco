@@ -10,7 +10,7 @@ PhysicalCashUnitService
 
 .. java:type:: public interface PhysicalCashUnitService
 
-   The Interface PhysicalCashUnitService.
+   The Interface PhysicalCashUnitService. It contains the physical cash unit related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,9 +32,9 @@ getPhysicalCashUnit
 .. java:method:: public PhysicalCashUnit getPhysicalCashUnit(Integer id)
    :outertype: PhysicalCashUnitService
 
-   Gets the physical cash unit.
+   Gets the physical cash unit by its id.
 
-   :param id: the id
+   :param id: the physical cash unit id
    :return: the physical cash unit
 
 listPhysicalCashUnits
@@ -45,5 +45,5 @@ listPhysicalCashUnits
 
    List physical cash units.
 
-   :return: the list
+   :return: the physical cash unit list
 

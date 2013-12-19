@@ -22,7 +22,7 @@ Utils
 
 .. java:type:: public abstract class Utils
 
-   The Class Utils.
+   The Class Utils. Commodity methods for several purposes.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -34,11 +34,11 @@ concatIntegers
 .. java:method:: public static String concatIntegers(List<Integer> integers, char separator)
    :outertype: Utils
 
-   Concat integers.
+   Concat integers into an string with the given separator.
 
    :param integers: the integers
    :param separator: the separator
-   :return: the string
+   :return: the concatted string
 
 concatStrings
 ^^^^^^^^^^^^^
@@ -46,11 +46,11 @@ concatStrings
 .. java:method:: public static String concatStrings(List<String> strings, char separator)
    :outertype: Utils
 
-   Concat strings.
+   Concats strings with the given separator.
 
    :param strings: the strings
    :param separator: the separator
-   :return: the string
+   :return: the concatted strings
 
 getMD5Hex
 ^^^^^^^^^
@@ -58,10 +58,10 @@ getMD5Hex
 .. java:method:: public static String getMD5Hex(String content)
    :outertype: Utils
 
-   Gets the m d5 hex.
+   Gets the MD5 hex from the given string.
 
-   :param content: the content
-   :return: the m d5 hex
+   :param content: the string
+   :return: the MD5 hex
 
 splitIntegers
 ^^^^^^^^^^^^^
@@ -69,11 +69,11 @@ splitIntegers
 .. java:method:: public static List<Integer> splitIntegers(String integers, char separator)
    :outertype: Utils
 
-   Split integers.
+   Split integers concatted into an string with the given separator.
 
    :param integers: the integers
    :param separator: the separator
-   :return: the list
+   :return: the list with all the split integers
 
 splitStrings
 ^^^^^^^^^^^^
@@ -81,11 +81,11 @@ splitStrings
 .. java:method:: public static List<String> splitStrings(String strings, char separator)
    :outertype: Utils
 
-   Split strings.
+   Splits strings concatted with the given separator.
 
-   :param strings: the strings
+   :param strings: the concatted strings
    :param separator: the separator
-   :return: the list
+   :return: the list with all the split strings
 
 toJson
 ^^^^^^
@@ -93,10 +93,10 @@ toJson
 .. java:method:: public static String toJson(Object object)
    :outertype: Utils
 
-   To json.
+   Tranforms an object to its Gson json representation.
 
    :param object: the object
-   :return: the string
+   :return: the json string
 
 unescapeJsonChain
 ^^^^^^^^^^^^^^^^^
@@ -104,8 +104,8 @@ unescapeJsonChain
 .. java:method:: public static String unescapeJsonChain(String chain)
    :outertype: Utils
 
-   Unescape json chain.
+   Unescape special characters in a json chain.
 
-   :param chain: the chain
-   :return: the string
+   :param chain: the json chain
+   :return: the unescaped chain
 

@@ -10,7 +10,7 @@ SoftwareAggregateService
 
 .. java:type:: public interface SoftwareAggregateService
 
-   The Interface SoftwareAggregateService.
+   The Interface SoftwareAggregateService. It contains the software aggregate related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -34,7 +34,7 @@ getSoftwareAggregate
 
    Gets the software aggregate.
 
-   :param id: the id
+   :param id: the software aggregate id
    :return: the software aggregate
 
 getSoftwareAggregateByVersionName
@@ -61,7 +61,7 @@ listSoftwareAggregate
 
    List software aggregate.
 
-   :return: the list
+   :return: the software aggregate list
 
 removeSoftwareAggregate
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -69,7 +69,7 @@ removeSoftwareAggregate
 .. java:method:: public void removeSoftwareAggregate(Integer id)
    :outertype: SoftwareAggregateService
 
-   Removes the software aggregate.
+   Removes the software aggregate by its id.
 
-   :param id: the id
+   :param id: the software aggregate id
 

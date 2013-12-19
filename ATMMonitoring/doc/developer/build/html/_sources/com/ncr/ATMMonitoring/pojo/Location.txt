@@ -24,7 +24,7 @@ Location
 
 .. java:type:: @Entity @Table public class Location
 
-   The Class Location.
+   The Location Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

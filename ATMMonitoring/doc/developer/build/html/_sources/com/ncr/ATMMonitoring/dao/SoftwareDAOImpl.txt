@@ -2,13 +2,9 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
 .. java:import:: org.hibernate.criterion Order
 
 .. java:import:: org.hibernate.criterion Restrictions
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Repository
 
@@ -20,9 +16,9 @@ SoftwareDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class SoftwareDAOImpl implements SoftwareDAO
+.. java:type:: @Repository public class SoftwareDAOImpl extends AbstractGenericDAO<Software> implements SoftwareDAO
 
-   The Class SoftwareDAOImpl.
+   The Class SoftwareDAOImpl. Default implementation of SoftwareDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

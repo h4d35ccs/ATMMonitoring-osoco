@@ -2,15 +2,9 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.JxfsComponent
-
-.. java:import:: com.ncr ATMMonitoring.pojo.XfsComponent
 
 JxfsComponentDAOImpl
 ====================
@@ -18,9 +12,9 @@ JxfsComponentDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class JxfsComponentDAOImpl implements JxfsComponentDAO
+.. java:type:: @Repository public class JxfsComponentDAOImpl extends AbstractGenericDAO<JxfsComponent> implements JxfsComponentDAO
 
-   The Class JxfsComponentDAOImpl.
+   The Class JxfsComponentDAOImpl. Default implementation of JxfsComponentDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

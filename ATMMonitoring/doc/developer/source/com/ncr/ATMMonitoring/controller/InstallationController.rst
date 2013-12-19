@@ -56,7 +56,7 @@ InstallationController
 
 .. java:type:: @Controller public class InstallationController
 
-   The Class InstallationController.
+   The Class InstallationController. Controller for handling installation related HTTP petitions.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -68,15 +68,15 @@ addInstallation
 .. java:method:: @RequestMapping public String addInstallation(Installation installation, BindingResult result, Map<String, Object> map, HttpServletRequest request, String p, Principal principal)
    :outertype: InstallationController
 
-   Adds the installation.
+   Add installation URL.
 
    :param installation: the installation
    :param result: the result
    :param map: the map
    :param request: the request
-   :param p: the p
+   :param p: the page number
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 addLocation
 ^^^^^^^^^^^
@@ -84,15 +84,15 @@ addLocation
 .. java:method:: @RequestMapping public String addLocation(Location location, BindingResult result, Map<String, Object> map, HttpServletRequest request, String p, Principal principal)
    :outertype: InstallationController
 
-   Adds the location.
+   Add location URL.
 
    :param location: the location
    :param result: the result
    :param map: the map
    :param request: the request
-   :param p: the p
+   :param p: the page number
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 binder
 ^^^^^^
@@ -100,7 +100,7 @@ binder
 .. java:method:: @InitBinder protected void binder(WebDataBinder binder) throws Exception
    :outertype: InstallationController
 
-   Binder.
+   Binds custom editors.
 
    :param binder: the binder
 
@@ -110,11 +110,11 @@ deleteInstallation
 .. java:method:: @RequestMapping public String deleteInstallation(Integer installationId, Principal principal)
    :outertype: InstallationController
 
-   Delete installation.
+   Delete installation URL.
 
    :param installationId: the installation id
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 deleteLocation
 ^^^^^^^^^^^^^^
@@ -122,11 +122,11 @@ deleteLocation
 .. java:method:: @RequestMapping public String deleteLocation(Integer locationId, Principal principal)
    :outertype: InstallationController
 
-   Delete location.
+   Delete location URL.
 
    :param locationId: the location id
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 installationDetails
 ^^^^^^^^^^^^^^^^^^^
@@ -134,13 +134,13 @@ installationDetails
 .. java:method:: @RequestMapping public String installationDetails(Integer installationId, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: InstallationController
 
-   Installation details.
+   Installation details URL.
 
    :param installationId: the installation id
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 listInstallations
 ^^^^^^^^^^^^^^^^^
@@ -148,13 +148,13 @@ listInstallations
 .. java:method:: @RequestMapping public String listInstallations(Map<String, Object> map, Principal principal, String p, HttpServletRequest request)
    :outertype: InstallationController
 
-   List installations.
+   List installations URL.
 
    :param map: the map
    :param principal: the principal
-   :param p: the p
+   :param p: the page number
    :param request: the request
-   :return: the string
+   :return: the petition response
 
 listLocations
 ^^^^^^^^^^^^^
@@ -162,13 +162,13 @@ listLocations
 .. java:method:: @RequestMapping public String listLocations(Map<String, Object> map, Principal principal, String p, HttpServletRequest request)
    :outertype: InstallationController
 
-   List locations.
+   List locations URL.
 
    :param map: the map
    :param principal: the principal
-   :param p: the p
+   :param p: the page number
    :param request: the request
-   :return: the string
+   :return: the petition response
 
 locationDetails
 ^^^^^^^^^^^^^^^
@@ -176,13 +176,13 @@ locationDetails
 .. java:method:: @RequestMapping public String locationDetails(Integer locationId, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: InstallationController
 
-   Location details.
+   Location details URL.
 
    :param locationId: the location id
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 redirectToInstallations
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -190,9 +190,9 @@ redirectToInstallations
 .. java:method:: @RequestMapping public String redirectToInstallations()
    :outertype: InstallationController
 
-   Redirect to installations.
+   Redirect to installations list URL.
 
-   :return: the string
+   :return: the petition response
 
 redirectToLocations
 ^^^^^^^^^^^^^^^^^^^
@@ -200,9 +200,9 @@ redirectToLocations
 .. java:method:: @RequestMapping public String redirectToLocations()
    :outertype: InstallationController
 
-   Redirect to locations.
+   Redirect to locations URL.
 
-   :return: the string
+   :return: the petition response
 
 updateInstallation
 ^^^^^^^^^^^^^^^^^^
@@ -210,14 +210,14 @@ updateInstallation
 .. java:method:: @RequestMapping public String updateInstallation(Installation installation, BindingResult result, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: InstallationController
 
-   Update installation.
+   Update installation URL.
 
    :param installation: the installation
    :param result: the result
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 updateLocation
 ^^^^^^^^^^^^^^
@@ -225,12 +225,12 @@ updateLocation
 .. java:method:: @RequestMapping public String updateLocation(Location location, BindingResult result, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: InstallationController
 
-   Update location.
+   Update location URL.
 
    :param location: the location
    :param result: the result
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 

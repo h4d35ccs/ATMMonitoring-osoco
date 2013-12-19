@@ -10,7 +10,7 @@ OperatingSystemDAO
 
 .. java:type:: public interface OperatingSystemDAO
 
-   The Interface OperatingSystemDAO.
+   The Interface OperatingSystemDAO. Dao with the operations for managing OperatingSystem Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -32,10 +32,10 @@ getOperatingSystem
 .. java:method:: public OperatingSystem getOperatingSystem(Integer id)
    :outertype: OperatingSystemDAO
 
-   Gets the operating system.
+   Gets the operating system with the given id.
 
    :param id: the id
-   :return: the operating system
+   :return: the operating system, or null if it doesn't exist
 
 getOperatingSystemBySerialNumber
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -46,7 +46,7 @@ getOperatingSystemBySerialNumber
    Gets the operating system by serial number.
 
    :param number: the number
-   :return: the operating system by serial number
+   :return: the operating system by serial number, or null if it doesn't exist
 
 listOperatingSystem
 ^^^^^^^^^^^^^^^^^^^
@@ -54,7 +54,7 @@ listOperatingSystem
 .. java:method:: public List<OperatingSystem> listOperatingSystem()
    :outertype: OperatingSystemDAO
 
-   List operating system.
+   Lists all operating systems.
 
    :return: the list
 

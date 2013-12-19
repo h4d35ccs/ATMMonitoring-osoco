@@ -44,7 +44,7 @@ LogicalCashUnit
 
 .. java:type:: @Entity @Table public class LogicalCashUnit
 
-   The Class LogicalCashUnit.
+   The LogicalCashUnit Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -146,7 +146,7 @@ getValuesSplit
 .. java:method:: public List<Integer> getValuesSplit()
    :outertype: LogicalCashUnit
 
-   Gets the values split.
+   Gets the values split by the separator.
 
    :return: the values
 

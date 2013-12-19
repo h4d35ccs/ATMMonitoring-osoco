@@ -18,7 +18,7 @@ InternetExplorerServiceImpl
 
 .. java:type:: @Service @Transactional public class InternetExplorerServiceImpl implements InternetExplorerService
 
-   The Class InternetExplorerServiceImpl.
+   The Class InternetExplorerServiceImpl. Default implementation of the InternetExplorerService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

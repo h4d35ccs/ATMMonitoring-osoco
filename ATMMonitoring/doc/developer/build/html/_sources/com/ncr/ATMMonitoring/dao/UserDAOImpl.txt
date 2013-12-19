@@ -4,15 +4,11 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
 .. java:import:: org.hibernate.criterion Criterion
 
 .. java:import:: org.hibernate.criterion Order
 
 .. java:import:: org.hibernate.criterion Restrictions
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.security.core.userdetails UsernameNotFoundException
 
@@ -28,9 +24,9 @@ UserDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class UserDAOImpl implements UserDAO
+.. java:type:: @Repository public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO
 
-   The Class UserDAOImpl.
+   The Class UserDAOImpl. Default implementation of UserDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

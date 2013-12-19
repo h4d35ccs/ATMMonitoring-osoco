@@ -2,10 +2,6 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Installation
@@ -16,9 +12,9 @@ InstallationDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class InstallationDAOImpl implements InstallationDAO
+.. java:type:: @Repository public class InstallationDAOImpl extends AbstractGenericDAO<Installation> implements InstallationDAO
 
-   The Class InstallationDAOImpl.
+   The Class InstallationDAOImpl. Default implementation of InstallationDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

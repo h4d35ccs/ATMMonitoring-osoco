@@ -34,7 +34,7 @@ ScheduledUpdateServiceImpl
 
 .. java:type:: @Service @Transactional public class ScheduledUpdateServiceImpl implements ScheduledUpdateService
 
-   The Class ScheduledUpdateServiceImpl.
+   The Class ScheduledUpdateServiceImpl. Default implementation of the ScheduledUpdateService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

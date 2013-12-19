@@ -66,7 +66,7 @@ ScheduledUpdateController
 
 .. java:type:: @Controller public class ScheduledUpdateController
 
-   The Class ScheduledUpdateController.
+   The Class ScheduledUpdateController. Controller for handling scheduled update related HTTP petitions.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -86,7 +86,7 @@ addScheduledUpdate
    :param request: the request
    :param principal: the principal
    :param redirectAttributes: the redirect attributes
-   :return: the string
+   :return: the petition response
 
 binder
 ^^^^^^
@@ -94,7 +94,7 @@ binder
 .. java:method:: @InitBinder protected void binder(WebDataBinder binder) throws Exception
    :outertype: ScheduledUpdateController
 
-   Binder.
+   Binds custom property editors.
 
    :param binder: the binder
 
@@ -108,7 +108,7 @@ deleteScheduledUpdate
 
    :param scheduledUpdateId: the scheduled update id
    :param redirectAttributes: the redirect attributes
-   :return: the string
+   :return: the petition response
 
 listSchedules
 ^^^^^^^^^^^^^
@@ -116,12 +116,12 @@ listSchedules
 .. java:method:: @RequestMapping public String listSchedules(Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: ScheduledUpdateController
 
-   List schedules.
+   List schedules URL.
 
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 listUpdateEvents
 ^^^^^^^^^^^^^^^^
@@ -129,13 +129,13 @@ listUpdateEvents
 .. java:method:: @RequestMapping @ResponseBody public List listUpdateEvents(long start, long end, HttpServletRequest request, Principal principal)
    :outertype: ScheduledUpdateController
 
-   List update events.
+   List update events between two dates.
 
-   :param start: the start
-   :param end: the end
+   :param start: the start date
+   :param end: the end date
    :param request: the request
    :param principal: the principal
-   :return: the list
+   :return: the list of update events
 
 newScheduledUpdate
 ^^^^^^^^^^^^^^^^^^
@@ -149,7 +149,7 @@ newScheduledUpdate
    :param queryId: the query id
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 redirectToSchedules
 ^^^^^^^^^^^^^^^^^^^
@@ -159,5 +159,5 @@ redirectToSchedules
 
    Redirect to schedules.
 
-   :return: the string
+   :return: the petition response
 

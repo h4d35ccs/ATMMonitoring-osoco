@@ -32,7 +32,7 @@ PhysicalCashUnit
 
 .. java:type:: @Entity @Table public class PhysicalCashUnit
 
-   The Class PhysicalCashUnit.
+   The PhysicalCashUnit Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

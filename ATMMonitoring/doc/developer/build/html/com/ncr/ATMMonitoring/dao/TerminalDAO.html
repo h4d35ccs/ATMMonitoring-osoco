@@ -58,7 +58,7 @@
 <dl class="type">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAO">
 public interface <tt class="descname">TerminalDAO</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Interface TerminalDAO.</p>
+<dd><p>The Interface TerminalDAO. Dao with the operations for managing Terminal Pojos.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -91,37 +91,12 @@ public void <tt class="descname">addTerminal</tt><big>(</big><a class="reference
 </dd></dl>
 
 </div>
-<div class="section" id="executequery">
-<h3>executeQuery<a class="headerlink" href="#executequery" title="Permalink to this headline">¶</a></h3>
-<dl class="method">
-<dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.executeQuery(List, List, String)">
-public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a> <tt class="descname">executeQuery</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Object&gt;<em> values</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Type&gt;<em> types</em>, String<em> hql</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.executeQuery(List, List, String)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Execute query.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>values</strong> &#8211; the values</li>
-<li><strong>types</strong> &#8211; the types</li>
-<li><strong>hql</strong> &#8211; the hql</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the list</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
 <div class="section" id="getterminal">
 <h3>getTerminal<a class="headerlink" href="#getterminal" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.getTerminal(Integer)">
 public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a> <tt class="descname">getTerminal</tt><big>(</big>Integer<em> id</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.getTerminal(Integer)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the terminal.</p>
+<dd><p>Gets the terminal with the given id.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -131,7 +106,7 @@ public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMoni
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal, or null if it doesn&#8217;t exist</p>
 </td>
 </tr>
 </tbody>
@@ -154,7 +129,7 @@ public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMoni
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by ip</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by ip, or null if it doesn&#8217;t exist</p>
 </td>
 </tr>
 </tbody>
@@ -177,7 +152,7 @@ public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMoni
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by mac</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by mac, or null if it doesn&#8217;t exist</p>
 </td>
 </tr>
 </tbody>
@@ -200,7 +175,7 @@ public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMoni
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by matricula</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by matricula, or null if it doesn&#8217;t exist</p>
 </td>
 </tr>
 </tbody>
@@ -223,7 +198,7 @@ public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMoni
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by serial number</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by serial number, or null if it doesn&#8217;t exist</p>
 </td>
 </tr>
 </tbody>
@@ -236,7 +211,7 @@ public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMoni
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.getTerminalBySimilarity(ATMDataStorePojo)">
 public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a> <tt class="descname">getTerminalBySimilarity</tt><big>(</big>ATMDataStorePojo<em> terminal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.getTerminalBySimilarity(ATMDataStorePojo)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the terminal by similarity.</p>
+<dd><p>Gets the terminal by similarity. This means that we retrieve terminals that share at least two of some key fields values (MAC, IP, serial number). If we have more than one similar terminal stored, it simply returns the first one by its internal order.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -246,7 +221,7 @@ public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMoni
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by similarity</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by similarity, or null if it doesn&#8217;t exist</p>
 </td>
 </tr>
 </tbody>
@@ -259,19 +234,19 @@ public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMoni
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.getTerminalsByHQL(List, List, String)">
 public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">getTerminalsByHQL</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Object&gt;<em> values</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Type&gt;<em> types</em>, String<em> hql</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.getTerminalsByHQL(List, List, String)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the terminals by hql.</p>
+<dd><p>Gets the terminals by HQL. Used for the query engine.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>values</strong> &#8211; the values</li>
-<li><strong>types</strong> &#8211; the types</li>
-<li><strong>hql</strong> &#8211; the hql</li>
+<li><strong>values</strong> &#8211; the values of the HQL parameters</li>
+<li><strong>types</strong> &#8211; the types of the HQL parameters</li>
+<li><strong>hql</strong> &#8211; the HQL itself</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminals by hql</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminals that fulfill the HQL</p>
 </td>
 </tr>
 </tbody>
@@ -284,21 +259,21 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.getTerminalsByHQL(List, List, String, String, String)">
 public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">getTerminalsByHQL</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Object&gt;<em> values</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Type&gt;<em> types</em>, String<em> hql</em>, String<em> sort</em>, String<em> order</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.getTerminalsByHQL(List, List, String, String, String)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the terminals by hql.</p>
+<dd><p>Gets the terminals by HQL with a specific order and sorting. Used for the query engine.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>values</strong> &#8211; the values</li>
-<li><strong>types</strong> &#8211; the types</li>
-<li><strong>hql</strong> &#8211; the hql</li>
+<li><strong>values</strong> &#8211; the values of the HQL parameters</li>
+<li><strong>types</strong> &#8211; the types of the HQL parameters</li>
+<li><strong>hql</strong> &#8211; the HQL itself</li>
 <li><strong>sort</strong> &#8211; the sort</li>
 <li><strong>order</strong> &#8211; the order</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminals by hql</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminals that fulfill the HQL</p>
 </td>
 </tr>
 </tbody>
@@ -311,7 +286,7 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminals()">
 public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminals</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminals()" title="Permalink to this definition">¶</a></dt>
-<dd><p>List terminals.</p>
+<dd><p>Lists all terminals.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -328,13 +303,13 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByBankCompanies(Set)">
 public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByBankCompanies</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a>&gt;<em> bank</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByBankCompanies(Set)" title="Permalink to this definition">¶</a></dt>
-<dd><p>List terminals by bank companies.</p>
+<dd><p>Lists all terminals for the given bank companies.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>bank</strong> &#8211; the bank</li>
+<li><strong>bank</strong> &#8211; the bank companies</li>
 </ul>
 </td>
 </tr>
@@ -351,13 +326,13 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByBankCompanies(Set, String, String)">
 public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByBankCompanies</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a>&gt;<em> bank</em>, String<em> sort</em>, String<em> order</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByBankCompanies(Set, String, String)" title="Permalink to this definition">¶</a></dt>
-<dd><p>List terminals by bank companies.</p>
+<dd><p>Lists all terminals for the given bank companies with a specific order and sorting.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>bank</strong> &#8211; the bank</li>
+<li><strong>bank</strong> &#8211; the bank companies</li>
 <li><strong>sort</strong> &#8211; the sort</li>
 <li><strong>order</strong> &#8211; the order</li>
 </ul>
@@ -376,13 +351,13 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByBankCompany(BankCompany)">
 public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByBankCompany</tt><big>(</big><a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a><em> bank</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByBankCompany(BankCompany)" title="Permalink to this definition">¶</a></dt>
-<dd><p>List terminals by bank company.</p>
+<dd><p>List all terminals for the given bank company.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>bank</strong> &#8211; the bank</li>
+<li><strong>bank</strong> &#8211; the bank company</li>
 </ul>
 </td>
 </tr>
@@ -428,7 +403,6 @@ public void <tt class="descname">updateTerminal</tt><big>(</big><a class="refere
 <li><a class="reference internal" href="#">TerminalDAO</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a><ul>
 <li><a class="reference internal" href="#addterminal">addTerminal</a></li>
-<li><a class="reference internal" href="#executequery">executeQuery</a></li>
 <li><a class="reference internal" href="#getterminal">getTerminal</a></li>
 <li><a class="reference internal" href="#getterminalbyip">getTerminalByIp</a></li>
 <li><a class="reference internal" href="#getterminalbymac">getTerminalByMac</a></li>

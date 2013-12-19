@@ -18,7 +18,7 @@ FinancialDeviceServiceImpl
 
 .. java:type:: @Service @Transactional public class FinancialDeviceServiceImpl implements FinancialDeviceService
 
-   The Class FinancialDeviceServiceImpl.
+   The Class FinancialDeviceServiceImpl. Default implementation of the FinancialDeviceService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

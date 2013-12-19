@@ -32,7 +32,7 @@ Operation
 
 .. java:type:: public abstract class Operation
 
-   The Class Operation.
+   The Class Operation. Class for constructing all the query engine operations' HQL.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -44,15 +44,15 @@ getConstraintHQL
 .. java:method:: public static String getConstraintHQL(String column, String operation, String value, List<Object> values, List<Type> types, Locale locale)
    :outertype: Operation
 
-   Gets the constraint hql.
+   Gets the HQL constraint for an specific column with an operation which accepts a value.
 
-   :param column: the column
-   :param operation: the operation
-   :param value: the value
-   :param values: the values
-   :param types: the types
-   :param locale: the locale
-   :return: the constraint hql
+   :param column: the column for checking the constraint
+   :param operation: the operation to check
+   :param value: the specified value for the constraint
+   :param values: where we want it to store the values
+   :param types: where we want it to store the types
+   :param locale: the user's locale
+   :return: the HQL constraint
 
 getOperationsByType
 ^^^^^^^^^^^^^^^^^^^
@@ -60,9 +60,9 @@ getOperationsByType
 .. java:method:: public static Map<String, Map> getOperationsByType(DataType type)
    :outertype: Operation
 
-   Gets the operations by type.
+   Gets the operations by data type.
 
-   :param type: the type
+   :param type: the data type
    :return: the operations by type
 
 needsNotVoidValue
@@ -71,8 +71,8 @@ needsNotVoidValue
 .. java:method:: public static boolean needsNotVoidValue(String operation)
    :outertype: Operation
 
-   Needs not void value.
+   Tells if a operations needs to be provided a not-void value.
 
    :param operation: the operation
-   :return: true, if successful
+   :return: true, if the operation doesn't accept void values
 

@@ -10,7 +10,7 @@ SoftwarePropertyEditor
 
 .. java:type:: public class SoftwarePropertyEditor extends PropertyEditorSupport
 
-   The Class SoftwarePropertyEditor.
+   The Class SoftwarePropertyEditor. Custom PropertyEditor for Software input values (Software id as an integer).
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

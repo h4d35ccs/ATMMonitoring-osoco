@@ -4,13 +4,9 @@
 
 .. java:import:: org.hibernate Criteria
 
-.. java:import:: org.hibernate SessionFactory
-
 .. java:import:: org.hibernate.criterion Order
 
 .. java:import:: org.hibernate.criterion Restrictions
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Repository
 
@@ -22,9 +18,9 @@ InternetExplorerDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class InternetExplorerDAOImpl implements InternetExplorerDAO
+.. java:type:: @Repository public class InternetExplorerDAOImpl extends AbstractGenericDAO<InternetExplorer> implements InternetExplorerDAO
 
-   The Class InternetExplorerDAOImpl.
+   The Class InternetExplorerDAOImpl. Default implementation of InternetExplorerDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

@@ -18,7 +18,7 @@ SoftwareAggregateServiceImpl
 
 .. java:type:: @Service @Transactional public class SoftwareAggregateServiceImpl implements SoftwareAggregateService
 
-   The Class SoftwareAggregateServiceImpl.
+   The Class SoftwareAggregateServiceImpl. Default implementation of the SoftwareAggregateService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

@@ -18,7 +18,7 @@ TerminalService
 
 .. java:type:: public interface TerminalService
 
-   The Interface TerminalService.
+   The Interface TerminalService. It contains the terminal related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -40,9 +40,9 @@ getTerminal
 .. java:method:: public Terminal getTerminal(Integer id)
    :outertype: TerminalService
 
-   Gets the terminal.
+   Gets the terminal by its id.
 
-   :param id: the id
+   :param id: the terminal id
    :return: the terminal
 
 importJsonTerminal
@@ -51,7 +51,7 @@ importJsonTerminal
 .. java:method:: public boolean importJsonTerminal(CommonsMultipartFile jsonFile)
    :outertype: TerminalService
 
-   Import json terminal.
+   Import terminal from json.
 
    :param jsonFile: the json file
    :return: true, if successful
@@ -64,7 +64,7 @@ listTerminals
 
    List terminals.
 
-   :return: the list
+   :return: the terminal list
 
 listTerminalsByBankCompanies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,8 +74,8 @@ listTerminalsByBankCompanies
 
    List terminals by bank companies.
 
-   :param banks: the banks
-   :return: the list
+   :param banks: the bank companies
+   :return: the terminal list
 
 listTerminalsByBankCompanies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -85,10 +85,10 @@ listTerminalsByBankCompanies
 
    List terminals by bank companies.
 
-   :param banks: the banks
-   :param sort: the sort
-   :param order: the order
-   :return: the list
+   :param banks: the bank companies
+   :param sort: the fields for sorting terminals
+   :param order: the order for sorting terminals
+   :return: the terminal list
 
 listTerminalsByBankCompany
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -98,8 +98,8 @@ listTerminalsByBankCompany
 
    List terminals by bank company.
 
-   :param bank: the bank
-   :return: the list
+   :param bank: the bank company
+   :return: the terminal list
 
 loadTerminalByIp
 ^^^^^^^^^^^^^^^^
@@ -107,7 +107,7 @@ loadTerminalByIp
 .. java:method:: public Terminal loadTerminalByIp(String ip)
    :outertype: TerminalService
 
-   Load terminal by ip.
+   Get terminal by ip.
 
    :param ip: the ip
    :return: the terminal
@@ -118,7 +118,7 @@ loadTerminalByMac
 .. java:method:: public Terminal loadTerminalByMac(String mac)
    :outertype: TerminalService
 
-   Load terminal by mac.
+   Get terminal by mac.
 
    :param mac: the mac
    :return: the terminal
@@ -129,7 +129,7 @@ loadTerminalByMatricula
 .. java:method:: public Terminal loadTerminalByMatricula(Long matricula)
    :outertype: TerminalService
 
-   Load terminal by matricula.
+   Get terminal by matricula.
 
    :param matricula: the matricula
    :return: the terminal
@@ -140,7 +140,7 @@ loadTerminalBySerialNumber
 .. java:method:: public Terminal loadTerminalBySerialNumber(String serialNumber)
    :outertype: TerminalService
 
-   Load terminal by serial number.
+   Get terminal by serial number.
 
    :param serialNumber: the serial number
    :return: the terminal
@@ -151,9 +151,9 @@ persistDataStoreTerminal
 .. java:method:: public Terminal persistDataStoreTerminal(ATMDataStorePojo dataStoreTerminal)
    :outertype: TerminalService
 
-   Persist data store terminal.
+   Persist data store terminal from an agent's pojo.
 
-   :param dataStoreTerminal: the data store terminal
+   :param dataStoreTerminal: the agent's pojo
    :return: the terminal
 
 updateTerminal

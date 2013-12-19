@@ -10,7 +10,7 @@ BankCompanyDAO
 
 .. java:type:: public interface BankCompanyDAO
 
-   The Interface BankCompanyDAO.
+   The Interface BankCompanyDAO. Dao with the operations for managing BankCompany Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -24,7 +24,7 @@ addBankCompany
 
    Adds the bank company.
 
-   :param bank: the bank
+   :param bank: the bank company
 
 getBankCompany
 ^^^^^^^^^^^^^^
@@ -32,10 +32,10 @@ getBankCompany
 .. java:method:: public BankCompany getBankCompany(Integer id)
    :outertype: BankCompanyDAO
 
-   Gets the bank company.
+   Gets the bank company with the given id.
 
    :param id: the id
-   :return: the bank company
+   :return: the bank company, or null if it doesn't exist
 
 listBankCompanies
 ^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ listBankCompanies
 .. java:method:: public List<BankCompany> listBankCompanies()
    :outertype: BankCompanyDAO
 
-   List bank companies.
+   Lists all bank companies.
 
    :return: the list
 
@@ -53,7 +53,7 @@ removeBankCompany
 .. java:method:: public void removeBankCompany(Integer id)
    :outertype: BankCompanyDAO
 
-   Removes the bank company.
+   Removes the bank company with the given id.
 
    :param id: the id
 
@@ -63,7 +63,7 @@ updateBankCompany
 .. java:method:: public void updateBankCompany(BankCompany bank)
    :outertype: BankCompanyDAO
 
-   Update bank company.
+   Updates bank company.
 
    :param bank: the bank
 

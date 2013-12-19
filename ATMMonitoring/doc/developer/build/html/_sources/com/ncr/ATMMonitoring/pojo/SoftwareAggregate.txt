@@ -26,7 +26,7 @@ SoftwareAggregate
 
 .. java:type:: @Entity @Table public class SoftwareAggregate
 
-   The Class SoftwareAggregate.
+   The SoftwareAggregate Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -46,7 +46,7 @@ SoftwareAggregate
 .. java:constructor:: public SoftwareAggregate(FinancialPackagePojo pkg)
    :outertype: SoftwareAggregate
 
-   Instantiates a new software aggregate.
+   Instantiates a new software aggregate with the given software aggregate data from the agent.
 
    :param pkg: the pkg
 

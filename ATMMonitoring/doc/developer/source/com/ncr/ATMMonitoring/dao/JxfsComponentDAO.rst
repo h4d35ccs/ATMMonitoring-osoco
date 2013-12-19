@@ -12,7 +12,7 @@ JxfsComponentDAO
 
 .. java:type:: public interface JxfsComponentDAO
 
-   The Interface JxfsComponentDAO.
+   The Interface JxfsComponentDAO. Dao with the operations for managing JxfsComponent Pojos.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -34,10 +34,10 @@ getJxfsComponent
 .. java:method:: public JxfsComponent getJxfsComponent(Integer id)
    :outertype: JxfsComponentDAO
 
-   Gets the jxfs component.
+   Gets the jxfs component with the given id.
 
    :param id: the id
-   :return: the jxfs component
+   :return: the jxfs component, or null if it doesn't exist
 
 listJxfsComponents
 ^^^^^^^^^^^^^^^^^^
@@ -45,7 +45,7 @@ listJxfsComponents
 .. java:method:: public List<JxfsComponent> listJxfsComponents()
    :outertype: JxfsComponentDAO
 
-   List jxfs components.
+   Lists all jxfs components.
 
    :return: the list
 

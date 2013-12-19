@@ -2,11 +2,7 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
 .. java:import:: org.hibernate.criterion Restrictions
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Repository
 
@@ -18,9 +14,9 @@ TerminalModelDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class TerminalModelDAOImpl implements TerminalModelDAO
+.. java:type:: @Repository public class TerminalModelDAOImpl extends AbstractGenericDAO<TerminalModel> implements TerminalModelDAO
 
-   The Class TerminalModelDAOImpl.
+   The Class TerminalModelDAOImpl. Default implementation of TerminalModelDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

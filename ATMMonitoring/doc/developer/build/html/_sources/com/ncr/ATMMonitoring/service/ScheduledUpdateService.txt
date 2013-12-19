@@ -10,7 +10,7 @@ ScheduledUpdateService
 
 .. java:type:: public interface ScheduledUpdateService
 
-   The Interface ScheduledUpdateService.
+   The Interface ScheduledUpdateService. It contains the scheduled update related methods.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -53,7 +53,7 @@ listMonthlyScheduledUpdates
 
    List monthly scheduled updates.
 
-   :return: the list
+   :return: the scheduled update list
 
 listWeeklyScheduledUpdates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -63,7 +63,7 @@ listWeeklyScheduledUpdates
 
    List weekly scheduled updates.
 
-   :return: the list
+   :return: the scheduled update list
 
 removeScheduledUpdate
 ^^^^^^^^^^^^^^^^^^^^^
@@ -71,7 +71,7 @@ removeScheduledUpdate
 .. java:method:: public void removeScheduledUpdate(Integer id)
    :outertype: ScheduledUpdateService
 
-   Removes the scheduled update.
+   Removes the scheduled update by its id.
 
-   :param id: the id
+   :param id: the scheduled update id
 

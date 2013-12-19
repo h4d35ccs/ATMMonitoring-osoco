@@ -18,7 +18,7 @@ OperatingSystemServiceImpl
 
 .. java:type:: @Service @Transactional public class OperatingSystemServiceImpl implements OperatingSystemService
 
-   The Class OperatingSystemServiceImpl.
+   The Class OperatingSystemServiceImpl. Default implementation of the OperatingSystemService.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

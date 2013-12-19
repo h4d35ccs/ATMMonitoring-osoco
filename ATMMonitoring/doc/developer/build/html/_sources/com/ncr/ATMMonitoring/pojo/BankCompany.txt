@@ -34,7 +34,7 @@ BankCompany
 
 .. java:type:: @Entity @Table public class BankCompany implements Serializable
 
-   The Class BankCompany.
+   The BankCompany Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -56,7 +56,7 @@ getManageableBankCompanies
 .. java:method:: public Set<BankCompany> getManageableBankCompanies()
    :outertype: BankCompany
 
-   Gets the manageable bank companies.
+   Gets the manageable bank companies (i.e. this bank company and its subcompanies)
 
    :return: the manageable bank companies
 
@@ -86,9 +86,9 @@ getSubBankCompanies
 .. java:method:: public Set<BankCompany> getSubBankCompanies()
    :outertype: BankCompany
 
-   Gets the sub bank companies.
+   Gets the subcompanies.
 
-   :return: the sub bank companies
+   :return: the subcompanies
 
 getVatIN
 ^^^^^^^^

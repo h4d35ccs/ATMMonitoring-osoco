@@ -42,7 +42,7 @@ TerminalConfigController
 
 .. java:type:: @Controller public class TerminalConfigController
 
-   The Class TerminalConfigController.
+   The Class TerminalConfigController. Controller for handling terminal config related HTTP petitions.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -54,7 +54,7 @@ binder
 .. java:method:: @InitBinder protected void binder(WebDataBinder binder) throws Exception
    :outertype: TerminalConfigController
 
-   Binder.
+   Binds custom property editors.
 
    :param binder: the binder
 
@@ -64,11 +64,11 @@ terminalConfigDetails
 .. java:method:: @RequestMapping public String terminalConfigDetails(Integer terminalConfigId, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: TerminalConfigController
 
-   Terminal config details.
+   Terminal config details URL.
 
    :param terminalConfigId: the terminal config id
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 

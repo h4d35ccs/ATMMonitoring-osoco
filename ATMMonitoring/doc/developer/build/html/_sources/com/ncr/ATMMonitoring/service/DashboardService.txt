@@ -10,7 +10,7 @@ DashboardService
 
 .. java:type:: public interface DashboardService
 
-   The Interface DashboardService.
+   The Interface DashboardService. It contains the dashboard related methods.
 
    :author: Rafael Luque (rafael.luque@osoco.es)
 

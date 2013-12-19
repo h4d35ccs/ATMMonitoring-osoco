@@ -2,11 +2,7 @@
 
 .. java:import:: org.apache.log4j Logger
 
-.. java:import:: org.hibernate SessionFactory
-
 .. java:import:: org.hibernate.criterion Restrictions
-
-.. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Repository
 
@@ -18,9 +14,9 @@ RoleDAOImpl
 .. java:package:: com.ncr.ATMMonitoring.dao
    :noindex:
 
-.. java:type:: @Repository public class RoleDAOImpl implements RoleDAO
+.. java:type:: @Repository public class RoleDAOImpl extends AbstractGenericDAO<Role> implements RoleDAO
 
-   The Class RoleDAOImpl.
+   The Class RoleDAOImpl. Default implementation of RoleDAO.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

@@ -30,7 +30,7 @@ OperatingSystem
 
 .. java:type:: @Entity @Table public class OperatingSystem
 
-   The Class OperatingSystem.
+   The OperatingSystem Pojo.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -50,7 +50,7 @@ OperatingSystem
 .. java:constructor:: public OperatingSystem(OperatingSystemPojo os)
    :outertype: OperatingSystem
 
-   Instantiates a new operating system.
+   Instantiates a new operating system with the given operating system data from the agent.
 
    :param os: the os
 
@@ -72,9 +72,9 @@ getComboboxes
 .. java:method:: public static Map<String, Map> getComboboxes()
    :outertype: OperatingSystem
 
-   Gets the comboboxes.
+   Gets the comboboxes data for the query GUI.
 
-   :return: the comboboxes
+   :return: the comboboxes data
 
 getId
 ^^^^^

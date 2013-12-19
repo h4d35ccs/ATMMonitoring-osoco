@@ -58,7 +58,7 @@ UserController
 
 .. java:type:: @Controller public class UserController
 
-   The Class UserController.
+   The Class UserController. Controller for handling user related HTTP petitions.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
@@ -70,14 +70,14 @@ addUser
 .. java:method:: @RequestMapping public String addUser(User user, BindingResult result, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: UserController
 
-   Adds the user.
+   Add user URL.
 
    :param user: the user
    :param result: the result
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 binder
 ^^^^^^
@@ -85,7 +85,7 @@ binder
 .. java:method:: @InitBinder protected void binder(WebDataBinder binder) throws Exception
    :outertype: UserController
 
-   Binder.
+   Binds custom property editors.
 
    :param binder: the binder
 
@@ -95,11 +95,11 @@ deleteUser
 .. java:method:: @RequestMapping public String deleteUser(Integer userId, Principal principal)
    :outertype: UserController
 
-   Delete user.
+   Delete user URL.
 
    :param userId: the user id
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 listUsers
 ^^^^^^^^^
@@ -107,12 +107,12 @@ listUsers
 .. java:method:: @RequestMapping public String listUsers(Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: UserController
 
-   List users.
+   List users URL.
 
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 newGroup
 ^^^^^^^^
@@ -120,9 +120,9 @@ newGroup
 .. java:method:: @RequestMapping public String newGroup()
    :outertype: UserController
 
-   New group.
+   New group URL.
 
-   :return: the string
+   :return: the petition response
 
 redirectToUsers
 ^^^^^^^^^^^^^^^
@@ -130,12 +130,12 @@ redirectToUsers
 .. java:method:: @RequestMapping public String redirectToUsers(Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: UserController
 
-   Redirect to users.
+   Redirect to users URL.
 
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 updatePassword
 ^^^^^^^^^^^^^^
@@ -143,14 +143,14 @@ updatePassword
 .. java:method:: @RequestMapping public String updatePassword(User user, BindingResult result, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: UserController
 
-   Update password.
+   Update password URL.
 
    :param user: the user
    :param result: the result
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 updateUser
 ^^^^^^^^^^
@@ -158,14 +158,14 @@ updateUser
 .. java:method:: @RequestMapping public String updateUser(User user, BindingResult result, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: UserController
 
-   Update user.
+   Update user URL.
 
    :param user: the user
    :param result: the result
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
 userDetails
 ^^^^^^^^^^^
@@ -173,11 +173,11 @@ userDetails
 .. java:method:: @RequestMapping public String userDetails(Integer userId, Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: UserController
 
-   User details.
+   User details URL.
 
    :param userId: the user id
    :param map: the map
    :param request: the request
    :param principal: the principal
-   :return: the string
+   :return: the petition response
 
