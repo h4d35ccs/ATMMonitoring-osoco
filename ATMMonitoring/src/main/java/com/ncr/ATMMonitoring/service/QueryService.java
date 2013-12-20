@@ -1,7 +1,7 @@
 package com.ncr.ATMMonitoring.service;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.Locale;
 
 import com.ncr.ATMMonitoring.pojo.Query;
@@ -21,6 +21,8 @@ public interface QueryService {
 
     public void updateQuery(Query query);
 
+    public List<Terminal> executeQuery(Query query, Locale locale, String sortValue, String orderValue, Date queryDate);
+    
     public List<Terminal> executeQuery(Query query, Locale locale, String sort, String order);
 
     public List<Terminal> executeQuery(Query query, Locale locale);

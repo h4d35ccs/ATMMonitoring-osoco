@@ -57,7 +57,7 @@ import com.ncr.agent.baseData.os.module._1394ControllerPojo;
 
 @Entity
 @Table(name = "hardware_devices")
-public class HardwareDevice {
+public class HardwareDevice extends Auditable {
 
     static private Logger logger = Logger.getLogger(HardwareDevice.class
 	    .getName());

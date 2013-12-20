@@ -90,7 +90,7 @@
 								</c:forEach>
 							</select>
 
-							<input id="queryDate" type="text" value="2/11/2013">
+							<input id="queryDate" type="text" name="queryDate">
 							<a href="" id="queryDateButton" class="btn calendar">
 								<span>
 									<spring:message code="label.calendar.open"/>

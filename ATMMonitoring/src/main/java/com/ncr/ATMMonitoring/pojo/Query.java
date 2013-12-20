@@ -3720,7 +3720,7 @@ public class Query {
 	    hql.append(" join terminals." + groupByEntity + " " + groupByEntity);
 	}
 	hql.append(" where terminals in (");
-	hql.append(getHQL(values, types, locale, false, false));
+	hql.append(getHQL(values, types, locale, false, false,null));
 	hql.append(") ");
 	hql.append("group by ");
 	hql.append(groupName);
@@ -3728,15 +3728,15 @@ public class Query {
     }
 
     public String getHQL(List<Object> values, List<Type> types, Locale locale) {
-		return getHQL(values, types, locale, true, true);
+		return getHQL(values, types, locale, true, true, null);
     }
 
-    public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean order) {
-		return getHQL(values, types, locale, true, order);
+    public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean order, Date queryDate) {
+		return getHQL(values, types, locale, true, order, queryDate);
     }
 
     public String getHQL(List<Object> values, List<Type> types, Locale locale,
-	    boolean distinct, boolean order) {
+	    boolean distinct, boolean order, Date queryDate) {
 	String hql = "select";
 	if (distinct) {
 	    hql += " distinct";

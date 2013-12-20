@@ -1,7 +1,5 @@
 package com.ncr.ATMMonitoring.pojo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,148 +19,126 @@ import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name = "installations")
-public class Installation {
+public class Installation extends Auditable {
 
-    private static final String[] locationClasses = { "internal_lobby",
-	    "internal_vestibule", "external_ttw", "external_driveup" };
+	private static final String[] locationClasses = { "internal_lobby",
+		"internal_vestibule", "external_ttw", "external_driveup" };
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "installations_id_seq")
-    @SequenceGenerator(name = "installations_id_seq", sequenceName = "installations_id_seq", allocationSize = 1)
-    private Integer id;
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "installations_id_seq")
+	@SequenceGenerator(name = "installations_id_seq", sequenceName = "installations_id_seq", allocationSize = 1)
+	private Integer id;
 
-    @ManyToOne
-    @Cascade(CascadeType.SAVE_UPDATE)
-    @JoinColumn(name = "location_id")
-    private Location location = new Location();
+	@ManyToOne
+	@Cascade(CascadeType.SAVE_UPDATE)
+	@JoinColumn(name = "location_id")
+	private Location location = new Location();
 
-    @Column(name = "lu_code", length = 20)
-    private String luCode;
+	@Column(name = "lu_code", length = 20)
+	private String luCode;
 
-    @Column(name = "type", length = 50)
-    private String type;
+	@Column(name = "type", length = 50)
+	private String type;
 
-    @Column(name = "post", length = 30)
-    private String post;
+	@Column(name = "post", length = 30)
+	private String post;
 
-    @Column(name = "processed")
-    private Boolean processed;
+	@Column(name = "processed")
+	private Boolean processed;
 
-    @Column(name = "start_date")
-    private Date startDate;
+	@Column(name = "location_class", length = 50)
+	private String locationClass;
 
-    @Column(name = "end_date")
-    private Date endDate;
+	@Column(name = "ip", length = 50)
+	private String ip;
 
-    @Column(name = "location_class", length = 50)
-    private String locationClass;
+	// We don't need this for now
+	// @OneToMany(mappedBy = "installation")
+	// @Cascade(CascadeType.ALL)
+	// private Set<Terminal> terminals;
+	//
+	// public Set<Terminal> getTerminals() {
+	// return terminals;
+	// }
+	//
+	// public void setTerminals(Set<Terminal> terminals) {
+	// this.terminals = terminals;
+	// }
 
-    @Column(name = "ip", length = 50)
-    private String ip;
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
 
-    // We don't need this for now
-    // @OneToMany(mappedBy = "installation")
-    // @Cascade(CascadeType.ALL)
-    // private Set<Terminal> terminals;
-    //
-    // public Set<Terminal> getTerminals() {
-    // return terminals;
-    // }
-    //
-    // public void setTerminals(Set<Terminal> terminals) {
-    // this.terminals = terminals;
-    // }
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    /**
-     * @return the id
-     */
-    public Integer getId() {
-	return id;
-    }
+	public Location getLocation() {
+		return location;
+	}
 
-    /**
-     * @param id
-     *            the id to set
-     */
-    public void setId(Integer id) {
-	this.id = id;
-    }
+	public void setLocation(Location location) {
+		this.location = location;
+	}
 
-    public Location getLocation() {
-	return location;
-    }
+	public String getLuCode() {
+		return luCode;
+	}
 
-    public void setLocation(Location location) {
-	this.location = location;
-    }
+	public void setLuCode(String luCode) {
+		this.luCode = luCode;
+	}
 
-    public String getLuCode() {
-	return luCode;
-    }
+	public String getType() {
+		return type;
+	}
 
-    public void setLuCode(String luCode) {
-	this.luCode = luCode;
-    }
+	public void setType(String type) {
+		this.type = type;
+	}
 
-    public String getType() {
-	return type;
-    }
+	public String getPost() {
+		return post;
+	}
 
-    public void setType(String type) {
-	this.type = type;
-    }
+	public void setPost(String post) {
+		this.post = post;
+	}
 
-    public String getPost() {
-	return post;
-    }
+	public Boolean getProcessed() {
+		return processed;
+	}
 
-    public void setPost(String post) {
-	this.post = post;
-    }
+	public void setProcessed(Boolean processed) {
+		this.processed = processed;
+	}
 
-    public Boolean getProcessed() {
-	return processed;
-    }
+	public String getLocationClass() {
+		return locationClass;
+	}
 
-    public void setProcessed(Boolean processed) {
-	this.processed = processed;
-    }
+	public void setLocationClass(String locationClass) {
+		this.locationClass = locationClass;
+	}
 
-    public Date getStartDate() {
-	return startDate;
-    }
+	public String getIp() {
+		return ip;
+	}
 
-    public void setStartDate(Date startDate) {
-	this.startDate = startDate;
-    }
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
 
-    public Date getEndDate() {
-	return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-	this.endDate = endDate;
-    }
-
-    public String getLocationClass() {
-	return locationClass;
-    }
-
-    public void setLocationClass(String locationClass) {
-	this.locationClass = locationClass;
-    }
-
-    public String getIp() {
-	return ip;
-    }
-
-    public void setIp(String ip) {
-	this.ip = ip;
-    }
-
-    public static String[] getLocationclasses() {
-	return locationClasses;
-    }
+	public static String[] getLocationclasses() {
+		return locationClasses;
+	}
 
 }

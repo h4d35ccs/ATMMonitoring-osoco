@@ -22,7 +22,7 @@ import com.ncr.agent.baseData.os.module.OperatingSystemPojo;
 
 @Entity
 @Table(name = "operating_systems")
-public class OperatingSystem {
+public class OperatingSystem extends Auditable {
 
     private static final Map<String, Map> comboboxes;
 

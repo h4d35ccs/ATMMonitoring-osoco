@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
+import com.ncr.ATMMonitoring.pojo.Installation;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.agent.baseData.ATMDataStorePojo;
 
@@ -40,4 +41,7 @@ public interface TerminalService {
     public boolean importJsonTerminal(CommonsMultipartFile jsonFile);
 
     public Terminal persistDataStoreTerminal(ATMDataStorePojo dataStoreTerminal);
+
+	public void addInstallationAndUpdateHistoricalData(Terminal terminal, Installation installation);
+	
 }

@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -82,9 +83,13 @@ public class QueryServiceImpl implements QueryService {
 
     @Override
     public List<Terminal> executeQuery(Query query, Locale locale, String sort, String order) {
+    	return executeQuery(query, locale, sort, order, null);
+    }
+    @Override
+    public List<Terminal> executeQuery(Query query, Locale locale, String sort, String order, Date queryDate) {
 		List<Object> values = new ArrayList<Object>();
 		List<Type> types = new ArrayList<Type>();
-		String hql = query.getHQL(values, types, locale, false);
+		String hql = query.getHQL(values, types, locale, false, queryDate);
 		if ((hql == null) || (hql.equals(""))) {
 			return null;
 		}

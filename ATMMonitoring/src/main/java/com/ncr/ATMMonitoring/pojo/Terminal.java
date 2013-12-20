@@ -1,10 +1,13 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.Vector;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,16 +23,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Type;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import com.ncr.ATMMonitoring.service.AuditableSetOperations;
+import com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl;
 import com.ncr.ATMMonitoring.socket.ATMWrongDataException;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.ATMDataStorePojo;
-import com.ncr.agent.baseData.os.module.NetworkAdapterSettingPojo;
 import com.ncr.agent.baseData.vendor.utils.FinancialTerminalPojo;
 
 /**
@@ -44,7 +51,7 @@ public class Terminal {
 
     private static final Map<String, Map> comboboxes;
 
-    static {
+    static { 
 	comboboxes = new TreeMap<String, Map>();
 	Map<String, Map> operations = Operation
 		.getOperationsByType(Operation.DataType.STRING);
@@ -64,16 +71,20 @@ public class Terminal {
 	comboboxes.put("mac", operations);
     }
 
+    @Transient
+    private AuditableSetOperations auditableSetOperations = new AuditableSetOperationsImpl();
+    
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "terminals_id_seq")
     @SequenceGenerator(name = "terminals_id_seq", sequenceName = "terminals_id_seq", allocationSize = 1)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "installation_id")
-    private Installation installation;
-
+    @OneToMany(fetch = FetchType.LAZY)
+    @Cascade(CascadeType.ALL)
+    @OrderBy("start_date desc")
+    private Set<Installation> installations = new HashSet<Installation>();;
+  
     @ManyToOne
     @JoinColumn(name = "bank_id")
     private BankCompany bankCompany;
@@ -223,7 +234,7 @@ public class Terminal {
 	this.terminalVendor = terminal.terminalVendor;
 	this.tracerNumber = terminal.tracerNumber;
 	this.bankCompany = terminal.bankCompany;
-	this.installation = terminal.installation;
+	this.setCurrentInstallation(terminal.getCurrentInstallation());
 	this.terminalModel = terminal.terminalModel;
     }
 
@@ -460,7 +471,7 @@ public class Terminal {
     public Set<HardwareDevice> getComputerSystems() {
 	return HardwareDevice.filterComputerSystem(hardwareDevices);
     }
-
+    	
     /**
      * @return the hardwareDevices
      */
@@ -608,18 +619,155 @@ public class Terminal {
     public void setHardwareDevices(Set<HardwareDevice> hardwareDevices) {
 	this.hardwareDevices = hardwareDevices;
     }
-
+    
     /**
-     * @return the current config
+     * @return the hardwareDevices
      */
-    public TerminalConfig getCurrentConfig() {
-	if ((configs != null) && (!configs.isEmpty())) {
-	    return configs.iterator().next();
-	}
-	return null;
+    public Set<HardwareDevice> getActiveComputerSystemsByDate(Date date) {
+	return HardwareDevice.filterComputerSystem(getActiveHardwareDevicesByDate(date));
+    }
+    
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveProcessorsByDate(Date date) {
+	return HardwareDevice.filterProcessor(getActiveHardwareDevicesByDate(date));
     }
 
     /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActivePhysicalMemoriesByDate(Date date) {
+	return HardwareDevice.filterPhysicalMemory(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveDiskDrivesByDate(Date date) {
+	return HardwareDevice.filterDiskDrive(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveLogicalDisksByDate(Date date) {
+	return HardwareDevice.filterLogicalDisk(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveBaseBoardsByDate(Date date) {
+	return HardwareDevice.filterBaseBoard(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveNetworkAdaptersByDate(Date date) {
+	return HardwareDevice.filterNetworkAdapter(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveFloppyDrivesByDate(Date date) {
+	return HardwareDevice.filterFloppyDrive(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveCdromDrivesByDate(Date date) {
+	return HardwareDevice.filterCdromDrive(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveSoundDevicesByDate(Date date) {
+	return HardwareDevice.filterSoundDevice(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveUsbControllersByDate(Date date) {
+	return HardwareDevice.filterUsbController(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveSerialPortsByDate(Date date) {
+	return HardwareDevice.filterSerialPort(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveParallelPortsByDate(Date date) {
+	return HardwareDevice.filterParallelPort(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveControllers1394ByDate(Date date) {
+	return HardwareDevice.filter1394Controller(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveScsiControllersByDate(Date date) {
+	return HardwareDevice.filterScsiController(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveDesktopMonitorsByDate(Date date) {
+	return HardwareDevice.filterDesktopMonitor(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveKeyboardsByDate(Date date) {
+	return HardwareDevice.filterKeyboard(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActivePointingDevicesByDate(Date date) {
+	return HardwareDevice.filterPointingDevice(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveSystemSlotsByDate(Date date) {
+	return HardwareDevice.filterSystemSlot(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveBiosByDate(Date date) {
+	return HardwareDevice.filterBios(getActiveHardwareDevicesByDate(date));
+    }
+
+    /**
+     * @return the hardwareDevices
+     */
+    public Set<HardwareDevice> getActiveVideoControllersByDate(Date date) {
+	return HardwareDevice.filterVideoController(getActiveHardwareDevicesByDate(date));
+    }
+    
+   /**
      * @return the bank
      */
     public String getBank() {
@@ -736,7 +884,7 @@ public class Terminal {
 		+ (geographicAddress != null ? geographicAddress.toString()
 			: "")
 		+ ";"
-		+ (((installation != null) && (installation.getLocation() != null)) ? installation
+		+ (((getCurrentInstallation() != null) && (getCurrentInstallation().getLocation() != null)) ? getCurrentInstallation()
 			.getLocation().getCompleteAddress() : "")
 		+ ";"
 		+ (manufacturingSite != null ? manufacturingSite.toString()
@@ -767,14 +915,49 @@ public class Terminal {
 	this.terminalModel = terminalModel;
     }
 
-    public Installation getInstallation() {
-	return installation;
+    public Set<Installation> getInstallations() {
+    	return installations;
+    }
+    
+    public void setCurrentInstallation(Installation installation) {
+    	auditableSetOperations.setCurrentAuditableElement(installations, installation);
+    }
+    
+    public void setCurrentTerminalConfig(TerminalConfig terminalConfig) {
+    	auditableSetOperations.setCurrentAuditableElement(configs, terminalConfig);
     }
 
-    public void setInstallation(Installation installation) {
-	this.installation = installation;
+    public TerminalConfig getCurrentTerminalConfig() {
+    	return auditableSetOperations.getCurrentAuditable(configs);
     }
-
+    
+    public Installation getCurrentInstallation() {
+    	return auditableSetOperations.getCurrentAuditable(installations);
+    }
+    
+    public TerminalConfig getCurrentTerminalConfigActiveByDate(Date date) {
+    	return auditableSetOperations.getCurrentAuditableElementByDate(configs, date);
+    }
+    
+    public Installation getCurrentInstallationByDate(Date date) {
+    	return auditableSetOperations.getCurrentAuditableElementByDate(installations, date);
+    }
+    
+    public Set<HardwareDevice> getActiveHardwareDevicesByDate(Date date) {
+    	return auditableSetOperations.getCreatedAuditableElementsByDate(hardwareDevices, date);
+    }
+    
+    public Set<Installation> getCreatedInstallationsByDate(Date date) {
+    	return auditableSetOperations.getCreatedAuditableElementsByDate(installations, date);
+    }
+    
+    public Set<Installation> getHistoricalInstallations(Date date) {
+    	Set<Installation> historicalInstallations = new HashSet<Installation>(getCreatedInstallationsByDate(date));
+    	historicalInstallations.remove(getCurrentInstallationByDate(date));
+    	return historicalInstallations;
+    }
+    
+    
     public Long getMatricula() {
 	return matricula;
     }
@@ -782,4 +965,16 @@ public class Terminal {
     public void setMatricula(Long matricula) {
 	this.matricula = matricula;
     }
+
+    public Map<Class<? extends Auditable>, Map<Date, Integer>> buildHistoricalChanges() {
+    	Map<Class<? extends Auditable>, Map<Date, Integer>> historicableChanges = 
+    			new HashMap<Class<? extends Auditable>, Map<Date,Integer>>();
+    	
+    	historicableChanges.put(HardwareDevice.class, auditableSetOperations.buildAuditableChangesForCollection(hardwareDevices));
+    	historicableChanges.put(Installation.class, auditableSetOperations.buildAuditableChangesForCollection(installations));
+    	historicableChanges.put(TerminalConfig.class, auditableSetOperations.buildAuditableChangesForCollection(configs));
+    	
+    	return historicableChanges;
+    }
 }
+

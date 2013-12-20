@@ -20,6 +20,7 @@ import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 import com.ncr.ATMMonitoring.pojo.HardwareDevice;
 import com.ncr.ATMMonitoring.pojo.Hotfix;
+import com.ncr.ATMMonitoring.pojo.Installation;
 import com.ncr.ATMMonitoring.pojo.InternetExplorer;
 import com.ncr.ATMMonitoring.pojo.JxfsComponent;
 import com.ncr.ATMMonitoring.pojo.OperatingSystem;
@@ -308,8 +309,8 @@ public class TerminalServiceImpl implements TerminalService {
 	}
 	newConfig.setOperatingSystems(ossAux);
 
-	if ((terminal.getCurrentConfig() == null)
-		|| (!terminal.getCurrentConfig().equals(newConfig))) {
+	if ((terminal.getCurrentTerminalConfig() == null)
+		|| (!terminal.getCurrentTerminalConfig().equals(newConfig))) {
 	    terminal.getConfigs().add(newConfig);
 	    newConfig.setTerminal(terminal);
 	    logger.debug("Adding new Software Config to Terminal with IP "
@@ -1066,4 +1067,10 @@ public class TerminalServiceImpl implements TerminalService {
 	}
 	return hwDevs;
     }
+
+	
+	public void addInstallationAndUpdateHistoricalData(Terminal terminal, Installation installation) {
+		terminal.setCurrentInstallation(installation);
+		updateTerminal(terminal);
+	}
 }

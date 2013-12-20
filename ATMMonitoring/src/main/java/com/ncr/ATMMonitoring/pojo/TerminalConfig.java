@@ -1,7 +1,9 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -29,16 +31,13 @@ import org.hibernate.annotations.CascadeType;
 @Entity
 @Table(name = "terminal_configs", uniqueConstraints = { @UniqueConstraint(columnNames = {
 	"terminal_id", "start_date" }) })
-public class TerminalConfig {
+public class TerminalConfig extends Auditable {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "terminal_configs_id_seq")
     @SequenceGenerator(name = "terminal_configs_id_seq", sequenceName = "terminal_configs_id_seq", allocationSize = 1)
     private Integer id;
-
-    @Column(name = "start_date")
-    private Date startDate = new Date();
 
     @ManyToOne(fetch = FetchType.EAGER)
     @Cascade(CascadeType.REFRESH)
@@ -94,20 +93,6 @@ public class TerminalConfig {
     	this.id = id;
     }
 
-    /**
-     * @return the startDate
-     */
-    public Date getStartDate() {
-    	return startDate;
-    }
-
-    /**
-     * @param startDate
-     *            the startDate to set
-     */
-    public void setStartDate(Date startDate) {
-    	this.startDate = startDate;
-    }
 
     /**
      * @return the terminal
@@ -153,7 +138,7 @@ public class TerminalConfig {
     public void setOperatingSystems(Set<OperatingSystem> operatingSystems) {
     	this.operatingSystems = operatingSystems;
     }
-
+   
     public boolean equals(Object o) {
 		if (!(o instanceof TerminalConfig)) {
 		    return false;
@@ -179,4 +164,5 @@ public class TerminalConfig {
 		}
 		return true;
     }
+    
 }

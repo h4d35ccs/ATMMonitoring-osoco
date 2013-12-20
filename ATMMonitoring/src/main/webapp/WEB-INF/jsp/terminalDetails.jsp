@@ -39,7 +39,8 @@
 		        $('#tabs .content_tab').hide();
 		        $('#tabs').find( ".content_tab" ).eq( tab_click ).show();
             });
-            $('a[href*=#]').click(function() {
+            $('a[href*=#]').click(function(event) {
+                event.preventDefault();
                 if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
                     && location.hostname == this.hostname) {
 
@@ -50,7 +51,7 @@
                         $('html,body').animate({scrollTop: targetOffset}, 1000);
                     }
                 }
-            });
+            }); 
         }
     </script>
 </jsp:attribute>
@@ -71,6 +72,9 @@
 				</div>
 				<div class="content">
 					<h1><spring:message code="label.terminal"/> ${terminal.mac}</h1>
+					<c:if test="${date != null}">
+                        <h4> <a href="terminals/details/${terminal.id}"><spring:message code="label.terminal.returnToNow" /></a></h4>    
+                    </c:if>
 					<c:if test="${success != null}">
 					      <div class="notification"><p>${success}</p></div>
 					</c:if>
@@ -84,7 +88,13 @@
 					</c:if>
 
 					<div class="action_box data desplegable">
-						<h2 class="txt last"><spring:message code="label.terminalDetails"/></h2>
+						<h2 class="txt last">
+						  <spring:message code="label.terminalDetails"/>
+						  <c:if test="${date != null}">
+                            <spring:message code="label.terminal.forDate" />    
+                            <fmt:formatDate value="${date}" pattern="dd/MM/yyyy" />
+                          </c:if>
+						</h2>
 						<div class="collapsible last">
 							<div class="model">
 								<div class="photo">
@@ -391,8 +401,21 @@
 					<div class="action_box data desplegable">
 						<h2 class="txt content_hide last"><spring:message code="label.terminal.history"/></h2>
 						<div class="collapsible last hide">
-							<img src="resources/images/ejemplo/historico.png" style="width:100%; margin:1em 0" />
-						</div>
+						  <c:forEach items="${historicalChanges}" var="changesByType">
+						      <p><spring:message code="label.historical.${changesByType.getKey().getSimpleName()}"/></p>
+						      <ul>
+						      <c:forEach items="${changesByType.getValue()}" var="changeDates">
+						        <c:set var="changeDate" value="${changeDates.getKey()}" />
+						        <c:set var="numberOfChanges" value="${changeDates.getValue()}" />
+					            <li>
+					            <a href="terminals/details/${terminal.id}?date=<fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy" />">
+	                               El día <fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy" /> hubo ${numberOfChanges} cambios 
+	                            </a>
+	                            </li>
+						      </c:forEach>
+						      </ul>
+						  </c:forEach>
+                        </div>
 					</div>
 				</div>
 				<h2 id="features">Características</h2>
@@ -426,43 +449,21 @@
 						<div class="botonera">
 							<a href="terminals/installations/new?matricula=${terminal.matricula}" class="btn iframe_m"><spring:message code="label.installation.new"/></a>
 						</div>
-                                                <c:if test="${terminal.installation != null}">
-						<h3><spring:message code="label.installation.current"/></h3>
-						<div class="margin-box">
-							<table>
-								<tr>
-									<th><spring:message code="label.location.office"/></th>
-									<th><spring:message code="label.location.address"/></th>
-									<th><spring:message code="label.creationDate"/></th>
-									<th><spring:message code="label.terminal.ip"/></th>
-									<th><spring:message code="label.installation.type"/></th>
-									<th><spring:message code="label.installation.locationClass"/></th>
-									<th><spring:message code="label.location.processed"/></th>
-									<th><spring:message code="label.location.publicAccess"/></th>
-								</tr>
-								<tr>
-									<td>${terminal.installation.location.office}</td>
-									<td>${terminal.installation.location.completeAddress}</td>
-									<td>${terminal.installation.startDate}</td>
-									<td>${terminal.installation.ip}</td>
-									<td>${terminal.installation.type}</td>
-									<c:choose>
-										<c:when  test="${(terminal.installation.locationClass != null) && (terminal.installation.locationClass.length() > 0)}">
-											<td><spring:message code="label.installation.${terminal.installation.locationClass}"/></td>
-										</c:when>
-										<c:otherwise>
-										<td></td>
-										</c:otherwise>
-									</c:choose>
-									<td>${terminal.installation.processed}</td>
-									<td>${terminal.installation.location.publicAccess}</td>
-									<td></td>
-								</tr>
-							</table>
-						</div>
-						</c:if>
-
+                        
+                        <c:if test="${!empty terminal.getCreatedInstallationsByDate(date)}">
+	                        <c:if test="${terminal.getCurrentInstallationByDate(date) != null}">
+				  <h3><spring:message code="label.installation.current"/></h3>
+				  <t:installationTable installations="${terminal.getCurrentInstallationByDate(date)}" />
+				</c:if>
+							
+				  <c:if test="${!empty terminal.getHistoricalInstallations(date)}">
+				  	<h3><spring:message code="label.installation.historical"/></h3>
+	                          <t:installationTable installations="${terminal.getHistoricalInstallations(date)}" />
+	                        </c:if>
+                        </c:if>
 					</div>
+					
+					
 					<div class="content_tab">
 						<div class="margin-box">
 							<c:if  test="${empty terminal.financialDevices}">
@@ -808,138 +809,138 @@
 					</div>
 
 					<div class="content_tab">
-						<c:if  test="${empty terminal.hardwareDevices}">
+						<c:if  test="${empty terminal.getActiveHardwareDevicesByDate(date)}">
 							<div class="empty-list message">
 								<spring:message code="label.terminal.noHwDevices"/>
 							</div>
 						</c:if>
-						<c:if test="${!empty terminal.hardwareDevices}">
+						<c:if test="${!empty terminal.getActiveHardwareDevicesByDate(date)}">
 
                           <div class="action_box data desplegable">
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.computerSystems}">
-									<t:computerSystemTable hardwareDevices="${terminal.computerSystems}"/>
+								<c:if test="${!empty terminal.getActiveComputerSystemsByDate(date)}">
+									<t:computerSystemTable hardwareDevices="${terminal.getActiveComputerSystemsByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.processors}">
-									<t:processorTable hardwareDevices="${terminal.processors}"/>
+								<c:if test="${!empty terminal.getActiveProcessorsByDate(date)}">
+									<t:processorTable hardwareDevices="${terminal.getActiveProcessorsByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.physicalMemories}">
-									<t:physicalMemoryTable hardwareDevices="${terminal.physicalMemories}"/>
+								<c:if test="${!empty terminal.getActivePhysicalMemoriesByDate(date)}">
+									<t:physicalMemoryTable hardwareDevices="${terminal.getActivePhysicalMemoriesByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.diskDrives}">
-									<t:diskDriveTable hardwareDevices="${terminal.diskDrives}"/>
+								<c:if test="${!empty terminal.getActiveDiskDrivesByDate(date)}">
+									<t:diskDriveTable hardwareDevices="${terminal.getActiveDiskDrivesByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.logicalDisks}">
-									<t:logicalDiskTable hardwareDevices="${terminal.logicalDisks}"/>
+								<c:if test="${!empty terminal.getActiveLogicalDisksByDate(date)}">
+									<t:logicalDiskTable hardwareDevices="${terminal.getActiveLogicalDisksByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.baseBoards}">
-									<t:baseBoardTable hardwareDevices="${terminal.baseBoards}"/>
+								<c:if test="${!empty terminal.getActiveBaseBoardsByDate(date)}">
+									<t:baseBoardTable hardwareDevices="${terminal.getActiveBaseBoardsByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.networkAdapters}">
-									<t:networkAdapterTable hardwareDevices="${terminal.networkAdapters}"/>
+								<c:if test="${!empty terminal.getActiveNetworkAdaptersByDate(date)}">
+									<t:networkAdapterTable hardwareDevices="${terminal.getActiveNetworkAdaptersByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.floppyDrives}">
-									<t:floppyDriveTable hardwareDevices="${terminal.floppyDrives}"/>
+								<c:if test="${!empty terminal.getActiveFloppyDrivesByDate(date)}">
+									<t:floppyDriveTable hardwareDevices="${terminal.getActiveFloppyDrivesByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.cdromDrives}">
-									<t:cdromDriveTable hardwareDevices="${terminal.cdromDrives}"/>
+								<c:if test="${!empty terminal.getActiveCdromDrivesByDate(date)}">
+									<t:cdromDriveTable hardwareDevices="${terminal.getActiveCdromDrivesByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.soundDevices}">
-									<t:soundDeviceTable hardwareDevices="${terminal.soundDevices}"/>
+								<c:if test="${!empty terminal.getActiveSoundDevicesByDate(date)}">
+									<t:soundDeviceTable hardwareDevices="${terminal.getActiveSoundDevicesByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.usbControllers}">
-									<t:usbControllerTable hardwareDevices="${terminal.usbControllers}"/>
+								<c:if test="${!empty terminal.getActiveUsbControllersByDate(date)}">
+									<t:usbControllerTable hardwareDevices="${terminal.getActiveUsbControllersByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.serialPorts}">
-									<t:serialPortTable hardwareDevices="${terminal.serialPorts}"/>
+								<c:if test="${!empty terminal.getActiveSerialPortsByDate(date)}">
+									<t:serialPortTable hardwareDevices="${terminal.getActiveSerialPortsByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.parallelPorts}">
-									<t:parallelPortTable hardwareDevices="${terminal.parallelPorts}"/>
+								<c:if test="${!empty terminal.getActiveParallelPortsByDate(date)}">
+									<t:parallelPortTable hardwareDevices="${terminal.getActiveParallelPortsByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.controllers1394}">
-									<t:1394ControllerTable hardwareDevices="${terminal.controllers1394}"/>
+								<c:if test="${!empty terminal.getActiveControllers1394ByDate(date)}">
+									<t:1394ControllerTable hardwareDevices="${terminal.getActiveControllers1394ByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.scsiControllers}">
-									<t:scsiControllerTable hardwareDevices="${terminal.scsiControllers}"/>
+								<c:if test="${!empty terminal.getActiveScsiControllersByDate(date)}">
+									<t:scsiControllerTable hardwareDevices="${terminal.getActiveScsiControllersByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.desktopMonitors}">
-									<t:desktopMonitorTable hardwareDevices="${terminal.desktopMonitors}"/>
+								<c:if test="${!empty terminal.getActiveDesktopMonitorsByDate(date)}">
+									<t:desktopMonitorTable hardwareDevices="${terminal.getActiveDesktopMonitorsByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.keyboards}">
-									<t:keyboardTable hardwareDevices="${terminal.keyboards}"/>
+								<c:if test="${!empty terminal.getActiveKeyboardsByDate(date)}">
+									<t:keyboardTable hardwareDevices="${terminal.getActiveKeyboardsByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.pointingDevices}">
-									<t:pointingDeviceTable hardwareDevices="${terminal.pointingDevices}"/>
+								<c:if test="${!empty terminal.getActivePointingDevicesByDate(date)}">
+									<t:pointingDeviceTable hardwareDevices="${terminal.getActivePointingDevicesByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.systemSlots}">
-									<t:systemSlotTable hardwareDevices="${terminal.systemSlots}"/>
+								<c:if test="${!empty terminal.getActiveSystemSlotsByDate(date)}">
+									<t:systemSlotTable hardwareDevices="${terminal.getActiveSystemSlotsByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.bios}">
-									<t:biosTable hardwareDevices="${terminal.bios}"/>
+								<c:if test="${!empty terminal.getActiveBiosByDate(date)}">
+									<t:biosTable hardwareDevices="${terminal.getActiveBiosByDate(date)}"/>
 								</c:if>
 							</div>
 
 							<div class="margin-box">
-								<c:if test="${!empty terminal.videoControllers}">
-									<t:videoControllerTable hardwareDevices="${terminal.videoControllers}"/>
+								<c:if test="${!empty terminal.getActiveVideoControllersByDate(date)}">
+									<t:videoControllerTable hardwareDevices="${terminal.getActiveVideoControllersByDate(date)}"/>
 								</c:if>
 							</div>
 
@@ -971,8 +972,8 @@
 
 											</td>
 											<td class="first-header last-header">
-												<a href="terminals/swConfigs/details/${terminal.currentConfig.id}">
-													<fmt:formatDate value="${terminal.currentConfig.startDate}" dateStyle="short" type="both" />
+												<a href="terminals/swConfigs/details/${terminal.getCurrentTerminalConfig().id}">
+													<fmt:formatDate value="${terminal.getCurrentTerminalConfig().startDate}" dateStyle="short" type="both" />
 												</a>
 											</td>
 										</tr>
@@ -1013,7 +1014,7 @@
 								</table>
 							</div>
 
-							<t:listSoftware config="${terminal.currentConfig}"/>
+							<t:listSoftware config="${terminal.getCurrentTerminalConfig()}"/>
 
 						</c:if>
 
