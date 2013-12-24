@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Script para generar la documentación de usuario como ayuda web y copiar
-# los ficheros en las rutas correctas del proyecto
+# Script for generating user doc as help webpages and copying
+# those files in the proper project path
 
 basepath=$(dirname $0)
 
@@ -11,13 +11,13 @@ for lang in ${langs[*]}
 do
 	for page in ${pages[*]}
 	do
-		# Generamos el fichero html
+		# We generate the html file
 		rst2html --template="$basepath"/template.txt -o ISO-8859-1 "$basepath"/"$lang"/"$page".rst "$basepath"/"$lang"/"$page".html
-		# Lo movemos a la carpeta del proyecto
+		# We move it to the project folder
 		mv -f "$basepath"/"$lang"/"$page".html "$basepath"/../../src/main/webapp/resources/help/"$lang"/
 	done
 
-	# Copiamos las imágenes al proyecto
+	# We copy all the images
 	cp -f "$basepath"/"$lang"/resources/help/"$lang"/images/* "$basepath"/../../src/main/webapp/resources/help/"$lang"/images/
 done
 
