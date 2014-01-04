@@ -126,18 +126,18 @@ public class BankCompanyController {
 	    bankCompany.setParentCompany(null);
 	}
 
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-
 	if (result.hasErrors()) {
+	    String userMsg = "";
+	    Locale locale = RequestContextUtils.getLocale(request);
+	    if (principal != null) {
+		User loggedUser = userService.getUserByUsername(principal
+			.getName());
+		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    }
+	    map.put("userMsg", userMsg);
+
 	    PagedListHolder<BankCompany> pagedListHolder = new PagedListHolder<BankCompany>(
 		    bankCompanyService.listBankCompanies());
-	    map.put("userMsg", userMsg);
 	    int page = 0;
 	    if (p != null) {
 		try {
@@ -233,15 +233,15 @@ public class BankCompanyController {
 		.getBankCompany(bankCompany.getId());
 	bankCompany.setSubBankCompanies(aux.getSubBankCompanies());
 
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-	map.put("userMsg", userMsg);
 	if (result.hasErrors()) {
+	    String userMsg = "";
+	    Locale locale = RequestContextUtils.getLocale(request);
+	    if (principal != null) {
+		User loggedUser = userService.getUserByUsername(principal
+			.getName());
+		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    }
+	    map.put("userMsg", userMsg);
 	    map.put("bankCompaniesList", bankCompanyService.listBankCompanies());
 	    return "bankCompanyDetails";
 	}
@@ -264,14 +264,11 @@ public class BankCompanyController {
      * 
      * @param bankCompanyId
      *            the bank company id
-     * @param principal
-     *            the principal
      * @return the petition response
      */
     @RequestMapping("/banks/delete/{bankCompanyId}")
     public String deleteBankCompany(
-	    @PathVariable("bankCompanyId") Integer bankCompanyId,
-	    Principal principal) {
+	    @PathVariable("bankCompanyId") Integer bankCompanyId) {
 	BankCompany bankCompany = bankCompanyService
 		.getBankCompany(bankCompanyId);
 	if (bankCompany != null) {

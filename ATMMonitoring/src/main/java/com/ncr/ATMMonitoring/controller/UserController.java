@@ -93,14 +93,12 @@ public class UserController {
 	map.put("user", new User());
 	map.put("usersList", users);
 	map.put("manageableRolesList", roleService.listManageableRoles());
-	// DEBUG CODE FOR SHOWING THE ROLES
-	// map.put("rolesList", roleService.listRoles());
 
 	return "users";
     }
 
     /**
-     * Redirect to users URL.
+     * New users URL.
      * 
      * @param map
      *            the map
@@ -111,7 +109,7 @@ public class UserController {
      * @return the petition response
      */
     @RequestMapping("/users")
-    public String redirectToUsers(Map<String, Object> map,
+    public String newUsers(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
@@ -210,25 +208,23 @@ public class UserController {
 	    }
 	    users = userService.listUsersByBankCompanies(bankCompanies);
 	}
-	map.put("banksList", bankCompanies);
-	map.put("usersList", users);
 
 	if (result.hasErrors()) {
+	    map.put("banksList", bankCompanies);
+	    map.put("usersList", users);
 	    map.put("userMsg", userMsg);
 	    map.put("manageableRolesList", roleService.listManageableRoles());
-	    // DEBUG CODE FOR SHOWING THE ROLES
-	    // map.put("rolesList", roleService.listRoles());
 	    return "users";
 	}
 
 	try {
 	    if (userService.getUserByUsername(user.getUsername()) != null) {
+		map.put("banksList", bankCompanies);
+		map.put("usersList", users);
 		map.put("userMsg", userMsg);
 		map.put("manageableRolesList",
 			roleService.listManageableRoles());
 		map.put("duplicatedUsername", true);
-		// DEBUG CODE FOR SHOWING THE ROLES
-		// map.put("rolesList", roleService.listRoles());
 		return "users";
 	    }
 	} catch (UsernameNotFoundException e) {
@@ -343,24 +339,25 @@ public class UserController {
     public String updatePassword(@Valid @ModelAttribute("user") User user,
 	    BindingResult result, Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    bankCompanies = loggedUser.getManageableBankCompanies();
-	    if ((user.getBankCompany() != null)
-		    && (!bankCompanies.contains(user.getBankCompany()))) {
-		return "redirect:/users/list";
-	    }
-	}
-	map.put("banksList", bankCompanies);
-	map.put("userMsg", userMsg);
-
 	user.setRole(roleService.getRole(user.getRole().getId()));
+
 	if (result.hasErrors()) {
+	    String userMsg = "";
+	    Locale locale = RequestContextUtils.getLocale(request);
+	    Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
+	    if (principal != null) {
+		User loggedUser = userService.getUserByUsername(principal
+			.getName());
+		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		bankCompanies = loggedUser.getManageableBankCompanies();
+		if ((user.getBankCompany() != null)
+			&& (!bankCompanies.contains(user.getBankCompany()))) {
+		    return "redirect:/users/list";
+		}
+	    }
+	    map.put("banksList", bankCompanies);
+	    map.put("userMsg", userMsg);
+
 	    boolean sameUser = false;
 	    if (principal != null) {
 		User loggedUser = userService.getUserByUsername(principal
@@ -431,7 +428,16 @@ public class UserController {
      * @return the petition response
      */
     @RequestMapping(method = RequestMethod.GET, value = "/users/newGroup")
-    public String newGroup() {
+    public String newGroup(Map<String, Object> map, Principal principal,
+	    HttpServletRequest request) {
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	}
+	map.put("userMsg", userMsg);
 	return "newGroup";
     }
 

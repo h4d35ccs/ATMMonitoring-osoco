@@ -138,7 +138,7 @@ public class ScheduledUpdateController {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    Set userQueries = loggedUser.getQueries();
+	    Set<Query> userQueries = loggedUser.getQueries();
 	    map.put("userQueries", userQueries);
 	    map.put("userMsg", userMsg);
 	    map.put("scheduledUpdate", new ScheduledUpdate());
@@ -159,27 +159,25 @@ public class ScheduledUpdateController {
      *            the start date
      * @param end
      *            the end date
-     * @param request
-     *            the request
      * @param principal
      *            the principal
      * @return the list of update events
      */
+    @SuppressWarnings("rawtypes")
     @RequestMapping(value = "/terminals/schedules/updates", method = RequestMethod.GET)
     @ResponseBody
-    public List listUpdateEvents(long start, long end,
-	    HttpServletRequest request, Principal principal) {
+    public List<Map> listUpdateEvents(long start, long end, Principal principal) {
 	logger.debug("update events from " + start + " to " + end);
-	List updates = null;
+	List<ScheduledUpdate> updates = null;
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
-	    updates = new ArrayList();
+	    updates = new ArrayList<ScheduledUpdate>();
 	    List<ScheduledUpdate> weeklyUpdates = loggedUser
 		    .getWeeklyScheduledUpdates();
 	    List<ScheduledUpdate> monthlyUpdates = loggedUser
 		    .getMonthlyScheduledUpdates();
-	    updates = new ArrayList();
+	    updates = new ArrayList<ScheduledUpdate>();
 	    updates.addAll(weeklyUpdates);
 	    updates.addAll(monthlyUpdates);
 	}
@@ -206,16 +204,15 @@ public class ScheduledUpdateController {
     @RequestMapping(value = "/terminals/schedules/list", method = RequestMethod.POST)
     public String addScheduledUpdate(
 	    @Valid @ModelAttribute("scheduledUpdate") ScheduledUpdate scheduledUpdate,
-	    BindingResult result, Map<String, Object> map,
-	    HttpServletRequest request, Principal principal,
-	    RedirectAttributes redirectAttributes) {
+	    Map<String, Object> map, HttpServletRequest request,
+	    Principal principal, RedirectAttributes redirectAttributes) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    Set userQueries = loggedUser.getQueries();
+	    Set<Query> userQueries = loggedUser.getQueries();
 	    map.put("userQueries", userQueries);
 	    map.put("userMsg", userMsg);
 	}
@@ -241,6 +238,7 @@ public class ScheduledUpdateController {
 	    scheduledUpdateService.addScheduledUpdate(scheduledUpdate);
 	    redirectAttributes.addFlashAttribute("success",
 		    "label.new.scheduledUpdate.created");
+	    map.clear();
 	    return "redirect:/terminals/schedules/list";
 	}
     }
@@ -285,10 +283,11 @@ public class ScheduledUpdateController {
      *            the end date
      * @return the list of HashMap events
      */
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private List<Map> toCalendarEventsJSON(List<ScheduledUpdate> updates,
 	    long from, long to) {
 	logger.debug("updates: " + updates);
-	List json = new ArrayList();
+	List<Map> json = new ArrayList();
 	if (updates != null) {
 	    for (ScheduledUpdate update : updates) {
 		List<Date> eventDates = update.getEventDates(from, to);
