@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ncr.ATMMonitoring.dao.RoleDAO;
 import com.ncr.ATMMonitoring.pojo.Role;
+import com.ncr.ATMMonitoring.pojo.User;
 
 /**
  * The Class RoleServiceImpl.
@@ -55,6 +56,18 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public List<Role> listManageableRoles() {
 	return roleDAO.listManageableRoles();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.RoleService#listManageableRoles(java.lang
+     * .String, java.lang.String)
+     */
+    @Override
+    public List<Role> listManageableRoles(String sort, String order) {
+	return roleDAO.listManageableRoles(sort, order);
     }
 
     /* (non-Javadoc)

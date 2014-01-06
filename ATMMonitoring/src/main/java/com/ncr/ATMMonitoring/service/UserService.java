@@ -65,7 +65,7 @@ public interface UserService extends UserDetailsService {
     public List<User> listUsers();
 
     /**
-     * List users.
+     * List sorted users.
      * 
      * @param sort
      *            the sort

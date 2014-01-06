@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.dao;
 import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.Role;
+import com.ncr.ATMMonitoring.pojo.User;
 
 /**
  * The Interface RoleDAO.
@@ -43,6 +44,18 @@ public interface RoleDAO {
      * @return the list
      */
     public List<Role> listManageableRoles();
+
+    /**
+     * List sorted manageable roles.
+     * 
+     * @param sort
+     *            the sort
+     * @param order
+     *            the order
+     * 
+     * @return the list
+     */
+    public List<Role> listManageableRoles(String order, String sort);
 
     /**
      * Removes the role with the given id.

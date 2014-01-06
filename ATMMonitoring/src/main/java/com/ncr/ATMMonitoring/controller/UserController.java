@@ -47,15 +47,25 @@ public class UserController {
     static private Logger logger = Logger.getLogger(UserController.class
 	    .getName());
 
-    /** The Constant DEFAULT_SORT. */
-    public static final String DEFAULT_SORT = "username";
+    /** The Constant DEFAULT_USER_SORT. */
+    public static final String DEFAULT_USER_SORT = "username";
 
-    /** The Constant DEFAULT_ORDER. */
-    public static final String DEFAULT_ORDER = "asc";
+    /** The Constant DEFAULT_USER_ORDER. */
+    public static final String DEFAULT_USER_ORDER = "asc";
 
-    /** The page size. */
+    /** The Constant DEFAULT_ROLE_SORT. */
+    public static final String DEFAULT_ROLE_SORT = "name";
+
+    /** The Constant DEFAULT_USER_ORDER. */
+    public static final String DEFAULT_ROLE_ORDER = "asc";
+
+    /** The user page size. */
     @Value("${config.usersPageSize}")
-    private int pageSize;
+    private int userPageSize;
+
+    /** The role page size. */
+    @Value("${config.rolesPageSize}")
+    private int rolePageSize;
 
     /** The user service. */
     @Autowired
@@ -103,19 +113,26 @@ public class UserController {
      *            the map
      * @param principal
      *            the principal
-     * @param p
-     *            the page number
-     * @param sort
-     *            the fields for sorting users
-     * @param order
+     * @param p1
+     *            the page number for users
+     * @param sort1
+     *            the field for sorting users
+     * @param order1
      *            the order for sorting users
+     * @param p2
+     *            the page number for roles
+     * @param sort2
+     *            the field for sorting roles
+     * @param order2
+     *            the order for sorting roles
      * @param request
      *            the request
      * @return the petition response
      */
     @RequestMapping(value = "/users/list", method = RequestMethod.GET)
     public String listUsers(Map<String, Object> map, Principal principal,
-	    String p, String sort, String order, HttpServletRequest request) {
+	    String p1, String sort1, String order1, String p2, String sort2,
+	    String order2, HttpServletRequest request) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
@@ -123,24 +140,42 @@ public class UserController {
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
-	PagedListHolder<User> pagedListHolder = new PagedListHolder<User>(
-		userService.listUsers(sort, order));
-	String sortValue = (sort == null) ? DEFAULT_SORT : sort;
-	String orderValue = (order == null) ? DEFAULT_ORDER : order;
+	String sortValue1 = (sort1 == null) ? DEFAULT_USER_SORT : sort1;
+	String orderValue1 = (order1 == null) ? DEFAULT_USER_ORDER : order1;
+	PagedListHolder<User> pagedListHolder1 = new PagedListHolder<User>(
+		userService.listUsers(sortValue1, orderValue1));
 	map.put("userMsg", userMsg);
-	map.put("sort", sortValue);
-	map.put("order", orderValue);
-	int page = 0;
-	if (p != null) {
+	map.put("sort1", sortValue1);
+	map.put("order1", orderValue1);
+	int page1 = 0;
+	if (p1 != null) {
 	    try {
-		page = Integer.parseInt(p);
+		page1 = Integer.parseInt(p1);
 	    } catch (NumberFormatException e) {
 		e.printStackTrace();
 	    }
 	}
-	pagedListHolder.setPage(page);
-	pagedListHolder.setPageSize(pageSize);
-	map.put("pagedListHolder", pagedListHolder);
+	pagedListHolder1.setPage(page1);
+	pagedListHolder1.setPageSize(userPageSize);
+	map.put("pagedListHolder1", pagedListHolder1);
+
+	String sortValue2 = (sort2 == null) ? DEFAULT_ROLE_SORT : sort2;
+	String orderValue2 = (order2 == null) ? DEFAULT_ROLE_ORDER : order2;
+	PagedListHolder<Role> pagedListHolder2 = new PagedListHolder<Role>(
+		roleService.listManageableRoles(sortValue2, orderValue2));
+	map.put("sort2", sortValue2);
+	map.put("order2", orderValue2);
+	int page2 = 0;
+	if (p2 != null) {
+	    try {
+		page2 = Integer.parseInt(p2);
+	    } catch (NumberFormatException e) {
+		e.printStackTrace();
+	    }
+	}
+	pagedListHolder2.setPage(page2);
+	pagedListHolder2.setPageSize(rolePageSize);
+	map.put("pagedListHolder2", pagedListHolder2);
 
 	return "users";
     }
@@ -410,6 +445,65 @@ public class UserController {
     // }
     //
     // return "redirect:/users/list";
+    // }
+
+    /**
+     * Redirect to roles list URL.
+     * 
+     * @return the petition response
+     */
+    @RequestMapping(value = { "/users/roles" })
+    public String redirectToRoles() {
+	return "redirect:/users/list";
+    }
+
+    // /**
+    // * List roles URL.
+    // *
+    // * @param map
+    // * the map
+    // * @param principal
+    // * the principal
+    // * @param p
+    // * the page number
+    // * @param sort
+    // * the fields for sorting roles
+    // * @param order
+    // * the order for sorting roles
+    // * @param request
+    // * the request
+    // * @return the petition response
+    // */
+    // @RequestMapping(value = "/users/roles/list", method = RequestMethod.GET)
+    // public String listRoles(Map<String, Object> map, Principal principal,
+    // String p, String sort, String order, HttpServletRequest request) {
+    // String userMsg = "";
+    // Locale locale = RequestContextUtils.getLocale(request);
+    // if (principal != null) {
+    // User loggedUser = userService
+    // .getUserByUsername(principal.getName());
+    // userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+    // }
+    // PagedListHolder<Role> pagedListHolder = new PagedListHolder<Role>(
+    // roleService.listManageableRoles(sort, order));
+    // String sortValue = (sort == null) ? DEFAULT_ROLE_SORT : sort;
+    // String orderValue = (order == null) ? DEFAULT_ROLE_ORDER : order;
+    // map.put("userMsg", userMsg);
+    // map.put("sort", sortValue);
+    // map.put("order", orderValue);
+    // int page = 0;
+    // if (p != null) {
+    // try {
+    // page = Integer.parseInt(p);
+    // } catch (NumberFormatException e) {
+    // e.printStackTrace();
+    // }
+    // }
+    // pagedListHolder.setPage(page);
+    // pagedListHolder.setPageSize(rolePageSize);
+    // map.put("pagedListHolder", pagedListHolder);
+    //
+    // return "roles";
     // }
 
     /**

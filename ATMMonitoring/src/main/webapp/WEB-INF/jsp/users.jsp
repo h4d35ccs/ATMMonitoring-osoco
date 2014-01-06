@@ -5,6 +5,16 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
+<%
+    String[] userSortColumns = { "username" , "firstname", "lastname" };
+	String[] userNotSortColumns = { "role", "bankCompany" };
+    request.setAttribute("userSortColumns", userSortColumns);
+    request.setAttribute("userNotSortColumns", userNotSortColumns);
+
+    String[] roleSortColumns = { "name"};
+    request.setAttribute("roleSortColumns", roleSortColumns);
+%>
+
 <t:osoco-wrapper titleCode="label.usersManager" userMsg="${userMsg}"  section="users">
 
 	<jsp:attribute name="header">
@@ -17,6 +27,10 @@
             $("#users tbody tr").click(function(event) {
                 var userUrl = $(this).find("a").attr("href");
                 document.location.href = userUrl;
+            });
+            $("#roles tbody tr").click(function(event) {
+                var roleUrl = $(this).find("a").attr("href");
+                document.location.href = roleUrl;
             });
         });
     </script>
@@ -44,49 +58,146 @@
 			</h1>
 
 			<h2>
-				${pagedListHolder.source.size()}
+				${pagedListHolder1.source.size()}
 				<spring:message code="label.users"/>
 			</h2>
 
-			<c:if  test="${empty pagedListHolder.pageList}">
+			<c:if  test="${empty pagedListHolder1.pageList}">
 				<div class="message">
 					<p>
 						<spring:message code="label.user.noUsers"/>
 					</p>
 				</div>
 			</c:if>
-			<c:if  test="${!empty pagedListHolder.pageList}">
-					<div class="margin-box">
-						<t:usersTable users="${pagedListHolder.pageList}"
-                                           baseUrl="users/list"/>
-					</div>
+			<c:if  test="${!empty pagedListHolder1.pageList}">
+				<div class="margin-box">
+					
+					<table class="link">
+					  <thead>
+					  <tr>
+					    <!--th></th-->
+					    <c:forEach items="${userSortColumns}" var="column">
+					      <c:set var="isColumnSorted" value="${column.equals(sort1)}"/>
+					      <c:set var="orderValue" value="${(isColumnSorted && 'asc'.equals(order1)) ? 'desc' : 'asc'}"/>
+					      <c:if test="${isColumnSorted}">
+					        <c:set var="sortClass" value="${('asc'.equals(order1)) ? 'top' : 'bottom'}"/>
+					      </c:if>
+					      <c:if test="${!isColumnSorted}">
+					        <c:set var="sortClass" value=""/>
+					      </c:if>
+					      <th class="order ${sortClass}"><a href="users/list?p2=${pagedListHolder2.page}&sort2=${sort2}&order2=${order2}&p1=${pagedListHolder1.page}&sort1=${column}&order1=${orderValue}"><spring:message code="label.user.${column}"/></a></th>
+					    </c:forEach>
+					    <c:forEach items="${userNotSortColumns}" var="column">
+					    	<th><spring:message code="label.user.${column}"/></th>
+					    </c:forEach>
+					  </tr>
+					  </thead>
+					  <tbody>
+					  <c:forEach items="${pagedListHolder1.pageList}" var="user">
+					    <tr>
+					      <td><a href="users/details/${user.id}">${user.username}</a></td>
+					      <td>${user.firstname}</td>
+						  <td>${user.lastname}</td>
+					      <td>${user.role.name}</td>
+					      <td>${user.bankCompany.name}</td>
+					    </tr>
+					  </c:forEach>
+					  </tbody>
+					</table>
 				</div>
 				<!-- /table_buttons -->
 
 				<div class="pagination">
 					<div class="t_number">
 						<span class="text">
-							${pagedListHolder.source.size()}
+							${pagedListHolder1.source.size()}
 							<spring:message code="label.users"/>
 						</span>
 
 					</div>
 
 					<div class="p_number">
-						<c:if test="${pagedListHolder.getPageCount() >
+						<c:if test="${pagedListHolder1.getPageCount() >
 							1 }">
 							<span class="text">
 								<spring:message code="label.page"/>
 							</span>
 
-							<t:paging pagedListHolder="${pagedListHolder}" pagedLink="users/list?p=~&sort=${sort}&order=${order}"/>
-						</div>
-					</c:if>
+							<t:paging pagedListHolder="${pagedListHolder1}" pagedLink="users/list?p1=~&p2=${pagedListHolder2.page}&sort1=${sort1}&order1=${order1}&sort2=${sort2}&order2=${order2}"/>
+						</c:if>
+					</div>
+	
 				</div>
+	
+			</c:if>
+		
+			<h1>
+				<spring:message code="label.roles"/>
+			</h1>
 
-			</div>
+			<h2>
+				${pagedListHolder2.source.size()}
+				<spring:message code="label.roles"/>
+			</h2>
 
-		</c:if>
+			<c:if  test="${empty pagedListHolder2.pageList}">
+				<div class="message">
+					<p>
+						<spring:message code="label.role.noRoles"/>
+					</p>
+				</div>
+			</c:if>
+			<c:if  test="${!empty pagedListHolder2.pageList}">
+				<div class="margin-box">
+					<table class="link">
+					  <thead>
+					  <tr>
+					    <!--th></th-->
+					    <c:forEach items="${roleSortColumns}" var="column">
+					      <c:set var="isColumnSorted" value="${column.equals(sort2)}"/>
+					      <c:set var="orderValue" value="${(isColumnSorted && 'asc'.equals(order2)) ? 'desc' : 'asc'}"/>
+					      <c:if test="${isColumnSorted}">
+					        <c:set var="sortClass" value="${('asc'.equals(order2)) ? 'top' : 'bottom'}"/>
+					      </c:if>
+					      <c:if test="${!isColumnSorted}">
+					        <c:set var="sortClass" value=""/>
+					      </c:if>
+					      <th class="order ${sortClass}"><a href="users/list?p1=${pagedListHolder1.page}&sort1=${sort1}&order1=${order1}&p2=${pagedListHolder2.page}&sort2=${column}&order2=${orderValue}"><spring:message code="label.role.${column}"/></a></th>
+					    </c:forEach>
+					  </tr>
+					  </thead>
+					  <tbody>
+					  <c:forEach items="${pagedListHolder2.pageList}" var="role">
+					    <tr>
+					      <td><a href="users/roles/details/${role.id}">${role.name}</a></td>
+					    </tr>
+					  </c:forEach>
+					  </tbody>
+					</table>
+				</div>
+				<!-- /table_buttons -->
+
+				<div class="pagination">
+					<div class="t_number">
+						<span class="text">
+							${pagedListHolder2.source.size()}
+							<spring:message code="label.roles"/>
+						</span>
+
+					</div>
+
+					<div class="p_number">
+						<c:if test="${pagedListHolder2.getPageCount() >
+							1 }">
+							<span class="text">
+								<spring:message code="label.page"/>
+							</span>
+
+							<t:paging pagedListHolder="${pagedListHolder2}" pagedLink="users/list?p1=${pagedListHolder1.page}&p2=~&sort1=${sort1}&order1=${order1}&sort2=${sort2}&order2=${order2}"/>
+						</c:if>
+					</div>
+				</div>
+			</c:if>
 
 		<div class="hide">
 			<div id="help_pop" class="inline">
@@ -132,9 +243,6 @@
 				<c:import url="/resources/help/${localeCode}/terminals.html" />
 			</div>
 		</div>
-	</article>
-</div>
-<!-- /primary -->
 </div>
 
 </jsp:body>

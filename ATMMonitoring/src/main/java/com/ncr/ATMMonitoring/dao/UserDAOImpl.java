@@ -50,8 +50,11 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 		+ user.getUsername());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsers()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsers(java.lang.String,
+     * java.lang.String)
      */
     @Override
     public List<User> listUsers(String sort, String order) {
