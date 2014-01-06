@@ -80,7 +80,7 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
      */
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks,
-	    String order, String sort) {
+	    String sort, String order) {
 	Criterion restriction = (banks.size() > 0) ? Restrictions.or(
 		Restrictions.in("bankCompany", banks),
 		Restrictions.isNull("bankCompany")) : Restrictions
@@ -89,11 +89,11 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	Criteria criteria = sessionFactory.getCurrentSession()
 		.createCriteria(Terminal.class).add(restriction);
 
-	if ((order != null) && (sort != null)) {
-	    if ("asc".equals(sort)) {
-		criteria.addOrder(Order.asc(order));
+	if ((sort != null) && (order != null)) {
+	    if ("asc".equals(order)) {
+		criteria.addOrder(Order.asc(sort));
 	    } else {
-		criteria.addOrder(Order.desc(order));
+		criteria.addOrder(Order.desc(sort));
 	    }
 	}
 	return criteria.list();

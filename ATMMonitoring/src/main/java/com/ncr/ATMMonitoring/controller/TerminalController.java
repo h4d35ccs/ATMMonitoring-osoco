@@ -259,12 +259,9 @@ public class TerminalController {
 	    String p, String sort, String order, HttpServletRequest request) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-	boolean canAdd = false, canManageScheduled = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canAdd = true, canManageScheduled = true;
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	Set<Query> userQueries = null;
@@ -273,6 +270,7 @@ public class TerminalController {
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	    if ((loggedUser.getRole() != null)
 		    && (canAlterTerminalsRoles.contains("'ROLE_"
 			    + loggedUser.getRole().getName().toUpperCase()
@@ -356,7 +354,9 @@ public class TerminalController {
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
-	boolean canEdit = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canEdit = true;
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
@@ -424,7 +424,9 @@ public class TerminalController {
 	    HttpServletRequest request, Principal principal) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	boolean canAdd = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canAdd = true;
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
@@ -485,7 +487,9 @@ public class TerminalController {
 	}
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	boolean canAdd = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canAdd = true;
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
@@ -604,7 +608,9 @@ public class TerminalController {
 	}
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	boolean canEdit = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canEdit = true;
 	List<Terminal> terminals = new ArrayList<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
@@ -705,7 +711,9 @@ public class TerminalController {
 	}
 	String sortValue = (sort == null) ? DEFAULT_SORT : sort;
 	String orderValue = (order == null) ? DEFAULT_ORDER : order;
-	boolean canAdd = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canAdd = true;
 	//boolean canManageScheduled = false;
 	if (principal != null) {
 	    User loggedUser = userService

@@ -49,11 +49,23 @@ public interface UserDAO {
     public List<User> listUsersByBankCompany(BankCompany bank);
 
     /**
-     * Lists all users.
+     * Lists all users with the default sorting.
      * 
      * @return the list
      */
     public List<User> listUsers();
+
+    /**
+     * Lists all users.
+     * 
+     * @param sort
+     *            the sort
+     * @param order
+     *            the order
+     * 
+     * @return the list
+     */
+    public List<User> listUsers(String order, String sort);
 
     /**
      * Gets the user with the given id.

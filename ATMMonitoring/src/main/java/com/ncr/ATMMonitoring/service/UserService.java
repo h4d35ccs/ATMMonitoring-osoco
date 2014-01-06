@@ -58,11 +58,23 @@ public interface UserService extends UserDetailsService {
     public User getUserByUsername(String username);
 
     /**
-     * List users.
+     * List users with the default sorting.
      * 
      * @return the user list
      */
     public List<User> listUsers();
+
+    /**
+     * List users.
+     * 
+     * @param sort
+     *            the sort
+     * @param order
+     *            the order
+     * 
+     * @return the user list
+     */
+    public List<User> listUsers(String sort, String order);
 
     /**
      * List users by bank company.

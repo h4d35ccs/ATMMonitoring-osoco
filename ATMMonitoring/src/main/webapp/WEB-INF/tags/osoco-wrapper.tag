@@ -85,11 +85,9 @@
                 <li class="schedule">
                     <a href="terminals/schedules/list"><span><spring:message code="label.menu.scheduler"/></span></a>
                 </li>
-                <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
-                    <li class="users">
-                        <a href="users"><span><spring:message code="label.menu.users"/></span></a>
-                    </li>
-                </sec:authorize>
+                <li class="users">
+                    <a href="users"><span><spring:message code="label.menu.users"/></span></a>
+                </li>
                 <li class="help">
                     <a href="help"><span><spring:message code="label.menu.help"/></span></a>
                 </li>

@@ -68,8 +68,22 @@ public class UserServiceImpl implements UserService {
 	return userDAO.listUsers();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.UserService#listUsersByBankCompanies(java.util.Set)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.service.UserService#listUsers()
+     */
+    @Override
+    public List<User> listUsers(String sort, String order) {
+	return userDAO.listUsers(sort, order);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.UserService#listUsersByBankCompanies(java
+     * .util.Set)
      */
     @Override
     public List<User> listUsersByBankCompanies(Set<BankCompany> banks) {
