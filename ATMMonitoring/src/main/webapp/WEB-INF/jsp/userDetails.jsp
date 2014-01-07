@@ -1,186 +1,152 @@
+<%@taglib uri="http://www.ncr.com/tags" prefix="ncr"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
 <t:osoco-wrapper titleCode="label.usersManager" userMsg="${userMsg}" section="users">
- 
-<div class="box">
-<h2><spring:message code="label.userDetails"/></h2>
 
-<div class="margin-box">
-<form:form method="post" action="users/update.html" commandName="user">
-	<form:hidden path="id"/>
-	<form:hidden path="password"/>
+<jsp:attribute name="header">
+    <script type="text/javascript">
+        $(function() {
+            $("#editUserButton").click(function(event) {
+                $("#showUser").hide();
+                $("#editForm").show();
+	        });
+            $("#cancelEdit").click(function(event) {
+                $("#showUser").show();
+                $("#editForm").hide();
+	        });
+	    });
+    </script>
+</jsp:attribute>
 
-	<c:choose>
-	<c:when test="${user.role.manageable || sameUser}">
-    <table class="form">
-    <tr>
-        <td class="header first-header"><form:label path="firstname"><i><spring:message code="label.user.firstName"/></i></form:label></td>
-        <td><form:input class='form-tf-grey' path="firstname" maxlength="30"/></td>
-    </tr>
-    <tr>
-        <td class="header"><form:label path="lastname"><i><spring:message code="label.user.lastName"/></i></form:label></td>
-        <td><form:input class='form-tf-grey' path="lastname" maxlength="60"/></td>
-    </tr>
-    <tr>
-        <td class="header"><form:label path="username"><i><spring:message code="label.user.username"/> *</i></form:label></td>
-        <td><form:input class='form-tf-grey' path="username" maxlength="20"/></td>
-        <td class="error-td"><form:errors path="username"/>
-        <c:if test="${duplicatedUsername == true}">
-        <spring:message code="label.user.duplicatedUsername"/>
-        </c:if></td>
-    </tr>
-	<c:choose>
-	<c:when test="${!user.role.manageable}">
-    <tr>
-    	<td class="header last-header"><form:label path="role"><i><spring:message code="label.user.role"/> *</i></form:label></td>
-    	<td>
-    		<form:select path="role.id">
-				<form:option value="${user.role.id}" label="${user.role.name}" />
-			</form:select>
-		</td>
-	</tr>
-	</c:when>
-	<c:otherwise>
-    <tr>
-    	<td class="header last-header"><form:label path="role"><i><spring:message code="label.user.role"/> *</i></form:label></td>
-    	<td>
-    		<form:select path="role.id" style="width: 100%;">
-				<form:options items="${manageableRolesList}" itemValue="id" itemLabel="name" />
-			</form:select>
-		</td>
-	</tr>
-	</c:otherwise>
-	</c:choose>
-    <tr>
-		<td colspan="2">
-		<font size="2"><i><spring:message code="label.requiredFields"/></i></font>
-		<input type="submit" class="form-submit" value="<spring:message code="label.user.updateUser"/>" style="float: right;"/>
-		</td>
-    </tr>
-	</table>
-    </c:when>
-	<c:otherwise>
-    <table class="form">
-    <tr>
-        <td class="header first-header"><form:label path="firstname"><i><spring:message code="label.user.firstName"/></i></form:label></td>
-        <td><form:input class='form-tf-grey' path="firstname" maxlength="30" readonly="true"/></td>
-    </tr>
-    <tr>
-        <td class="header"><form:label path="lastname"><i><spring:message code="label.user.lastName"/></i></form:label></td>
-        <td><form:input class='form-tf-grey' path="lastname" maxlength="60" readonly="true"/></td>
-    </tr>
-    <tr>
-        <td class="header"><form:label path="username"><i><spring:message code="label.user.username"/></i></form:label></td>
-        <td><form:input class='form-tf-grey' path="username" maxlength="20" readonly="true"/></td>
-    </tr>
-    <tr>
-    	<td class="header last-header"><form:label path="role"><i><spring:message code="label.user.role"/></i></form:label></td>
-    	<td>
-    		<form:select path="role.id" disabled="true" style="width: 100%;">
-				<form:option value="${user.role.id}" label="${user.role.name}" />
-			</form:select>
-		</td>
-	</tr>
-    <tr>
-		<td colspan="2">
-		<font size="2"><i><spring:message code="label.requiredFields"/></i></font>
-		<input type="submit" class="form-submit" disabled="disabled" value="<spring:message code="label.user.updateUser"/>" style="float: right;"/>
-		</td>
-    </tr>
-	</table>
-	</c:otherwise>
-	</c:choose>
-</form:form>
-</div>
- 
-<div class="margin-box">
-<form:form method="post" action="users/updatepw.html" commandName="user">
-	<form:hidden path="id"/>
-	<form:hidden path="firstname"/>
-	<form:hidden path="lastname"/>
-	<form:hidden path="username"/>
-	<form:hidden path="role.id"/>
-	
-	<c:choose>
-	<c:when test="${user.role.manageable || sameUser}">
-	    <table class="form">
-	    <tr>
-	        <td class="header first-header"><form:label path="password"><i><spring:message code="label.user.password"/></i></form:label></td>
-	        <td><form:password id="password1" class='form-tf-grey' path="password" maxlength="20" autocomplete="off" onkeyup="checkPasswordRetype()"/></td><td><font color="red"><form:errors path="password"/></font></td>
-	    </tr>
-	    <tr>
-	        <td class="header last-header"><i><spring:message code="label.user.retypePassword"/></i></td>
-	        <td><input class='form-tf-grey' id="password2" type="password" maxlength="20" onkeyup="checkPasswordRetype()"/></td>
-	        <td id="retype-password-error" class="error-td" style="display: none;"><spring:message code="label.user.retypePasswordError"/></td>
-	    </tr>
-	    <tr>
-			<td colspan="2">
-				<input id="form-submit" type="submit" class="form-submit" value="<spring:message code="label.user.updatePassword"/>" style="float: right;"/>
-			</td>
-	    </tr>
-		</table>
-	</c:when>
-	<c:otherwise>
-	    <table class="form">
-	    <tr>
-	        <td class="header first-header"><form:label path="password"><i><spring:message code="label.user.password"/></i></form:label></td>
-	        <td><form:password path="password" class='form-tf-grey' maxlength="20" autocomplete="off" disabled="true"/></td>
-	    </tr>
-	    <tr>
-	        <td class="header last-header"><i><spring:message code="label.user.retypePassword"/></i></td>
-	        <td><input class='form-tf-grey' id="password2" disabled="disabled" "password" maxlength="20" onkeyup="checkPasswordRetype()"/></td>
-	        <td id="retype-password-error" class="error-td" style="display: none;"><spring:message code="label.user.retypePasswordError"/></td>
-	    </tr>
-	    <tr>
-			<td colspan="2">
-				<input type="submit" class="form-submit" disabled="disabled" value="<spring:message code="label.user.updatePassword"/>" style="float: right;"/>
-			</td>
-	    </tr>
-		</table>
-	</c:otherwise>
-	</c:choose>
-</form:form>
-</div>
+<jsp:body>
+			<div id="header_g">
+					<nav id="breadcrumb">
+						<ul>
+							<li>
+								<a href="dashboard"><spring:message code="breadcrumb.home"/></a>
+							</li>
+							<li>
+								<a href="users"><spring:message code="breadcrumb.users"/></a>
+							</li>
+							<li><spring:message code="label.user"/> ${user.username}</li>
+						</ul>
+					</nav>
+				</div>
+			<div class="content">
+				<h1><spring:message code="label.user.username"/> ${user.username}</h1>
 
-<div class="margin-box">
-<form action="users/delete/${user.id}" method="GET">
-	<div>
-	<c:choose>
-	<c:when test="${user.role.manageable}">
-		<input type="submit" class="form-submit" value="<spring:message code="label.user.deleteUser"/>">
-	</c:when>
-	<c:otherwise>
-		<input type="submit" class="form-submit" disabled="disabled" value="<spring:message code="label.user.deleteUser"/>">
-	</c:otherwise>
-	</c:choose>
-	</div>
-</form>
-</div>
-</div>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#form-submit').addClass('ui-state-disabled');
-		$('#form-submit').addClass('ui-button-disabled');
-	});
-	function checkPasswordRetype() {
-		if (($("#password1").val() == $("#password2").val())
-				&& ($("#password1").val() != '')) {
-			$('#form-submit').prop('disabled', false);
-			$('#form-submit').removeClass('ui-state-disabled');
-			$('#form-submit').removeClass('ui-button-disabled');
-			$('#retype-password-error').css('display', 'none');
-		} else {
-			$('#form-submit').prop('disabled', true);
-			$('#form-submit').addClass('ui-state-disabled');
-			$('#form-submit').addClass('ui-button-disabled');
-			$('#retype-password-error').css('display', '');
-		}
-	};
-</script>
+				<div class="action_box data desplegable">
+					<h2 class="txt last"><spring:message code="label.userDetails"/></h2>
+					<div class="collapsible last">
+							<c:if test="${(canEdit == true) && ((user.role == null) || (user.role.manageable))}">
+						      <div id="editForm" class="${errors != null ? '': 'hide'}">
+								<form:form method="post" action="users/update" commandName="user">
+									<form:hidden path="id"/>
+									<div class="ul_data ul_data_wide editable">
+										<ul>
+											<li> <strong><form:label path="username">
+														<spring:message code="label.user.username"/>
+													</form:label></strong>
+
+												<form:input class='form-tf-grey' readonly='true' path="username" maxlength="50"/>
+											</li>
+											<li> <strong><form:label path="firstname">
+														<spring:message code="label.user.firstname"/>
+													</form:label></strong>
+
+												<form:input class='form-tf-grey' readonly='true' path="firstname" maxlength="50"/>
+											</li>
+											<li> <strong><form:label path="lastname">
+														<spring:message code="label.user.lastname"/>
+													</form:label></strong>
+
+												<form:input class='form-tf-grey' readonly='true' path="lastname" maxlength="50"/>
+											</li>
+											<li> <strong><form:label path="bankCompany.name">
+														<spring:message code="label.user.bankCompany"/>
+													</form:label></strong>
+
+												<form:select class='form-tf-grey' path="bankCompany">
+													<form:option label="${user.bankCompany.name}" value="${user.bankCompany.id}"/>
+												</form:select>
+											</li>
+											<li> <strong><form:label path="role.name">
+														<spring:message code="label.user.role"/>
+													</form:label></strong>
+		
+													<form:select class='form-tf-grey' path="role">
+														<form:option label="" value=""/>
+														<form:options items="${manageableRolesList}" itemValue="id" itemLabel="name"/>
+													</form:select>
+											</li>
+										</ul>
+									<div class="botonera">
+
+										<input type="submit" class="btn" value="<spring:message code="label.user.updateUser"/>"/>
+	                                    <input id="cancelEdit" type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
+									</div>
+
+									</div>
+								</form:form>
+						            </div>
+							</c:if>
+
+								<div id="showUser"  class="ul_data ul_data_wide ${errors  != null ? 'hide': ''}">
+									<ul>
+										<li>
+											<strong>
+												<spring:message code="label.user.username"/>
+											</strong>
+											${user.username}
+										</li>
+										<li>
+											<strong>
+												<spring:message code="label.user.firstname"/>
+											</strong>
+											${user.firstname}
+										</li>
+										<li>
+											<strong>
+												<spring:message code="label.user.lastname"/>
+											</strong>
+											${user.lastname}
+										</li>
+										<li>
+											<strong>
+												<spring:message code="label.user.bankCompany"/>
+											</strong>
+											${user.bankCompany.name}
+										</li>
+										<li>
+											<strong>
+												<spring:message code="label.user.role"/>
+											</strong>
+											${user.role.name}
+										</li>
+									</ul>
+
+								<c:if test="${(canEdit == true) && ((user.role == null) || (user.role.manageable))}">
+									<div class="botonera">
+										<button id="editUserButton" class="btn">Editar Usuario</button>
+									</div>
+								</c:if>
+
+								</div>
+								<!-- //ul-data -->
+
+					</div>
+					<!-- // collapsible -->
+				</div>
+			</div>
+
+</jsp:body>
 
 </t:osoco-wrapper>

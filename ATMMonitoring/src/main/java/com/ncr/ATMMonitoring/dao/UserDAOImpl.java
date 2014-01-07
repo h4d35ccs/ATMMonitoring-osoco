@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
+import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.User;
 
 /**
@@ -48,12 +50,36 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 		+ user.getUsername());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsers(java.lang.String,
+     * java.lang.String)
+     */
+    @Override
+    public List<User> listUsers(String sort, String order) {
+	Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+		User.class);
+
+	if ((sort != null) && (order != null)) {
+	    if ("asc".equals(order)) {
+		criteria.addOrder(Order.asc(sort));
+	    } else {
+		criteria.addOrder(Order.desc(sort));
+	    }
+	}
+	return criteria.list();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsers()
      */
     @Override
     public List<User> listUsers() {
-	return sessionFactory.getCurrentSession().createCriteria(User.class)
+	return sessionFactory.getCurrentSession()
+		.createCriteria(User.class)
 		.addOrder(Order.asc("lastname"))
 		.addOrder(Order.asc("username")).list();
     }

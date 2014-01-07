@@ -40,25 +40,6 @@ public class XfsComponentController {
     @Autowired
     private UserService userService;
 
-    // @InitBinder
-    // public void binder(WebDataBinder binder) {
-    // binder.registerCustomEditor(Date.class, new CustomDateEditor(
-    // new SimpleDateFormat("dd/MM/yyyy"), true));
-    // }
-    //
-    // @RequestMapping("/terminals/xfsComponents/list")
-    // public String listXfsComponents(Map<String, Object> map) {
-    // map.put("xfsComponent", new XfsComponent());
-    // map.put("xfsComponentList", xfsComponentService.listXfsComponents());
-    //
-    // return "xfsComponents";
-    // }
-    //
-    // @RequestMapping(value = { "/terminals/xfsComponents" })
-    // public String redirectToXfsComponents() {
-    // return "redirect:/terminals/xfsComponents/list";
-    // }
-
     /**
      * Xfs component details URL.
      * 
@@ -156,21 +137,5 @@ public class XfsComponentController {
 
 	return "jxfsComponentDetails";
     }
-    // @RequestMapping(value = "/terminals/xfsComponents/add", method =
-    // RequestMethod.POST)
-    // public String addXfsComponent(
-    //
-    // @ModelAttribute("xfsComponent") XfsComponent xfsComponent,
-    // BindingResult result) {
-    //
-    // try {
-    // xfsComponentService.addXfsComponent(xfsComponent);
-    // } catch (GeneralSecurityException e) { // TODO Auto-generated catch
-    // // block
-    // e.printStackTrace();
-    // }
-    //
-    // return "redirect:/terminals/xfsComponents/list";
-    // }
 
 }

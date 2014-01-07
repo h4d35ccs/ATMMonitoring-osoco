@@ -1113,6 +1113,12 @@ h6.txt.content_hide.last {
   float: right;
   width: 75%;
 }
+/* line 109, ../sass/_action_box.scss */
+#main .action_box.data .ul_data_wide, #cboxContent .action_box.data .ul_data_wide, #main .data.pagination .ul_data_wide, #cboxContent .data.pagination .ul_data_wide {
+  margin-top: 2em;
+  float: right;
+  width: 100%;
+}
 /* line 113, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul, #cboxContent .action_box.data .ul_data > ul, #main .data.pagination .ul_data > ul, #cboxContent .data.pagination .ul_data > ul {
   overflow: hidden;
@@ -1780,7 +1786,7 @@ table.query-form td.btn_add #cboxContent .pagination .save,
   float: right;
 }
 /* line 172, ../sass/_table.scss */
-table.link tr {
+th.order, table.link tbody tr {
   cursor: pointer;
 }
 /* line 174, ../sass/_table.scss */

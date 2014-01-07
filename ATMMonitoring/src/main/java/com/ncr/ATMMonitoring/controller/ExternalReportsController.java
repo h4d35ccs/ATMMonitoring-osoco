@@ -20,7 +20,7 @@ import com.ncr.ATMMonitoring.service.UserService;
  * The Class externalreportsController.
  */
 @Controller
-public class externalreportsController {  
+public class ExternalReportsController {  
     
     /** The user service. */
     @Autowired

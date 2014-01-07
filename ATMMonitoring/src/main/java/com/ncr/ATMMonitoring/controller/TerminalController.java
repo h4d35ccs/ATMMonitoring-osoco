@@ -116,9 +116,6 @@ public class TerminalController {
     @Autowired
     private LocationService locationService;
 
-    // @Autowired
-    // private SoftwareService softwareService;
-
     /**
      * Binds custom property editors.
      * 
@@ -135,12 +132,8 @@ public class TerminalController {
     /**
      * Request query results' terminals update URL.
      * 
-     * @param map
-     *            the map
      * @param queryId
      *            the query id
-     * @param request
-     *            the request
      * @param principal
      *            the principal
      * @param redirectAttributes
@@ -148,8 +141,8 @@ public class TerminalController {
      * @return the petition response
      */
     @RequestMapping(value = "/terminals/request", method = RequestMethod.GET)
-    public String requestTerminalsUpdate(Map<String, Object> map,
-	    String queryId, HttpServletRequest request, Principal principal,
+    public String requestTerminalsUpdateByQuery(String queryId,
+	    Principal principal,
 	    RedirectAttributes redirectAttributes) {
 	if ((queryId != null) && (principal != null)) {
 	    User loggedUser = userService
@@ -186,19 +179,14 @@ public class TerminalController {
 	    e.printStackTrace();
 	}
 
-	map.clear();
 	return "redirect:/terminals/list";
     }
 
     /**
-     * Request terminal update URL.
+     * Request terminal update by id URL.
      * 
      * @param terminalId
      *            the terminal id
-     * @param map
-     *            the map
-     * @param request
-     *            the request
      * @param redirectAttributes
      *            the redirect attributes
      * @param principal
@@ -206,13 +194,11 @@ public class TerminalController {
      * @return the petition response
      */
     @RequestMapping("/terminals/request/{terminalId}")
-    public String requestTerminalUpdate(
+    public String requestTerminalUpdateById(
 	    @PathVariable("terminalId") Integer terminalId,
-	    Map<String, Object> map, HttpServletRequest request,
 	    RedirectAttributes redirectAttributes, Principal principal) {
 	Terminal terminal = terminalService.getTerminal(terminalId);
 	if (terminal == null) {
-	    map.clear();
 	    return "redirect:/terminals/list";
 	}
 	// try {
@@ -248,7 +234,6 @@ public class TerminalController {
 	    e.printStackTrace();
 	}
 
-	map.clear();
 	return "redirect:/terminals/details/" + terminalId;
     }
 
@@ -274,12 +259,9 @@ public class TerminalController {
 	    String p, String sort, String order, HttpServletRequest request) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-	boolean canAdd = false, canManageScheduled = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canAdd = true, canManageScheduled = true;
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	Set<Query> userQueries = null;
@@ -288,6 +270,7 @@ public class TerminalController {
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	    if ((loggedUser.getRole() != null)
 		    && (canAlterTerminalsRoles.contains("'ROLE_"
 			    + loggedUser.getRole().getName().toUpperCase()
@@ -371,7 +354,9 @@ public class TerminalController {
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
-	boolean canEdit = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canEdit = true;
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
@@ -396,16 +381,6 @@ public class TerminalController {
 	map.put("userMsg", userMsg);
 	map.put("canEdit", canEdit);
 	map.put("terminal", terminal);
-	// Code with support for Terminal Config AUTHORS
-	//
-	// TerminalConfig newConfig = new TerminalConfig();
-	// if (terminal.getCurrentConfig() != null) {
-	// newConfig.setSoftware(terminal.getCurrentConfig().getSoftware());
-	// }
-	// newConfig.getTerminal().setId(terminalId);
-	// map.put("newConfig", newConfig);
-	//
-	// map.put("softwareList", softwareService.listSoftware());
 
 	return "terminalDetails";
     }
@@ -424,10 +399,7 @@ public class TerminalController {
      * @return the petition response
      */
     @RequestMapping(value = "/terminals/import", method = RequestMethod.POST)
-    public String importTerminal(
-	    @RequestParam("file") CommonsMultipartFile file,
-	    Map<String, Object> map, HttpServletRequest request,
-	    Principal principal) {
+    public String importTerminal(@RequestParam("file") CommonsMultipartFile file) {
 
 	boolean importResult = false;
 	if (file != null) {
@@ -450,12 +422,16 @@ public class TerminalController {
     @RequestMapping(value = "/terminals/new", method = RequestMethod.GET)
     public String viewNewTerminal(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
+	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	boolean canAdd = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canAdd = true;
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	    if ((loggedUser.getRole() != null)
 		    && (canAlterTerminalsRoles.contains("'ROLE_"
 			    + loggedUser.getRole().getName().toUpperCase()
@@ -470,6 +446,7 @@ public class TerminalController {
 	map.put("banksList", bankCompanies);
 	map.put("canAdd", canAdd);
 	map.put("terminal", new Terminal());
+	map.put("userMsg", userMsg);
 
 	return "newTerminal";
     }
@@ -510,7 +487,9 @@ public class TerminalController {
 	}
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	boolean canAdd = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canAdd = true;
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
@@ -544,12 +523,13 @@ public class TerminalController {
 		e.printStackTrace();
 	    }
 	}
-	pagedListHolder.setPage(page);
-	pagedListHolder.setPageSize(pageSize);
-	map.put("pagedListHolder", pagedListHolder);
-	map.put("banksList", bankCompanies);
-	map.put("installationsList", installationService.listInstallations());
 	if (result.hasErrors()) {
+	    pagedListHolder.setPage(page);
+	    pagedListHolder.setPageSize(pageSize);
+	    map.put("pagedListHolder", pagedListHolder);
+	    map.put("banksList", bankCompanies);
+	    map.put("installationsList",
+		    installationService.listInstallations());
 	    map.put("userMsg", userMsg);
 	    map.put("canAdd", canAdd);
 	    return "terminals";
@@ -628,7 +608,9 @@ public class TerminalController {
 	}
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	boolean canEdit = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canEdit = true;
 	List<Terminal> terminals = new ArrayList<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
@@ -729,7 +711,10 @@ public class TerminalController {
 	}
 	String sortValue = (sort == null) ? DEFAULT_SORT : sort;
 	String orderValue = (order == null) ? DEFAULT_ORDER : order;
-	boolean canAdd = false, canManageScheduled = false;
+	// TODO
+	// Actualizar los permisos
+	boolean canAdd = true;
+	//boolean canManageScheduled = false;
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
@@ -739,18 +724,18 @@ public class TerminalController {
 			    + "'"))) {
 		canAdd = true;
 	    }
-	    if ((loggedUser.getRole() != null)
-		    && (canManageScheduledUpdatesRoles.contains("'ROLE_"
-			    + loggedUser.getRole().getName().toUpperCase()
-			    + "'"))) {
-		canManageScheduled = true;
-	    }
+	    // if ((loggedUser.getRole() != null)
+	    // && (canManageScheduledUpdatesRoles.contains("'ROLE_"
+	    // + loggedUser.getRole().getName().toUpperCase()
+	    // + "'"))) {
+	    // canManageScheduled = true;
+	    // }
 	    userQueries = loggedUser.getQueries();
 	}
 	map.put("userQueries", userQueries);
 	map.put("userMsg", userMsg);
 	map.put("canAdd", canAdd);
-	map.put("canManageScheduled", canManageScheduled);
+	// map.put("canManageScheduled", canManageScheduled);
 	Query query = null;
 	List<Terminal> terminals = null;
 	if (queryId != null) {
@@ -863,15 +848,16 @@ public class TerminalController {
 	if (photo != null) {
 	    terminalModel.setPhoto(photo.getBytes());
 	}
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
 
 	if (result.hasErrors()) {
+	    String userMsg = "";
+	    Locale locale = RequestContextUtils.getLocale(request);
+	    if (principal != null) {
+		User loggedUser = userService.getUserByUsername(principal
+			.getName());
+		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    }
+
 	    PagedListHolder<TerminalModel> pagedListHolder = new PagedListHolder<TerminalModel>(
 		    terminalModelService.listTerminalModels());
 	    map.put("userMsg", userMsg);
@@ -967,15 +953,15 @@ public class TerminalController {
 	    terminalModel.setPhoto(photo.getBytes());
 	}
 
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-	map.put("userMsg", userMsg);
 	if (result.hasErrors()) {
+	    String userMsg = "";
+	    Locale locale = RequestContextUtils.getLocale(request);
+	    if (principal != null) {
+		User loggedUser = userService.getUserByUsername(principal
+			.getName());
+		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    }
+	    map.put("userMsg", userMsg);
 	    return "terminalModelDetails";
 	}
 
@@ -998,14 +984,11 @@ public class TerminalController {
      * 
      * @param terminalModelId
      *            the terminal model id
-     * @param principal
-     *            the principal
      * @return the petition response
      */
     @RequestMapping("/terminals/models/delete/{terminalModelId}")
     public String deleteTerminalModel(
-	    @PathVariable("terminalModelId") Integer terminalModelId,
-	    Principal principal) {
+	    @PathVariable("terminalModelId") Integer terminalModelId) {
 	TerminalModel terminalModel = terminalModelService
 		.getTerminalModel(terminalModelId);
 	if (terminalModel != null) {
@@ -1025,9 +1008,9 @@ public class TerminalController {
      * @param response
      *            the response
      * @param width
-     *            the width
+     *            the required image width
      * @param height
-     *            the height
+     *            the required image height
      * @return the terminal model image
      */
     @RequestMapping(value = { "terminals/models/image/{terminalModelId}" })
@@ -1098,7 +1081,8 @@ public class TerminalController {
 	    if (queryId != null) {
 		Query query = queryService.getQuery(queryId);
 		if (query != null) {
-		    logger.debug("Retriving terminals from query ${query.id} for csv export");
+		    logger.debug("Retrieving terminals from query " + queryId
+			    + " for csv export");
 		    terminals = queryService.executeQuery(query,
 			    RequestContextUtils.getLocale(request));
 		}

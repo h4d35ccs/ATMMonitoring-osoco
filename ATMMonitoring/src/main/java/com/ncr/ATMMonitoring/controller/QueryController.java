@@ -81,9 +81,7 @@ public class QueryController {
     @RequestMapping(value = "/queries/create", method = RequestMethod.GET)
     public String createQuery(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
-	Set<Query> userQueries = null;
 	String userMsg = "";
-
 	Locale locale = RequestContextUtils.getLocale(request);
 
 	if (principal != null) {
@@ -140,7 +138,7 @@ public class QueryController {
 
 	map.put("userMsg", userMsg);
 	map.put("query", query);
-	map.put("values", query.getComboboxes());
+	map.put("values", Query.getComboboxes());
 
 	return "queries";
 
@@ -187,7 +185,7 @@ public class QueryController {
 	    userQueries = loggedUser.getQueries();
 	}
 	PagedListHolder<Query> pagedListHolder = new PagedListHolder<Query>(
-		new ArrayList(userQueries));
+		new ArrayList<Query>(userQueries));
 	int page = 0;
 
 	pagedListHolder.setPage(page);
@@ -294,7 +292,7 @@ public class QueryController {
 	}
 
 	PagedListHolder<Query> pagedListHolder = new PagedListHolder<Query>(
-		new ArrayList(userQueries));
+		new ArrayList<Query>(userQueries));
 	int page = 0;
 	if (p != null) {
 	    try {

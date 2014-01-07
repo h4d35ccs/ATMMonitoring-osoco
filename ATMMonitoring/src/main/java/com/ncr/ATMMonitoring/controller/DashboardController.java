@@ -297,6 +297,7 @@ public class DashboardController {
 	 * @param queryResults the query results
 	 * @return the map
 	 */
+    @SuppressWarnings({ "rawtypes", "unchecked" })
 	private Map<String, List> toGoogleChartJSON(List queryResults) {
 		logger.debug("Converting query results [" + queryResults + "] into Google Charts JSON...");
 		Map<String, List> result = new HashMap<String, List>();

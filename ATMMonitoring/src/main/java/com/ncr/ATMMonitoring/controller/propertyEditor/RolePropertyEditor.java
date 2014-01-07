@@ -31,6 +31,10 @@ public class RolePropertyEditor extends PropertyEditorSupport {
      */
     @Override
     public void setAsText(final String name) {
-	setValue(roleService.getRole(Integer.valueOf(name)));
+	if ((name != null) && (name.length() > 0)) {
+	    setValue(roleService.getRole(Integer.valueOf(name)));
+	} else {
+	    setValue(null);
+	}
     }
 }

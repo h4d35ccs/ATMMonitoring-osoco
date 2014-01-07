@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Script para generar la documentación de desarrollador empleando Sphinx
-# a partir de los comentarios de JavaDoc
+# Script for generating developer doc using Sphinx
+# from the JavaDoc comments
 
 basepath=$(dirname $0)
 cd "$basepath"

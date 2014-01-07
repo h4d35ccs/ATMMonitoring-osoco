@@ -95,23 +95,4 @@ public class TerminalConfigController {
 	return "terminalConfigDetails";
     }
 
-    // Code with support for Terminal Config AUTHORS
-    //
-    // @RequestMapping(value = "/terminals/swConfigs/add", method =
-    // RequestMethod.POST)
-    // public String addTerminalConfig(
-    // @ModelAttribute("newConfig") TerminalConfig config,
-    // BindingResult result, Principal principal) {
-    // if (principal != null) {
-    // User loggedUser = userService.loadUserByUsername(principal
-    // .getName());
-    // if (loggedUser != null) {
-    // config.setStartDate(new Date());
-    // config.setAuthor(loggedUser);
-    // terminalConfigService.addTerminalConfig(config);
-    // }
-    // }
-    //
-    // return "redirect:/terminals/details/" + config.getTerminal().getId();
-    // }
 }

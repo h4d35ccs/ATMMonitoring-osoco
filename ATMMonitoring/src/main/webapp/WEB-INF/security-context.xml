@@ -6,13 +6,13 @@
 				http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
     <http use-expressions="true">
-        <intercept-url pattern="/users/**" access="hasAnyRole(${security.usersAccessAllowedRoles})"/>
+        <!-- <intercept-url pattern="/users/**" access="hasAnyRole(${security.usersAccessAllowedRoles})"/>
         <intercept-url pattern="/terminals/schedules/**" access="hasAnyRole(${security.schedulesAccessAllowedRoles})"/>
         <intercept-url pattern="/terminals/**" access="hasAnyRole(${security.terminalsAccessAllowedRoles})"/>
         <intercept-url pattern="/dashboard/**" access="hasAnyRole(${security.terminalsAccessAllowedRoles})"/>
         <intercept-url pattern="/help/**" access="hasAnyRole(${security.terminalsAccessAllowedRoles})"/>
         <intercept-url pattern="/banks/**" access="hasAnyRole(${security.banksAccessAllowedRoles})"/>
-        <intercept-url pattern="/queries/**" access="hasAnyRole(${security.queriesAccessAllowedRoles})"/>
+        <intercept-url pattern="/queries/**" access="hasAnyRole(${security.queriesAccessAllowedRoles})"/> -->
         <form-login login-page="/login"
                     default-target-url="/dashboard"
                     authentication-failure-url="/loginfailed" />

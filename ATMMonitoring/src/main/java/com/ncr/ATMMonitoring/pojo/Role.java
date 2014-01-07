@@ -34,9 +34,17 @@ public class Role implements Serializable {
     @Column(name = "name", length = 100, unique = true, nullable = false)
     private String name;
 
+    /** The description. */
+    @Column(name = "description", length = 300)
+    private String description;
+
     /** The manageable flag (i.e. can be assigned and modified). */
     @Column(name = "manageable")
     private Boolean manageable;
+
+    /** The flag that tells us whether the users can edit terminal data. */
+    @Column(name = "can_edit_terminals")
+    private Boolean canEditTerminals;
 
     // We don't need this for now
     // @OneToMany(mappedBy = "role")
@@ -104,5 +112,43 @@ public class Role implements Serializable {
      */
     public void setManageable(Boolean manageable) {
 	this.manageable = manageable;
+    }
+
+    /**
+     * Gets the description.
+     * 
+     * @return the description
+     */
+    public String getDescription() {
+	return description;
+    }
+
+    /**
+     * Sets the description.
+     * 
+     * @param description
+     *            the description to set
+     */
+    public void setDescription(String description) {
+	this.description = description;
+    }
+
+    /**
+     * Whether the users is can edit terminal data.
+     * 
+     * @return the terminal data edition flag
+     */
+    public Boolean getCanEditTerminals() {
+	return canEditTerminals;
+    }
+
+    /**
+     * Sets the terminal data edition flag.
+     * 
+     * @param manageable
+     *            the terminal data edition flag to set
+     */
+    public void setCanEditTerminals(Boolean canEditTerminals) {
+	this.canEditTerminals = canEditTerminals;
     }
 }

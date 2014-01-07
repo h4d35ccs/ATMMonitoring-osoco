@@ -153,15 +153,15 @@ public class InstallationController {
 	    installation.setLocation(null);
 	}
 
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-
 	if (result.hasErrors()) {
+	    String userMsg = "";
+	    Locale locale = RequestContextUtils.getLocale(request);
+	    if (principal != null) {
+		User loggedUser = userService.getUserByUsername(principal
+			.getName());
+		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    }
+
 	    PagedListHolder<Installation> pagedListHolder = new PagedListHolder<Installation>(
 		    installationService.listInstallations());
 	    map.put("userMsg", userMsg);
@@ -256,15 +256,17 @@ public class InstallationController {
 		&& (installation.getLocation().getId() == null)) {
 	    installation.setLocation(null);
 	}
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-	map.put("userMsg", userMsg);
+
 	if (result.hasErrors()) {
+	    String userMsg = "";
+	    Locale locale = RequestContextUtils.getLocale(request);
+	    if (principal != null) {
+		User loggedUser = userService.getUserByUsername(principal
+			.getName());
+		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    }
+	    map.put("userMsg", userMsg);
+
 	    map.put("locationsList", locationService.listLocations());
 	    return "installationDetails";
 	}
@@ -288,14 +290,11 @@ public class InstallationController {
      * 
      * @param installationId
      *            the installation id
-     * @param principal
-     *            the principal
      * @return the petition response
      */
     @RequestMapping("/terminals/installations/delete/{installationId}")
     public String deleteInstallation(
-	    @PathVariable("installationId") Integer installationId,
-	    Principal principal) {
+	    @PathVariable("installationId") Integer installationId) {
 	Installation installation = installationService
 		.getInstallation(installationId);
 	if (installation != null) {
@@ -380,15 +379,15 @@ public class InstallationController {
 	    BindingResult result, Map<String, Object> map,
 	    HttpServletRequest request, String p, Principal principal) {
 
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-
 	if (result.hasErrors()) {
+	    String userMsg = "";
+	    Locale locale = RequestContextUtils.getLocale(request);
+	    if (principal != null) {
+		User loggedUser = userService.getUserByUsername(principal
+			.getName());
+		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    }
+
 	    PagedListHolder<Location> pagedListHolder = new PagedListHolder<Location>(
 		    locationService.listLocations());
 	    map.put("userMsg", userMsg);
@@ -476,15 +475,16 @@ public class InstallationController {
 	    @Valid @ModelAttribute("location") Location location,
 	    BindingResult result, Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-	map.put("userMsg", userMsg);
+
 	if (result.hasErrors()) {
+	    String userMsg = "";
+	    Locale locale = RequestContextUtils.getLocale(request);
+	    if (principal != null) {
+		User loggedUser = userService.getUserByUsername(principal
+			.getName());
+		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    }
+	    map.put("userMsg", userMsg);
 	    return "locationDetails";
 	}
 
@@ -507,13 +507,10 @@ public class InstallationController {
      * 
      * @param locationId
      *            the location id
-     * @param principal
-     *            the principal
      * @return the petition response
      */
     @RequestMapping("/terminals/locations/delete/{locationId}")
-    public String deleteLocation(
-	    @PathVariable("locationId") Integer locationId, Principal principal) {
+    public String deleteLocation(@PathVariable("locationId") Integer locationId) {
 	Location location = locationService.getLocation(locationId);
 	if (location != null) {
 	    locationService.removeLocation(locationId);
