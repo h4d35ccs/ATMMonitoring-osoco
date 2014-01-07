@@ -3,40 +3,49 @@ package com.ncr.ATMMonitoring.dao;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.XfsComponent;
 
 /**
+ * The Class XfsComponentDAOImpl.
+ * 
+ * Default implementation of XfsComponentDAO.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class XfsComponentDAOImpl implements XfsComponentDAO {
+public class XfsComponentDAOImpl extends AbstractGenericDAO<XfsComponent>
+	implements XfsComponentDAO {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(XfsComponentDAOImpl.class
 	    .getName());
-    @Autowired
-    private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.XfsComponentDAO#addXfsComponent(com.ncr.ATMMonitoring.pojo.XfsComponent)
+     */
     @Override
     public void addXfsComponent(XfsComponent xfsComponent) {
-	sessionFactory.getCurrentSession().save(xfsComponent);
+	add(xfsComponent);
 	logger.debug("Created new Xfs Component with id "
 		+ xfsComponent.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.XfsComponentDAO#listXfsComponents()
+     */
     @Override
     public List<XfsComponent> listXfsComponents() {
-	return sessionFactory.getCurrentSession()
-		.createCriteria(XfsComponent.class).list();
+	return list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.XfsComponentDAO#getXfsComponent(java.lang.Integer)
+     */
     @Override
     public XfsComponent getXfsComponent(Integer id) {
-	return (XfsComponent) sessionFactory.getCurrentSession().get(
-		XfsComponent.class, id);
+	return get(id);
     }
 }

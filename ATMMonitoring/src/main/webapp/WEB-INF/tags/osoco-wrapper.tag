@@ -10,6 +10,8 @@
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
+<c:set var="localeCode" scope="request" value="${pageContext.response.locale}" />
+
 <!DOCTYPE HTML>
 <html>
     <head>

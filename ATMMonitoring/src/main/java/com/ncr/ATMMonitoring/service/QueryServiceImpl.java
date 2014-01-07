@@ -19,6 +19,10 @@ import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 
 /**
+ * The Class QueryServiceImpl.
+ * 
+ * Default implementation of the QueryService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -26,39 +30,60 @@ import com.ncr.ATMMonitoring.pojo.Terminal;
 @Transactional
 public class QueryServiceImpl implements QueryService {
 
+	/** The logger. */
 	static private Logger logger = Logger.getLogger(QueryServiceImpl.class.getName());
 
+    /** The query dao. */
     @Autowired
     private QueryDAO queryDAO;
 
+    /** The terminal dao. */
     @Autowired
     private TerminalDAO terminalDAO;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.QueryService#addQuery(com.ncr.ATMMonitoring.pojo.Query)
+     */
     @Override
     public void addQuery(Query query) {
 	queryDAO.addQuery(query);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.QueryService#deleteQuery(com.ncr.ATMMonitoring.pojo.Query)
+     */
     @Override
     public void deleteQuery(Query query) {
 	queryDAO.deleteQuery(query);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.QueryService#updateQuery(com.ncr.ATMMonitoring.pojo.Query)
+     */
     @Override
     public void updateQuery(Query query) {
 	queryDAO.updateQuery(query);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.QueryService#listQueries()
+     */
     @Override
     public List<Query> listQueries() {
 	return queryDAO.listQueries();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.QueryService#getQuery(java.lang.Integer)
+     */
     @Override
     public Query getQuery(Integer id) {
 	return queryDAO.getQuery(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.QueryService#executeQuery(com.ncr.ATMMonitoring.pojo.Query)
+     */
     @Override
     public List<Terminal> executeQuery(Query query) {
 		Locale locale = query.getTrueLocale();
@@ -76,11 +101,17 @@ public class QueryServiceImpl implements QueryService {
 		return terminalDAO.getTerminalsByHQL(values, types, hql);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.QueryService#executeQuery(com.ncr.ATMMonitoring.pojo.Query, java.util.Locale)
+     */
     @Override
     public List<Terminal> executeQuery(Query query, Locale locale) {
 		return executeQuery(query, locale, null, null);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.QueryService#executeQuery(com.ncr.ATMMonitoring.pojo.Query, java.util.Locale, java.lang.String, java.lang.String)
+     */
     @Override
     public List<Terminal> executeQuery(Query query, Locale locale, String sort, String order) {
     	return executeQuery(query, locale, sort, order, null);
@@ -96,6 +127,9 @@ public class QueryServiceImpl implements QueryService {
 		return terminalDAO.getTerminalsByHQL(values, types, hql, sort, order);
     }
 
+	/* (non-Javadoc)
+	 * @see com.ncr.ATMMonitoring.service.QueryService#findOrCreateQuery(com.ncr.ATMMonitoring.pojo.Query)
+	 */
 	@Override
 	public Query findOrCreateQuery(Query query) {
 		Query result = null;
@@ -109,6 +143,9 @@ public class QueryServiceImpl implements QueryService {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ncr.ATMMonitoring.service.QueryService#executeQueryGroupingBy(com.ncr.ATMMonitoring.pojo.Query, java.lang.String, java.lang.String, java.util.Locale)
+	 */
 	@Override
 	public List executeQueryGroupingBy(Query query, String groupByEntity, String groupByField, Locale locale) {
 		List results = null;
@@ -117,7 +154,7 @@ public class QueryServiceImpl implements QueryService {
 		String hql = query.getHQLGroupingBy(values, types, locale, groupByEntity, groupByField);
         logger.debug("HQL for widget's query is: " + hql);
 		if ((hql != null) && (!hql.equals(""))) {
-			results = terminalDAO.executeQuery(values, types, hql);
+			results = terminalDAO.getTerminalsByHQL(values, types, hql);
 		}
 		return results;
 	}

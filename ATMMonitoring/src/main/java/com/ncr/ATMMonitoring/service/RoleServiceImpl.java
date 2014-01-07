@@ -10,6 +10,10 @@ import com.ncr.ATMMonitoring.dao.RoleDAO;
 import com.ncr.ATMMonitoring.pojo.Role;
 
 /**
+ * The Class RoleServiceImpl.
+ * 
+ * Default implementation of the RoleService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -17,29 +21,45 @@ import com.ncr.ATMMonitoring.pojo.Role;
 @Transactional
 public class RoleServiceImpl implements RoleService {
 
+    /** The role dao. */
     @Autowired
     private RoleDAO roleDAO;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.RoleService#addRole(com.ncr.ATMMonitoring.pojo.Role)
+     */
     @Override
     public void addRole(Role role) {
 	roleDAO.addRole(role);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.RoleService#getRole(java.lang.Integer)
+     */
     @Override
     public Role getRole(Integer id) {
 	return roleDAO.getRole(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.RoleService#listRoles()
+     */
     @Override
     public List<Role> listRoles() {
 	return roleDAO.listRoles();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.RoleService#listManageableRoles()
+     */
     @Override
     public List<Role> listManageableRoles() {
 	return roleDAO.listManageableRoles();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.RoleService#removeRole(java.lang.Integer)
+     */
     @Override
     public void removeRole(Integer id) {
 	roleDAO.removeRole(id);

@@ -31,23 +31,49 @@ import com.ncr.ATMMonitoring.service.RoleService;
 import com.ncr.ATMMonitoring.service.UserService;
 
 /**
+ * The Class UserController.
+ * 
+ * Controller for handling user related HTTP petitions.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 @Controller
 public class UserController {
 
+    /** The user service. */
     @Autowired
     private UserService userService;
+
+    /** The role service. */
     @Autowired
     private RoleService roleService;
 
+    /**
+     * Binds custom property editors.
+     * 
+     * @param binder
+     *            the binder
+     * @throws Exception
+     *             the exception
+     */
     @InitBinder
     protected void binder(WebDataBinder binder) throws Exception {
 	binder.registerCustomEditor(Role.class, new RolePropertyEditor(
 		roleService));
     }
 
+    /**
+     * List users URL.
+     * 
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
     @RequestMapping(value = "/users/list", method = RequestMethod.GET)
     public String listUsers(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
@@ -73,20 +99,44 @@ public class UserController {
 	return "users";
     }
 
+    /**
+     * Redirect to users URL.
+     * 
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
     @RequestMapping("/users")
     public String redirectToUsers(Map<String, Object> map,
-		    HttpServletRequest request, Principal principal) {
-		String userMsg = "";
-		Locale locale = RequestContextUtils.getLocale(request);
-		if (principal != null) {
-			User loggedUser = userService
-				.getUserByUsername(principal.getName());
-			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-		}
-		map.put("userMsg", userMsg);
-		return "newUsers";
+	    HttpServletRequest request, Principal principal) {
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	}
+	map.put("userMsg", userMsg);
+	return "newUsers";
     }
 
+    /**
+     * User details URL.
+     * 
+     * @param userId
+     *            the user id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
     @RequestMapping("/users/details/{userId}")
     public String userDetails(@PathVariable("userId") Integer userId,
 	    Map<String, Object> map, HttpServletRequest request,
@@ -122,6 +172,21 @@ public class UserController {
 	return "userDetails";
     }
 
+    /**
+     * Add user URL.
+     * 
+     * @param user
+     *            the user
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
     @RequestMapping(value = "/users/list", method = RequestMethod.POST)
     public String addUser(@Valid @ModelAttribute("user") User user,
 	    BindingResult result, Map<String, Object> map,
@@ -178,6 +243,21 @@ public class UserController {
 	return "redirect:/users/list";
     }
 
+    /**
+     * Update user URL.
+     * 
+     * @param user
+     *            the user
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
     @RequestMapping(value = "/users/update", method = RequestMethod.POST)
     public String updateUser(@Valid @ModelAttribute("user") User user,
 	    BindingResult result, Map<String, Object> map,
@@ -244,6 +324,21 @@ public class UserController {
 	return "redirect:/users/details/" + user.getId().intValue();
     }
 
+    /**
+     * Update password URL.
+     * 
+     * @param user
+     *            the user
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
     @RequestMapping(value = "/users/updatepw", method = RequestMethod.POST)
     public String updatePassword(@Valid @ModelAttribute("user") User user,
 	    BindingResult result, Map<String, Object> map,
@@ -299,6 +394,15 @@ public class UserController {
 	return "redirect:/users/details/" + user.getId().intValue();
     }
 
+    /**
+     * Delete user URL.
+     * 
+     * @param userId
+     *            the user id
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
     @RequestMapping("/users/delete/{userId}")
     public String deleteUser(@PathVariable("userId") Integer userId,
 	    Principal principal) {
@@ -321,9 +425,14 @@ public class UserController {
 	return "redirect:/users/list";
     }
 
-	@RequestMapping(method = RequestMethod.GET, value = "/users/newGroup")
+    /**
+     * New group URL.
+     * 
+     * @return the petition response
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/users/newGroup")
     public String newGroup() {
-    	return "newGroup";
+	return "newGroup";
     }
 
 }

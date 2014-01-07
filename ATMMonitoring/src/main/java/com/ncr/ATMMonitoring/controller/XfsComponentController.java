@@ -22,14 +22,21 @@ import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.service.XfsComponentService;
 
 /**
+ * The Class XfsComponentController.
+ * 
+ * Controller for handling user related HTTP petitions.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 @Controller
 public class XfsComponentController {
 
+    /** The xfs component service. */
     @Autowired
     private XfsComponentService xfsComponentService;
+    
+    /** The user service. */
     @Autowired
     private UserService userService;
 
@@ -52,6 +59,19 @@ public class XfsComponentController {
     // return "redirect:/terminals/xfsComponents/list";
     // }
 
+    /**
+     * Xfs component details URL.
+     * 
+     * @param xfsComponentId
+     *            the xfs component id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
     @RequestMapping("/terminals/xfsComponents/details/{xfsComponentId}")
     public String xfsComponentDetails(
 	    @PathVariable("xfsComponentId") Integer xfsComponentId,
@@ -88,6 +108,19 @@ public class XfsComponentController {
 	return "xfsComponentDetails";
     }
 
+    /**
+     * Jxfs component details URL.
+     * 
+     * @param jxfsComponentId
+     *            the jxfs component id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
     @RequestMapping("/terminals/jxfsComponents/details/{jxfsComponentId}")
     public String jxfsComponentDetails(
 	    @PathVariable("jxfsComponentId") Integer jxfsComponentId,

@@ -21,23 +21,23 @@
 	<nav class="menu">
 		<h1><spring:message code="label.menu.help"/></h1>
 			<ul>
-				<li><a href="#dasboard">Dasboard</a>
-					<ul>
+				<li><a href="help/dashboard#" class="current" >Dashboard</a>
+					<!-- <ul>
 						<li><a href="#" class="current">Opcion 1</a></li>
 						<li><a href="#">Opcion 2</a></li>
 						<li><a href="#">Opcion 3</a></li>
 						<li><a href="#">Opcion 4</a></li>
 						<li><a href="#">Opcion 5</a></li>
-					</ul>
+					</ul> -->
 				</li>
-				<li><a href="#terminals">Terminales</a></li>
+				<li><a href="help/terminals">Terminales</a></li>
 				<li><a href="#reports">Informes</a></li>
 				<li><a href="#scheduler">Planificador</a></li>
 				<li><a href="#users">Usuarios</a></li>
 			</ul>
 		</nav>
 	<div class="scroll">
-		<div class="content">
+		<!-- <div class="content">
 			
 			<h2>Dasboard</h2>
 				<p><a href="resources/images/ejemplo/db_b.png" class="colorbox photo right"><img src="resources/images/ejemplo/db_s.png" /></a>Scelerisque montes est et! Sit dignissim, sed, aenean ac scelerisque. Pulvinar ac! Elementum natoque penatibus scelerisque sociis tempor, hac ridiculus ac augue non et. Magna dignissim lundium rhoncus turpis! Porttitor eros dis proin pulvinar sagittis ac, facilisis porta mauris tincidunt scelerisque pulvinar. Arcu augue eu. Penatibus sit phasellus lorem in.</p>
@@ -123,6 +123,7 @@
 				<p>Nisi, lorem arcu eu ut cursus, massa! Sit, sit, turpis penatibus elit ut tristique? Placerat! Dolor turpis in integer ac phasellus vut augue, eu ridiculus et sagittis platea hac nunc et, habitasse rhoncus, elementum pulvinar parturient sit facilisis non? Platea dolor egestas diam in dapibus. Urna non eu odio.</p>
 
 				<p>Tristique? Pulvinar dis, porta! Integer? Nunc sit nisi vel, scelerisque aliquam phasellus dictumst, pid a risus mid platea tincidunt a vel, augue mid? Nunc lorem! Dolor natoque lorem elementum tristique dignissim placerat sed. Natoque, amet elementum sed? Rhoncus turpis a sociis auctor aliquam et cursus dapibus lectus porttitor proin.</p>
-		</div>
+		</div> -->
+		<c:import url="/resources/help/${localeCode}/dashboard.html" />
 	</div><!-- /scroll --></div>
 </t:osoco-wrapper>

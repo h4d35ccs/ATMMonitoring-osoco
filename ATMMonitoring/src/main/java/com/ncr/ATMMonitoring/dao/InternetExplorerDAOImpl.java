@@ -4,33 +4,41 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.InternetExplorer;
 
 /**
+ * The Class InternetExplorerDAOImpl.
+ * 
+ * Default implementation of InternetExplorerDAO.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class InternetExplorerDAOImpl implements InternetExplorerDAO {
+public class InternetExplorerDAOImpl extends
+	AbstractGenericDAO<InternetExplorer> implements InternetExplorerDAO {
 
+    /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(InternetExplorerDAOImpl.class.getName());
-    @Autowired
-    private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#addInternetExplorer(com.ncr.ATMMonitoring.pojo.InternetExplorer)
+     */
     @Override
     public void addInternetExplorer(InternetExplorer internetExplorer) {
-	sessionFactory.getCurrentSession().save(internetExplorer);
+	add(internetExplorer);
 	logger.debug("Created new Internet Explorer with id "
 		+ internetExplorer.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#listInternetExplorer()
+     */
     @Override
     public List<InternetExplorer> listInternetExplorer() {
 	return sessionFactory.getCurrentSession()
@@ -42,21 +50,25 @@ public class InternetExplorerDAOImpl implements InternetExplorerDAO {
 		.addOrder(Order.asc("remaining_version")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#getInternetExplorer(java.lang.Integer)
+     */
     @Override
     public InternetExplorer getInternetExplorer(Integer id) {
-	return (InternetExplorer) sessionFactory.getCurrentSession().get(
-		InternetExplorer.class, id);
+	return get(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#removeInternetExplorer(java.lang.Integer)
+     */
     @Override
     public void removeInternetExplorer(Integer id) {
-	InternetExplorer internetExplorer = (InternetExplorer) sessionFactory
-		.getCurrentSession().load(InternetExplorer.class, id);
-	if (internetExplorer != null) {
-	    sessionFactory.getCurrentSession().delete(internetExplorer);
-	}
+	delete(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#getInternetExplorerByVersion(java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.String)
+     */
     @Override
     public InternetExplorer getInternetExplorerByVersion(Integer majorVersion,
 	    Integer minorVersion, Integer buildVersion,

@@ -15,6 +15,10 @@ import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.User;
 
 /**
+ * The Class UserServiceImpl.
+ * 
+ * Default implementation of the UserService.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -22,59 +26,92 @@ import com.ncr.ATMMonitoring.pojo.User;
 @Transactional
 public class UserServiceImpl implements UserService {
 
+    /** The user dao. */
     @Autowired
     private UserDAO userDAO;
+    
+    /** The password encoder. */
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.UserService#addUser(com.ncr.ATMMonitoring.pojo.User)
+     */
     @Override
     public void addUser(User user) {
 	user.setPassword(passwordEncoder.encode(user.getPassword()));
 	userDAO.addUser(user);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.UserService#updateUser(com.ncr.ATMMonitoring.pojo.User)
+     */
     @Override
     public void updateUser(User user) {
 	userDAO.updateUser(user);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.UserService#updatePassword(com.ncr.ATMMonitoring.pojo.User)
+     */
     @Override
     public void updatePassword(User user) {
 	user.setPassword(passwordEncoder.encode(user.getPassword()));
 	userDAO.updateUser(user);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.UserService#listUsers()
+     */
     @Override
     public List<User> listUsers() {
 	return userDAO.listUsers();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.UserService#listUsersByBankCompanies(java.util.Set)
+     */
     @Override
     public List<User> listUsersByBankCompanies(Set<BankCompany> banks) {
 	return userDAO.listUsersByBankCompanies(banks);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.UserService#listUsersByBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
+     */
     @Override
     public List<User> listUsersByBankCompany(BankCompany bank) {
 	return userDAO.listUsersByBankCompany(bank);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.UserService#getUser(java.lang.Integer)
+     */
     @Override
     public User getUser(Integer id) {
 	return userDAO.getUser(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.UserService#getUserByUsername(java.lang.String)
+     */
     @Override
     @Transactional(readOnly=true)
     public User getUserByUsername(String username) {
 	return userDAO.getUserByUsername(username);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.UserService#removeUser(java.lang.Integer)
+     */
     @Override
     public void removeUser(Integer id) {
 	userDAO.removeUser(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.UserService#loadUserByUsername(java.lang.String)
+     */
     @Override
     public User loadUserByUsername(String username)
 	    throws UsernameNotFoundException {

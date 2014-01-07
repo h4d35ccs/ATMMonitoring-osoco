@@ -23,16 +23,28 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 /**
+ * The Class RequestThreadManager.
+ * 
+ * The class in charge of distributing the pending to request data ip's among
+ * multiple RequestThread's.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 public class RequestThreadManager extends Thread {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(RequestThreadManager.class
 	    .getName());
+    
+    /** The server socket factory. */
     static private ServerSocketFactory SERVER_SOCKET_FACTORY;
+    
+    /** The client socket factory. */
     static private SocketFactory CLIENT_SOCKET_FACTORY;
 
+    // Hack for avoiding the SSL authentification based on certifications,
+    // because we only want it for encryption.
     static {
 	TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
 	    public java.security.cert.X509Certificate[] getAcceptedIssuers() {
@@ -70,18 +82,54 @@ public class RequestThreadManager extends Thread {
 	}
     }
 
+    /** The max number of threads. */
     private double maxThreads;
+    
+    /** The max number of terminals per thread. */
     private double maxTerminals;
+    
+    /** The response time out. */
     private int timeOut;
+    
+    /** The agent port. */
     private int agentPort;
+    
+    /** The sleep time between checks onto the sub-threads. */
     private int sleepTime;
+    
+    /** The max time we wait for the whole process to end. */
     private int maxTime;
+    
+    /** The socket service. */
     private SocketService socketService;
 
+    /** The ips. */
     private Set<String> ips;
+    
+    /** The threads. */
     private List<RequestThread> threads = Collections
 	    .synchronizedList(new ArrayList<RequestThread>());
 
+    /**
+     * Instantiates a new request thread manager.
+     * 
+     * @param maxThreads
+     *            the max number of threads
+     * @param maxTerminals
+     *            the max number of terminals per thread
+     * @param timeOut
+     *            the response time out
+     * @param agentPort
+     *            the agent port
+     * @param sleepTime
+     *            the sleep time between checks onto the sub-threads
+     * @param maxTime
+     *            the max time we wait for the whole process to end
+     * @param socketService
+     *            the socket service
+     * @param ips
+     *            the ips
+     */
     public RequestThreadManager(double maxThreads, double maxTerminals,
 	    int timeOut, int agentPort, int sleepTime, int maxTime,
 	    SocketService socketService, Set<String> ips) {
@@ -95,14 +143,28 @@ public class RequestThreadManager extends Thread {
 	this.ips = ips;
     }
 
+    /**
+     * Handle ip success.
+     *
+     * @param json the json
+     * @return the long
+     */
     public Long handleIpSuccess(String json) {
 	return socketService.processTerminalJson(json);
     }
 
+    /**
+     * Handle ip error.
+     *
+     * @param ip the ip
+     */
     public void handleIpError(String ip) {
 	socketService.updateTerminalSocket(ip);
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Thread#run()
+     */
     public void run() {
 	try {
 	    Iterator<String> iterator = ips.iterator();
@@ -110,9 +172,9 @@ public class RequestThreadManager extends Thread {
 	    String ip;
 	    RequestThread thread;
 	    if (ips.size() > (maxThreads * maxTerminals)) {
-		// El número de ips no nos permite mantener el número máximo de
-		// threads y de ips por cada una. Dividimos de la manera más
-		// equitativa entre el número máximo de threads.
+		// El número de ips no nos permite mantener el número m�ximo de
+		// threads y de ips por cada una. Dividimos de la manera m�s
+		// equitativa entre el número m�ximo de threads.
 		double size = ips.size() / maxThreads;
 		double roundedSize = Math.floor(size);
 		int remainingTerminals = 0;
@@ -147,7 +209,7 @@ public class RequestThreadManager extends Thread {
 		}
 	    } else {
 		// Podemos dividirlo entre n threads que no sobrepasan el número
-		// máximo de ips
+		// m�ximo de ips
 		int j = 0, i = 1;
 		subSet = new HashSet<String>();
 		while (iterator.hasNext()) {
@@ -166,7 +228,7 @@ public class RequestThreadManager extends Thread {
 		    }
 		}
 	    }
-	    // Calculamos el nº máximo de ciclos de comprobación
+	    // Calculamos el nº m�ximo de ciclos de comprobaci�n
 	    double cycles = Math.ceil(maxTime / sleepTime);
 	    while (!threads.isEmpty() && (cycles-- > 0)) {
 		try {
@@ -182,7 +244,7 @@ public class RequestThreadManager extends Thread {
 			    + " between request threads checks...", e);
 		}
 	    }
-	    // Si la colección no está vacía, es que no han terminado a tiempo.
+	    // Si la colecci�n no est� vacía, es que no han terminado a tiempo.
 	    if (!threads.isEmpty()) {
 		logger.warn("Some request threads somehow couldn't finish in the configured max time."
 			+ " Their ips will be requested again at next request phase...");
@@ -202,6 +264,8 @@ public class RequestThreadManager extends Thread {
     }
 
     /**
+     * Gets the server socket factory.
+     *
      * @return the serverSocketFactory
      */
     public static ServerSocketFactory getServerSocketFactory() {
@@ -209,16 +273,28 @@ public class RequestThreadManager extends Thread {
     }
 
     /**
+     * Gets the client socket factory.
+     *
      * @return the clientSocketFactory
      */
     public static SocketFactory getClientSocketFactory() {
 	return CLIENT_SOCKET_FACTORY;
     }
 
+    /**
+     * Gets the hash seed.
+     *
+     * @return the hash seed
+     */
     public String getHashSeed() {
 	return socketService.getHashSeed();
     }
 
+    /**
+     * Gets the old hash seed.
+     *
+     * @return the old hash seed
+     */
     public String getOldHashSeed() {
 	return socketService.getOldHashSeed();
     }

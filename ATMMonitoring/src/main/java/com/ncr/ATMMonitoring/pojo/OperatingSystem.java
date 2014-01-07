@@ -17,6 +17,8 @@ import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.OperatingSystemPojo;
 
 /**
+ * The OperatingSystem Pojo.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -24,6 +26,7 @@ import com.ncr.agent.baseData.os.module.OperatingSystemPojo;
 @Table(name = "operating_systems")
 public class OperatingSystem extends Auditable {
 
+    /** The comboboxes data related to this entity for the query designer. */
     private static final Map<String, Map> comboboxes;
 
     static {
@@ -42,64 +45,81 @@ public class OperatingSystem extends Auditable {
 	comboboxes.put("organization", stringOperations);
     }
 
+    /** The id. */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "operating_systems_id_seq")
     @SequenceGenerator(name = "operating_systems_id_seq", sequenceName = "operating_systems_id_seq", allocationSize = 1)
     private Integer id;
 
+    /** The os type. */
     @Column(name = "os_type")
     @Type(type = "text")
     private String osType;
 
+    /** The name. */
     @Column(name = "name")
     @Type(type = "text")
     private String name;
 
+    /** The serial number. */
     @Column(name = "serial_number", unique = true)
     @Type(type = "text")
     private String serialNumber;
 
+    /** The manufacturer. */
     @Column(name = "manufacturer")
     @Type(type = "text")
     private String manufacturer;
 
+    /** The major version. */
     @Column(name = "major_version")
     private Integer majorVersion;
 
+    /** The minor version. */
     @Column(name = "minor_version")
     private Integer minorVersion;
 
+    /** The build version. */
     @Column(name = "build_version")
     private Integer buildVersion;
 
+    /** The revision version. */
     @Column(name = "revision_version")
     private Integer revisionVersion;
 
+    /** The remaining version. */
     @Column(name = "remaining_version")
     @Type(type = "text")
     private String remainingVersion;
 
+    /** The service pack major version. */
     @Column(name = "service_pack_major_version")
     private Integer servicePackMajorVersion;
 
+    /** The service pack minor version. */
     @Column(name = "service_pack_minor_version")
     private Integer servicePackMinorVersion;
 
+    /** The service pack build version. */
     @Column(name = "service_pack_build_version")
     private Integer servicePackBuildVersion;
 
+    /** The service pack revision version. */
     @Column(name = "service_pack_revision_version")
     private Integer servicePackRevisionVersion;
 
+    /** The service pack remaining version. */
     @Column(name = "service_pack_remaining_version")
     @Type(type = "text")
     private String servicePackRemainingVersion;
 
+    /** The organization. */
     @Column(name = "organization")
     @Type(type = "text")
     private String organization;
 
+    /** The os language. */
     @Column(name = "os_language")
     @Type(type = "text")
     private String osLanguage;
@@ -112,9 +132,19 @@ public class OperatingSystem extends Auditable {
     // @JoinColumn(name = "terminal_config_id") })
     // private Set<TerminalConfig> configs;
 
+    /**
+     * Instantiates a new operating system.
+     */
     public OperatingSystem() {
     }
 
+    /**
+     * Instantiates a new operating system with the given operating system data
+     * from the agent.
+     * 
+     * @param os
+     *            the os
+     */
     public OperatingSystem(OperatingSystemPojo os) {
 	if (os.getVersion() != null) {
 	    this.setVersion(os.getVersion());
@@ -135,13 +165,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @return the comboboxes
+     * Gets the comboboxes data for the query GUI.
+     *
+     * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;
     }
 
     /**
+     * Gets the id.
+     *
      * @return the id
      */
     public Integer getId() {
@@ -149,14 +183,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param id
-     *            the id to set
+     * Sets the id.
+     *
+     * @param id the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
     }
 
     /**
+     * Gets the name.
+     *
      * @return the name
      */
     public String getName() {
@@ -164,14 +201,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param name
-     *            the name to set
+     * Sets the name.
+     *
+     * @param name the name to set
      */
     public void setName(String name) {
 	this.name = name;
     }
 
     /**
+     * Gets the version.
+     *
      * @return the version complete
      */
     public String getVersion() {
@@ -199,8 +239,9 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param version
-     *            the complete version to set
+     * Sets the version.
+     *
+     * @param version the complete version to set
      */
     public void setVersion(String version) {
 	String[] versions = version.split("\\.", 5);
@@ -227,6 +268,8 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
+     * Gets the name version.
+     *
      * @return the name and version concatenated
      */
     public String getNameVersion() {
@@ -234,6 +277,8 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
+     * Gets the major version.
+     *
      * @return the majorVersion
      */
     public Integer getMajorVersion() {
@@ -241,6 +286,8 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
+     * Gets the minor version.
+     *
      * @return the minorVersion
      */
     public Integer getMinorVersion() {
@@ -248,6 +295,8 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
+     * Gets the builds the version.
+     *
      * @return the buildVersion
      */
     public Integer getBuildVersion() {
@@ -255,6 +304,8 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
+     * Gets the revision version.
+     *
      * @return the revisionVersion
      */
     public Integer getRevisionVersion() {
@@ -262,38 +313,44 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param majorVersion
-     *            the majorVersion to set
+     * Sets the major version.
+     *
+     * @param majorVersion the majorVersion to set
      */
     public void setMajorVersion(Integer majorVersion) {
 	this.majorVersion = majorVersion;
     }
 
     /**
-     * @param minorVersion
-     *            the minorVersion to set
+     * Sets the minor version.
+     *
+     * @param minorVersion the minorVersion to set
      */
     public void setMinorVersion(Integer minorVersion) {
 	this.minorVersion = minorVersion;
     }
 
     /**
-     * @param buildVersion
-     *            the buildVersion to set
+     * Sets the builds the version.
+     *
+     * @param buildVersion the buildVersion to set
      */
     public void setBuildVersion(Integer buildVersion) {
 	this.buildVersion = buildVersion;
     }
 
     /**
-     * @param revisionVersion
-     *            the revisionVersion to set
+     * Sets the revision version.
+     *
+     * @param revisionVersion the revisionVersion to set
      */
     public void setRevisionVersion(Integer revisionVersion) {
 	this.revisionVersion = revisionVersion;
     }
 
     /**
+     * Gets the remaining version.
+     *
      * @return the remainingVersion
      */
     public String getRemainingVersion() {
@@ -301,14 +358,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param remainingVersion
-     *            the remainingVersion to set
+     * Sets the remaining version.
+     *
+     * @param remainingVersion the remainingVersion to set
      */
     public void setRemainingVersion(String remainingVersion) {
 	this.remainingVersion = remainingVersion;
     }
 
     /**
+     * Gets the os type.
+     *
      * @return the oSType
      */
     public String getOsType() {
@@ -316,14 +376,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param oSType
-     *            the oSType to set
+     * Sets the os type.
+     *
+     * @param oSType the oSType to set
      */
     public void setOsType(String oSType) {
 	osType = oSType;
     }
 
     /**
+     * Gets the serial number.
+     *
      * @return the serialNumber
      */
     public String getSerialNumber() {
@@ -331,14 +394,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param serialNumber
-     *            the serialNumber to set
+     * Sets the serial number.
+     *
+     * @param serialNumber the serialNumber to set
      */
     public void setSerialNumber(String serialNumber) {
 	this.serialNumber = serialNumber;
     }
 
     /**
+     * Gets the manufacturer.
+     *
      * @return the manufacturer
      */
     public String getManufacturer() {
@@ -346,14 +412,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param manufacturer
-     *            the manufacturer to set
+     * Sets the manufacturer.
+     *
+     * @param manufacturer the manufacturer to set
      */
     public void setManufacturer(String manufacturer) {
 	this.manufacturer = manufacturer;
     }
 
     /**
+     * Gets the service pack major version.
+     *
      * @return the servicePackMajorVersion
      */
     public Integer getServicePackMajorVersion() {
@@ -361,14 +430,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param servicePackMajorVersion
-     *            the servicePackMajorVersion to set
+     * Sets the service pack major version.
+     *
+     * @param servicePackMajorVersion the servicePackMajorVersion to set
      */
     public void setServicePackMajorVersion(Integer servicePackMajorVersion) {
 	this.servicePackMajorVersion = servicePackMajorVersion;
     }
 
     /**
+     * Gets the service pack minor version.
+     *
      * @return the servicePackMinorVersion
      */
     public Integer getServicePackMinorVersion() {
@@ -376,14 +448,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param servicePackMinorVersion
-     *            the servicePackMinorVersion to set
+     * Sets the service pack minor version.
+     *
+     * @param servicePackMinorVersion the servicePackMinorVersion to set
      */
     public void setServicePackMinorVersion(Integer servicePackMinorVersion) {
 	this.servicePackMinorVersion = servicePackMinorVersion;
     }
 
     /**
+     * Gets the service pack build version.
+     *
      * @return the servicePackBuildVersion
      */
     public Integer getServicePackBuildVersion() {
@@ -391,14 +466,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param servicePackBuildVersion
-     *            the servicePackBuildVersion to set
+     * Sets the service pack build version.
+     *
+     * @param servicePackBuildVersion the servicePackBuildVersion to set
      */
     public void setServicePackBuildVersion(Integer servicePackBuildVersion) {
 	this.servicePackBuildVersion = servicePackBuildVersion;
     }
 
     /**
+     * Gets the service pack revision version.
+     *
      * @return the servicePackRevisionVersion
      */
     public Integer getServicePackRevisionVersion() {
@@ -406,14 +484,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param servicePackRevisionVersion
-     *            the servicePackRevisionVersion to set
+     * Sets the service pack revision version.
+     *
+     * @param servicePackRevisionVersion the servicePackRevisionVersion to set
      */
     public void setServicePackRevisionVersion(Integer servicePackRevisionVersion) {
 	this.servicePackRevisionVersion = servicePackRevisionVersion;
     }
 
     /**
+     * Gets the service pack remaining version.
+     *
      * @return the servicePackRemainingVersion
      */
     public String getServicePackRemainingVersion() {
@@ -421,8 +502,9 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param servicePackRemainingVersion
-     *            the servicePackRemainingVersion to set
+     * Sets the service pack remaining version.
+     *
+     * @param servicePackRemainingVersion the servicePackRemainingVersion to set
      */
     public void setServicePackRemainingVersion(
 	    String servicePackRemainingVersion) {
@@ -430,6 +512,8 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
+     * Gets the service pack version.
+     *
      * @return the Service Pack version complete
      */
     public String getServicePackVersion() {
@@ -458,8 +542,9 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param version
-     *            the complete Service Pack version to set
+     * Sets the service pack version.
+     *
+     * @param version the complete Service Pack version to set
      */
     public void setServicePackVersion(String version) {
 	String[] versions = version.split("\\.", 5);
@@ -486,6 +571,8 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
+     * Gets the organization.
+     *
      * @return the organization
      */
     public String getOrganization() {
@@ -493,14 +580,17 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param organization
-     *            the organization to set
+     * Sets the organization.
+     *
+     * @param organization the organization to set
      */
     public void setOrganization(String organization) {
 	this.organization = organization;
     }
 
     /**
+     * Gets the os language.
+     *
      * @return the oSLanguage
      */
     public String getOsLanguage() {
@@ -508,8 +598,9 @@ public class OperatingSystem extends Auditable {
     }
 
     /**
-     * @param oSLanguage
-     *            the oSLanguage to set
+     * Sets the os language.
+     *
+     * @param oSLanguage the oSLanguage to set
      */
     public void setOsLanguage(String oSLanguage) {
 	osLanguage = oSLanguage;

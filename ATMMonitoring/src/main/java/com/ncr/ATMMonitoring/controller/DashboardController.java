@@ -30,25 +30,38 @@ import com.ncr.ATMMonitoring.service.DashboardService;
 import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.service.WidgetService;
 
+// TODO: Auto-generated Javadoc
 /**
  * Controller for Dashboard related actions.
- *
- * @author Rafael Luque (OSOCO)
+ * 
+ * @author Rafael Luque (rafael.luque@osoco.es)
  */
 @Controller
 public class DashboardController {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(DashboardController.class.getName());
 
+    /** The user service. */
     @Autowired
     private UserService userService;
 
+	/** The dashboard service. */
 	@Autowired
 	private DashboardService dashboardService;
 
+    /** The widget service. */
     @Autowired
     private WidgetService widgetService;
 
+    /**
+     * Show dashboard.
+     *
+     * @param map the map
+     * @param principal the principal
+     * @param request the request
+     * @return the string
+     */
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String showDashboard(Map<String, Object> map, Principal principal, HttpServletRequest request) {
 		User loggedUser = null;
@@ -68,6 +81,13 @@ public class DashboardController {
         return "dashboard";
     }
 
+	/**
+	 * Show dashboard chart.
+	 *
+	 * @param request the request
+	 * @param principal the principal
+	 * @return the map
+	 */
 	@RequestMapping(
 	    method = RequestMethod.GET,
 		value ="/dashboard/charts")
@@ -89,6 +109,14 @@ public class DashboardController {
 		return result;
     }
 
+	/**
+	 * Show dashboard chart.
+	 *
+	 * @param widgetId the widget id
+	 * @param request the request
+	 * @param principal the principal
+	 * @return the map
+	 */
 	@RequestMapping(
 	    method = RequestMethod.GET,
 		value ="/dashboard/chart",
@@ -111,6 +139,15 @@ public class DashboardController {
 		return result;
     }
 
+	/**
+	 * Update chart position.
+	 *
+	 * @param widgetId the widget id
+	 * @param oldPosition the old position
+	 * @param newPosition the new position
+	 * @param request the request
+	 * @param principal the principal
+	 */
 	@RequestMapping(
 		method = RequestMethod.POST,
 		value ="/dashboard/updateChartPosition")
@@ -135,6 +172,13 @@ public class DashboardController {
         }
     }
 
+	/**
+	 * Hide chart.
+	 *
+	 * @param widgetId the widget id
+	 * @param request the request
+	 * @param principal the principal
+	 */
 	@RequestMapping(
 	    method = RequestMethod.POST,
 		value ="/dashboard/hideChart")
@@ -156,6 +200,13 @@ public class DashboardController {
         }
     }
 
+	/**
+	 * Show chart.
+	 *
+	 * @param widgetId the widget id
+	 * @param request the request
+	 * @param principal the principal
+	 */
 	@RequestMapping(
 	    method = RequestMethod.POST,
 		value ="/dashboard/showChart")
@@ -181,6 +232,13 @@ public class DashboardController {
         }
     }
 
+	/**
+	 * Change columns.
+	 *
+	 * @param columns the columns
+	 * @param request the request
+	 * @param principal the principal
+	 */
 	@RequestMapping(
 	    method = RequestMethod.POST,
 		value ="/dashboard/changeColumns")
@@ -197,6 +255,11 @@ public class DashboardController {
         }
     }
 
+    /**
+     * New widget.
+     *
+     * @return the string
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/dashboard/newWidget")
     public String newWidget() {
     	return "newWidget";
@@ -205,6 +268,13 @@ public class DashboardController {
 
 	// Private Methods ----------------------------------------------------------------------
 
+	/**
+	 * Move widget from to.
+	 *
+	 * @param widgets the widgets
+	 * @param oldPosition the old position
+	 * @param newPosition the new position
+	 */
 	private void moveWidgetFromTo(List<Widget> widgets, int oldPosition, int newPosition) {
 		logger.debug("old widget list: " + widgets);
 		if (oldPosition < newPosition) {
@@ -221,6 +291,12 @@ public class DashboardController {
 	}
 
 
+	/**
+	 * To google chart json.
+	 *
+	 * @param queryResults the query results
+	 * @return the map
+	 */
 	private Map<String, List> toGoogleChartJSON(List queryResults) {
 		logger.debug("Converting query results [" + queryResults + "] into Google Charts JSON...");
 		Map<String, List> result = new HashMap<String, List>();
@@ -266,6 +342,12 @@ public class DashboardController {
 		return result;
 	}
 
+	/**
+	 * To json.
+	 *
+	 * @param widgets the widgets
+	 * @return the list
+	 */
 	private List<Map> toJSON(List<Widget> widgets) {
 		List<Map> result = new ArrayList<Map>(widgets.size());
 		for (Widget widget: widgets) {

@@ -15,12 +15,25 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.UserService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class externalreportsController.
+ */
 @Controller
 public class externalreportsController {  
+    
+    /** The user service. */
     @Autowired
     private UserService userService;
    
 
+    /**
+     * Request terminals update.
+     *
+     * @param map the map
+     * @param request the request
+     * @param principal the principal
+     */
     @RequestMapping(value = "/externalreports", method = RequestMethod.GET)
     public void requestTerminalsUpdate(Map<String, Object> map, HttpServletRequest request, Principal principal) {
 		

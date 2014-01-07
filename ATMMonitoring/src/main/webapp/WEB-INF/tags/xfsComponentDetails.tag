@@ -33,6 +33,12 @@
 <td>${xfsComponent.autobeep}</td>
 </tr>
 </c:if>
+<c:if test="${xfsComponent.autodeposit != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.autodeposit"/></td>
+<td>${xfsComponent.autodeposit}</td>
+</tr>
+</c:if>
 <c:if test="${xfsComponent.autoretractPeriod != null}">
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.autoretractPeriod"/></td>
@@ -105,6 +111,12 @@
 <td>${xfsComponent.codeLineFormat}</td>
 </tr>
 </c:if>
+<c:if test="${xfsComponent.coins != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.coins"/></td>
+<td>${xfsComponent.coins}</td>
+</tr>
+</c:if>
 <c:if test="${xfsComponent.compound != null}">
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.compound"/></td>
@@ -127,6 +139,12 @@
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.cursor"/></td>
 <td>${xfsComponent.cursor}</td>
+</tr>
+</c:if>
+<c:if test="${xfsComponent.cylinders != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.cylinders"/></td>
+<td>${xfsComponent.cylinders}</td>
 </tr>
 </c:if>
 <c:if test="${xfsComponent.defaultBackscanColor != null}">
@@ -501,6 +519,12 @@
 <td>${xfsComponent.keyNum}</td>
 </tr>
 </c:if>
+<c:if test="${xfsComponent.keys != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.keys"/></td>
+<td>${xfsComponent.keys}</td>
+</tr>
+</c:if>
 <c:if test="${xfsComponent.logical != null}">
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.logical"/></td>
@@ -519,10 +543,22 @@
 <td>${xfsComponent.magneticstripewrite}</td>
 </tr>
 </c:if>
+<c:if test="${xfsComponent.maxBills != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.maxBills"/></td>
+<td>${xfsComponent.maxBills}</td>
+</tr>
+</c:if>
 <c:if test="${xfsComponent.maxCashInItems != null}">
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.maxCashInItems"/></td>
 <td>${xfsComponent.maxCashInItems}</td>
+</tr>
+</c:if>
+<c:if test="${xfsComponent.maxCoins != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.maxCoins"/></td>
+<td>${xfsComponent.maxCoins}</td>
 </tr>
 </c:if>
 <c:if test="${xfsComponent.maxDataLength != null}">
@@ -559,6 +595,12 @@
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.maxRetract"/></td>
 <td>${xfsComponent.maxRetract}</td>
+</tr>
+</c:if>
+<c:if test="${xfsComponent.max2Retract != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.max2Retract"/></td>
+<td>${xfsComponent.max2Retract}</td>
 </tr>
 </c:if>
 <c:if test="${xfsComponent.mediaTaken != null}">
@@ -603,6 +645,12 @@
 <td>${xfsComponent.ocr}</td>
 </tr>
 </c:if>
+<c:if test="${xfsComponent.outputPositions != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.outputPositions"/></td>
+<td>${xfsComponent.outputPositions}</td>
+</tr>
+</c:if>
 <c:if test="${xfsComponent.paperSources != null}">
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.paperSources"/></td>
@@ -613,6 +661,12 @@
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.pinFormats"/></td>
 <td>${xfsComponent.pinFormats}</td>
+</tr>
+</c:if>
+<c:if test="${xfsComponent.pockets != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.pockets"/></td>
+<td>${xfsComponent.pockets}</td>
 </tr>
 </c:if>
 <c:if test="${xfsComponent.powerOff != null}">
@@ -729,6 +783,12 @@
 <td>${xfsComponent.retractTransportActions}</td>
 </tr>
 </c:if>
+<c:if test="${xfsComponent.retractToDeposit != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.retractToDeposit"/></td>
+<td>${xfsComponent.retractToDeposit}</td>
+</tr>
+</c:if>
 <c:if test="${xfsComponent.rsaAuthenticationScheme != null}">
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.rsaAuthenticationScheme"/></td>
@@ -817,6 +877,12 @@
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.validationAlgorithms"/></td>
 <td>${xfsComponent.validationAlgorithms}</td>
+</tr>
+</c:if>
+<c:if test="${xfsComponent.vandalCheck != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.vandalCheck"/></td>
+<td>${xfsComponent.vandalCheck}</td>
 </tr>
 </c:if>
 <c:if test="${xfsComponent.windowsPrinter != null}">

@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OperatingSystem &mdash; ATMMonitoring 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="top" title="ATMMonitoring 2.0 documentation" href="../../../../index.html" />
+    <link rel="up" title="com.ncr.ATMMonitoring.pojo" href="package-index.html" />
+    <link rel="next" title="PhysicalCashUnit" href="PhysicalCashUnit.html" />
+    <link rel="prev" title="LogicalCashUnit" href="LogicalCashUnit.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="PhysicalCashUnit.html" title="PhysicalCashUnit"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="LogicalCashUnit.html" title="LogicalCashUnit"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../../index.html">ATMMonitoring 2.0 documentation</a> &raquo;</li>
+          <li><a href="package-index.html" accesskey="U">com.ncr.ATMMonitoring.pojo</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="operatingsystem">
+<h1>OperatingSystem<a class="headerlink" href="#operatingsystem" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem">
+public class <tt class="descname">OperatingSystem</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>The OperatingSystem Pojo.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author :</th><td class="field-body">Jorge López Fernández (<a class="reference external" href="mailto:lopez&#46;fernandez&#46;jorge&#37;&#52;&#48;gmail&#46;com">lopez<span>&#46;</span>fernandez<span>&#46;</span>jorge<span>&#64;</span>gmail<span>&#46;</span>com</a>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>OperatingSystem<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.OperatingSystem()">
+public <tt class="descname">OperatingSystem</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.OperatingSystem()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates a new operating system.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>OperatingSystem<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.OperatingSystem(OperatingSystemPojo)">
+public <tt class="descname">OperatingSystem</tt><big>(</big>OperatingSystemPojo<em> os</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.OperatingSystem(OperatingSystemPojo)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates a new operating system with the given operating system data from the agent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>os</strong> &#8211; the os</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getbuildversion">
+<h3>getBuildVersion<a class="headerlink" href="#getbuildversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getBuildVersion()">
+public Integer <tt class="descname">getBuildVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getBuildVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the builds the version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the buildVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getcomboboxes">
+<h3>getComboboxes<a class="headerlink" href="#getcomboboxes" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getComboboxes()">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&gt; <tt class="descname">getComboboxes</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getComboboxes()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the comboboxes data for the query GUI.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the comboboxes data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getid">
+<h3>getId<a class="headerlink" href="#getid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getId()">
+public Integer <tt class="descname">getId</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getId()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the id</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getmajorversion">
+<h3>getMajorVersion<a class="headerlink" href="#getmajorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getMajorVersion()">
+public Integer <tt class="descname">getMajorVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getMajorVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the major version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the majorVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getmanufacturer">
+<h3>getManufacturer<a class="headerlink" href="#getmanufacturer" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getManufacturer()">
+public String <tt class="descname">getManufacturer</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getManufacturer()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the manufacturer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the manufacturer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getminorversion">
+<h3>getMinorVersion<a class="headerlink" href="#getminorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getMinorVersion()">
+public Integer <tt class="descname">getMinorVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getMinorVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the minor version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the minorVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getname">
+<h3>getName<a class="headerlink" href="#getname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getName()">
+public String <tt class="descname">getName</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getName()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getnameversion">
+<h3>getNameVersion<a class="headerlink" href="#getnameversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getNameVersion()">
+public String <tt class="descname">getNameVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getNameVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the name version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name and version concatenated</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getorganization">
+<h3>getOrganization<a class="headerlink" href="#getorganization" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getOrganization()">
+public String <tt class="descname">getOrganization</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getOrganization()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the organization.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the organization</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getoslanguage">
+<h3>getOsLanguage<a class="headerlink" href="#getoslanguage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getOsLanguage()">
+public String <tt class="descname">getOsLanguage</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getOsLanguage()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the os language.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the oSLanguage</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getostype">
+<h3>getOsType<a class="headerlink" href="#getostype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getOsType()">
+public String <tt class="descname">getOsType</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getOsType()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the os type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the oSType</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getremainingversion">
+<h3>getRemainingVersion<a class="headerlink" href="#getremainingversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getRemainingVersion()">
+public String <tt class="descname">getRemainingVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getRemainingVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the remaining version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the remainingVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getrevisionversion">
+<h3>getRevisionVersion<a class="headerlink" href="#getrevisionversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getRevisionVersion()">
+public Integer <tt class="descname">getRevisionVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getRevisionVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the revision version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the revisionVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getserialnumber">
+<h3>getSerialNumber<a class="headerlink" href="#getserialnumber" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getSerialNumber()">
+public String <tt class="descname">getSerialNumber</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getSerialNumber()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the serial number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the serialNumber</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getservicepackbuildversion">
+<h3>getServicePackBuildVersion<a class="headerlink" href="#getservicepackbuildversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackBuildVersion()">
+public Integer <tt class="descname">getServicePackBuildVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackBuildVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the service pack build version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the servicePackBuildVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getservicepackmajorversion">
+<h3>getServicePackMajorVersion<a class="headerlink" href="#getservicepackmajorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackMajorVersion()">
+public Integer <tt class="descname">getServicePackMajorVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackMajorVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the service pack major version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the servicePackMajorVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getservicepackminorversion">
+<h3>getServicePackMinorVersion<a class="headerlink" href="#getservicepackminorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackMinorVersion()">
+public Integer <tt class="descname">getServicePackMinorVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackMinorVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the service pack minor version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the servicePackMinorVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getservicepackremainingversion">
+<h3>getServicePackRemainingVersion<a class="headerlink" href="#getservicepackremainingversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackRemainingVersion()">
+public String <tt class="descname">getServicePackRemainingVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackRemainingVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the service pack remaining version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the servicePackRemainingVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getservicepackrevisionversion">
+<h3>getServicePackRevisionVersion<a class="headerlink" href="#getservicepackrevisionversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackRevisionVersion()">
+public Integer <tt class="descname">getServicePackRevisionVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackRevisionVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the service pack revision version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the servicePackRevisionVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getservicepackversion">
+<h3>getServicePackVersion<a class="headerlink" href="#getservicepackversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackVersion()">
+public String <tt class="descname">getServicePackVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getServicePackVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the service pack version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the Service Pack version complete</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getversion">
+<h3>getVersion<a class="headerlink" href="#getversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.getVersion()">
+public String <tt class="descname">getVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.getVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the version complete</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setbuildversion">
+<h3>setBuildVersion<a class="headerlink" href="#setbuildversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setBuildVersion(Integer)">
+public void <tt class="descname">setBuildVersion</tt><big>(</big>Integer<em> buildVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setBuildVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the builds the version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>buildVersion</strong> &#8211; the buildVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setid">
+<h3>setId<a class="headerlink" href="#setid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setId(Integer)">
+public void <tt class="descname">setId</tt><big>(</big>Integer<em> id</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setId(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>id</strong> &#8211; the id to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setmajorversion">
+<h3>setMajorVersion<a class="headerlink" href="#setmajorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setMajorVersion(Integer)">
+public void <tt class="descname">setMajorVersion</tt><big>(</big>Integer<em> majorVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setMajorVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the major version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>majorVersion</strong> &#8211; the majorVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setmanufacturer">
+<h3>setManufacturer<a class="headerlink" href="#setmanufacturer" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setManufacturer(String)">
+public void <tt class="descname">setManufacturer</tt><big>(</big>String<em> manufacturer</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setManufacturer(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the manufacturer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>manufacturer</strong> &#8211; the manufacturer to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setminorversion">
+<h3>setMinorVersion<a class="headerlink" href="#setminorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setMinorVersion(Integer)">
+public void <tt class="descname">setMinorVersion</tt><big>(</big>Integer<em> minorVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setMinorVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the minor version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>minorVersion</strong> &#8211; the minorVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setname">
+<h3>setName<a class="headerlink" href="#setname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setName(String)">
+public void <tt class="descname">setName</tt><big>(</big>String<em> name</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setName(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; the name to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setorganization">
+<h3>setOrganization<a class="headerlink" href="#setorganization" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setOrganization(String)">
+public void <tt class="descname">setOrganization</tt><big>(</big>String<em> organization</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setOrganization(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the organization.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>organization</strong> &#8211; the organization to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setoslanguage">
+<h3>setOsLanguage<a class="headerlink" href="#setoslanguage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setOsLanguage(String)">
+public void <tt class="descname">setOsLanguage</tt><big>(</big>String<em> oSLanguage</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setOsLanguage(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the os language.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>oSLanguage</strong> &#8211; the oSLanguage to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setostype">
+<h3>setOsType<a class="headerlink" href="#setostype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setOsType(String)">
+public void <tt class="descname">setOsType</tt><big>(</big>String<em> oSType</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setOsType(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the os type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>oSType</strong> &#8211; the oSType to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setremainingversion">
+<h3>setRemainingVersion<a class="headerlink" href="#setremainingversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setRemainingVersion(String)">
+public void <tt class="descname">setRemainingVersion</tt><big>(</big>String<em> remainingVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setRemainingVersion(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the remaining version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>remainingVersion</strong> &#8211; the remainingVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setrevisionversion">
+<h3>setRevisionVersion<a class="headerlink" href="#setrevisionversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setRevisionVersion(Integer)">
+public void <tt class="descname">setRevisionVersion</tt><big>(</big>Integer<em> revisionVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setRevisionVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the revision version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>revisionVersion</strong> &#8211; the revisionVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setserialnumber">
+<h3>setSerialNumber<a class="headerlink" href="#setserialnumber" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setSerialNumber(String)">
+public void <tt class="descname">setSerialNumber</tt><big>(</big>String<em> serialNumber</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setSerialNumber(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the serial number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>serialNumber</strong> &#8211; the serialNumber to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setservicepackbuildversion">
+<h3>setServicePackBuildVersion<a class="headerlink" href="#setservicepackbuildversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackBuildVersion(Integer)">
+public void <tt class="descname">setServicePackBuildVersion</tt><big>(</big>Integer<em> servicePackBuildVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackBuildVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the service pack build version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>servicePackBuildVersion</strong> &#8211; the servicePackBuildVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setservicepackmajorversion">
+<h3>setServicePackMajorVersion<a class="headerlink" href="#setservicepackmajorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackMajorVersion(Integer)">
+public void <tt class="descname">setServicePackMajorVersion</tt><big>(</big>Integer<em> servicePackMajorVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackMajorVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the service pack major version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>servicePackMajorVersion</strong> &#8211; the servicePackMajorVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setservicepackminorversion">
+<h3>setServicePackMinorVersion<a class="headerlink" href="#setservicepackminorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackMinorVersion(Integer)">
+public void <tt class="descname">setServicePackMinorVersion</tt><big>(</big>Integer<em> servicePackMinorVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackMinorVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the service pack minor version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>servicePackMinorVersion</strong> &#8211; the servicePackMinorVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setservicepackremainingversion">
+<h3>setServicePackRemainingVersion<a class="headerlink" href="#setservicepackremainingversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackRemainingVersion(String)">
+public void <tt class="descname">setServicePackRemainingVersion</tt><big>(</big>String<em> servicePackRemainingVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackRemainingVersion(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the service pack remaining version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>servicePackRemainingVersion</strong> &#8211; the servicePackRemainingVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setservicepackrevisionversion">
+<h3>setServicePackRevisionVersion<a class="headerlink" href="#setservicepackrevisionversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackRevisionVersion(Integer)">
+public void <tt class="descname">setServicePackRevisionVersion</tt><big>(</big>Integer<em> servicePackRevisionVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackRevisionVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the service pack revision version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>servicePackRevisionVersion</strong> &#8211; the servicePackRevisionVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setservicepackversion">
+<h3>setServicePackVersion<a class="headerlink" href="#setservicepackversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackVersion(String)">
+public void <tt class="descname">setServicePackVersion</tt><big>(</big>String<em> version</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setServicePackVersion(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the service pack version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>version</strong> &#8211; the complete Service Pack version to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setversion">
+<h3>setVersion<a class="headerlink" href="#setversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.OperatingSystem.setVersion(String)">
+public void <tt class="descname">setVersion</tt><big>(</big>String<em> version</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.OperatingSystem.setVersion(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>version</strong> &#8211; the complete version to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">OperatingSystem</a><ul>
+<li><a class="reference internal" href="#constructors">Constructors</a><ul>
+<li><a class="reference internal" href="#id1">OperatingSystem</a></li>
+<li><a class="reference internal" href="#id2">OperatingSystem</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#getbuildversion">getBuildVersion</a></li>
+<li><a class="reference internal" href="#getcomboboxes">getComboboxes</a></li>
+<li><a class="reference internal" href="#getid">getId</a></li>
+<li><a class="reference internal" href="#getmajorversion">getMajorVersion</a></li>
+<li><a class="reference internal" href="#getmanufacturer">getManufacturer</a></li>
+<li><a class="reference internal" href="#getminorversion">getMinorVersion</a></li>
+<li><a class="reference internal" href="#getname">getName</a></li>
+<li><a class="reference internal" href="#getnameversion">getNameVersion</a></li>
+<li><a class="reference internal" href="#getorganization">getOrganization</a></li>
+<li><a class="reference internal" href="#getoslanguage">getOsLanguage</a></li>
+<li><a class="reference internal" href="#getostype">getOsType</a></li>
+<li><a class="reference internal" href="#getremainingversion">getRemainingVersion</a></li>
+<li><a class="reference internal" href="#getrevisionversion">getRevisionVersion</a></li>
+<li><a class="reference internal" href="#getserialnumber">getSerialNumber</a></li>
+<li><a class="reference internal" href="#getservicepackbuildversion">getServicePackBuildVersion</a></li>
+<li><a class="reference internal" href="#getservicepackmajorversion">getServicePackMajorVersion</a></li>
+<li><a class="reference internal" href="#getservicepackminorversion">getServicePackMinorVersion</a></li>
+<li><a class="reference internal" href="#getservicepackremainingversion">getServicePackRemainingVersion</a></li>
+<li><a class="reference internal" href="#getservicepackrevisionversion">getServicePackRevisionVersion</a></li>
+<li><a class="reference internal" href="#getservicepackversion">getServicePackVersion</a></li>
+<li><a class="reference internal" href="#getversion">getVersion</a></li>
+<li><a class="reference internal" href="#setbuildversion">setBuildVersion</a></li>
+<li><a class="reference internal" href="#setid">setId</a></li>
+<li><a class="reference internal" href="#setmajorversion">setMajorVersion</a></li>
+<li><a class="reference internal" href="#setmanufacturer">setManufacturer</a></li>
+<li><a class="reference internal" href="#setminorversion">setMinorVersion</a></li>
+<li><a class="reference internal" href="#setname">setName</a></li>
+<li><a class="reference internal" href="#setorganization">setOrganization</a></li>
+<li><a class="reference internal" href="#setoslanguage">setOsLanguage</a></li>
+<li><a class="reference internal" href="#setostype">setOsType</a></li>
+<li><a class="reference internal" href="#setremainingversion">setRemainingVersion</a></li>
+<li><a class="reference internal" href="#setrevisionversion">setRevisionVersion</a></li>
+<li><a class="reference internal" href="#setserialnumber">setSerialNumber</a></li>
+<li><a class="reference internal" href="#setservicepackbuildversion">setServicePackBuildVersion</a></li>
+<li><a class="reference internal" href="#setservicepackmajorversion">setServicePackMajorVersion</a></li>
+<li><a class="reference internal" href="#setservicepackminorversion">setServicePackMinorVersion</a></li>
+<li><a class="reference internal" href="#setservicepackremainingversion">setServicePackRemainingVersion</a></li>
+<li><a class="reference internal" href="#setservicepackrevisionversion">setServicePackRevisionVersion</a></li>
+<li><a class="reference internal" href="#setservicepackversion">setServicePackVersion</a></li>
+<li><a class="reference internal" href="#setversion">setVersion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="LogicalCashUnit.html"
+                        title="previous chapter">LogicalCashUnit</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="PhysicalCashUnit.html"
+                        title="next chapter">PhysicalCashUnit</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../../_sources/com/ncr/ATMMonitoring/pojo/OperatingSystem.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="PhysicalCashUnit.html" title="PhysicalCashUnit"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="LogicalCashUnit.html" title="LogicalCashUnit"
+             >previous</a> |</li>
+        <li><a href="../../../../index.html">ATMMonitoring 2.0 documentation</a> &raquo;</li>
+          <li><a href="package-index.html" >com.ncr.ATMMonitoring.pojo</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Jorge López Fernández.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

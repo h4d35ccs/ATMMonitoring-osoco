@@ -23,25 +23,55 @@ import com.ncr.ATMMonitoring.service.TerminalConfigService;
 import com.ncr.ATMMonitoring.service.UserService;
 
 /**
+ * The Class TerminalConfigController.
+ * 
+ * Controller for handling terminal config related HTTP petitions.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 @Controller
 public class TerminalConfigController {
 
+    /** The terminal config service. */
     @Autowired
     private TerminalConfigService terminalConfigService;
+    
+    /** The software service. */
     @Autowired
     private SoftwareService softwareService;
+    
+    /** The user service. */
     @Autowired
     private UserService userService;
 
+    /**
+     * Binds custom property editors.
+     * 
+     * @param binder
+     *            the binder
+     * @throws Exception
+     *             the exception
+     */
     @InitBinder
     protected void binder(WebDataBinder binder) throws Exception {
 	binder.registerCustomEditor(Software.class, new SoftwarePropertyEditor(
 		softwareService));
     }
 
+    /**
+     * Terminal config details URL.
+     * 
+     * @param terminalConfigId
+     *            the terminal config id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
     @RequestMapping("/terminals/swConfigs/details/{configId}")
     public String terminalConfigDetails(
 	    @PathVariable("configId") Integer terminalConfigId,

@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DashboardController &mdash; ATMMonitoring 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="top" title="ATMMonitoring 2.0 documentation" href="../../../../index.html" />
+    <link rel="up" title="com.ncr.ATMMonitoring.controller" href="package-index.html" />
+    <link rel="next" title="HelpController" href="HelpController.html" />
+    <link rel="prev" title="BankCompanyController" href="BankCompanyController.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="HelpController.html" title="HelpController"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="BankCompanyController.html" title="BankCompanyController"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../../index.html">ATMMonitoring 2.0 documentation</a> &raquo;</li>
+          <li><a href="package-index.html" accesskey="U">com.ncr.ATMMonitoring.controller</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="dashboardcontroller">
+<h1>DashboardController<a class="headerlink" href="#dashboardcontroller" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.ncr.ATMMonitoring.controller.DashboardController">
+public class <tt class="descname">DashboardController</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.DashboardController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controller for Dashboard related actions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author :</th><td class="field-body">Rafael Luque (<a class="reference external" href="mailto:rafael&#46;luque&#37;&#52;&#48;osoco&#46;es">rafael<span>&#46;</span>luque<span>&#64;</span>osoco<span>&#46;</span>es</a>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="changecolumns">
+<h3>changeColumns<a class="headerlink" href="#changecolumns" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.DashboardController.changeColumns(int, HttpServletRequest, Principal)">
+public void <tt class="descname">changeColumns</tt><big>(</big>int<em> columns</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.DashboardController.changeColumns(int, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change columns.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>columns</strong> &#8211; the columns</li>
+<li><strong>request</strong> &#8211; the request</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="hidechart">
+<h3>hideChart<a class="headerlink" href="#hidechart" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.DashboardController.hideChart(int, HttpServletRequest, Principal)">
+public void <tt class="descname">hideChart</tt><big>(</big>int<em> widgetId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.DashboardController.hideChart(int, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide chart.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>widgetId</strong> &#8211; the widget id</li>
+<li><strong>request</strong> &#8211; the request</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="newwidget">
+<h3>newWidget<a class="headerlink" href="#newwidget" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.DashboardController.newWidget()">
+public String <tt class="descname">newWidget</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.DashboardController.newWidget()" title="Permalink to this definition">¶</a></dt>
+<dd><p>New widget.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="showchart">
+<h3>showChart<a class="headerlink" href="#showchart" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.DashboardController.showChart(int, HttpServletRequest, Principal)">
+public void <tt class="descname">showChart</tt><big>(</big>int<em> widgetId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.DashboardController.showChart(int, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show chart.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>widgetId</strong> &#8211; the widget id</li>
+<li><strong>request</strong> &#8211; the request</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="showdashboard">
+<h3>showDashboard<a class="headerlink" href="#showdashboard" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.DashboardController.showDashboard(Map, Principal, HttpServletRequest)">
+public String <tt class="descname">showDashboard</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.DashboardController.showDashboard(Map, Principal, HttpServletRequest)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show dashboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>map</strong> &#8211; the map</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+<li><strong>request</strong> &#8211; the request</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="showdashboardchart">
+<h3>showDashboardChart<a class="headerlink" href="#showdashboardchart" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.DashboardController.showDashboardChart(HttpServletRequest, Principal)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a> <tt class="descname">showDashboardChart</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.DashboardController.showDashboardChart(HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show dashboard chart.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>request</strong> &#8211; the request</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the map</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h3>showDashboardChart<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.DashboardController.showDashboardChart(int, HttpServletRequest, Principal)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a> <tt class="descname">showDashboardChart</tt><big>(</big>int<em> widgetId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.DashboardController.showDashboardChart(int, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show dashboard chart.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>widgetId</strong> &#8211; the widget id</li>
+<li><strong>request</strong> &#8211; the request</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the map</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="updatechartposition">
+<h3>updateChartPosition<a class="headerlink" href="#updatechartposition" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.DashboardController.updateChartPosition(int, int, int, HttpServletRequest, Principal)">
+public void <tt class="descname">updateChartPosition</tt><big>(</big>int<em> widgetId</em>, int<em> oldPosition</em>, int<em> newPosition</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.DashboardController.updateChartPosition(int, int, int, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update chart position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>widgetId</strong> &#8211; the widget id</li>
+<li><strong>oldPosition</strong> &#8211; the old position</li>
+<li><strong>newPosition</strong> &#8211; the new position</li>
+<li><strong>request</strong> &#8211; the request</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DashboardController</a><ul>
+<li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#changecolumns">changeColumns</a></li>
+<li><a class="reference internal" href="#hidechart">hideChart</a></li>
+<li><a class="reference internal" href="#newwidget">newWidget</a></li>
+<li><a class="reference internal" href="#showchart">showChart</a></li>
+<li><a class="reference internal" href="#showdashboard">showDashboard</a></li>
+<li><a class="reference internal" href="#showdashboardchart">showDashboardChart</a></li>
+<li><a class="reference internal" href="#id1">showDashboardChart</a></li>
+<li><a class="reference internal" href="#updatechartposition">updateChartPosition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="BankCompanyController.html"
+                        title="previous chapter">BankCompanyController</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="HelpController.html"
+                        title="next chapter">HelpController</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../../_sources/com/ncr/ATMMonitoring/controller/DashboardController.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="HelpController.html" title="HelpController"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="BankCompanyController.html" title="BankCompanyController"
+             >previous</a> |</li>
+        <li><a href="../../../../index.html">ATMMonitoring 2.0 documentation</a> &raquo;</li>
+          <li><a href="package-index.html" >com.ncr.ATMMonitoring.controller</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Jorge López Fernández.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

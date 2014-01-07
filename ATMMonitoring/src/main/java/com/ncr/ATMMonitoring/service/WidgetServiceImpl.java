@@ -18,30 +18,45 @@ import com.ncr.ATMMonitoring.pojo.Widget;
 import com.ncr.ATMMonitoring.pojo.Widget.ChartType;
 import com.ncr.ATMMonitoring.dao.WidgetDAO;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Rafael Luque (OSOCO)
+ * The Class WidgetServiceImpl.
+ * 
+ * Default implementation of the WidgetService.
+ * 
+ * @author Rafael Luque (rafael.luque@osoco.es)
  */
 
 @Service("widgetService")
 @Transactional
 public class WidgetServiceImpl implements WidgetService {
 
+    /** The logger. */
     static private Logger logger = Logger.getLogger(WidgetServiceImpl.class.getName());
 
+	/** The query service. */
 	@Autowired
 	private QueryService queryService;
 
+	/** The user service. */
 	@Autowired
 	private UserService userService;
 
+    /** The widget dao. */
     @Autowired
     private WidgetDAO widgetDAO;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.service.WidgetService#findDefaultWidgets()
+     */
     @Override
 	public List<Widget> findDefaultWidgets() {
 		return widgetDAO.findDefaultWidgets();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ncr.ATMMonitoring.service.WidgetService#saveWidget(com.ncr.ATMMonitoring.pojo.Widget)
+	 */
 	@Override
 	public void saveWidget(Widget widget) {
 		if (widget.getId() == null) {
@@ -53,6 +68,9 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ncr.ATMMonitoring.service.WidgetService#copyDefaultWidgetsToUserDashboard(com.ncr.ATMMonitoring.pojo.User, com.ncr.ATMMonitoring.pojo.Dashboard)
+	 */
 	@Override
 	public List<Widget> copyDefaultWidgetsToUserDashboard(User user, Dashboard dashboard) {
 		List<Widget> defaultWidgets = findDefaultWidgets();
@@ -68,6 +86,9 @@ public class WidgetServiceImpl implements WidgetService {
 		return userDefaultWidgets;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ncr.ATMMonitoring.service.WidgetService#buildDefaultWidgets()
+	 */
 	@Override
 	public void buildDefaultWidgets() {
 		List<Widget> currentDefaultWidgets = findDefaultWidgets();
@@ -102,11 +123,17 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ncr.ATMMonitoring.service.WidgetService#findWidgetById(int)
+	 */
 	@Override
 	public Widget findWidgetById(int widgetId) {
 		return widgetDAO.findById(widgetId);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ncr.ATMMonitoring.service.WidgetService#executeQuery(com.ncr.ATMMonitoring.pojo.Widget, java.util.Locale)
+	 */
 	@Override
 	public List executeQuery(Widget widget, Locale locale) {
 		return queryService.executeQueryGroupingBy(
@@ -116,6 +143,17 @@ public class WidgetServiceImpl implements WidgetService {
 			locale);
 	}
 
+	/**
+	 * Builds the default widget.
+	 *
+	 * @param title the title
+	 * @param order the order
+	 * @param query the query
+	 * @param groupByEntity the group by entity
+	 * @param groupBy the group by
+	 * @param chartType the chart type
+	 * @return the widget
+	 */
 	private Widget buildDefaultWidget(
 	    String title,
 		int order,

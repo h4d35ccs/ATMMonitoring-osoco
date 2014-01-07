@@ -3,33 +3,41 @@ package com.ncr.ATMMonitoring.dao;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.OperatingSystem;
 
 /**
+ * The Class OperatingSystemDAOImpl.
+ * 
+ * Default implementation of OperatingSystemDAO.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class OperatingSystemDAOImpl implements OperatingSystemDAO {
+public class OperatingSystemDAOImpl extends AbstractGenericDAO<OperatingSystem>
+	implements OperatingSystemDAO {
 
+    /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(OperatingSystemDAOImpl.class.getName());
-    @Autowired
-    private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#addOperatingSystem(com.ncr.ATMMonitoring.pojo.OperatingSystem)
+     */
     @Override
     public void addOperatingSystem(OperatingSystem operatingSystem) {
-	sessionFactory.getCurrentSession().save(operatingSystem);
+	add(operatingSystem);
 	logger.debug("Created new Operating System with id "
 		+ operatingSystem.getId());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#listOperatingSystem()
+     */
     @Override
     public List<OperatingSystem> listOperatingSystem() {
 	return sessionFactory.getCurrentSession()
@@ -42,12 +50,17 @@ public class OperatingSystemDAOImpl implements OperatingSystemDAO {
 		.addOrder(Order.desc("remaining_version")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#getOperatingSystem(java.lang.Integer)
+     */
     @Override
     public OperatingSystem getOperatingSystem(Integer id) {
-	return (OperatingSystem) sessionFactory.getCurrentSession().get(
-		OperatingSystem.class, id);
+	return get(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#getOperatingSystemBySerialNumber(java.lang.String)
+     */
     @Override
     public OperatingSystem getOperatingSystemBySerialNumber(String number) {
 	return (OperatingSystem) sessionFactory.getCurrentSession()

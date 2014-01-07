@@ -15,23 +15,58 @@ import org.apache.log4j.Logger;
 import com.ncr.ATMMonitoring.utils.Utils;
 
 /**
+ * The Class RequestThread.
+ * 
+ * This class retrieves the data from a series of ATM's by their ip's.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 public class RequestThread extends Thread {
 
+    /** The Constant hashSeed. */
     private static final String hashSeed = "V3zVFyxn9DnToZJ8067i";
+    
+    /** The Constant authOkMsg. */
     private static final String authOkMsg = "OK";
+    
+    /** The Constant authErrorMsg. */
     private static final String authErrorMsg = "ERROR";
+    
+    /** The Constant authUpdateMsg. */
     private static final String authUpdateMsg = "UPDATE";
+    
+    /** The Constant endCommMsg. */
     private static final String endCommMsg = "END";
+    
+    /** The logger. */
     private static Logger logger = Logger.getLogger(SocketListenerThread.class
 	    .getName());
+    
+    /** The ips to request. */
     private Set<String> ips;
+    
+    /** The agent port. */
     private int agentPort;
+    
+    /** The response time out. */
     private int timeOut;
+    
+    /** The parent manager. */
     private RequestThreadManager parent;
 
+    /**
+     * Instantiates a new request thread.
+     * 
+     * @param ips
+     *            the ips
+     * @param agentPort
+     *            the agent port
+     * @param timeOut
+     *            the response time out
+     * @param parent
+     *            the parent manager
+     */
     public RequestThread(Set<String> ips, int agentPort, int timeOut,
 	    RequestThreadManager parent) {
 	this.ips = ips;
@@ -40,10 +75,29 @@ public class RequestThread extends Thread {
 	this.parent = parent;
     }
 
+    /**
+     * Gets the ips.
+     *
+     * @return the ips
+     */
     public Set<String> getIps() {
 	return ips;
     }
 
+    /**
+     * Code executed before requesting data from an ATM for confirming it is
+     * reliable.
+     * 
+     * For confirming an ATM's reliability we send it a random string which it
+     * must hash, along with a hardcoded one and a configurable one, and then
+     * send us the result so we can check whether it matches the expected one.
+     * If we detect the agent is using and old version of the configurable
+     * string, then we send it the new version so it can replace it.
+     * 
+     * @param socket
+     *            the socket
+     * @return true, if successful
+     */
     private boolean confirmIdentity(Socket socket) {
 
 	try {
@@ -65,7 +119,7 @@ public class RequestThread extends Thread {
 	    String hash = Utils.getMD5Hex(Utils.getMD5Hex(parentSeed)
 		    + Utils.getMD5Hex(hashSeed) + Utils.getMD5Hex(randomSeed));
 	    if (response.equals(hash)) {
-		// Confirmamos al agente que la autenticación fue correcta
+		// Confirmamos al agente que la autenticaci�n fue correcta
 		out.println(authOkMsg);
 		return true;
 	    } else {
@@ -79,7 +133,7 @@ public class RequestThread extends Thread {
 			logger.warn("Old hash seed has been detected in IP "
 				+ socket.getInetAddress().getHostAddress()
 				+ ". New one will be sent.");
-			// Confirmamos al agente que la autenticación fue
+			// Confirmamos al agente que la autenticaci�n fue
 			// correcta y le pedimos que actualice su hash
 			out.println(authUpdateMsg + ":" + oldParentSeed + ":"
 				+ parentSeed);
@@ -88,7 +142,7 @@ public class RequestThread extends Thread {
 		}
 	    }
 
-	    // La autenticación ha fallado, avisamos al agente y terminamos
+	    // La autenticaci�n ha fallado, avisamos al agente y terminamos
 	    out.println(authErrorMsg);
 	} catch (SocketTimeoutException e) {
 	    logger.error("We received no response during"
@@ -102,6 +156,14 @@ public class RequestThread extends Thread {
 	return false;
     }
 
+    /**
+     * Request data json from an ATM.
+     * 
+     * @param ip
+     *            the ATM ip
+     * @throws Exception
+     *             any kind of exception thrown with an error
+     */
     private void requestDataJson(String ip) throws Exception {
 
 	try {
@@ -109,7 +171,7 @@ public class RequestThread extends Thread {
 	    Socket socket = RequestThreadManager.getClientSocketFactory()
 		    .createSocket(ip, agentPort);
 
-	    // Ponemos un timeout para la recepción de datos
+	    // Ponemos un timeout para la recepci�n de datos
 	    socket.setSoTimeout(timeOut * 1000);
 
 	    // Confirmamos la identidad del agente
@@ -144,7 +206,7 @@ public class RequestThread extends Thread {
 			    "An error happened while saving data received from ip: "
 				    + ip + "\nJson: " + json, e);
 		}
-		// Enviamos el mensaje que confirma el final de la comunicación
+		// Enviamos el mensaje que confirma el final de la comunicaci�n
 		logger.info("Sending final comm message to IP: " + ip);
 		out.println(endMsg);
 	    } catch (SocketTimeoutException e) {
@@ -167,6 +229,9 @@ public class RequestThread extends Thread {
 	}
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Thread#run()
+     */
     public void run() {
 	for (String ip : ips) {
 	    try {

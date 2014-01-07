@@ -4,11 +4,9 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
@@ -16,32 +14,43 @@ import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.User;
 
 /**
+ * The Class UserDAOImpl.
+ * 
+ * Default implementation of UserDAO.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 
+    /** The logger. */
     static private Logger logger = Logger
 	    .getLogger(UserDAOImpl.class.getName());
-    @Autowired
-    private SessionFactory sessionFactory;
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#addUser(com.ncr.ATMMonitoring.pojo.User)
+     */
     @Override
     public void addUser(User user) {
-	sessionFactory.getCurrentSession().save(user);
+	add(user);
 	logger.info("Created new User with id " + user.getId()
 		+ " and username " + user.getUsername());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#updateUser(com.ncr.ATMMonitoring.pojo.User)
+     */
     @Override
     public void updateUser(User user) {
-	sessionFactory.getCurrentSession().update(
-		sessionFactory.getCurrentSession().merge(user));
+	update(user);
 	logger.info("Updated User with id " + user.getId() + " and username "
 		+ user.getUsername());
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsers()
+     */
     @Override
     public List<User> listUsers() {
 	return sessionFactory.getCurrentSession().createCriteria(User.class)
@@ -49,6 +58,9 @@ public class UserDAOImpl implements UserDAO {
 		.addOrder(Order.asc("username")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsersByBankCompanies(java.util.Set)
+     */
     @Override
     public List<User> listUsersByBankCompanies(Set<BankCompany> banks) {
 	Criterion restriction = (banks.size() > 0) ? Restrictions.or(
@@ -60,6 +72,9 @@ public class UserDAOImpl implements UserDAO {
 		.addOrder(Order.asc("username")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsersByBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
+     */
     @Override
     public List<User> listUsersByBankCompany(BankCompany bank) {
 	return sessionFactory
@@ -71,22 +86,31 @@ public class UserDAOImpl implements UserDAO {
 		.addOrder(Order.asc("username")).list();
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#getUser(java.lang.Integer)
+     */
     @Override
     public User getUser(Integer id) {
-	return (User) sessionFactory.getCurrentSession().get(User.class, id);
+	return get(id);
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#removeUser(java.lang.Integer)
+     */
     @Override
     public void removeUser(Integer id) {
 	User user = (User) sessionFactory.getCurrentSession().load(User.class,
 		id);
 	if (user != null) {
-	    sessionFactory.getCurrentSession().delete(user);
+	    delete(user);
 	    logger.info("Deleted User with id " + id + " and username "
 		    + user.getUsername());
 	}
     }
 
+    /* (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#getUserByUsername(java.lang.String)
+     */
     @Override
     public User getUserByUsername(String username) {
 	User result = (User) sessionFactory.getCurrentSession()

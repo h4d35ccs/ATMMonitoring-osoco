@@ -12,6 +12,8 @@ import javax.persistence.UniqueConstraint;
 import org.hibernate.annotations.Type;
 
 /**
+ * The Location Pojo.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -21,50 +23,63 @@ import org.hibernate.annotations.Type;
 	"address_country" }) })
 public class Location {
 
+    /** The id. */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "locations_id_seq")
     @SequenceGenerator(name = "locations_id_seq", sequenceName = "locations_id_seq", allocationSize = 1)
     private Integer id;
 
+    /** The address street. */
     @Column(name = "address_street")
     @Type(type = "text")
     private String addressStreet;
 
+    /** The address number. */
     @Column(name = "address_number")
     @Type(type = "text")
     private String addressNumber;
 
+    /** The address postcode. */
     @Column(name = "address_postcode")
     @Type(type = "text")
     private String addressPostcode;
 
+    /** The address city. */
     @Column(name = "address_city")
     @Type(type = "text")
     private String addressCity;
 
+    /** The address country. */
     @Column(name = "address_country")
     @Type(type = "text")
     private String addressCountry;
 
+    /** The coord x. */
     @Column(name = "coord_x")
     private Double coordX;
 
+    /** The coord y. */
     @Column(name = "coord_y")
     private Double coordY;
 
+    /** The displaced. */
     @Column(name = "displaced")
     private Boolean displaced;
 
+    /** The office. */
     @Column(name = "office", length = 50)
     private String office;
 
+    /** The bank. */
     @Column(name = "bank", length = 50)
     private String bank;
 
+    /** The bank company. */
     @Column(name = "bank_company", length = 50)
     private String bankCompany;
 
+    /** The public access. */
     @Column(name = "public_access")
     private Boolean publicAccess;
 
@@ -81,6 +96,8 @@ public class Location {
     // }
 
     /**
+     * Gets the id.
+     *
      * @return the id
      */
     public Integer getId() {
@@ -88,101 +105,217 @@ public class Location {
     }
 
     /**
-     * @param id
-     *            the id to set
+     * Sets the id.
+     *
+     * @param id the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
     }
 
+    /**
+     * Gets the coord x.
+     *
+     * @return the coord x
+     */
     public Double getCoordX() {
 	return coordX;
     }
 
+    /**
+     * Sets the coord x.
+     *
+     * @param coordX the new coord x
+     */
     public void setCoordX(Double coordX) {
 	this.coordX = coordX;
     }
 
+    /**
+     * Gets the coord y.
+     *
+     * @return the coord y
+     */
     public Double getCoordY() {
 	return coordY;
     }
 
+    /**
+     * Sets the coord y.
+     *
+     * @param coordY the new coord y
+     */
     public void setCoordY(Double coordY) {
 	this.coordY = coordY;
     }
 
+    /**
+     * Gets the office.
+     *
+     * @return the office
+     */
     public String getOffice() {
 	return office;
     }
 
+    /**
+     * Sets the office.
+     *
+     * @param office the new office
+     */
     public void setOffice(String office) {
 	this.office = office;
     }
 
+    /**
+     * Gets the bank.
+     *
+     * @return the bank
+     */
     public String getBank() {
 	return bank;
     }
 
+    /**
+     * Sets the bank.
+     *
+     * @param bank the new bank
+     */
     public void setBank(String bank) {
 	this.bank = bank;
     }
 
+    /**
+     * Gets the bank company.
+     *
+     * @return the bank company
+     */
     public String getBankCompany() {
 	return bankCompany;
     }
 
+    /**
+     * Sets the bank company.
+     *
+     * @param bankCompany the new bank company
+     */
     public void setBankCompany(String bankCompany) {
 	this.bankCompany = bankCompany;
     }
 
+    /**
+     * Gets the public access.
+     *
+     * @return the public access
+     */
     public Boolean getPublicAccess() {
 	return publicAccess;
     }
 
+    /**
+     * Sets the public access.
+     *
+     * @param publicAccess the new public access
+     */
     public void setPublicAccess(Boolean publicAccess) {
 	this.publicAccess = publicAccess;
     }
 
+    /**
+     * Gets the address street.
+     *
+     * @return the address street
+     */
     public String getAddressStreet() {
 	return addressStreet;
     }
 
+    /**
+     * Sets the address street.
+     *
+     * @param addressStreet the new address street
+     */
     public void setAddressStreet(String addressStreet) {
 	this.addressStreet = addressStreet;
     }
 
+    /**
+     * Gets the address number.
+     *
+     * @return the address number
+     */
     public String getAddressNumber() {
 	return addressNumber;
     }
 
+    /**
+     * Sets the address number.
+     *
+     * @param addressNumber the new address number
+     */
     public void setAddressNumber(String addressNumber) {
 	this.addressNumber = addressNumber;
     }
 
+    /**
+     * Gets the address postcode.
+     *
+     * @return the address postcode
+     */
     public String getAddressPostcode() {
 	return addressPostcode;
     }
 
+    /**
+     * Sets the address postcode.
+     *
+     * @param addressPostcode the new address postcode
+     */
     public void setAddressPostcode(String addressPostcode) {
 	this.addressPostcode = addressPostcode;
     }
 
+    /**
+     * Gets the address city.
+     *
+     * @return the address city
+     */
     public String getAddressCity() {
 	return addressCity;
     }
 
+    /**
+     * Sets the address city.
+     *
+     * @param addressCity the new address city
+     */
     public void setAddressCity(String addressCity) {
 	this.addressCity = addressCity;
     }
 
+    /**
+     * Gets the address country.
+     *
+     * @return the address country
+     */
     public String getAddressCountry() {
 	return addressCountry;
     }
 
+    /**
+     * Sets the address country.
+     *
+     * @param addressCountry the new address country
+     */
     public void setAddressCountry(String addressCountry) {
 	this.addressCountry = addressCountry;
     }
 
+    /**
+     * Gets the complete address.
+     *
+     * @return the complete address
+     */
     public String getCompleteAddress() {
 	String address = (addressStreet != null) ? addressStreet : "";
 	address += ((addressNumber != null) ? ((address.length() > 0) ? " "
@@ -197,10 +330,20 @@ public class Location {
 	return address;
     }
 
+    /**
+     * Gets the displaced.
+     *
+     * @return the displaced
+     */
     public Boolean getDisplaced() {
 	return displaced;
     }
 
+    /**
+     * Sets the displaced.
+     *
+     * @param displaced the new displaced
+     */
     public void setDisplaced(Boolean displaced) {
 	this.displaced = displaced;
     }

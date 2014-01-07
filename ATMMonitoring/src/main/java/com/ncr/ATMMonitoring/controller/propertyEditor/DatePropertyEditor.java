@@ -7,20 +7,41 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
+ * The Class DatePropertyEditor.
+ * 
+ * Custom PropertyEditor for Date input values.
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
 public class DatePropertyEditor extends PropertyEditorSupport {
 
+    /**
+     * Flag for using current time as default value if a void or invalid one is
+     * supplied.
+     */
     private boolean nowAsDefault = false;
 
+    /**
+     * Instantiates a new date property editor.
+     */
     public DatePropertyEditor() {
     }
 
+    /**
+     * Instantiates a new date property editor.
+     * 
+     * @param nowAsDefault
+     *            flag for using current time as default value if a void or
+     *            invalid one is supplied.
+     */
     public DatePropertyEditor(boolean nowAsDefault) {
 	this.nowAsDefault = nowAsDefault;
     }
 
+    /* (non-Javadoc)
+     * @see java.beans.PropertyEditorSupport#setAsText(java.lang.String)
+     */
     @Override
     public void setAsText(final String date) {
 	try {
@@ -35,6 +56,9 @@ public class DatePropertyEditor extends PropertyEditorSupport {
 	}
     }
 
+    /* (non-Javadoc)
+     * @see java.beans.PropertyEditorSupport#getAsText()
+     */
     @Override
     public String getAsText() {
 	Date value = (Date) getValue();
