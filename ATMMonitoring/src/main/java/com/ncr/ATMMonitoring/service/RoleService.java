@@ -23,6 +23,14 @@ public interface RoleService {
     public void addRole(Role role);
 
     /**
+     * Updates the role.
+     * 
+     * @param role
+     *            the role
+     */
+    public void updateRole(Role role);
+
+    /**
      * Gets the role by its id.
      * 
      * @param id

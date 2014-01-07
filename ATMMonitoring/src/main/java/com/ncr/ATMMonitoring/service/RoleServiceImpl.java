@@ -34,7 +34,21 @@ public class RoleServiceImpl implements RoleService {
 	roleDAO.addRole(role);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.RoleService#updateRole(com.ncr.ATMMonitoring
+     * .pojo.Role)
+     */
+    @Override
+    public void updateRole(Role role) {
+	roleDAO.updateRole(role);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.service.RoleService#getRole(java.lang.Integer)
      */
     @Override

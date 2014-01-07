@@ -35,7 +35,23 @@ public class RoleDAOImpl extends AbstractGenericDAO<Role> implements RoleDAO {
 	logger.debug("Created new Role with id " + role.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.RoleDAO#updateRole(com.ncr.ATMMonitoring.pojo
+     * .Role)
+     */
+    @Override
+    public void updateRole(Role role) {
+	update(role);
+	logger.info("Updated Role with id " + role.getId() + " and name "
+		+ role.getName());
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.RoleDAO#getRole(java.lang.Integer)
      */
     @Override

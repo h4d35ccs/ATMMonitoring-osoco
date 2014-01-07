@@ -457,6 +457,85 @@ public class UserController {
 	return "redirect:/users/list";
     }
 
+    /**
+     * User details URL.
+     * 
+     * @param roleId
+     *            the user id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
+    @RequestMapping("/users/roles/details/{roleId}")
+    public String roleDetails(@PathVariable("roleId") Integer roleId,
+	    Map<String, Object> map, HttpServletRequest request,
+	    Principal principal) {
+	Role role = roleService.getRole(roleId);
+	if ((role == null) || (!role.getManageable())) {
+	    return "redirect:/users/list";
+	}
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+	// TODO
+	// Actualizar los permisos
+	boolean canEdit = true;
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	}
+	map.put("canEdit", canEdit);
+	map.put("userMsg", userMsg);
+	map.put("role", role);
+
+	return "roleDetails";
+    }
+
+    /**
+     * Update user URL.
+     * 
+     * @param role
+     *            the user
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
+    @RequestMapping(value = "/users/roles/update", method = RequestMethod.POST)
+    public String updateRole(@Valid @ModelAttribute("role") Role role,
+	    BindingResult result, Map<String, Object> map,
+	    HttpServletRequest request, Principal principal) {
+	String userMsg = "";
+	Locale locale = RequestContextUtils.getLocale(request);
+
+	if (principal != null) {
+	    User loggedUser = userService
+		    .getUserByUsername(principal.getName());
+	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	}
+	map.put("userMsg", userMsg);
+
+	if (role != null) {
+	    Role roleAux = roleService.getRole(role.getId());
+	    if ((roleAux != null) && (roleAux.getManageable())) {
+		role.setManageable(true);
+		roleService.updateRole(role);
+	    }
+	}
+
+	map.clear();
+	return "redirect:/users/roles/details/" + role.getId().intValue();
+    }
+
     // /**
     // * List roles URL.
     // *
