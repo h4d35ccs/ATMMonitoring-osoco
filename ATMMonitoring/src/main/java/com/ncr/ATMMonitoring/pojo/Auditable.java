@@ -49,17 +49,19 @@ public abstract class Auditable {
 	}
 	
 	public boolean isActive(Date searchDate) {
-		return (searchDate == null) ?
-			isActiveNow() :
-			isGreaterOrEqualsThanStartDate(searchDate) && isLowerOrEqualsThanStartDate(searchDate);
+		return (searchDate == null) ? isActiveNow() : isBetweenStartAndEndDate(searchDate);
 	}
 	
 	public boolean isActiveNow() {
-		return endDate == null;
+		return isBetweenStartAndEndDate(new Date());
 	}
 
 	public boolean exists(Date searchDate) {
 		return (searchDate == null) ? true : isGreaterOrEqualsThanStartDate(searchDate);
+	}
+	
+	private boolean isBetweenStartAndEndDate(Date searchDate) {
+		return isGreaterOrEqualsThanStartDate(searchDate) && isLowerOrEqualsThanStartDate(searchDate);
 	}
 	
 	private boolean isGreaterOrEqualsThanStartDate(Date searchDate) {

@@ -1,10 +1,8 @@
 package com.ncr.ATMMonitoring.pojo;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -29,8 +27,6 @@ import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Type;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.ncr.ATMMonitoring.service.AuditableSetOperations;
 import com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl;
@@ -1121,17 +1117,27 @@ public class Terminal {
     }
     
     public Set<HardwareDevice> getActiveHardwareDevicesByDate(Date date) {
-    	return auditableSetOperations.getCreatedAuditableElementsByDate(hardwareDevices, date);
+    	return auditableSetOperations.getActiveAuditableElementsByDate(hardwareDevices, date);
     }
     
-    public Set<Installation> getCreatedInstallationsByDate(Date date) {
-    	return auditableSetOperations.getCreatedAuditableElementsByDate(installations, date);
+    public Set<Installation> getActiveInstallationsByDate(Date date) {
+    	return auditableSetOperations.getActiveAuditableElementsByDate(installations, date);
+    }
+
+    public Set<FinancialDevice> getActiveFinancialDevicesByDate(Date date) {
+    	return auditableSetOperations.getActiveAuditableElementsByDate(financialDevices, date);
     }
     
-    public Set<Installation> getHistoricalInstallations(Date date) {
-    	Set<Installation> historicalInstallations = new HashSet<Installation>(getCreatedInstallationsByDate(date));
-    	historicalInstallations.remove(getCurrentInstallationByDate(date));
-    	return historicalInstallations;
+    public Set<SoftwareAggregate> getActiveSoftwareAggregatesByDate(Date date) {
+    	return auditableSetOperations.getActiveAuditableElementsByDate(softwareAggregates, date);
+    }
+    
+    public Set<Hotfix> getActiveHotfixesByDate(Date date) {
+    	return auditableSetOperations.getActiveAuditableElementsByDate(hotfixes, date);
+    }
+    
+    public Set<AuditableInternetExplorer> getActiveAuditableInternetExplorersByDate(Date date) {
+    	return auditableSetOperations.getActiveAuditableElementsByDate(auditableInternetExplorers, date);
     }
     
     /**
@@ -1153,7 +1159,8 @@ public class Terminal {
     }
 
     public Map<Class<? extends Auditable>, Map<Date, Integer>> buildHistoricalChanges() {
-    	Map<Class<? extends Auditable>, Map<Date, Integer>> historicableChanges = new HashMap<Class<? extends Auditable>, Map<Date,Integer>>();
+    	Map<Class<? extends Auditable>, Map<Date, Integer>> historicableChanges = 
+    			new HashMap<Class<? extends Auditable>, Map<Date,Integer>>();
     	
     	historicableChanges.put(HardwareDevice.class, auditableSetOperations.buildAuditableChangesForCollection(hardwareDevices));
     	historicableChanges.put(Installation.class, auditableSetOperations.buildAuditableChangesForCollection(installations));

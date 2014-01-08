@@ -450,16 +450,11 @@
 							<a href="terminals/installations/new?matricula=${terminal.matricula}" class="btn iframe_m"><spring:message code="label.installation.new"/></a>
 						</div>
                         
-                        <c:if test="${!empty terminal.getCreatedInstallationsByDate(date)}">
+                        <c:if test="${!empty terminal.getActiveInstallationsByDate(date)}">
 	                        <c:if test="${terminal.getCurrentInstallationByDate(date) != null}">
 				  <h3><spring:message code="label.installation.current"/></h3>
-				  <t:installationTable installations="${terminal.getCurrentInstallationByDate(date)}" />
+				  <t:installationTable installations="${terminal.getActiveInstallationsByDate(date)}" />
 				</c:if>
-							
-				  <c:if test="${!empty terminal.getHistoricalInstallations(date)}">
-				  	<h3><spring:message code="label.installation.historical"/></h3>
-	                          <t:installationTable installations="${terminal.getHistoricalInstallations(date)}" />
-	                        </c:if>
                         </c:if>
 					</div>
 					
@@ -471,10 +466,10 @@
 									<spring:message code="label.terminal.noFinancialDevices"/>
 								</div>
 							</c:if>
-							<c:if test="${!empty terminal.financialDevices}">
+							<c:if test="${!empty terminal.getActiveFinancialDevicesByDate(date)}">
 							<div class="margin-box">
 								<c:choose>
-									<c:when  test="${terminal.financialDevices.size() >
+									<c:when  test="${terminal.getActiveFinancialDevicesByDate(date).size() >
 										5}">
 										<table id="TestChromatable" class="data subform link">
 											<thead>
@@ -669,7 +664,7 @@
 										</c:choose>
 										<tbody>
 
-											<c:forEach items="${terminal.financialDevices}" var="financialDevice">
+											<c:forEach items="${terminal.getActiveFinancialDevicesByDate(date)}" var="financialDevice">
 												<tr class="showdetail open">
 												<td>
 													<label>${financialDevice.name}</label>
@@ -1026,10 +1021,10 @@
 							<spring:message code="label.terminal.noSwAggregates"/>
 						</div>
 					</c:if>
-					<c:if test="${!empty terminal.softwareAggregates}">
+					<c:if test="${!empty terminal.getActiveSoftwareAggregatesByDate(date)}">
 					<div class="margin-box">
 						<c:choose>
-							<c:when  test="${terminal.softwareAggregates.size() >
+							<c:when  test="${terminal.getActiveSoftwareAggregatesByDate(date).size() >
 								5}">
 								<table id="AggregateChromatable" class="data link">
 									<thead>
@@ -1088,7 +1083,7 @@
 									</c:otherwise>
 								</c:choose>
 								<c:set var="alt" value="${false}"/>
-								<c:forEach items="${terminal.softwareAggregates}" var="softwareAggregate">
+								<c:forEach items="${terminal.getActiveSoftwareAggregatesByDate(date)}" var="softwareAggregate">
 									<tr <c:if test="${alt}">class="alt"</c:if>
 									>
 									<td>${softwareAggregate.nameVersion}</td>
@@ -1106,14 +1101,14 @@
 
 			<div class="content_tab">
 				<div class="margin-box">
-					<c:if  test="${empty terminal.hotfixes}">
+					<c:if  test="${empty terminal.getActiveHotfixesByDate(date)}">
 						<div class="empty-list message">
 							<spring:message code="label.terminal.noHotfixes"/>
 						</div>
 					</c:if>
-					<c:if test="${!empty terminal.hotfixes}">
+					<c:if test="${!empty terminal.getActiveHotfixesByDate(date)}">
 						<c:choose>
-							<c:when  test="${terminal.hotfixes.size() >
+							<c:when  test="${terminal.getActiveHotfixesByDate(date).size() >
 								5}">
 								<table id="HotfixChromatable" class="data margin-box link">
 									<thead>
@@ -1178,7 +1173,7 @@
 									</c:otherwise>
 								</c:choose>
 								<c:set var="alt" value="${false}"/>
-								<c:forEach items="${terminal.hotfixes}" var="hotfix">
+								<c:forEach items="${terminal.getActiveHotfixesByDate(date)}" var="hotfix">
 									<tr <c:if test="${alt}">class="alt"</c:if>
 									>
 									<td>${hotfix.hotfixId}</td>
@@ -1197,12 +1192,12 @@
 			</div>
 			<div class="content_tab">
 				<div class="margin-box">
-					<c:if  test="${empty terminal.internetExplorers}">
+					<c:if  test="${empty terminal.getActiveAuditableInternetExplorersByDate(date)}">
 						<div class="empty-list message">
 							<spring:message code="label.terminal.noIEs"/>
 						</div>
 					</c:if>
-					<c:if test="${!empty terminal.internetExplorers}">
+					<c:if test="${!empty terminal.getActiveAuditableInternetExplorersByDate(date)}">
 						<table class="data link">
 							<tr>
 								<th>
@@ -1212,10 +1207,10 @@
 								</th>
 							</tr>
 							<c:set var="alt" value="${false}"/>
-							<c:forEach items="${terminal.internetExplorers}" var="internetExplorer">
+							<c:forEach items="${terminal.getActiveAuditableInternetExplorersByDate(date)}" var="auditableInternetExplorer">
 								<tr <c:if test="${alt}">class="alt"</c:if>
 								>
-								<td>${internetExplorer.version}</td>
+								<td>${auditableInternetExplorer.internetExplorer.version}</td>
 							</tr>
 							<c:set var="alt" value="${!alt}"/>
 						</c:forEach>
