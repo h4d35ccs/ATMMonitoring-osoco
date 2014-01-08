@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
@@ -26,6 +27,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import com.ncr.ATMMonitoring.controller.propertyEditor.BankCompanyPropertyEditor;
 import com.ncr.ATMMonitoring.controller.propertyEditor.RolePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
+import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Role;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.BankCompanyService;
@@ -534,6 +536,38 @@ public class UserController {
 
 	map.clear();
 	return "redirect:/users/roles/details/" + role.getId().intValue();
+    }
+
+    /**
+     * Delete role URL.
+     * 
+     * @param roleId
+     *            the role id
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
+    @RequestMapping(value = "/users/roles/delete", method = RequestMethod.GET)
+    public String deleteUserQuery(Integer roleId, Map<String, Object> map,
+	    HttpServletRequest request, Principal principal) {
+
+	if (roleId != null) {
+	    Role role = roleService.getRole(roleId);
+	    if (role != null) {
+		if ((role.getUsers().size() == 0)
+			&& (role.getManageable() != null)
+			&& (role.getManageable())) {
+		    roleService.deleteRole(role);
+		}
+	    }
+	}
+
+	return "redirect:/users/list";
+
     }
 
     // /**

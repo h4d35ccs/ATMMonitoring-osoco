@@ -2,6 +2,7 @@ package com.ncr.ATMMonitoring.dao;
 
 import java.util.List;
 
+import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Role;
 import com.ncr.ATMMonitoring.pojo.User;
 
@@ -29,6 +30,14 @@ public interface RoleDAO {
      *            the role
      */
     public void updateRole(Role role);
+
+    /**
+     * Delete role.
+     * 
+     * @param role
+     *            the role
+     */
+    public void deleteRole(Role role);
 
     /**
      * Gets the role with the given id.

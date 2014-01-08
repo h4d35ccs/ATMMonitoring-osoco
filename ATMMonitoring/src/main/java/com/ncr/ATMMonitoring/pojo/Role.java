@@ -1,14 +1,19 @@
 package com.ncr.ATMMonitoring.pojo;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  * The Role Pojo.
@@ -46,18 +51,16 @@ public class Role implements Serializable {
     @Column(name = "can_edit_terminals")
     private Boolean canEditTerminals;
 
-    // We don't need this for now
-    // @OneToMany(mappedBy = "role")
-    // @Cascade(CascadeType.ALL)
-    // private Set<User> users;
-    //
-    // public Set<User> getUsers() {
-    // return users;
-    // }
-    //
-    // public void setUsers(Set<User> users) {
-    // this.users = users;
-    // }
+    @OneToMany(mappedBy = "role")
+    private Set<User> users;
+
+    public Set<User> getUsers() {
+	return users;
+    }
+
+    public void setUsers(Set<User> users) {
+	this.users = users;
+    }
 
     /**
      * Gets the id.

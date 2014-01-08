@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ncr.ATMMonitoring.dao.RoleDAO;
+import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Role;
 import com.ncr.ATMMonitoring.pojo.User;
 
@@ -44,6 +45,18 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void updateRole(Role role) {
 	roleDAO.updateRole(role);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.RoleService#deleteRole(com.ncr.ATMMonitoring
+     * .pojo.Role)
+     */
+    @Override
+    public void deleteRole(Role role) {
+	roleDAO.deleteRole(role);
     }
 
     /*

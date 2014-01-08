@@ -11,7 +11,7 @@
     request.setAttribute("userSortColumns", userSortColumns);
     request.setAttribute("userNotSortColumns", userNotSortColumns);
 
-    String[] roleSortColumns = { "name"};
+    String[] roleSortColumns = { "name", "description"};
     request.setAttribute("roleSortColumns", roleSortColumns);
 %>
 
@@ -31,6 +31,19 @@
             $("#roles tbody tr").click(function(event) {
                 var roleUrl = $(this).find("a").attr("href");
                 document.location.href = roleUrl;
+            });
+            $(".delete").click(function(event) {
+                event.stopPropagation();
+                event.preventDefault();
+                var roleId= $(this).data('roleId');
+                if (confirm('¿Estás seguro de que quieres borrar el rol?')) {
+                    document.location.href = "users/roles/delete?roleId=" + roleId;
+                }
+            });
+            $(".delete_wrong").click(function(event) {
+                event.stopPropagation();
+                event.preventDefault();
+                alert('No se puede borrar un rol con usuarios asignados.');
             });
         });
     </script>
@@ -169,7 +182,20 @@
 					  <tbody>
 					  <c:forEach items="${pagedListHolder2.pageList}" var="role">
 					    <tr>
-					      <td><a href="users/roles/details/${role.id}">${role.name}</a></td>
+					      <td class="editable w33">
+					      	<div class="relative">
+					      		<c:choose>
+									<c:when test="${role.users.size() == 0}">
+										<div class="icons_action"><a href="#" class="delete" data-role-id="${role.id}"><span><spring:message code="label.delete"/></span></a></div>
+									</c:when>
+									<c:otherwise>
+										<div class="icons_action"><a href="#" class="delete_wrong"><span><spring:message code="label.delete"/></span></a></div>
+									</c:otherwise>
+								</c:choose>
+								<a href="users/roles/details/${role.id}">${role.name}</a>
+							</div>
+						  </td>
+						  <td>${role.description}</td>
 					    </tr>
 					  </c:forEach>
 					  </tbody>
