@@ -8,6 +8,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Role;
 import com.ncr.ATMMonitoring.pojo.User;
 
@@ -47,6 +48,19 @@ public class RoleDAOImpl extends AbstractGenericDAO<Role> implements RoleDAO {
 	update(role);
 	logger.info("Updated Role with id " + role.getId() + " and name "
 		+ role.getName());
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.RoleDAO#deleteRole(com.ncr.ATMMonitoring.pojo
+     * .Role)
+     */
+    @Override
+    public void deleteRole(Role role) {
+	delete(role);
+	logger.debug("Deleted Role with id " + role.getId());
     }
 
     /*
