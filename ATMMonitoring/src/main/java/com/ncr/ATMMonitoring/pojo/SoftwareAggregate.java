@@ -23,7 +23,7 @@ import com.ncr.agent.baseData.vendor.utils.FinancialPackagePojo;
 @Table(name = "software_aggregates", uniqueConstraints = { @UniqueConstraint(columnNames = {
 	"name", "major_version", "minor_version", "build_version",
 	"revision_version", "remaining_version" }) })
-public class SoftwareAggregate {
+public class SoftwareAggregate extends Auditable {
 
     /** The id. */
     @Id

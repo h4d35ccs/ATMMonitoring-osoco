@@ -35,7 +35,7 @@ import com.ncr.agent.baseData.vendor.utils.FinancialDevicePojo;
 
 @Entity
 @Table(name = "financial_devices")
-public class FinancialDevice {
+public class FinancialDevice extends Auditable {
 
     /** The comboboxes data related to this entity for the query designer. */
     private static final Map<String, Map> comboboxes;

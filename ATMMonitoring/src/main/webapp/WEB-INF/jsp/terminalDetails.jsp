@@ -1185,7 +1185,7 @@
 									<td>${hotfix.description}</td>
 									<td>${hotfix.number}</td>
 									<td>
-										<fmt:formatDate value="${hotfix.installedOn}" dateStyle="short" type="date" />
+										<fmt:formatDate value="${hotfix.startDate}" dateStyle="short" type="date" />
 									</td>
 									<td>${hotfix.fixComments}</td>
 								</tr>

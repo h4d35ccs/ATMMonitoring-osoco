@@ -252,6 +252,8 @@ public class TerminalController {
      *            the order for sorting terminals
      * @param request
      *            the request
+	 * @param request
+     *            the queryDate
      * @return the petition response
      */
     @RequestMapping(value = "/terminals/list", method = RequestMethod.GET)
@@ -341,7 +343,7 @@ public class TerminalController {
     public String terminalDetails(
 	    @PathVariable("terminalId") Integer terminalId,
 	    Map<String, Object> map, HttpServletRequest request,
-	    Principal principal) {
+	    Principal principal, Date date) {
 	Terminal terminal = terminalService.getTerminal(terminalId);
 	if (terminal == null) {
 	    map.clear();
@@ -374,13 +376,16 @@ public class TerminalController {
 		return "redirect:/terminals/list";
 	    }
 	}
+	map.put("historicalChanges", terminal.buildHistoricalChanges());
 	map.put("banksList", bankCompanies);
 	map.put("installationsList", installationService.listInstallations());
 	map.put("values",
 		terminalModelService.listTerminalModelsByManufacturer());
+	map.put("date", date);
 	map.put("userMsg", userMsg);
 	map.put("canEdit", canEdit);
 	map.put("terminal", terminal);
+	
 
 	return "terminalDetails";
     }
@@ -477,10 +482,7 @@ public class TerminalController {
 		&& (terminal.getBankCompany().getId() == null)) {
 	    terminal.setBankCompany(null);
 	}
-	if ((terminal.getInstallation() != null)
-		&& (terminal.getInstallation().getId() == null)) {
-	    terminal.setInstallation(null);
-	}
+	
 	if ((terminal.getTerminalModel() != null)
 		&& (terminal.getTerminalModel().getId() == null)) {
 	    terminal.setTerminalModel(null);
@@ -598,10 +600,7 @@ public class TerminalController {
 		&& (terminal.getBankCompany().getId() == null)) {
 	    terminal.setBankCompany(null);
 	}
-	if ((terminal.getInstallation() != null)
-		&& (terminal.getInstallation().getId() == null)) {
-	    terminal.setInstallation(null);
-	}
+	
 	if ((terminal.getTerminalModel() != null)
 		&& (terminal.getTerminalModel().getId() == null)) {
 	    terminal.setTerminalModel(null);
@@ -695,12 +694,14 @@ public class TerminalController {
      *            the order for sorting terminals
      * @param request
      *            the request
+     * @param queryDate the date
+     *            the date
      * @return the petition response
      */
     @RequestMapping(value = "terminals/byQuery")
     public String listTerminalsByQuery(Map<String, Object> map,
 	    Integer queryId, Principal principal, String p, String sort,
-	    String order, HttpServletRequest request) {
+	    String order, HttpServletRequest request, Date queryDate) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
 	Set<Query> userQueries = null;
@@ -1205,7 +1206,7 @@ public class TerminalController {
 		    .getLocation().getId()));
 	}
 	installationService.addInstallation(installation);
-	terminal.setInstallation(installation);
+	terminal.setCurrentInstallation(installation);
 	terminalService.updateTerminal(terminal);
 	map.put("installation", new Installation());
 	map.put("locations", locationService.listLocations());

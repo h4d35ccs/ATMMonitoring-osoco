@@ -33,7 +33,7 @@ import com.ncr.agent.baseData.os.module.HotfixPojo;
 
 @Entity
 @Table(name = "hotfixes")
-public class Hotfix {
+public class Hotfix extends Auditable {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(Hotfix.class.getName());
@@ -50,7 +50,7 @@ public class Hotfix {
 	comboboxes.put("fixComments", stringOperations);
 	comboboxes.put("hotfixId", stringOperations);
 	comboboxes.put("description", stringOperations);
-	comboboxes.put("installedOn",
+	comboboxes.put("startDate",
 		Operation.getOperationsByType(Operation.DataType.DATE));
     }
 
@@ -85,10 +85,6 @@ public class Hotfix {
     @Column(name = "description")
     @Type(type = "text")
     private String description;
-
-    /** The installed on. */
-    @Column(name = "installed_on")
-    private Date installedOn;
 
     /**
      * Instantiates a new hotfix.
@@ -137,17 +133,17 @@ public class Hotfix {
 			year = null;
 		    }
 		    if ((year != null) && (month != null) && (day != null)) {
-			this.installedOn = new SimpleDateFormat(pattern)
+			this.startDate = new SimpleDateFormat(pattern)
 				.parse(day + "/" + month + "/" + year);
 		    } else {
 			logger.error("Couldn't parse Hotfix date '"
 				+ hotfix.getInstalledOn() + "'");
-			this.installedOn = null;
+			this.startDate = null;
 		    }
 		}
 	    } catch (ParseException e) {
 		logger.error("Couldn't parse Hotfix date.", e);
-		this.installedOn = null;
+		this.startDate = null;
 	    }
 	}
     }
@@ -249,25 +245,6 @@ public class Hotfix {
      */
     public void setDescription(String description) {
 	this.description = description;
-    }
-
-    /**
-     * Gets the date it was installed on.
-     * 
-     * @return the date
-     */
-    public Date getInstalledOn() {
-	return installedOn;
-    }
-
-    /**
-     * Sets the date it wass installed on.
-     * 
-     * @param installedOn
-     *            the date to set
-     */
-    public void setInstalledOn(Date installedOn) {
-	this.installedOn = installedOn;
     }
 
     /**
