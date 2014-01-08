@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.ncr.ATMMonitoring.dao.TerminalDAO;
+import com.ncr.ATMMonitoring.pojo.AuditableInternetExplorer;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 import com.ncr.ATMMonitoring.pojo.HardwareDevice;
@@ -334,20 +335,19 @@ public class TerminalServiceImpl implements TerminalService {
 	}
 	terminal.setSoftwareAggregates(swAggregatesAux);
 
+	//TODO Do correct AuditableInternetExplorer use
 	Set<InternetExplorer> ies = getInternetExplorers(dataStoreTerminal);
-	Set<InternetExplorer> iesAux = new HashSet<InternetExplorer>();
+	Set<AuditableInternetExplorer> iesAux = new HashSet<AuditableInternetExplorer>();
 	for (InternetExplorer ie : ies) {
-	    InternetExplorer ieAux = internetExplorerService
+	    InternetExplorer storedIE = internetExplorerService
 		    .getInternetExplorerByVersion(ie.getMajorVersion(),
 			    ie.getMinorVersion(), ie.getBuildVersion(),
 			    ie.getRevisionVersion(), ie.getRemainingVersion());
-	    if (ieAux != null) {
-		iesAux.add(ieAux);
-	    } else {
-		iesAux.add(ie);
-	    }
+	    
+	    AuditableInternetExplorer auditableIE = new AuditableInternetExplorer(storedIE != null ? storedIE : ie);
+	    iesAux.add(auditableIE);
 	}
-	terminal.setInternetExplorers(iesAux);
+	terminal.setAuditableInternetExplorers(iesAux);
 
 	TerminalConfig newConfig = new TerminalConfig();
 

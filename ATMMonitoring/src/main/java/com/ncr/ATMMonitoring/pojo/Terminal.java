@@ -187,9 +187,8 @@ public class Terminal {
     /** The internet explorers. */
     @ManyToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
-    @JoinTable(name = "terminal_internet_explorer", joinColumns = { @JoinColumn(name = "terminal_id") }, inverseJoinColumns = { @JoinColumn(name = "internet_explorer_id") })
-    @OrderBy("major_version desc, minor_version desc, build_version desc, revision_version desc, remaining_version asc")
-    private Set<InternetExplorer> internetExplorers = new HashSet<InternetExplorer>();
+    @JoinTable(name = "terminal_auditable_internet_explorer", joinColumns = { @JoinColumn(name = "terminal_id") }, inverseJoinColumns = { @JoinColumn(name = "auditable_internet_explorer_id") })
+    private Set<AuditableInternetExplorer> auditableInternetExplorers = new HashSet<AuditableInternetExplorer>();
 
     /** The ip. */
     @Column(name = "ip", length = 23)
@@ -773,13 +772,7 @@ public class Terminal {
     }
 
     /**
-<<<<<<< HEAD
      * @return the hardwareDevices
-=======
-     * Gets the currently valid config.
-     * 
-     * @return the current config
->>>>>>> f85f90fea6bc46beab14681956ca6800bc7a45cf
      */
     public Set<HardwareDevice> getActivePhysicalMemoriesByDate(Date date) {
 	return HardwareDevice.filterPhysicalMemory(getActiveHardwareDevicesByDate(date));
@@ -814,7 +807,6 @@ public class Terminal {
     }
 
     /**
-<<<<<<< HEAD
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveFloppyDrivesByDate(Date date) {
@@ -913,10 +905,8 @@ public class Terminal {
     }
     
    /**
-=======
      * Gets the bank.
      *
->>>>>>> f85f90fea6bc46beab14681956ca6800bc7a45cf
      * @return the bank
      */
     public String getBank() {
@@ -1010,7 +1000,11 @@ public class Terminal {
      * @return the internetExplorers
      */
     public Set<InternetExplorer> getInternetExplorers() {
-	return internetExplorers;
+    	Set<InternetExplorer> ies = new HashSet<InternetExplorer>();
+    	for (AuditableInternetExplorer auditableIE : auditableInternetExplorers) {
+    		ies.add(auditableIE.getInternetExplorer());
+    	}
+    	return ies;
     }
 
     /**
@@ -1018,8 +1012,8 @@ public class Terminal {
      *
      * @param internetExplorers the internetExplorers to set
      */
-    public void setInternetExplorers(Set<InternetExplorer> internetExplorers) {
-	this.internetExplorers = internetExplorers;
+    public void setAuditableInternetExplorers(Set<AuditableInternetExplorer> auditableInternetExplorers) {
+    	this.auditableInternetExplorers = auditableInternetExplorers;
     }
 
     /**
@@ -1159,12 +1153,14 @@ public class Terminal {
     }
 
     public Map<Class<? extends Auditable>, Map<Date, Integer>> buildHistoricalChanges() {
-    	Map<Class<? extends Auditable>, Map<Date, Integer>> historicableChanges = 
-    			new HashMap<Class<? extends Auditable>, Map<Date,Integer>>();
+    	Map<Class<? extends Auditable>, Map<Date, Integer>> historicableChanges = new HashMap<Class<? extends Auditable>, Map<Date,Integer>>();
     	
     	historicableChanges.put(HardwareDevice.class, auditableSetOperations.buildAuditableChangesForCollection(hardwareDevices));
     	historicableChanges.put(Installation.class, auditableSetOperations.buildAuditableChangesForCollection(installations));
     	historicableChanges.put(TerminalConfig.class, auditableSetOperations.buildAuditableChangesForCollection(configs));
+    	historicableChanges.put(Hotfix.class, auditableSetOperations.buildAuditableChangesForCollection(hotfixes));
+    	historicableChanges.put(FinancialDevice.class, auditableSetOperations.buildAuditableChangesForCollection(financialDevices));
+    	historicableChanges.put(AuditableInternetExplorer.class, auditableSetOperations.buildAuditableChangesForCollection(auditableInternetExplorers));
     	
     	return historicableChanges;
     }
