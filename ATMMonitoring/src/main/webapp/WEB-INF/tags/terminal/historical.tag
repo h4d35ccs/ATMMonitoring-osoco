@@ -6,7 +6,13 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <h2><spring:message code="label.terminal.history"/></h2>
-<div id="timeline" style="height:150px"> </div>
+<c:forEach items="${historicalChanges}" var="changesByType">
+    <c:set var="changeName" value="${changesByType.key.simpleName}"> </c:set>
+    <img src="<c:url value="/resources/timeline/api/images/${changeName}.png" />" />
+    <spring:message code="label.historical.${changeName}"/>
+</c:forEach>	
+
+<div id="timeline" style="height:100px"> </div>
 <!-- <div class="action_box data desplegable"> -->
 <%--     <h2 class="txt content_hide last"><spring:message code="label.terminal.history"/></h2> --%>
 <!--     <div id="timeline" class="collapsible last hide"> -->
