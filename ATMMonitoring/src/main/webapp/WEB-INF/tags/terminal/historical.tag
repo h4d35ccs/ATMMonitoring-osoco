@@ -12,7 +12,7 @@
     <spring:message code="label.historical.${changeName}"/>
 </c:forEach>	
 
-<div id="timeline" style="height:100px"> </div>
+<div id="timeline" style="height:200px"> </div>
 <!-- <div class="action_box data desplegable"> -->
 <%--     <h2 class="txt content_hide last"><spring:message code="label.terminal.history"/></h2> --%>
 <!--     <div id="timeline" class="collapsible last hide"> -->
@@ -61,13 +61,13 @@
         var bandInfos = [
             Timeline.createHotZoneBandInfo({
                 width:          "80%", 
-                intervalUnit:   Timeline.DateTime.WEEK, 
-                intervalPixels: 200,
+                intervalUnit:   Timeline.DateTime.MONTH, 
+                intervalPixels: 100,
                 zones:          zones,
                 eventSource:    eventSource,
                 date:           date,
                 timeZone:       -6,
-         /*         zoomIndex:      10,
+                zoomIndex:      12,
             zoomSteps:      new Array(
               {pixelsPerInterval: 280,  unit: Timeline.DateTime.HOUR},
               {pixelsPerInterval: 140,  unit: Timeline.DateTime.HOUR},
@@ -77,10 +77,12 @@
               {pixelsPerInterval: 200,  unit: Timeline.DateTime.DAY},
               {pixelsPerInterval: 100,  unit: Timeline.DateTime.DAY},
               {pixelsPerInterval:  50,  unit: Timeline.DateTime.DAY},
+              {pixelsPerInterval: 400,  unit: Timeline.DateTime.WEEK},
+              {pixelsPerInterval: 200,  unit: Timeline.DateTime.WEEK},
               {pixelsPerInterval: 400,  unit: Timeline.DateTime.MONTH},
               {pixelsPerInterval: 200,  unit: Timeline.DateTime.MONTH},
               {pixelsPerInterval: 100,  unit: Timeline.DateTime.MONTH} // DEFAULT zoomIndex
-            )*/
+            )
                 
               //  theme:          theme
             }),
