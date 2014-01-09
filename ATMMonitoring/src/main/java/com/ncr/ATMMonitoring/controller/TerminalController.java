@@ -7,7 +7,9 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -37,6 +39,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.controller.propertyEditor.DatePropertyEditor;
+import com.ncr.ATMMonitoring.pojo.Auditable;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Installation;
 import com.ncr.ATMMonitoring.pojo.Query;
@@ -376,7 +379,11 @@ public class TerminalController {
 		return "redirect:/terminals/list";
 	    }
 	}
-	map.put("historicalChanges", terminal.buildHistoricalChanges());
+	
+	Map<Class<? extends Auditable>, Map<Date,Integer>> historicalChanges = terminal.buildHistoricalChanges();
+	
+	map.put("historicalChanges", historicalChanges);
+	map.put("historicalChangesTimelineDates", calculateMaxMediumAndMinDate(historicalChanges));
 	map.put("banksList", bankCompanies);
 	map.put("installationsList", installationService.listInstallations());
 	map.put("values",
@@ -390,6 +397,26 @@ public class TerminalController {
 	return "terminalDetails";
     }
 
+    //TODO finish this method
+    private Map<String, Date> calculateMaxMediumAndMinDate(Map<Class<? extends Auditable>, Map<Date,Integer>>
+    		historicalChanges) {
+    	
+    	Collection<Map<Date,Integer>> allHistoricalChanges = historicalChanges.values();
+    	
+    	Date minDate = null;
+    	Date maxDate = null;
+    	for( Map<Date,Integer> historicalChangeMap : allHistoricalChanges) {
+    		Collection<Date> changeDates = historicalChangeMap.keySet();
+    		for (Date date : changeDates) {
+    			
+    		}
+    	}
+    	
+    	Map<String, Date> datesMap = new HashMap<String, Date>();
+    	datesMap.put("min", new Date(2013,10,1));
+    	datesMap.put("max", new Date(2014,2,1));
+    	return datesMap;
+    }
     /**
      * Import terminals from json file URL.
      * 

@@ -99,10 +99,10 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#SoftwareChromatable").chromatable({
+		/*$("#SoftwareChromatable").chromatable({
 				width: "950px",
 				height: "220px",
 				scrolling: "yes"
-		});
+		});*/
 	});
 </script>

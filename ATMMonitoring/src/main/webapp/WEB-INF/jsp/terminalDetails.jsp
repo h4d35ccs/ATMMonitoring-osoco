@@ -1,5 +1,6 @@
 <%@taglib uri="http://www.ncr.com/tags" prefix="ncr"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="terminal" tagdir="/WEB-INF/tags/terminal/" %>
 
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -398,25 +399,8 @@
 						<!-- // collapsible -->
 					</div>
 					<!-- // /action_box -->
-					<div class="action_box data desplegable">
-						<h2 class="txt content_hide last"><spring:message code="label.terminal.history"/></h2>
-						<div class="collapsible last hide">
-						  <c:forEach items="${historicalChanges}" var="changesByType">
-						      <p><spring:message code="label.historical.${changesByType.getKey().getSimpleName()}"/></p>
-						      <ul>
-						      <c:forEach items="${changesByType.getValue()}" var="changeDates">
-						        <c:set var="changeDate" value="${changeDates.getKey()}" />
-						        <c:set var="numberOfChanges" value="${changeDates.getValue()}" />
-					            <li>
-					            <a href="terminals/details/${terminal.id}?date=<fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy" />">
-	                               El día <fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy" /> hubo ${numberOfChanges} cambios 
-	                            </a>
-	                            </li>
-						      </c:forEach>
-						      </ul>
-						  </c:forEach>
-                        </div>
-					</div>
+				<terminal:historical historicalChanges="${historicalChanges}" timelineDates="${historicalChangesTimelineDates}" />
+					
 				</div>
 				<h2 id="features">Características</h2>
 				<div id="tabs">
