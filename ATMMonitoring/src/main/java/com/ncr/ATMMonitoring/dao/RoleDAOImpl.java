@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Role;
+import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.User;
 
 /**
@@ -73,7 +74,22 @@ public class RoleDAOImpl extends AbstractGenericDAO<Role> implements RoleDAO {
 	return get(id);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.RoleDAO#getRoleByName(java.lang.String)
+     */
+    @Override
+    public Role getRoleByName(String name) {
+	Role result = (Role) sessionFactory.getCurrentSession()
+		.createCriteria(Role.class).add(Restrictions.eq("name", name))
+		.setMaxResults(1).uniqueResult();
+	return result;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.RoleDAO#listRoles()
      */
     @Override

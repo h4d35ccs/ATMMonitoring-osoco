@@ -49,6 +49,15 @@ public interface RoleService {
     public Role getRole(Integer id);
 
     /**
+     * Gets the role by its name.
+     * 
+     * @param name
+     *            the role name
+     * @return the role
+     */
+    public Role getRoleByName(String name);
+
+    /**
      * List roles.
      * 
      * @return the role list

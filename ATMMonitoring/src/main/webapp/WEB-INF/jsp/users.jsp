@@ -224,6 +224,29 @@
 					</div>
 				</div>
 			</c:if>
+			<form:form method="post" action="users/roles/add" commandName="role">
+				<div class="ul_data ul_data_wide editable" style="float: right;">
+					<ul>
+						<li> <strong><form:label path="name">
+									<spring:message code="label.role.name"/>
+								</form:label></strong>
+
+							<form:input class='form-tf-grey' path="name" maxlength="100"/>
+
+							<form:errors path="name" element="div" cssClass="error top"/>
+							<c:if test="${duplicatedName == true}">
+							   	<div class="error top">
+								<spring:message code="label.role.duplicatedName"/>
+								</div>
+							</c:if>
+						</li>
+					</ul>
+				<div class="botonera">
+					<input type="submit" class="btn" value="<spring:message code="label.role.addRole"/>"/>
+				</div>
+
+				</div>
+			</form:form>
 
 		<div class="hide">
 			<div id="help_pop" class="inline">

@@ -1,6 +1,9 @@
 package com.ncr.ATMMonitoring.pojo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,8 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 /**
  * The Role Pojo.
@@ -48,8 +51,8 @@ public class Role implements Serializable {
     private Boolean manageable;
 
     /** The flag that tells us whether the users can edit terminal data. */
-    @Column(name = "can_edit_terminals")
-    private Boolean canEditTerminals;
+    @Column(name = "can_edit_terminals", columnDefinition = "boolean default false")
+    private Boolean canEditTerminals = false;
 
     @OneToMany(mappedBy = "role")
     private Set<User> users;
@@ -153,5 +156,22 @@ public class Role implements Serializable {
      */
     public void setCanEditTerminals(Boolean canEditTerminals) {
 	this.canEditTerminals = canEditTerminals;
+    }
+
+    /**
+     * Returns the granted authorities for this role.
+     * 
+     * @return the list of granted authorities
+     */
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+	List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>(1);
+	if (name != null) {
+	    authList.add(new SimpleGrantedAuthority("ROLE_" + name));
+	    if ((canEditTerminals != null) && canEditTerminals) {
+		authList.add(new SimpleGrantedAuthority(
+			"CAN_EDIT_TERMINALS"));
+	    }
+	}
+	return authList;
     }
 }
