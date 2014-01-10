@@ -42,10 +42,6 @@ public class TerminalConfig extends Auditable {
     @SequenceGenerator(name = "terminal_configs_id_seq", sequenceName = "terminal_configs_id_seq", allocationSize = 1)
     private Integer id;
 
-    /** The start date. */
-    @Column(name = "start_date")
-    private Date startDate = new Date();
-
     /** The terminal. */
     @ManyToOne(fetch = FetchType.EAGER)
     @Cascade(CascadeType.REFRESH)
