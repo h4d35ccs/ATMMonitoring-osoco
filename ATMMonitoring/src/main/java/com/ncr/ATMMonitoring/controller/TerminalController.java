@@ -477,10 +477,14 @@ public class TerminalController {
 		&& (terminal.getBankCompany().getId() == null)) {
 	    terminal.setBankCompany(null);
 	}
-	if ((terminal.getInstallation() != null)
-		&& (terminal.getInstallation().getId() == null)) {
-	    terminal.setInstallation(null);
-	}
+	// TODO
+	// Revisar esta parte ahora que las terminales tienen varias
+	// instalaciones
+	//
+	// if ((terminal.getInstallation() != null)
+	// && (terminal.getInstallation().getId() == null)) {
+	// terminal.setInstallation(null);
+	// }
 	if ((terminal.getTerminalModel() != null)
 		&& (terminal.getTerminalModel().getId() == null)) {
 	    terminal.setTerminalModel(null);
@@ -598,10 +602,14 @@ public class TerminalController {
 		&& (terminal.getBankCompany().getId() == null)) {
 	    terminal.setBankCompany(null);
 	}
-	if ((terminal.getInstallation() != null)
-		&& (terminal.getInstallation().getId() == null)) {
-	    terminal.setInstallation(null);
-	}
+	// TODO
+	// Revisar esta parte ahora que las terminales tienen varias
+	// instalaciones
+	//
+	// if ((terminal.getInstallation() != null)
+	// && (terminal.getInstallation().getId() == null)) {
+	// terminal.setInstallation(null);
+	// }
 	if ((terminal.getTerminalModel() != null)
 		&& (terminal.getTerminalModel().getId() == null)) {
 	    terminal.setTerminalModel(null);
@@ -1205,7 +1213,11 @@ public class TerminalController {
 		    .getLocation().getId()));
 	}
 	installationService.addInstallation(installation);
-	terminal.setInstallation(installation);
+	// TODO
+	// Revisar esta parte ahora que las terminales tienen varias
+	// instalaciones
+	//
+	// terminal.setInstallation(installation);
 	terminalService.updateTerminal(terminal);
 	map.put("installation", new Installation());
 	map.put("locations", locationService.listLocations());
