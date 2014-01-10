@@ -5,6 +5,8 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<c:set var="timelineDatesPattern" value="MM dd yyyy HH:mm:ss"/>
+
 <h2><spring:message code="label.terminal.history"/></h2>
 <c:forEach items="${historicalChanges}" var="changesByType">
     <c:set var="changeName" value="${changesByType.key.simpleName}"> </c:set>
@@ -40,19 +42,21 @@
 </script>
 <script src="resources/timeline/api/timeline-api.js" type="text/javascript"></script>
 <script>
+    window.onload = function() { loadTimeline() };
+    
     var tl;
+    
     function loadTimeline() {
-        var eventSource = new Timeline.DefaultEventSource();
-       
-       // var minDate = new Date(${timelineDates.min.time})
-       // var maxDate = new Date(${timelineDates.max.time})
-       
-        var zones = [
-            
-        ];
-        var zones2 = [
-            
-        ];
+    
+    	if(SimileAjax.loadedScriptsCount != 22) {
+    	    setTimeout(loadTimeline, 50);
+    	    return;
+    	}
+    	 
+    	var eventSource = new Timeline.DefaultEventSource();
+
+        var zones = [];
+        var zones2 = [];
         
         var theme = Timeline.ClassicTheme.create();
         theme.event.bubble.width = 250;
@@ -61,39 +65,52 @@
         var bandInfos = [
             Timeline.createHotZoneBandInfo({
                 width:          "80%", 
+                date: date,
                 intervalUnit:   Timeline.DateTime.MONTH, 
-                intervalPixels: 100,
+                intervalPixels: 200,
                 zones:          zones,
                 eventSource:    eventSource,
-                date:           date,
                 timeZone:       -6,
-                zoomIndex:      12,
+                zoomIndex:      16,
             zoomSteps:      new Array(
-              {pixelsPerInterval: 280,  unit: Timeline.DateTime.HOUR},
-              {pixelsPerInterval: 140,  unit: Timeline.DateTime.HOUR},
-              {pixelsPerInterval:  70,  unit: Timeline.DateTime.HOUR},
-              {pixelsPerInterval:  35,  unit: Timeline.DateTime.HOUR},
-              {pixelsPerInterval: 400,  unit: Timeline.DateTime.DAY},
-              {pixelsPerInterval: 200,  unit: Timeline.DateTime.DAY},
-              {pixelsPerInterval: 100,  unit: Timeline.DateTime.DAY},
-              {pixelsPerInterval:  50,  unit: Timeline.DateTime.DAY},
+              {pixelsPerInterval: 3000,  unit: Timeline.DateTime.HOUR},
+              {pixelsPerInterval: 2500,  unit: Timeline.DateTime.HOUR},
+              {pixelsPerInterval: 2000,  unit: Timeline.DateTime.HOUR},
+              {pixelsPerInterval: 1600,  unit: Timeline.DateTime.HOUR},
+              {pixelsPerInterval: 2500,  unit: Timeline.DateTime.DAY},
+              {pixelsPerInterval: 2000,  unit: Timeline.DateTime.DAY},
+              {pixelsPerInterval: 1700,  unit: Timeline.DateTime.DAY},
+              {pixelsPerInterval: 1500,  unit: Timeline.DateTime.DAY},
+              {pixelsPerInterval: 1500,  unit: Timeline.DateTime.WEEK},
+              {pixelsPerInterval: 1200,  unit: Timeline.DateTime.WEEK},
+              {pixelsPerInterval: 800,  unit: Timeline.DateTime.WEEK},
               {pixelsPerInterval: 400,  unit: Timeline.DateTime.WEEK},
-              {pixelsPerInterval: 200,  unit: Timeline.DateTime.WEEK},
+              {pixelsPerInterval: 500,  unit: Timeline.DateTime.MONTH},
               {pixelsPerInterval: 400,  unit: Timeline.DateTime.MONTH},
+              {pixelsPerInterval: 300,  unit: Timeline.DateTime.MONTH},
               {pixelsPerInterval: 200,  unit: Timeline.DateTime.MONTH},
-              {pixelsPerInterval: 100,  unit: Timeline.DateTime.MONTH} // DEFAULT zoomIndex
+              {pixelsPerInterval: 400,  unit: Timeline.DateTime.YEAR}
             )
                 
               //  theme:          theme
             }),
             Timeline.createHotZoneBandInfo({
                 width:          "20%", 
+                date: date,
                 intervalUnit:   Timeline.DateTime.YEAR, 
-                intervalPixels: 500,
                 zones:          zones2, 
+                intervalPixels: 400,
                 eventSource:    eventSource,
-                date:           date, 
-                overview:       true
+                overview:       true,
+                zoomIndex:      6,
+                zoomSteps:      new Array(
+                    {pixelsPerInterval: 100,  unit: Timeline.DateTime.DECADE},
+                    {pixelsPerInterval: 200,  unit: Timeline.DateTime.DECADE},
+                    {pixelsPerInterval: 50,  unit: Timeline.DateTime.YEAR},
+                    {pixelsPerInterval: 100,  unit: Timeline.DateTime.YEAR},
+                    {pixelsPerInterval: 200,  unit: Timeline.DateTime.YEAR},
+                    {pixelsPerInterval: 400,  unit: Timeline.DateTime.YEAR}
+                 )
                // theme:          theme
             })
         ];
@@ -117,7 +134,7 @@
 	               <c:set var="changeDate" value="${changeDates.getKey()}" />
 	               <c:set var="numberOfChanges" value="${changeDates.getValue()}" />
 			{
-    	         	 start : "<fmt:formatDate value="${changeDate}" pattern="MM dd yyyy HH:mm:ss "/>",
+    	         	 start : "<fmt:formatDate value="${changeDate}" pattern="${timelineDatesPattern}"/>",
     	          	 link : "${terminal.id}?date=<fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy" />",
     	          	 icon : '<c:url value="/resources/timeline/api/images/${changesByType.key.simpleName}.png" />'
     	      		},
@@ -126,18 +143,6 @@
     	   ] 
         }
         return eventData;
-    }
-    
-    window.onload = function() {
-    	tryLoadTimeline()
-    } 
-    
-    function tryLoadTimeline() {
-    	try {
-    	    loadTimeline()
-    	} catch(e) {
-    	    setTimeout(tryLoadTimeline,500);	
-    	}
     }
     
 </script>
