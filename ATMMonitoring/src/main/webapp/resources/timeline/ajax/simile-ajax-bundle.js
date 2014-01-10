@@ -2621,3 +2621,5 @@ B.send(A);
 SimileAjax.XmlHttp._forceXML=function(A){try{A.overrideMimeType("text/xml");
 }catch(B){A.setrequestheader("Content-Type","text/xml");
 }};
+
+simileAjaxBoundleLoaded = true;

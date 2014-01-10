@@ -12,6 +12,7 @@ if (typeof SimileAjax == "undefined") {
     var SimileAjax = {
         loaded:                 false,
         loadingScriptsCount:    0,
+        loadedScriptsCount:     0,
         error:                  null,
         params:                 { bundle:"true" }
     };
@@ -71,6 +72,7 @@ if (typeof SimileAjax == "undefined") {
         script.language = "JavaScript";
         script.src = url;
         script.async='async'
+        script.onload = function() { SimileAjax.loadedScriptsCount++}
         return getHead(doc).appendChild(script);
     };
     SimileAjax.includeJavascriptFiles = function(doc, urlPrefix, filenames) {

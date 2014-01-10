@@ -84,8 +84,13 @@
     };
     
     var loadMe = function() {
-        if ("Timeline" in window) {
+    	if ("Timeline" in window) {
             return;
+        }
+        
+        if(!("simileAjaxBoundleLoaded" in window)) {
+            setTimeout(loadMe, 50) 
+            return;	
         }
         
         window.Timeline = new Object();
