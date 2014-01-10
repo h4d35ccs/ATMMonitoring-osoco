@@ -122,7 +122,7 @@
         eventSource.loadJSON(buildEventsJSONData(), '');
         
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
-   	    document.location.href=evt.getLink();
+            document.location.pathname = document.location.pathname + evt.getDescription();
   	} 
     }
     
@@ -135,7 +135,7 @@
 	               <c:set var="numberOfChanges" value="${changeDates.getValue()}" />
 			{
     	         	 start : "<fmt:formatDate value="${changeDate}" pattern="${timelineDatesPattern}"/>",
-    	          	 link : "${terminal.id}?date=<fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy" />",
+    	          	 description : "?date=<fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy" />",
     	          	 icon : '<c:url value="/resources/timeline/api/images/${changesByType.key.simpleName}.png" />'
     	      		},
     	      	    </c:forEach>
