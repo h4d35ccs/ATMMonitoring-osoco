@@ -22,6 +22,10 @@
                 $("#showRole").show();
                 $("#editForm").hide();
 	        });
+            <c:if test="${duplicatedName == true}">
+           	$("#showRole").hide();
+           	$("#editForm").show();
+			</c:if>
 	    });
     </script>
 </jsp:attribute>
@@ -57,6 +61,13 @@
 													</form:label></strong>
 
 												<form:input class='form-tf-grey' path="name" maxlength="100"/>
+
+												<form:errors path="name" element="div" cssClass="error top"/>
+												<c:if test="${duplicatedName == true}">
+												   	<div class="error top">
+													<spring:message code="label.role.duplicatedName"/>
+													</div>
+												</c:if>
 											</li>
 											<li> <strong><form:label path="description">
 														<spring:message code="label.role.description"/>

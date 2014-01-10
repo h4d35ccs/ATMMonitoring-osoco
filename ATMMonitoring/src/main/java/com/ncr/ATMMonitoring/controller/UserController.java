@@ -109,7 +109,7 @@ public class UserController {
 
 
     /**
-     * List users URL.
+     * List users and roles URL.
      * 
      * @param map
      *            the map
@@ -132,7 +132,8 @@ public class UserController {
      * @return the petition response
      */
     @RequestMapping(value = "/users/list", method = RequestMethod.GET)
-    public String listUsers(Map<String, Object> map, Principal principal,
+    public String listUsersAndRoles(Map<String, Object> map,
+	    Principal principal,
 	    String p1, String sort1, String order1, String p2, String sort2,
 	    String order2, HttpServletRequest request) {
 	String userMsg = "";
@@ -178,6 +179,7 @@ public class UserController {
 	pagedListHolder2.setPage(page2);
 	pagedListHolder2.setPageSize(rolePageSize);
 	map.put("pagedListHolder2", pagedListHolder2);
+	map.put("role", new Role());
 
 	return "users";
     }
@@ -498,10 +500,10 @@ public class UserController {
     }
 
     /**
-     * Update user URL.
+     * Update role URL.
      * 
      * @param role
-     *            the user
+     *            the role
      * @param result
      *            the result
      * @param map
@@ -514,24 +516,99 @@ public class UserController {
      */
     @RequestMapping(value = "/users/roles/update", method = RequestMethod.POST)
     public String updateRole(@Valid @ModelAttribute("role") Role role,
-	    BindingResult result, Map<String, Object> map,
-	    HttpServletRequest request, Principal principal) {
-	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
-	map.put("userMsg", userMsg);
+	    Map<String, Object> map, HttpServletRequest request,
+	    Principal principal) {
 
 	if (role != null) {
 	    Role roleAux = roleService.getRole(role.getId());
 	    if ((roleAux != null) && (roleAux.getManageable())) {
 		role.setManageable(true);
+		roleAux = roleService.getRoleByName(role.getName());
+		if ((roleAux != null)
+			&& (!roleAux.getId().equals(role.getId()))) {
+		    String userMsg = "";
+		    Locale locale = RequestContextUtils.getLocale(request);
+		    // TODO
+		    // Actualizar los permisos
+		    boolean canEdit = true;
+		    if (principal != null) {
+			User loggedUser = userService
+				.getUserByUsername(principal.getName());
+			userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		    }
+		    map.put("canEdit", canEdit);
+		    map.put("userMsg", userMsg);
+		    map.put("role", role);
+		    map.put("duplicatedName", true);
+
+		    return "roleDetails";
+		}
 		roleService.updateRole(role);
 	    }
+	}
+
+	map.clear();
+	return "redirect:/users/roles/details/" + role.getId().intValue();
+    }
+
+    /**
+     * Add role URL.
+     * 
+     * @param role
+     *            the role
+     * @param result
+     *            the result
+     * @param map
+     *            the map
+     * @param request
+     *            the request
+     * @param principal
+     *            the principal
+     * @return the petition response
+     */
+    @RequestMapping(value = "/users/roles/add", method = RequestMethod.POST)
+    public String addRole(@Valid @ModelAttribute("role") Role role,
+	    Map<String, Object> map, HttpServletRequest request,
+	    Principal principal) {
+
+	if (role != null) {
+	    role.setManageable(true);
+	    Role roleAux = roleService.getRoleByName(role.getName());
+	    if ((roleAux != null) && (!roleAux.getId().equals(role.getId()))) {
+
+		String userMsg = "";
+		Locale locale = RequestContextUtils.getLocale(request);
+		if (principal != null) {
+		    User loggedUser = userService.getUserByUsername(principal
+			    .getName());
+		    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		}
+		String sortValue1 = DEFAULT_USER_SORT;
+		String orderValue1 = DEFAULT_USER_ORDER;
+		PagedListHolder<User> pagedListHolder1 = new PagedListHolder<User>(
+			userService.listUsers(sortValue1, orderValue1));
+		map.put("userMsg", userMsg);
+		map.put("sort1", sortValue1);
+		map.put("order1", orderValue1);
+		pagedListHolder1.setPage(0);
+		pagedListHolder1.setPageSize(userPageSize);
+		map.put("pagedListHolder1", pagedListHolder1);
+
+		String sortValue2 = DEFAULT_ROLE_SORT;
+		String orderValue2 = DEFAULT_ROLE_ORDER;
+		PagedListHolder<Role> pagedListHolder2 = new PagedListHolder<Role>(
+			roleService
+				.listManageableRoles(sortValue2, orderValue2));
+		map.put("sort2", sortValue2);
+		map.put("order2", orderValue2);
+		pagedListHolder2.setPage(0);
+		pagedListHolder2.setPageSize(rolePageSize);
+		map.put("pagedListHolder2", pagedListHolder2);
+		map.put("duplicatedName", true);
+
+		return "users";
+	    }
+	    roleService.addRole(role);
 	}
 
 	map.clear();

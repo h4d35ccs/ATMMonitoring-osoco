@@ -252,11 +252,11 @@ public class User implements UserDetails {
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-	List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>(1);
 	if (role != null) {
-	    authList.add(new GrantedAuthorityImpl("ROLE_" + role.getName()));
+	    return role.getAuthorities();
+	} else {
+	    return new ArrayList<GrantedAuthority>();
 	}
-	return authList;
     }
 
     /* (non-Javadoc)

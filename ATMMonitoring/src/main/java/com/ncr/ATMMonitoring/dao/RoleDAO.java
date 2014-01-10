@@ -49,6 +49,15 @@ public interface RoleDAO {
     public Role getRole(Integer id);
 
     /**
+     * Gets the role with the given name.
+     * 
+     * @param name
+     *            the name
+     * @return the role, or null if it doesn't exist
+     */
+    public Role getRoleByName(String name);
+
+    /**
      * Lists all roles.
      * 
      * @return the list

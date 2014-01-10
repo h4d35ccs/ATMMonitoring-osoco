@@ -486,7 +486,14 @@ public class TerminalController {
 		&& (terminal.getBankCompany().getId() == null)) {
 	    terminal.setBankCompany(null);
 	}
-	
+	// TODO
+	// Revisar esta parte ahora que las terminales tienen varias
+	// instalaciones
+	//
+	// if ((terminal.getInstallation() != null)
+	// && (terminal.getInstallation().getId() == null)) {
+	// terminal.setInstallation(null);
+	// }
 	if ((terminal.getTerminalModel() != null)
 		&& (terminal.getTerminalModel().getId() == null)) {
 	    terminal.setTerminalModel(null);
@@ -604,7 +611,15 @@ public class TerminalController {
 		&& (terminal.getBankCompany().getId() == null)) {
 	    terminal.setBankCompany(null);
 	}
-	
+
+	// TODO
+	// Revisar esta parte ahora que las terminales tienen varias
+	// instalaciones
+	//
+	// if ((terminal.getInstallation() != null)
+	// && (terminal.getInstallation().getId() == null)) {
+	// terminal.setInstallation(null);
+	// }
 	if ((terminal.getTerminalModel() != null)
 		&& (terminal.getTerminalModel().getId() == null)) {
 	    terminal.setTerminalModel(null);

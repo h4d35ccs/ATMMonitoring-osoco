@@ -69,6 +69,17 @@ public class RoleServiceImpl implements RoleService {
 	return roleDAO.getRole(id);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.RoleService#getRoleByName(java.lang.String)
+     */
+    @Override
+    public Role getRoleByName(String name) {
+	return roleDAO.getRoleByName(name);
+    }
+
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.service.RoleService#listRoles()
      */
