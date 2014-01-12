@@ -23,6 +23,8 @@
         <c:set var="currentUrl" value='${req.getAttribute("javax.servlet.forward.request_uri")}'/>
 
         <!-- Roles assigned to variables -->
+        <spring:eval expression="@settings.getProperty('security.dashboardAccessAllowedRoles')" var="dashboardAccessAllowedRoles" scope="request"/>
+        <spring:eval expression="@settings.getProperty('security.helpAccessAllowedRoles')" var="helpAccessAllowedRoles" scope="request"/>
         <spring:eval expression="@settings.getProperty('security.usersAccessAllowedRoles')" var="usersAccessAllowedRoles" scope="request"/>
         <spring:eval expression="@settings.getProperty('security.schedulesAccessAllowedRoles')" var="schedulesAccessAllowedRoles" scope="request"/>
         <spring:eval expression="@settings.getProperty('security.terminalsAccessAllowedRoles')" var="terminalsAccessAllowedRoles" scope="request"/>
@@ -83,9 +85,11 @@
         </header>
         <nav id="main_nav" class="btn_close">
             <ul id="nav_icons">
-                <li class="dashboard">
-                    <a href="dashboard"><span><spring:message code="label.menu.dashboard"/></span></a>
-                </li>
+                <sec:authorize access="hasAnyRole(${dashboardAccessAllowedRoles})">
+	                <li class="dashboard">
+	                    <a href="dashboard"><span><spring:message code="label.menu.dashboard"/></span></a>
+	                </li>
+                </sec:authorize>
                 <sec:authorize access="hasAnyRole(${terminalsAccessAllowedRoles})">
 	                <li class="terminals">
 	                    <a href="terminals"><span><spring:message code="label.menu.terminals"/></span></a>
@@ -106,9 +110,11 @@
 	                    <a href="users"><span><spring:message code="label.menu.users"/></span></a>
 	                </li>
                 </sec:authorize>
-                <li class="help">
-                    <a href="help"><span><spring:message code="label.menu.help"/></span></a>
-                </li>
+                <sec:authorize access="hasAnyRole(${helpAccessAllowedRoles})">
+	                <li class="help">
+	                    <a href="help"><span><spring:message code="label.menu.help"/></span></a>
+	                </li>
+                </sec:authorize>
             </ul>
         </nav>
 

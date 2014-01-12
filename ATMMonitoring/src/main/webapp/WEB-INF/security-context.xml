@@ -5,9 +5,11 @@
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 				http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
+	<beans:bean id="loginSuccessHandler" class="com.ncr.ATMMonitoring.handler.LoginSuccessHandler"/>
+
     <http use-expressions="true">
-        <intercept-url pattern="/dashboard/**" access="isAuthenticated()"/>
-        <intercept-url pattern="/help/**" access="isAuthenticated()"/>
+        <intercept-url pattern="/dashboard/**" access="hasAnyRole(${security.dashboardAccessAllowedRoles})"/>
+        <intercept-url pattern="/help/**" access="hasAnyRole(${security.helpAccessAllowedRoles})"/>
         <intercept-url pattern="/users/**" access="hasAnyRole(${security.usersAccessAllowedRoles})"/>
         <intercept-url pattern="/terminals/**" access="hasAnyRole(${security.terminalsAccessAllowedRoles})"/>
         <intercept-url pattern="/terminals/import" access="hasAnyRole(${security.terminalsManagementAllowedRoles})"/>
@@ -23,7 +25,7 @@
         <intercept-url pattern="/externalreports/**" access="hasAnyRole(${security.reportsAccessAllowedRoles})"/>
         <!-- <intercept-url pattern="/banks/**" access="hasAnyRole(${security.banksAccessAllowedRoles})"/> -->
         <form-login login-page="/login"
-                    default-target-url="/dashboard"
+                    authentication-success-handler-ref="loginSuccessHandler"
                     authentication-failure-url="/loginfailed" />
         <logout logout-url="/logout"/>
     </http>
