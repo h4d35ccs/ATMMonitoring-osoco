@@ -6,13 +6,22 @@
 				http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
     <http use-expressions="true">
-        <!-- <intercept-url pattern="/users/**" access="hasAnyRole(${security.usersAccessAllowedRoles})"/>
-        <intercept-url pattern="/terminals/schedules/**" access="hasAnyRole(${security.schedulesAccessAllowedRoles})"/>
+        <intercept-url pattern="/dashboard/**" access="isAuthenticated()"/>
+        <intercept-url pattern="/help/**" access="isAuthenticated()"/>
+        <intercept-url pattern="/users/**" access="hasAnyRole(${security.usersAccessAllowedRoles})"/>
         <intercept-url pattern="/terminals/**" access="hasAnyRole(${security.terminalsAccessAllowedRoles})"/>
-        <intercept-url pattern="/dashboard/**" access="hasAnyRole(${security.terminalsAccessAllowedRoles})"/>
-        <intercept-url pattern="/help/**" access="hasAnyRole(${security.terminalsAccessAllowedRoles})"/>
-        <intercept-url pattern="/banks/**" access="hasAnyRole(${security.banksAccessAllowedRoles})"/>
-        <intercept-url pattern="/queries/**" access="hasAnyRole(${security.queriesAccessAllowedRoles})"/> -->
+        <intercept-url pattern="/terminals/import" access="hasAnyRole(${security.terminalsManagementAllowedRoles})"/>
+        <intercept-url pattern="/terminals/update" access="hasAnyRole(${security.terminalsManagementAllowedRoles})"/>
+        <intercept-url pattern="/terminals/delete/**" access="hasAnyRole(${security.terminalsManagementAllowedRoles})"/>
+        <intercept-url pattern="/terminals/new" access="hasAnyRole(${security.terminalsManagementAllowedRoles})"/>
+        <intercept-url pattern="/terminals/installations/new" access="hasAnyRole(${security.terminalsManagementAllowedRoles})"/>
+        <intercept-url pattern="/terminals/request**" access="hasAnyRole(${security.terminalsUpdateRequestAllowedRoles})"/>
+        <intercept-url pattern="/terminals/schedules/**" access="hasAnyRole(${security.schedulesAccessAllowedRoles})"/>
+        <intercept-url pattern="/queries/**" access="hasAnyRole(${security.queriesAccessAllowedRoles})"/>
+        <intercept-url pattern="/terminals/export/**" access="hasAnyRole(${security.queriesAccessAllowedRoles})"/>
+        <intercept-url pattern="/terminals/byQuery" access="hasAnyRole(${security.queriesAccessAllowedRoles})"/>
+        <intercept-url pattern="/externalreports/**" access="hasAnyRole(${security.reportsAccessAllowedRoles})"/>
+        <!-- <intercept-url pattern="/banks/**" access="hasAnyRole(${security.banksAccessAllowedRoles})"/> -->
         <form-login login-page="/login"
                     default-target-url="/dashboard"
                     authentication-failure-url="/loginfailed" />
