@@ -1,5 +1,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@page contentType="text/html;charset=UTF-8" %>
@@ -43,11 +44,13 @@
 			</nav>
 			<div class="botonera">
 				<ul>
-					<li>
-						<a href="terminals/new" class="btn add">
-							<spring:message code="label.terminal.new"/>
-						</a>
-					</li>
+					<sec:authorize access="hasAnyRole(${terminalsManagementAllowedRoles})">
+						<li>
+							<a href="terminals/new" class="btn add">
+								<spring:message code="label.terminal.new"/>
+							</a>
+						</li>
+					</sec:authorize>
 				</ul>
 			</div>
 		</div>
@@ -56,51 +59,54 @@
 			<h1>
 				<spring:message code="label.terminals"/>
 			</h1>
-			<div class="action_box">
-				<h2>
-					<spring:message code="label.queries"/>
-					<a href="#help_pop" class="info inline">
-						<span>
-							<spring:message code="label.moreInfo"/>
-						</span>
-					</a>
-				</h2>
-
-				<div class="row">
-					<a href="queries" class="btn right">
-						<spring:message code="label.queries.mine"/>
-					</a>
-					<c:if test="${userQueries == null}">
-						<div class="message no_queries">
-							<p>
-								<spring:message code="label.queries.tip"/>
-							</p>
-							<div class="flecha"></div>
-						</div>
-					</c:if>
-					<c:if test="${userQueries != null && !userQueries.isEmpty()}">
-						<form method="post" name="userQueriesForm" action="terminals/byQuery">
-							<label>
-								<spring:message code="label.choose.query"/>:
-							</label>
-							<select name="queryId" size="1">
-								<option value="" ><spring:message code="label.select.default"/></option>
-								<c:forEach items="${userQueries}" var="userQuery">
-									<option value="${userQuery.id}" ${query.id == userQuery.id? 'selected': ''}>${userQuery.name}</option>
-								</c:forEach>
-							</select>
-
-							<input id="queryDate" type="text" name="queryDate">
-							<a href="" id="queryDateButton" class="btn calendar">
-								<span>
-									<spring:message code="label.calendar.open"/>
-								</span>
-							</a>
-							<input type="submit" value="<spring:message code="label.apply"/>" class="btn">
-						</form>
-					</c:if>
+			
+			<sec:authorize access="hasAnyRole(${queriesAccessAllowedRoles})">
+				<div class="action_box">
+					<h2>
+						<spring:message code="label.queries"/>
+						<a href="#help_pop" class="info inline">
+							<span>
+								<spring:message code="label.moreInfo"/>
+							</span>
+						</a>
+					</h2>
+	
+					<div class="row">
+						<a href="queries" class="btn right">
+							<spring:message code="label.queries.mine"/>
+						</a>
+						<c:if test="${userQueries == null}">
+							<div class="message no_queries">
+								<p>
+									<spring:message code="label.queries.tip"/>
+								</p>
+								<div class="flecha"></div>
+							</div>
+						</c:if>
+						<c:if test="${userQueries != null && !userQueries.isEmpty()}">
+							<form method="post" name="userQueriesForm" action="terminals/byQuery">
+								<label>
+									<spring:message code="label.choose.query"/>:
+								</label>
+								<select name="queryId" size="1">
+									<option value="" ><spring:message code="label.select.default"/></option>
+									<c:forEach items="${userQueries}" var="userQuery">
+										<option value="${userQuery.id}" ${query.id == userQuery.id? 'selected': ''}>${userQuery.name}</option>
+									</c:forEach>
+								</select>
+	
+								<input id="queryDate" type="text" name="queryDate">
+								<a href="" id="queryDateButton" class="btn calendar">
+									<span>
+										<spring:message code="label.calendar.open"/>
+									</span>
+								</a>
+								<input type="submit" value="<spring:message code="label.apply"/>" class="btn">
+							</form>
+						</c:if>
+					</div>
 				</div>
-			</div>
+			</sec:authorize>
 			<c:if test="${timeout}">
 				<div class="message">
 					<p>${timeout}</p>
@@ -139,24 +145,31 @@
 					<div class="botonera">
 						<!-- Repito botonera antes de la tabla -->
 						<c:if test="${query == null}">
-							<a href="terminals/request" class="btn left update">
-								<spring:message code="label.update"/>
-							</a>
-							<a href="terminals/schedules/new" class="btn left clock">
-								<spring:message code="label.update.schedule"/>
-							</a>
-
+							<sec:authorize access="hasAnyRole(${terminalsUpdateRequestAllowedRoles})">
+								<a href="terminals/request" class="btn left update">
+									<spring:message code="label.update"/>
+								</a>
+							</sec:authorize>
+							<sec:authorize access="hasAnyRole(${schedulesAccessAllowedRoles})">
+								<a href="terminals/schedules/new" class="btn left clock">
+									<spring:message code="label.update.schedule"/>
+								</a>
+							</sec:authorize>
 							<a href="terminals/exportAll" class="btn download" target="_blank" >
 								<spring:message code="label.query.downloadCsv"/>
 							</a>
 						</c:if>
 						<c:if test="${query != null}">
-							<a href="terminals/request?queryId=${query.id}" class="btn left update">
-								<spring:message code="label.update"/>
-							</a>
-							<a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock">
-								<spring:message code="label.update.schedule"/>
-							</a>
+							<sec:authorize access="hasAnyRole(${terminalsUpdateRequestAllowedRoles})">
+								<a href="terminals/request?queryId=${query.id}" class="btn left update">
+									<spring:message code="label.update"/>
+								</a>
+							</sec:authorize>
+							<sec:authorize access="hasAnyRole(${schedulesAccessAllowedRoles})">
+								<a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock">
+									<spring:message code="label.update.schedule"/>
+								</a>
+							</sec:authorize>
 							<a href="terminals/export/${query.id}" class="btn download" target="_blank" >
 								<spring:message code="label.query.downloadCsv"/>
 							</a>
@@ -169,23 +182,33 @@
 					</div>
 
 					<div class="botonera">
-						<!-- Repito botonera antes de la tabla -->
+						<!-- Repito botonera después de la tabla -->
 						<c:if test="${query == null}">
-							<a href="terminals/request" class="btn left update">
-								<spring:message code="label.update"/>
-							</a>
-							<a href="terminals/schedules/new" class="btn left clock">
-								<spring:message code="label.update.schedule"/>
-							</a>
-
+							<sec:authorize access="hasAnyRole(${terminalsUpdateRequestAllowedRoles})">
+								<a href="terminals/request" class="btn left update">
+									<spring:message code="label.update"/>
+								</a>
+							</sec:authorize>
+							<sec:authorize access="hasAnyRole(${schedulesAccessAllowedRoles})">
+								<a href="terminals/schedules/new" class="btn left clock">
+									<spring:message code="label.update.schedule"/>
+								</a>
+							</sec:authorize>
 							<a href="terminals/exportAll" class="btn download" target="_blank" >
 								<spring:message code="label.query.downloadCsv"/>
 							</a>
 						</c:if>
 						<c:if test="${query != null}">
-							<a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock">
-								<spring:message code="label.update.schedule"/>
-							</a>
+							<sec:authorize access="hasAnyRole(${terminalsUpdateRequestAllowedRoles})">
+								<a href="terminals/request" class="btn left update">
+									<spring:message code="label.update"/>
+								</a>
+							</sec:authorize>
+							<sec:authorize access="hasAnyRole(${schedulesAccessAllowedRoles})">
+								<a href="terminals/schedules/new?queryId=${query.id}" class="btn left clock">
+									<spring:message code="label.update.schedule"/>
+								</a>
+							</sec:authorize>
 							<a href="terminals/export/${query.id}" class="btn download" target="_blank" >
 								<spring:message code="label.query.downloadCsv"/>
 							</a>

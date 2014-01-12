@@ -74,11 +74,7 @@ public class TerminalController {
 
     /** The can alter terminals roles. */
     @Value("${security.terminalsManagementAllowedRoles}")
-    private String canAlterTerminalsRoles;
-
-    /** The can manage scheduled updates roles. */
-    @Value("${security.scheduledUpdatesAccessAllowedRoles}")
-    private String canManageScheduledUpdatesRoles;
+    private String canManageTerminalsRoles;
 
     /** The page size. */
     @Value("${config.terminalsPageSize}")
@@ -259,9 +255,6 @@ public class TerminalController {
 	    String p, String sort, String order, HttpServletRequest request) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	// TODO
-	// Actualizar los permisos
-	boolean canAdd = true, canManageScheduled = true;
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	Set<Query> userQueries = null;
@@ -271,18 +264,6 @@ public class TerminalController {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    if ((loggedUser.getRole() != null)
-		    && (canAlterTerminalsRoles.contains("'ROLE_"
-			    + loggedUser.getRole().getName().toUpperCase()
-			    + "'"))) {
-		canAdd = true;
-	    }
-	    if ((loggedUser.getRole() != null)
-		    && (canManageScheduledUpdatesRoles.contains("'ROLE_"
-			    + loggedUser.getRole().getName().toUpperCase()
-			    + "'"))) {
-		canManageScheduled = true;
-	    }
 	    pagedListHolder = new PagedListHolder<Terminal>(
 		    terminalService.listTerminalsByBankCompanies(
 			    loggedUser.getManageableBankCompanies(), sortValue,
@@ -294,8 +275,6 @@ public class TerminalController {
 	map.put("installationsList", installationService.listInstallations());
 	map.put("userQueries", userQueries);
 	map.put("userMsg", userMsg);
-	map.put("canAdd", canAdd);
-	map.put("canManageScheduled", canManageScheduled);
 	map.put("terminal", new Terminal());
 	map.put("sort", sortValue);
 	map.put("order", orderValue);
@@ -354,19 +333,10 @@ public class TerminalController {
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
-	// TODO
-	// Actualizar los permisos
-	boolean canEdit = true;
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
-	    if ((loggedUser.getRole() != null)
-		    && (canAlterTerminalsRoles.contains("'ROLE_"
-			    + loggedUser.getRole().getName().toUpperCase()
-			    + "'"))) {
-		canEdit = true;
-	    }
 	    bankCompanies = loggedUser.getManageableBankCompanies();
 	    if ((terminal.getBankCompany() != null)
 		    && (!bankCompanies.contains(terminal.getBankCompany()))) {
@@ -379,7 +349,6 @@ public class TerminalController {
 	map.put("values",
 		terminalModelService.listTerminalModelsByManufacturer());
 	map.put("userMsg", userMsg);
-	map.put("canEdit", canEdit);
 	map.put("terminal", terminal);
 
 	return "terminalDetails";
@@ -424,27 +393,17 @@ public class TerminalController {
 	    HttpServletRequest request, Principal principal) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	// TODO
-	// Actualizar los permisos
-	boolean canAdd = true;
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    if ((loggedUser.getRole() != null)
-		    && (canAlterTerminalsRoles.contains("'ROLE_"
-			    + loggedUser.getRole().getName().toUpperCase()
-			    + "'"))) {
-		canAdd = true;
-	    }
 	    bankCompanies = loggedUser.getManageableBankCompanies();
 	}
 
 	map.put("values",
 		terminalModelService.listTerminalModelsByManufacturer());
 	map.put("banksList", bankCompanies);
-	map.put("canAdd", canAdd);
 	map.put("terminal", new Terminal());
 	map.put("userMsg", userMsg);
 
@@ -491,20 +450,11 @@ public class TerminalController {
 	}
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	// TODO
-	// Actualizar los permisos
-	boolean canAdd = true;
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
-	    if ((loggedUser.getRole() != null)
-		    && (canAlterTerminalsRoles.contains("'ROLE_"
-			    + loggedUser.getRole().getName().toUpperCase()
-			    + "'"))) {
-		canAdd = true;
-	    }
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	    Set<Query> userQueries = loggedUser.getQueries();
 
@@ -535,7 +485,6 @@ public class TerminalController {
 	    map.put("installationsList",
 		    installationService.listInstallations());
 	    map.put("userMsg", userMsg);
-	    map.put("canAdd", canAdd);
 	    return "terminals";
 	}
 
@@ -616,20 +565,11 @@ public class TerminalController {
 	}
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	// TODO
-	// Actualizar los permisos
-	boolean canEdit = true;
 	List<Terminal> terminals = new ArrayList<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
-	    if ((loggedUser.getRole() != null)
-		    && (canAlterTerminalsRoles.contains("'ROLE_"
-			    + loggedUser.getRole().getName().toUpperCase()
-			    + "'"))) {
-		canEdit = true;
-	    }
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	    terminals = terminalService.listTerminalsByBankCompanies(loggedUser
 		    .getManageableBankCompanies());
@@ -639,7 +579,6 @@ public class TerminalController {
 	map.put("installationsList", installationService.listInstallations());
 	map.put("terminalsList", terminals);
 	map.put("userMsg", userMsg);
-	map.put("canEdit", canEdit);
 	if (result.hasErrors()) {
 	    map.put("errors", true);
 	    return "terminalDetails";
@@ -719,31 +658,13 @@ public class TerminalController {
 	}
 	String sortValue = (sort == null) ? DEFAULT_SORT : sort;
 	String orderValue = (order == null) ? DEFAULT_ORDER : order;
-	// TODO
-	// Actualizar los permisos
-	boolean canAdd = true;
-	//boolean canManageScheduled = false;
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
-	    if ((loggedUser.getRole() != null)
-		    && (canAlterTerminalsRoles.contains("'ROLE_"
-			    + loggedUser.getRole().getName().toUpperCase()
-			    + "'"))) {
-		canAdd = true;
-	    }
-	    // if ((loggedUser.getRole() != null)
-	    // && (canManageScheduledUpdatesRoles.contains("'ROLE_"
-	    // + loggedUser.getRole().getName().toUpperCase()
-	    // + "'"))) {
-	    // canManageScheduled = true;
-	    // }
 	    userQueries = loggedUser.getQueries();
 	}
 	map.put("userQueries", userQueries);
 	map.put("userMsg", userMsg);
-	map.put("canAdd", canAdd);
-	// map.put("canManageScheduled", canManageScheduled);
 	Query query = null;
 	List<Terminal> terminals = null;
 	if (queryId != null) {
