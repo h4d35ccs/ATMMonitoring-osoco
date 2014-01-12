@@ -22,6 +22,26 @@
                 $("#showRole").show();
                 $("#editForm").hide();
 	        });
+            $("#canViewTerminals").click(function(event) {
+            	if (!$("#canViewTerminals").is(':checked')) {
+                	$("#canEditTerminals").attr('checked', false);
+                	$("#canRequestUpdate").attr('checked', false);
+                	$("#canEditTerminals").prop('readonly', 'readonly');
+                	$("#canRequestUpdate").prop('readonly', 'readonly');
+            	} else {
+                	$("#canEditTerminals").prop('readonly', 'readonly');
+                	$("#canRequestUpdate").prop('readonly', 'readonly');
+            	}
+	        });
+        	if (!$("#canViewTerminals").is(':checked')) {
+            	$("#canEditTerminals").attr('checked', false);
+            	$("#canRequestUpdate").attr('checked', false);
+            	$("#canEditTerminals").prop('readonly', 'readonly');
+            	$("#canRequestUpdate").prop('readonly', 'readonly');
+        	} else {
+            	$("#canEditTerminals").prop('readonly', 'readonly');
+            	$("#canRequestUpdate").prop('readonly', 'readonly');
+        	}
             <c:if test="${duplicatedName == true}">
            	$("#showRole").hide();
            	$("#editForm").show();
@@ -81,11 +101,41 @@
 												</strong>
 												<br>
 					
+									 			<form:label path="canViewTerminals">
+													<spring:message code="label.role.canViewTerminals"/>
+												</form:label>
+
+												<form:checkbox id="canViewTerminals" class='form-tf-grey' path="canViewTerminals"/><br>
+					
 									 			<form:label path="canEditTerminals">
 													<spring:message code="label.role.canEditTerminals"/>
 												</form:label>
 
-												<form:checkbox class='form-tf-grey' path="canEditTerminals"/><br>
+												<form:checkbox id="canEditTerminals" class='form-tf-grey' path="canEditTerminals"/><br>
+					
+									 			<form:label path="canRequestUpdate">
+													<spring:message code="label.role.canRequestUpdate"/>
+												</form:label>
+
+												<form:checkbox id="canRequestUpdate" class='form-tf-grey' path="canRequestUpdate"/><br>
+					
+									 			<form:label path="canUseQueries">
+													<spring:message code="label.role.canUseQueries"/>
+												</form:label>
+
+												<form:checkbox id="canUseQueries" class='form-tf-grey' path="canUseQueries"/><br>
+					
+									 			<form:label path="canSchedule">
+													<spring:message code="label.role.canSchedule"/>
+												</form:label>
+
+												<form:checkbox id="canAccessReports" class='form-tf-grey' path="canAccessReports"/><br>
+					
+									 			<form:label path="canAccessReports">
+													<spring:message code="label.role.canAccessReports"/>
+												</form:label>
+
+												<form:checkbox id="canSchedule" class='form-tf-grey' path="canSchedule"/><br>
 											</li>
 										</ul>
 									<div class="botonera">
