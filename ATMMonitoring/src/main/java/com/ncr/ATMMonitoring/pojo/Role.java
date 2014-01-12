@@ -54,6 +54,26 @@ public class Role implements Serializable {
     @Column(name = "can_edit_terminals", columnDefinition = "boolean default false")
     private Boolean canEditTerminals = false;
 
+    /** The flag that tells us whether the users can view terminal data. */
+    @Column(name = "can_view_terminals", columnDefinition = "boolean default false")
+    private Boolean canViewTerminals = false;
+
+    /** The flag that tells us whether the users can use queries. */
+    @Column(name = "can_use_queries", columnDefinition = "boolean default false")
+    private Boolean canUseQueries = false;
+
+    /** The flag that tells us whether the users can request data update. */
+    @Column(name = "can_request_update", columnDefinition = "boolean default false")
+    private Boolean canRequestUpdate = false;
+
+    /** The flag that tells us whether the users can schedule automatic updates. */
+    @Column(name = "can_schedule", columnDefinition = "boolean default false")
+    private Boolean canSchedule = false;
+
+    /** The flag that tells us whether the users have access to the reports. */
+    @Column(name = "can_access_reports", columnDefinition = "boolean default false")
+    private Boolean canAccessReports = false;
+
     @OneToMany(mappedBy = "role")
     private Set<User> users;
 
@@ -167,9 +187,24 @@ public class Role implements Serializable {
 	List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>(1);
 	if (name != null) {
 	    authList.add(new SimpleGrantedAuthority("ROLE_" + name));
+	    if ((canViewTerminals != null) && canViewTerminals) {
+		authList.add(new SimpleGrantedAuthority("CAN_VIEW_TERMINALS"));
+	    }
 	    if ((canEditTerminals != null) && canEditTerminals) {
 		authList.add(new SimpleGrantedAuthority(
 			"CAN_EDIT_TERMINALS"));
+	    }
+	    if ((canRequestUpdate != null) && canRequestUpdate) {
+		authList.add(new SimpleGrantedAuthority("CAN_REQUEST_UPDATE"));
+	    }
+	    if ((canUseQueries != null) && canUseQueries) {
+		authList.add(new SimpleGrantedAuthority("CAN_USE_QUERIES"));
+	    }
+	    if ((canSchedule != null) && canSchedule) {
+		authList.add(new SimpleGrantedAuthority("CAN_SCHEDULE"));
+	    }
+	    if ((canAccessReports != null) && canAccessReports) {
+		authList.add(new SimpleGrantedAuthority("CAN_ACCESS_REPORTS"));
 	    }
 	}
 	return authList;
