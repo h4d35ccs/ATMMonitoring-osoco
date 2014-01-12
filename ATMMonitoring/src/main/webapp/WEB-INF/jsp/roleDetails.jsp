@@ -29,19 +29,16 @@
                 	$("#canEditTerminals").prop('readonly', 'readonly');
                 	$("#canRequestUpdate").prop('readonly', 'readonly');
             	} else {
-                	$("#canEditTerminals").prop('readonly', 'readonly');
-                	$("#canRequestUpdate").prop('readonly', 'readonly');
+                	$("#canEditTerminals").prop('readonly', '');
+                	$("#canRequestUpdate").prop('readonly', '');
             	}
 	        });
-        	if (!$("#canViewTerminals").is(':checked')) {
-            	$("#canEditTerminals").attr('checked', false);
-            	$("#canRequestUpdate").attr('checked', false);
-            	$("#canEditTerminals").prop('readonly', 'readonly');
-            	$("#canRequestUpdate").prop('readonly', 'readonly');
-        	} else {
-            	$("#canEditTerminals").prop('readonly', 'readonly');
-            	$("#canRequestUpdate").prop('readonly', 'readonly');
-        	}
+            <c:if test="${role.canViewTerminals != true}">
+           	$("#canEditTerminals").attr('checked', false);
+           	$("#canRequestUpdate").attr('checked', false);
+           	$("#canEditTerminals").prop('readonly', 'readonly');
+           	$("#canRequestUpdate").prop('readonly', 'readonly');
+           	</c:if>
             <c:if test="${duplicatedName == true}">
            	$("#showRole").hide();
            	$("#editForm").show();
@@ -168,8 +165,23 @@
 												<spring:message code="label.role.permissions"/>
 											</strong>
 											<br>
+											<c:if test="${role.canViewTerminals == true}">
+												<spring:message code="label.role.canViewTerminals"/><br>
+											</c:if>
 											<c:if test="${role.canEditTerminals == true}">
 												<spring:message code="label.role.canEditTerminals"/><br>
+											</c:if>
+											<c:if test="${role.canRequestUpdate == true}">
+												<spring:message code="label.role.canRequestUpdate"/><br>
+											</c:if>
+											<c:if test="${role.canUseQueries == true}">
+												<spring:message code="label.role.canUseQueries"/><br>
+											</c:if>
+											<c:if test="${role.canSchedule == true}">
+												<spring:message code="label.role.canSchedule"/><br>
+											</c:if>
+											<c:if test="${role.canAccessReports == true}">
+												<spring:message code="label.role.canAccessReports"/><br>
 											</c:if>
 										</li>
 									</ul>
