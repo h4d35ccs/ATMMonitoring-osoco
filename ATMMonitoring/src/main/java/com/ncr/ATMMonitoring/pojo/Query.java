@@ -4761,8 +4761,11 @@ public class Query {
 	    }
 	    globalConstraint += "terminal.id in (select distinct hardwareDevice.terminal.id"
 		    + " from HardwareDevice hardwareDevice where hardwareDevice.hardwareClass = '"
-		    + hwClass + "' and " + classConstraints + isActiveByDateConstraint + ") and ";
+		    + hwClass + "' and " + classConstraints + ") and ";
 	}
+	globalConstraint += "terminal.id in (select distinct hardwareDevice.terminal.id"
+		    + " from HardwareDevice hardwareDevice where" + isActiveByDateConstraint + ")";
+ 
 	if (globalConstraint.endsWith(" and ")) {
 	    globalConstraint = globalConstraint.substring(0,
 		    globalConstraint.length() - 5);
@@ -4794,7 +4797,7 @@ public class Query {
         	String endDateConstraint = "(" + endDateIsNullConstraint + " or " + 
         			endDateGeqQueryDate + ")";
         	
-			constraint += " and (" + startDateConstraint + " and " + endDateConstraint  +")";
+			constraint += "(" + startDateConstraint + " and " + endDateConstraint  +")";
         }
     	
     	return constraint;
