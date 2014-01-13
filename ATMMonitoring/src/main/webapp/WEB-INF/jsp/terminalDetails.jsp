@@ -93,7 +93,7 @@
 						  <spring:message code="label.terminalDetails"/>
 						  <c:if test="${date != null}">
                             <spring:message code="label.terminal.forDate" />    
-                            <fmt:formatDate value="${date}" pattern="dd/MM/yyyy" />
+                            <fmt:formatDate value="${date}" pattern="dd/MM/yyyy HH:mm:ss" />
                           </c:if>
 						</h2>
 						<div class="collapsible last">

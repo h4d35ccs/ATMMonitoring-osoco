@@ -344,7 +344,10 @@ public class TerminalController {
     public String terminalDetails(
 	    @PathVariable("terminalId") Integer terminalId,
 	    Map<String, Object> map, HttpServletRequest request,
-	    Principal principal, Date date) {
+	    Principal principal, Long dateTime) {
+    
+    Date date = dateTime == null ? null : new Date(dateTime);
+    	
 	Terminal terminal = terminalService.getTerminal(terminalId);
 	if (terminal == null) {
 	    map.clear();

@@ -61,11 +61,12 @@
         var theme = Timeline.ClassicTheme.create();
         theme.event.bubble.width = 250;
         
-        var date = "12 1 2013 00:00:00 GMT-0600"
         var bandInfos = [
             Timeline.createHotZoneBandInfo({
+            	<c:if test="${!(date == null)}">  
+	            date : "<fmt:formatDate value="${date}" pattern="${timelineDatesPattern}"/>" ,     
+	        </c:if>  
                 width:          "80%", 
-                date: date,
                 intervalUnit:   Timeline.DateTime.MONTH, 
                 intervalPixels: 200,
                 zones:          zones,
@@ -96,7 +97,6 @@
             }),
             Timeline.createHotZoneBandInfo({
                 width:          "20%", 
-                date: date,
                 intervalUnit:   Timeline.DateTime.YEAR, 
                 zones:          zones2, 
                 intervalPixels: 400,
@@ -134,9 +134,11 @@
 	               <c:set var="changeDate" value="${changeDates.getKey()}" />
 	               <c:set var="numberOfChanges" value="${changeDates.getValue()}" />
 			{
-    	         	 start : "<fmt:formatDate value="${changeDate}" pattern="${timelineDatesPattern}"/>",
-    	          	 description : "?date=<fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy" />",
-    	          	 icon : '<c:url value="/resources/timeline/api/images/${changesByType.key.simpleName}.png" />'
+			 start : "<fmt:formatDate value="${changeDate}" pattern="${timelineDatesPattern}"/>",
+    	          	 description : "?dateTime=${changeDate.time}",
+    	          	 icon : '<c:url 
+    	          	 	value="/resources/timeline/api/images/${date.time == changeDate.time ? 'Current' : changesByType.key.simpleName}.png" 
+    	          	 />'
     	      		},
     	      	    </c:forEach>
     	        </c:forEach>	
