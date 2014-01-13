@@ -26,18 +26,23 @@
             	if (!$("#canViewTerminals").is(':checked')) {
                 	$("#canEditTerminals").attr('checked', false);
                 	$("#canRequestUpdate").attr('checked', false);
+                   	$("#canUseQueries").attr('checked', false);
                 	$("#canEditTerminals").prop('readonly', 'readonly');
                 	$("#canRequestUpdate").prop('readonly', 'readonly');
+                   	$("#canUseQueries").prop('readonly', 'readonly');
             	} else {
                 	$("#canEditTerminals").prop('readonly', '');
                 	$("#canRequestUpdate").prop('readonly', '');
+                	$("#canUseQueries").prop('readonly', '');
             	}
 	        });
             <c:if test="${role.canViewTerminals != true}">
            	$("#canEditTerminals").attr('checked', false);
            	$("#canRequestUpdate").attr('checked', false);
+           	$("#canUseQueries").attr('checked', false);
            	$("#canEditTerminals").prop('readonly', 'readonly');
            	$("#canRequestUpdate").prop('readonly', 'readonly');
+           	$("#canUseQueries").prop('readonly', 'readonly');
            	</c:if>
             <c:if test="${duplicatedName == true}">
            	$("#showRole").hide();
@@ -67,84 +72,82 @@
 				<div class="action_box data desplegable">
 					<h2 class="txt last"><spring:message code="label.roleDetails"/></h2>
 					<div class="collapsible last">
-							<c:if test="${((canEdit == true) && (role.manageable == true))}">
-						      <div id="editForm" class="${errors != null ? '': 'hide'}">
-								<form:form method="post" action="users/roles/update" commandName="role">
-									<form:hidden path="id"/>
-									<div class="ul_data ul_data_wide editable">
-										<ul>
-											<li> <strong><form:label path="name">
-														<spring:message code="label.role.name"/>
-													</form:label></strong>
+					      <div id="editForm" class="${errors != null ? '': 'hide'}">
+							<form:form method="post" action="users/roles/update" commandName="role">
+								<form:hidden path="id"/>
+								<div class="ul_data ul_data_wide editable">
+									<ul>
+										<li> <strong><form:label path="name">
+													<spring:message code="label.role.name"/>
+												</form:label></strong>
 
-												<form:input class='form-tf-grey' path="name" maxlength="100"/>
+											<form:input class='form-tf-grey' path="name" maxlength="100"/>
 
-												<form:errors path="name" element="div" cssClass="error top"/>
-												<c:if test="${duplicatedName == true}">
-												   	<div class="error top">
-													<spring:message code="label.role.duplicatedName"/>
-													</div>
-												</c:if>
-											</li>
-											<li> <strong><form:label path="description">
-														<spring:message code="label.role.description"/>
-													</form:label></strong>
+											<form:errors path="name" element="div" cssClass="error top"/>
+											<c:if test="${duplicatedName == true}">
+											   	<div class="error top">
+												<spring:message code="label.role.duplicatedName"/>
+												</div>
+											</c:if>
+										</li>
+										<li> <strong><form:label path="description">
+													<spring:message code="label.role.description"/>
+												</form:label></strong>
 
-												<form:input class='form-tf-grey' path="description" maxlength="300"/>
-											</li>
-											<li>
-												<strong>
-													<spring:message code="label.role.permissions"/>
-												</strong>
-												<br>
-					
-									 			<form:label path="canViewTerminals">
-													<spring:message code="label.role.canViewTerminals"/>
-												</form:label>
+											<form:input class='form-tf-grey' path="description" maxlength="300"/>
+										</li>
+										<li>
+											<strong>
+												<spring:message code="label.role.permissions"/>
+											</strong>
+											<br>
+				
+								 			<form:label path="canViewTerminals">
+												<spring:message code="label.role.canViewTerminals"/>
+											</form:label>
 
-												<form:checkbox id="canViewTerminals" class='form-tf-grey' path="canViewTerminals"/><br>
-					
-									 			<form:label path="canEditTerminals">
-													<spring:message code="label.role.canEditTerminals"/>
-												</form:label>
+											<form:checkbox id="canViewTerminals" class='form-tf-grey' path="canViewTerminals"/><br>
+				
+								 			<form:label path="canEditTerminals">
+												<spring:message code="label.role.canEditTerminals"/>
+											</form:label>
 
-												<form:checkbox id="canEditTerminals" class='form-tf-grey' path="canEditTerminals"/><br>
-					
-									 			<form:label path="canRequestUpdate">
-													<spring:message code="label.role.canRequestUpdate"/>
-												</form:label>
+											<form:checkbox id="canEditTerminals" class='form-tf-grey' path="canEditTerminals"/><br>
+				
+								 			<form:label path="canRequestUpdate">
+												<spring:message code="label.role.canRequestUpdate"/>
+											</form:label>
 
-												<form:checkbox id="canRequestUpdate" class='form-tf-grey' path="canRequestUpdate"/><br>
-					
-									 			<form:label path="canUseQueries">
-													<spring:message code="label.role.canUseQueries"/>
-												</form:label>
+											<form:checkbox id="canRequestUpdate" class='form-tf-grey' path="canRequestUpdate"/><br>
+				
+								 			<form:label path="canUseQueries">
+												<spring:message code="label.role.canUseQueries"/>
+											</form:label>
 
-												<form:checkbox id="canUseQueries" class='form-tf-grey' path="canUseQueries"/><br>
-					
-									 			<form:label path="canSchedule">
-													<spring:message code="label.role.canSchedule"/>
-												</form:label>
+											<form:checkbox id="canUseQueries" class='form-tf-grey' path="canUseQueries"/><br>
+				
+								 			<form:label path="canSchedule">
+												<spring:message code="label.role.canSchedule"/>
+											</form:label>
 
-												<form:checkbox id="canAccessReports" class='form-tf-grey' path="canAccessReports"/><br>
-					
-									 			<form:label path="canAccessReports">
-													<spring:message code="label.role.canAccessReports"/>
-												</form:label>
+											<form:checkbox id="canSchedule" class='form-tf-grey' path="canSchedule"/><br>
+				
+								 			<form:label path="canAccessReports">
+												<spring:message code="label.role.canAccessReports"/>
 
-												<form:checkbox id="canSchedule" class='form-tf-grey' path="canSchedule"/><br>
-											</li>
-										</ul>
-									<div class="botonera">
+											<form:checkbox id="canAccessReports" class='form-tf-grey' path="canAccessReports"/><br>
+											</form:label>
+										</li>
+									</ul>
+								<div class="botonera">
 
-										<input type="submit" class="btn" value="<spring:message code="label.role.updateRole"/>"/>
-	                                    <input id="cancelEdit" type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
-									</div>
+									<input type="submit" class="btn" value="<spring:message code="label.role.updateRole"/>"/>
+                                    <input id="cancelEdit" type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
+								</div>
 
-									</div>
-								</form:form>
-						            </div>
-							</c:if>
+								</div>
+							</form:form>
+					            </div>
 
 								<div id="showRole"  class="ul_data ul_data_wide ${errors  != null ? 'hide': ''}">
 									<ul>
@@ -186,11 +189,9 @@
 										</li>
 									</ul>
 
-								<c:if test="${((canEdit == true) && (role.manageable == true))}">
-									<div class="botonera">
-										<button id="editRoleButton" class="btn">Editar Rol</button>
-									</div>
-								</c:if>
+								<div class="botonera">
+									<button id="editRoleButton" class="btn">Editar Rol</button>
+								</div>
 
 								</div>
 								<!-- //ul-data -->

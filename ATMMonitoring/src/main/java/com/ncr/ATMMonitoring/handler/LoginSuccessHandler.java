@@ -65,12 +65,12 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 	String targetUrl = (savedRequest != null) ? savedRequest
 		.getRedirectUrl() : null;
 	String contextPath = servletContext.getContextPath();
-	targetUrl = targetUrl.substring(targetUrl.indexOf(contextPath)
-		+ contextPath.length());
-
+	targetUrl = ((targetUrl != null) && (contextPath != null)) ? targetUrl
+		.substring(targetUrl.indexOf(contextPath)
+			+ contextPath.length()) : null;
 	// If there was no originally requested URL, or the logged in user han
 	// no access to it, we redirect it to the default page for its role
-	if ((savedRequest == null)
+	if ((targetUrl == null)
 		|| (!privilegeEvaluator.isAllowed(targetUrl, authentication))) {
 	    Set<String> roles = AuthorityUtils
 		    .authorityListToSet(authentication.getAuthorities());

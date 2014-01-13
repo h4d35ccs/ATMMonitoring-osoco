@@ -484,15 +484,11 @@ public class UserController {
 	}
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
-	// TODO
-	// Actualizar los permisos
-	boolean canEdit = true;
 	if (principal != null) {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	}
-	map.put("canEdit", canEdit);
 	map.put("userMsg", userMsg);
 	map.put("role", role);
 
