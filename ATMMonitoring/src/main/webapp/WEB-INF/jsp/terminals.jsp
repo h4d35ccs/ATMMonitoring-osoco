@@ -7,7 +7,7 @@
 <%@page pageEncoding="UTF-8"%>
 
 <t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}"  section="terminals">
-
+	
 	<jsp:attribute name="header">
 		<script type="text/javascript">
         $(function() {
@@ -29,6 +29,8 @@
 	</jsp:attribute>
 
 	<jsp:body>
+		<fmt:formatDate value="${queryDate}" pattern="dd/MM/yyyy" var="stringQueryDate"/>
+		
 		<div id="header_g">
 			<nav id="breadcrumb">
 				<ul>
@@ -92,7 +94,7 @@
 							</select>
 							
 							<input id="queryDate" type="text" name="queryDate" 
-								   value="<fmt:formatDate value="${queryDate}" pattern="dd/MM/yyyy"/>">
+								   value="${stringQueryDate}">
 							<a href="" id="queryDateButton" class="btn calendar">
 								<span>
 									<spring:message code="label.calendar.open"/>
@@ -166,7 +168,7 @@
 					</div>
 
 					<div class="margin-box">
-						<t:terminalsTable terminals="${pagedListHolder.pageList}"
+						<t:terminalsTable terminals="${pagedListHolder.pageList}" stringQueryDate="${stringQueryDate}"
                                            baseUrl="${query != null ? 'terminals/byQuery' : 'terminals/list'}"/>
 					</div>
 
@@ -212,7 +214,8 @@
 								<spring:message code="label.page"/>
 							</span>
 
-							<t:paging pagedListHolder="${pagedListHolder}" pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}&sort=${sort}&order=${order}"/>
+							<t:paging pagedListHolder="${pagedListHolder}" 
+									  pagedLink="terminals/${(query != null)?'byQuery':'list'}?p=~&queryId=${query.id}&sort=${sort}&order=${order}&queryDate=${stringQueryDate}"/>
 						</div>
 					</c:if>
 				</div>

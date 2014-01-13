@@ -4751,7 +4751,7 @@ public class Query {
 		types, locale);
 	
 	String isActiveByDateConstraint = storeIsElementActiveByDate("hardwareDevice.",
-				values, types, locale, queryDate);
+				values, types, locale,constraints, queryDate);
 	
 	for (String hwClass : constraints.keySet()) {
 	    String classConstraints = constraints.get(hwClass);
@@ -4771,10 +4771,10 @@ public class Query {
     }
     
     private String storeIsElementActiveByDate(String fieldNamePrefix, List<Object> values,
-    	    List<Type> types, Locale locale, Date queryDate) {
+    	    List<Type> types, Locale locale, Map<String, String> constraints, Date queryDate) {
     	
     	String constraint = "";
-    	if( queryDate != null ) {
+    	if( queryDate != null && constraints.keySet().size() > 0 ) {
     		String queryDateValue = DateFormat.getDateInstance(
     				DateFormat.SHORT,locale).format(queryDate);
     		String startDateField = fieldNamePrefix + "startDate";
@@ -4794,7 +4794,7 @@ public class Query {
         	String endDateConstraint = "(" + endDateIsNullConstraint + " or " + 
         			endDateGeqQueryDate + ")";
         	
-        	constraint += " and (" + startDateConstraint + " and " + endDateConstraint +")";
+			constraint += " and (" + startDateConstraint + " and " + endDateConstraint  +")";
         }
     	
     	return constraint;

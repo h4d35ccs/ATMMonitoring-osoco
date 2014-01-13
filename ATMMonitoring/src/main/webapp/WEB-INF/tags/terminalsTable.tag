@@ -1,6 +1,7 @@
 <%@tag description="Terminals Table" pageEncoding="UTF-8"%>
 <%@attribute name="terminals" required="true" type="java.util.List"%>
 <%@attribute name="baseUrl" required="true" type="java.lang.String"%>
+<%@attribute name="stringQueryDate" required="true" type="java.lang.String"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -25,7 +26,7 @@
       <c:if test="${!isColumnSorted}">
         <c:set var="sortClass" value=""/>
       </c:if>
-      <th class="order ${sortClass}"><a href="${baseUrl}?p=${pagedListHolder.page}&queryId=${query.id}&sort=${column}&order=${orderValue}"><spring:message code="label.terminal.${column}"/></a></th>
+      <th class="order ${sortClass}"><a href="${baseUrl}?p=${pagedListHolder.page}&queryId=${query.id}&sort=${column}&order=${orderValue}&queryDate=${stringQueryDate}"><spring:message code="label.terminal.${column}"/></a></th>
     </c:forEach>
   </tr>
   </thead>
