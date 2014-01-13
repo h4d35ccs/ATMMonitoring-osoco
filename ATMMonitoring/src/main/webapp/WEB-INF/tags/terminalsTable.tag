@@ -33,7 +33,7 @@
   <c:forEach items="${terminals}" var="terminal">
     <tr>
       <!--td class="check"><input type="checkbox"/></td-->
-      <td><a href="terminals/details/${terminal.id}">${terminal.mac}</a></td>
+      <td><a href="terminals/details/${terminal.id}?dateTime=${queryDate.time}">${terminal.mac}</a></td>
       <td>${terminal.ip}</td>
 	  <td>${terminal.serialNumber}</td>
       <td>${terminal.terminalType}</td>

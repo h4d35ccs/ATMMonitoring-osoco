@@ -786,6 +786,7 @@ public class TerminalController {
 	map.put("pagedListHolder", pagedListHolder);
 	map.put("sort", sortValue);
 	map.put("order", orderValue);
+	map.put("queryDate", queryDate);
 
 	return "terminals";
     }
