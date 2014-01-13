@@ -42,11 +42,7 @@ public abstract class Auditable {
 	}
 	
 	public boolean isActive(Date searchDate) {
-		return (searchDate == null) ? isActiveNow() : isBetweenStartAndEndDate(searchDate);
-	}
-	
-	public boolean isActiveNow() {
-		return isBetweenStartAndEndDate(new Date());
+		return isBetweenStartAndEndDate(searchDate == null ? getDefaultDate() : searchDate);
 	}
 
 	public boolean exists(Date searchDate) {
@@ -54,14 +50,18 @@ public abstract class Auditable {
 	}
 	
 	private boolean isBetweenStartAndEndDate(Date searchDate) {
-		return isGreaterOrEqualsThanStartDate(searchDate) && isLowerOrEqualsThanStartDate(searchDate);
+		return isGreaterOrEqualsThanStartDate(searchDate) && isLowerOrEqualsThanEndDate(searchDate);
 	}
 	
 	private boolean isGreaterOrEqualsThanStartDate(Date searchDate) {
 		return startDate == null || searchDate.compareTo(startDate) >= 0;
 	}
 	
-	private boolean isLowerOrEqualsThanStartDate(Date searchDate) {
+	private boolean isLowerOrEqualsThanEndDate(Date searchDate) {
 		return endDate == null || searchDate.compareTo(endDate) <= 0;
+	}
+	
+	public static Date getDefaultDate() {
+		return new Date();
 	}
 }

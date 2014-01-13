@@ -1159,7 +1159,7 @@ public abstract class Operation {
 	    date.add(Calendar.DAY_OF_MONTH, 1);
 	    values.add(date);
 	    types.add(calendarType);
-	    return column + " < ?";
+	    return column + " <= ?";
 	default:
 	    return "";
 	}

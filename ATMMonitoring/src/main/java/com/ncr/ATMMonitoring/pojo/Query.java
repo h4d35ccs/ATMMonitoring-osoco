@@ -4726,7 +4726,7 @@ public class Query {
      * @return the hardware device HQL constraints
      */
     private String getHardwareDeviceConstraints(List<Object> values,
-	    List<Type> types, Locale locale) {
+	    List<Type> types, Locale locale, Date queryDate) {
 	String globalConstraint = "";
 	Map<String, String> constraints = new HashMap<String, String>();
 	storeHardwareDeviceConstraint(hardwareDeviceCombo11,
@@ -4749,6 +4749,10 @@ public class Query {
 		hardwareDeviceCombo52, hardwareDeviceCombo53,
 		hardwareDeviceField5, hardwareDeviceCB5, constraints, values,
 		types, locale);
+	
+	String isActiveByDateConstraint = storeIsElementActiveByDate("hardwareDevice.",
+				values, types, locale, queryDate);
+	
 	for (String hwClass : constraints.keySet()) {
 	    String classConstraints = constraints.get(hwClass);
 	    if (classConstraints.endsWith(" and ")) {
@@ -4757,14 +4761,43 @@ public class Query {
 	    }
 	    globalConstraint += "terminal.id in (select distinct hardwareDevice.terminal.id"
 		    + " from HardwareDevice hardwareDevice where hardwareDevice.hardwareClass = '"
-		    + hwClass + "' and " + classConstraints + ") and ";
-
+		    + hwClass + "' and " + classConstraints + isActiveByDateConstraint + ") and ";
 	}
 	if (globalConstraint.endsWith(" and ")) {
 	    globalConstraint = globalConstraint.substring(0,
 		    globalConstraint.length() - 5);
 	}
 	return globalConstraint;
+    }
+    
+    private String storeIsElementActiveByDate(String fieldNamePrefix, List<Object> values,
+    	    List<Type> types, Locale locale, Date queryDate) {
+    	
+    	String constraint = "";
+    	if( queryDate != null ) {
+    		String queryDateValue = DateFormat.getDateInstance(
+    				DateFormat.SHORT,locale).format(queryDate);
+    		String startDateField = fieldNamePrefix + "startDate";
+        	String endDateField = fieldNamePrefix + "endDate";
+        	
+        	String startDateIsNullConstraint = Operation.getConstraintHQL(
+        			startDateField, "is_null", queryDateValue , values, types, locale); 
+        	String startDateLeqQueryDate = Operation.getConstraintHQL(
+        			startDateField, "date_leq", queryDateValue , values, types, locale);
+        	String startDateConstraint = "(" + startDateIsNullConstraint + " or " + 
+        			startDateLeqQueryDate + ")";
+        	
+        	String endDateIsNullConstraint = Operation.getConstraintHQL(
+        			endDateField, "is_null", queryDateValue , values, types, locale); 
+        	String endDateGeqQueryDate = Operation.getConstraintHQL(
+        			endDateField, "date_geq", queryDateValue , values, types, locale);
+        	String endDateConstraint = "(" + endDateIsNullConstraint + " or " + 
+        			endDateGeqQueryDate + ")";
+        	
+        	constraint += " and (" + startDateConstraint + " and " + endDateConstraint +")";
+        }
+    	
+    	return constraint;
     }
 
     /**
@@ -4914,7 +4947,7 @@ public class Query {
 	String operatingSystemConstraints = getOperatingSystemConstraints(
 		values, types, locale);
 	String hardwareDeviceConstraints = getHardwareDeviceConstraints(values,
-		types, locale);
+		types, locale, queryDate);
 	String xfsComponentConstraints = getXfsComponentConstraints(values,
 		types, locale);
 	String jxfsComponentConstraints = getJxfsComponentConstraints(values,

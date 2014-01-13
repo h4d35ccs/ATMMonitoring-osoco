@@ -764,7 +764,7 @@ public class TerminalController {
 	if (queryId != null) {
 	    query = queryService.getQuery(queryId);
 	    terminals = queryService.executeQuery(query, locale, sortValue,
-		    orderValue);
+		    orderValue, queryDate);
 	}
 	if (terminals == null) {
 	    terminals = terminalService.listTerminals();
