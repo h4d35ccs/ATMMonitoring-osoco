@@ -28,6 +28,7 @@
                     authentication-success-handler-ref="loginSuccessHandler"
                     authentication-failure-url="/loginfailed" />
         <logout logout-url="/logout"/>
+        <access-denied-handler error-page="/403"/> 
     </http>
 
     <authentication-manager>
