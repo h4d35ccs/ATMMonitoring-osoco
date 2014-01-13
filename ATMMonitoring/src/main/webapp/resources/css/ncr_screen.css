@@ -3372,3 +3372,28 @@ td .add span, th .add span {
     font-size: 1em;
   }
 }
+
+.timeline-event-icon{
+
+  top: 7px !important;
+
+}
+
+.timeline-copyright{
+
+display:none;
+
+}
+
+.history_legend{ 
+
+padding: .5em 0;
+
+}
+
+
+.timeline-band-scrollbar{
+
+display: none !important;
+
+}

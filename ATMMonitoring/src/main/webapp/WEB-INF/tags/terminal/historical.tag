@@ -14,7 +14,9 @@
     <spring:message code="label.historical.${changeName}"/>
 </c:forEach>	
 
-<div id="timeline" style="height:200px"> </div>
+<div class="history_legend">
+	<div id="timeline" style="height:80px"> </div>
+</div>
 <!-- <div class="action_box data desplegable"> -->
 <%--     <h2 class="txt content_hide last"><spring:message code="label.terminal.history"/></h2> --%>
 <!--     <div id="timeline" class="collapsible last hide"> -->
@@ -66,7 +68,7 @@
             	<c:if test="${!(date == null)}">  
 	            date : "<fmt:formatDate value="${date}" pattern="${timelineDatesPattern}"/>" ,     
 	        </c:if>  
-                width:          "80%", 
+                width:          "66%", 
                 intervalUnit:   Timeline.DateTime.MONTH, 
                 intervalPixels: 200,
                 zones:          zones,
@@ -96,7 +98,7 @@
               //  theme:          theme
             }),
             Timeline.createHotZoneBandInfo({
-                width:          "20%", 
+                width:          "34%", 
                 intervalUnit:   Timeline.DateTime.YEAR, 
                 zones:          zones2, 
                 intervalPixels: 400,
