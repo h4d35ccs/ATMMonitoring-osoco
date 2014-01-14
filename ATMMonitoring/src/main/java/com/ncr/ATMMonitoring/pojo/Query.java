@@ -2929,35 +2929,34 @@ public class Query {
     private String getOperatingSystemConstraints(List<Object> values,
 	    List<Type> types, Locale locale, Date queryDate) {
 	String constraints = "";
-	constraints += getConstraint("operatingSystem."
+	constraints += getConstraint("os."
 		+ operatingSystemCombo11, operatingSystemCombo12,
 		operatingSystemField1, operatingSystemCB1, values, types,
 		locale);
-	constraints += getConstraint("operatingSystem."
+	constraints += getConstraint("os."
 		+ operatingSystemCombo21, operatingSystemCombo22,
 		operatingSystemField2, operatingSystemCB2, values, types,
 		locale);
-	constraints += getConstraint("operatingSystem."
+	constraints += getConstraint("os."
 		+ operatingSystemCombo31, operatingSystemCombo32,
 		operatingSystemField3, operatingSystemCB3, values, types,
 		locale);
-	constraints += getConstraint("operatingSystem."
+	constraints += getConstraint("os."
 		+ operatingSystemCombo41, operatingSystemCombo42,
 		operatingSystemField4, operatingSystemCB4, values, types,
 		locale);
-	constraints += getConstraint("operatingSystem."
+	constraints += getConstraint("os."
 		+ operatingSystemCombo51, operatingSystemCombo52,
 		operatingSystemField5, operatingSystemCB5, values, types,
 		locale);
 	
-	constraints += storeIsElementActiveByDate("operatingSystem.",
-			values, types, locale, constraints, queryDate);
-	
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
-	return constraints;
-    }
+	
+	return buildOperatingSystemConstratins(values, types, locale,
+			queryDate, constraints);
+	}
 
     /**
      * Gets the software combo11 value.
@@ -4163,7 +4162,30 @@ public class Query {
 	this.featSwField5 = featSwField5;
     }
 
-	private String buildSoftwareConstraintsBySwType(List<Object> values,
+    
+    private String buildOperatingSystemConstratins(List<Object> values,
+			List<Type> types, Locale locale, Date queryDate, String constraints) {
+    	if (constraints.length() > 0) {
+			String isActiveByDateConstraint = storeIsElementActiveByDate("osConfig.",
+					values, types, locale, constraints, queryDate);
+			
+			if(isActiveByDateConstraint.length() > 0) {
+				isActiveByDateConstraint = " and " + isActiveByDateConstraint; 
+			}
+			
+			String constraintForNotDateQueries = "osConfig.startDate = (select max(startDate)"
+					+ " from TerminalConfig tc where tc.terminal.id = terminal.id) and ";
+			
+			constraints = "terminal.id in (select distinct osConfig.terminal.id"
+			    + " from TerminalConfig osConfig join osConfig.operatingSystems os "
+			    + "where " 
+			    + (queryDate == null ? constraintForNotDateQueries : "") 
+			    + constraints + isActiveByDateConstraint + ")";
+		}
+		return constraints;
+	}
+    
+    private String buildSoftwareConstraintsBySwType(List<Object> values,
 			List<Type> types, Locale locale, Date queryDate, String constraints, 
 			String swType) {
 		
@@ -5017,9 +5039,6 @@ public class Query {
 	}
 
 	hql += " where ";
-	if (operatingSystemConstraints.length() > 0 && queryDate == null) {
-	    hql += "softwareConfig.startDate = (select max(startDate) from TerminalConfig tc where tc.terminal.id = terminal.id) and ";
-	}
 	if (terminalConstraints.length() > 0) {
 	    hql += "(" + terminalConstraints + ") and ";
 	}
