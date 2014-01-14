@@ -2515,7 +2515,7 @@ public class Query {
      * @return the internet explorer HQL constraints
      */
     private String getInternetExplorerConstraints(List<Object> values,
-	    List<Type> types, Locale locale) {
+	    List<Type> types, Locale locale, Date queryDate) {
 	String constraints = "";
 	constraints += getConstraint("internetExplorer."
 		+ internetExplorerCombo11, internetExplorerCombo12,
@@ -2525,6 +2525,10 @@ public class Query {
 		+ internetExplorerCombo21, internetExplorerCombo22,
 		internetExplorerField2, internetExplorerCB2, values, types,
 		locale);
+	
+	constraints += storeIsElementActiveByDate("auditableInternetExplorer.",
+			values, types, locale, constraints, queryDate);
+	
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -3786,12 +3790,14 @@ public class Query {
 	if (constraints.length() > 0) {
 		String isActiveByDateConstraint = storeIsElementActiveByDate("tc.",
 				values, types, locale, constraints, queryDate);
-	    constraints = "terminal.id in (select distinct swConfig.terminal.id"
-		    + " from TerminalConfig swConfig join swConfig.software sw where sw.swType = 'XFS'"
-		    + " and swConfig.startDate = (select max(startDate) from TerminalConfig tc "
-		    + "where tc.terminal.id = terminal.id) and "
-		    + constraints+ " and "
-		    + isActiveByDateConstraint +")";
+		String constraintForNotDateQueries = "swConfig.startDate = (select max(startDate)"
+				+ " from TerminalConfig tc where tc.terminal.id = terminal.id) and ";
+		
+		constraints = "terminal.id in (select distinct swConfig.terminal.id"
+		    + " from TerminalConfig swConfig join swConfig.software sw where sw.swType = 'XFS' and "
+		    + (queryDate == null ? constraintForNotDateQueries : "")
+		    + constraints + " and "
+		    + isActiveByDateConstraint + ")";
 	}
 	return constraints;
     }
@@ -4977,7 +4983,7 @@ public class Query {
 	String hotfixConstraints = getHotfixConstraints(values, types, locale,
 		queryDate);
 	String internetExplorerConstraints = getInternetExplorerConstraints(
-		values, types, locale);
+		values, types, locale, queryDate);
 	String softwareConstraints = getSoftwareConstraints(values, types,
 		locale, queryDate);
 	String xfsSwConstraints = getXfsSwConstraints(values, types, locale, 
@@ -5007,7 +5013,8 @@ public class Query {
 	    hql += " join terminal.hotfixes hotfix";
 	}
 	if (internetExplorerConstraints.length() > 0) {
-	    hql += " join terminal.internetExplorers internetExplorer";
+	    hql += " join terminal.auditableInternetExplorers auditableInternetExplorer "
+	    		+ "join auditableInternetExplorer.internetExplorer internetExplorer";
 	}
 	if (operatingSystemConstraints.length() > 0) {
 	    hql += " join terminal.configs softwareConfig join softwareConfig.operatingSystems operatingSystem";
