@@ -1836,7 +1836,7 @@ public class Query {
      * @return the financial device HQL constraints
      */
     private String getFinancialDeviceConstraints(List<Object> values,
-	    List<Type> types, Locale locale) {
+	    List<Type> types, Locale locale, Date queryDate) {
 	String constraints = "";
 	constraints += getConstraint("financialDevice."
 		+ financialDeviceCombo11, financialDeviceCombo12,
@@ -1858,6 +1858,10 @@ public class Query {
 		+ financialDeviceCombo51, financialDeviceCombo52,
 		financialDeviceField5, financialDeviceCB5, values, types,
 		locale);
+	
+	constraints += storeIsElementActiveByDate("financialDevice.",
+			values, types, locale, constraints, queryDate);
+	
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -2326,7 +2330,7 @@ public class Query {
      * @return the hotfix HQL constraints
      */
     private String getHotfixConstraints(List<Object> values, List<Type> types,
-	    Locale locale) {
+	    Locale locale, Date queryDate) {
 	String constraints = "";
 	constraints += getConstraint("hotfix." + hotfixCombo11, hotfixCombo12,
 		hotfixField1, hotfixCB1, values, types, locale);
@@ -2338,6 +2342,9 @@ public class Query {
 		hotfixField4, hotfixCB4, values, types, locale);
 	constraints += getConstraint("hotfix." + hotfixCombo51, hotfixCombo52,
 		hotfixField5, hotfixCB5, values, types, locale);
+	constraints += storeIsElementActiveByDate("hotfix.",
+			values, types, locale, constraints, queryDate);
+	
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -2916,7 +2923,7 @@ public class Query {
      * @return the operating system HQL constraints
      */
     private String getOperatingSystemConstraints(List<Object> values,
-	    List<Type> types, Locale locale) {
+	    List<Type> types, Locale locale, Date queryDate) {
 	String constraints = "";
 	constraints += getConstraint("operatingSystem."
 		+ operatingSystemCombo11, operatingSystemCombo12,
@@ -2938,6 +2945,10 @@ public class Query {
 		+ operatingSystemCombo51, operatingSystemCombo52,
 		operatingSystemField5, operatingSystemCB5, values, types,
 		locale);
+	
+	constraints += storeIsElementActiveByDate("operatingSystem.",
+			values, types, locale, constraints, queryDate);
+	
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -3336,7 +3347,7 @@ public class Query {
      * @return the software HQL constraints
      */
     private String getSoftwareConstraints(List<Object> values,
-	    List<Type> types, Locale locale) {
+	    List<Type> types, Locale locale, Date queryDate) {
 	String constraints = "";
 	constraints += getConstraint("sw." + softwareCombo11, softwareCombo12,
 		softwareField1, softwareCB1, values, types, locale);
@@ -3352,12 +3363,14 @@ public class Query {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
 	if (constraints.length() > 0) {
-	    constraints = "terminal.id in (select distinct swConfig.terminal.id"
+		String isActiveByDateConstraint = storeIsElementActiveByDate("tc.",
+				values, types, locale, constraints, queryDate);
+		constraints = "terminal.id in (select distinct swConfig.terminal.id"
 		    + " from TerminalConfig swConfig join swConfig.software sw where sw.swType = 'Gen'"
 		    + " and swConfig.startDate = (select max(startDate) from TerminalConfig tc "
 		    + "where tc.terminal.id = terminal.id) and "
-		    + constraints
-		    + ")";
+		    +  constraints + " and "
+		    +  isActiveByDateConstraint +")";
 	}
 	return constraints;
     }
@@ -3410,7 +3423,7 @@ public class Query {
     }
 
     /**
-     * Sets the xfs sw checkbox1 value.
+     * ets the xfs sw checkbox1 value.
      * 
      * @param xfsSwCB1
      *            the xfsSwCB1 to set
@@ -3754,7 +3767,7 @@ public class Query {
      * @return the xfs sw HQL constraints
      */
     private String getXfsSwConstraints(List<Object> values, List<Type> types,
-	    Locale locale) {
+	    Locale locale, Date queryDate) {
 	String constraints = "";
 	constraints += getConstraint("sw." + xfsSwCombo11, xfsSwCombo12,
 		xfsSwField1, xfsSwCB1, values, types, locale);
@@ -3769,13 +3782,16 @@ public class Query {
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
+	
 	if (constraints.length() > 0) {
+		String isActiveByDateConstraint = storeIsElementActiveByDate("tc.",
+				values, types, locale, constraints, queryDate);
 	    constraints = "terminal.id in (select distinct swConfig.terminal.id"
 		    + " from TerminalConfig swConfig join swConfig.software sw where sw.swType = 'XFS'"
 		    + " and swConfig.startDate = (select max(startDate) from TerminalConfig tc "
 		    + "where tc.terminal.id = terminal.id) and "
-		    + constraints
-		    + ")";
+		    + constraints+ " and "
+		    + isActiveByDateConstraint +")";
 	}
 	return constraints;
     }
@@ -4172,7 +4188,7 @@ public class Query {
      * @return the feat sw HQL constraints
      */
     private String getFeatSwConstraints(List<Object> values, List<Type> types,
-	    Locale locale) {
+	    Locale locale, Date queryDate) {
 	String constraints = "";
 	constraints += getConstraint("sw." + featSwCombo11, featSwCombo12,
 		featSwField1, featSwCB1, values, types, locale);
@@ -4187,13 +4203,17 @@ public class Query {
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
+	
 	if (constraints.length() > 0) {
+		String isActiveByDateConstraint = storeIsElementActiveByDate("tc.",
+				values, types, locale, constraints, queryDate);
+		
 	    constraints = "terminal.id in (select distinct swConfig.terminal.id"
 		    + " from TerminalConfig swConfig join swConfig.software sw where sw.swType = 'Feat'"
 		    + " and swConfig.startDate = (select max(startDate) from TerminalConfig tc "
 		    + "where tc.terminal.id = terminal.id) and "
-		    + constraints
-		    + ")";
+		    + constraints + " and "
+		    + isActiveByDateConstraint +")";
 	}
 	return constraints;
     }
@@ -4774,10 +4794,21 @@ public class Query {
     }
     
     private String storeIsElementActiveByDate(String fieldNamePrefix, List<Object> values,
-    	    List<Type> types, Locale locale, Map<String, String> constraints, Date queryDate) {
+    	    List<Type> types, Locale locale, Map<String,String> constraints, Date queryDate) {
+    	return constraints.keySet().size() > 0 ? 
+    			storeIsElementActiveByDate(fieldNamePrefix,values, types, locale, queryDate) : "";
+    }
     	
+    private String storeIsElementActiveByDate(String fieldNamePrefix, List<Object> values,
+    	    List<Type> types, Locale locale, String constraints, Date queryDate) {
+    	return constraints.length() > 0 ? 
+    			storeIsElementActiveByDate(fieldNamePrefix,values, types, locale, queryDate) : "";
+    }
+    
+    private String storeIsElementActiveByDate(String fieldNamePrefix, List<Object> values,
+    	    List<Type> types, Locale locale, Date queryDate) {
     	String constraint = "";
-    	if( queryDate != null && constraints.keySet().size() > 0 ) {
+    	if( queryDate != null) {
     		String queryDateValue = DateFormat.getDateInstance(
     				DateFormat.SHORT,locale).format(queryDate);
     		String startDateField = fieldNamePrefix + "startDate";
@@ -4802,6 +4833,7 @@ public class Query {
     	
     	return constraint;
     }
+    
 
     /**
      * Gets the HQL constraint for the specified data.
@@ -4939,16 +4971,19 @@ public class Query {
 		locale);
 	String bankCompanyConstraints = getBankCompanyConstraints();
 	String financialDeviceConstraints = getFinancialDeviceConstraints(
-		values, types, locale);
-	String hotfixConstraints = getHotfixConstraints(values, types, locale);
+		values, types, locale, queryDate);
+	String hotfixConstraints = getHotfixConstraints(values, types, locale,
+		queryDate);
 	String internetExplorerConstraints = getInternetExplorerConstraints(
 		values, types, locale);
 	String softwareConstraints = getSoftwareConstraints(values, types,
-		locale);
-	String xfsSwConstraints = getXfsSwConstraints(values, types, locale);
-	String featSwConstraints = getFeatSwConstraints(values, types, locale);
+		locale, queryDate);
+	String xfsSwConstraints = getXfsSwConstraints(values, types, locale, 
+			queryDate);
+	String featSwConstraints = getFeatSwConstraints(values, types, locale, 
+			queryDate);
 	String operatingSystemConstraints = getOperatingSystemConstraints(
-		values, types, locale);
+		values, types, locale, queryDate);
 	String hardwareDeviceConstraints = getHardwareDeviceConstraints(values,
 		types, locale, queryDate);
 	String xfsComponentConstraints = getXfsComponentConstraints(values,
@@ -4977,7 +5012,7 @@ public class Query {
 	}
 
 	hql += " where ";
-	if (operatingSystemConstraints.length() > 0) {
+	if (operatingSystemConstraints.length() > 0 && queryDate == null) {
 	    hql += "softwareConfig.startDate = (select max(startDate) from TerminalConfig tc where tc.terminal.id = terminal.id) and ";
 	}
 	if (terminalConstraints.length() > 0) {
