@@ -1880,7 +1880,7 @@ public class Query {
      * @return the xfs component HQL constraints
      */
     private String getXfsComponentConstraints(List<Object> values,
-	    List<Type> types, Locale locale) {
+	    List<Type> types, Locale locale, Date queryDate) {
 	String constraints = "";
 	constraints += getConstraint("xfsComponent." + xfsComponentCombo11,
 		xfsComponentCombo12, xfsComponentField1, xfsComponentCB1,
@@ -1897,6 +1897,10 @@ public class Query {
 	constraints += getConstraint("xfsComponent." + xfsComponentCombo51,
 		xfsComponentCombo52, xfsComponentField5, xfsComponentCB5,
 		values, types, locale);
+	
+	constraints += storeIsElementActiveByDate("financialDevice.",
+			values, types, locale, constraints, queryDate);
+	
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -1915,7 +1919,7 @@ public class Query {
      * @return the jxfs component HQL constraints
      */
     private String getJxfsComponentConstraints(List<Object> values,
-	    List<Type> types, Locale locale) {
+	    List<Type> types, Locale locale, Date queryDate) {
 	String constraints = "";
 	constraints += getConstraint("jxfsComponent." + jxfsComponentCombo11,
 		jxfsComponentCombo12, jxfsComponentField1, jxfsComponentCB1,
@@ -1932,6 +1936,10 @@ public class Query {
 	constraints += getConstraint("jxfsComponent." + jxfsComponentCombo51,
 		jxfsComponentCombo52, jxfsComponentField5, jxfsComponentCB5,
 		values, types, locale);
+	
+	constraints += storeIsElementActiveByDate("financialDevice.",
+			values, types, locale, constraints, queryDate);
+	
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -5013,9 +5021,9 @@ public class Query {
 	String hardwareDeviceConstraints = getHardwareDeviceConstraints(values,
 		types, locale, queryDate);
 	String xfsComponentConstraints = getXfsComponentConstraints(values,
-		types, locale);
+		types, locale, queryDate);
 	String jxfsComponentConstraints = getJxfsComponentConstraints(values,
-		types, locale);
+		types, locale, queryDate);
 	if ((financialDeviceConstraints.length() > 0)
 		|| (xfsComponentConstraints.length() > 0)
 		|| (jxfsComponentConstraints.length() > 0)) {
