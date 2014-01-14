@@ -3787,20 +3787,9 @@ public class Query {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
 	
-	if (constraints.length() > 0) {
-		String isActiveByDateConstraint = storeIsElementActiveByDate("tc.",
-				values, types, locale, constraints, queryDate);
-		String constraintForNotDateQueries = "swConfig.startDate = (select max(startDate)"
-				+ " from TerminalConfig tc where tc.terminal.id = terminal.id) and ";
-		
-		constraints = "terminal.id in (select distinct swConfig.terminal.id"
-		    + " from TerminalConfig swConfig join swConfig.software sw where sw.swType = 'XFS' and "
-		    + (queryDate == null ? constraintForNotDateQueries : "")
-		    + constraints + " and "
-		    + isActiveByDateConstraint + ")";
+	return buildSoftwareConstraintsBySwType(values, types, locale,
+			queryDate, constraints, "XFS");
 	}
-	return constraints;
-    }
 
     /**
      * Gets the feat sw combo11 value.
@@ -4182,6 +4171,31 @@ public class Query {
 	this.featSwField5 = featSwField5;
     }
 
+	private String buildSoftwareConstraintsBySwType(List<Object> values,
+			List<Type> types, Locale locale, Date queryDate, String constraints, 
+			String swType) {
+		
+		if (constraints.length() > 0) {
+			String isActiveByDateConstraint = storeIsElementActiveByDate("swConfig.",
+					values, types, locale, constraints, queryDate);
+			
+			if(isActiveByDateConstraint.length() > 0) {
+				isActiveByDateConstraint = " and " + isActiveByDateConstraint; 
+			}
+			
+			String constraintForNotDateQueries = "swConfig.startDate = (select max(startDate)"
+					+ " from TerminalConfig tc where tc.terminal.id = terminal.id) and ";
+			
+			constraints = "terminal.id in (select distinct swConfig.terminal.id"
+			    + " from TerminalConfig swConfig join swConfig.software sw "
+			    + "where sw.swType = '" + swType + "' and "
+			    + (queryDate == null ? constraintForNotDateQueries : "") 
+			    + constraints + isActiveByDateConstraint + ")";
+		}
+		return constraints;
+	}
+
+	
     /**
      * Gets the feat sw HQL constraints.
      * 

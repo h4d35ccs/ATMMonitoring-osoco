@@ -28,7 +28,7 @@ import com.ncr.agent.baseData.os.module.ProductPojo;
 
 @Entity
 @Table(name = "software")
-public class Software extends Auditable {
+public class Software {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(Software.class.getName());

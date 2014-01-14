@@ -16,7 +16,7 @@
 	<div class="action_box">
       <h2><spring:message code="label.error.completeStackTrace"/></h2>
 	  <c:forEach items="${exception.stackTrace}" var="element">
-		<c:out value="${element}"/>
+		<c:out value="${element}"/></br>
 	  </c:forEach>
 	</div>
 </t:osoco-wrapper>
