@@ -3366,18 +3366,10 @@ public class Query {
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
-	if (constraints.length() > 0) {
-		String isActiveByDateConstraint = storeIsElementActiveByDate("tc.",
-				values, types, locale, constraints, queryDate);
-		constraints = "terminal.id in (select distinct swConfig.terminal.id"
-		    + " from TerminalConfig swConfig join swConfig.software sw where sw.swType = 'Gen'"
-		    + " and swConfig.startDate = (select max(startDate) from TerminalConfig tc "
-		    + "where tc.terminal.id = terminal.id) and "
-		    +  constraints + " and "
-		    +  isActiveByDateConstraint +")";
+	
+	return buildSoftwareConstraintsBySwType(values, types, locale,
+			queryDate, constraints, "Gen");
 	}
-	return constraints;
-    }
 
     /**
      * Gets the xfs sw combo11 value.
@@ -4224,19 +4216,9 @@ public class Query {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
 	
-	if (constraints.length() > 0) {
-		String isActiveByDateConstraint = storeIsElementActiveByDate("tc.",
-				values, types, locale, constraints, queryDate);
-		
-	    constraints = "terminal.id in (select distinct swConfig.terminal.id"
-		    + " from TerminalConfig swConfig join swConfig.software sw where sw.swType = 'Feat'"
-		    + " and swConfig.startDate = (select max(startDate) from TerminalConfig tc "
-		    + "where tc.terminal.id = terminal.id) and "
-		    + constraints + " and "
-		    + isActiveByDateConstraint +")";
+	return buildSoftwareConstraintsBySwType(values, types, locale,
+			queryDate, constraints, "Feat");
 	}
-	return constraints;
-    }
 
     /**
      * Gets the hardware device combo11 value.
