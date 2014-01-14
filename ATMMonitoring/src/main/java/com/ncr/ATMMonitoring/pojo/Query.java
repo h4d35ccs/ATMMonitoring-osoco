@@ -4783,9 +4783,11 @@ public class Query {
 		    + " from HardwareDevice hardwareDevice where hardwareDevice.hardwareClass = '"
 		    + hwClass + "' and " + classConstraints + ") and ";
 	}
-	globalConstraint += "terminal.id in (select distinct hardwareDevice.terminal.id"
-		    + " from HardwareDevice hardwareDevice where" + isActiveByDateConstraint + ")";
- 
+	if(isActiveByDateConstraint.length() > 0) {
+		globalConstraint += "terminal.id in (select distinct hardwareDevice.terminal.id"
+			    + " from HardwareDevice hardwareDevice where" + isActiveByDateConstraint + ")";
+	}
+	
 	if (globalConstraint.endsWith(" and ")) {
 	    globalConstraint = globalConstraint.substring(0,
 		    globalConstraint.length() - 5);
