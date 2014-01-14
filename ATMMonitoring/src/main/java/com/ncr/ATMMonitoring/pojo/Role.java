@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -53,6 +54,30 @@ public class Role implements Serializable {
     /** The flag that tells us whether the users can edit terminal data. */
     @Column(name = "can_edit_terminals", columnDefinition = "boolean default false")
     private Boolean canEditTerminals = false;
+
+    /** The flag that tells us whether the users can view terminal data. */
+    @Column(name = "can_view_terminals", columnDefinition = "boolean default false")
+    private Boolean canViewTerminals = false;
+
+    /** The flag that tells us whether the users can use queries. */
+    @Column(name = "can_use_queries", columnDefinition = "boolean default false")
+    private Boolean canUseQueries = false;
+
+    /** The flag that tells us whether the users can request data update. */
+    @Column(name = "can_request_update", columnDefinition = "boolean default false")
+    private Boolean canRequestUpdate = false;
+
+    /** The flag that tells us whether the users can schedule automatic updates. */
+    @Column(name = "can_schedule", columnDefinition = "boolean default false")
+    private Boolean canSchedule = false;
+
+    /** The flag that tells us whether the users have access to the reports. */
+    @Column(name = "can_access_reports", columnDefinition = "boolean default false")
+    private Boolean canAccessReports = false;
+
+    /** The flag that tells us whether the users are user managers. */
+    @Column(name = "user_manager", columnDefinition = "boolean default false")
+    private Boolean userManager = false;
 
     @OneToMany(mappedBy = "role")
     private Set<User> users;
@@ -159,18 +184,152 @@ public class Role implements Serializable {
     }
 
     /**
+     * Gets the terminal data access flag.
+     * 
+     * @return the canViewTerminals flag
+     */
+    public Boolean getCanViewTerminals() {
+	return canViewTerminals;
+    }
+
+    /**
+     * Sets the terminal data access flag.
+     * 
+     * @param canViewTerminals
+     *            the canViewTerminals flag to set
+     */
+    public void setCanViewTerminals(Boolean canViewTerminals) {
+	this.canViewTerminals = canViewTerminals;
+    }
+
+    /**
+     * Gets the query usage flag.
+     * 
+     * @return the canUseQueries flag
+     */
+    public Boolean getCanUseQueries() {
+	return canUseQueries;
+    }
+
+    /**
+     * Sets the query usage flag.
+     * 
+     * @param canUseQueries
+     *            the canUseQueries flag to set
+     */
+    public void setCanUseQueries(Boolean canUseQueries) {
+	this.canUseQueries = canUseQueries;
+    }
+
+    /**
+     * Gets the update request usage flag.
+     * 
+     * @return the canRequestUpdate flag
+     */
+    public Boolean getCanRequestUpdate() {
+	return canRequestUpdate;
+    }
+
+    /**
+     * Sets the update request usage flag.
+     * 
+     * @param canRequestUpdate
+     *            the canRequestUpdate flag to set
+     */
+    public void setCanRequestUpdate(Boolean canRequestUpdate) {
+	this.canRequestUpdate = canRequestUpdate;
+    }
+
+    /**
+     * Gets the schedule usage flag.
+     * 
+     * @return the canSchedule flag
+     */
+    public Boolean getCanSchedule() {
+	return canSchedule;
+    }
+
+    /**
+     * Sets the schedule usage flag.
+     * 
+     * @param canSchedule
+     *            the canSchedule flag to set
+     */
+    public void setCanSchedule(Boolean canSchedule) {
+	this.canSchedule = canSchedule;
+    }
+
+    /**
+     * Gets the reports access flag.
+     * 
+     * @return the canAccessReports flag
+     */
+    public Boolean getCanAccessReports() {
+	return canAccessReports;
+    }
+
+    /**
+     * Sets the reports access flag.
+     * 
+     * @param canAccessReports
+     *            the canAccessReports flag to set
+     */
+    public void setCanAccessReports(Boolean canAccessReports) {
+	this.canAccessReports = canAccessReports;
+    }
+
+    /**
+     * Gets the user management flag.
+     * 
+     * @return the userManager flag
+     */
+    public Boolean getUserManager() {
+	return userManager;
+    }
+
+    /**
+     * Sets the user management flag.
+     * 
+     * @param userManager
+     *            the userManager flag to set
+     */
+    public void setUserManager(Boolean userManager) {
+	this.userManager = userManager;
+    }
+
+    /**
      * Returns the granted authorities for this role.
      * 
      * @return the list of granted authorities
      */
     public Collection<? extends GrantedAuthority> getAuthorities() {
-	List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>(1);
+	List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();
+	authList.add(new SimpleGrantedAuthority("CAN_ACCESS_HELP"));
 	if (name != null) {
 	    authList.add(new SimpleGrantedAuthority("ROLE_" + name));
-	    if ((canEditTerminals != null) && canEditTerminals) {
-		authList.add(new SimpleGrantedAuthority(
-			"CAN_EDIT_TERMINALS"));
-	    }
+	}
+	if ((userManager != null) && userManager) {
+	    authList.add(new SimpleGrantedAuthority("USER_MANAGER"));
+	    return authList;
+	}
+	authList.add(new SimpleGrantedAuthority("CAN_ACCESS_DASHBOARD"));
+	if ((canViewTerminals != null) && canViewTerminals) {
+	    authList.add(new SimpleGrantedAuthority("CAN_VIEW_TERMINALS"));
+	}
+	if ((canEditTerminals != null) && canEditTerminals) {
+	    authList.add(new SimpleGrantedAuthority("CAN_EDIT_TERMINALS"));
+	}
+	if ((canRequestUpdate != null) && canRequestUpdate) {
+	    authList.add(new SimpleGrantedAuthority("CAN_REQUEST_UPDATE"));
+	}
+	if ((canUseQueries != null) && canUseQueries) {
+	    authList.add(new SimpleGrantedAuthority("CAN_USE_QUERIES"));
+	}
+	if ((canSchedule != null) && canSchedule) {
+	    authList.add(new SimpleGrantedAuthority("CAN_SCHEDULE"));
+	}
+	if ((canAccessReports != null) && canAccessReports) {
+	    authList.add(new SimpleGrantedAuthority("CAN_ACCESS_REPORTS"));
 	}
 	return authList;
     }

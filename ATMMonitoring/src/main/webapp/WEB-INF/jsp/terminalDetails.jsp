@@ -4,6 +4,7 @@
 
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -129,7 +130,7 @@
 									</dl>
 								</div>
 							</div>
-								<c:if test="${canEdit == true}">
+							<sec:authorize access="hasAnyRole(${terminalsManagementAllowedRoles})">
 							      <div id="editForm" class="${errors != null ? '': 'hide'}">
 									<form:form method="post" action="terminals/update" commandName="terminal">
 										<form:hidden path="id"/>
@@ -306,7 +307,7 @@
 										</div>
 									</form:form>
 							            </div>
-								</c:if>
+								</sec:authorize>
 
 									<div id="showTerminal"  class="ul_data ${errors  != null ? 'hide': ''}">
 										<ul>
@@ -385,12 +386,15 @@
 											</li>
 										</ul>
 
-									<c:if test="${canEdit == 'true'}">
-										<div class="botonera">
+									
+									<div class="botonera">
+										<sec:authorize access="hasAnyRole(${terminalsManagementAllowedRoles})">
 											<button id="editTerminalButton" class="btn">Editar Terminal</button>
+										</sec:authorize>
+										<sec:authorize access="hasAnyRole(${terminalsUpdateRequestAllowedRoles})">
 											<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>
-										</div>
-									</c:if>
+										</sec:authorize>
+									</div>
 
 									</div>
 									<!-- //ul-data -->
