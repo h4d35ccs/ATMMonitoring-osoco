@@ -49,6 +49,7 @@
                 <groupId>ncr.ATMMonitoring.agent</groupId>
                 <artifactId>ATMAgent</artifactId>
                 <version>1.0</version>
+                <!-- Delete scope and system path when packaging app. Need to have jar installed on local maven repository -->
                 <scope>system</scope>
                 <systemPath>${project.basedir}/lib/InventoryAgentData.jar</systemPath>
         </dependency>
