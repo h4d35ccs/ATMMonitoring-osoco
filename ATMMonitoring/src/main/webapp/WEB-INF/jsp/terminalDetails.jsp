@@ -412,27 +412,31 @@
 							<a href="terminals/installations/new?matricula=${terminal.matricula}" class="btn iframe_m"><spring:message code="label.installation.new"/></a>
 						</div>
                         
-                        <c:if test="${!empty terminal.getActiveInstallationsByDate(date)}">
-	                        <c:if test="${terminal.getCurrentInstallationByDate(date) != null}">
-				  <h3><spring:message code="label.installation.current"/></h3>
-				  <t:installationTable installations="${terminal.getActiveInstallationsByDate(date)}" />
-				</c:if>
+                        <c:set var="currentInstallationActiveByDate" value="${terminal.getCurrentInstallationByDate(date)}" />
+                        <c:if test="${empty currentInstallationActiveByDate}">
+                        	<div class="empty-list message">
+								<spring:message code="label.terminal.noInstallations"/>
+							</div>
                         </c:if>
+                        <c:if test="${!empty currentInstallationActiveByDate}">
+	                        <h3><spring:message code="label.installation.current"/></h3>
+				  			<t:installationTable installations="${currentInstallationActiveByDate}" />
+						</c:if>
 					</div>
 					
 					
 					<div class="content_tab">
 						<div class="margin-box">
-							<c:if  test="${empty terminal.financialDevices}">
+							<c:set var="activeFinancialDevicesByDate" value="${terminal.getActiveFinancialDevicesByDate(date)}" />
+							<c:if  test="${empty activeFinancialDevicesByDate}">
 								<div class="empty-list message">
 									<spring:message code="label.terminal.noFinancialDevices"/>
 								</div>
 							</c:if>
-							<c:if test="${!empty terminal.getActiveFinancialDevicesByDate(date)}">
+							<c:if test="${!empty activeFinancialDevicesByDate}">
 							<div class="margin-box">
 								<c:choose>
-									<c:when  test="${terminal.getActiveFinancialDevicesByDate(date).size() >
-										5}">
+									<c:when  test="${activeFinancialDevicesByDate.size() > 5}">
 										<table id="TestChromatable" class="data subform link">
 											<thead>
 												<tr>
@@ -626,7 +630,7 @@
 										</c:choose>
 										<tbody>
 
-											<c:forEach items="${terminal.getActiveFinancialDevicesByDate(date)}" var="financialDevice">
+											<c:forEach items="${activeFinancialDevicesByDate}" var="financialDevice">
 												<tr class="showdetail open">
 												<td>
 													<label>${financialDevice.name}</label>
@@ -922,7 +926,7 @@
 
 					</div>
 			<div class="content_tab">
-					<c:if  test="${empty terminal.softwareAggregates}">
+					<c:if  test="${empty terminal.getActiveSoftwareAggregatesByDate(date)}">
 						<div class="empty-list message">
 							<spring:message code="label.terminal.noSwAggregates"/>
 						</div>
