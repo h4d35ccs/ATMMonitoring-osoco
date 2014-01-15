@@ -50,15 +50,15 @@ public abstract class Auditable {
 	}
 	
 	private boolean isBetweenStartAndEndDate(Date searchDate) {
-		return isGreaterOrEqualsThanStartDate(searchDate) && isLowerOrEqualsThanEndDate(searchDate);
+		return isGreaterOrEqualsThanStartDate(searchDate) && isLowerThanEndDate(searchDate);
 	}
 	
 	private boolean isGreaterOrEqualsThanStartDate(Date searchDate) {
 		return startDate == null || searchDate.compareTo(startDate) >= 0;
 	}
 	
-	private boolean isLowerOrEqualsThanEndDate(Date searchDate) {
-		return endDate == null || searchDate.compareTo(endDate) <= 0;
+	private boolean isLowerThanEndDate(Date searchDate) {
+		return endDate == null || searchDate.compareTo(endDate) < 0;
 	}
 	
 	public static Date getDefaultDate() {

@@ -12,7 +12,7 @@
 	<jsp:attribute name="header">
 		<script type="text/javascript">
         $(function() {
-            $("#queryDate").datepicker();
+        	$("#queryDate").datepicker({ dateFormat: "dd/mm/yy" });
             $("#queryDateButton").click(function(event) {
                 event.preventDefault();
                 $("#queryDate").datepicker("show");
