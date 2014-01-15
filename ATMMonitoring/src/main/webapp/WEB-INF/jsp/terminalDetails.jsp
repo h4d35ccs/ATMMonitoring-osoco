@@ -29,32 +29,6 @@
             onLoadModelCB();
 	    });
 
-        function initTabs() {
-	        $('#tabs .content_tab').hide(); // cierro todas las capas
-	        $('#tabs .content_tab:first').show(); // muestro la primera
-	        $('.sub_nav li').removeClass();
-	        $('.sub_nav li:first').addClass('current'); // activo el primer tab
-	        $('.sub_nav li').click(function(event) {
-		        $('.sub_nav li').removeClass(); // borro estilo current de todos los li
-		        $(this).addClass('current');
-		        var tab_click =  $('.sub_nav li').index(this);
-		        $('#tabs .content_tab').hide();
-		        $('#tabs').find( ".content_tab" ).eq( tab_click ).show();
-            });
-            $('a[href*=#]').click(function(event) {
-                event.preventDefault();
-                if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-                    && location.hostname == this.hostname) {
-
-                    var $target = $(this.hash);
-                    $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']');
-                    if ($target.length) {
-                        var targetOffset = $target.offset().top - 70;
-                        $('html,body').animate({scrollTop: targetOffset}, 1000);
-                    }
-                }
-            }); 
-        }
     </script>
 </jsp:attribute>
 
@@ -411,25 +385,25 @@
 					<nav class="sub_nav">
 						<ul>
 							<li class="current">
-							  <a href="${currentUrl}#features"><spring:message code="label.installations"/></a>
+							  <a class="Installation" href="${currentUrl}#features"><spring:message code="label.installations"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features"><spring:message code="label.financialDevices"/></a>
+								<a class="FinancialDevice" href="${currentUrl}#features"><spring:message code="label.financialDevices"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features"><spring:message code="label.hardwareDevices"/></a>
+								<a class="HardwareDevice" href="${currentUrl}#features"><spring:message code="label.hardwareDevices"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features"><spring:message code="label.software"/></a>
+								<a class="TerminalConfig" href="${currentUrl}#features"><spring:message code="label.software"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features"><spring:message code="label.softwareAggregates"/></a>
+								<a class="SoftwareAggregate" href="${currentUrl}#features"><spring:message code="label.softwareAggregates"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features"><spring:message code="label.hotfixes"/></a>
+								<a class="Hotfix" href="${currentUrl}#features"><spring:message code="label.hotfixes"/></a>
 							</li>
 							<li>
-								<a href="${currentUrl}#features"><spring:message code="label.browsers"/></a>
+								<a class="AuditableInternetExplorer" href="${currentUrl}#features"><spring:message code="label.browsers"/></a>
 							</li>
 						</ul>
 					</nav>
@@ -1210,6 +1184,37 @@
 	</div>
 
 <script type="text/javascript">
+	function initTabs() {
+	    $('#tabs .content_tab').hide(); // cierro todas las capas
+	    $('#tabs .content_tab:first').show(); // muestro la primera
+	    $('.sub_nav li').removeClass();
+	    $('.sub_nav li:first').addClass('current'); // activo el primer tab
+	    $('.sub_nav li').click(function(event) {
+		    $('.sub_nav li').removeClass(); // borro estilo current de todos los li
+		    $(this).addClass('current');
+		    var tab_click =  $('.sub_nav li').index(this);
+		    $('#tabs .content_tab').hide();
+		    $('#tabs').find( ".content_tab" ).eq( tab_click ).show();
+	   });
+       $('a[href*=#]').click(function(event) {
+           event.preventDefault();
+           if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+               && location.hostname == this.hostname) {
+
+               var $target = $(this.hash);
+               $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']');
+               if ($target.length) {
+                   var targetOffset = $target.offset().top - 220;
+                   $('html,body').animate({scrollTop: targetOffset}, 1000);
+               }
+           }
+       }); 
+       <c:if test="${preselectedTab != null}" >
+	  		$('li > a[href*=#].${preselectedTab}').click()	
+	   </c:if>
+	}
+	
+	
 	var valuesTree = {
 	    	<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
 	    		<c:set var="value" value="${values.get(key)}"/>

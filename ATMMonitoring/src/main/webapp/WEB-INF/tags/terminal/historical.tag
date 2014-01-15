@@ -137,7 +137,7 @@
 	               <c:set var="numberOfChanges" value="${changeDates.getValue()}" />
 			{
 			 start : "<fmt:formatDate value="${changeDate}" pattern="${timelineDatesPattern}"/>",
-    	          	 description : "?dateTime=${changeDate.time}",
+    	          	 description : "?dateTime=${changeDate.time}&preselectedTab=${changesByType.key.simpleName}",
     	          	 icon : '<c:url 
     	          	 	value="/resources/timeline/api/images/${date.time == changeDate.time ? 'Current' : changesByType.key.simpleName}.png" 
     	          	 />'

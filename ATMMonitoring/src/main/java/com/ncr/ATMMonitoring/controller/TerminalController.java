@@ -323,7 +323,7 @@ public class TerminalController {
     public String terminalDetails(
 	    @PathVariable("terminalId") Integer terminalId,
 	    Map<String, Object> map, HttpServletRequest request,
-	    Principal principal, Long dateTime) {
+	    Principal principal, Long dateTime, String preselectedTab) {
     
     Date date = dateTime == null ? null : new Date(dateTime);
     	
@@ -361,7 +361,7 @@ public class TerminalController {
 	map.put("date", date);
 	map.put("userMsg", userMsg);
 	map.put("terminal", terminal);
-	
+	map.put("preselectedTab", preselectedTab);
 
 	return "terminalDetails";
     }
