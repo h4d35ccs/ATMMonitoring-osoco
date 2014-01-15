@@ -9,9 +9,6 @@
 
 <h2><spring:message code="label.terminal.history"/></h2>
 
-<img src="<c:url value="/resources/timeline/api/images/Current.png" />" />
-<spring:message code="label.historical.Current"/>
-	
 <c:forEach items="${historicalChanges}" var="changesByType">
     <c:set var="changeName" value="${changesByType.key.simpleName}"> </c:set>
     <img src="<c:url value="/resources/timeline/api/images/${changeName}.png" />" />
@@ -143,7 +140,7 @@
 			 start : "<fmt:formatDate value="${changeDate}" pattern="${timelineDatesPattern}"/>",
     	          	 description : "?dateTime=${changeDate.time}&preselectedTab=${changesByType.key.simpleName}",
     	          	 icon : '<c:url 
-    	          	 	value="/resources/timeline/api/images/${date.time == changeDate.time ? 'Current' : changesByType.key.simpleName}.png" 
+    	          	 	value="/resources/timeline/api/images/${changesByType.key.simpleName}${date.time == changeDate.time ? '_current' : ''}.png" 
     	          	 />'
     	      		},
     	      	    </c:forEach>
