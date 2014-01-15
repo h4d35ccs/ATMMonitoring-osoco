@@ -908,74 +908,19 @@
 					</div>
 
 					<div class="content_tab">
-						<c:if  test="${empty terminal.configs}">
+						<c:set var="currentTerminalConfigActiveByDate" value="${terminal.getCurrentTerminalConfigActiveByDate(date)}"/>
+						<c:if  test="${empty currentTerminalConfigActiveByDate}">
 							<div class="empty-list message">
 								<spring:message code="label.terminal.noConfigs"/>
 							</div>
 						</c:if>
-						<c:if  test="${!empty terminal.configs}">
+						<c:if  test="${!empty currentTerminalConfigActiveByDate}">
                           <div class="action_box data desplegable">
-								<h3 class="txt">
-									<spring:message code="label.currentTerminalConfig"/>
-								</h3>
-								<div class="margin-box collapsible">
-									<table class="form-disabled">
-										<tr>
-											<td class="header first-header last-header">
-
-												<label>
-													<spring:message code="label.terminalConfig.startDate"/>
-												</label>
-											</td>
-											<td class="first-header last-header">
-												<a href="terminals/swConfigs/details/${terminal.getCurrentTerminalConfigActiveByDate(date).id}">
-													<fmt:formatDate value="${terminal.getCurrentTerminalConfigActiveByDate(date).startDate}" dateStyle="short" type="both" />
-												</a>
-											</td>
-										</tr>
-										<%--Code with support for Terminal Config AUTHORS --%>
-										<%-- <c:choose>
-										<c:when test="${terminal.currentConfig.author != null}">
-											<tr>
-												<td>
-													<label>
-
-														<spring:message code="label.terminalconfig.author"/>
-
-													</label>
-												</td>
-												<td>
-													<label>
-														${terminal.currentConfig.author.lastname}, ${terminal.currentConfig.author.firstname}
-													</label>
-												</td>
-											</tr>
-										</c:when>
-										<c:otherwise>
-											<tr>
-												<td>
-													<label>
-
-														<spring:message code="label.terminalconfig.author"/>
-
-													</label>
-												</td>
-												<td>
-													<label>----</label>
-												</td>
-											</tr>
-										</c:otherwise>
-									</c:choose>
-									--%>
-								</table>
-							</div>
-
-							<t:listSoftware config="${terminal.getCurrentTerminalConfigActiveByDate(date)}"/>
-
+							<t:listSoftware config="${currentTerminalConfigActiveByDate}"/>
+                           </div> 
 						</c:if>
 
-</div>
-			</div>
+					</div>
 			<div class="content_tab">
 					<c:if  test="${empty terminal.softwareAggregates}">
 						<div class="empty-list message">
