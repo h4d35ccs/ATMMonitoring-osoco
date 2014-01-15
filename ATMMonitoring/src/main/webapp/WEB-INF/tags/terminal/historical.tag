@@ -8,6 +8,10 @@
 <c:set var="timelineDatesPattern" value="MM dd yyyy HH:mm:ss"/>
 
 <h2><spring:message code="label.terminal.history"/></h2>
+
+<img src="<c:url value="/resources/timeline/api/images/Current.png" />" />
+<spring:message code="label.historical.Current"/>
+	
 <c:forEach items="${historicalChanges}" var="changesByType">
     <c:set var="changeName" value="${changesByType.key.simpleName}"> </c:set>
     <img src="<c:url value="/resources/timeline/api/images/${changeName}.png" />" />

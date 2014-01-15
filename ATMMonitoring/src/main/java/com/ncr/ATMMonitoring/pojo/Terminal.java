@@ -1168,6 +1168,7 @@ public class Terminal {
     	historicableChanges.put(Hotfix.class, auditableSetOperations.buildAuditableChangesForCollection(hotfixes));
     	historicableChanges.put(FinancialDevice.class, auditableSetOperations.buildAuditableChangesForCollection(financialDevices));
     	historicableChanges.put(AuditableInternetExplorer.class, auditableSetOperations.buildAuditableChangesForCollection(auditableInternetExplorers));
+    	historicableChanges.put(SoftwareAggregate.class, auditableSetOperations.buildAuditableChangesForCollection(softwareAggregates));
     	
     	return historicableChanges;
     }
