@@ -96,47 +96,62 @@
 
 											<form:input class='form-tf-grey' path="description" maxlength="300"/>
 										</li>
-										<li>
-											<strong>
+										<li style="width: 100%;">
+											<h3>
 												<spring:message code="label.role.permissions"/>
-											</strong>
+											</h3>
 											<br>
-				
-								 			<form:label path="canViewTerminals">
-												<spring:message code="label.role.canViewTerminals"/>
-											</form:label>
+										</li>
+										<li style="width: 100%;">
+											<h4>
+								 				<form:label path="canViewTerminals" style="padding: 0.1em 1em 0.1em 0.1em;">
+													<spring:message code="label.role.canViewTerminals"/>
+												</form:label>
+											</h4>
 
-											<form:checkbox id="canViewTerminals" class='form-tf-grey' path="canViewTerminals"/><br>
+											<form:checkbox id="canViewTerminals" class='form-tf-grey' path="canViewTerminals" style="margin: 0;"/><br>
 				
-								 			<form:label path="canEditTerminals">
-												<spring:message code="label.role.canEditTerminals"/>
-											</form:label>
+								 			<h5>
+								 				<form:label path="canEditTerminals" style="padding: 0.1em 1em 0.1em 3.0em;">
+													<spring:message code="label.role.canEditTerminals"/>
+												</form:label>
+											</h5>
 
-											<form:checkbox id="canEditTerminals" class='form-tf-grey' path="canEditTerminals"/><br>
+											<form:checkbox id="canEditTerminals" class='form-tf-grey' path="canEditTerminals" style="margin: 0;"/><br>
 				
-								 			<form:label path="canRequestUpdate">
-												<spring:message code="label.role.canRequestUpdate"/>
-											</form:label>
+								 			<h5>
+								 				<form:label path="canRequestUpdate" style="padding: 0.1em 1em 0.1em 3.0em;">
+													<spring:message code="label.role.canRequestUpdate"/>
+												</form:label>
+											</h5>
 
-											<form:checkbox id="canRequestUpdate" class='form-tf-grey' path="canRequestUpdate"/><br>
+											<form:checkbox id="canRequestUpdate" class='form-tf-grey' path="canRequestUpdate" style="margin: 0;"/><br>
 				
-								 			<form:label path="canUseQueries">
-												<spring:message code="label.role.canUseQueries"/>
-											</form:label>
+											<h5>
+								 				<form:label path="canUseQueries" style="padding: 0.1em 1em 0.1em 3.0em;">
+													<spring:message code="label.role.canUseQueries"/>
+												</form:label>
+											</h5>
 
-											<form:checkbox id="canUseQueries" class='form-tf-grey' path="canUseQueries"/><br>
-				
-								 			<form:label path="canSchedule">
-												<spring:message code="label.role.canSchedule"/>
-											</form:label>
+											<form:checkbox id="canUseQueries" class='form-tf-grey' path="canUseQueries" style="margin: 0;"/><br>
+										</li>
+										<li style="width: 100%;">
+								 			<h4>
+								 				<form:label path="canSchedule" style="padding: 0.1em 1em 0.1em 0.1em;">
+													<spring:message code="label.role.canSchedule"/>
+												</form:label>
+											</h4>
 
-											<form:checkbox id="canSchedule" class='form-tf-grey' path="canSchedule"/><br>
-				
-								 			<form:label path="canAccessReports">
-												<spring:message code="label.role.canAccessReports"/>
+											<form:checkbox id="canSchedule" class='form-tf-grey' path="canSchedule" style="margin: 0;"/><br>
+										</li>
+										<li style="width: 100%;">
+								 			<h4>
+								 				<form:label path="canAccessReports" style="padding: 0.1em 1em 0.1em 0.1em;">
+													<spring:message code="label.role.canAccessReports"/>
+												</form:label>
+											</h4>
 
-											<form:checkbox id="canAccessReports" class='form-tf-grey' path="canAccessReports"/><br>
-											</form:label>
+											<form:checkbox id="canAccessReports" class='form-tf-grey' path="canAccessReports" style="margin: 0;"/><br>
 										</li>
 									</ul>
 								<div class="botonera">
@@ -163,28 +178,61 @@
 											</strong>
 											${role.description}
 										</li>
-										<li>
-											<strong>
-												<spring:message code="label.role.permissions"/>
-											</strong>
+										<li style="width: 100%;">
+											<h3>
+												<spring:message code="label.role.permissions"/><br>
+											</h3>
 											<br>
+										</li>
+										<li style="width: 100%;">
 											<c:if test="${role.canViewTerminals == true}">
-												<spring:message code="label.role.canViewTerminals"/><br>
+								 				<h4>
+													<label style="padding: 0.1em 1em 0.1em 0.1em;">
+														<spring:message code="label.role.canViewTerminals"/>
+													</label>
+												</h4><br>
 											</c:if>
+
 											<c:if test="${role.canEditTerminals == true}">
-												<spring:message code="label.role.canEditTerminals"/><br>
+												<h5>
+													<label style="padding: 0.1em 1em 0.1em 3em;">
+														<spring:message code="label.role.canEditTerminals"/>
+													</label>
+												</h5><br>
 											</c:if>
+
 											<c:if test="${role.canRequestUpdate == true}">
-												<spring:message code="label.role.canRequestUpdate"/><br>
+												<h5>
+													<label style="padding: 0.1em 1em 0.1em 3em;">
+														<spring:message code="label.role.canRequestUpdate"/>
+													</label>
+												</h5><br>
 											</c:if>
+
 											<c:if test="${role.canUseQueries == true}">
-												<spring:message code="label.role.canUseQueries"/><br>
+												<h5>
+													<label style="padding: 0.1em 1em 0.1em 3em;">
+														<spring:message code="label.role.canUseQueries"/>
+													</label>
+												</h5><br>
 											</c:if>
-											<c:if test="${role.canSchedule == true}">
-												<spring:message code="label.role.canSchedule"/><br>
+										</li>
+										<li style="width: 100%;">
+								 			<c:if test="${role.canSchedule == true}">
+								 				<h4>
+													<label style="padding: 0.1em 1em 0.1em 0.1em;">
+														<spring:message code="label.role.canSchedule"/>
+													</label>
+												</h4><br>
 											</c:if>
-											<c:if test="${role.canAccessReports == true}">
-												<spring:message code="label.role.canAccessReports"/><br>
+										</li>
+										<li style="width: 100%;">
+								 			<c:if test="${role.canAccessReports == true}">
+								 				<h4>
+													<label style="padding: 0.1em 1em 0.1em 0.1em;">
+														<spring:message code="label.role.canAccessReports"/>
+													</label>
+												</h4><br>
 											</c:if>
 										</li>
 									</ul>
