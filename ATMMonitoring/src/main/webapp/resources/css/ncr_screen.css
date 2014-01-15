@@ -3397,3 +3397,10 @@ padding: .5em 0;
 display: none !important;
 
 }
+
+div#terminalsMap {
+	height : 600px;
+	width  : 80%;
+	margin-left: auto;
+  	margin-right: auto;
+}

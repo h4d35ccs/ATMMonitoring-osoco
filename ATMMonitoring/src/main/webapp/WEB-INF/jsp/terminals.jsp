@@ -15,7 +15,11 @@
 	<script type="text/javascript">
 		$(function() {
 		    defaultInitTabs();
-            $("thead th.order").click(function(event) {
+		    $('ul.sub_nav li').click(function() {
+		    	google.maps.event.trigger(map, 'resize');
+		    });
+		    
+		    $("thead th.order").click(function(event) {
                 var headerUrl = $(this).find("a").attr("href");
                 document.location.href = headerUrl;
             });
