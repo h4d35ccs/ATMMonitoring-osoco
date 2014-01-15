@@ -445,7 +445,10 @@ Timeline._Band.prototype.createLayerDiv = function(zIndex, className) {
     this._innerDiv.appendChild(div);
     
     var innerDiv = this._timeline.getDocument().createElement("div");
-    innerDiv.className = "timeline-band-layer-inner";
+    //innerDiv.className = "timeline-band-layer-inner";
+    //Remove class for avoid scroolling on events band
+    innerDiv.className = "";
+    
     if (SimileAjax.Platform.browser.isIE) {
         innerDiv.style.cursor = "move";
     } else {
