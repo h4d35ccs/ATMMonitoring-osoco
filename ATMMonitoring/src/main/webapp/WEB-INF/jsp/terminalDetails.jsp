@@ -926,11 +926,10 @@
 												<label>
 													<spring:message code="label.terminalConfig.startDate"/>
 												</label>
-
 											</td>
 											<td class="first-header last-header">
-												<a href="terminals/swConfigs/details/${terminal.getCurrentTerminalConfig().id}">
-													<fmt:formatDate value="${terminal.getCurrentTerminalConfig().startDate}" dateStyle="short" type="both" />
+												<a href="terminals/swConfigs/details/${terminal.getCurrentTerminalConfigActiveByDate(date).id}">
+													<fmt:formatDate value="${terminal.getCurrentTerminalConfigActiveByDate(date).startDate}" dateStyle="short" type="both" />
 												</a>
 											</td>
 										</tr>
@@ -971,7 +970,7 @@
 								</table>
 							</div>
 
-							<t:listSoftware config="${terminal.getCurrentTerminalConfig()}"/>
+							<t:listSoftware config="${terminal.getCurrentTerminalConfigActiveByDate(date)}"/>
 
 						</c:if>
 
