@@ -39,6 +39,7 @@
 	    <script type='text/javascript' src="resources/js/jquery.ui.touch-punch.min.js"></script>
 	    <script type='text/javascript' src='resources/js/jquery.colorbox-min.js'></script>
         <script src="resources/js/menu.js"></script>
+        <script src="resources/js/application.js"></script>
 
         <title><spring:message code="label.baseTitle"/> - <spring:message code="${titleCode}"/></title>
         <link rel="stylesheet" type="text/css" href="resources/css/ncr_screen.css">

@@ -14,6 +14,7 @@
 	<jsp:attribute name="header">
 	<script type="text/javascript">
 		$(function() {
+		    defaultInitTabs();
             $("thead th.order").click(function(event) {
                 var headerUrl = $(this).find("a").attr("href");
                 document.location.href = headerUrl;
@@ -65,28 +66,40 @@
 				</div>
 			</c:if>
 
-			<h2> 
-			    ${pagedListHolder.source.size()}
-				<spring:message code="label.terminals"/>
-
-				<c:if test="${query != null}">
-					<spring:message code="label.forquery"/> : ${query.name}
-					<a href="queries/show?queryId=${query.id}" class="edit">
-						<span> <g:message code="label.edit"/> </span>
-					</a>
-				</c:if>
-			</h2>
-
-			<c:if  test="${empty pagedListHolder.pageList}">
+			<c:if  test="${!empty pagedListHolder.pageList}">
 				<div class="message">
 					<p> <spring:message code="label.terminal.noTerminals"/> </p>
 				</div>
 			</c:if>
 			
 			<c:if  test="${!empty pagedListHolder.pageList}">
-				<terminal:terminalsTable terminals="${pagedListHolder.pageList}" stringQueryDate="${stringQueryDate}"
-			                             baseUrl="${query != null ? 'terminals/byQuery' : 'terminals/list'}"
-			                             query="${selectedQuery}"/>
+				<h2> 
+				    ${pagedListHolder.source.size()}
+					<spring:message code="label.terminals"/>
+	
+					<c:if test="${query != null}">
+						<spring:message code="label.forquery"/> : ${query.name}
+						<a href="queries/show?queryId=${query.id}" class="edit">
+							<span> <g:message code="label.edit"/> </span>
+						</a>
+					</c:if>
+				</h2>
+				
+				<ul class="sub_nav">
+					<li><a href=#>Lista</a></li>
+					<li><a href=#>Mapa</a></li>
+				</ul>
+				
+				<div id="tabs">
+					<div class="content_tab">
+						<terminal:terminalsTable terminals="${pagedListHolder.pageList}" stringQueryDate="${stringQueryDate}"
+				                             baseUrl="${query != null ? 'terminals/byQuery' : 'terminals/list'}"
+				                             query="${selectedQuery}"/>
+					</div>
+					<div class="content_tab">
+						<terminal:terminalsMap/>
+					</div>
+				</div>
 			</c:if>
 		
 			<div class="hide">
