@@ -39,21 +39,20 @@ public class DatePropertyEditor extends PropertyEditorSupport {
 	this.nowAsDefault = nowAsDefault;
     }
 
-    /* (non-Javadoc)
-     * @see java.beans.PropertyEditorSupport#setAsText(java.lang.String)
-     */
     @Override
     public void setAsText(final String date) {
-	try {
-	    setValue(DateFormat.getDateInstance(DateFormat.SHORT,
-		    Locale.getDefault()).parse(date));
-	} catch (ParseException e) {
-	    if (nowAsDefault) {
-		setValue(new Date());
-	    } else {
-		e.printStackTrace();
-	    }
-	}
+    	if(nowAsDefault || date != null && !date.equals("")) {
+    		try {
+    			setValue(DateFormat.getDateInstance(DateFormat.SHORT,
+    					Locale.getDefault()).parse(date));
+    		} catch (ParseException e) {
+    			if (nowAsDefault) {
+    				setValue(new Date());
+    			} else {
+    				e.printStackTrace();
+    			}
+    		}	
+    	}
     }
 
     /* (non-Javadoc)

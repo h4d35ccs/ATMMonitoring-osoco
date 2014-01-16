@@ -258,6 +258,8 @@ public class TerminalController {
 	    String p, String sort, String order, HttpServletRequest request) {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
+	
+	List<Terminal> terminals = new ArrayList<Terminal>();
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	Set<Query> userQueries = null;
@@ -267,10 +269,10 @@ public class TerminalController {
 	    User loggedUser = userService
 		    .getUserByUsername(principal.getName());
 	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    pagedListHolder = new PagedListHolder<Terminal>(
-		    terminalService.listTerminalsByBankCompanies(
+	    terminals = terminalService.listTerminalsByBankCompanies(
 			    loggedUser.getManageableBankCompanies(), sortValue,
-			    orderValue));
+			    orderValue);
+	    pagedListHolder = new PagedListHolder<Terminal>(terminals);
 	    bankCompanies = loggedUser.getManageableBankCompanies();
 	    userQueries = loggedUser.getQueries();
 	}
@@ -292,7 +294,8 @@ public class TerminalController {
 	pagedListHolder.setPage(page);
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
-
+	
+	
 	return "terminals";
     }
 
@@ -693,6 +696,7 @@ public class TerminalController {
 	}
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
 		terminals);
+	
 	int page = 0;
 	if (p != null) {
 	    try {
@@ -708,7 +712,8 @@ public class TerminalController {
 	map.put("sort", sortValue);
 	map.put("order", orderValue);
 	map.put("queryDate", queryDate);
-
+	map.put("terminals", terminals);
+	
 	return "terminals";
     }
 
