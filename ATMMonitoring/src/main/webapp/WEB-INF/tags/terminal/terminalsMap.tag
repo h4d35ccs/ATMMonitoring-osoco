@@ -1,3 +1,5 @@
+<%@tag description="Terminals location map" pageEncoding="UTF-8"%>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
@@ -10,6 +12,9 @@
 	<c:otherwise>
 	
 		<div id="terminalsMap"> </div>
+		<div class="hide">
+			<div id="defaultInfoWindowContent"> <spring:message code="label.terminal.map.summary.wait"/> </div>
+		</div>
 		
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 		<script src="resources/js/markerClusterer.js"></script>
@@ -21,7 +26,7 @@
 		});
 		
 		function TerminalsMap() {
-			
+			var terminalSummaryUrl = 'terminals/summary/'
 			var map;
 			var bounds;
 			var isMapPainted;
@@ -61,7 +66,7 @@
 				      title: locationInfo.id 
 				    }
 				    
-				    markers.push(createMarker(map, googleLocation, markerOptions));
+				    markers.push(createMarker(map, googleLocation, markerOptions, locationInfo.id));
 				    
 				}
 				fitMapToBounds();
@@ -82,15 +87,32 @@
 				var markerCluster = new MarkerClusterer(map, markers, markerClusterOptions);
 			}
 			
-			function createMarker(map, location, options) {
-			     var marker = new google.maps.Marker();
-			     marker.setPosition(location);
-			     marker.setOptions(options);
+			function createMarker(map, location, options, terminalId) {
+			    var marker = new google.maps.Marker( {
+			    	position: location,
+			    	options:options
+			    });
 			     
-			     //No added to map because markerClusterer added it later
-			     //marker.setMap(map);
-			     
-			     return marker
+			    var infoWindow = new google.maps.InfoWindow({
+      			 	content: document.getElementById('defaultInfoWindowContent')
+  				});
+
+				google.maps.event.addListener(marker, 'click', function() {
+					infoWindow.open(map,marker);
+					loadTerminalSummary(infoWindow, terminalId);
+				});
+				
+			    return marker
+			}
+			
+			function loadTerminalSummary(infoWindow, terminalId) {
+				$.ajax( terminalSummaryUrl + terminalId )
+					.done(function(html) {
+						infoWindow.setContent(html);
+					})
+					.fail(function() {
+						infoWindow.setContent('<spring:message code="label.terminal.map.summary.error"/>');
+					})
 			}
 			
 			function retrieveTerminalLocationsInfo() {
