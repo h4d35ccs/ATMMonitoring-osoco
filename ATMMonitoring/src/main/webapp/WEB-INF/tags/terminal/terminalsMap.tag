@@ -79,6 +79,7 @@
 			
 			function initMarkerClusterer(markers) {
 				var markerClusterOptions = {
+					maxZoom: 20,
 					styles : [
 						{ url : 'resources/images/maps/clusteredMarker.png' , height:45 , width: 45}
 					]
