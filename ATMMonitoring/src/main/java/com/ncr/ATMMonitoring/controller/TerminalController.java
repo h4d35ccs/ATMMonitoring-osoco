@@ -371,6 +371,35 @@ public class TerminalController {
 	return "terminalDetails";
     }
 
+    @RequestMapping("/terminals/summary/{terminalId}")
+    public String terminalSummary(
+	    @PathVariable("terminalId") Integer terminalId,
+	    Map<String, Object> map, HttpServletRequest request,
+	    Principal principal, Long dateTime) {
+    
+	    Date date = dateTime == null ? null : new Date(dateTime);
+	    	
+		Terminal terminal = terminalService.getTerminal(terminalId);
+	    
+		//TODO Undupplicate code
+		Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
+		if (principal != null) {
+		    User loggedUser = userService
+			    .getUserByUsername(principal.getName());
+		    bankCompanies = loggedUser.getManageableBankCompanies();
+		    if ((terminal.getBankCompany() != null)
+			    && (!bankCompanies.contains(terminal.getBankCompany()))) {
+			map.clear();
+			return "";
+		    }
+		}
+		
+		map.put("terminal", terminal);
+		map.put("queryDate", date);
+		return "terminalDetailsSummary";
+    }
+
+    
     /**
      * Import terminals from json file URL.
      * 
