@@ -17,10 +17,9 @@
 		
 		$(function() {
 			initializeTerminalsMap();
-			initialiceMarkers();
 		});
 		
-		var map;
+		var terminalsMap;
 		
 		function initializeTerminalsMap() {
 			var mapOptions = {
@@ -28,7 +27,8 @@
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 		
-			map = new google.maps.Map(document.getElementById('terminalsMap'), mapOptions);
+			terminalsMap = new google.maps.Map(document.getElementById('terminalsMap'), mapOptions);
+			initialiceMarkers();
 		}
 		
 		function initialiceMarkers() {
@@ -44,22 +44,35 @@
 		    	bounds.extend(googleLocation);
 			
 				markerOptions = { 
-			      //icon: '',
+			      icon: 'resources/images/maps/simpleMarker.png',
 			      title: locationInfo.id 
 			    }
 			    
-			    markers.push(createMarker(map, googleLocation, markerOptions));
+			    markers.push(createMarker(terminalsMap, googleLocation, markerOptions));
 			    
 			}
-			var markerCluster = new MarkerClusterer(map, markers);
-			map.fitBounds(bounds);
+			terminalsMap.fitBounds(bounds);	
+			initMarkerClusterer(markers) 
+		}
+		
+		function initMarkerClusterer(markers) {
+			var markerClusterOptions = {
+				styles : [
+					{ url : 'resources/images/maps/clusteredMarker.png' , height:45 , width: 45}
+				]
+			}
+				
+			var markerCluster = new MarkerClusterer(terminalsMap, markers, markerClusterOptions);
 		}
 		
 		function createMarker(map, location, options) {
 		     var marker = new google.maps.Marker();
 		     marker.setPosition(location);
 		     marker.setOptions(options);
+		     
+		     //No added to map because markerClusterer added it later
 		     //marker.setMap(map);
+		     
 		     return marker
 		}
 		
