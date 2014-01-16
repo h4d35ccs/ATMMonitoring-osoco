@@ -16,7 +16,7 @@
 		$(function() {
 		    defaultInitTabs();
 		    $('ul.sub_nav li').click(function() {
-		    	google.maps.event.trigger(map, 'resize');
+		    	terminalMap.paintIfNecessary();
 		    });
 		    
 		    $("thead th.order").click(function(event) {
@@ -90,18 +90,18 @@
 				</h2>
 				
 				<ul class="sub_nav">
-					<li><a href=#>Mapa</a></li>
 					<li><a href=#>Lista</a></li>
+					<li><a href=#>Mapa</a></li>
 				</ul>
 				
 				<div id="tabs">
 					<div class="content_tab">
-						<terminal:terminalsMap/>
-					</div>
-					<div class="content_tab">
 						<terminal:terminalsTable terminals="${pagedListHolder.pageList}" stringQueryDate="${stringQueryDate}"
 				                             baseUrl="${query != null ? 'terminals/byQuery' : 'terminals/list'}"
 				                             query="${selectedQuery}"/>
+					</div>
+					<div class="content_tab">
+						<terminal:terminalsMap/>
 					</div>
 				</div>
 			</c:if>

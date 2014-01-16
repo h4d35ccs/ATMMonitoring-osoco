@@ -16,72 +16,90 @@
 		<script type="text/javascript" >
 		
 		$(function() {
-			initializeTerminalsMap();
+			terminalMap = new TerminalsMap();
+			terminalMap.initialize();
 		});
 		
-		var terminalsMap;
-		
-		function initializeTerminalsMap() {
-			var mapOptions = {
-				zoom: 8,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-		
-			terminalsMap = new google.maps.Map(document.getElementById('terminalsMap'), mapOptions);
-			initialiceMarkers();
-		}
-		
-		function initialiceMarkers() {
-			var bounds = new google.maps.LatLngBounds();
+		function TerminalsMap() {
 			
-			var terminalLocations = retrieveTerminalLocationsInfo();
+			var map;
+			var bounds;
+			var isMapPainted;
 			
-			var locationIndex, locationInfo, googleLocation, markerOptions;
-			var markers = []
-			for (locationIndex = 0; locationIndex < terminalLocations.length; locationIndex++) {
-		    	locationInfo = terminalLocations[locationIndex];
-		    	googleLocation = new google.maps.LatLng(locationInfo.lat, locationInfo.long); 
-		    	bounds.extend(googleLocation);
-			
-				markerOptions = { 
-			      icon: 'resources/images/maps/simpleMarker.png',
-			      title: locationInfo.id 
-			    }
-			    
-			    markers.push(createMarker(terminalsMap, googleLocation, markerOptions));
-			    
+			this.paintIfNecessary = function() {
+				if(!isMapPainted) {
+					isMapPainted = true;
+					google.maps.event.trigger(map, 'resize');
+					fitMapToBounds();
+				}
 			}
-			terminalsMap.fitBounds(bounds);	
-			initMarkerClusterer(markers) 
-		}
-		
-		function initMarkerClusterer(markers) {
-			var markerClusterOptions = {
-				styles : [
-					{ url : 'resources/images/maps/clusteredMarker.png' , height:45 , width: 45}
-				]
+			
+			this.initialize = function() {
+				var mapOptions = {
+					zoom: 8,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+			
+				map = new google.maps.Map(document.getElementById('terminalsMap'), mapOptions);
+				initMarkers();
 			}
+			
+			function initMarkers() {
+				bounds = new google.maps.LatLngBounds(); 
 				
-			var markerCluster = new MarkerClusterer(terminalsMap, markers, markerClusterOptions);
-		}
-		
-		function createMarker(map, location, options) {
-		     var marker = new google.maps.Marker();
-		     marker.setPosition(location);
-		     marker.setOptions(options);
-		     
-		     //No added to map because markerClusterer added it later
-		     //marker.setMap(map);
-		     
-		     return marker
-		}
-		
-		function retrieveTerminalLocationsInfo() {
-		    return [
-				<c:forEach items="${terminalLocations}" var="terminalLocation">
-					{ 'lat' : ${terminalLocation.get("lat")} , 'long': ${terminalLocation.get("long")} , 'id': '${terminalLocation.get("id")}'} ,	
-				</c:forEach>
-		    ]
+				var terminalLocations = retrieveTerminalLocationsInfo();
+				
+				var locationIndex, locationInfo, googleLocation, markerOptions;
+				var markers = []
+				for (locationIndex = 0; locationIndex < terminalLocations.length; locationIndex++) {
+			    	locationInfo = terminalLocations[locationIndex];
+			    	googleLocation = new google.maps.LatLng(locationInfo.lat, locationInfo.long); 
+			    	bounds.extend(googleLocation);
+				
+					markerOptions = { 
+				      icon: 'resources/images/maps/simpleMarker.png',
+				      title: locationInfo.id 
+				    }
+				    
+				    markers.push(createMarker(map, googleLocation, markerOptions));
+				    
+				}
+				fitMapToBounds();
+				initMarkerClusterer(markers); 
+			}
+			
+			function fitMapToBounds() {
+				map.fitBounds(bounds);
+			}
+			
+			function initMarkerClusterer(markers) {
+				var markerClusterOptions = {
+					styles : [
+						{ url : 'resources/images/maps/clusteredMarker.png' , height:45 , width: 45}
+					]
+				}
+					
+				var markerCluster = new MarkerClusterer(map, markers, markerClusterOptions);
+			}
+			
+			function createMarker(map, location, options) {
+			     var marker = new google.maps.Marker();
+			     marker.setPosition(location);
+			     marker.setOptions(options);
+			     
+			     //No added to map because markerClusterer added it later
+			     //marker.setMap(map);
+			     
+			     return marker
+			}
+			
+			function retrieveTerminalLocationsInfo() {
+			    return [
+					<c:forEach items="${terminalLocations}" var="terminalLocation">
+						{ 'lat' : ${terminalLocation.get("lat")} , 'long': ${terminalLocation.get("long")} , 'id': '${terminalLocation.get("id")}'} ,	
+					</c:forEach>
+			    ]
+			}
 		}
 		
 		</script>
