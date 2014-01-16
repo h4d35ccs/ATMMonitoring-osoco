@@ -63,7 +63,7 @@
 				
 					markerOptions = { 
 				      icon: 'resources/images/maps/simpleMarker.png',
-				      title: locationInfo.id 
+				      title: '<spring:message code="label.terminals" />' 
 				    }
 				    
 				    markers.push(createMarker(map, googleLocation, markerOptions, locationInfo.id));
@@ -106,7 +106,7 @@
 			}
 			
 			function loadTerminalSummary(infoWindow, terminalId) {
-				$.ajax( terminalSummaryUrl + terminalId )
+				$.ajax( terminalSummaryUrl + terminalId + '?dateTime=${queryDate.time}')
 					.done(function(html) {
 						infoWindow.setContent(html);
 					})
