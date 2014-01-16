@@ -70,7 +70,7 @@
 				</div>
 			</c:if>
 
-			<c:if  test="${!empty pagedListHolder.pageList}">
+			<c:if  test="${empty pagedListHolder.pageList}">
 				<div class="message">
 					<p> <spring:message code="label.terminal.noTerminals"/> </p>
 				</div>

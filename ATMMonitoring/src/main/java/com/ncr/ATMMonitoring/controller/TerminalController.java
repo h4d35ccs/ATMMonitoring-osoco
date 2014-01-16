@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -40,6 +41,7 @@ import com.ncr.ATMMonitoring.controller.propertyEditor.DatePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.Auditable;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Installation;
+import com.ncr.ATMMonitoring.pojo.Location;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.TerminalModel;
@@ -294,7 +296,7 @@ public class TerminalController {
 	pagedListHolder.setPage(page);
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
-	
+	map.put("terminalLocations", buildTerminalLocationsModel(terminals, null));
 	
 	return "terminals";
     }
@@ -692,8 +694,8 @@ public class TerminalController {
 	}
 	if (terminals == null) {
 	    terminals = terminalService.listTerminals();
-
 	}
+	
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
 		terminals);
 	
@@ -712,12 +714,12 @@ public class TerminalController {
 	map.put("sort", sortValue);
 	map.put("order", orderValue);
 	map.put("queryDate", queryDate);
-	map.put("terminals", terminals);
+	map.put("terminalLocations", buildTerminalLocationsModel(terminals, queryDate));
 	
 	return "terminals";
     }
 
-    /**
+	/**
      * Redirect to terminal models URL.
      * 
      * @return the petition response
@@ -1162,4 +1164,19 @@ public class TerminalController {
 	return "closeIframeUpdateParent";
     }
 
+    private List<Map<String, String>> buildTerminalLocationsModel(List<Terminal> terminals, Date queryDate) {
+		List<Map<String, String>> terminalLocationsInfo = new ArrayList<Map<String,String>>();
+		for(Terminal terminal : terminals) {
+			Installation installation = terminal.getCurrentInstallationByDate(queryDate);
+			Location location = installation != null ? installation.getLocation() : null;
+			if( location != null && location.hasCoordinates()) {
+				Map<String, String> locationInfo = new HashMap<String, String>();
+				locationInfo.put("id", terminal.getId().toString());
+				locationInfo.put("long", location.getCoordX().toString());
+				locationInfo.put("lat", location.getCoordY().toString());
+				terminalLocationsInfo.add(locationInfo);
+			}
+		}
+		return terminalLocationsInfo;
+	}
 }

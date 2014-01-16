@@ -347,5 +347,9 @@ public class Location {
     public void setDisplaced(Boolean displaced) {
 	this.displaced = displaced;
     }
+    
+    public boolean hasCoordinates() {
+    	return coordX != null && coordY != null;
+    }
 
 }
