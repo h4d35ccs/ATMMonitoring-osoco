@@ -90,18 +90,18 @@
 				</h2>
 				
 				<ul class="sub_nav">
-					<li><a href=#>Lista</a></li>
 					<li><a href=#>Mapa</a></li>
+					<li><a href=#>Lista</a></li>
 				</ul>
 				
 				<div id="tabs">
 					<div class="content_tab">
+						<terminal:terminalsMap/>
+					</div>
+					<div class="content_tab">
 						<terminal:terminalsTable terminals="${pagedListHolder.pageList}" stringQueryDate="${stringQueryDate}"
 				                             baseUrl="${query != null ? 'terminals/byQuery' : 'terminals/list'}"
 				                             query="${selectedQuery}"/>
-					</div>
-					<div class="content_tab">
-						<terminal:terminalsMap/>
 					</div>
 				</div>
 			</c:if>
