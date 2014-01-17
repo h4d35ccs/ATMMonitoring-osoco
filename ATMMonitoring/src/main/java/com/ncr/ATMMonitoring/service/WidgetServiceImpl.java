@@ -108,11 +108,11 @@ public class WidgetServiceImpl implements WidgetService {
 		    "Fabricantes", 2, allTerminalsQuery, null, "terminalVendor", ChartType.BAR_CHART);
 		defaultWidgets.add(widget2);
 		Widget widget3 = buildDefaultWidget(
-		    "Por ciudad", 3, allTerminalsQuery, null, "city", ChartType.GEO_CHART);
+		    "Por ciudad", 3, allTerminalsQuery, "installations", "location.addressCity", ChartType.GEO_CHART);
 		defaultWidgets.add(widget3);
-		Widget widget4 = buildDefaultWidget("Versiones IE", 4, allTerminalsQuery, "internetExplorers", "majorVersion", ChartType.PIE_CHART);
+		Widget widget4 = buildDefaultWidget("Versiones IE", 4, allTerminalsQuery, "auditableInternetExplorers", "internetExplorer.majorVersion", ChartType.PIE_CHART);
 		defaultWidgets.add(widget4);
-		Widget widget5 = buildDefaultWidget("Modelos", 5, allTerminalsQuery, null, "model", ChartType.PIE_CHART);
+		Widget widget5 = buildDefaultWidget("Ciudades", 5, allTerminalsQuery, "installations", "location.addressCity", ChartType.PIE_CHART);
 		defaultWidgets.add(widget5);
 
 		for (Widget widget: defaultWidgets) {

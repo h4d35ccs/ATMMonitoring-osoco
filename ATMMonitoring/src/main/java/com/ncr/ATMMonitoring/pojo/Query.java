@@ -4923,20 +4923,25 @@ public class Query {
      */
     public String getHQLGroupingBy(List<Object> values, List<Type> types,
 	    Locale locale, String groupByEntity, String groupByField) {
-	StringBuffer hql = new StringBuffer("");
-	String groupName = (groupByEntity == null) ? "terminals."
-		+ groupByField : groupByEntity + "." + groupByField;
-	hql.append("select new map(" + groupName
-		+ " as groupName, count(*) as count) from Terminal terminals");
-	if (groupByEntity != null) {
-	    hql.append(" join terminals." + groupByEntity + " " + groupByEntity);
-	}
-	hql.append(" where terminals in (");
-	hql.append(getHQL(values, types, locale, false, false,null));
-	hql.append(") ");
-	hql.append("group by ");
-	hql.append(groupName);
-	return hql.toString();
+		
+    	StringBuffer hql = new StringBuffer("");
+		String groupName = (groupByEntity == null) ? 
+			"terminals." + groupByField : 
+			groupByEntity + "." + groupByField;
+		
+		hql.append("select new map(" + groupName
+			+ " as groupName, count(*) as count) from Terminal terminals");
+		
+		if (groupByEntity != null) {
+		    hql.append(" join terminals." + groupByEntity + " " + groupByEntity);
+		}
+		
+		hql.append(" where terminals in (");
+		hql.append(getHQL(values, types, locale, false, false,null));
+		hql.append(") ");
+		hql.append("group by ");
+		hql.append(groupName);
+		return hql.toString();
     }
 
     /**
