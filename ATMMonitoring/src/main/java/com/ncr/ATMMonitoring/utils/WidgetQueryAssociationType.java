@@ -1,5 +1,7 @@
 package com.ncr.ATMMonitoring.utils;
 
+import java.util.Map;
+
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 import com.ncr.ATMMonitoring.pojo.HardwareDevice;
 import com.ncr.ATMMonitoring.pojo.Hotfix;
@@ -13,26 +15,26 @@ import com.ncr.ATMMonitoring.pojo.XfsComponent;
 
 public enum WidgetQueryAssociationType {
 	
-	TERMINAL(null, "terminal", Terminal.class),
-	INSTALLATION("installations", "installations", Installation.class),
-	FINANCIAL_DEVICES("financialDevices","financialDevice", FinancialDevice.class),
-	XFS_COMPONENT("financialDevices.xfsComponent", "xfsComponent", XfsComponent.class),
-	JXFS_COMPONENT("financialDevices.jxfsComponent", "jxfsComponent", JxfsComponent.class),
-	HOTFIX("hotfixes", "hotfix", Hotfix.class),
-	INTERNET_EXPLORER("auditableInternetExplorers","internetExplorer", InternetExplorer.class),
-	OPERATING_SYSTEM("configs.operatingSystems" , "operatingSystem", OperatingSystem.class),
-	SOFTWARE("configs.software" , "software", Software.class),
-	HARDWARE_DEVICE("hardwareDevices" , "hardwareDevice", HardwareDevice.class);		
+	TERMINAL(null, "terminal", Terminal.getComboboxes()),
+	INSTALLATION("installations", "installations", Installation.getComboboxes()),
+	FINANCIAL_DEVICES("financialDevices","financialDevice", FinancialDevice.getComboboxes()),
+	XFS_COMPONENT("financialDevices.xfsComponent", "xfsComponent", XfsComponent.getComboboxes()),
+	JXFS_COMPONENT("financialDevices.jxfsComponent", "jxfsComponent", JxfsComponent.getComboboxes()),
+	HOTFIX("hotfixes", "hotfix", Hotfix.getComboboxes()),
+	INTERNET_EXPLORER("auditableInternetExplorers","internetExplorer", InternetExplorer.getComboboxes()),
+	OPERATING_SYSTEM("configs.operatingSystems" , "operatingSystem", OperatingSystem.getComboboxes()),
+	SOFTWARE("configs.software" , "software", Software.getComboboxes()),
+	HARDWARE_DEVICE("hardwareDevices" , "hardwareDevice", HardwareDevice.getComboboxes());		
 	
 	
 	private String associationName;
 	private String comboboxName;
-	private Class<?> associationClass;
+	private Map<String,?> comboboxes;
 	private String[] associationNames;
 	private String lastAssociationName;
 	
-	private WidgetQueryAssociationType(String associationName, String comboboxName, Class<?> associationClass) {
-		this.associationClass = associationClass;
+	private WidgetQueryAssociationType(String associationName, String comboboxName, Map<String,?> comboboxes) {
+		this.setComboboxes(comboboxes);
 		this.associationName = associationName;
 		this.comboboxName = comboboxName;
 		if( associationName != null) {
@@ -59,12 +61,6 @@ public enum WidgetQueryAssociationType {
 		}
 		return null;
 	}
-
-
-	public Class<?> getAssociationClass() {
-		return associationClass;
-	}
-
 
 	public String buildGroupName(String defaultAssociationName, String groupByField) {
 		String association = (associationName != null) ? lastAssociationName : defaultAssociationName;
@@ -93,5 +89,9 @@ public enum WidgetQueryAssociationType {
 		}
 		
 		return where;
+	}
+
+	public Map<String,?> getComboboxes() {
+		return comboboxes;
 	}
 }

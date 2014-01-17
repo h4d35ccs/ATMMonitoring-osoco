@@ -45,7 +45,7 @@ public class Installation extends Auditable {
 		for (String field : fields) {
 			comboboxes.put(field, operations);
 		}
-    }
+	}
 
     /** The id. */
     @Id
@@ -248,5 +248,14 @@ public class Installation extends Auditable {
      */
     public static String[] getLocationclasses() {
 	return locationClasses;
+    }
+    
+    /**
+     * Gets the comboboxes data for the query GUI.
+     *
+     * @return the comboboxes data
+     */
+    public static Map<String, Map> getComboboxes() {
+    	return comboboxes;
     }
 }
