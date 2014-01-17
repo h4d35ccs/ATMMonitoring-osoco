@@ -17,9 +17,11 @@
 				<div class="margin-box collapsible hide ul_data">
 					<terminal:terminalSummary terminal="${terminal}"/>
 					
-					<a class="btn" href="terminals/details/${terminal.id}?dateTime=${queryDate.time}">
-						<spring:message code="label.terminal.map.summary.show" />
-				 	</a>				
+					<div class="botonera">
+						<a class="btn" href="terminals/details/${terminal.id}?dateTime=${queryDate.time}">
+							<spring:message code="label.terminal.map.summary.show" />
+				 		</a>
+					</div>
 				</div>	
 			</div>
 		</c:forEach>

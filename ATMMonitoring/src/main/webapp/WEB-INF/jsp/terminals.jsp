@@ -15,9 +15,6 @@
 	<script type="text/javascript">
 		$(function() {
 		    defaultInitTabs();
-		    $('ul.sub_nav li').click(function() {
-		    	terminalMap.paintIfNecessary();
-		    });
 		    
 		    $("thead th.order").click(function(event) {
                 var headerUrl = $(this).find("a").attr("href");
@@ -91,7 +88,7 @@
 				
 				<ul class="sub_nav">
 					<li><a href=#>Lista</a></li>
-					<li><a href=#>Mapa</a></li>
+					<li data-on-show="terminalMap.paintIfNecessary()"><a href=#>Mapa</a></li>
 				</ul>
 				
 				<div id="tabs">

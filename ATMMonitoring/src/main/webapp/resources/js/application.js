@@ -9,8 +9,14 @@ function defaultInitTabs() {
 	    var tab_click =  $('.sub_nav li').index(this);
 	    $('#tabs .content_tab').hide();
 	    $('#tabs').find( ".content_tab" ).eq( tab_click ).show();
+	    
 	    event.preventDefault();
-   });
+	    
+	    var eventOnShowData = $(this).data('onShow');
+	    if(eventOnShowData) {
+	    	eval(eventOnShowData);
+	    }
+	});
 }
 
 function countOccurences(mainStr, strToCount) {
