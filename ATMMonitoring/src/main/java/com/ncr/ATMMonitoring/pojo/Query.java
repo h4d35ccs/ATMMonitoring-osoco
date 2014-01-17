@@ -28,6 +28,7 @@ import org.hibernate.type.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.ATMMonitoring.utils.Operation.DataType;
+import com.ncr.ATMMonitoring.utils.QueryAssociationType;
 
 /**
  * The Query Pojo.
@@ -4922,23 +4923,21 @@ public class Query {
      * @return the hQL grouping by
      */
     public String getHQLGroupingBy(List<Object> values, List<Type> types,
-	    Locale locale, String groupByEntity, String groupByField) {
+	    Locale locale, QueryAssociationType queryAssociationType, String groupByField) {
 		
+    	String rootTableAlias = "terminals";    
+    	
     	StringBuffer hql = new StringBuffer("");
-		String groupName = (groupByEntity == null) ? 
-			"terminals." + groupByField : 
-			groupByEntity + "." + groupByField;
-		
-		hql.append("select new map(" + groupName
-			+ " as groupName, count(*) as count) from Terminal terminals");
-		
-		if (groupByEntity != null) {
-		    hql.append(" join terminals." + groupByEntity + " " + groupByEntity);
-		}
+    	String groupName = queryAssociationType.buildGroupName(rootTableAlias, groupByField);
+    	String queryJoin = queryAssociationType.buildJoin(rootTableAlias);
+    	
+    	hql.append("select new map(" + groupName + " as groupName, count(*) as count) from Terminal terminals");
+		hql.append(queryJoin);
 		
 		hql.append(" where terminals in (");
 		hql.append(getHQL(values, types, locale, false, false,null));
 		hql.append(") ");
+		hql.append(queryAssociationType.buildWhere());
 		hql.append("group by ");
 		hql.append(groupName);
 		return hql.toString();

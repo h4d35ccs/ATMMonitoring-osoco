@@ -16,6 +16,7 @@ import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.Widget;
 import com.ncr.ATMMonitoring.pojo.Widget.ChartType;
+import com.ncr.ATMMonitoring.utils.QueryAssociationType;
 import com.ncr.ATMMonitoring.dao.WidgetDAO;
 
 // TODO: Auto-generated Javadoc
@@ -102,19 +103,30 @@ public class WidgetServiceImpl implements WidgetService {
 		allTerminalsQuery = queryService.findOrCreateQuery(allTerminalsQuery);
 
 		Widget widget1 = buildDefaultWidget(
-		    "Bancos", 1, allTerminalsQuery, null, "bank", ChartType.PIE_CHART);
+		    "Bancos", 1, allTerminalsQuery, QueryAssociationType.TERMINAL, "bank", ChartType.PIE_CHART);
 		defaultWidgets.add(widget1);
+		
 		Widget widget2 = buildDefaultWidget(
-		    "Fabricantes", 2, allTerminalsQuery, null, "terminalVendor", ChartType.BAR_CHART);
+		    "Fabricantes", 2, allTerminalsQuery, QueryAssociationType.TERMINAL, "terminalVendor", ChartType.BAR_CHART);
 		defaultWidgets.add(widget2);
-		Widget widget3 = buildDefaultWidget(
-		    "Por ciudad", 3, allTerminalsQuery, "installations", "location.addressCity", ChartType.GEO_CHART);
+		
+		Widget widget3 = buildDefaultWidget( "Por ciudad", 3, allTerminalsQuery, QueryAssociationType.INSTALLATION, 
+				"location.addressCity", ChartType.GEO_CHART);
 		defaultWidgets.add(widget3);
-		Widget widget4 = buildDefaultWidget("Versiones IE", 4, allTerminalsQuery, "auditableInternetExplorers", "internetExplorer.majorVersion", ChartType.PIE_CHART);
+		
+		Widget widget4 = buildDefaultWidget(
+				"Versiones IE", 4, allTerminalsQuery, QueryAssociationType.INTERNET_EXPLORER, 
+				"internetExplorer.majorVersion", ChartType.PIE_CHART);
 		defaultWidgets.add(widget4);
-		Widget widget5 = buildDefaultWidget("Ciudades", 5, allTerminalsQuery, "installations", "location.addressCity", ChartType.PIE_CHART);
+		
+		Widget widget5 = buildDefaultWidget("Ciudades", 5, allTerminalsQuery, QueryAssociationType.INSTALLATION,
+				"location.addressCity", ChartType.PIE_CHART);
 		defaultWidgets.add(widget5);
-
+		
+		Widget widget6 = buildDefaultWidget("Sistemas operativos", 6, allTerminalsQuery, 
+				QueryAssociationType.OPERATING_SYSTEM, "name", ChartType.PIE_CHART);
+		defaultWidgets.add(widget6);
+		
 		for (Widget widget: defaultWidgets) {
 			if (!currentDefaultWidgets.contains(widget)) {
 				logger.debug("Creating default widget '" + widget.getTitle() + "'");
@@ -158,7 +170,7 @@ public class WidgetServiceImpl implements WidgetService {
 	    String title,
 		int order,
 		Query query,
-		String groupByEntity,
+		QueryAssociationType groupByEntity,
 		String groupBy,
 		Widget.ChartType chartType) {
 

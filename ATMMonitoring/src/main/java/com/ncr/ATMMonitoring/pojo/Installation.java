@@ -1,5 +1,8 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +16,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import com.ncr.ATMMonitoring.utils.Operation;
+
 /**
  * The Installation Pojo.
  * 
@@ -25,6 +30,22 @@ public class Installation extends Auditable {
     /** The Constant locationClasses. */
     private static final String[] locationClasses = { "internal_lobby",
 	    "internal_vestibule", "external_ttw", "external_driveup" };
+
+    /** The comboboxes data related to this entity for the query designer. */
+    private static final Map<String, Map> comboboxes;
+
+    static { 
+		comboboxes = new TreeMap<String, Map>();
+		Map<String, Map> operations = Operation.getOperationsByType(Operation.DataType.STRING);
+		String[] fields = {"luCode","type","post","processed","locationClass","ip",
+				"location.addressStreet","location.addressNumber","location.addressPostcode",
+				"location.addressCity", "location.addressCountry","location.office",
+				"location.bank","location.bankCompany"};
+		
+		for (String field : fields) {
+			comboboxes.put(field, operations);
+		}
+    }
 
     /** The id. */
     @Id
