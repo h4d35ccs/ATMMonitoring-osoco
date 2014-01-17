@@ -13,7 +13,9 @@
 	
 		<div id="terminalsMap"> </div>
 		<div class="hide">
-			<div id="defaultInfoWindowContent"> <spring:message code="label.terminal.map.summary.wait"/> </div>
+			<div id="defaultInfoWindowContent" class="summaryContent"> 
+				<spring:message code="label.terminal.map.summary.wait"/>
+			</div>
 		</div>
 		
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>

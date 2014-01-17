@@ -374,7 +374,7 @@ public class TerminalController {
     @RequestMapping("/terminals/summary")
     public String terminalSummary(
 	    @RequestParam("terminalIds") ArrayList<Integer> terminalIds,
-	    Map<String, Object> map, HttpServletRequest request,
+	    Map<String, Object> model, HttpServletRequest request,
 	    Principal principal, Long dateTime) {
     
 	    Date date = dateTime == null ? null : new Date(dateTime);
@@ -385,9 +385,9 @@ public class TerminalController {
 		List<Terminal> terminals = terminalService.
 				listTerminalsByIdsAndBankCompanies(terminalIds, bankCompanies);
 	    
-	    map.put("terminals", terminals);
-		map.put("queryDate", date);
-		return "terminalDetailsSummary";
+		model.put("terminals", terminals);
+		model.put("queryDate", date);
+		return "terminalsDetailsSummary";
     }
 
     
