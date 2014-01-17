@@ -181,7 +181,7 @@ public class TerminalServiceImpl implements TerminalService {
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks,
 	    String sort, String order) {
-	return terminalDAO.listTerminalsByBankCompanies(banks, sort, order);
+	return terminalDAO.listTerminalsByBankCompanies(banks, sort, order, null);
     }
 
     /* (non-Javadoc)
@@ -198,6 +198,11 @@ public class TerminalServiceImpl implements TerminalService {
     @Override
     public Terminal getTerminal(Integer id) {
 	return terminalDAO.getTerminal(id);
+    }
+    
+    @Override
+    public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> terminalIds, Set<BankCompany> bankCompanies) {
+    	return terminalDAO.listTerminalsByIdsAndBankCompanies(terminalIds, bankCompanies);
     }
 
     /* (non-Javadoc)

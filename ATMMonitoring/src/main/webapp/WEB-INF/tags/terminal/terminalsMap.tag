@@ -4,7 +4,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <c:choose>
-	<c:when test="${empty terminalLocations }">
+	<c:when test="${empty terminalIdsByLocation }">
 		<div class="message">
 			<p> <spring:message code="label.terminal.noTerminalsLocations"/> </p>
 		</div>
@@ -26,7 +26,7 @@
 		});
 		
 		function TerminalsMap() {
-			var terminalSummaryUrl = 'terminals/summary/'
+			var terminalSummaryUrl = 'terminals/summary'
 			var map;
 			var bounds;
 			var isMapPainted;
@@ -61,12 +61,7 @@
 			    	googleLocation = new google.maps.LatLng(locationInfo.lat, locationInfo.long); 
 			    	bounds.extend(googleLocation);
 				
-					markerOptions = { 
-				      icon: 'resources/images/maps/simpleMarker.png',
-				      title: '<spring:message code="label.terminals" />' 
-				    }
-				    
-				    markers.push(createMarker(map, googleLocation, markerOptions, locationInfo.id));
+					markers.push(createMarker(map, googleLocation, locationInfo.ids));
 				    
 				}
 				fitMapToBounds();
@@ -88,26 +83,37 @@
 				var markerCluster = new MarkerClusterer(map, markers, markerClusterOptions);
 			}
 			
-			function createMarker(map, location, options, terminalId) {
+			function createMarker(map, location, terminalIds) {
+				var numberOfTerminals = countOccurences(terminalIds, ',');
+				
+				var markerOptions = { 
+					icon: 'resources/images/maps/simpleMarker.png',
+				    title: '<spring:message code="label.terminals" /> ' + '(' + numberOfTerminals + ')'
+				}
+				
 			    var marker = new google.maps.Marker( {
 			    	position: location,
-			    	options:options
+			    	options:markerOptions
 			    });
 			     
 			    var infoWindow = new google.maps.InfoWindow({
       			 	content: document.getElementById('defaultInfoWindowContent')
-  				});
+      			});
 
 				google.maps.event.addListener(marker, 'click', function() {
 					infoWindow.open(map,marker);
-					loadTerminalSummary(infoWindow, terminalId);
+					loadTerminalSummary(infoWindow, terminalIds);
 				});
 				
 			    return marker
 			}
 			
-			function loadTerminalSummary(infoWindow, terminalId) {
-				$.ajax( terminalSummaryUrl + terminalId + '?dateTime=${queryDate.time}')
+			function loadTerminalSummary(infoWindow, terminalIds) {
+				$.ajax({
+				 		type: "POST",
+						url: terminalSummaryUrl + '?dateTime=${queryDate.time}',
+						data: { "terminalIds": terminalIds }
+					})
 					.done(function(html) {
 						infoWindow.setContent(html);
 					})
@@ -118,8 +124,9 @@
 			
 			function retrieveTerminalLocationsInfo() {
 			    return [
-					<c:forEach items="${terminalLocations}" var="terminalLocation">
-						{ 'lat' : ${terminalLocation.get("lat")} , 'long': ${terminalLocation.get("long")} , 'id': '${terminalLocation.get("id")}'} ,	
+					<c:forEach items="${terminalIdsByLocation}" var="terminalIds">
+						<c:set var="location" value="${terminalIds.key}" />
+						{ 'lat' : ${location.coordY} , 'long': ${location.coordX} , 'ids': '${terminalIds.value}'} ,	
 					</c:forEach>
 			    ]
 			}

@@ -352,4 +352,35 @@ public class Location {
     	return coordX != null && coordY != null;
     }
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((coordX == null) ? 0 : coordX.hashCode());
+		result = prime * result + ((coordY == null) ? 0 : coordY.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Location other = (Location) obj;
+		if (coordX == null) {
+			if (other.coordX != null)
+				return false;
+		} else if (!coordX.equals(other.coordX))
+			return false;
+		if (coordY == null) {
+			if (other.coordY != null)
+				return false;
+		} else if (!coordY.equals(other.coordY))
+			return false;
+		return true;
+	}
+
 }

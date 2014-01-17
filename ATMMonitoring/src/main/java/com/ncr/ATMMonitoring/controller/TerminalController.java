@@ -296,7 +296,7 @@ public class TerminalController {
 	pagedListHolder.setPage(page);
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
-	map.put("terminalLocations", buildTerminalLocationsModel(terminals, null));
+	map.put("terminalIdsByLocation", buildTerminalIdsByLocationModel(terminals, null));
 	
 	return "terminals";
     }
@@ -371,30 +371,21 @@ public class TerminalController {
 	return "terminalDetails";
     }
 
-    @RequestMapping("/terminals/summary/{terminalId}")
+    @RequestMapping("/terminals/summary")
     public String terminalSummary(
-	    @PathVariable("terminalId") Integer terminalId,
+	    @RequestParam("terminalIds") ArrayList<Integer> terminalIds,
 	    Map<String, Object> map, HttpServletRequest request,
 	    Principal principal, Long dateTime) {
     
 	    Date date = dateTime == null ? null : new Date(dateTime);
-	    	
-		Terminal terminal = terminalService.getTerminal(terminalId);
+    
+	    User loggedUser = userService.getUserByUsername(principal.getName());
+	    Set<BankCompany> bankCompanies = loggedUser.getManageableBankCompanies();
 	    
-		//TODO Undupplicate code
-		Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
-		if (principal != null) {
-		    User loggedUser = userService
-			    .getUserByUsername(principal.getName());
-		    bankCompanies = loggedUser.getManageableBankCompanies();
-		    if ((terminal.getBankCompany() != null)
-			    && (!bankCompanies.contains(terminal.getBankCompany()))) {
-			map.clear();
-			return "";
-		    }
-		}
-		
-		map.put("terminal", terminal);
+		List<Terminal> terminals = terminalService.
+				listTerminalsByIdsAndBankCompanies(terminalIds, bankCompanies);
+	    
+	    map.put("terminals", terminals);
 		map.put("queryDate", date);
 		return "terminalDetailsSummary";
     }
@@ -743,7 +734,7 @@ public class TerminalController {
 	map.put("sort", sortValue);
 	map.put("order", orderValue);
 	map.put("queryDate", queryDate);
-	map.put("terminalLocations", buildTerminalLocationsModel(terminals, queryDate));
+	map.put("terminalIdsByLocation", buildTerminalIdsByLocationModel(terminals, queryDate));
 	
 	return "terminals";
     }
@@ -1193,19 +1184,25 @@ public class TerminalController {
 	return "closeIframeUpdateParent";
     }
 
-    private List<Map<String, String>> buildTerminalLocationsModel(List<Terminal> terminals, Date queryDate) {
-		List<Map<String, String>> terminalLocationsInfo = new ArrayList<Map<String,String>>();
-		for(Terminal terminal : terminals) {
+    private Map<Location, String> buildTerminalIdsByLocationModel(List<Terminal> terminals, Date queryDate) {
+    	Map<Location, String> terminalsLocationsInfo = new HashMap<Location, String>();
+		
+    	for(Terminal terminal : terminals) {
 			Installation installation = terminal.getCurrentInstallationByDate(queryDate);
 			Location location = installation != null ? installation.getLocation() : null;
+			
 			if( location != null && location.hasCoordinates()) {
-				Map<String, String> locationInfo = new HashMap<String, String>();
-				locationInfo.put("id", terminal.getId().toString());
-				locationInfo.put("long", location.getCoordX().toString());
-				locationInfo.put("lat", location.getCoordY().toString());
-				terminalLocationsInfo.add(locationInfo);
+				String terminalIdStringList = terminalsLocationsInfo.get(location);
+				String terminalId = terminal.getId().toString();
+				if(terminalIdStringList == null) {
+					terminalIdStringList = terminalId;
+				} else {
+					terminalIdStringList += "," + terminalId;
+				}
+				terminalsLocationsInfo.put(location, terminalIdStringList);
 			}
 		}
-		return terminalLocationsInfo;
+    	
+		return terminalsLocationsInfo;
 	}
 }

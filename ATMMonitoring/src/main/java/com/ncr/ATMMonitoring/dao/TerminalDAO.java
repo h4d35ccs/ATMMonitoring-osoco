@@ -35,6 +35,8 @@ public interface TerminalDAO {
      */
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank);
 
+    public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> ids, Set<BankCompany> bank);
+
     /**
      * Lists all terminals for the given bank companies with a specific order
      * and sorting.
@@ -47,7 +49,7 @@ public interface TerminalDAO {
      *            the order
      * @return the list
      */
-    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank, String sort, String order);
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank, String sort, String order, List<Integer> terminalIds);
 
     /**
      * List all terminals for the given bank company.

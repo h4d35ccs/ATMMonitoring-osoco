@@ -72,19 +72,28 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
      */
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks) {
-	return listTerminalsByBankCompanies(banks, "serialNumber", "asc");
+    	return listTerminalsByBankCompanies(banks, "serialNumber", "asc", null);
     }
 
+    public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> terminalIds, Set<BankCompany> banks) {
+    	return listTerminalsByBankCompanies(banks, "serialNumber", "asc", terminalIds);
+    }
+    
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.dao.TerminalDAO#listTerminalsByBankCompanies(java.util.Set, java.lang.String, java.lang.String)
      */
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks,
-	    String sort, String order) {
+	    String sort, String order, List<Integer> terminalIds) {
 	Criterion restriction = (banks.size() > 0) ? Restrictions.or(
 		Restrictions.in("bankCompany", banks),
 		Restrictions.isNull("bankCompany")) : Restrictions
 		.isNull("bankCompany");
+		
+	if(terminalIds != null) {
+		restriction = Restrictions.and(restriction, 
+				Restrictions.in("id", terminalIds));
+	}
 
 	Criteria criteria = sessionFactory.getCurrentSession()
 		.createCriteria(Terminal.class).add(restriction);

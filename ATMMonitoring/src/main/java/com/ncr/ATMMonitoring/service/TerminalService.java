@@ -136,5 +136,7 @@ public interface TerminalService {
     public Terminal persistDataStoreTerminal(ATMDataStorePojo dataStoreTerminal);
 
 	public void addInstallationAndUpdateHistoricalData(Terminal terminal, Installation installation);
+
+	public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> terminalIds, Set<BankCompany> bankCompanies);
 	
 }

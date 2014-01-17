@@ -12,3 +12,7 @@ function defaultInitTabs() {
 	    event.preventDefault();
    });
 }
+
+function countOccurences(mainStr, strToCount) {
+	return mainStr.split(strToCount).length
+}

@@ -5,10 +5,13 @@
 <%@page pageEncoding="UTF-8"%>
 
 <div class="summaryContent">
-	<h1><spring:message code="label.terminal"/> ${terminal.mac}</h1>
-	<terminal:terminalSummary/>
+	${terminals.size() }
 	
-	<a class="btn" href="terminals/details/${terminal.id}?dateTime=${queryDate.time}">
-		<spring:message code="label.terminal.map.summary.show" />
- 	</a>
+	
+<%-- 	<h1><spring:message code="label.terminal"/> ${terminal.mac}</h1> --%>
+<%-- 	<terminal:terminalSummary/> --%>
+	
+<%-- 	<a class="btn" href="terminals/details/${terminal.id}?dateTime=${queryDate.time}"> --%>
+<%-- 		<spring:message code="label.terminal.map.summary.show" /> --%>
+<!--  	</a> -->
 </div>
