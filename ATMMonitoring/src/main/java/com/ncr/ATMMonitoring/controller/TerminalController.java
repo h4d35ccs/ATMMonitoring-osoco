@@ -1184,22 +1184,20 @@ public class TerminalController {
 	return "closeIframeUpdateParent";
     }
 
-    private Map<Location, String> buildTerminalIdsByLocationModel(List<Terminal> terminals, Date queryDate) {
-    	Map<Location, String> terminalsLocationsInfo = new HashMap<Location, String>();
+    private Map<Location, List<Integer>> buildTerminalIdsByLocationModel(List<Terminal> terminals, Date queryDate) {
+    	Map<Location, List<Integer>>  terminalsLocationsInfo = new HashMap<Location, List<Integer>> ();
 		
     	for(Terminal terminal : terminals) {
 			Installation installation = terminal.getCurrentInstallationByDate(queryDate);
 			Location location = installation != null ? installation.getLocation() : null;
 			
 			if( location != null && location.hasCoordinates()) {
-				String terminalIdStringList = terminalsLocationsInfo.get(location);
-				String terminalId = terminal.getId().toString();
-				if(terminalIdStringList == null) {
-					terminalIdStringList = terminalId;
-				} else {
-					terminalIdStringList += "," + terminalId;
-				}
-				terminalsLocationsInfo.put(location, terminalIdStringList);
+				List<Integer> terminalIds = terminalsLocationsInfo.get(location);
+				if(terminalIds == null) {
+					terminalIds = new ArrayList<Integer>();
+					terminalsLocationsInfo.put(location, terminalIds);
+				} 
+				terminalIds.add(terminal.getId());
 			}
 		}
     	

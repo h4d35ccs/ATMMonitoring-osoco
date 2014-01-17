@@ -2,6 +2,7 @@
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib tagdir="/WEB-INF/tags/utils/" prefix="utils"%>
 
 <c:choose>
 	<c:when test="${empty terminalIdsByLocation }">
@@ -128,7 +129,7 @@
 			    return [
 					<c:forEach items="${terminalIdsByLocation}" var="terminalIds">
 						<c:set var="location" value="${terminalIds.key}" />
-						{ 'lat' : ${location.coordY} , 'long': ${location.coordX} , 'ids': '${terminalIds.value}'} ,	
+						{ 'lat' : ${location.coordY} , 'long': ${location.coordX} , 'ids': <utils:printList list="${terminalIds.value}" />} ,	
 					</c:forEach>
 			    ]
 			}
