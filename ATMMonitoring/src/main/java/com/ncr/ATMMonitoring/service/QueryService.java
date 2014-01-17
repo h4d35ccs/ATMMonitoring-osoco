@@ -6,7 +6,7 @@ import java.util.Locale;
 
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
-import com.ncr.ATMMonitoring.utils.QueryAssociationType;
+import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 
 //TODO: Auto-generated Javadoc
 /**
@@ -136,7 +136,7 @@ public interface QueryService {
      *            the locale
      * @return the query list
      */
-    public List<?> executeQueryGroupingBy(Query query, QueryAssociationType groupByEntity,
+    public List<?> executeQueryGroupingBy(Query query, WidgetQueryAssociationType groupByEntity,
 	    String groupBy, Locale locale);
 
 }

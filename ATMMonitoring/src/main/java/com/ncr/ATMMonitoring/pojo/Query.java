@@ -28,7 +28,7 @@ import org.hibernate.type.Type;
 
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.ATMMonitoring.utils.Operation.DataType;
-import com.ncr.ATMMonitoring.utils.QueryAssociationType;
+import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 
 /**
  * The Query Pojo.
@@ -4923,7 +4923,7 @@ public class Query {
      * @return the hQL grouping by
      */
     public String getHQLGroupingBy(List<Object> values, List<Type> types,
-	    Locale locale, QueryAssociationType queryAssociationType, String groupByField) {
+	    Locale locale, WidgetQueryAssociationType queryAssociationType, String groupByField) {
 		
     	String rootTableAlias = "terminals";    
     	

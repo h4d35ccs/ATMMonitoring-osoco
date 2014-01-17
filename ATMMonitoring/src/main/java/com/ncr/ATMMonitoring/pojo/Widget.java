@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.ncr.ATMMonitoring.utils.QueryAssociationType;
+import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 
 /**
  * The Widget Pojo.
@@ -69,7 +69,7 @@ public class Widget {
 
 	/** The group by entity. */
 	@Column(name = "groupByEntity", nullable = true)
-	private QueryAssociationType groupByEntity;
+	private WidgetQueryAssociationType groupByEntity;
 
 	/** The chart type. */
 	@Column(name = "chart_type", nullable = false)
@@ -229,7 +229,7 @@ public class Widget {
      *
      * @return the group by entity
      */
-    public QueryAssociationType getGroupByEntity() {
+    public WidgetQueryAssociationType getGroupByEntity() {
 		return groupByEntity;
     }
 
@@ -238,7 +238,7 @@ public class Widget {
      *
      * @param groupByEntity the new group by entity
      */
-    public void setGroupByEntity(QueryAssociationType groupByEntity) {
+    public void setGroupByEntity(WidgetQueryAssociationType groupByEntity) {
 		this.groupByEntity = groupByEntity;
     }
 

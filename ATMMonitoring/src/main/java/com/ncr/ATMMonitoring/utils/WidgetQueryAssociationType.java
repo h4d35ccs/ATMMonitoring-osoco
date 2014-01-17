@@ -11,7 +11,7 @@ import com.ncr.ATMMonitoring.pojo.Software;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.XfsComponent;
 
-public enum QueryAssociationType {
+public enum WidgetQueryAssociationType {
 	
 	TERMINAL(null, "terminal", Terminal.class),
 	INSTALLATION("installations", "installations", Installation.class),
@@ -31,7 +31,7 @@ public enum QueryAssociationType {
 	private String[] associationNames;
 	private String lastAssociationName;
 	
-	private QueryAssociationType(String associationName, String comboboxName, Class<?> associationClass) {
+	private WidgetQueryAssociationType(String associationName, String comboboxName, Class<?> associationClass) {
 		this.associationClass = associationClass;
 		this.associationName = associationName;
 		this.comboboxName = comboboxName;
@@ -42,8 +42,8 @@ public enum QueryAssociationType {
 	}
 	
 	
-	public static QueryAssociationType findByComboboxName(String comboboxName) {
-		for( QueryAssociationType associationType : values() ) {
+	public static WidgetQueryAssociationType findByComboboxName(String comboboxName) {
+		for( WidgetQueryAssociationType associationType : values() ) {
 			if( associationType.comboboxName == comboboxName) {
 				return associationType;
 			}
@@ -51,8 +51,8 @@ public enum QueryAssociationType {
 		return null;
 	}
 	
-	public static QueryAssociationType findByAssociationName(String associationName) {
-		for( QueryAssociationType associationType : values() ) {
+	public static WidgetQueryAssociationType findByAssociationName(String associationName) {
+		for( WidgetQueryAssociationType associationType : values() ) {
 			if( associationType.associationName == associationName) {
 				return associationType;
 			}
