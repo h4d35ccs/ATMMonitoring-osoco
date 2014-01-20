@@ -85,12 +85,20 @@
 						</a>
 					</c:if>
 				</h2>
-				
-				<ul class="sub_nav">
-					<li><a href=#>Lista</a></li>
-					<li data-on-show="terminalMap.paintIfNecessary()"><a href=#>Mapa</a></li>
-				</ul>
-				
+				<div class="tab_buttons">
+					<div id="columns" class="columns_botonera">
+						<nav>
+							<ul class="sub_nav">
+								<li class="lista">
+									<a href=#><span><spring:message code="terminals.show.list.label" /></span></a>
+								</li>
+								<li class="mapa" data-on-show="terminalMap.paintIfNecessary()">
+									<a href=#> <span><spring:message code="terminals.show.map.label" /></span></a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
 				<div id="tabs">
 					<div class="content_tab">
 						<terminal:terminalsTable terminals="${pagedListHolder.pageList}" stringQueryDate="${stringQueryDate}"
