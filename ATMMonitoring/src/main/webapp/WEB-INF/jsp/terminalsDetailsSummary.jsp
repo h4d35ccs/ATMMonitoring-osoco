@@ -5,16 +5,17 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<div class="summaryContent">
+<div class="summaryContent contendorDelDesplegable" >
 	<c:if test="${terminals.size() > 1}">
 		<h2> ${terminals.size()} <spring:message code="label.terminals"/></h2>
+		<c:set var="hideContentClass" value="hide" />
 	</c:if> 
 	
 	<div class="action_box data desplegable">
 		<c:forEach items="${terminals}" var="terminal">
 			<div class="margin-box">
-				<h3 class="txt content_hide"> <spring:message code="label.terminal"/> ${terminal.mac}</h3>
-				<div class="margin-box collapsible hide ul_data">
+				<h3 class="txt content_${hideContentClass}"> <spring:message code="label.terminal"/> ${terminal.mac}</h3>
+				<div class="margin-box collapsible ${hideContentClass} ul_data">
 					<terminal:terminalSummary terminal="${terminal}"/>
 					
 					<div class="botonera">

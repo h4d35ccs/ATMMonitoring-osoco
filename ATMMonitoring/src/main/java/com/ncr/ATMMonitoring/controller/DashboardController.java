@@ -126,14 +126,18 @@ public class DashboardController {
 		Map result = null;
 		User loggedUser = null;
         if (principal != null) {
-            loggedUser = userService.getUserByUsername(principal.getName());
-			Widget widget = widgetService.findWidgetById(widgetId);
-			if ((widget != null) && (widget.getOwner().equals(loggedUser))) {
-				logger.debug("Found widget: " + widget.getId());
-				Locale locale = RequestContextUtils.getLocale(request);
-				List queryResults = widgetService.executeQuery(widget, locale);
-				result = toGoogleChartJSON(queryResults);
-			}
+	        try {
+	        	loggedUser = userService.getUserByUsername(principal.getName());
+				Widget widget = widgetService.findWidgetById(widgetId);
+				if ((widget != null) && (widget.getOwner().equals(loggedUser))) {
+					logger.debug("Found widget: " + widget.getId());
+					Locale locale = RequestContextUtils.getLocale(request);
+					List queryResults = widgetService.executeQuery(widget, locale);
+					result = toGoogleChartJSON(queryResults);
+				}
+	        } catch (Exception e) {
+	        	logger.error("An error occurs", e);
+	        }
         }
 
 		return result;

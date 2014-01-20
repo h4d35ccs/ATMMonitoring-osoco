@@ -17,6 +17,7 @@ import com.ncr.ATMMonitoring.dao.QueryDAO;
 import com.ncr.ATMMonitoring.dao.TerminalDAO;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
+import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 
 /**
  * The Class QueryServiceImpl.
@@ -147,7 +148,7 @@ public class QueryServiceImpl implements QueryService {
 	 * @see com.ncr.ATMMonitoring.service.QueryService#executeQueryGroupingBy(com.ncr.ATMMonitoring.pojo.Query, java.lang.String, java.lang.String, java.util.Locale)
 	 */
 	@Override
-	public List executeQueryGroupingBy(Query query, String groupByEntity, String groupByField, Locale locale) {
+	public List<?> executeQueryGroupingBy(Query query, WidgetQueryAssociationType groupByEntity, String groupByField, Locale locale) {
 		List results = null;
 		List<Object> values = new ArrayList<Object>();
 		List<Type> types = new ArrayList<Type>();

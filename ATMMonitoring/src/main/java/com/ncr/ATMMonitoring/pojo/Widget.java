@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
+
 /**
  * The Widget Pojo.
  * 
@@ -67,7 +69,7 @@ public class Widget {
 
 	/** The group by entity. */
 	@Column(name = "groupByEntity", nullable = true)
-	private String groupByEntity;
+	private WidgetQueryAssociationType groupByEntity;
 
 	/** The chart type. */
 	@Column(name = "chart_type", nullable = false)
@@ -227,7 +229,7 @@ public class Widget {
      *
      * @return the group by entity
      */
-    public String getGroupByEntity() {
+    public WidgetQueryAssociationType getGroupByEntity() {
 		return groupByEntity;
     }
 
@@ -236,7 +238,7 @@ public class Widget {
      *
      * @param groupByEntity the new group by entity
      */
-    public void setGroupByEntity(String groupByEntity) {
+    public void setGroupByEntity(WidgetQueryAssociationType groupByEntity) {
 		this.groupByEntity = groupByEntity;
     }
 
@@ -343,15 +345,13 @@ public class Widget {
 	 * The Enum ChartType.
 	 */
 	public enum ChartType {
-		
-		/** The pie chart. */
-		PIE_CHART, 
- /** The bar chart. */
- BAR_CHART, 
- /** The column chart. */
- COLUMN_CHART, 
- /** The geo chart. */
- GEO_CHART;
+		 /** The pie chart. */
+       	 PIE_CHART, 
+		 /** The bar chart. */
+		 BAR_CHART, 
+		 /** The column chart. */
+		 COLUMN_CHART, 
+		 /** The geo chart. */
+		 GEO_CHART;
 	}
-
 }

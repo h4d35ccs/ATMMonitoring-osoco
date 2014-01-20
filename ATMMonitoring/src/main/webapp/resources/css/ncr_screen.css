@@ -3416,3 +3416,14 @@ td .add span, th .add span {
     font-size: 1em;
   }
 }
+
+div.summaryContent {
+	width: 500px;
+	height : 350px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#main .summaryContent .action_box.data .ul_data {
+	width : 100%;
+}

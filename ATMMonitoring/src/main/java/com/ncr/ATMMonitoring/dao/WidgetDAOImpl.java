@@ -38,17 +38,15 @@ public class WidgetDAOImpl extends AbstractGenericDAO<Widget> implements
 	logger.debug("Created new Widget with id " + widget.getId());
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
      * @see
      * com.ncr.ATMMonitoring.dao.WidgetDAO#update(com.ncr.ATMMonitoring.pojo
      * .Widget)
      */
     @Override
     public void update(Widget widget) {
-	update(widget);
-	logger.debug("Updated Widget with id " + widget.getId());
+    	super.update(widget);
+    	logger.debug("Updated Widget with id " + widget.getId());
     }
 
     /*

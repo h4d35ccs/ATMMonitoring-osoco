@@ -6,7 +6,7 @@ $(function() {
             this.each(function() {
 		        $(this).removeClass('content_hide');
 		        $(this).next('.collapsible').show('slow');
-            });
+		    });
         },
         fold: function() {
             this.each(function() {
@@ -22,7 +22,10 @@ $(function() {
         event.stopPropagation();
 		if($(this).hasClass('content_hide')){ // si pulso en uno que está cerrado...
             $(this).unfold();
-		}else{
+            $(this).parents('.contendorDelDesplegable').animate({
+        		scrollTop: $(this).position().top + $(this).parent().scrollTop()  
+    		}, 500);
+        }else{
             $(this).fold();
 		}
 	});
