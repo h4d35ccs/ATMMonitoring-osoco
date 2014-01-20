@@ -147,5 +147,9 @@ h6.txt{
 				margin-top: 1em;
 			}
 		}
+		.ul_data_wide{
+		@extend .ul_data;
+		width: 100%;
+		}
 	}
 }

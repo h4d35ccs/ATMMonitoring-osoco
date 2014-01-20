@@ -272,6 +272,13 @@
 		background-position: -20px 0;
 		cursor: pointer;
 	}
+	.delete_wrong{
+		@extend .note;
+		background: url("../images/icons/close_grey_small.png") no-repeat;
+		&:hover{
+			background-position-y: 0px;  
+		}
+	}
 }
 .download{
 	background:url("../images/icons/icon_download.png") no-repeat top left transparent;
