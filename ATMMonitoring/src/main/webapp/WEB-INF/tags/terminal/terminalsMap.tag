@@ -93,8 +93,10 @@
 			function createMarker(map, location, terminalIds) {
 				var numberOfTerminals = countOccurences(terminalIds, ',');
 				
+				var iconName = (numberOfTerminals > 1 ? 'multiple' : 'simple') + 'Marker.png'
+				
 				var markerOptions = { 
-					icon: 'resources/images/maps/simpleMarker.png',
+					icon: 'resources/images/maps/' + iconName,
 				    title: '<spring:message code="label.terminals" /> ' + '(' + numberOfTerminals + ')'
 				}
 				

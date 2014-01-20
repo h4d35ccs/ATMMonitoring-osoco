@@ -22,9 +22,16 @@ $(function() {
         event.stopPropagation();
 		if($(this).hasClass('content_hide')){ // si pulso en uno que está cerrado...
             $(this).unfold();
-            $(this).parents('.contendorDelDesplegable').animate({
-        		scrollTop: $(this).position().top + $(this).parent().scrollTop()  
-    		}, 500);
+            var contentContainer = $(this).parents('.contendorDelDesplegable')
+            if(contentContainer) {
+            	var contentContainerPossition = contentContainer.offset().top;
+            	var clickedElementPossition = $(this).offset().top;
+				var currentScrollTop = contentContainer.scrollTop(); 
+
+				contentContainer.animate({
+        			scrollTop:  currentScrollTop + (clickedElementPossition - contentContainerPossition)
+    			}, 500);
+            } 
         }else{
             $(this).fold();
 		}
