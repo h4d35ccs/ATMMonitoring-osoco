@@ -5,7 +5,7 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
 
-<div class="summaryContent">
+<div class="summaryContent contendorDelDesplegable" >
 	<c:if test="${terminals.size() > 1}">
 		<h2> ${terminals.size()} <spring:message code="label.terminals"/></h2>
 		<c:set var="hideContentClass" value="hide" />
