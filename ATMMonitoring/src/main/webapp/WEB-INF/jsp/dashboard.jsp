@@ -30,7 +30,7 @@
                 </div>
                 <ul id="myCharts" class="collapsible"></ul>
               </div>
-              <a class="iframe_medium cboxElement btn add" href="dashboard/newWidget">
+              <a class="iframe_medium cboxElement btn add" href="dashboard/create">
                 <spring:message code="label.widget.new"/>
               </a>
 

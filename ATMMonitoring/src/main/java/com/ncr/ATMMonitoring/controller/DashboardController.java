@@ -7,17 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,14 +23,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.pojo.Dashboard;
-import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.Widget;
 import com.ncr.ATMMonitoring.service.DashboardService;
 import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.service.WidgetService;
-import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -59,9 +54,7 @@ public class DashboardController {
     @Autowired
     private WidgetService widgetService;
     
-    @Autowired
-    private QueryService queryService;
-
+    
     /**
      * Show dashboard.
      *
@@ -267,59 +260,8 @@ public class DashboardController {
         }
     }
 
-    /**
-     * New widget.
-     *
-     * @return the string
-     */
-    @RequestMapping(method = RequestMethod.GET, value = "/dashboard/newWidget")
-    public String newWidget(Map<String, Object> model, 
-    		Principal principal) {
-    	
-    	User loggedUser = null;
-        Set<Query> userQueries = null;
-		
-        if (principal != null) {
-            loggedUser = userService.getUserByUsername(principal.getName());
-            userQueries = loggedUser.getQueries();
-        }
-    	
-    	model.put("userQueries", userQueries);
-    	model.put("chartTypes", Widget.ChartType.values());
-    	model.put("queryTypes", WidgetQueryAssociationType.values());
-    	
-    	return "newWidget";
-    }
     
-    @RequestMapping(value = "/dashboard/create", method = RequestMethod.POST)
-    public String createWidget(
-	    @Valid @ModelAttribute("widget") Widget widget,
-	    BindingResult result, 
-	    Map<String, Object> model,
-	    HttpServletRequest request,
-	    Principal principal) {
-    	
-        if (widget != null && principal != null) {
-        	User loggedUser = userService.getUserByUsername(principal.getName());
-        	Set<Query> userQueries = loggedUser.getQueries();
-            Dashboard dashboard = loggedUser.getDashboard();
-        	
-            Integer queryId = widget.getQuery().getId(); 
-            if(queryId != null) {
-            	widget.setQuery(queryService.getQuery(queryId));
-            }
-            
-            if (userQueries.contains(widget.getQuery())) {
-            	widget.setOwner(loggedUser);
-            	widget.setDashboard(dashboard);
-            	widget.setOrder(dashboard.getWidgets().size());
-            	
-            	widgetService.saveWidget(widget);
-            }
-        }
-    	
-    	return "closeIframeUpdateParent";
-    }
+	
 
 	// Private Methods ----------------------------------------------------------------------
 

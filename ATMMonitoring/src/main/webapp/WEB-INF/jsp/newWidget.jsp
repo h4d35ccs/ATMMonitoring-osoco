@@ -35,7 +35,7 @@
 			</div><!-- /content -->
 			
 			<div class="content graph_content fixed hide">
-				<form id="newWidgetForm" method="post" action="dashboard/create" >
+				<form id="newWidgetForm" method="post" action="dashboard/save" >
 					<widget:widgetFormContent />
 				</form>				
 			</div><!-- /content -->

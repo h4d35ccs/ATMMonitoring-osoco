@@ -4,6 +4,7 @@ var updateChartPositionUrl = 'dashboard/updateChartPosition';
 var hideChartUrl = 'dashboard/hideChart';
 var showChartUrl = 'dashboard/showChart';
 var changeDashboardColumnsUrl = 'dashboard/changeColumns';
+var divChartSelector = 'li.chart '
 
 var googleChartType = {
     'TABLE'    : 'google.visualization.DataTable',
@@ -161,10 +162,11 @@ function onLoadDashboard() {
         drawChartsMenu();
     }
     initSortableCharts();
+    initEditIframes(divChartSelector); 
 }
 
 function onChartsMenuDrawed() {
-    $("#myCharts li.on").click(function(event) {
+	$("#myCharts li.on").click(function(event) {
         event.preventDefault();
         var widgetId = $(this).attr("id");
         showWidget(widgetId);
@@ -281,7 +283,7 @@ var transforms = {
                                     children: [ { tag: 'div', class: 'icon16 config content_hide txt',
                                                   children: [ { tag: 'span', html: strings['label.widget.options'] } ] },
                                                 { tag: 'ul', class: 'collapsible',
-                                                  children: [ { tag: 'li', children: [ { tag: 'a', href: '#', html: strings['label.widget.edit']} ] },
+                                                  children: [ { tag: 'li', children: [ { tag: 'a', class: 'iframe_medium cboxElement', href: 'dashboard/edit/${id}', html: strings['label.widget.edit']} ] },
                                                               { tag: 'li', children: [ { tag: 'a', href: '#', html: strings['label.widget.cancel']} ] },
                                                             ]
                                                 }
@@ -315,4 +317,9 @@ function drawCharts() {
 function drawChart(widget) {
     $("#sortable").json2html(widget, transforms.charts);
     onChartDrawed($("#sortable li#" + widget.id));
+}
+
+function initEditIframes(selectorPrefix) {
+	//init edit links. This function is stored on menu.js
+	return initIframes(selectorPrefix);
 }
