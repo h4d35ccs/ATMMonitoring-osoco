@@ -4,7 +4,7 @@
 
 <div class="row">
 	<label for="name"><spring:message code="widget.name.label" /></label>
-	<input type="text" id="name" name="name">
+	<input type="text" id="name" name="title" required="">
 </div>
 <h2><spring:message code="widget.chartType.label" /></h2>
 <div id="inputGraph" class="graph_component">
@@ -12,7 +12,7 @@
 	<c:forEach var="chartType" items="${chartTypes}">
 		<label class="graph graph_0${index + 1}">
 			<span><spring:message code="ChartType.${chartType.name()}" /></span>
-			<input type="radio" name="graph" class="inputGraph" value="${chartType.name()}" name="chartType"/> 
+			<input type="radio" class="inputGraph" value="${chartType.name()}" name="chartType" required=""/> 
 		</label>
 		<c:set var="index" value="${index + 1}" />
 	</c:forEach>
@@ -20,7 +20,7 @@
 
 <div class="row">
 	<label for="apquery"><spring:message code="widget.query.label" /></label>
-	<select name="query" size="1">
+	<select name="query.id" size="1" required="">
 		<option value="" ><spring:message code="label.select.default"/></option>
 		<c:forEach items="${userQueries}" var="userQuery">
 			<option value="${userQuery.id}">
@@ -32,8 +32,8 @@
 <div class="row">
 	<label><spring:message code="widget.join.label" /> </label>
 	
-	<select id="groupByEntity" name="groupByEntity" > 
-		<option><spring:message code="label.select.default"/></option>
+	<select id="groupByEntity" name="groupByEntity" required=""> 
+		<option value="" ><spring:message code="label.select.default"/></option>
 		<c:forEach items="${queryTypes}" var="queryType">
 			<option value="${queryType.name()}">
 				<spring:message code="WidgetQueryAssociationType.${queryType}" />
@@ -46,7 +46,7 @@
 	<div id="${queryType.name()}" class="row hide queryTypeValueRows">
 		<label></label>
 		<select id="groupBy" name="groupBy" disabled="disabled">
-			<option><spring:message code="label.select.default"/></option>
+			<option value="" ><spring:message code="label.select.default"/></option>
 			<c:forEach items="${queryType.comboboxes}" var="groupByField">
 				<option value="${groupByField.key}">
 					${groupByField.key}
@@ -59,7 +59,7 @@
 
 
 <div class="botonera">
-	<input type="button" class="btn next" value="<spring:message code="widget.create.button.label"/>">
+	<input type="submit" class="btn next" value="<spring:message code="widget.create.button.label"/>">
 </div>
 
 <script type="text/javascript">
@@ -73,10 +73,12 @@ $(function() {
 		var queryType = queryTypeSelect.val();
 		
 		queryTypeValueRows.addClass("hide");
-		queryTypeValuesByRow.attr("disabled");
+		queryTypeValuesByRow.attr("disabled", "disabled");
+		queryTypeValuesByRow.removeAttr("required");
 		
 		$('div#' + queryType).removeClass("hide");
-		$('div#' + queryType + ' select#groupBy' ).removeAttr("disabled");	
+		$('div#' + queryType + ' select#groupBy' ).removeAttr("disabled");
+		$('div#' + queryType + ' select#groupBy' ).attr("required", "required");	
 	})
 });
 

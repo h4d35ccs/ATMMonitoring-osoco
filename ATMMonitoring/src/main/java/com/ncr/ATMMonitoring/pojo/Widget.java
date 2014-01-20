@@ -341,6 +341,12 @@ public class Widget {
 		return hashCode;
 	}
 
+	@Override
+	public String toString() {
+		return "Widget [id=" + id + ", title=" + title + ", query=" + ((query == null) ? "null" : query.getId()) 
+				+ ", groupBy=" + groupBy + ", groupByEntity=" + groupByEntity
+				+ ", chartType=" + chartType + "]";
+	}
 	/**
 	 * The Enum ChartType.
 	 */
