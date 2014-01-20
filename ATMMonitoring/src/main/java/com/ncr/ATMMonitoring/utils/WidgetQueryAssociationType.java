@@ -34,7 +34,7 @@ public enum WidgetQueryAssociationType {
 	private String lastAssociationName;
 	
 	private WidgetQueryAssociationType(String associationName, String comboboxName, Map<String,?> comboboxes) {
-		this.setComboboxes(comboboxes);
+		this.comboboxes = comboboxes;
 		this.associationName = associationName;
 		this.comboboxName = comboboxName;
 		if( associationName != null) {
