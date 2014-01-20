@@ -1,5 +1,7 @@
+<%@taglib tagdir="/WEB-INF/tags/widget/" prefix="widget" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@page contentType="text/html;charset=UTF-8" %>
@@ -31,30 +33,11 @@
 					<input type="button" class="btn cancel" value="Cancelar">
 				</div>
 			</div><!-- /content -->
+			
 			<div class="content graph_content fixed hide">
-				<div class="row">
-					<label for="name">Nombre</label>
-					<input type="text" id="name">
-				</div>
-				<h2>Modelo gráfica</h2>
-				<div id="inputGraph" class="graph_component">
-					<label  class="graph graph_01"><span>Tabla</span><input type="radio" name="graph" class="inputGraph"></label>
-					<label  class="graph graph_02"><span>Línea tiempo</span><input type="radio" name="graph" class="inputGraph"></label>
-					<label  class="graph graph_03"><span>Circular</span><input type="radio" name="graph" class="inputGraph"></label>
-					<label  class="graph graph_04"><span>Barras</span><input type="radio" name="graph" class="inputGraph"></label>
-					<label  class="graph graph_05"><span>Geográfico</span><input type="radio" name="graph" class="inputGraph"></label>
-				</div>
-				<div class="row">
-					<label for="apquery">Aplicar Consulta</label><select><option>Seleccionar</option></select>
-				</div>
-				<div class="row">
-					<label for="apquery">Aplicar Metrica</label><select><option>Seleccionar</option></select>
-
-				</div>
-				<div class="botonera">
-					<input type="button" class="btn next" value="crear componente">
-					<input type="button" class="btn cancel" value="Cancelar">
-				</div>
+				<form id="newWidgetForm">
+					<widget:widgetFormContent />
+				</form>				
 			</div><!-- /content -->
 
 		</article>

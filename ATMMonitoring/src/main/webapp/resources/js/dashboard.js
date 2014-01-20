@@ -6,6 +6,7 @@ var showChartUrl = 'dashboard/showChart';
 var changeDashboardColumnsUrl = 'dashboard/changeColumns';
 
 var googleChartType = {
+    'TABLE'    : 'google.visualization.DataTable',
     'PIE_CHART': 'google.visualization.PieChart',
     'BAR_CHART': 'google.visualization.BarChart',
     'COLUMN_CHART': 'google.visualization.ColumnChart',

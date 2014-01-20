@@ -68,7 +68,7 @@ public class Widget {
 	private String groupBy;
 
 	/** The group by entity. */
-	@Column(name = "groupByEntity", nullable = true)
+	@Column(name = "groupByEntity", nullable = false)
 	private WidgetQueryAssociationType groupByEntity;
 
 	/** The chart type. */
@@ -345,12 +345,13 @@ public class Widget {
 	 * The Enum ChartType.
 	 */
 	public enum ChartType {
+		 TABLE, 
+		 /** The column chart. */
+		 COLUMN_CHART,
 		 /** The pie chart. */
        	 PIE_CHART, 
 		 /** The bar chart. */
 		 BAR_CHART, 
-		 /** The column chart. */
-		 COLUMN_CHART, 
 		 /** The geo chart. */
 		 GEO_CHART;
 	}
