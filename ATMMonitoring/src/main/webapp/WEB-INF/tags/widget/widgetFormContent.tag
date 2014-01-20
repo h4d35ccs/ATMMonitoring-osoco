@@ -2,7 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<input type="hidden" name="id" value="widget.id" />
+<input type="hidden" name="id" value="${widget.id}" />
 
 <div class="row">
 	<label for="name"><spring:message code="widget.name.label" /></label>
