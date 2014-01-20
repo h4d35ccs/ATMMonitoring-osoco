@@ -398,6 +398,16 @@
 				}
 
 			}
+			.mapa{
+				a{
+					background:url("../images/icons/icons_column.png") no-repeat -120px 0;
+				}
+				&.current a{
+					background-position: -120px -20px;
+				}
+
+			}
+
 
 		}
 		span{
