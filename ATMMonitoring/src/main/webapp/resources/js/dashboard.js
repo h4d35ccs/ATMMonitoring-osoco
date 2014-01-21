@@ -216,7 +216,9 @@ function onChartDrawed(chart) {
         hideWidget(widgetId);
 	});
 	$(chart).find(".delete").click(function() {
-        deleteWidget(widgetId);
+		if(confirm(strings['widget.delete.confirm'])) {
+			deleteWidget(widgetId);
+		}
 	});
 	initEditButtonIframe($(chart).find('.editWidget').selector)
 	drawChartsMenu();

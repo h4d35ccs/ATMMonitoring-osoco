@@ -18,6 +18,7 @@
       strings['label.widget.edit'] = "<spring:message code='label.widget.edit' javaScriptEscape='true' />";
       strings['label.widget.delete'] = "<spring:message code='label.widget.delete' javaScriptEscape='true' />";
       strings['label.widget.cancel'] = "<spring:message code='label.widget.cancel' javaScriptEscape='true' />";
+      strings['widget.delete.confirm'] = "<spring:message code='widget.delete.confirm' javaScriptEscape='true' />";
     </script>
     <script type='text/javascript' src='resources/js/dashboard.js'></script>
   </jsp:attribute>
