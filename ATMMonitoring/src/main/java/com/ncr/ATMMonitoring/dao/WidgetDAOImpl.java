@@ -48,6 +48,12 @@ public class WidgetDAOImpl extends AbstractGenericDAO<Widget> implements
     	super.update(widget);
     	logger.debug("Updated Widget with id " + widget.getId());
     }
+    
+    @Override
+    public void delete(Widget widget) {
+    	logger.debug("Going to delete widget with id " + widget.getId());
+    	super.delete(widget);
+    }
 
     /*
      * (non-Javadoc)

@@ -284,7 +284,7 @@ var transforms = {
                                                   children: [ { tag: 'span', html: strings['label.widget.options'] } ] },
                                                 { tag: 'ul', class: 'collapsible',
                                                   children: [ { tag: 'li', children: [ { tag: 'a', class: 'iframe_medium cboxElement', href: 'dashboard/edit/${id}', html: strings['label.widget.edit']} ] },
-                                                              { tag: 'li', children: [ { tag: 'a', href: '#', html: strings['label.widget.cancel']} ] },
+                                                              { tag: 'li', children: [ { tag: 'a', href: 'dashboard/delete/${id}', html: strings['label.widget.delete']} ] },
                                                             ]
                                                 }
                                               ]

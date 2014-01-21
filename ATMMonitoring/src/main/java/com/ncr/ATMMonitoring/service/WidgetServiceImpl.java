@@ -134,6 +134,21 @@ public class WidgetServiceImpl implements WidgetService {
 			}
 		}
 	}
+	
+	@Override
+	public void deleteWidgetFromUser(Integer widgetId, User user) {
+		Widget widget = findWidgetById(widgetId);
+		if (isWidgetOwnedByUser(widget, user)) {
+			user.getDashboard().getWidgets().remove(widget);
+			userService.updateUser(user);
+			widgetDAO.delete(widget);
+		}
+	}
+	
+	@Override
+	public Boolean isWidgetOwnedByUser(Widget widget, User user) {
+		return user != null && widget != null && user.equals(widget.getOwner());
+	}
 
 	/* (non-Javadoc)
 	 * @see com.ncr.ATMMonitoring.service.WidgetService#findWidgetById(int)

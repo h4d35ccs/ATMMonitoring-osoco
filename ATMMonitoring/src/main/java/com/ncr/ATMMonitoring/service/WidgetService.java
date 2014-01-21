@@ -2,13 +2,11 @@ package com.ncr.ATMMonitoring.service;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import com.ncr.ATMMonitoring.pojo.Dashboard;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.Widget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Interface WidgetService.
  * 
@@ -61,6 +59,11 @@ public interface WidgetService {
 	 * @param locale the locale
 	 * @return the list
 	 */
-	public List executeQuery(Widget widget, Locale locale);
+	public List<?> executeQuery(Widget widget, Locale locale);
+	
+	public void deleteWidgetFromUser(Integer widgetId, User loggedUser);
+
+	public Boolean isWidgetOwnedByUser(Widget widget, User user);
+	
 
 }

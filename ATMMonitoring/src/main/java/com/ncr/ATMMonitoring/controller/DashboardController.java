@@ -225,7 +225,7 @@ public class DashboardController {
         if (principal != null) {
             loggedUser = userService.getUserByUsername(principal.getName());
 			Widget widget = widgetService.findWidgetById(widgetId);
-			if ((widget != null) && (widget.getOwner().equals(loggedUser))) {
+			if (widgetService.isWidgetOwnedByUser(widget, loggedUser )) {
 				logger.debug("Showing widget " + widget.getId());
 				// TODO: replace by widgetService.makeVisible()
 				widget.setVisible(true);

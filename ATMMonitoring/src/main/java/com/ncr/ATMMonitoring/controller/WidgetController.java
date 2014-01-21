@@ -1,12 +1,15 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.pojo.Dashboard;
 import com.ncr.ATMMonitoring.pojo.Query;
@@ -26,6 +30,9 @@ import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 
 @Controller
 public class WidgetController {
+
+    /** The logger. */
+    static private Logger logger = Logger.getLogger(WidgetController.class.getName());
 
 	@Autowired
     private QueryService queryService;
@@ -46,13 +53,32 @@ public class WidgetController {
     	return createOrEditWidget(model, principal, null);
     }
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/dashboard/edit/{queryId}")
+	@RequestMapping(method = RequestMethod.GET, value = "/dashboard/edit/{widgetId}")
     public String createWidget(
     		Map<String, Object> model,
-    		@PathVariable("queryId") Integer queryId, 
+    		@PathVariable("widgetId") Integer widgetId, 
     		Principal principal) {
     	
-    	return createOrEditWidget(model, principal, queryId);
+    	return createOrEditWidget(model, principal, widgetId);
+    }
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/dashboard/delete/{widgetId}")
+    public String deleteWidget(
+    		Map<String, Object> model,
+    		@PathVariable("widgetId") Integer widgetId, 
+    		Principal principal) {
+    	
+		User loggedUser = null;
+        if (principal != null) {
+	        try {
+	        	loggedUser = userService.getUserByUsername(principal.getName());
+				widgetService.deleteWidgetFromUser(widgetId, loggedUser);
+	        } catch (Exception e) {
+	        	logger.error("An error occurs", e);
+	        }
+        }
+        
+        return "redirect:/dashboard";
     }
     
     @RequestMapping(value = "/dashboard/save", method = RequestMethod.POST)

@@ -46,4 +46,5 @@ public interface WidgetDAO {
      */
 	public Widget findById(int id);
 
+	public void delete(Widget widget);
 }
