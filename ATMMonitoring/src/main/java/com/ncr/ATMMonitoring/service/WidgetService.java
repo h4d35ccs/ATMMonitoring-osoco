@@ -3,7 +3,6 @@ package com.ncr.ATMMonitoring.service;
 import java.util.List;
 import java.util.Locale;
 
-import com.ncr.ATMMonitoring.pojo.Dashboard;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.Widget;
 
@@ -50,7 +49,7 @@ public interface WidgetService {
 	 * @param dashboard the dashboard
 	 * @return the list
 	 */
-	public List<Widget> copyDefaultWidgetsToUserDashboard(User user, Dashboard dashboard);
+	public List<Widget> copyDefaultWidgetsToUserDashboard(User user);
 
 	/**
 	 * Execute query.
@@ -65,5 +64,7 @@ public interface WidgetService {
 
 	public Boolean isWidgetOwnedByUser(Widget widget, User user);
 
-	void createWidgetForUser(Widget widget, User loggedUser);
+	public void createWidgetForUser(Widget widget, User user);
+
+	public void addWidgetsFromLibrary(List<Integer> widgetIds, User user);
 }

@@ -62,8 +62,8 @@ public class DashboardServiceImpl implements DashboardService {
 		Dashboard aDashboard = new Dashboard();
 		aDashboard.setColumns(4); // TODO: retrieve value from config
 		saveDashboard(aDashboard);
-		widgetService.copyDefaultWidgetsToUserDashboard(user, aDashboard);
 		user.setDashboard(aDashboard);
+		widgetService.copyDefaultWidgetsToUserDashboard(user);
 		userService.updateUser(user);
 		return aDashboard;
 	}

@@ -5,7 +5,6 @@ import org.apache.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,15 +73,11 @@ public class WidgetServiceImpl implements WidgetService {
 	 * @see com.ncr.ATMMonitoring.service.WidgetService#copyDefaultWidgetsToUserDashboard(com.ncr.ATMMonitoring.pojo.User, com.ncr.ATMMonitoring.pojo.Dashboard)
 	 */
 	@Override
-	public List<Widget> copyDefaultWidgetsToUserDashboard(User user, Dashboard dashboard) {
+	public List<Widget> copyDefaultWidgetsToUserDashboard(User user) {
 		List<Widget> defaultWidgets = findDefaultWidgets();
 		List<Widget> userDefaultWidgets = new ArrayList<Widget> ();
 		for (Widget defaultWidget: defaultWidgets) {
-			Widget userWidget = new Widget(defaultWidget);
-			userWidget.setDefaultWidget(false);
-			userWidget.setOwner(user);
-			userWidget.setDashboard(dashboard);
-			saveWidget(userWidget);
+			Widget userWidget = copyWidgetToUserDashboard(defaultWidget, user);
 			userDefaultWidgets.add(userWidget);
 		}
 		return userDefaultWidgets;
@@ -187,6 +182,29 @@ public class WidgetServiceImpl implements WidgetService {
 			
 			this.saveWidget(widget);
 		}
+	}
+	
+	@Override 
+	public void addWidgetsFromLibrary(List<Integer> widgetIds, User user) {
+		for(Integer widgetId : widgetIds) {
+			Widget widget = findWidgetById(widgetId);
+			if( widget != null && widget.isLibraryWidget()) {
+				logger.info("Adding widget from library[" + widgetId + "] to user[" + user.getId() + "]");
+				copyWidgetToUserDashboard(widget, user);
+			}
+		}
+	}
+	
+	private Widget copyWidgetToUserDashboard(Widget widgetToCopy, User user) {
+		Dashboard dashboard = user.getDashboard();
+		Widget userWidget = new Widget(widgetToCopy);
+		userWidget.setDefaultWidget(false);
+		userWidget.setLibraryWidget(false);
+		userWidget.setOwner(user);
+		userWidget.setDashboard(dashboard);
+		saveWidget(userWidget);
+		
+		return userWidget;
 	}
 	
 	/**

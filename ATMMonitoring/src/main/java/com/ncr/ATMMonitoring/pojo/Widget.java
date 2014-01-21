@@ -43,8 +43,11 @@ public class Widget {
     /** The default widget. */
     @Column(name = "default_widget", nullable = false)
 	private boolean defaultWidget = false;
+    
+    @Column(name = "library_widget", nullable = false)
+	private boolean libraryWidget = false;
 
-    /** The visible. */
+	/** The visible. */
     @Column(name = "visible", nullable = false)
 	private boolean visible = true;
 
@@ -90,6 +93,7 @@ public class Widget {
 		this.title = source.getTitle();
 		this.order = source.getOrder();
 		this.defaultWidget = source.isDefaultWidget();
+		this.libraryWidget = source.isLibraryWidget();
 		this.visible = source.isVisible();
 		this.owner = source.getOwner();
 		this.query = source.getQuery();
@@ -295,6 +299,16 @@ public class Widget {
     public void setChartType(ChartType chartType) {
 		this.chartType = chartType;
     }
+    
+	
+    public boolean isLibraryWidget() {
+		return libraryWidget;
+	}
+
+	public void setLibraryWidget(boolean libraryWidget) {
+		this.libraryWidget = libraryWidget;
+	}
+
 
 	/**
 	 * To json.

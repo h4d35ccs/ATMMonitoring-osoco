@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
@@ -91,6 +92,20 @@ public class WidgetController {
         	widgetService.createWidgetForUser(widget, loggedUser);
         }
     	
+    	return "closeIframeUpdateParent";
+    }
+    
+    @RequestMapping(value = "/dashboard/addFromLibrary", method = RequestMethod.GET)
+    public String addFromLibrary(
+    		@RequestParam("widgetIds") ArrayList<Integer> widgetIds,
+    		HttpServletRequest request,
+    		Principal principal) {
+
+    	if (widgetIds != null && principal != null) {
+    		User loggedUser = userService.getUserByUsername(principal.getName());
+    		widgetService.addWidgetsFromLibrary(widgetIds, loggedUser);
+    	}
+
     	return "closeIframeUpdateParent";
     }
 
