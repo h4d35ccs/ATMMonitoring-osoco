@@ -10,7 +10,7 @@ var editChartUrl = 'dashboard/edit/'
 var divChartSelector = 'li.chart '
 
 var googleChartType = {
-    'TABLE'    : 'google.visualization.DataTable',
+    'TABLE'    : 'google.visualization.Table',
     'PIE_CHART': 'google.visualization.PieChart',
     'BAR_CHART': 'google.visualization.BarChart',
     'COLUMN_CHART': 'google.visualization.ColumnChart',
@@ -21,7 +21,7 @@ Array.prototype.move = function (old_index, new_index) {
     this.splice(new_index, 0, this.splice(old_index, 1)[0]);
 };
 
-google.load('visualization', '1', {'packages': ['corechart', 'geochart']});
+google.load('visualization', '1', {'packages': ['corechart', 'geochart', 'table']});
 
 $(function() {
     initDashboardModel();
@@ -169,7 +169,6 @@ function onLoadDashboard() {
         drawChartsMenu();
     }
     initSortableCharts();
-    initEditIframes(divChartSelector); 
 }
 
 function onChartsMenuDrawed() {

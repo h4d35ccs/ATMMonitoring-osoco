@@ -53,7 +53,7 @@ public class WidgetController {
     }
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/dashboard/edit/{widgetId}")
-    public String createWidget(
+    public String editWidget(
     		Map<String, Object> model,
     		@PathVariable("widgetId") Integer widgetId, 
     		Principal principal) {
@@ -79,7 +79,7 @@ public class WidgetController {
     }
     
     @RequestMapping(value = "/dashboard/save", method = RequestMethod.POST)
-    public String createWidget(
+    public String updateWidget(
 	    @Valid @ModelAttribute("widget") Widget widget,
 	    BindingResult result, 
 	    Map<String, Object> model,
