@@ -45,6 +45,11 @@ public class WidgetController {
     @Autowired
     private UserService userService;
     
+    @RequestMapping(method = RequestMethod.GET, value = "/dashboard/newWidget")
+    public String newWidget() {
+    	return "widget/newWidget";
+    }
+    
     @RequestMapping(method = RequestMethod.GET, value = "/dashboard/create")
     public String createWidget(
     		Map<String, Object> model,
@@ -112,6 +117,7 @@ public class WidgetController {
     private String createOrEditWidget(Map<String, Object> model, Principal principal,  Integer widgetId) {
     	User loggedUser = null;
         Set<Query> userQueries = null;
+        String operationType = "create";
         Widget widget = new Widget();
         
         if (principal != null) {
@@ -122,6 +128,7 @@ public class WidgetController {
             	Widget widgetToEdit = widgetService.findWidgetById(widgetId);
             	if(widgetService.isWidgetOwnedByUser(widgetToEdit, loggedUser)) {
             		widget = widgetToEdit;
+            		operationType = "edit";
             	}
             }
         }
@@ -130,7 +137,8 @@ public class WidgetController {
     	model.put("chartTypes", Widget.ChartType.values());
     	model.put("queryTypes", WidgetQueryAssociationType.values());
     	model.put("widget", widget);
+    	model.put("operationType", operationType);
     	
-    	return "newWidget";
+    	return "widget/createOrEdit";
     }
 }

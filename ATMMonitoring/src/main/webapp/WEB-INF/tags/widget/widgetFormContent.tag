@@ -62,7 +62,7 @@
 
 
 <div class="botonera">
-	<input type="submit" class="btn next" value="<spring:message code="widget.create.button.label"/>">
+	<input type="submit" class="btn next" value="<spring:message code="widget.${operationType}.button.label"/>">
 </div>
 
 <script type="text/javascript">
