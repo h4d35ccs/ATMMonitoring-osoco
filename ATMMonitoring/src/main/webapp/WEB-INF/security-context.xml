@@ -9,6 +9,7 @@
 
     <http use-expressions="true">
         <intercept-url pattern="/dashboard/**" access="hasAnyRole(${security.dashboardAccessAllowedRoles})"/>
+        <intercept-url pattern="/widget/**" access="hasAnyRole(${security.dashboardAccessAllowedRoles})"/>
         <intercept-url pattern="/help/**" access="hasAnyRole(${security.helpAccessAllowedRoles})"/>
         <intercept-url pattern="/users/**" access="hasAnyRole(${security.usersAccessAllowedRoles})"/>
         <intercept-url pattern="/terminals/**" access="hasAnyRole(${security.terminalsAccessAllowedRoles})"/>

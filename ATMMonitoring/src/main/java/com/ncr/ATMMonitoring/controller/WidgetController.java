@@ -57,6 +57,18 @@ public class WidgetController {
     	
     	return createOrEditWidget(model, principal, null);
     }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/dashboard/createFromLibrary")
+    public String createWidgetFromLibrary(
+    		Map<String, Object> model,
+    		Principal principal) {
+    	
+    	if (principal != null) {
+    		model.put("widgets", widgetService.findLibraryWidgets());
+    	}
+    	
+    	return "widget/createFromLibrary";
+    }
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/dashboard/edit/{widgetId}")
     public String editWidget(
@@ -100,9 +112,9 @@ public class WidgetController {
     	return "closeIframeUpdateParent";
     }
     
-    @RequestMapping(value = "/dashboard/addFromLibrary", method = RequestMethod.GET)
+    @RequestMapping(value = "/dashboard/addFromLibrary", method = RequestMethod.POST)
     public String addFromLibrary(
-    		@RequestParam("widgetIds") ArrayList<Integer> widgetIds,
+    		@RequestParam(value="widgetIds", required = false) ArrayList<Integer> widgetIds,
     		HttpServletRequest request,
     		Principal principal) {
 

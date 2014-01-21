@@ -195,6 +195,10 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 	}
 	
+	public List<Widget> findLibraryWidgets() {
+		return widgetDAO.findLibraryWidgets();
+	}
+	
 	private Widget copyWidgetToUserDashboard(Widget widgetToCopy, User user) {
 		Dashboard dashboard = user.getDashboard();
 		Widget userWidget = new Widget(widgetToCopy);

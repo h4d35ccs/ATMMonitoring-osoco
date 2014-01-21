@@ -66,6 +66,13 @@ public class WidgetDAOImpl extends AbstractGenericDAO<Widget> implements
 		.add(Restrictions.eq("defaultWidget", true))
 		.addOrder(Order.asc("title")).list();
     }
+    
+    @Override
+	public List<Widget> findLibraryWidgets() {
+    	return sessionFactory.getCurrentSession().createCriteria(Widget.class)
+    			.add(Restrictions.eq("libraryWidget", true))
+    			.addOrder(Order.asc("title")).list();
+    }
 
     /*
      * (non-Javadoc)
