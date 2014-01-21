@@ -64,6 +64,6 @@ public interface WidgetService {
 	public void deleteWidgetFromUser(Integer widgetId, User loggedUser);
 
 	public Boolean isWidgetOwnedByUser(Widget widget, User user);
-	
 
+	void createWidgetForUser(Widget widget, User loggedUser);
 }

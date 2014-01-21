@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -170,6 +171,24 @@ public class WidgetServiceImpl implements WidgetService {
 			locale);
 	}
 
+	@Override
+	public void createWidgetForUser(Widget widget, User loggedUser) {
+		Set<Query> userQueries = loggedUser.getQueries();
+		Dashboard dashboard = loggedUser.getDashboard();
+		Integer queryId = widget.getQuery().getId(); 
+		if(queryId != null) {
+			widget.setQuery(queryService.getQuery(queryId));
+		}
+		
+		if (userQueries.contains(widget.getQuery())) {
+			widget.setOwner(loggedUser);
+			widget.setDashboard(dashboard);
+			widget.setOrder(dashboard.getWidgets().size());
+			
+			this.saveWidget(widget);
+		}
+	}
+	
 	/**
 	 * Builds the default widget.
 	 *

@@ -301,8 +301,8 @@ public class Widget {
 	 *
 	 * @return the map
 	 */
-	public Map toJSON() {
-		Map result = new HashMap();
+	public Map<String, Object> toJSON() {
+		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("id", id);
 		result.put("title", title);
 		result.put("type", chartType);

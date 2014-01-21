@@ -1,8 +1,6 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
-import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -11,15 +9,16 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.support.RequestContextUtils;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.ncr.ATMMonitoring.pojo.Dashboard;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.Widget;
@@ -62,10 +61,10 @@ public class WidgetController {
     	return createOrEditWidget(model, principal, widgetId);
     }
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/dashboard/delete/{widgetId}")
-    public String deleteWidget(
-    		Map<String, Object> model,
-    		@PathVariable("widgetId") Integer widgetId, 
+	@RequestMapping(method = RequestMethod.POST, value = "/dashboard/delete")
+	@ResponseStatus(HttpStatus.OK)
+    public void deleteWidget(
+    		@RequestParam("widgetId") Integer widgetId,  
     		Principal principal) {
     	
 		User loggedUser = null;
@@ -77,8 +76,6 @@ public class WidgetController {
 	        	logger.error("An error occurs", e);
 	        }
         }
-        
-        return "redirect:/dashboard";
     }
     
     @RequestMapping(value = "/dashboard/save", method = RequestMethod.POST)
@@ -91,26 +88,12 @@ public class WidgetController {
     	
         if (widget != null && principal != null) {
         	User loggedUser = userService.getUserByUsername(principal.getName());
-        	Set<Query> userQueries = loggedUser.getQueries();
-            Dashboard dashboard = loggedUser.getDashboard();
-        	
-            Integer queryId = widget.getQuery().getId(); 
-            if(queryId != null) {
-            	widget.setQuery(queryService.getQuery(queryId));
-            }
-            
-            if (userQueries.contains(widget.getQuery())) {
-            	widget.setOwner(loggedUser);
-            	widget.setDashboard(dashboard);
-            	widget.setOrder(dashboard.getWidgets().size());
-            	
-            	widgetService.saveWidget(widget);
-            }
+        	widgetService.createWidgetForUser(widget, loggedUser);
         }
     	
     	return "closeIframeUpdateParent";
     }
-    
+
     private String createOrEditWidget(Map<String, Object> model, Principal principal,  Integer widgetId) {
     	User loggedUser = null;
         Set<Query> userQueries = null;
@@ -122,7 +105,7 @@ public class WidgetController {
             
             if( widgetId != null ) {
             	Widget widgetToEdit = widgetService.findWidgetById(widgetId);
-            	if(loggedUser.getDashboard().getWidgets().contains(widgetToEdit)) {
+            	if(widgetService.isWidgetOwnedByUser(widgetToEdit, loggedUser)) {
             		widget = widgetToEdit;
             	}
             }

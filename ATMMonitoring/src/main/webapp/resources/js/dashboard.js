@@ -4,6 +4,9 @@ var updateChartPositionUrl = 'dashboard/updateChartPosition';
 var hideChartUrl = 'dashboard/hideChart';
 var showChartUrl = 'dashboard/showChart';
 var changeDashboardColumnsUrl = 'dashboard/changeColumns';
+var deleteChartUrl = 'dashboard/delete'
+var editChartUrl = 'dashboard/edit/'
+
 var divChartSelector = 'li.chart '
 
 var googleChartType = {
@@ -129,6 +132,11 @@ function hideWidget(widgetId) {
     onHiddenWidget(widgetId);
 }
 
+function deleteWidget(widgetId) {
+    var widget = removeVisibleWidget(widgetId);
+    onDeleteWidget(widgetId);
+}
+
 function showWidget(widgetId) {
     var widget = removeHiddenWidget(widgetId);
     addVisibleWidget(widget);
@@ -209,12 +217,23 @@ function onChartDrawed(chart) {
     $(chart).find(".close").click(function() {
         hideWidget(widgetId);
 	});
-    drawChartsMenu();
+	$(chart).find(".delete").click(function() {
+        deleteWidget(widgetId);
+	});
+	drawChartsMenu();
 }
 
 function onHiddenWidget(widgetId) {
+    postToUrlAndHideChart(hideChartUrl, widgetId)
+}
+
+function onDeleteWidget(widgetId) {
+	postToUrlAndHideChart(deleteChartUrl, widgetId)
+}
+
+function postToUrlAndHideChart(postUrl, widgetId) {
     $.post(
-        hideChartUrl,
+        postUrl,
         {
             widgetId: widgetId
         }
@@ -283,8 +302,8 @@ var transforms = {
                                     children: [ { tag: 'div', class: 'icon16 config content_hide txt',
                                                   children: [ { tag: 'span', html: strings['label.widget.options'] } ] },
                                                 { tag: 'ul', class: 'collapsible',
-                                                  children: [ { tag: 'li', children: [ { tag: 'a', class: 'iframe_medium cboxElement', href: 'dashboard/edit/${id}', html: strings['label.widget.edit']} ] },
-                                                              { tag: 'li', children: [ { tag: 'a', href: 'dashboard/delete/${id}', html: strings['label.widget.delete']} ] },
+                                                  children: [ { tag: 'li', children: [ { tag: 'a', class: 'iframe_medium cboxElement', href: (editChartUrl + '${id}'), html: strings['label.widget.edit']} ] },
+                                                              { tag: 'li', children: [ { tag: 'a', class: 'delete', html: strings['label.widget.delete']} ] },
                                                             ]
                                                 }
                                               ]
