@@ -105,14 +105,14 @@
                 intervalPixels: 400,
                 eventSource:    eventSource,
                 overview:       true,
-                zoomIndex:      6,
+                zoomIndex:      1,
                 zoomSteps:      new Array(
-                    {pixelsPerInterval: 100,  unit: Timeline.DateTime.DECADE},
-                    {pixelsPerInterval: 200,  unit: Timeline.DateTime.DECADE},
-                    {pixelsPerInterval: 50,  unit: Timeline.DateTime.YEAR},
-                    {pixelsPerInterval: 100,  unit: Timeline.DateTime.YEAR},
+                    {pixelsPerInterval: 400,  unit: Timeline.DateTime.YEAR},
                     {pixelsPerInterval: 200,  unit: Timeline.DateTime.YEAR},
-                    {pixelsPerInterval: 400,  unit: Timeline.DateTime.YEAR}
+                    {pixelsPerInterval: 100,  unit: Timeline.DateTime.YEAR},
+                    {pixelsPerInterval: 50,  unit: Timeline.DateTime.YEAR},
+                    {pixelsPerInterval: 200,  unit: Timeline.DateTime.DECADE},
+                    {pixelsPerInterval: 100,  unit: Timeline.DateTime.DECADE}
                  )
                // theme:          theme
             })
