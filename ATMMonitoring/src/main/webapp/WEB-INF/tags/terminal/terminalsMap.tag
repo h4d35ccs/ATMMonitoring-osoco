@@ -12,6 +12,11 @@
 	</c:when>
 	<c:otherwise>
 	
+		<c:forEach var="markerName" items="simpleMarker,multipleMarker,clusteredMarker" >
+			<img src="resources/images/maps/${markerName}.png" />
+			<spring:message code="terminals.map.${markerName}" />	
+		</c:forEach>
+		
 		<div id="terminalsMap"> </div>
 		<div class="hide">
 			<div id="defaultInfoWindowContent" class="summaryContent"> 
