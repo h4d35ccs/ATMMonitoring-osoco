@@ -6,7 +6,7 @@
 /* line 7, ../sass/ncr_fullcalendar.scss */
 .fc-border-separate {
   border: none;
-  border-right: 1px solid #bcbec0;
+  border-right: 1px solid #b3b3b3;
 }
 
 /* line 11, ../sass/ncr_fullcalendar.scss */
@@ -17,38 +17,38 @@
 
 /* line 15, ../sass/ncr_fullcalendar.scss */
 .fc-widget-header, .fc-widget-content {
-  border: 1px solid #939598;
+  border: 1px solid #b3b3b3;
 }
 
 /* line 18, ../sass/ncr_fullcalendar.scss */
 .fc-border-separate th, .fc-agenda-slots th {
   padding: .5em;
+  background-color: #e6e6e6;
+  color: black;
 }
 
-/* line 21, ../sass/ncr_fullcalendar.scss */
+/* line 23, ../sass/ncr_fullcalendar.scss */
 .fc-event {
   padding: .5em;
-  border: 1px solid #939598;
+  border: 1px solid #cccccc;
 }
-/* line 24, ../sass/ncr_fullcalendar.scss */
+/* line 26, ../sass/ncr_fullcalendar.scss */
 .fc-event.fc-event-end {
   border-left: none;
 }
-/* line 27, ../sass/ncr_fullcalendar.scss */
+/* line 29, ../sass/ncr_fullcalendar.scss */
 .fc-event.fc-event-start {
   border-right: none;
 }
-/* line 30, ../sass/ncr_fullcalendar.scss */
+/* line 32, ../sass/ncr_fullcalendar.scss */
 .fc-event.fc-event-end.fc-event-start {
-  border: 1px solid #bcbec0;
+  border: 1px solid #cccccc;
 }
-/* line 33, ../sass/ncr_fullcalendar.scss */
+/* line 35, ../sass/ncr_fullcalendar.scss */
 .fc-event.monthly {
-  background-color: #fdbd2c;
-  color: #6d6e71;
+  background-color: #4d99f2;
 }
-/* line 37, ../sass/ncr_fullcalendar.scss */
+/* line 38, ../sass/ncr_fullcalendar.scss */
 .fc-event.weekly {
-  background-color: #f6891e;
-  color: white;
+  background-color: #f4a725;
 }

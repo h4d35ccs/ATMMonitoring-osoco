@@ -1,40 +1,40 @@
-h1#editQuery,
-h2#editQuery,
-h3#editQuery,
-h4#editQuery,
-h5#editQuery,
-h6#editQuery,
-h1.txt,
-h2.txt,
-h3.txt,
-h4.txt,
-h5.txt,
-h6.txt{
-	background:url("../images/icons/icon_box_show.png") no-repeat top left;
-	cursor: pointer;
-	margin: 0;
-	padding: 3px;
-	padding-left: 1.5em;
-	border-bottom: 2px dotted $colorB5;
-	@include border-radius(4px);
-	&:hover{
-		background-color:$colorB5;
-	}
-	&.content_hide{
-		background-position: left -62px;
-		&.last{
-			border-bottom: none;
-		}
-	}
-}
 #main .action_box{
-	border: 1px solid $colorB5;
-	background:$colorB6;
+	border: 1px solid $colorK5;
+	background:$colorK6;
 	padding: 1em;
 	margin-bottom: 2em;
 	overflow: hidden;
 	position: relative;
 	@include border-radius(4px);
+	h1#editQuery,
+	h2#editQuery,
+	h3#editQuery,
+	h4#editQuery,
+	h5#editQuery,
+	h6#editQuery,
+	h1.txt,
+	h2.txt,
+	h3.txt,
+	h4.txt,
+	h5.txt,
+	h6.txt{
+		background:url("../images/icons/icon_box_show.png") no-repeat top left;
+		cursor: pointer;
+		margin: 0;
+		padding: 3px;
+		padding-left: 1.5em;
+		border-bottom: 2px dotted $colorK4;
+		@include border-radius(4px);
+		&:hover{
+			background-color:$colorK5;
+		}
+		&.content_hide{
+			background-position: left -62px;
+			&.last{
+				border-bottom: none;
+			}
+		}
+	}
 	.collapsible{
 		border-bottom: 1px dotted $colorK4;
 		padding: 1em;
@@ -76,35 +76,35 @@ h6.txt{
 				clear: both;
 				@include border-radius(4px);
 				margin-top: 1em;
-					.txt{
-						&.content_hide{
-							background:url("../images/icons/icon_collapsible.png") no-repeat $colorK2 left top;
-						}
-						cursor: pointer;
-						float: none;
-						padding: .5em 1em .5em 3em;
-						background:url("../images/icons/icon_collapsible.png") no-repeat $colorK2 left bottom;
-						color: $colorW;
-						border: 2px solid $colorK3;
+				.txt{
+					&.content_hide{
+						background:url("../images/icons/icon_collapsible.png") no-repeat $colorK2 left top;
 					}
-					dl{
-						margin-top: 1em;
-						padding: 1em;
-						background:$colorW;
-						overflow: hidden;
-						dt{
-							font-weight: bold;
-						}
-						dd{
-							border-bottom: 1px solid $colorK4;
-							padding: .5em 0;
-							margin-bottom: .5em;
-							&:last-child{
-								border:none;
-							}
+					cursor: pointer;
+					float: none;
+					padding: .5em 1em .5em 3em;
+					background:url("../images/icons/icon_collapsible.png") no-repeat $colorK2 left bottom;
+					color: $colorW;
+					border: 2px solid $colorK3;
+				}
+				dl{
+					margin-top: 1em;
+					padding: 1em;
+					background:$colorW;
+					overflow: hidden;
+					dt{
+						font-weight: bold;
+					}
+					dd{
+						border-bottom: 1px solid $colorK4;
+						padding: .5em 0;
+						margin-bottom: .5em;
+						&:last-child{
+							border:none;
 						}
 					}
 				}
+			}
 		}
 		.ul_data{
 			margin-top: 2em;
@@ -118,14 +118,14 @@ h6.txt{
 					padding: .5em 0;
 					float: left;
 					width: 46%;
-					border-bottom: 1px solid $colorB4;
+					border-bottom: 1px solid $colorK3;
 					strong{
 						width: 45%;
 						margin-right: 4%;
 						float: left;
 						display: block;
 						label{
-							width: 100%
+							width: 90%
 						}
 					}
 				}
@@ -146,10 +146,6 @@ h6.txt{
 				float: none;
 				margin-top: 1em;
 			}
-		}
-		.ul_data_wide{
-		@extend .ul_data;
-		width: 100%;
 		}
 	}
 }

@@ -1,8 +1,14 @@
+#headName{
+		height: 30px;
+		width: 90px;
+		background: url("../images/general/name.png")no-repeat;
+		margin-left: 120px;
+		margin-top: 4px;
+	}
 #main_header{
-	background:$colorW;
-	background:rgba(255,255,255,0.9);
-	border-bottom: 1px solid $colorK6;
-	height: 50px;
+	background:$colorK;
+	background:rgba(51,51,51,0.9);
+	height: 40px;
 	position: fixed;
 	width: 100%;
 	z-index: 1000;
@@ -18,7 +24,7 @@
 	h1{
 		position: absolute;
 		font-size: 16px;
-		color: $colorB;
+		color: $colorW;
 		height: 40px;
 		top: 0;
 		left: 0;
@@ -31,51 +37,36 @@
 			position: absolute;
 			top: -200px;
 		}
-		strong{
-			top: 12px;
-			left: 85px;
-			position: absolute;
-			font-weight: normal;
-			font-size: 1.8em;
-			padding: 6px 0 6px 40px;
-		}
 	}
 	#user_info{
 		text-transform: uppercase;
 		font-size: .8em;
-		color: $colorB3;
-		margin-left: 20em;
-		
+		color: $colorW;
 		position: absolute;
 		right: 5px;
 		top: 0;
 		&>div, &>nav{
 			float: left;
-			margin-left: 2em;
-			margin-top: 1.8em;
-
+			margin-left: .5em;
+			margin-top: 17px;
 		}
 		.date{
 			margin-right: 1em;
 		}
 		#exit{
 			margin-top: 0;
-			padding-top: 0;
 		}
 	}
 	#lang{
 		display: inline;
 		cursor: pointer;
-		color: $colorB3;
+		color: $colorW;
 		text-transform: uppercase;
 		text-align: right;
 		.txt{
 			display: block;
-			padding-right: 2.5em;
-			background:url("../images/icons/icons_onoff_w.png") no-repeat right bottom;
-			&.content_hide{
-				background:url("../images/icons/icons_onoff_w.png") no-repeat right top;
-			}
+			padding-right: 1.5em;
+			background:url("../images/icons/icons_onoff_w.png") no-repeat right top;
 		}
 		ul{
 			display: none;
@@ -83,23 +74,19 @@
 			position: absolute;
 		}
 		li{
-			background:$colorW1;
-			color: $colorB;
+			@include shadow;
+			background:$colorW;
+			color: $colorG;
 			a{
 				padding: .5em 1em;
-				border: 1px solid $colorK5;
+				border-bottom: 1px solid $colorG;
 				text-align: left;
 				display: block;
-				&:hover{
-					text-decoration: none;
-					background:$colorW;
-				}
 			}
 		}
 	}
 	#exit{
 		a{
-			margin-top: 0;
 			overflow: hidden;
 			width: 40px;
 			height: 40px;

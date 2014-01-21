@@ -85,10 +85,7 @@
 	#main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
 		width: 60%;
 	}
-	#main .action_box.data .ul_data_wide, #cboxContent .action_box.data .ul_data_wide, #main .data.pagination .ul_data_wide, #cboxContent .data.pagination .ul_data_wide {
-		width: 100%;
-	}
-	#main .action_box.data .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li, #main .action_box.data .ul_data_wide > ul li, #cboxContent .action_box.data .ul_data_wide > ul li, #main .data.pagination .ul_data_wide > ul li, #cboxContent .data.pagination .ul_data_wide > ul li {
+	#main .action_box.data .ul_data > ul li, #cboxContent .action_box.data .ul_data > ul li, #main .data.pagination .ul_data > ul li, #cboxContent .data.pagination .ul_data > ul li {
 		width: 96%;
 		li strong{
 			width: 40%;
@@ -148,13 +145,12 @@
 			padding: 0.5em 1em;
 			padding-left: 30px;
 		}
-
 	}
 // detalle TERMINAL
 	#main .action_box.data .model, #cboxContent .action_box.data .model, #main .data.pagination .model, #cboxContent .data.pagination .model {
 		width: 96%;
 	}
-	#main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #main .action_box.data .ul_data_wide, #cboxContent .action_box.data .ul_data_wide, #main .data.pagination .ul_data_wide, #cboxContent .data.pagination .ul_data_wide {
+	#main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data {
 		width: 96%;
 		li strong{
 			width: 30%;

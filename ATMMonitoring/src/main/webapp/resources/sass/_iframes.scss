@@ -12,7 +12,7 @@
 			position: relative;
 			h1{
 				color: $colorW;
-				background:$colorB;
+				background:$colorG;
 				padding: .5em;
 				margin-top: 0;
 			}
@@ -70,7 +70,7 @@
 			.row{
 				@include border-radius(4px);
 				padding: .5em;
-				background:$colorW1;
+				background:$colorK5;
 				label{
 					width: auto;
 					padding: 0;
