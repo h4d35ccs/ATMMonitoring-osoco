@@ -26,7 +26,6 @@ google.load('visualization', '1', {'packages': ['corechart', 'geochart']});
 $(function() {
     initDashboardModel();
     initColumnsControl();
-	$(".iframe").colorbox({iframe:true, width:"640px", height:"90%"});
 });
 
 // Model ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -220,6 +219,7 @@ function onChartDrawed(chart) {
 	$(chart).find(".delete").click(function() {
         deleteWidget(widgetId);
 	});
+	initEditButtonIframe($(chart).find('.editWidget').selector)
 	drawChartsMenu();
 }
 
@@ -302,7 +302,7 @@ var transforms = {
                                     children: [ { tag: 'div', class: 'icon16 config content_hide txt',
                                                   children: [ { tag: 'span', html: strings['label.widget.options'] } ] },
                                                 { tag: 'ul', class: 'collapsible',
-                                                  children: [ { tag: 'li', children: [ { tag: 'a', class: 'iframe_medium cboxElement', href: (editChartUrl + '${id}'), html: strings['label.widget.edit']} ] },
+                                                  children: [ { tag: 'li', children: [ { tag: 'a', class: 'editWidget iframe_medium', href: (editChartUrl + '${id}'), html: strings['label.widget.edit']} ] },
                                                               { tag: 'li', children: [ { tag: 'a', class: 'delete', html: strings['label.widget.delete']} ] },
                                                             ]
                                                 }
@@ -338,7 +338,7 @@ function drawChart(widget) {
     onChartDrawed($("#sortable li#" + widget.id));
 }
 
-function initEditIframes(selectorPrefix) {
+function initEditButtonIframe(selectorPrefix) {
 	//init edit links. This function is stored on menu.js
 	return initIframes(selectorPrefix);
 }
