@@ -125,8 +125,8 @@
         eventSource.loadJSON(buildEventsJSONData(), '');
         
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
-            document.location.pathname = document.location.pathname + evt.getDescription();
-  	} 
+            document.location.assign(document.location.pathname + evt.getDescription());
+  		} 
     }
     
     function buildEventsJSONData() {
