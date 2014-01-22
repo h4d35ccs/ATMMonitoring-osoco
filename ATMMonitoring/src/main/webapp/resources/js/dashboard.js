@@ -225,7 +225,12 @@ function onChartDrawed(chart) {
 		deleteWidget(widgetId);
 	});
 	
-	$(chart).find(".addToLibrary").change(function() {
+	var addToLibraryElement = $(chart).find(".addToLibrary")
+	var isWidgetAddedToLibrary = addToLibraryElement.data('checked');
+	if( isWidgetAddedToLibrary ) {
+		addToLibraryElement.attr("checked", "checked");
+	}
+	addToLibraryElement.change(function() {
 		var addToLibrary = $(this).is(':checked');
 		onAddOrRemoveWidgetToLibrary(widgetId, addToLibrary);
 	});
@@ -330,7 +335,7 @@ var transforms = {
                                                   			  { tag: 'li', children: [ { tag: 'a', class: 'editWidget iframe_medium', href: (editChartUrl + '${id}'), html: strings['label.widget.edit'] } ] },
                                                               { tag: 'li', children: 
                                                               		[ 
-                                                              			{ tag: 'input', class: 'addToLibrary', type:'checkbox', 'data-selected':"${libraryWidget}", html: strings['widget.add.to.library'] } 
+                                                              			{ tag: 'input', class: 'addToLibrary', type:'checkbox', 'data-checked' : "${libraryWidget}" , html: strings['widget.add.to.library'] } 
                                                               		] 
                                                               },
                                                               { tag: 'li', children: [ { tag: 'a', class: 'delete', html: strings['label.widget.delete'] } ] }
@@ -364,7 +369,7 @@ function drawCharts() {
 }
 
 function drawChart(widget) {
-    $("#sortable").json2html(widget, transforms.charts);
+	$("#sortable").json2html(widget, transforms.charts);
     onChartDrawed($("#sortable li#" + widget.id));
 }
 
