@@ -78,6 +78,10 @@ public class Role implements Serializable {
     /** The flag that tells us whether the users are user managers. */
     @Column(name = "user_manager", columnDefinition = "boolean default false")
     private Boolean userManager = false;
+    
+    /** The flag that tells us whether the users can add a widget to component library */
+    @Column(name = "can_edit_widgets_library", columnDefinition = "boolean default false")
+    private Boolean canEditWidgetsLibrary = false;
 
     @OneToMany(mappedBy = "role")
     private Set<User> users;
