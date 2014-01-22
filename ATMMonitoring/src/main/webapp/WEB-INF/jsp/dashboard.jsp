@@ -19,6 +19,9 @@
       strings['label.widget.delete'] = "<spring:message code='label.widget.delete' javaScriptEscape='true' />";
       strings['label.widget.cancel'] = "<spring:message code='label.widget.cancel' javaScriptEscape='true' />";
       strings['widget.delete.confirm'] = "<spring:message code='widget.delete.confirm' javaScriptEscape='true' />";
+      strings['widget.add.to.library'] = "<spring:message code='widget.add.to.library' javaScriptEscape='true' />";
+      strings['widget.add.to.library.confirm'] = "<spring:message code='widget.add.to.library.confirm' javaScriptEscape='true' />";
+      strings['widget.remove.from.library.confirm'] = "<spring:message code='widget.remove.from.library.confirm' javaScriptEscape='true' />";
     </script>
     <script type='text/javascript' src='resources/js/dashboard.js'></script>
   </jsp:attribute>

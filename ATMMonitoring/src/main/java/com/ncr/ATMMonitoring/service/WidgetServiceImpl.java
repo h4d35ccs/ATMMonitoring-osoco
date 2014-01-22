@@ -146,7 +146,7 @@ public class WidgetServiceImpl implements WidgetService {
 		return user != null && widget != null && user.equals(widget.getOwner());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see com.ncr.ATMMonitoring.service.WidgetService#findWidgetById(int)
 	 */
 	@Override
@@ -154,11 +154,11 @@ public class WidgetServiceImpl implements WidgetService {
 		return widgetDAO.findById(widgetId);
 	}
 
-	/* (non-Javadoc)
+	/** 
 	 * @see com.ncr.ATMMonitoring.service.WidgetService#executeQuery(com.ncr.ATMMonitoring.pojo.Widget, java.util.Locale)
 	 */
 	@Override
-	public List executeQuery(Widget widget, Locale locale) {
+	public List<?> executeQuery(Widget widget, Locale locale) {
 		return queryService.executeQueryGroupingBy(
 		    widget.getQuery(),
 			widget.getGroupByEntity(),
@@ -192,6 +192,17 @@ public class WidgetServiceImpl implements WidgetService {
 				logger.info("Adding widget from library[" + widgetId + "] to user[" + user.getId() + "]");
 				copyWidgetToUserDashboard(widget, user);
 			}
+		}
+	}
+	
+	@Override 
+	public void addOrRemoveWidgetToLibrary(Integer widgetId ,User user, boolean addToLibrary) {
+		Widget widget = findWidgetById(widgetId);
+		if( isWidgetOwnedByUser(widget, user)) {
+			String action = addToLibrary ? "Adding" : "Removing";
+			logger.info(action + " widget[" + widgetId + "] to library by user[" + user.getId() + "]");
+			widget.setLibraryWidget(addToLibrary);
+			widgetDAO.update(widget);
 		}
 	}
 	

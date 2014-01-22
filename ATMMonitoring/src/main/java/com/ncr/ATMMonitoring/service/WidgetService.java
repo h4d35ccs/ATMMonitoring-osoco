@@ -69,4 +69,6 @@ public interface WidgetService {
 	public void addWidgetsFromLibrary(List<Integer> widgetIds, User user);
 
 	public List<Widget> findLibraryWidgets();
+
+	public void addOrRemoveWidgetToLibrary(Integer widgetId, User user, boolean addToLibrary);
 }

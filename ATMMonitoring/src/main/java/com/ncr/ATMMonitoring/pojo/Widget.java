@@ -320,6 +320,7 @@ public class Widget {
 		result.put("id", id);
 		result.put("title", title);
 		result.put("type", chartType);
+		result.put("libraryWidget", libraryWidget);
 		return result;
 	}
 

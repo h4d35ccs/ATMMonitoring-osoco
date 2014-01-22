@@ -115,7 +115,6 @@ public class WidgetController {
     @RequestMapping(value = "/dashboard/addFromLibrary", method = RequestMethod.POST)
     public String addFromLibrary(
     		@RequestParam(value="widgetIds", required = false) ArrayList<Integer> widgetIds,
-    		HttpServletRequest request,
     		Principal principal) {
 
     	if (widgetIds != null && principal != null) {
@@ -124,6 +123,29 @@ public class WidgetController {
     	}
 
     	return "closeIframeUpdateParent";
+    }
+    
+    @RequestMapping(value = "/dashboard/addToLibrary", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.OK)
+    public void addToLibrary(
+    		@RequestParam(value="widgetId") Integer widgetId,
+    		Principal principal) {
+    	addOrRemoveWidgetFromLibrary(widgetId, principal, true);
+    }
+    
+    @RequestMapping(value = "/dashboard/removeFromLibrary", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.OK)
+    public void removeFrom(
+    		@RequestParam(value="widgetId") Integer widgetId,
+    		Principal principal) {
+    	addOrRemoveWidgetFromLibrary(widgetId, principal, false);
+    }
+    
+    private void addOrRemoveWidgetFromLibrary(Integer widgetId, Principal principal, boolean addToLibrary) {
+    	if (widgetId != null && principal != null) {
+    		User loggedUser = userService.getUserByUsername(principal.getName());
+    		widgetService.addOrRemoveWidgetToLibrary(widgetId, loggedUser, addToLibrary);
+    	}
     }
 
     private String createOrEditWidget(Map<String, Object> model, Principal principal,  Integer widgetId) {

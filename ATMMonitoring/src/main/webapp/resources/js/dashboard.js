@@ -6,6 +6,8 @@ var showChartUrl = 'dashboard/showChart';
 var changeDashboardColumnsUrl = 'dashboard/changeColumns';
 var deleteChartUrl = 'dashboard/delete'
 var editChartUrl = 'dashboard/edit/'
+var addWidgetToLibraryUrl = 'dashboard/addToLibrary'
+var removeWidgetFromLibrary = 'dashboard/removeFromLibrary'
 
 var divChartSelector = 'li.chart '
 
@@ -142,6 +144,10 @@ function showWidget(widgetId) {
     onVisibleWidget(widgetId);
 }
 
+function addWidgetToLibrary(widgetId) {
+	onAddWidgetToLibrary(widgetId);
+}
+
 function openChartsMenu() {
     $("#myCharts").show();
     $("#myCharts").parent().find("div.txt").removeClass("content_hide");
@@ -216,10 +222,14 @@ function onChartDrawed(chart) {
         hideWidget(widgetId);
 	});
 	$(chart).find(".delete").click(function() {
-		if(confirm(strings['widget.delete.confirm'])) {
-			deleteWidget(widgetId);
-		}
+		deleteWidget(widgetId);
 	});
+	
+	$(chart).find(".addToLibrary").change(function() {
+		var addToLibrary = $(this).is(':checked');
+		onAddOrRemoveWidgetToLibrary(widgetId, addToLibrary);
+	});
+	
 	initEditButtonIframe($(chart).find('.editWidget').selector)
 	drawChartsMenu();
 }
@@ -229,7 +239,9 @@ function onHiddenWidget(widgetId) {
 }
 
 function onDeleteWidget(widgetId) {
-	postToUrlAndHideChart(deleteChartUrl, widgetId)
+	if(confirm(strings['widget.delete.confirm'])) {
+		postToUrlAndHideChart(deleteChartUrl, widgetId)
+	}
 }
 
 function postToUrlAndHideChart(postUrl, widgetId) {
@@ -242,6 +254,17 @@ function postToUrlAndHideChart(postUrl, widgetId) {
     drawChartsMenu();
     $("#sortable li#" + widgetId).hide('slow');
     $("#sortable li#" + widgetId).remove();
+}
+
+function onAddOrRemoveWidgetToLibrary(widgetId, addToLibrary) {
+   if(confirm(strings['widget.' + (addToLibrary ? 'add.to' : 'remove.from') + '.library.confirm'])) {
+	   $.post(
+	        (addToLibrary ? addWidgetToLibraryUrl : removeWidgetFromLibrary),
+	        {
+	            widgetId: widgetId
+	        }
+	    );
+    }
 }
 
 function onVisibleWidget(widgetId) {
@@ -303,8 +326,14 @@ var transforms = {
                                     children: [ { tag: 'div', class: 'icon16 config content_hide txt',
                                                   children: [ { tag: 'span', html: strings['label.widget.options'] } ] },
                                                 { tag: 'ul', class: 'collapsible',
-                                                  children: [ { tag: 'li', children: [ { tag: 'a', class: 'editWidget iframe_medium', href: (editChartUrl + '${id}'), html: strings['label.widget.edit']} ] },
-                                                              { tag: 'li', children: [ { tag: 'a', class: 'delete', html: strings['label.widget.delete']} ] },
+                                                  children: [ 
+                                                  			  { tag: 'li', children: [ { tag: 'a', class: 'editWidget iframe_medium', href: (editChartUrl + '${id}'), html: strings['label.widget.edit'] } ] },
+                                                              { tag: 'li', children: 
+                                                              		[ 
+                                                              			{ tag: 'input', class: 'addToLibrary', type:'checkbox', 'data-selected':"${libraryWidget}", html: strings['widget.add.to.library'] } 
+                                                              		] 
+                                                              },
+                                                              { tag: 'li', children: [ { tag: 'a', class: 'delete', html: strings['label.widget.delete'] } ] }
                                                             ]
                                                 }
                                               ]
