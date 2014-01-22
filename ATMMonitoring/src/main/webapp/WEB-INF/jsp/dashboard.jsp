@@ -1,6 +1,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page pageEncoding="UTF-8"%>
@@ -22,6 +23,11 @@
       strings['widget.add.to.library'] = "<spring:message code='widget.add.to.library' javaScriptEscape='true' />";
       strings['widget.add.to.library.confirm'] = "<spring:message code='widget.add.to.library.confirm' javaScriptEscape='true' />";
       strings['widget.remove.from.library.confirm'] = "<spring:message code='widget.remove.from.library.confirm' javaScriptEscape='true' />";
+      
+      var hasPrivileges = false;
+      <sec:authorize access="hasAnyRole(${editWidgetsLibraryAllowedRoles})">
+          hasPrivileges = true;
+      </sec:authorize>
     </script>
     <script type='text/javascript' src='resources/js/dashboard.js'></script>
   </jsp:attribute>

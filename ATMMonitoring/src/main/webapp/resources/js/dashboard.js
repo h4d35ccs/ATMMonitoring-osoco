@@ -336,7 +336,7 @@ var transforms = {
                                                 { tag: 'ul', class: 'collapsible',
                                                   children: [ 
                                                   			  { tag: 'li', children: [ { tag: 'a', class: 'editWidget iframe_medium', href: (editChartUrl + '${id}'), html: strings['label.widget.edit'] } ] },
-                                                              { tag: 'li', children: 
+                                                              { tag: 'li', class: 'privilegedOption' , children: 
                                                               		[ 
                                                               			{ tag: 'input', class: 'addToLibrary', type:'checkbox', 'data-checked' : "${libraryWidget}" , html: strings['widget.add.to.library'] } 
                                                               		] 
@@ -373,7 +373,15 @@ function drawCharts() {
 
 function drawChart(widget) {
 	$("#sortable").json2html(widget, transforms.charts);
-    onChartDrawed($("#sortable li#" + widget.id));
+	var drawedElement = $("#sortable li#" + widget.id); 
+	if(!hasPrivileges) {
+		hideEditWidgetsLibraryOptions()
+	}
+	onChartDrawed(drawedElement);
+}
+
+function hideEditWidgetsLibraryOptions() {
+	$('.privilegedOption').hide();
 }
 
 function initEditButtonIframe(selectorPrefix) {

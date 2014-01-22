@@ -32,6 +32,7 @@
         <spring:eval expression="@settings.getProperty('security.terminalsUpdateRequestAllowedRoles')" var="terminalsUpdateRequestAllowedRoles" scope="request"/>
         <spring:eval expression="@settings.getProperty('security.queriesAccessAllowedRoles')" var="queriesAccessAllowedRoles" scope="request"/>
         <spring:eval expression="@settings.getProperty('security.reportsAccessAllowedRoles')" var="reportsAccessAllowedRoles" scope="request"/>
+		<spring:eval expression="@settings.getProperty('security.editWidgetsLibraryAllowedRoles')" var="editWidgetsLibraryAllowedRoles" scope="request"/>
 
         <base href="${base}"/>
         <script src="resources/js/jquery-1.8.3.min.js"></script>
