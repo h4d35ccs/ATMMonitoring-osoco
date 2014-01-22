@@ -230,9 +230,9 @@ function onChartDrawed(chart) {
 	if( isWidgetAddedToLibrary ) {
 		addToLibraryElement.attr("checked", "checked");
 	}
-	addToLibraryElement.change(function() {
+	addToLibraryElement.click(function() {
 		var addToLibrary = $(this).is(':checked');
-		onAddOrRemoveWidgetToLibrary(widgetId, addToLibrary);
+		return onAddOrRemoveWidgetToLibrary(widgetId, addToLibrary);
 	});
 	
 	initEditButtonIframe($(chart).find('.editWidget').selector)
@@ -269,6 +269,9 @@ function onAddOrRemoveWidgetToLibrary(widgetId, addToLibrary) {
 	            widgetId: widgetId
 	        }
 	    );
+	    return true;
+    } else {
+    	return false;
     }
 }
 
