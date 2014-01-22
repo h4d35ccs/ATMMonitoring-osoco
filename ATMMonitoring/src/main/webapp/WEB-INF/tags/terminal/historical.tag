@@ -48,10 +48,12 @@
     window.onload = function() { loadTimeline() };
     
     var tl;
+    var times = 0
     
     function loadTimeline() {
-    
-    	if(SimileAjax.loadedScriptsCount != 22) {
+    	if(SimileAjax.loadedScriptsCount != 22 && times < 50) {
+    	    times++;
+    	    console.log(times);
     	    setTimeout(loadTimeline, 50);
     	    return;
     	}
