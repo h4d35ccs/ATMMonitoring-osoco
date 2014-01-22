@@ -52,7 +52,7 @@
 			<option value="" ><spring:message code="label.select.default"/></option>
 			<c:forEach items="${queryType.comboboxes}" var="groupByField">
 				<option value="${groupByField.key}">
-					${groupByField.key}
+					<spring:message code="${queryType.buildI18nMessage(groupByField.key)}" />
 				</option>
 			</c:forEach>
 		</select>

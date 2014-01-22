@@ -16,7 +16,7 @@ import com.ncr.ATMMonitoring.pojo.XfsComponent;
 public enum WidgetQueryAssociationType {
 	
 	TERMINAL(null, "terminal", Terminal.getComboboxes()),
-	INSTALLATION("installations", "installations", Installation.getComboboxes()),
+	INSTALLATION("installations", "installation", Installation.getComboboxes()),
 	FINANCIAL_DEVICES("financialDevices","financialDevice", FinancialDevice.getComboboxes()),
 	XFS_COMPONENT("financialDevices.xfsComponents", "xfsComponent", XfsComponent.getComboboxes()),
 	JXFS_COMPONENT("financialDevices.jxfsComponents", "jxfsComponent", JxfsComponent.getComboboxes()),
@@ -93,5 +93,10 @@ public enum WidgetQueryAssociationType {
 
 	public Map<String,?> getComboboxes() {
 		return comboboxes;
+	}
+	
+	public String buildI18nMessage(String fieldsSepparatedByPoints) {
+		String firstField = fieldsSepparatedByPoints.split("\\.")[0];
+		return "label." + this.comboboxName + "." + firstField;
 	}
 }
