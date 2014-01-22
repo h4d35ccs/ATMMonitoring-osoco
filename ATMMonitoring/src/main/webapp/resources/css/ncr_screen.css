@@ -3602,3 +3602,64 @@ div.summaryContent {
 form#newWidgetForm .row select {
 	width: 225px;	
 }
+
+
+.timeline-event-icon{
+
+  top: 7px !important;
+
+}
+
+.timeline-copyright{
+
+display:none;
+
+}
+
+.history_legend{ 
+
+padding: .5em 0;
+
+}
+
+
+.timeline-band-scrollbar{
+
+display: none !important;
+
+}
+
+div#terminalsMap {
+	height : 600px;
+	width  : 100%;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+div.summaryContent {
+	width: 500px;
+	height : 350px;
+}
+
+#main .summaryContent .action_box.data .ul_data {
+	width : 100%;
+}
+
+.columns_botonera ul .mapa a {
+  background: url("../images/icons/icons_column.png") no-repeat -120px 0;
+}
+
+/* line 409, ../sass/_icons.scss */
+.columns_botonera ul .mapa.current a {
+  background-position: -120px -20px;
+}
+
+
+.tab_buttons {
+  position: relative;
+  height: 3em;
+}
+ 
+#main .action_box.data .ul_data, #cboxContent .action_box.data .ul_data, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #main .action_box.data .ul_data_wide, #cboxContent .action_box.data .ul_data_wide, #cboxContent .data.pagination .action_box.data .ul_data_wide, #cboxContent .action_box.data .data.pagination .ul_data_wide, #main .data.pagination .ul_data_wide, #cboxContent #main .data.pagination .ul_data_wide, #main #cboxContent .data.pagination .ul_data_wide, #cboxContent .action_box.data .data.pagination .ul_data_wide, #cboxContent .data.pagination .action_box.data .ul_data_wide, #main #cboxContent .data.pagination .ul_data_wide, #cboxContent #main .data.pagination .ul_data_wide, #cboxContent .data.pagination .ul_data_wide, #cboxContent .action_box.data .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .action_box.data .ul_data_wide, #cboxContent .data.pagination .action_box.data .ul_data_wide, #cboxContent .action_box.data .data.pagination .ul_data_wide, #cboxContent #main .data.pagination .ul_data_wide, #main #cboxContent .data.pagination .ul_data_wide, #cboxContent .action_box.data .data.pagination .ul_data_wide, #cboxContent .data.pagination .action_box.data .ul_data_wide, #cboxContent .data.pagination .ul_data_wide, #main .data.pagination .ul_data, #cboxContent .data.pagination .ul_data, #cboxContent .data.pagination #main .action_box.data .ul_data_wide, #main .data.pagination #cboxContent .action_box.data .ul_data_wide, #cboxContent .data.pagination .action_box.data .ul_data_wide, #cboxContent .action_box.data .data.pagination .ul_data_wide, #main .data.pagination .ul_data_wide, #cboxContent #main .data.pagination .ul_data_wide, #main #cboxContent .data.pagination .ul_data_wide, #main #cboxContent .data.pagination .ul_data_wide, #cboxContent #main .data.pagination .ul_data_wide, #cboxContent .data.pagination .ul_data_wide, #cboxContent .data.pagination .ul_data, #cboxContent .data.pagination .action_box.data .ul_data_wide, #cboxContent .action_box.data .data.pagination .ul_data_wide, #cboxContent #main .data.pagination .ul_data_wide, #main #cboxContent .data.pagination .ul_data_wide, #cboxContent .data.pagination .ul_data_wide {
+	width: 60%;
+}
