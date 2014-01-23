@@ -13,10 +13,16 @@ if (typeof SimileAjax == "undefined") {
         loaded:                 false,
         loadingScriptsCount:    0,
         loadedScriptsCount:     0,
+        pendingToLoadScriptsCount : 0,
         error:                  null,
         params:                 { bundle:"true" }
     };
-    
+     
+    SimileAjax.noPendingScriptsToLoad = function() {
+    	console.log("Pending -> loaded" + this.pendingToLoadScriptsCount + " -> " + this.loadedScriptsCount)
+    	return this.pendingToLoadScriptsCount == this.loadedScriptsCount 
+    } 
+     
     SimileAjax.Platform = new Object();
         /*
             HACK: We need these 2 things here because we cannot simply append
@@ -47,6 +53,7 @@ if (typeof SimileAjax == "undefined") {
         return null;
     };
     SimileAjax.includeJavascriptFile = function(doc, url, onerror, charset) {
+        SimileAjax.pendingToLoadScriptsCount++
         onerror = onerror || "";
         if (doc.body == null) {
             try {

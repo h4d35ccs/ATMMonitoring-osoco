@@ -42,21 +42,14 @@
     var Timeline_ajax_url= 'resources/timeline/ajax/simile-ajax-api.js';       
 </script>
 <script src="resources/timeline/api/timeline-api.js" type="text/javascript"></script>
+
 <script>
-    window.onload = function() { loadTimeline() };
+
+    window.onload = function() { executeOnTimelineLoaded(loadTimeline) };
     
     var tl;
-    var times = 0
     
     function loadTimeline() {
-    	if(SimileAjax.loadedScriptsCount < 15) {
-    	    times++;
-    	    console.log(times);
-    	    console.log(SimileAjax.loadedScriptsCount);
-    	    setTimeout(loadTimeline, 50);
-    	    return;
-    	}
-    	 
     	var eventSource = new Timeline.DefaultEventSource();
 
         var zones = [];

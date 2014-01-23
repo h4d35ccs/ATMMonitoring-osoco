@@ -68,6 +68,7 @@
  *================================================== 
  */
 
+var isLoaded = false;
 (function() {
     var simile_ajax_ver = "2.2.1"; // ===========>>>  current Simile-Ajax version
   
@@ -273,6 +274,7 @@
         } catch (e) {
             alert(e);
         }
+        isLoaded = true;
     };
     
     /*
@@ -296,7 +298,7 @@
         }
         if (document.body == null) {
             try {
-                document.write("<script src='" + url + "' type='text/javascript'></script>");
+            	document.write("<script src='" + url + "' type='text/javascript'></script>");
             } catch (e) {
                 createScriptElement();
             }
@@ -304,6 +306,23 @@
             createScriptElement();
         }
     } else {
-        loadMe();
+      	loadMe();
     }
 })();
+
+function executeOnTimelineLoaded( delegate ) {
+	var timesTryToLoad = 0;
+	
+	executeDelegate();
+	function executeDelegate() {
+	    timesTryToLoad++
+		
+		if(SimileAjax.noPendingScriptsToLoad() && isLoaded ) {
+    		delegate()
+    	} else if (timesTryToLoad < 200) {
+    		setTimeout(executeDelegate, 50);
+    	} else {
+    		alert("Timeline is not correctly loaded")
+    	}
+    }
+}
