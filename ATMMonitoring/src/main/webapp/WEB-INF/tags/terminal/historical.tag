@@ -120,7 +120,19 @@
         
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
             document.location.assign(document.location.pathname + evt.getDescription());
-  		} 
+  		}
+  		
+  		var resizeTimerID = null;
+		function onResize() {
+			if (resizeTimerID == null) {
+				resizeTimerID = window.setTimeout(function() {
+					resizeTimerID = null;
+					tl.layout();
+				}, 500);
+			}
+		}
+		
+		window.onresize = onResize;  
     }
     
     function buildEventsJSONData() {
