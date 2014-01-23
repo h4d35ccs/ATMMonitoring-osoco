@@ -19,7 +19,7 @@ if (typeof SimileAjax == "undefined") {
     };
      
     SimileAjax.noPendingScriptsToLoad = function() {
-    	console.log("Pending -> loaded" + this.pendingToLoadScriptsCount + " -> " + this.loadedScriptsCount)
+    	console.log("Pending -> loaded : " + this.pendingToLoadScriptsCount + " -> " + this.loadedScriptsCount)
     	return this.pendingToLoadScriptsCount == this.loadedScriptsCount 
     } 
      
