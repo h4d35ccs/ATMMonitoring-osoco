@@ -5,8 +5,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<c:set var="timelineDatesPattern" value="MM dd yyyy HH:mm:ss"/>
-
 <h2><spring:message code="label.terminal.history"/></h2>
 
 <c:forEach items="${historicalChanges}" var="changesByType">
@@ -51,9 +49,10 @@
     var times = 0
     
     function loadTimeline() {
-    	if(SimileAjax.loadedScriptsCount != 22 && times < 50) {
+    	if(SimileAjax.loadedScriptsCount < 15) {
     	    times++;
     	    console.log(times);
+    	    console.log(SimileAjax.loadedScriptsCount);
     	    setTimeout(loadTimeline, 50);
     	    return;
     	}
@@ -69,8 +68,8 @@
         var bandInfos = [
             Timeline.createHotZoneBandInfo({
             	<c:if test="${!(date == null)}">  
-	            date : "<fmt:formatDate value="${date}" pattern="${timelineDatesPattern}"/>" ,     
-	        </c:if>  
+	            	date : new Date(${date.time}) ,     
+	        	</c:if>  
                 width:          "66%", 
                 intervalUnit:   Timeline.DateTime.MONTH, 
                 intervalPixels: 200,
@@ -139,7 +138,7 @@
 	               <c:set var="changeDate" value="${changeDates.getKey()}" />
 	               <c:set var="numberOfChanges" value="${changeDates.getValue()}" />
 			{
-			 start : "<fmt:formatDate value="${changeDate}" pattern="${timelineDatesPattern}"/>",
+			 		 start : new Date(${changeDate.time}) ,
     	          	 description : "?dateTime=${changeDate.time}&preselectedTab=${changesByType.key.simpleName}",
     	          	 icon : '<c:url 
     	          	 	value="/resources/timeline/api/images/${changesByType.key.simpleName}${date.time == changeDate.time ? '_current' : ''}.png" 
