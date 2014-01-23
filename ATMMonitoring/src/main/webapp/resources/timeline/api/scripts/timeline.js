@@ -630,6 +630,14 @@ Timeline._Impl.prototype.shiftOK = function(index, shift) {
     return (ok);
 };
 
+
+Timeline._Impl.prototype.getCenterPixel = function(bandIndex) {
+	var viewLength = tl._bands[bandIndex].getViewLength();
+	var viewOffset = tl._bands[bandIndex].getViewOffset();
+	return (viewLength / 2 - viewOffset);
+}
+			
+			
 Timeline._Impl.prototype.zoom = function (zoomIn, x, y, target) {
   var matcher = new RegExp("^timeline-band-([0-9]+)$");
   var bandIndex = null;

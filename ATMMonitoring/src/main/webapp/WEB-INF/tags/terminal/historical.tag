@@ -16,26 +16,10 @@
 <div class="history_legend">
 	<div id="timeline" style="height:80px"> </div>
 </div>
-<!-- <div class="action_box data desplegable"> -->
-<%--     <h2 class="txt content_hide last"><spring:message code="label.terminal.history"/></h2> --%>
-<!--     <div id="timeline" class="collapsible last hide"> -->
-<%--     <c:forEach items="${historicalChanges}" var="changesByType"> --%>
-<%--     <p><spring:message code="label.historical.${changesByType.getKey().getSimpleName()}"/></p> --%>
-<!--         <ul> -->
-<%-- 	    <c:forEach items="${changesByType.getValue()}" var="changeDates"> --%>
-<%-- 	        <c:set var="changeDate" value="${changeDates.getKey()}" /> --%>
-<%-- 	        <c:set var="numberOfChanges" value="${changeDates.getValue()}" /> --%>
-<!-- 		<li> -->
-<%-- 	<a href="terminals/details/${terminal.id}?date=<fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy" />"> --%>
-<%-- 	El día <fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy" /> hubo ${numberOfChanges} cambios  ${changeDate } --%>
-<!-- 	</a> -->
-<!-- 	</li> -->
-<%-- 	</c:forEach>	 --%>
-<!-- 	</ul> -->
-<%--     </c:forEach> --%>
-<!--     </div> -->
-<!-- </div> -->
-
+<div class="botonera">
+	<a href="#" class="btn timelineZoom" data-zoom-in="true"  > + </a>
+	<a href="#" class="btn timelineZoom" data-zoom-in="false" > - </a>
+</div>
 
 <script>
     var Timeline_urlPrefix = 'resources/timeline/api/';
@@ -133,6 +117,13 @@
 		}
 		
 		window.onresize = onResize;  
+		
+		$("div.botonera .timelineZoom").click( function() {
+			var target = document.getElementById("timeline-band-0");
+			var zoomIn = $(this).data('zoomIn');
+			
+			tl.zoom(zoomIn, tl.getCenterPixel(0) ,1,target);
+		});
     }
     
     function buildEventsJSONData() {
