@@ -52,7 +52,6 @@
                 intervalPixels: 200,
                 zones:          zones,
                 eventSource:    eventSource,
-                timeZone:       -6,
                 zoomIndex:      16,
             zoomSteps:      new Array(
               {pixelsPerInterval: 3000,  unit: Timeline.DateTime.HOUR},
