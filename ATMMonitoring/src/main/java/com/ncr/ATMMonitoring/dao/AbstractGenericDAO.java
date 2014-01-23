@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.dao;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -93,7 +94,8 @@ public abstract class AbstractGenericDAO<T> {
      */
     protected List<T> list() {
 	return sessionFactory.getCurrentSession()
-		.createCriteria(getDomainClass()).list();
+		.createCriteria(getDomainClass())
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /**

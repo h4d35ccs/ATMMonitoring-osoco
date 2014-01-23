@@ -48,7 +48,8 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
 		.createCriteria(ScheduledUpdate.class)
 		.add(Restrictions.isNotNull("weekDay"))
 		.addOrder(Order.asc("weekDay")).addOrder(Order.asc("hour"))
-		.addOrder(Order.asc("minute")).list();
+		.addOrder(Order.asc("minute"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /* (non-Javadoc)
@@ -60,7 +61,8 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
 		.createCriteria(ScheduledUpdate.class)
 		.add(Restrictions.isNotNull("monthDay"))
 		.addOrder(Order.asc("monthDay")).addOrder(Order.asc("hour"))
-		.addOrder(Order.asc("minute")).list();
+		.addOrder(Order.asc("minute"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /* (non-Javadoc)
@@ -136,6 +138,7 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
 					"gmtWeekDay",
 					new Integer(date
 						.get(Calendar.DAY_OF_WEEK))
-						.shortValue())))).list();
+						.shortValue()))))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 }

@@ -103,7 +103,8 @@ public class RoleDAOImpl extends AbstractGenericDAO<Role> implements RoleDAO {
     @Override
     public List<Role> listManageableRoles() {
 	return sessionFactory.getCurrentSession().createCriteria(Role.class)
-		.add(Restrictions.eq("manageable", true)).list();
+		.add(Restrictions.eq("manageable", true))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /*
@@ -126,7 +127,8 @@ public class RoleDAOImpl extends AbstractGenericDAO<Role> implements RoleDAO {
 		criteria.addOrder(Order.desc(sort));
 	    }
 	}
-	return criteria.list();
+	return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+		.list();
     }
 
     /*

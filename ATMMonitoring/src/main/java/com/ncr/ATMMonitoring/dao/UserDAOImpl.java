@@ -68,7 +68,8 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 		criteria.addOrder(Order.desc(sort));
 	    }
 	}
-	return criteria.list();
+	return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+		.list();
     }
 
     /*
@@ -81,7 +82,8 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 	return sessionFactory.getCurrentSession()
 		.createCriteria(User.class)
 		.addOrder(Order.asc("lastname"))
-		.addOrder(Order.asc("username")).list();
+		.addOrder(Order.asc("username"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /* (non-Javadoc)
@@ -95,7 +97,8 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 		.isNull("bankCompany");
 	return sessionFactory.getCurrentSession().createCriteria(User.class)
 		.add(restriction).addOrder(Order.asc("lastname"))
-		.addOrder(Order.asc("username")).list();
+		.addOrder(Order.asc("username"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /* (non-Javadoc)
@@ -109,7 +112,8 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 		.add(Restrictions.or(Restrictions.eq("bankCompany", bank),
 			Restrictions.isNull("bankCompany")))
 		.addOrder(Order.asc("lastname"))
-		.addOrder(Order.asc("username")).list();
+		.addOrder(Order.asc("username"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /* (non-Javadoc)

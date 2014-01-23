@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.dao;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -44,7 +45,8 @@ public class SoftwareDAOImpl extends AbstractGenericDAO<Software> implements
 			.addOrder(Order.desc("minor_version"))
 			.addOrder(Order.desc("build_version"))
 			.addOrder(Order.desc("revision_version"))
-			.addOrder(Order.desc("remaining_version")).list();
+		.addOrder(Order.desc("remaining_version"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /* (non-Javadoc)
