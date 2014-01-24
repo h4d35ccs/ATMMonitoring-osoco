@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.dao;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
@@ -56,7 +57,8 @@ public class QueryDAOImpl extends AbstractGenericDAO<Query> implements QueryDAO 
     @Override
     public List<Query> listQueries() {
 	return sessionFactory.getCurrentSession().createCriteria(Query.class)
-		.addOrder(Order.asc("name")).list();
+		.addOrder(Order.asc("name"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /* (non-Javadoc)

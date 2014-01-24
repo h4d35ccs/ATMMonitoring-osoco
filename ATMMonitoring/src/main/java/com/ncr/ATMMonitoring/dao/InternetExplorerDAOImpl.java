@@ -47,7 +47,8 @@ public class InternetExplorerDAOImpl extends
 		.addOrder(Order.desc("minor_version"))
 		.addOrder(Order.desc("build_version"))
 		.addOrder(Order.desc("revision_version"))
-		.addOrder(Order.asc("remaining_version")).list();
+		.addOrder(Order.asc("remaining_version"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /* (non-Javadoc)

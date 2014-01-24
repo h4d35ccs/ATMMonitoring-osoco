@@ -105,7 +105,8 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 		criteria.addOrder(Order.desc(sort));
 	    }
 	}
-	return criteria.list();
+	return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+		.list();
     }
 
     /* (non-Javadoc)
@@ -118,7 +119,8 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 		.createCriteria(Terminal.class)
 		.add(Restrictions.or(Restrictions.eq("bankCompany", bank),
 			Restrictions.isNull("bankCompany")))
-		.addOrder(Order.asc("serialNumber")).list();
+		.addOrder(Order.asc("serialNumber"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /* (non-Javadoc)
@@ -128,7 +130,8 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
     public List<Terminal> listTerminals() {
 	return sessionFactory.getCurrentSession()
 		.createCriteria(Terminal.class)
-		.addOrder(Order.asc("serialNumber")).list();
+		.addOrder(Order.asc("serialNumber"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /* (non-Javadoc)

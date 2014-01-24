@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.dao;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -64,14 +65,16 @@ public class WidgetDAOImpl extends AbstractGenericDAO<Widget> implements
     public List<Widget> findDefaultWidgets() {
 	return sessionFactory.getCurrentSession().createCriteria(Widget.class)
 		.add(Restrictions.eq("defaultWidget", true))
-		.addOrder(Order.asc("title")).list();
+		.addOrder(Order.asc("title"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
     
     @Override
 	public List<Widget> findLibraryWidgets() {
     	return sessionFactory.getCurrentSession().createCriteria(Widget.class)
     			.add(Restrictions.eq("libraryWidget", true))
-    			.addOrder(Order.asc("title")).list();
+		.addOrder(Order.asc("title"))
+		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
     /*
