@@ -31,6 +31,8 @@ google.load('visualization', '1', {'packages': ['corechart', 'geochart', 'table'
 $(function() {
     initDashboardModel();
     initColumnsControl();
+    
+    window.onresize = onLoadDashboard;
 });
 
 // Model ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -95,17 +97,17 @@ function moveVisibleChart(oldPosition, newPosition) {
 // Controllers ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 function initDashboardModel() {
-    $.ajax({
-        url: dashboardUrl,
-        dataType: "json",
-        async: true
-    }).fail(function(xhr, ajaxOptions, thrownError) {
-        console.error("Error " + xhr.status + ": " + thrownError);
-    }).done(function(data) {
-        dashboardModel = data;
+    	$.ajax({
+	        url: dashboardUrl,
+	        dataType: "json",
+	        async: true
+	    }).fail(function(xhr, ajaxOptions, thrownError) {
+	        console.error("Error " + xhr.status + ": " + thrownError);
+	    }).done(function(data) {
+	        dashboardModel = data;
         onLoadDashboard();
-    });
-}
+	    });
+    }
 
 function initColumnsControl() {
     $("#columns li").click(function(event) {

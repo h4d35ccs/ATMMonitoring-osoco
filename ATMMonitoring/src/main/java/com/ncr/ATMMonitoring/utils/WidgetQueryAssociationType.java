@@ -145,7 +145,13 @@ public enum WidgetQueryAssociationType {
 	}
 	
 	public String buildI18nMessage(String fieldsSepparatedByPoints) {
-		String firstField = fieldsSepparatedByPoints.split("\\.")[0];
-		return "label." + this.comboboxName + "." + firstField;
+		String i18nMessage = "label.";
+		
+		String[] fields = fieldsSepparatedByPoints.split("\\.");
+		if(fields.length > 1) {
+			return i18nMessage + fieldsSepparatedByPoints;
+		} else{
+			return i18nMessage + this.comboboxName + "." + fieldsSepparatedByPoints;
+		}
 	}
 }

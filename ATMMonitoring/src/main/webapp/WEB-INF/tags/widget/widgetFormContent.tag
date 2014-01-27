@@ -92,7 +92,8 @@ $(function() {
 	
 	function initQueryDateInput() {
 		var inputQueryDate = $("input#queryDate"); 
-		inputQueryDate.datepicker();
+		//inputQueryDate.datepicker();
+	    inputQueryDate.datepicker({ dateFormat: "dd/mm/yy" });
 	    $('#queryDateButton').click(function(event) {
 	        event.preventDefault();
 	        inputQueryDate.datepicker("show");
