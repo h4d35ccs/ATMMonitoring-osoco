@@ -72,7 +72,8 @@
 	}
 	
 	Cluster.prototype.contains = function(element) {
-		for(var index; index < this.clusteredElements.length ; index ++) {
+		var index = 0;
+		for(index; index < this.clusteredElements.length ; index ++) {
 			if(this.clusteredElements[index] == element) {
 				return true;
 			}

@@ -212,6 +212,10 @@ Timeline._Band.prototype.removeOnScrollListener = function(listener) {
     }
 };
 
+Timeline._Band.prototype.addOnEventPaintFinished = function(listener) {
+	this._eventPainter.addEventPaintListener(listener)
+}
+
 Timeline._Band.prototype.addOnOrthogonalScrollListener = function(listener) {
     this._onOrthogonalScrollListeners.push(listener);
 };

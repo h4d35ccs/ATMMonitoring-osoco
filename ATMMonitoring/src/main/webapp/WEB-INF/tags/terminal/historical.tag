@@ -14,7 +14,7 @@
 </c:forEach>	
 
 <div class="history_legend">
-	<div id="timeline" style="height:80px"> </div>
+	<div id="timeline" style="height:120px"> </div>
 </div>
 <div class="botonera">
 	<a href="#" class="btn timelineZoom" data-zoom-in="true"  > + </a>
@@ -26,6 +26,7 @@
     var Timeline_ajax_url= 'resources/timeline/ajax/simile-ajax-api.js';       
 </script>
 <script src="resources/timeline/api/timeline-api.js" type="text/javascript"></script>
+<script src="resources/js/elementClusterer.js" type="text/javascript"></script>
 
 <script>
 
@@ -47,7 +48,7 @@
             	<c:if test="${!(date == null)}">  
 	            	date : new Date(${date.time}) ,     
 	        	</c:if>  
-                width:          "66%", 
+	        	width:          "66%", 
                 intervalUnit:   Timeline.DateTime.MONTH, 
                 intervalPixels: 200,
                 zones:          zones,
@@ -99,6 +100,7 @@
         
         
         tl = Timeline.create(document.getElementById("timeline"), bandInfos, Timeline.HORIZONTAL);
+        addOnEventPaintFinished();
         eventSource.loadJSON(buildEventsJSONData(), '');
         
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
@@ -123,18 +125,94 @@
 			
 			tl.zoom(zoomIn, tl.getCenterPixel(0) ,1,target);
 		});
-    }
+		
+		
+		
+	}
     
+    function addOnEventPaintFinished() {
+		tl._bands[0].addOnEventPaintFinished(function(event,op) { 
+			if (op == 'paintEnded') {
+				clusterizeTimeline()
+			} 
+		});
+	}
+		
+	function clusterizeTimeline() {
+		var elements = $("div#timeline .timeline-event-icon")
+		var parent = elements.parent(); 
+		var createdClusters = []
+			
+		var clusterer = new ElementsClusterer(elements.toArray());
+				
+		clusterer.addOnElementChangeListener(function(event) {
+		    event.HTMLElement.style.left = event.leftPosition+"px";
+		});
+		
+		clusterer.addOnClusterCreateListener(onClusterCreaterdListener);
+		
+		clusterer.clusterize()
+		
+		function onClusterCreaterdListener(event) {
+		    var clusteredElements = event.clusteredElements,
+		   	elementSpace = 15,
+		   	leftPosition = event.leftPosition;
+		   	createdClusters.push({leftPosition:leftPosition, elements:clusteredElements})
+		    	
+		    var clusterDivString = '<div class="timeline-event-icon clustered" id="cluster-' + leftPosition+ '"style="left: ' + 
+		    leftPosition + 'px; top: 7px;"><img src="resources/timeline/api/images/Cluster.png"></div>'
+		    parent.append(clusterDivString);
+		    
+		    $('div#cluster-'+ leftPosition).click(function() {
+		    	var index = 0,
+		    		totalClusteredElements = clusteredElements.length,
+		    		totalWidth = elementSpace * totalClusteredElements,
+		    		firstLeftPosition = (leftPosition - totalWidth / 2 ) + elementSpace/2 ,
+		    		currentLeftPosition = firstLeftPosition;
+		    		
+		    	restoreClusters();
+		    	
+		    	for(index ; index < totalClusteredElements; index++) {
+		    		var htmlElement = clusteredElements[index].HTMLElement 
+		    		var element = $(htmlElement);
+		    		element.addClass('secondLine');
+		    		
+		    		htmlElement.style.left = currentLeftPosition + "px";
+		    		currentLeftPosition += elementSpace;
+		    	}
+		    });
+		    
+		    function restoreClusters() {
+				var index = 0;
+				for( index; index < createdClusters.length ;  index++) {
+					var cluster = createdClusters[index]
+					var elementIndex = 0;
+					var clusteredElements = cluster.elements;
+					
+					for(elementIndex ; elementIndex < clusteredElements.length; elementIndex++) {
+		    			var htmlElement = clusteredElements[elementIndex].HTMLElement 
+		    			var element = $(htmlElement);
+		    			element.removeClass('secondLine');
+		    			htmlElement.style.left = cluster.leftPosition + "px";
+		    		}
+				}
+			}
+		}
+	}
+	
     function buildEventsJSONData() {
     	var eventData = {
     	   events : [
+    	   <c:set var="times" value="${0}" />
     	       <c:forEach items="${historicalChanges}" var="changesByType">
     	           <c:forEach items="${changesByType.getValue()}" var="changeDates">
 	               <c:set var="changeDate" value="${changeDates.getKey()}" />
 	               <c:set var="numberOfChanges" value="${changeDates.getValue()}" />
+	               <c:set var="times" value="${times + 1}" />
 			{
 			 		 start : new Date(${changeDate.time}) ,
     	          	 description : "?dateTime=${changeDate.time}&preselectedTab=${changesByType.key.simpleName}",
+    	          	 classname : 'firstLine',
     	          	 icon : '<c:url 
     	          	 	value="/resources/timeline/api/images/${changesByType.key.simpleName}${date.time == changeDate.time ? '_current' : ''}.png" 
     	          	 />'

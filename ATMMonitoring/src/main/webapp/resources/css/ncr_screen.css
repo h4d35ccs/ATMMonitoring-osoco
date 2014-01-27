@@ -3583,13 +3583,6 @@ form#newWidgetForm .row select {
 	width: 225px;	
 }
 
-
-.timeline-event-icon{
-
-  top: 7px !important;
-
-}
-
 .timeline-copyright{
 
 display:none;
@@ -3716,4 +3709,13 @@ legend.map {
 
 .icons_action .delete_wrong:hover {
   background-position-y: 0px;
+}
+
+
+.timeline-event-icon.firstLine {
+    top: 7px !important;
+}
+
+.timeline-event-icon.secondLine {
+    top: 30px !important;
 }
