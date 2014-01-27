@@ -3719,3 +3719,11 @@ legend.map {
 .timeline-event-icon.secondLine {
     top: 30px !important;
 }
+
+span.cluster {
+    color: white;
+    left: 0;
+    margin: auto;
+    position: inherit;
+    top: 0;
+}

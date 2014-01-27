@@ -148,22 +148,37 @@
 		clusterer.addOnElementChangeListener(function(event) {
 		    event.HTMLElement.style.left = event.leftPosition+"px";
 		});
-		
 		clusterer.addOnClusterCreateListener(onClusterCreaterdListener);
 		
 		clusterer.clusterize()
+		initClusterNumberOfElements();
+		
+		function initClusterNumberOfElements() {
+			var index = 0;
+			for( index; index < createdClusters.length ;  index++) {
+				var cluster = createdClusters[index]
+				var clusteredElementsSize = cluster.elements.length;
+				var clusterDiv = cluster.clusterDivElement;
+				clusterDiv.append(
+					'<span class="cluster">' + clusteredElementsSize + '</span>'
+				)
+			}
+		}
+		
 		
 		function onClusterCreaterdListener(event) {
 		    var clusteredElements = event.clusteredElements,
 		   	elementSpace = 15,
 		   	leftPosition = event.leftPosition;
-		   	createdClusters.push({leftPosition:leftPosition, elements:clusteredElements})
-		    	
-		    var clusterDivString = '<div class="timeline-event-icon clustered" id="cluster-' + leftPosition+ '"style="left: ' + 
+		   	
+		   	var clusterDivString = '<div class="timeline-event-icon cluster" id="cluster-' + leftPosition+ '"style="left: ' + 
 		    leftPosition + 'px; top: 7px;"><img src="resources/timeline/api/images/Cluster.png"></div>'
 		    parent.append(clusterDivString);
 		    
-		    $('div#cluster-'+ leftPosition).click(function() {
+		    var clusterDivElement = $('div#cluster-'+ leftPosition); 
+		    createdClusters.push({leftPosition:leftPosition, elements:clusteredElements, clusterDivElement:clusterDivElement})
+		    
+		    clusterDivElement.click(function() {
 		    	var index = 0,
 		    		totalClusteredElements = clusteredElements.length,
 		    		totalWidth = elementSpace * totalClusteredElements,
