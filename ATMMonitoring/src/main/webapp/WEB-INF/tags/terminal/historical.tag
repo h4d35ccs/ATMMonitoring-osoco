@@ -35,6 +35,7 @@
     var tl;
     
     function loadTimeline() {
+    	var elementsSize = 16;
     	var eventSource = new Timeline.DefaultEventSource();
 
         var zones = [];
@@ -100,7 +101,7 @@
         
         
         tl = Timeline.create(document.getElementById("timeline"), bandInfos, Timeline.HORIZONTAL);
-        addOnEventPaintFinished();
+        addOnEventPaintFinished(elementsSize);
         eventSource.loadJSON(buildEventsJSONData(), '');
         
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
@@ -130,20 +131,20 @@
 		
 	}
     
-    function addOnEventPaintFinished() {
+    function addOnEventPaintFinished(elementsSize) {
 		tl._bands[0].addOnEventPaintFinished(function(event,op) { 
 			if (op == 'paintEnded') {
-				clusterizeTimeline()
+				clusterizeTimeline(elementsSize)
 			} 
 		});
 	}
 		
-	function clusterizeTimeline() {
+	function clusterizeTimeline(elementsSize) {
 		var elements = $("div#timeline .timeline-event-icon")
 		var parent = elements.parent(); 
 		var createdClusters = []
 			
-		var clusterer = new ElementsClusterer(elements.toArray());
+		var clusterer = new ElementsClusterer(elements.toArray(), elementsSize);
 				
 		clusterer.addOnElementChangeListener(function(event) {
 		    event.HTMLElement.style.left = event.leftPosition+"px";
@@ -168,7 +169,7 @@
 		
 		function onClusterCreaterdListener(event) {
 		    var clusteredElements = event.clusteredElements,
-		   	elementSpace = 15,
+		   	elementSpace = elementsSize,
 		   	leftPosition = event.leftPosition;
 		   	
 		   	var clusterDivString = '<div class="timeline-event-icon cluster" id="cluster-' + leftPosition+ '"style="left: ' + 
