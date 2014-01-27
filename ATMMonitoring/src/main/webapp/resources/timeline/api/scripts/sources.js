@@ -129,7 +129,7 @@ Timeline.DefaultEventSource.prototype.loadJSON = function(data, url) {
                        image: this._resolveRelativeURL(evnt.image, base),
                         link: this._resolveRelativeURL(evnt.link , base),
                         icon: this._resolveRelativeURL(evnt.icon , base),
-                     iconAlt: evnt.iconAlt || '',
+                   iconTitle: evnt.iconTitle || '',
                        color: evnt.color,                                      
                    textColor: evnt.textColor,
                    hoverText: evnt.hoverText,
@@ -423,7 +423,7 @@ Timeline.DefaultEventSource.Event = function(args) {
   this._title = cleanArg('caption');
   
   this._icon = cleanArg('icon');
-  this._iconAlt = cleanArg('iconAlt');
+  this._iconTitle = cleanArg('iconTitle');
   this._color = cleanArg('color');      
   this._textColor = cleanArg('textColor');
   this._classname = cleanArg('classname');
@@ -456,6 +456,7 @@ Timeline.DefaultEventSource.Event.prototype = {
     getLink:        function() { return this._link; },
     
     getIcon:        function() { return this._icon; },
+    getIconTitle:   function() { return this._iconTitle; },
     getColor:       function() { return this._color; },
     getTextColor:   function() { return this._textColor; },
     getClassName:   function() { return this._classname; },

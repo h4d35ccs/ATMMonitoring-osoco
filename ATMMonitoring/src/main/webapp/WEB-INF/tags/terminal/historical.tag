@@ -220,7 +220,7 @@
     	          	 icon : '<c:url 
     	          	 	value="/resources/timeline/api/images/${changesByType.key.simpleName}${date.time == changeDate.time ? '_current' : ''}.png" 
     	          	 />',
-    	          	 iconAlt : '<fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy HH:mm:ss" />'
+    	          	 iconTitle : '<fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy HH:mm:ss" />'
     	      		},
     	      	    </c:forEach>
     	        </c:forEach>	

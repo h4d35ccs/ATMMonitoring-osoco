@@ -480,6 +480,7 @@ Timeline.OriginalEventPainter.prototype._paintEventIcon = function(evt, iconTrac
     // If no tape, then paint the icon in the middle of the track.
     // If there is a tape, paint the icon below the tape + impreciseIconMargin
     var icon = evt.getIcon();
+    var iconTitle = evt.getIconTitle();
     icon = icon != null ? icon : metrics.icon;
     
     var top; // top of the icon
@@ -492,6 +493,10 @@ Timeline.OriginalEventPainter.prototype._paintEventIcon = function(evt, iconTrac
         top = Math.round(middle - metrics.iconHeight / 2);
     }
     var img = SimileAjax.Graphics.createTranslucentImage(icon);
+    if(iconTitle) {
+    	img.title = iconTitle;
+    }
+    
     var iconDiv = this._timeline.getDocument().createElement("div");
     iconDiv.className = this._getElClassName('timeline-event-icon', evt, 'icon');
     iconDiv.id = this._encodeEventElID('icon', evt);
