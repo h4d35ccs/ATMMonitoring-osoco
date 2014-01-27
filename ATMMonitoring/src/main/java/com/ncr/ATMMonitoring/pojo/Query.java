@@ -4923,7 +4923,8 @@ public class Query {
      * @return the hQL grouping by
      */
     public String getHQLGroupingBy(List<Object> values, List<Type> types,
-	    Locale locale, WidgetQueryAssociationType queryAssociationType, String groupByField) {
+	    Locale locale, WidgetQueryAssociationType queryAssociationType, String groupByField,
+	    Date queryDate) {
 		
     	String rootTableAlias = "terminals";    
     	
@@ -4935,9 +4936,9 @@ public class Query {
 		hql.append(queryJoin);
 		
 		hql.append(" where terminals in (");
-		hql.append(getHQL(values, types, locale, false, false,null));
+		hql.append(getHQL(values, types, locale, false, false,queryDate));
 		hql.append(") ");
-		hql.append(queryAssociationType.buildWhere());
+		hql.append(queryAssociationType.buildWhere(queryDate));
 		hql.append("group by ");
 		hql.append(groupName);
 		return hql.toString();

@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,7 +51,7 @@ public class Widget {
 	/** The visible. */
     @Column(name = "visible", nullable = false)
 	private boolean visible = true;
-
+    
 	/** The owner. */
 	@ManyToOne
 	@JoinColumn(name = "owner_id", nullable = false)
@@ -60,6 +61,9 @@ public class Widget {
 	@ManyToOne
 	@JoinColumn(name = "query_id", nullable = false)
 	private Query query;
+	
+    @Column(name = "query_date")
+	private Date queryDate;
 
 	/** The dashboard. */
 	@ManyToOne
@@ -263,8 +267,16 @@ public class Widget {
     public void setQuery(Query query) {
 		this.query = query;
     }
+    
+    public Date getQueryDate() {
+		return queryDate;
+	}
 
-    /**
+	public void setQueryDate(Date queryDate) {
+		this.queryDate = queryDate;
+	}
+
+	/**
      * Gets the dashboard.
      *
      * @return the dashboard

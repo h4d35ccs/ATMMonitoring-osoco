@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.utils;
 
+import java.util.Date;
 import java.util.Map;
 
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
@@ -81,11 +82,16 @@ public enum WidgetQueryAssociationType {
 		return join;
 	}
 	
-	public String buildWhere() {
+	public String buildWhere(Date queryDate) {
 		String where = "";
 		if (associationName != null) {
 			String associationNameForApplyWhere = associationNames[0];
-			where = " and " + associationNameForApplyWhere + ".endDate = null ";
+			if(queryDate == null) {
+				where = " and " + associationNameForApplyWhere + ".endDate = null ";
+			} else {
+				//With query date
+			}
+			
 		}
 		
 		return where;

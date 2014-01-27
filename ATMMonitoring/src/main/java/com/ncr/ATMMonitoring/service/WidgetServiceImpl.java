@@ -115,7 +115,8 @@ public class WidgetServiceImpl implements WidgetService {
 		    widget.getQuery(),
 			widget.getGroupByEntity(),
 			widget.getGroupBy(),
-			locale);
+			locale,
+			widget.getQueryDate());
 	}
 
 	@Override

@@ -137,6 +137,5 @@ public interface QueryService {
      * @return the query list
      */
     public List<?> executeQueryGroupingBy(Query query, WidgetQueryAssociationType groupByEntity,
-	    String groupBy, Locale locale);
-
+	    String groupBy, Locale locale, Date queryDate);
 }

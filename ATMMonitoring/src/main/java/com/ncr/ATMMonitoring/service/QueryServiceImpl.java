@@ -148,11 +148,11 @@ public class QueryServiceImpl implements QueryService {
 	 * @see com.ncr.ATMMonitoring.service.QueryService#executeQueryGroupingBy(com.ncr.ATMMonitoring.pojo.Query, java.lang.String, java.lang.String, java.util.Locale)
 	 */
 	@Override
-	public List<?> executeQueryGroupingBy(Query query, WidgetQueryAssociationType groupByEntity, String groupByField, Locale locale) {
+	public List<?> executeQueryGroupingBy(Query query, WidgetQueryAssociationType groupByEntity, String groupByField, Locale locale, Date queryDate) {
 		List results = null;
 		List<Object> values = new ArrayList<Object>();
 		List<Type> types = new ArrayList<Type>();
-		String hql = query.getHQLGroupingBy(values, types, locale, groupByEntity, groupByField);
+		String hql = query.getHQLGroupingBy(values, types, locale, groupByEntity, groupByField, queryDate);
         logger.debug("HQL for widget's query is: " + hql);
 		if ((hql != null) && (!hql.equals(""))) {
 			results = terminalDAO.getTerminalsByHQL(values, types, hql);
