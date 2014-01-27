@@ -1,6 +1,7 @@
 <%@tag description="New widget form content" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <input type="hidden" name="id" value="${widget.id}" />
 
@@ -35,9 +36,9 @@
 
 <div class="row">
 	<label for="queryDate"><spring:message code="widget.queryDate.label" /> </label>
-	<input type="text" id="queryDate" name="queryDate" value="${widget.queryDate}"/>
+	<input type="text" id="queryDate" name="queryDate" 
+		   value="<fmt:formatDate value="${widget.queryDate}" pattern="dd/MM/yyyy" />"/>
  		   
-		   
 	<a href="" id="queryDateButton" class="btn calendar">
 		<span>
 			<spring:message code="label.calendar.open"/>
