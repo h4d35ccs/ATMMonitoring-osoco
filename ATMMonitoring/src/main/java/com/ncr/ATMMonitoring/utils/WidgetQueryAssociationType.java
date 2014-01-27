@@ -1,7 +1,11 @@
 package com.ncr.ATMMonitoring.utils;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
+import org.hibernate.type.Type;
 
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 import com.ncr.ATMMonitoring.pojo.HardwareDevice;
@@ -11,6 +15,7 @@ import com.ncr.ATMMonitoring.pojo.Installation;
 import com.ncr.ATMMonitoring.pojo.InternetExplorer;
 import com.ncr.ATMMonitoring.pojo.JxfsComponent;
 import com.ncr.ATMMonitoring.pojo.OperatingSystem;
+import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Software;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.XfsComponent;
@@ -23,7 +28,7 @@ public enum WidgetQueryAssociationType {
 	XFS_COMPONENT("financialDevices.xfsComponents", "xfsComponent", XfsComponent.getComboboxes()),
 	JXFS_COMPONENT("financialDevices.jxfsComponents", "jxfsComponent", JxfsComponent.getComboboxes()),
 	HOTFIX("hotfixes", "hotfix", Hotfix.getComboboxes()),
-	INTERNET_EXPLORER("auditableInternetExplorers","internetExplorer", InternetExplorer.getComboboxes()),
+	INTERNET_EXPLORER("auditableInternetExplorers.internetExplorer","internetExplorer", InternetExplorer.getComboboxes()),
 	OPERATING_SYSTEM("configs.operatingSystems" , "operatingSystem", OperatingSystem.getComboboxes()),
 	SOFTWARE("configs.software" , "software", Software.getComboboxes()),
 	HARDWARE_DEVICE("hardwareDevices" , "hardwareDevice", HardwareDevice.getComboboxes()),		
@@ -116,22 +121,23 @@ public enum WidgetQueryAssociationType {
 		return join;
 	}
 	
-	public String buildWhere(Date queryDate) {
-		String where = "";
+	public String buildWhere(Date queryDate, Query query, List<Object> values, List<Type> types, Locale locale) {
+		String where = " ";
 		if (associationName != null) {
 			String associationNameForApplyWhere = associationNames[0];
 			if(queryDate == null) {
-				//where = " and " + associationNameForApplyWhere + ".endDate = null ";
+				where = " and " + associationNameForApplyWhere + ".endDate = null ";
 			} else {
-				//With query date
+				where = " and " + query.buildIsAuditableElementActiveByDateWhere(associationNameForApplyWhere + ".",
+							values, types, locale, queryDate);
 			}
 			
-			if( this.hardwareClass != null) {
+			if( this.hardwareClass != null ) {
 				where += " and " + associationNameForApplyWhere + ".hardwareClass = " + "'"+ this.hardwareClass +"' " ;
 			}
 		}
 		
-		return where;
+		return where + " "; 
 	}
 
 	public Map<String,?> getComboboxes() {

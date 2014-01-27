@@ -4828,6 +4828,11 @@ public class Query {
 	return globalConstraint;
     }
     
+    public String buildIsAuditableElementActiveByDateWhere(String fieldNamePrefix, List<Object> values,
+    	    List<Type> types, Locale locale, Date queryDate) {
+    	return storeIsElementActiveByDate(fieldNamePrefix,values, types, locale, queryDate);
+    }
+    
     private String storeIsElementActiveByDate(String fieldNamePrefix, List<Object> values,
     	    List<Type> types, Locale locale, Map<String,String> constraints, Date queryDate) {
     	return constraints.keySet().size() > 0 ? 
@@ -4938,10 +4943,7 @@ public class Query {
 		hql.append(" where terminals in (");
 		hql.append(getHQL(values, types, locale, false, false, queryDate));
 		hql.append(") ");
-//		hql.append(storeIsElementActiveByDate(queryAssociationType.getAssociationNameForApplyWhere(), 
-//				values, types, locale,queryDate));
-//
-		hql.append(queryAssociationType.buildWhere(queryDate));
+		hql.append(queryAssociationType.buildWhere(queryDate,this, values, types, locale));
 		hql.append("group by ");
 		hql.append(groupName);
 		return hql.toString();

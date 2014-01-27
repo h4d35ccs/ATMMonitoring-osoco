@@ -2,7 +2,7 @@
 <html>
     <body>
 		<script type="text/javascript">
-        	parent.location.reload();
+        	parent.location.assign(parent.location);
     	</script>
     </body>
 </html>
