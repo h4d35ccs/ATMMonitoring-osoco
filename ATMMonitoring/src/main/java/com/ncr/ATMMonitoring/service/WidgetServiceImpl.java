@@ -15,8 +15,6 @@ import com.ncr.ATMMonitoring.pojo.Dashboard;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.Widget;
-import com.ncr.ATMMonitoring.pojo.Widget.ChartType;
-import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 import com.ncr.ATMMonitoring.dao.WidgetDAO;
 
 // TODO: Auto-generated Javadoc

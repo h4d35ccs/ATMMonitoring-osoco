@@ -4936,8 +4936,11 @@ public class Query {
 		hql.append(queryJoin);
 		
 		hql.append(" where terminals in (");
-		hql.append(getHQL(values, types, locale, false, false,queryDate));
+		hql.append(getHQL(values, types, locale, false, false, queryDate));
 		hql.append(") ");
+//		hql.append(storeIsElementActiveByDate(queryAssociationType.getAssociationNameForApplyWhere(), 
+//				values, types, locale,queryDate));
+//
 		hql.append(queryAssociationType.buildWhere(queryDate));
 		hql.append("group by ");
 		hql.append(groupName);

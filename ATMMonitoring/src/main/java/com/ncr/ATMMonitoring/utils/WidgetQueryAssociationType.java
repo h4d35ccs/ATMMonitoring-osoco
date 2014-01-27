@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 import com.ncr.ATMMonitoring.pojo.HardwareDevice;
+import com.ncr.ATMMonitoring.pojo.HardwareDevice.DeviceClassId;
 import com.ncr.ATMMonitoring.pojo.Hotfix;
 import com.ncr.ATMMonitoring.pojo.Installation;
 import com.ncr.ATMMonitoring.pojo.InternetExplorer;
@@ -25,16 +26,41 @@ public enum WidgetQueryAssociationType {
 	INTERNET_EXPLORER("auditableInternetExplorers","internetExplorer", InternetExplorer.getComboboxes()),
 	OPERATING_SYSTEM("configs.operatingSystems" , "operatingSystem", OperatingSystem.getComboboxes()),
 	SOFTWARE("configs.software" , "software", Software.getComboboxes()),
-	HARDWARE_DEVICE("hardwareDevices" , "hardwareDevice", HardwareDevice.getComboboxes());		
-	
+	HARDWARE_DEVICE("hardwareDevices" , "hardwareDevice", HardwareDevice.getComboboxes()),		
+	HARDWARE_COMPUTER_SYSTEM(DeviceClassId.COMPUTER_SYSTEM), 
+	HARDWARE_PROCESSOR(DeviceClassId.PROCESSOR), 
+	HARDWARE_PHYSICAL_MEMORY(DeviceClassId.PHYSICAL_MEMORY), 
+	HARDWARE_DISK_DRIVE(DeviceClassId.DISK_DRIVE),
+	HARDWARE_LOGICAL_DISK(DeviceClassId.LOGICAL_DISK),
+	HARDWARE_BASE_BOARD(DeviceClassId.BASE_BOARD),
+	HARDWARE_NETWORK_ADAPTER(DeviceClassId.NETWORK_ADAPTER),
+	HARDWARE_FLOPPY_DRIVE(DeviceClassId.FLOPPY_DRIVE), 
+	HARDWARE_CDROM_DRIVE(DeviceClassId.CDROM_DRIVE), 
+	HARDWARE_SOUND_DEVICE(DeviceClassId.SOUND_DEVICE), 
+	HARDWARE_DISPLAY_CONFIGURATION(DeviceClassId.DISPLAY_CONFIGURATION), 
+	HARDWARE_USB_CONTROLLER(DeviceClassId.USB_CONTROLLER), 
+	HARDWARE_USB_HUB(DeviceClassId.USB_HUB), 
+	HARDWARE_SERIAL_PORT(DeviceClassId.SERIAL_PORT), 
+	HARDWARE_PARALLEL_PORT(DeviceClassId.PARALLEL_PORT), 
+	HARDWARE_1394_CONTROLLER(DeviceClassId._1394_CONTROLLER), 
+	HARDWARE_SCSI_CONTROLLER(DeviceClassId.SCSI_CONTROLLER), 
+	HARDWARE_DESKTOP_MONITOR(DeviceClassId.DESKTOP_MONITOR), 
+	HARDWARE_KEYBOARD(DeviceClassId.KEYBOARD), 
+	HARDWARE_POINTING_DEVICE(DeviceClassId.POINTING_DEVICE), 
+	HARDWARE_SYSTEM_SLOT(DeviceClassId.SYSTEM_SLOT), 
+	HARDWARE_BIOS(DeviceClassId.BIOS), 
+	HARDWARE_VIDEO_CONTROLLER(DeviceClassId.VIDEO_CONTROLLER);
 	
 	private String associationName;
 	private String comboboxName;
 	private Map<String,?> comboboxes;
 	private String[] associationNames;
 	private String lastAssociationName;
+	private String hardwareClass;
 	
-	private WidgetQueryAssociationType(String associationName, String comboboxName, Map<String,?> comboboxes) {
+	private WidgetQueryAssociationType(String associationName, String comboboxName, Map<String,?> comboboxes,
+				String hardwareClass) {
+		this.hardwareClass = hardwareClass;
 		this.comboboxes = comboboxes;
 		this.associationName = associationName;
 		this.comboboxName = comboboxName;
@@ -44,6 +70,14 @@ public enum WidgetQueryAssociationType {
 		}
 	}
 	
+	private WidgetQueryAssociationType(String associationName, String comboboxName, Map<String,?> comboboxes) {
+		this(associationName,comboboxName,comboboxes, null);
+	}
+	
+	private WidgetQueryAssociationType(DeviceClassId hardwareDeviceClassId) {
+		this("hardwareDevices" , "hardwareDevice", HardwareDevice.getComboboxesByDeviceClassId(hardwareDeviceClassId),
+				HardwareDevice.getDeviceClasses().get(hardwareDeviceClassId));
+	}
 	
 	public static WidgetQueryAssociationType findByComboboxName(String comboboxName) {
 		for( WidgetQueryAssociationType associationType : values() ) {
@@ -87,11 +121,14 @@ public enum WidgetQueryAssociationType {
 		if (associationName != null) {
 			String associationNameForApplyWhere = associationNames[0];
 			if(queryDate == null) {
-				where = " and " + associationNameForApplyWhere + ".endDate = null ";
+				//where = " and " + associationNameForApplyWhere + ".endDate = null ";
 			} else {
 				//With query date
 			}
 			
+			if( this.hardwareClass != null) {
+				where += " and " + associationNameForApplyWhere + ".hardwareClass = " + "'"+ this.hardwareClass +"' " ;
+			}
 		}
 		
 		return where;

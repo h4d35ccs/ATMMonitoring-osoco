@@ -438,6 +438,7 @@ public class HardwareDevice extends Auditable {
 		"Win32_VideoController");
     }
 
+    
     /**
      * Filter a collecion of hardware devices by device type.
      * 
@@ -1875,6 +1876,14 @@ public class HardwareDevice extends Auditable {
 	return comboboxes;
     }
 
+    public static Map<String, Map> getComboboxesByDeviceClassId(DeviceClassId deviceClassId) {
+    	return comboboxes.get(deviceClasses.get(deviceClassId));
+    }
+    
+    public static Map<DeviceClassId, String> getDeviceClasses() {
+    	return deviceClasses;
+    }
+    
     /**
      * Gets the id.
      *
