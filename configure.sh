@@ -4,6 +4,7 @@ echo "Welcome to ATMMonitoring's configuration script."
 echo ""
 echo ""
 echo "We will make you some questions in order to make the configuration process easier."
+echo "Make sure this user has write permissions onto the current folder and access to the applications 'jar' and 'sed'."
 echo ""
 echo ""
 
