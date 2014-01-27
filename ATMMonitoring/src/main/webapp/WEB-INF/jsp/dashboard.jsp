@@ -23,6 +23,9 @@
       strings['widget.add.to.library'] = "<spring:message code='widget.add.to.library' javaScriptEscape='true' />";
       strings['widget.add.to.library.confirm'] = "<spring:message code='widget.add.to.library.confirm' javaScriptEscape='true' />";
       strings['widget.remove.from.library.confirm'] = "<spring:message code='widget.remove.from.library.confirm' javaScriptEscape='true' />";
+      strings['widget.set.as.default'] = "<spring:message code='widget.set.as.default' javaScriptEscape='true' />";
+      strings['widget.set.as.default.confirm'] = "<spring:message code='widget.set.as.default.confirm' javaScriptEscape='true' />";
+      strings['widget.unset.as.default.confirm'] = "<spring:message code='widget.unset.as.default.confirm' javaScriptEscape='true' />";
       
       var hasPrivileges = false;
       <sec:authorize access="hasAnyRole(${editWidgetsLibraryAllowedRoles})">

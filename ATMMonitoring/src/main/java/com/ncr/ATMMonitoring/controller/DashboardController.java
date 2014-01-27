@@ -69,8 +69,7 @@ public class DashboardController {
         String userMsg = "";
 		Dashboard dashboard = null;
         Locale locale = RequestContextUtils.getLocale(request);
-		widgetService.buildDefaultWidgets();
-        if (principal != null) {
+		if (principal != null) {
             loggedUser = userService.getUserByUsername(principal.getName());
             userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 			dashboard = dashboardService.findOrCreateDashboardByUser(loggedUser);

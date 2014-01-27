@@ -8,6 +8,9 @@ var deleteChartUrl = 'dashboard/delete'
 var editChartUrl = 'dashboard/edit/'
 var addWidgetToLibraryUrl = 'dashboard/addToLibrary'
 var removeWidgetFromLibrary = 'dashboard/removeFromLibrary'
+var setWidgetAsDefaultUrl = 'dashboard/setAsDefault'
+var unsetWidgetAsDefaultUrl = 'dashboard/unsetAsDefault'
+
 
 var divChartSelector = 'li.chart '
 
@@ -235,6 +238,16 @@ function onChartDrawed(chart) {
 		return onAddOrRemoveWidgetToLibrary(widgetId, addToLibrary);
 	});
 	
+	var setAsDefaultElement = $(chart).find(".setAsDefault")
+	var isDefault = setAsDefaultElement.data('checked');
+	if( isDefault ) {
+		setAsDefaultElement.attr("checked", "checked");
+	}
+	setAsDefaultElement.click(function() {
+		var isDefault = $(this).is(':checked');
+		return onSetOrUnsetDefaultWidget(widgetId, isDefault);
+	});
+	
 	initEditButtonIframe($(chart).find('.editWidget').selector)
 	drawChartsMenu();
 }
@@ -265,6 +278,20 @@ function onAddOrRemoveWidgetToLibrary(widgetId, addToLibrary) {
    if(confirm(strings['widget.' + (addToLibrary ? 'add.to' : 'remove.from') + '.library.confirm'])) {
 	   $.post(
 	        (addToLibrary ? addWidgetToLibraryUrl : removeWidgetFromLibrary),
+	        {
+	            widgetId: widgetId
+	        }
+	    );
+	    return true;
+    } else {
+    	return false;
+    }
+}
+
+function onSetOrUnsetDefaultWidget(widgetId, defaultWidget) {
+   if(confirm(strings['widget.' + (defaultWidget ? 'set' : 'unset') + '.as.default.confirm'])) {
+	   $.post(
+	        (defaultWidget ? setWidgetAsDefaultUrl : unsetWidgetAsDefaultUrl),
 	        {
 	            widgetId: widgetId
 	        }
@@ -339,6 +366,11 @@ var transforms = {
                                                               { tag: 'li', class: 'privilegedOption' , children: 
                                                               		[ 
                                                               			{ tag: 'input', class: 'addToLibrary', type:'checkbox', 'data-checked' : "${libraryWidget}" , html: strings['widget.add.to.library'] } 
+                                                              		] 
+                                                              },
+                                                              { tag: 'li', class: 'privilegedOption' , children: 
+                                                              		[ 
+                                                              			{ tag: 'input', class: 'setAsDefault', type:'checkbox', 'data-checked' : "${defaultWidget}" , html: strings['widget.set.as.default'] } 
                                                               		] 
                                                               },
                                                               { tag: 'li', children: [ { tag: 'a', class: 'delete', html: strings['label.widget.delete'] } ] }

@@ -31,11 +31,6 @@ public interface WidgetService {
 	public Widget findWidgetById(int widgetId);
 
 	/**
-	 * Builds the default widgets.
-	 */
-	public void buildDefaultWidgets();
-
-	/**
 	 * Save widget.
 	 *
 	 * @param widget the widget
@@ -71,4 +66,6 @@ public interface WidgetService {
 	public List<Widget> findLibraryWidgets();
 
 	public void addOrRemoveWidgetToLibrary(Integer widgetId, User user, boolean addToLibrary);
+
+	public void setWidgetDefault(Integer widgetId, User user, boolean isDefault);
 }

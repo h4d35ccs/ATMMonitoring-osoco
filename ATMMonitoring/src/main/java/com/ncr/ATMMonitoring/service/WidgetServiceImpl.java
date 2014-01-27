@@ -82,54 +82,6 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 		return userDefaultWidgets;
 	}
-
-	/* (non-Javadoc)
-	 * @see com.ncr.ATMMonitoring.service.WidgetService#buildDefaultWidgets()
-	 */
-	@Override
-	public void buildDefaultWidgets() {
-		List<Widget> currentDefaultWidgets = findDefaultWidgets();
-		List<Widget> defaultWidgets = new ArrayList<Widget>();
-
-		User admin = userService.getUserByUsername("admin");
-
-		Query allTerminalsQuery = new Query();
-		allTerminalsQuery.setName("All Terminals");
-		allTerminalsQuery.setUser(admin);
-		allTerminalsQuery = queryService.findOrCreateQuery(allTerminalsQuery);
-
-		Widget widget1 = buildDefaultWidget(
-		    "Bancos", 1, allTerminalsQuery, WidgetQueryAssociationType.TERMINAL, "bank", ChartType.PIE_CHART);
-		defaultWidgets.add(widget1);
-		
-		Widget widget2 = buildDefaultWidget(
-		    "Fabricantes", 2, allTerminalsQuery, WidgetQueryAssociationType.TERMINAL, "terminalVendor", ChartType.BAR_CHART);
-		defaultWidgets.add(widget2);
-		
-		Widget widget3 = buildDefaultWidget( "Por ciudad", 3, allTerminalsQuery, WidgetQueryAssociationType.INSTALLATION, 
-				"location.addressCity", ChartType.GEO_CHART);
-		defaultWidgets.add(widget3);
-		
-		Widget widget4 = buildDefaultWidget(
-				"Versiones IE", 4, allTerminalsQuery, WidgetQueryAssociationType.INTERNET_EXPLORER, 
-				"internetExplorer.majorVersion", ChartType.PIE_CHART);
-		defaultWidgets.add(widget4);
-		
-		Widget widget5 = buildDefaultWidget("Ciudades", 5, allTerminalsQuery, WidgetQueryAssociationType.INSTALLATION,
-				"location.addressCity", ChartType.PIE_CHART);
-		defaultWidgets.add(widget5);
-		
-		Widget widget6 = buildDefaultWidget("Sistemas operativos", 6, allTerminalsQuery, 
-				WidgetQueryAssociationType.OPERATING_SYSTEM, "name", ChartType.PIE_CHART);
-		defaultWidgets.add(widget6);
-		
-		for (Widget widget: defaultWidgets) {
-			if (!currentDefaultWidgets.contains(widget)) {
-				logger.debug("Creating default widget '" + widget.getTitle() + "'");
-				saveWidget(widget);
-			}
-		}
-	}
 	
 	@Override
 	public void deleteWidgetFromUser(Integer widgetId, User user) {
@@ -206,6 +158,18 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 	}
 	
+	@Override 
+	public void setWidgetDefault(Integer widgetId, User user,	boolean isDefault) {
+		Widget widget = findWidgetById(widgetId);
+		if( isWidgetOwnedByUser(widget, user)) {
+			logger.info("widget[" + widgetId + "] is being setted default property as " +  isDefault +
+					" by user[" + user.getId() + "]");
+			
+			widget.setDefaultWidget(isDefault);
+			widgetDAO.update(widget);
+		}
+	}
+	
 	public List<Widget> findLibraryWidgets() {
 		return widgetDAO.findLibraryWidgets();
 	}
@@ -220,37 +184,5 @@ public class WidgetServiceImpl implements WidgetService {
 		saveWidget(userWidget);
 		
 		return userWidget;
-	}
-	
-	/**
-	 * Builds the default widget.
-	 *
-	 * @param title the title
-	 * @param order the order
-	 * @param query the query
-	 * @param groupByEntity the group by entity
-	 * @param groupBy the group by
-	 * @param chartType the chart type
-	 * @return the widget
-	 */
-	private Widget buildDefaultWidget(
-	    String title,
-		int order,
-		Query query,
-		WidgetQueryAssociationType groupByEntity,
-		String groupBy,
-		Widget.ChartType chartType) {
-
-		Widget aWidget = new Widget();
-		aWidget.setTitle(title);
-		aWidget.setOrder(order);
-		aWidget.setQuery(query);
-		aWidget.setGroupByEntity(groupByEntity);
-		aWidget.setGroupBy(groupBy);
-		aWidget.setChartType(chartType);
-		aWidget.setOwner(userService.getUserByUsername("admin"));
-		aWidget.setDefaultWidget(true);
-		aWidget.setVisible(true);
-		return aWidget;
 	}
 }

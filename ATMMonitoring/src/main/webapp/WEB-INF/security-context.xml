@@ -8,6 +8,8 @@
 	<beans:bean id="loginSuccessHandler" class="com.ncr.ATMMonitoring.handler.LoginSuccessHandler"/>
 
     <http use-expressions="true">
+        <intercept-url pattern="/dashboard/unsetAsDefault/**" access="hasAnyRole(${security.editWidgetsLibraryAllowedRoles})"/>
+        <intercept-url pattern="/dashboard/setAsDefault/**" access="hasAnyRole(${security.editWidgetsLibraryAllowedRoles})"/>
         <intercept-url pattern="/dashboard/addToLibrary/**" access="hasAnyRole(${security.editWidgetsLibraryAllowedRoles})"/>
         <intercept-url pattern="/dashboard/removeFromLibrary/**" access="hasAnyRole(${security.editWidgetsLibraryAllowedRoles})"/>
         <intercept-url pattern="/dashboard/**" access="hasAnyRole(${security.dashboardAccessAllowedRoles})"/>

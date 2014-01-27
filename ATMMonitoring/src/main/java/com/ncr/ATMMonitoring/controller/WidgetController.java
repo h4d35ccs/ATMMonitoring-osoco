@@ -148,6 +148,30 @@ public class WidgetController {
     	}
     }
 
+    
+    @RequestMapping(value = "/dashboard/setAsDefault", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.OK)
+    public void setAsDefault(
+    		@RequestParam(value="widgetId") Integer widgetId,
+    		Principal principal) {
+    	setWidgetDefault(widgetId, principal, true);
+    }
+    
+    @RequestMapping(value = "/dashboard/unsetAsDefault", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.OK)
+    public void unsetAsDefault(
+    		@RequestParam(value="widgetId") Integer widgetId,
+    		Principal principal) {
+    	setWidgetDefault(widgetId, principal, false);
+    }
+    
+    private void setWidgetDefault(Integer widgetId, Principal principal, boolean isDefault) {
+    	if (widgetId != null && principal != null) {
+    		User loggedUser = userService.getUserByUsername(principal.getName());
+    		widgetService.setWidgetDefault(widgetId, loggedUser, isDefault);
+    	}
+    }
+    
     private String createOrEditWidget(Map<String, Object> model, Principal principal,  Integer widgetId) {
     	User loggedUser = null;
         Set<Query> userQueries = null;
