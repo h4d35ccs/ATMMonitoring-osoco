@@ -99,7 +99,6 @@ Timeline.DefaultEventSource.prototype.loadJSON = function(data, url) {
        
         for (var i=0; i < data.events.length; i++){
             var evnt = data.events[i];
-            
             // New feature: attribute synonyms. The following attribute names are interchangable.
             // The shorter names enable smaller load files.
             //    eid -- eventID
@@ -130,6 +129,7 @@ Timeline.DefaultEventSource.prototype.loadJSON = function(data, url) {
                        image: this._resolveRelativeURL(evnt.image, base),
                         link: this._resolveRelativeURL(evnt.link , base),
                         icon: this._resolveRelativeURL(evnt.icon , base),
+                     iconAlt: evnt.iconAlt || '',
                        color: evnt.color,                                      
                    textColor: evnt.textColor,
                    hoverText: evnt.hoverText,
@@ -423,6 +423,7 @@ Timeline.DefaultEventSource.Event = function(args) {
   this._title = cleanArg('caption');
   
   this._icon = cleanArg('icon');
+  this._iconAlt = cleanArg('iconAlt');
   this._color = cleanArg('color');      
   this._textColor = cleanArg('textColor');
   this._classname = cleanArg('classname');

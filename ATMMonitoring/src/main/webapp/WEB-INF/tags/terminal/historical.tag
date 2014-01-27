@@ -177,7 +177,11 @@
 		    		var element = $(htmlElement);
 		    		element.addClass('secondLine');
 		    		
-		    		htmlElement.style.left = currentLeftPosition + "px";
+		    		element.animate({
+						left: currentLeftPosition + "px",
+					}, 500 );
+		    		
+		    		//htmlElement.style.left = currentLeftPosition + "px";
 		    		currentLeftPosition += elementSpace;
 		    	}
 		    });
@@ -215,7 +219,8 @@
     	          	 classname : 'firstLine',
     	          	 icon : '<c:url 
     	          	 	value="/resources/timeline/api/images/${changesByType.key.simpleName}${date.time == changeDate.time ? '_current' : ''}.png" 
-    	          	 />'
+    	          	 />',
+    	          	 iconAlt : '<fmt:formatDate value="${changeDate}" pattern="dd/MM/yyyy HH:mm:ss" />'
     	      		},
     	      	    </c:forEach>
     	        </c:forEach>	
