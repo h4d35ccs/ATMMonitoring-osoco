@@ -32,6 +32,19 @@
 		</c:forEach>
 	</select>	
 </div>
+
+<div class="row">
+	<label for="queryDate"><spring:message code="widget.queryDate.label" /> </label>
+	<input type="text" id="queryDate" name="queryDate" value="${widget.queryDate}"/>
+ 		   
+		   
+	<a href="" id="queryDateButton" class="btn calendar">
+		<span>
+			<spring:message code="label.calendar.open"/>
+		</span>
+	</a>
+</div>
+	
 <div class="row">
 	<label><spring:message code="widget.join.label" /> </label>
 	
@@ -74,6 +87,16 @@ $(function() {
 	
 	initSelectChangeListener();
 	initSelectValues();
+	initQueryDateInput();
+	
+	function initQueryDateInput() {
+		var inputQueryDate = $("input#queryDate"); 
+		inputQueryDate.datepicker();
+	    $('#queryDateButton').click(function(event) {
+	        event.preventDefault();
+	        inputQueryDate.datepicker("show");
+		});
+	}
 	
 	function initSelectChangeListener() {
 		groupByEntitySelect.change(function(event) {
