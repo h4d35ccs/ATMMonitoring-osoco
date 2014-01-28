@@ -127,3 +127,38 @@
 		}
 	}
 }
+.category_library{
+	ul{
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 50%;
+		li{
+			padding: .5em 1em;
+			background:$colorK6;
+			border-bottom: 1px dotted $colorK4;
+		}
+	}
+	li{
+		position: relative;
+		float: none;
+		&:hover{
+			label{
+				background:$colorK6;
+				}
+			}
+		label{
+			float: none;
+			text-align: left;
+			width: 50%;
+			cursor: pointer;
+			padding: 0 .5em;
+		}
+		&:hover{
+			ul{
+				display: block;
+			}
+		}
+	}
+}

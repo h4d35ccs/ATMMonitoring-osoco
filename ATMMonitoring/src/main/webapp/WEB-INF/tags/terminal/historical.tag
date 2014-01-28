@@ -7,18 +7,20 @@
 
 <h2><spring:message code="label.terminal.history"/></h2>
 
-<c:forEach items="${historicalChanges}" var="changesByType">
-    <c:set var="changeName" value="${changesByType.key.simpleName}"> </c:set>
-    <img src="<c:url value="/resources/timeline/api/images/${changeName}.png" />" />
-    <spring:message code="label.historical.${changeName}"/>
-</c:forEach>	
+<div class="botonera">
+	<a href="#" class="timelineZoom on" data-zoom-in="true"  >  </a>
+	<a href="#" class="timelineZoom off" data-zoom-in="false" >  </a>
+</div>
 
 <div class="history_legend">
 	<div id="timeline" style="height:120px"> </div>
-</div>
-<div class="botonera">
-	<a href="#" class="btn timelineZoom" data-zoom-in="true"  > + </a>
-	<a href="#" class="btn timelineZoom" data-zoom-in="false" > - </a>
+	<ul class="legend">
+		<c:forEach items="${historicalChanges}" var="changesByType">
+		    <li><c:set var="changeName" value="${changesByType.key.simpleName}"> </c:set>
+		    <img src="<c:url value="/resources/timeline/api/images/${changeName}.png" />" />
+		    <spring:message code="label.historical.${changeName}"/></li>
+		</c:forEach>	
+	</ul>
 </div>
 
 <script>

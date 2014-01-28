@@ -12,12 +12,7 @@
 	</c:when>
 	<c:otherwise>
 	
-		<legend class="map">		
-			<c:forEach var="markerName" items="simpleMarker,multipleMarker,clusteredMarker" >
-				<img src="resources/images/maps/${markerName}.png" />
-				<spring:message code="terminals.map.${markerName}" />
-			</c:forEach>
-		</legend>
+		
 		
 		<div id="terminalsMap"> </div>
 		<div class="hide">
@@ -25,7 +20,14 @@
 				<spring:message code="label.terminal.map.summary.wait"/>
 			</div>
 		</div>
-		
+		<legend class="map">
+			<ul>	
+				<c:forEach var="markerName" items="simpleMarker,multipleMarker,clusteredMarker" >
+					<li><img src="resources/images/maps/${markerName}_p.png" />
+					<spring:message code="terminals.map.${markerName}" /></li>
+				</c:forEach>
+			</ul>
+		</legend>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 		<script src="resources/js/markerClusterer.js"></script>
 		<script type="text/javascript" >
