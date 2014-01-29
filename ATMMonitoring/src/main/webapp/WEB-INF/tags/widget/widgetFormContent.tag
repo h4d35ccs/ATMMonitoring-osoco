@@ -80,34 +80,36 @@
 		</span>
 	</a>
 </div>
-	
-<div class="row">
-	<label><spring:message code="widget.join.label" /> </label>
-	
-	<select id="groupByEntity" name="groupByEntity" required=""> 
-		<option value="" ><spring:message code="label.select.default"/></option>
-		<c:forEach items="${queryTypes}" var="queryType">
-			<option value="${queryType.name()}" >
-				<spring:message code="WidgetQueryAssociationType.${queryType}" />
-			</option>
-		</c:forEach>
-	</select>
-</div>
-	
-<c:forEach items="${queryTypes}" var="queryType">
-	<div id="${queryType.name()}" class="row hide queryTypeValueRows">
-		<label></label>
-		<select id="groupBy" name="groupBy" disabled="disabled">
+
+<div class="charTypeGroupByFields">	
+	<input type="hidden" class="groupByEntitySelectValue" name="groupByEntity" value="${widget.groupByEntity}"/>
+	<div class="row">
+		<label><spring:message code="widget.join.label" /> </label>
+		
+		<select id="groupByEntity" required=""> 
 			<option value="" ><spring:message code="label.select.default"/></option>
-			<c:forEach items="${queryType.comboboxes}" var="groupByField">
-				<option value="${groupByField.key}">
-					<spring:message code="${queryType.buildI18nMessage(groupByField.key)}" />
+			<c:forEach items="${queryTypes}" var="queryType">
+				<option value="${queryType.name()}" ${queryType == widget.groupByEntity ? 'selected' : '' } >
+					<spring:message code="WidgetQueryAssociationType.${queryType}" />
 				</option>
 			</c:forEach>
 		</select>
 	</div>
-</c:forEach>
 		
+	<c:forEach items="${queryTypes}" var="queryType">
+		<div id="${queryType.name()}" class="row hide queryTypeValueRows">
+			<label></label>
+			<select id="groupBy" name="groupBy" disabled="disabled">
+				<option value="" ><spring:message code="label.select.default"/></option>
+				<c:forEach items="${queryType.comboboxes}" var="groupByField">
+					<option value="${groupByField.key}" ${groupByField.key == widget.groupBy ? 'selected' : '' }>
+						<spring:message code="${queryType.buildI18nMessage(groupByField.key)}" />
+					</option>
+				</c:forEach>
+			</select>
+		</div>
+	</c:forEach>
+</div>		
 
 
 <div class="botonera">
@@ -116,13 +118,29 @@
 
 <script type="text/javascript">
 $(function() {
+	var queryTypeSelectRestrictions = { 'GEO_CHART' : 'GEO_INFO' }
+	
 	var chartTypeRadios = $("input#chartType");
 	var chartTypeFieldsDivs = $("div.chartTypeFields");
 	var chartTypeFieldSelects = chartTypeFieldsDivs.find("select");
 	
-	chartTypeRadios.change(function(event) {
-		showChartTypeFields($(this).val())
-	});
+	init();
+	
+	function init() {
+		chartTypeRadios.change(function(event) {
+			var selectedValue = $(this).val()
+			showChartTypeFields(selectedValue);
+			applyQueryTypeSelectRestrictions(selectedValue);
+		});
+		
+		var selectedRadioValue = chartTypeRadios.filter(':checked').val()
+		showChartTypeFields(selectedRadioValue);
+		applyQueryTypeSelectRestrictions(selectedRadioValue);
+	}
+	
+	function addSelectHiddenValueToForm(value) {
+		chartTypeFieldSelects.parent
+	}
 	
 	function showChartTypeFields(chartType) {
 		chartTypeFieldsDivs.hide();
@@ -133,33 +151,35 @@ $(function() {
 		chartTypeFieldsDivs.filter('#' + chartType).find('select').removeAttr('disabled');
 	}
 	
-	showChartTypeFields(chartTypeRadios.filter(':checked').val());
+	function applyQueryTypeSelectRestrictions(selectedValue) {
+		var valueToSetFixed = queryTypeSelectRestrictions[selectedValue]
+		var queryTypeSelect = $('select#groupByEntity');
+		if(valueToSetFixed) {
+			queryTypeSelect.val(valueToSetFixed);
+			queryTypeSelect.attr("disabled", "disabled");
+			queryTypeSelect.change();
+		} else {
+			queryTypeSelect.removeAttr("disabled");
+		}
+	}
+	
 });
 
 $(function() {
-	
-	var groupByEntitySelect = $('select#groupByEntity')
+	var groupByEntitySelectValueInput = $('input.groupByEntitySelectValue');
+	var groupByEntitySelect = $('select#groupByEntity');
 	var queryTypeValueRows = $("div.queryTypeValueRows");
 	var queryTypeValuesByRow = $("div.queryTypeValueRows select#groupBy");
 	
 	initSelectChangeListener();
 	initSelectValues();
-	initQueryDateInput();
-	
-	function initQueryDateInput() {
-		var inputQueryDate = $("input#queryDate"); 
-		//inputQueryDate.datepicker();
-	    inputQueryDate.datepicker({ dateFormat: "dd/mm/yy" });
-	    $('#queryDateButton').click(function(event) {
-	        event.preventDefault();
-	        inputQueryDate.datepicker("show");
-		});
-	}
 	
 	function initSelectChangeListener() {
 		groupByEntitySelect.change(function(event) {
 			var queryTypeSelect = $(this);
 			var queryType = queryTypeSelect.val();
+			
+			groupByEntitySelectValueInput.val(queryType);
 			
 			queryTypeValueRows.addClass("hide");
 			queryTypeValuesByRow.attr("disabled", "disabled");
@@ -173,21 +193,24 @@ $(function() {
 	}
 	
 	function initSelectValues() {
-		var selectedQueryType = "${widget.groupByEntity}";
-		var selectedQueryGroupBy = "${widget.groupBy}";
-		
-		if(selectedQueryType) {
-			groupByEntitySelect.val(selectedQueryType);
-			groupByEntitySelect.change();
-			
-			if(selectedQueryType) {
-				getGroupBySelectByQueryType(selectedQueryType).val(selectedQueryGroupBy);
-			}
-		}
+		groupByEntitySelect.change();
 	}
 		
 	function getGroupBySelectByQueryType(queryType) {
 		return $('div#' + queryType + ' select#groupBy');
+	}
+});
+
+$(function() {
+	initQueryDateInput();	
+	function initQueryDateInput() {
+		var inputQueryDate = $("input#queryDate"); 
+		//inputQueryDate.datepicker();
+	    inputQueryDate.datepicker({ dateFormat: "dd/mm/yy" });
+	    $('#queryDateButton').click(function(event) {
+	        event.preventDefault();
+	        inputQueryDate.datepicker("show");
+		});
 	}
 });
 

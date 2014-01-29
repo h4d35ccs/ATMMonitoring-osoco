@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.utils;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -24,6 +25,7 @@ public enum WidgetQueryAssociationType {
 	
 	TERMINAL(null, "terminal", Terminal.getComboboxes()),
 	INSTALLATION("installations", "installation", Installation.getComboboxes()),
+	GEO_INFO("installations", "installation", buildInstallationPlacesCombobox()),
 	FINANCIAL_DEVICES("financialDevices","financialDevice", FinancialDevice.getComboboxes()),
 	XFS_COMPONENT("financialDevices.xfsComponents", "xfsComponent", XfsComponent.getComboboxes()),
 	JXFS_COMPONENT("financialDevices.jxfsComponents", "jxfsComponent", JxfsComponent.getComboboxes()),
@@ -75,6 +77,15 @@ public enum WidgetQueryAssociationType {
 		}
 	}
 	
+	private static Map<String, ?> buildInstallationPlacesCombobox() {
+		Map<String, ?> comboboxes = new HashMap<String, Object>();
+		String[] fields = {"ip", "location.addressStreet","location.addressCity", "location.addressCountry"};
+		for (String field : fields) {
+			comboboxes.put(field, null);
+		}
+		return comboboxes;
+	}
+
 	private WidgetQueryAssociationType(String associationName, String comboboxName, Map<String,?> comboboxes) {
 		this(associationName,comboboxName,comboboxes, null);
 	}
