@@ -141,7 +141,7 @@ public class WidgetController {
     @RequestMapping(value = "/dashboard/addToLibrary", method = RequestMethod.POST)
     public String addToLibrary(
     		@RequestParam(value="widgetId") Integer widgetId,
-    		@RequestParam(value="widgetId") Integer categoryId,
+    		@RequestParam(value="categoryId") Integer categoryId,
     		Principal principal) {
     	addOrRemoveWidgetFromLibrary(widgetId, principal, categoryId);
     	return "closeIframeUpdateParent";

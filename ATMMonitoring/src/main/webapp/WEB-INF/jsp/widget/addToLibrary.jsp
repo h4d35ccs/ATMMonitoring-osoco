@@ -8,7 +8,7 @@
 
 <widget:libraryCategories 
 	widgetId="${widgetId}" 
-	formAction="/dashboard/addToLibrary" 
+	formAction="dashboard/addToLibrary" 
 	messageKey="add.to" 
 	selectCategory="${true}"/>
 

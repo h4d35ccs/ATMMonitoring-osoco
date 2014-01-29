@@ -106,6 +106,11 @@ public abstract class AbstractGenericDAO<T> {
      * @return the Pojo with the given id, or null if it doesn't exist
      */
     protected T get(Integer id) {
-	return (T) sessionFactory.getCurrentSession().get(getDomainClass(), id);
+    	if(id != null) {
+    		return (T) sessionFactory.getCurrentSession().get(getDomainClass(), id);
+    	} else {
+    		return null;
+    	}
+	
     }
 }

@@ -279,9 +279,9 @@ function postToUrlAndHideChart(postUrl, widgetId) {
 }
 
 function onAddOrRemoveWidgetToLibrary(clickedElement, widgetId, addToLibrary) {
-    return addToLibrary ? addToLibrary() : removeFromLibrary;
+	return addToLibrary ? addWidgetToLibrary() : removeFromLibrary();
    
-    function addToLibrary() {
+    function addWidgetToLibrary() {
     	clickedElement.next().click();
     	return false;
     }
