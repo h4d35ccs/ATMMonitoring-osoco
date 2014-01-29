@@ -23,10 +23,10 @@
 						<form method="post" action="dashboard/addFromLibrary" >
 							<ul class="category_library">
 								<c:forEach var="category" items="${categories}"> 
-									<li>
+									<li class="category">
 										<label><input type="checkbox" disabled="disabled" name="categoryId" value="${category.id}"> ${category.name} </label>
 										
-										<ul>
+										<ul class="widgets">
 											<c:forEach var="widget" items="${category.widgets}"> 
 												<li><label>
 													<input type="checkbox" name="widgetIds" value="${widget.id}">
@@ -47,4 +47,20 @@
 		</article>
 	</div>
 </div>
+
+<script type="text/javascript">
+$(function() {
+	var categoryListElement = $("ul.category_library li.category");
+	var widgetsByCategory = $("ul.category_library li.category ul");
+	
+	categoryListElement.click(function(event)  {
+		var clickedElement = $(this);
+		widgetsByCategory.hide();
+		categoryListElement.removeClass('selected');
+		
+		clickedElement.addClass('selected');
+		clickedElement.find("ul.widgets").show();
+	});
+});	
+</script>
 </t:osoco-wrapperWoMenu>

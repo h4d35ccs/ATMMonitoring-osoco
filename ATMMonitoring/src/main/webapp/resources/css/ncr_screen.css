@@ -746,10 +746,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   cursor: pointer;
   padding: 0 0.5em;
 }
-/* line 159, ../sass/_dashboard.scss */
-.category_library li:hover ul {
-  display: block;
-}
 
 /* line 1, ../sass/_list.scss */
 .box_list {
@@ -3833,4 +3829,8 @@ legend.map li {
   #main .fc-header h2, #cboxContent .fc-header h2 {
     font-size: 1em;
   }
+}
+
+.category_library li.selected label {
+  background: #f3f3f3;
 }
