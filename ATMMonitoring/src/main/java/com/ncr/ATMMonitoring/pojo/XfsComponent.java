@@ -72,6 +72,7 @@ public class XfsComponent {
 	comboboxes.put("acceptMedia", boolOperations);
 	comboboxes.put("algorithms", stringOperations);
 	comboboxes.put("autobeep", stringOperations);
+	comboboxes.put("autodeposit", boolOperations);
 	comboboxes.put("autoretractPeriod", numOperations);
 	comboboxes.put("auxiliaries", stringOperations);
 	comboboxes.put("backImageColorFormat", stringOperations);
@@ -80,15 +81,18 @@ public class XfsComponent {
 	comboboxes.put("camdata", stringOperations);
 	comboboxes.put("canFilterSymbologies", boolOperations);
 	comboboxes.put("cards", numOperations);
+	comboboxes.put("cashin", boolOperations);
 	comboboxes.put("charSupport", stringOperations);
 	comboboxes.put("chipio", boolOperations);
 	comboboxes.put("chipPower", stringOperations);
 	comboboxes.put("chipProtocol", stringOperations);
 	comboboxes.put("codeLineFormat", stringOperations);
+	comboboxes.put("coins", boolOperations);
 	comboboxes.put("compound", boolOperations);
 	comboboxes.put("comparemagneticstripe", boolOperations);
 	comboboxes.put("control", stringOperations);
 	comboboxes.put("cursor", boolOperations);
+	comboboxes.put("cylinders", boolOperations);
 	comboboxes.put("defaultBackscanColor", stringOperations);
 	comboboxes.put("defaultFrontscanColor", stringOperations);
 	comboboxes.put("deptransport", boolOperations);
@@ -151,10 +155,14 @@ public class XfsComponent {
 	comboboxes.put("keyCheckModes", stringOperations);
 	comboboxes.put("keyLock", boolOperations);
 	comboboxes.put("keyNum", numOperations);
+	comboboxes.put("keys", stringOperations);
 	comboboxes.put("logical", stringOperations);
 	comboboxes.put("magneticstriperead", boolOperations);
 	comboboxes.put("magneticstripewrite", boolOperations);
+	comboboxes.put("max2Retract", numOperations);
+	comboboxes.put("maxBills", numOperations);
 	comboboxes.put("maxCashInItems", numOperations);
+	comboboxes.put("maxCoins", numOperations);
 	comboboxes.put("maxDataLength", numOperations);
 	comboboxes.put("maxDispenseItems", numOperations);
 	comboboxes.put("maxMediaOnStacker", numOperations);
@@ -168,8 +176,10 @@ public class XfsComponent {
 	comboboxes.put("multiPage", boolOperations);
 	comboboxes.put("numLeds", numOperations);
 	comboboxes.put("ocr", stringOperations);
+	comboboxes.put("outputPositions",stringOperations);
 	comboboxes.put("paperSources", stringOperations);
 	comboboxes.put("pinFormats", stringOperations);
+	comboboxes.put("pockets", numOperations);
 	comboboxes.put("powerOff", stringOperations);
 	comboboxes.put("powerOn", stringOperations);
 	comboboxes.put("powerSaveControl", boolOperations);
@@ -184,11 +194,13 @@ public class XfsComponent {
 	comboboxes.put("refill", boolOperations);
 	comboboxes.put("resetControl", stringOperations);
 	comboboxes.put("resolutions", stringOperations);
+	comboboxes.put("retract", boolOperations);
 	comboboxes.put("retractAreas", stringOperations);
 	comboboxes.put("retractBins", stringOperations);
 	comboboxes.put("retractenvelope", stringOperations);
 	comboboxes.put("retractStackerActions", stringOperations);
 	comboboxes.put("retractTransportActions", stringOperations);
+	comboboxes.put("retractToDeposit", boolOperations);
 	comboboxes.put("rsaAuthenticationScheme", stringOperations);
 	comboboxes.put("rsaCryptAlgorithm", stringOperations);
 	comboboxes.put("rsaKeycheckMode", stringOperations);
@@ -203,6 +215,7 @@ public class XfsComponent {
 	comboboxes.put("toner", boolOperations);
 	comboboxes.put("type", stringOperations);
 	comboboxes.put("validationAlgorithms", stringOperations);
+	comboboxes.put("vandalCheck", boolOperations);
 	comboboxes.put("windowsPrinter", stringOperations);
 	comboboxes.put("writeForm", stringOperations);
 	comboboxes.put("writeMode", stringOperations);
@@ -300,6 +313,10 @@ public class XfsComponent {
     /** The cards. */
     @Column(name = "cards")
     private Integer cards;
+    
+    /** The cashin. */
+    @Column(name = "cash_in")
+    private Boolean cashin;
 
     /** The char support. */
     @Column(name = "char_support")
@@ -800,6 +817,10 @@ public class XfsComponent {
     @Column(name = "resolutions")
     @Type(type = "text")
     private String resolutions;
+    
+    /** The retract. */
+    @Column(name = "retract")
+    private Boolean retract;
 
     /** The retract areas. */
     @Column(name = "retract_areas")
@@ -991,6 +1012,10 @@ public class XfsComponent {
      */
     public XfsComponent(CDM xfs) {
 	xfsClass = "CDM";
+	//EP410008 - 28/01/2014
+	retract = xfs.isRetract();
+	cashin = xfs.isCashin();
+	//<--
 	exchangeTypes = xfs.getExchangetype();
 	extra = Utils.unescapeJsonChain(xfs.getExtra());
 	guidlights = xfs.getGuidlights();
@@ -4014,4 +4039,22 @@ public class XfsComponent {
     public void setVandalCheck(Boolean vandalCheck) {
 	this.vandalCheck = vandalCheck;
     }
+    
+  //EP410008 - 28/01/2014
+    public Boolean getCashin() {
+    	return cashin;
+    }
+
+    public void setCashin(Boolean cashin) {
+    	this.cashin = cashin;
+    }
+    
+    public Boolean getRetract() {
+    	return retract;
+    }
+
+    public void setRetract(Boolean retract) {
+    	this.retract = retract;
+    }
+    //<--
 }
