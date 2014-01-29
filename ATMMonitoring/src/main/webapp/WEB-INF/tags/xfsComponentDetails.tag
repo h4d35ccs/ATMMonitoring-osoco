@@ -81,6 +81,12 @@
 <td>${xfsComponent.cards}</td>
 </tr>
 </c:if>
+<c:if test="${xfsComponent.cashin != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.cashin"/></td>
+<td>${xfsComponent.cashin}</td>
+</tr>
+</c:if>
 <c:if test="${xfsComponent.charSupport != null}">
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.charSupport"/></td>
@@ -751,6 +757,12 @@
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.resolutions"/></td>
 <td>${xfsComponent.resolutions}</td>
+</tr>
+</c:if>
+<c:if test="${xfsComponent.retract != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.retract"/></td>
+<td>${xfsComponent.retract}</td>
 </tr>
 </c:if>
 <c:if test="${xfsComponent.retractAreas != null}">
