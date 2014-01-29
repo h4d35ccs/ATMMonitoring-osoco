@@ -15,11 +15,46 @@
 	<c:forEach var="chartType" items="${chartTypes}">
 		<label class="graph graph_0${index + 1}">
 			<span><spring:message code="ChartType.${chartType.name()}" /></span>
-			<input type="radio" class="inputGraph" value="${chartType.name()}" name="chartType" 
+			<input type="radio" class="inputGraph" value="${chartType.name()}" name="chartType" id="chartType" 
 			       required="" ${chartType == widget.chartType ? 'checked' : '' }/> 
 		</label>
 		<c:set var="index" value="${index + 1}" />
 	</c:forEach>
+</div>
+
+<div id="GEO_CHART" class="chartTypeFields hide">
+	<div class="row">
+		<label for="region"><spring:message code="widget.region.title"/></label>
+		<select id="region" name="region" size="1">
+			<c:forEach items="${regionTypes}" var="regionType">
+				<option value="${regionType.name()}" ${regionType == widget.region ? 'selected' : '' }>
+					<spring:message code="RegionType.${regionType.name()}"/>
+				</option>
+			</c:forEach>
+		</select>		
+	</div>
+	
+	<div class="row">
+		<label for="resolution"><spring:message code="widget.resolution.title"/></label>
+		<select id="resolution" name="resolution" size="1">
+			<c:forEach items="${resolutionTypes}" var="resolutionType">
+				<option value="${resolutionType.name()}" ${resolutionType == widget.resolution ? 'selected' : '' }>
+					<spring:message code="ResolutionType.${resolutionType.name()}"/>
+				</option>
+			</c:forEach>
+		</select>		
+	</div>
+	
+	<div class="row">
+		<label for="displayMode"><spring:message code="widget.displayMode.title"/></label>
+		<select id="displayMode" name="displayMode" size="1">
+			<c:forEach items="${displayModeTypes}" var="displayModeType">
+				<option value="${displayModeType.name()}" ${displayModeType == widget.displayMode ? 'selected' : '' }>
+					<spring:message code="DisplayModeType.${displayModeType.name()}"/>
+				</option>
+			</c:forEach>
+		</select>		
+	</div>
 </div>
 
 <div class="row">
@@ -80,6 +115,27 @@
 </div>
 
 <script type="text/javascript">
+$(function() {
+	var chartTypeRadios = $("input#chartType");
+	var chartTypeFieldsDivs = $("div.chartTypeFields");
+	var chartTypeFieldSelects = chartTypeFieldsDivs.find("select");
+	
+	chartTypeRadios.change(function(event) {
+		showChartTypeFields($(this).val())
+	});
+	
+	function showChartTypeFields(chartType) {
+		chartTypeFieldsDivs.hide();
+	    chartTypeFieldSelects.attr("disabled", "disabled");
+		chartTypeFieldSelects.removeAttr("required");
+		
+		chartTypeFieldsDivs.filter('#' + chartType).show();
+		chartTypeFieldsDivs.filter('#' + chartType).find('select').removeAttr('disabled');
+	}
+	
+	showChartTypeFields(chartTypeRadios.filter('checked').val());
+});
+
 $(function() {
 	
 	var groupByEntitySelect = $('select#groupByEntity')

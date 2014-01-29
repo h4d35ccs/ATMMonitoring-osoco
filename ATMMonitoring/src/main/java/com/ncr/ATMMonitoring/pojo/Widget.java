@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.ncr.ATMMonitoring.utils.RegionType;
 import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 
 /**
@@ -81,7 +82,19 @@ public class Widget {
 	/** The chart type. */
 	@Column(name = "chart_type", nullable = false)
 	private ChartType chartType;
-
+	
+	/** The chart type. */
+	@Column(name = "region", nullable = true)
+	private RegionType region;
+	
+	/** The chart type. */
+	@Column(name = "display_mode", nullable = true)
+	private DisplayModeType displayMode;
+	
+	/** The chart type. */
+	@Column(name = "resolution", nullable = true)
+	private ResolutionType resolution;
+	
 	/**
 	 * Instantiates a new widget.
 	 */
@@ -321,6 +334,31 @@ public class Widget {
 		this.libraryWidget = libraryWidget;
 	}
 
+	
+
+	public RegionType getRegion() {
+		return region;
+	}
+
+	public void setRegion(RegionType region) {
+		this.region = region;
+	}
+
+	public DisplayModeType getDisplayMode() {
+		return displayMode;
+	}
+
+	public void setDisplayMode(DisplayModeType displayMode) {
+		this.displayMode = displayMode;
+	}
+
+	public ResolutionType getResolution() {
+		return resolution;
+	}
+
+	public void setResolution(ResolutionType resolution) {
+		this.resolution = resolution;
+	}
 
 	/**
 	 * To json.
@@ -388,5 +426,17 @@ public class Widget {
 		 BAR_CHART, 
 		 /** The geo chart. */
 		 GEO_CHART;
+	}
+	
+	public enum DisplayModeType {
+		AUTO,
+		REGIONS,
+		MARKERS
+	}
+
+	public enum ResolutionType {
+		COUNTRIES,
+		PROVINCES, //Only with displayMode regions
+		METROS
 	}
 }

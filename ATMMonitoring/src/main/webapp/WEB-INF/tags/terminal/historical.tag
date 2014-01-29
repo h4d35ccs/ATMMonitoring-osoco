@@ -185,7 +185,7 @@
 		    	var index = 0,
 		    		totalClusteredElements = clusteredElements.length,
 		    		totalWidth = elementSpace * totalClusteredElements,
-		    		firstLeftPosition = (leftPosition - totalWidth / 2 ) + elementSpace/2 ,
+		    		firstLeftPosition = (leftPosition - totalWidth / 2 ) + elementSpace/1.25 ,
 		    		currentLeftPosition = firstLeftPosition;
 		    		
 		    	restoreClusters();
@@ -198,8 +198,6 @@
 		    		element.animate({
 						left: currentLeftPosition + "px",
 					}, 500 );
-		    		
-		    		//htmlElement.style.left = currentLeftPosition + "px";
 		    		currentLeftPosition += elementSpace;
 		    	}
 		    });

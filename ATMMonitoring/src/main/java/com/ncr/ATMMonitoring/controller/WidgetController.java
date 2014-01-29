@@ -27,6 +27,7 @@ import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.service.WidgetService;
 import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
+import com.ncr.ATMMonitoring.utils.RegionType;
 
 @Controller
 public class WidgetController {
@@ -192,7 +193,12 @@ public class WidgetController {
         }
     	
     	model.put("userQueries", userQueries);
+
     	model.put("chartTypes", Widget.ChartType.values());
+    	model.put("regionTypes", RegionType.values());
+    	model.put("resolutionTypes", Widget.ResolutionType.values());
+    	model.put("displayModeTypes", Widget.DisplayModeType.values());
+    	
     	model.put("queryTypes", WidgetQueryAssociationType.values());
     	model.put("widget", widget);
     	model.put("operationType", operationType);
