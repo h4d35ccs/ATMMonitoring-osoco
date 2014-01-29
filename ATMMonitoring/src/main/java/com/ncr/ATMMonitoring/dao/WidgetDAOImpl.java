@@ -9,6 +9,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Widget;
+import com.ncr.ATMMonitoring.pojo.WidgetCategory;
 
 /**
  * The Class WidgetDAOImpl.
@@ -69,14 +70,6 @@ public class WidgetDAOImpl extends AbstractGenericDAO<Widget> implements
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
     
-    @Override
-	public List<Widget> findLibraryWidgets() {
-    	return sessionFactory.getCurrentSession().createCriteria(Widget.class)
-    			.add(Restrictions.eq("libraryWidget", true))
-		.addOrder(Order.asc("title"))
-		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-    }
-
     /*
      * (non-Javadoc)
      * 

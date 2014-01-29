@@ -5,6 +5,7 @@ import java.util.Locale;
 
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.Widget;
+import com.ncr.ATMMonitoring.pojo.WidgetCategory;
 
 /**
  * The Interface WidgetService.
@@ -63,7 +64,7 @@ public interface WidgetService {
 
 	public void addWidgetsFromLibrary(List<Integer> widgetIds, User user);
 
-	public List<Widget> findLibraryWidgets();
+	public List<WidgetCategory> findLibraryWidgetsByCategory();
 
 	public void addOrRemoveWidgetToLibrary(Integer widgetId, User user, boolean addToLibrary);
 

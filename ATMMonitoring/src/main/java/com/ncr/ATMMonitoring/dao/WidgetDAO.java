@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.dao;
 import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.Widget;
+import com.ncr.ATMMonitoring.pojo.WidgetCategory;
 
 /**
  * The Interface WidgetDAO.
@@ -47,6 +48,4 @@ public interface WidgetDAO {
 	public Widget findById(int id);
 
 	public void delete(Widget widget);
-
-	public List<Widget> findLibraryWidgets();
 }

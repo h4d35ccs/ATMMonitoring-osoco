@@ -49,10 +49,7 @@ public class Widget implements Serializable {
     @Column(name = "default_widget", nullable = false)
 	private boolean defaultWidget = false;
     
-    @Column(name = "library_widget", nullable = false)
-	private boolean libraryWidget = false;
-
-	/** The visible. */
+    /** The visible. */
     @Column(name = "visible", nullable = false)
 	private boolean visible = true;
     
@@ -117,7 +114,7 @@ public class Widget implements Serializable {
 		this.title = source.getTitle();
 		this.order = source.getOrder();
 		this.defaultWidget = source.isDefaultWidget();
-		this.libraryWidget = source.isLibraryWidget();
+		this.category = source.getCategory();
 		this.visible = source.isVisible();
 		this.owner = source.getOwner();
 		this.query = source.getQuery();
@@ -331,17 +328,6 @@ public class Widget implements Serializable {
     public void setChartType(ChartType chartType) {
 		this.chartType = chartType;
     }
-    
-	
-    public boolean isLibraryWidget() {
-		return libraryWidget;
-	}
-
-	public void setLibraryWidget(boolean libraryWidget) {
-		this.libraryWidget = libraryWidget;
-	}
-
-	
 
 	public RegionType getRegion() {
 		return region;
@@ -366,6 +352,18 @@ public class Widget implements Serializable {
 	public void setResolution(ResolutionType resolution) {
 		this.resolution = resolution;
 	}
+	
+	 public boolean isLibraryWidget() {
+		 return category != null;
+	 }
+
+	 public WidgetCategory getCategory() {
+		 return category;
+	 }
+
+	 public void setCategory(WidgetCategory category) {
+		 this.category = category;
+	 }
 
 	/**
 	 * To json.
@@ -377,7 +375,7 @@ public class Widget implements Serializable {
 		result.put("id", id);
 		result.put("title", title);
 		result.put("type", chartType);
-		result.put("libraryWidget", libraryWidget);
+		result.put("libraryWidget", isLibraryWidget());
 		result.put("defaultWidget", defaultWidget);
 		
 		if(chartType == ChartType.GEO_CHART) {

@@ -15,6 +15,8 @@ import com.ncr.ATMMonitoring.pojo.Dashboard;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.Widget;
+import com.ncr.ATMMonitoring.pojo.WidgetCategory;
+import com.ncr.ATMMonitoring.dao.WidgetCategoryDAO;
 import com.ncr.ATMMonitoring.dao.WidgetDAO;
 
 // TODO: Auto-generated Javadoc
@@ -44,6 +46,9 @@ public class WidgetServiceImpl implements WidgetService {
     /** The widget dao. */
     @Autowired
     private WidgetDAO widgetDAO;
+    
+    @Autowired
+    private WidgetCategoryDAO widgetCategoryDAO;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.service.WidgetService#findDefaultWidgets()
@@ -148,13 +153,13 @@ public class WidgetServiceImpl implements WidgetService {
 	
 	@Override 
 	public void addOrRemoveWidgetToLibrary(Integer widgetId ,User user, boolean addToLibrary) {
-		Widget widget = findWidgetById(widgetId);
-		if( isWidgetOwnedByUser(widget, user)) {
-			String action = addToLibrary ? "Adding" : "Removing";
-			logger.info(action + " widget[" + widgetId + "] to library by user[" + user.getId() + "]");
-			widget.setLibraryWidget(addToLibrary);
-			widgetDAO.update(widget);
-		}
+//		Widget widget = findWidgetById(widgetId);
+//		if( isWidgetOwnedByUser(widget, user)) {
+//			String action = addToLibrary ? "Adding" : "Removing";
+//			logger.info(action + " widget[" + widgetId + "] to library by user[" + user.getId() + "]");
+//			widget.setLibraryWidget(addToLibrary);
+//			widgetDAO.update(widget);
+//		}
 	}
 	
 	@Override 
@@ -169,15 +174,15 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 	}
 	
-	public List<Widget> findLibraryWidgets() {
-		return widgetDAO.findLibraryWidgets();
+	public List<WidgetCategory> findLibraryWidgetsByCategory() {
+		return widgetCategoryDAO.findLibraryWidgetsByCategory();
 	}
 	
 	private Widget copyWidgetToUserDashboard(Widget widgetToCopy, User user) {
 		Dashboard dashboard = user.getDashboard();
 		Widget userWidget = new Widget(widgetToCopy);
 		userWidget.setDefaultWidget(false);
-		userWidget.setLibraryWidget(false);
+		userWidget.setCategory(null);
 		userWidget.setOwner(user);
 		userWidget.setDashboard(dashboard);
 		saveWidget(userWidget);

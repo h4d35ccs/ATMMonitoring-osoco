@@ -65,7 +65,7 @@ public class WidgetController {
     		Principal principal) {
     	
     	if (principal != null) {
-    		model.put("widgets", widgetService.findLibraryWidgets());
+    		model.put("categories", widgetService.findLibraryWidgetsByCategory());
     	}
     	
     	return "widget/createFromLibrary";
