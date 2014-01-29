@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +20,10 @@ import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name = "widget_category")
-public class WidgetCategory {
+public class WidgetCategory implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	/** The id. */
 	@Id
     @Column(name = "id")

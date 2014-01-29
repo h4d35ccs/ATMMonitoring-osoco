@@ -9,7 +9,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Widget;
-import com.ncr.ATMMonitoring.pojo.WidgetCategory;
 
 /**
  * The Class WidgetDAOImpl.
