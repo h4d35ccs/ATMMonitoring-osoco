@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +26,9 @@ import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 
 @Entity
 @Table(name = "widget")
-public class Widget {
+public class Widget implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	/** The id. */
 	@Id

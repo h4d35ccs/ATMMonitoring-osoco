@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.pojo;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -38,9 +39,11 @@ import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 
 @Entity
 @Table(name = "queries")
-public class Query {
+public class Query implements Serializable {
 
-    /** The comboboxes data for the query designer. */
+    private static final long serialVersionUID = 1L;
+
+	/** The comboboxes data for the query designer. */
     private static final Map<String, Map> comboboxes;
 
     static {
