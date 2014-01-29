@@ -3834,3 +3834,7 @@ legend.map li {
 .category_library li.selected label {
   background: #f3f3f3;
 }
+
+.category_library input[type="radio"] {
+    margin: 0.8em 0;
+}

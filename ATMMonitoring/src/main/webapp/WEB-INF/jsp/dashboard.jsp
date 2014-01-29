@@ -21,7 +21,6 @@
       strings['label.widget.cancel'] = "<spring:message code='label.widget.cancel' javaScriptEscape='true' />";
       strings['widget.delete.confirm'] = "<spring:message code='widget.delete.confirm' javaScriptEscape='true' />";
       strings['widget.add.to.library'] = "<spring:message code='widget.add.to.library' javaScriptEscape='true' />";
-      strings['widget.add.to.library.confirm'] = "<spring:message code='widget.add.to.library.confirm' javaScriptEscape='true' />";
       strings['widget.remove.from.library.confirm'] = "<spring:message code='widget.remove.from.library.confirm' javaScriptEscape='true' />";
       strings['widget.set.as.default'] = "<spring:message code='widget.set.as.default' javaScriptEscape='true' />";
       strings['widget.set.as.default.confirm'] = "<spring:message code='widget.set.as.default.confirm' javaScriptEscape='true' />";
