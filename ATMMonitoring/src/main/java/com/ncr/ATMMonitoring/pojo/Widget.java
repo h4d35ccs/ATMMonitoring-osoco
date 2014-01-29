@@ -74,6 +74,10 @@ public class Widget implements Serializable {
 	@JoinColumn(name = "dashboard_id", nullable = true)
     private Dashboard dashboard;
 
+	@ManyToOne
+	@JoinColumn(name = "category_id", nullable = true)
+    private WidgetCategory category;
+	
 	/** The group by. */
 	@Column(name = "groupByField", nullable = false)
 	private String groupBy;
