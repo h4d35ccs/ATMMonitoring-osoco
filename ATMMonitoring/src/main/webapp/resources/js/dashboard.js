@@ -6,7 +6,7 @@ var showChartUrl = 'dashboard/showChart';
 var changeDashboardColumnsUrl = 'dashboard/changeColumns';
 var deleteChartUrl = 'dashboard/delete'
 var editChartUrl = 'dashboard/edit/'
-var addWidgetToLibraryUrl = 'dashboard/addToLibrary'
+var addWidgetToLibraryUrl = 'dashboard/showAddToLibraryForm'
 var removeWidgetFromLibrary = 'dashboard/removeFromLibrary'
 var setWidgetAsDefaultUrl = 'dashboard/setAsDefault'
 var unsetWidgetAsDefaultUrl = 'dashboard/unsetAsDefault'
@@ -237,8 +237,9 @@ function onChartDrawed(chart) {
 		addToLibraryElement.attr("checked", "checked");
 	}
 	addToLibraryElement.click(function() {
-		var addToLibrary = $(this).is(':checked');
-		return onAddOrRemoveWidgetToLibrary(widgetId, addToLibrary);
+		var clickedElement = $(this);
+		var addToLibrary = clickedElement.is(':checked');
+		return onAddOrRemoveWidgetToLibrary(clickedElement,widgetId, addToLibrary);
 	});
 	
 	var setAsDefaultElement = $(chart).find(".setAsDefault")
@@ -251,7 +252,7 @@ function onChartDrawed(chart) {
 		return onSetOrUnsetDefaultWidget(widgetId, isDefault);
 	});
 	
-	initEditButtonIframe($(chart).find('.editWidget').selector)
+	initButtonsIframe($(chart).find('.chart_iframe').selector)
 	drawChartsMenu();
 }
 
@@ -277,18 +278,27 @@ function postToUrlAndHideChart(postUrl, widgetId) {
     $("#sortable li#" + widgetId).remove();
 }
 
-function onAddOrRemoveWidgetToLibrary(widgetId, addToLibrary) {
-   if(confirm(strings['widget.' + (addToLibrary ? 'add.to' : 'remove.from') + '.library.confirm'])) {
-	   $.post(
-	        (addToLibrary ? addWidgetToLibraryUrl : removeWidgetFromLibrary),
-	        {
-	            widgetId: widgetId
-	        }
-	    );
-	    return true;
-    } else {
+function onAddOrRemoveWidgetToLibrary(clickedElement, widgetId, addToLibrary) {
+    return addToLibrary ? addToLibrary() : removeFromLibrary;
+   
+    function addToLibrary() {
+    	clickedElement.next().click();
     	return false;
     }
+    
+    function removeFromLibrary() {
+	   if(confirm(strings['widget.remove.from.library.confirm'])) {
+		   $.post(
+		   		removeWidgetFromLibrary,
+		        {
+		            widgetId: widgetId
+		        }
+		    );
+		    return true;
+	    } else {
+	    	return false;
+	    }	
+    } 
 }
 
 function onSetOrUnsetDefaultWidget(widgetId, defaultWidget) {
@@ -365,10 +375,11 @@ var transforms = {
                                                   children: [ { tag: 'span', html: strings['label.widget.options'] } ] },
                                                 { tag: 'ul', class: 'collapsible',
                                                   children: [ 
-                                                  			  { tag: 'li', children: [ { tag: 'a', class: 'editWidget iframe_medium', href: (editChartUrl + '${id}'), html: strings['label.widget.edit'] } ] },
+                                                  			  { tag: 'li', children: [ { tag: 'a', class: 'editWidget iframe_medium chart_iframe', href: (editChartUrl + '${id}'), html: strings['label.widget.edit'] } ] },
                                                               { tag: 'li', class: 'privilegedOption' , children: 
                                                               		[ 
-                                                              			{ tag: 'input', class: 'addToLibrary', type:'checkbox', 'data-checked' : "${libraryWidget}" , html: strings['widget.add.to.library'] } 
+                                                              			{ tag: 'input', class: 'addToLibrary', type:'checkbox', 'data-checked' : "${libraryWidget}" , html: strings['widget.add.to.library'] },
+                                                              			{ tag: 'span', class:'hide iframe_medium chart_iframe', href: (addWidgetToLibraryUrl + '/${id}')} 
                                                               		] 
                                                               },
                                                               { tag: 'li', class: 'privilegedOption' , children: 
@@ -419,7 +430,7 @@ function hideEditWidgetsLibraryOptions() {
 	$('.privilegedOption').hide();
 }
 
-function initEditButtonIframe(selectorPrefix) {
+function initButtonsIframe(selectorPrefix) {
 	//init edit links. This function is stored on menu.js
 	return initIframes(selectorPrefix);
 }

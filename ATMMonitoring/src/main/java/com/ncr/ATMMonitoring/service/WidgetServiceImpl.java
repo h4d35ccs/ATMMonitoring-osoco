@@ -48,7 +48,7 @@ public class WidgetServiceImpl implements WidgetService {
     private WidgetDAO widgetDAO;
     
     @Autowired
-    private WidgetCategory widgetCategoryDAO;
+    private WidgetCategoryDAO widgetCategoryDAO;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.service.WidgetService#findDefaultWidgets()

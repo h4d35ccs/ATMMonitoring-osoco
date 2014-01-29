@@ -126,15 +126,25 @@ public class WidgetController {
     	return "closeIframeUpdateParent";
     }
     
-    
+    @RequestMapping(value = "/dashboard/showAddToLibraryForm/{widgetId}", method = RequestMethod.GET)
+    public String showAddToLibraryForm(
+    		Map<String, Object> model,
+    		@PathVariable("widgetId") Integer widgetId, 
+    		Principal principal) {
+    	
+    	model.put("widgetId", widgetId);
+    	model.put("categories", widgetService.findLibraryWidgetsByCategory());
+    	
+    	return "widget/addToLibrary";
+    }
     
     @RequestMapping(value = "/dashboard/addToLibrary", method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.OK)
-    public void addToLibrary(
+    public String addToLibrary(
     		@RequestParam(value="widgetId") Integer widgetId,
     		@RequestParam(value="widgetId") Integer categoryId,
     		Principal principal) {
     	addOrRemoveWidgetFromLibrary(widgetId, principal, categoryId);
+    	return "closeIframeUpdateParent";
     }
     
     @RequestMapping(value = "/dashboard/removeFromLibrary", method = RequestMethod.POST)
