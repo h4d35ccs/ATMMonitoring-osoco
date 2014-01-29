@@ -142,14 +142,6 @@ public class WidgetController {
     	addOrRemoveWidgetFromLibrary(widgetId, principal, false);
     }
     
-    private void addOrRemoveWidgetFromLibrary(Integer widgetId, Principal principal, boolean addToLibrary) {
-    	if (widgetId != null && principal != null) {
-    		User loggedUser = userService.getUserByUsername(principal.getName());
-    		widgetService.addOrRemoveWidgetToLibrary(widgetId, loggedUser, addToLibrary);
-    	}
-    }
-
-    
     @RequestMapping(value = "/dashboard/setAsDefault", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public void setAsDefault(
@@ -204,5 +196,12 @@ public class WidgetController {
     	model.put("operationType", operationType);
     	
     	return "widget/createOrEdit";
+    }
+    
+    private void addOrRemoveWidgetFromLibrary(Integer widgetId, Principal principal, boolean addToLibrary) {
+    	if (widgetId != null && principal != null) {
+    		User loggedUser = userService.getUserByUsername(principal.getName());
+    		widgetService.addOrRemoveWidgetToLibrary(widgetId, loggedUser, addToLibrary);
+    	}
     }
 }

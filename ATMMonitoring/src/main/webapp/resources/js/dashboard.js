@@ -216,8 +216,9 @@ function onChartDrawed(chart) {
         var googleChart = eval("new " + googleChartType[widget.type] + "(graph)");
         var options = {
             'title': widget.title,
-            'region': 'ES',
-            'displayMode': 'markers'
+            'region': widget.region,
+            'displayMode': widget.displayMode,
+            'resolution': widget.resolution
         };
         googleChart.draw(chartData, options);
     });

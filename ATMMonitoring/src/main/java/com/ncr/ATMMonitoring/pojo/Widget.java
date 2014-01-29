@@ -372,6 +372,19 @@ public class Widget {
 		result.put("type", chartType);
 		result.put("libraryWidget", libraryWidget);
 		result.put("defaultWidget", defaultWidget);
+		
+		if(chartType == ChartType.GEO_CHART) {
+			if(resolution != null) {
+				result.put("resolution", resolution.getCode());
+			}
+			if(region != null) {
+				result.put("region", region.getCode());
+			}
+			if(displayMode != null) {
+				result.put("displayMode", displayMode.getCode());
+			}
+		}
+		
 		return result;
 	}
 
@@ -429,14 +442,34 @@ public class Widget {
 	}
 	
 	public enum DisplayModeType {
-		AUTO,
-		REGIONS,
-		MARKERS
+		AUTO("auto"),
+		REGIONS("regions"),
+		MARKERS("markers");
+		
+		private String code;
+		
+		private DisplayModeType(String code) {
+			this.code = code;
+		}
+		
+		public String getCode() {
+			return this.code;
+		}
 	}
 
 	public enum ResolutionType {
-		COUNTRIES,
-		PROVINCES, //Only with displayMode regions
-		METROS
+		COUNTRIES("countries");
+		//PROVINCES("provinces"), //Only with a region that is a country
+		//METROS("metros");
+		
+		private String code;
+		
+		private ResolutionType(String code) {
+			this.code = code;
+		}
+		
+		public String getCode() {
+			return this.code;
+		}
 	}
 }

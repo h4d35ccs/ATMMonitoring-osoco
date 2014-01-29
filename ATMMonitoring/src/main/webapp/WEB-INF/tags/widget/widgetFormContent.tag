@@ -133,7 +133,7 @@ $(function() {
 		chartTypeFieldsDivs.filter('#' + chartType).find('select').removeAttr('disabled');
 	}
 	
-	showChartTypeFields(chartTypeRadios.filter('checked').val());
+	showChartTypeFields(chartTypeRadios.filter(':checked').val());
 });
 
 $(function() {

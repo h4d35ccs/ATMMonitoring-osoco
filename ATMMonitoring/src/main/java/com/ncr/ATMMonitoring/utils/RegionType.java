@@ -76,7 +76,7 @@ public enum RegionType {
 		return this.childrenRegion;
 	}
 	
-	public String getRegionCode() {
+	public String getCode() {
 		return this.regionCode;
 	}
 }
