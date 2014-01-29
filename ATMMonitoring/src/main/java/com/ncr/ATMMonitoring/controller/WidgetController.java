@@ -126,12 +126,15 @@ public class WidgetController {
     	return "closeIframeUpdateParent";
     }
     
+    
+    
     @RequestMapping(value = "/dashboard/addToLibrary", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public void addToLibrary(
     		@RequestParam(value="widgetId") Integer widgetId,
+    		@RequestParam(value="widgetId") Integer categoryId,
     		Principal principal) {
-    	addOrRemoveWidgetFromLibrary(widgetId, principal, true);
+    	addOrRemoveWidgetFromLibrary(widgetId, principal, categoryId);
     }
     
     @RequestMapping(value = "/dashboard/removeFromLibrary", method = RequestMethod.POST)
@@ -139,7 +142,7 @@ public class WidgetController {
     public void removeFrom(
     		@RequestParam(value="widgetId") Integer widgetId,
     		Principal principal) {
-    	addOrRemoveWidgetFromLibrary(widgetId, principal, false);
+    	addOrRemoveWidgetFromLibrary(widgetId, principal, null);
     }
     
     @RequestMapping(value = "/dashboard/setAsDefault", method = RequestMethod.POST)
@@ -198,10 +201,10 @@ public class WidgetController {
     	return "widget/createOrEdit";
     }
     
-    private void addOrRemoveWidgetFromLibrary(Integer widgetId, Principal principal, boolean addToLibrary) {
+    private void addOrRemoveWidgetFromLibrary(Integer widgetId, Principal principal, Integer categoryId) {
     	if (widgetId != null && principal != null) {
     		User loggedUser = userService.getUserByUsername(principal.getName());
-    		widgetService.addOrRemoveWidgetToLibrary(widgetId, loggedUser, addToLibrary);
+    		widgetService.addOrRemoveWidgetToLibrary(widgetId, loggedUser, categoryId);
     	}
     }
 }

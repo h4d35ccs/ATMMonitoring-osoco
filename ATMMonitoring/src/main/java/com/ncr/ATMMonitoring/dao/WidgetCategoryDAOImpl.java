@@ -19,4 +19,8 @@ public class WidgetCategoryDAOImpl extends AbstractGenericDAO<WidgetCategory> im
     			.list();
     }
 
+	@Override
+	public WidgetCategory findCategoryById(Integer categoryId) {
+		return get(categoryId);
+	}
 }

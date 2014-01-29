@@ -7,4 +7,6 @@ import com.ncr.ATMMonitoring.pojo.WidgetCategory;
 public interface WidgetCategoryDAO {
 
 	public List<WidgetCategory> findLibraryWidgetsByCategory();
+
+	public WidgetCategory findCategoryById(Integer categoryId);
 }

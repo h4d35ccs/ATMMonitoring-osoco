@@ -48,7 +48,7 @@ public class WidgetServiceImpl implements WidgetService {
     private WidgetDAO widgetDAO;
     
     @Autowired
-    private WidgetCategoryDAO widgetCategoryDAO;
+    private WidgetCategory widgetCategoryDAO;
 
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.service.WidgetService#findDefaultWidgets()
@@ -152,14 +152,16 @@ public class WidgetServiceImpl implements WidgetService {
 	}
 	
 	@Override 
-	public void addOrRemoveWidgetToLibrary(Integer widgetId ,User user, boolean addToLibrary) {
-//		Widget widget = findWidgetById(widgetId);
-//		if( isWidgetOwnedByUser(widget, user)) {
-//			String action = addToLibrary ? "Adding" : "Removing";
-//			logger.info(action + " widget[" + widgetId + "] to library by user[" + user.getId() + "]");
-//			widget.setLibraryWidget(addToLibrary);
-//			widgetDAO.update(widget);
-//		}
+	public void addOrRemoveWidgetToLibrary(Integer widgetId ,User user, Integer categoryId) {
+		Widget widget = findWidgetById(widgetId);
+		WidgetCategory category = findCategoryById(categoryId);
+		if( isWidgetOwnedByUser(widget, user)) {
+			String action = categoryId != null ? "Adding" : "Removing";
+			logger.info(action + " widget[" + widgetId + "] to category[" + categoryId + 
+						"] by user[" + user.getId() + "]");
+			widget.setCategory(category);
+			widgetDAO.update(widget);
+		}
 	}
 	
 	@Override 
@@ -174,8 +176,14 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 	}
 	
+	@Override
 	public List<WidgetCategory> findLibraryWidgetsByCategory() {
 		return widgetCategoryDAO.findLibraryWidgetsByCategory();
+	}
+	
+	@Override
+	public WidgetCategory findCategoryById(Integer categoryId) {
+		return widgetCategoryDAO.findCategoryById(categoryId);
 	}
 	
 	private Widget copyWidgetToUserDashboard(Widget widgetToCopy, User user) {

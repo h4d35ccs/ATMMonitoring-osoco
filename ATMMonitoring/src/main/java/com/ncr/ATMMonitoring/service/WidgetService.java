@@ -66,7 +66,9 @@ public interface WidgetService {
 
 	public List<WidgetCategory> findLibraryWidgetsByCategory();
 
-	public void addOrRemoveWidgetToLibrary(Integer widgetId, User user, boolean addToLibrary);
+	public void addOrRemoveWidgetToLibrary(Integer widgetId, User user, Integer categoryId);
 
 	public void setWidgetDefault(Integer widgetId, User user, boolean isDefault);
+
+	public WidgetCategory findCategoryById(Integer categoryId);
 }
