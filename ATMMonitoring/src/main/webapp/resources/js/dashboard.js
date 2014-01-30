@@ -221,6 +221,7 @@ function onChartDrawed(chart) {
             'resolution': widget.resolution
         };
         googleChart.draw(chartData, options);
+        chart.find(".content").removeClass('loading')
     });
 
     $(chart).find(".collapsible").hide();
@@ -364,7 +365,7 @@ var transforms = {
     "chartsVisibleMenu": [ { tag: 'li', class: 'off', id: "${id}", html: "${title}" } ],
     "charts": [ { tag: 'li', class: 'chart ui-state-default', id: "${id}",
                   children: [
-                      { tag: 'div', class: 'content',
+                      { tag: 'div', class: 'content loading',
                         children: [
                             { tag: 'div', class: 'icons_bg',
                               children: [
