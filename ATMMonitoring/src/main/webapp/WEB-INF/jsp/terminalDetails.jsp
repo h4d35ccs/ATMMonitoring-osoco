@@ -304,7 +304,12 @@
 				<terminal:historical historicalChanges="${historicalChanges}" timelineDates="${historicalChangesTimelineDates}" />
 					
 				</div>
-				<h2 id="features">Características</h2>
+				<h2 id="features">Características 
+				<c:if test="${date != null}">
+                	 <spring:message code="label.terminal.forDate" />    
+                     <fmt:formatDate value="${date}" pattern="dd/MM/yyyy HH:mm:ss" />    
+                </c:if>
+                </h2>
 				<div id="tabs">
 					<nav class="sub_nav">
 						<ul>
