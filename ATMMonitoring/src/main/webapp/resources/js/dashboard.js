@@ -105,7 +105,7 @@ function initDashboardModel() {
 	        console.error("Error " + xhr.status + ": " + thrownError);
 	    }).done(function(data) {
 	        dashboardModel = data;
-        onLoadDashboard();
+        	onLoadDashboard();
 	    });
     }
 
@@ -215,7 +215,6 @@ function onChartDrawed(chart) {
         var graph = $(chart).find("div.graph")[0];
         var googleChart = eval("new " + googleChartType[widget.type] + "(graph)");
         var options = {
-            'title': (widget.category ? widget.category + ' - ' : '') + widget.title,
             'region': widget.region,
             'displayMode': widget.displayMode,
             'resolution': widget.resolution
@@ -365,6 +364,7 @@ var transforms = {
     "chartsVisibleMenu": [ { tag: 'li', class: 'off', id: "${id}", html: "${title}" } ],
     "charts": [ { tag: 'li', class: 'chart ui-state-default', id: "${id}",
                   children: [
+                      { tag: 'span', class: 'title', html:'${description}' },
                       { tag: 'div', class: 'content loading',
                         children: [
                             { tag: 'div', class: 'icons_bg',
@@ -419,14 +419,19 @@ function drawCharts() {
 }
 
 function drawChart(widget) {
+	widget.description = (widget.category ? widget.category + ' - ' : '') + widget.title,
+	
 	$("#sortable").json2html(widget, transforms.charts);
 	var drawedElement = $("#sortable li#" + widget.id); 
+	
 	if(!hasPrivileges) {
 		hideEditWidgetsLibraryOptions()
 	}
+	
 	if(widget.libraryWidget) {
 		drawedElement.find("div.graph").addClass("libraryWidget");
 	}
+	
 	onChartDrawed(drawedElement);
 }
 
