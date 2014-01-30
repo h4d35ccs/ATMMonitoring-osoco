@@ -3842,3 +3842,8 @@ legend.map li {
   border-bottom: 1px dotted #cccccc;
   z-index : 2;
 }
+
+#dashboard #sortable div.content div.graph.libraryWidget {
+	border: solid;
+	
+}

@@ -376,6 +376,10 @@ public class Widget implements Serializable {
 		result.put("title", title);
 		result.put("type", chartType);
 		result.put("libraryWidget", isLibraryWidget());
+		if(isLibraryWidget()) {
+			result.put("category", category.getName());
+		}
+		
 		result.put("defaultWidget", defaultWidget);
 		
 		if(chartType == ChartType.GEO_CHART) {

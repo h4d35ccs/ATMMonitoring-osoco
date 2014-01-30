@@ -215,7 +215,7 @@ function onChartDrawed(chart) {
         var graph = $(chart).find("div.graph")[0];
         var googleChart = eval("new " + googleChartType[widget.type] + "(graph)");
         var options = {
-            'title': widget.title,
+            'title': (widget.category ? widget.category + ' - ' : '') + widget.title,
             'region': widget.region,
             'displayMode': widget.displayMode,
             'resolution': widget.resolution
@@ -422,6 +422,9 @@ function drawChart(widget) {
 	var drawedElement = $("#sortable li#" + widget.id); 
 	if(!hasPrivileges) {
 		hideEditWidgetsLibraryOptions()
+	}
+	if(widget.libraryWidget) {
+		drawedElement.find("div.graph").addClass("libraryWidget");
 	}
 	onChartDrawed(drawedElement);
 }
