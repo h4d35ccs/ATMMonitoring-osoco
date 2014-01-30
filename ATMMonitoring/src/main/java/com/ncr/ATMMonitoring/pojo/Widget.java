@@ -403,7 +403,8 @@ public class Widget implements Serializable {
 		}
 		if (o instanceof Widget) {
 			Widget otherWidget = (Widget)o;
-			return ((this.title.equals(otherWidget.getTitle())) &&
+			return ((this.id.equals(otherWidget.getId())) &&
+					(this.title.equals(otherWidget.getTitle())) &&
 					(this.query.equals(otherWidget.getQuery())) &&
 					((this.groupByEntity == null) ? (otherWidget.getGroupByEntity() == null) : (this.groupByEntity.equals(otherWidget.getGroupByEntity()))) &&
 					((this.groupBy == null) ? (otherWidget.getGroupBy() == null) : (this.groupBy.equals(otherWidget.getGroupBy()))));

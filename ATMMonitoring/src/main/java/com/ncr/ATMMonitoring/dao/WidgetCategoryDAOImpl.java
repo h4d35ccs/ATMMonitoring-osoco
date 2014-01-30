@@ -26,7 +26,9 @@ public class WidgetCategoryDAOImpl extends AbstractGenericDAO<WidgetCategory> im
 
 	@Override
 	public List<WidgetCategory> findAll() {
-		return sessionFactory.getCurrentSession().createCriteria(WidgetCategory.class).list();
+		return sessionFactory.getCurrentSession().createCriteria(WidgetCategory.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+				.list();
 	}
 	
 	@Override
