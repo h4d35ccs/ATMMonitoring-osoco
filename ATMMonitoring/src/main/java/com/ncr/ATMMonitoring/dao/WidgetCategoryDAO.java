@@ -9,4 +9,7 @@ public interface WidgetCategoryDAO {
 	public List<WidgetCategory> findLibraryWidgetsByCategory();
 
 	public WidgetCategory findCategoryById(Integer categoryId);
+
+	public List<WidgetCategory> findAll();
+	
 }

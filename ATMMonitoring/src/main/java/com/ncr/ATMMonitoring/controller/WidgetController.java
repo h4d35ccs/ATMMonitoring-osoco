@@ -25,6 +25,7 @@ import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.Widget;
 import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.UserService;
+import com.ncr.ATMMonitoring.service.WidgetCategoryService;
 import com.ncr.ATMMonitoring.service.WidgetService;
 import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 import com.ncr.ATMMonitoring.utils.RegionType;
@@ -41,6 +42,9 @@ public class WidgetController {
 	/** The widget service. */
     @Autowired
     private WidgetService widgetService;
+    
+    @Autowired
+    private WidgetCategoryService widgetCategoryService;
     
     /** The user service. */
     @Autowired
@@ -133,7 +137,7 @@ public class WidgetController {
     		Principal principal) {
     	
     	model.put("widgetId", widgetId);
-    	model.put("categories", widgetService.findLibraryWidgetsByCategory());
+    	model.put("categories", widgetCategoryService.findAll());
     	
     	return "widget/addToLibrary";
     }
