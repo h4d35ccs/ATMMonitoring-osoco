@@ -28,4 +28,9 @@ public class WidgetCategoryDAOImpl extends AbstractGenericDAO<WidgetCategory> im
 	public List<WidgetCategory> findAll() {
 		return sessionFactory.getCurrentSession().createCriteria(WidgetCategory.class).list();
 	}
+	
+	@Override
+    public void updateWidgetCategory(WidgetCategory widgetCategory) {
+		update(widgetCategory);
+	}
 }

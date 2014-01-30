@@ -50,6 +50,9 @@ public class WidgetServiceImpl implements WidgetService {
     @Autowired
     private WidgetCategoryDAO widgetCategoryDAO;
 
+    @Autowired
+	private WidgetCategoryService widgetCategoryService;
+
     /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.service.WidgetService#findDefaultWidgets()
      */
@@ -92,7 +95,16 @@ public class WidgetServiceImpl implements WidgetService {
 		if (isWidgetOwnedByUser(widget, user)) {
 			user.getDashboard().getWidgets().remove(widget);
 			userService.updateUser(user);
+			deleteWidgetFromCategory(widget);
 			widgetDAO.delete(widget);
+		}
+	}
+
+	private void deleteWidgetFromCategory(Widget widget) {
+		WidgetCategory category = widget.getCategory(); 
+		if( category != null) {
+			category.getWidgets().remove(widget);
+			widgetCategoryService.updateWidgetCategory(category);
 		}
 	}
 	
@@ -159,6 +171,8 @@ public class WidgetServiceImpl implements WidgetService {
 			String action = categoryId != null ? "Adding" : "Removing";
 			logger.info(action + " widget[" + widgetId + "] to category[" + categoryId + 
 						"] by user[" + user.getId() + "]");
+			
+			deleteWidgetFromCategory(widget);
 			widget.setCategory(category);
 			widgetDAO.update(widget);
 		}

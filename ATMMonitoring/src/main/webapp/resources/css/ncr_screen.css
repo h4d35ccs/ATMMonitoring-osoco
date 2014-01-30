@@ -723,21 +723,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   left: 50%;
   width: 50%;
 }
-/* line 137, ../sass/_dashboard.scss */
-.category_library ul li {
-  padding: 0.5em 1em;
-  background: #f3f3f3;
-  border-bottom: 1px dotted #cccccc;
-}
+
 /* line 143, ../sass/_dashboard.scss */
 .category_library li {
   position: relative;
   float: none;
 }
-/* line 147, ../sass/_dashboard.scss */
-.category_library li:hover label {
-  background: #f3f3f3;
-}
+
 /* line 151, ../sass/_dashboard.scss */
 .category_library li label {
   float: none;
@@ -3831,10 +3823,22 @@ legend.map li {
   }
 }
 
-.category_library li.selected label {
+.category_library li label.selected {
   background: #f3f3f3;
 }
 
 .category_library input[type="radio"] {
     margin: 0.8em 0;
+}
+/* line 147, ../sass/_dashboard.scss */
+.category_library li label:hover {
+  background: #f3f3f3;
+}
+
+/* line 137, ../sass/_dashboard.scss */
+.category_library ul li {
+  padding: 0.5em 1em;
+  background: #f3f3f3;
+  border-bottom: 1px dotted #cccccc;
+  z-index : 2;
 }

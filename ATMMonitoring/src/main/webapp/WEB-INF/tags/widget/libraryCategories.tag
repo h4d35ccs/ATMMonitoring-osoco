@@ -52,7 +52,7 @@
 
 <script type="text/javascript">
 $(function() {
-	var categoryListElement = $("ul.category_library li.category");
+	var categoryListElement = $("ul.category_library > li.category > label");
 	var widgetsByCategory = $("ul.category_library li.category ul");
 	
 	categoryListElement.click(function(event)  {
@@ -61,7 +61,7 @@ $(function() {
 		categoryListElement.removeClass('selected');
 		
 		clickedElement.addClass('selected');
-		clickedElement.find("ul.widgets").show();
+		clickedElement.siblings("ul.widgets").show();
 	});
 });	
 </script>

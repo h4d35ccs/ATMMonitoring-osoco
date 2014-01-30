@@ -12,4 +12,6 @@ public interface WidgetCategoryDAO {
 
 	public List<WidgetCategory> findAll();
 	
+    public void updateWidgetCategory(WidgetCategory widgetCategory);
+
 }
