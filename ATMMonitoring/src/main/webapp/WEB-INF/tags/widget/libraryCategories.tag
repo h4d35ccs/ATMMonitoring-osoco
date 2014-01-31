@@ -26,12 +26,19 @@
 							<ul class="category_library">
 								<c:forEach var="category" items="${categories}"> 
 									<li class="category">
-										<label><input type="radio" ${!selectCategory ? 'disabled="disabled"' : ''} name="categoryId" value="${category.id}"> ${category.name} </label>
+										<label>
+											<c:if test="${selectCategory}">
+												<input type="radio" name="categoryId" value="${category.id}"> 
+											</c:if> 
+											${category.name}
+										</label>
 										
 										<ul class="widgets">
 											<c:forEach var="widget" items="${category.widgets}"> 
 												<li><label>
-													<input type="checkbox" name="widgetIds" value="${widget.id}" ${selectCategory ? 'disabled="disabled"' : ''}>
+													<c:if test="${!selectCategory}">
+														<input type="checkbox" name="widgetIds" value="${widget.id}">
+													</c:if>
 													${widget.title}
 												</label></li>	
 											</c:forEach>
