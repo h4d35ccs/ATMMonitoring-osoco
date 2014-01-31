@@ -9,6 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.Type;
 
 /**
@@ -55,6 +56,9 @@ public class Location {
     @Type(type = "text")
     private String addressCountry;
 
+    @Formula("concat(address_city, ', ' , address_country, ', ', address_postcode )")
+    public String addressCityAndCountry;
+    
     /** The coord x. */
     @Column(name = "coord_x")
     private Double coordX;

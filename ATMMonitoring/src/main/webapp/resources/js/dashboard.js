@@ -216,8 +216,7 @@ function onChartDrawed(chart) {
         var googleChart = eval("new " + googleChartType[widget.type] + "(graph)");
         var options = {
             'region': widget.region,
-            'displayMode': widget.displayMode,
-            'resolution': widget.resolution
+            'displayMode': 'markers'
         };
         googleChart.draw(chartData, options);
         chart.find(".content").removeClass('loading')

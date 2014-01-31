@@ -79,7 +79,7 @@ public enum WidgetQueryAssociationType {
 	
 	private static Map<String, ?> buildInstallationPlacesCombobox() {
 		Map<String, ?> comboboxes = new HashMap<String, Object>();
-		String[] fields = {"ip", "location.addressStreet","location.addressCity", "location.addressCountry"};
+		String[] fields = {"location.addressCityAndCountry", "location.addressCountry"};
 		for (String field : fields) {
 			comboboxes.put(field, null);
 		}

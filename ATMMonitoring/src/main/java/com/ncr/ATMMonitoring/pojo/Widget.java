@@ -91,14 +91,6 @@ public class Widget implements Serializable {
 	@Column(name = "region", nullable = true)
 	private RegionType region;
 	
-	/** The chart type. */
-	@Column(name = "display_mode", nullable = true)
-	private DisplayModeType displayMode;
-	
-	/** The chart type. */
-	@Column(name = "resolution", nullable = true)
-	private ResolutionType resolution;
-	
 	/**
 	 * Instantiates a new widget.
 	 */
@@ -337,23 +329,7 @@ public class Widget implements Serializable {
 		this.region = region;
 	}
 
-	public DisplayModeType getDisplayMode() {
-		return displayMode;
-	}
-
-	public void setDisplayMode(DisplayModeType displayMode) {
-		this.displayMode = displayMode;
-	}
-
-	public ResolutionType getResolution() {
-		return resolution;
-	}
-
-	public void setResolution(ResolutionType resolution) {
-		this.resolution = resolution;
-	}
-	
-	 public boolean isLibraryWidget() {
+	public boolean isLibraryWidget() {
 		 return category != null;
 	 }
 
@@ -383,14 +359,8 @@ public class Widget implements Serializable {
 		result.put("defaultWidget", defaultWidget);
 		
 		if(chartType == ChartType.GEO_CHART) {
-			if(resolution != null) {
-				result.put("resolution", resolution.getCode());
-			}
 			if(region != null) {
 				result.put("region", region.getCode());
-			}
-			if(displayMode != null) {
-				result.put("displayMode", displayMode.getCode());
 			}
 		}
 		
@@ -450,36 +420,5 @@ public class Widget implements Serializable {
 		 /** The geo chart. */
 		 GEO_CHART;
 	}
-	
-	public enum DisplayModeType {
-		AUTO("auto"),
-		REGIONS("regions"),
-		MARKERS("markers");
-		
-		private String code;
-		
-		private DisplayModeType(String code) {
-			this.code = code;
-		}
-		
-		public String getCode() {
-			return this.code;
-		}
-	}
 
-	public enum ResolutionType {
-		COUNTRIES("countries");
-		//PROVINCES("provinces"), //Only with a region that is a country
-		//METROS("metros");
-		
-		private String code;
-		
-		private ResolutionType(String code) {
-			this.code = code;
-		}
-		
-		public String getCode() {
-			return this.code;
-		}
-	}
 }
