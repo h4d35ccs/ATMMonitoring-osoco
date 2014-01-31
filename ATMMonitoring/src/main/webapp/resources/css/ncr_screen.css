@@ -3376,14 +3376,7 @@ span.cluster {
   display: inline;
   margin: 0;
 }
-/* line 39, ../sass/_iframes.scss */
-#iframe #main.installation label, #iframe .installation#cboxContent label {
-  width: 150px;
-  margin-left: 2%;
-  display: block;
-  float: left;
-  padding: .5em;
-}
+
 /* line 46, ../sass/_iframes.scss */
 #iframe #main.installation input[type="text"], #iframe .installation#cboxContent input[type="text"] {
   width: 180px;
@@ -3855,4 +3848,13 @@ div.loading {
   left: 0;
   width: 98.5%;
   height: 98.5%;
+}
+
+/* line 39, ../sass/_iframes.scss */
+#iframe #main.installation label, #iframe .installation#cboxContent label {
+  width: 140px;
+  margin-left: 2%;
+  display: block;
+  float: left;
+  padding: .5em;
 }
