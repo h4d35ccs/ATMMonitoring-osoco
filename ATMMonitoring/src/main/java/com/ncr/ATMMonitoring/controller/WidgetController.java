@@ -205,8 +205,6 @@ public class WidgetController {
 
     	model.put("chartTypes", Widget.ChartType.values());
     	model.put("regionTypes", RegionType.values());
-    	model.put("resolutionTypes", Widget.ResolutionType.values());
-    	model.put("displayModeTypes", Widget.DisplayModeType.values());
     	
     	model.put("queryTypes", WidgetQueryAssociationType.values());
     	model.put("widget", widget);

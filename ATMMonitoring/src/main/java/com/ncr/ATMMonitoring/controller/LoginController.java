@@ -2,9 +2,12 @@ package com.ncr.ATMMonitoring.controller;
 
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * The Class LoginController.
@@ -59,4 +62,8 @@ public class LoginController {
 	map.put("error", true);
 	return "login";
     }
+    
+    @RequestMapping(value = "/imAlive", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public void imAlive() {  }
 }
