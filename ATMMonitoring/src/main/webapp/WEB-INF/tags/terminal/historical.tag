@@ -21,6 +21,10 @@
 		    <spring:message code="label.historical.${changeName}"/></li>
 		</c:forEach>	
 		<li>
+		    <img src="<c:url value="/resources/timeline/api/images/Current.png" />" />
+		    <spring:message code="label.historical.Current"/>
+		</li>
+		<li>
 		    <img src="<c:url value="/resources/timeline/api/images/Cluster.png" />" />
 		    <spring:message code="label.historical.Cluster"/>
 		</li>
