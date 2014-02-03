@@ -219,6 +219,7 @@ function onChartDrawed(chart) {
             'displayMode': 'markers'
         };
         googleChart.draw(chartData, options);
+        google.visualization.events.addListener(googleChart, 'ready', fixGeoMapRectElements($(chart)));
         chart.find(".content").removeClass('loading')
     });
 
@@ -441,4 +442,13 @@ function hideEditWidgetsLibraryOptions() {
 function initButtonsIframe(selectorPrefix) {
 	//init edit links. This function is stored on menu.js
 	return initIframes(selectorPrefix);
+}
+
+
+//WORKARROUND http://code.google.com/p/google-visualization-api-issues/issues/detail?id=598
+function fixGeoMapRectElements(chartElementContent) {
+	return function() {
+		var element = chartElementContent.find('g rect[fill*="url(#"]');
+		element.attr( 'fill', 'url(' + document.location + element.attr( 'fill' ).substring( 4 ) );
+	}
 }
