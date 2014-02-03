@@ -3858,3 +3858,22 @@ div.loading {
   float: left;
   padding: .5em;
 }
+
+
+div#helpLayout {
+	width:200%;
+	height:100%; 
+	overflow:hidden;
+	position: absolute; 
+}
+
+div#helpLayout div.contentFrame {
+	width:50%; 
+	float:left;
+}
+
+
+div#helpLayout div.contentFrame span.goHelp {
+	float:right;
+	overflow:hidden;
+}
