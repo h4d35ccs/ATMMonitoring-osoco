@@ -114,3 +114,21 @@
         }
     }
 }
+// HELP
+#helpLayout {
+    width:200%;
+    height:100%; 
+    overflow:hidden;
+    position: absolute; 
+}
+
+#helpLayout .contentFrame {
+    width:50%; 
+    float:left;
+}
+
+
+#helpLayout .contentFrame span.goHelp {
+    float:right;
+    overflow:hidden;
+}

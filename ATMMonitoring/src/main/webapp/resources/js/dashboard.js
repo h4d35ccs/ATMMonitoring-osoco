@@ -378,13 +378,20 @@ var transforms = {
                                                   			  { tag: 'li', children: [ { tag: 'a', class: 'editWidget iframe_medium chart_iframe', href: (editChartUrl + '${id}'), html: strings['label.widget.edit'] } ] },
                                                               { tag: 'li', class: 'privilegedOption' , children: 
                                                               		[ 
-                                                              			{ tag: 'input', class: 'addToLibrary', type:'checkbox', 'data-checked' : "${libraryWidget}" , html: strings['widget.add.to.library'] },
-                                                              			{ tag: 'span', class:'hide iframe_medium chart_iframe', href: (addWidgetToLibraryUrl + '/${id}')} 
+                                                              			{ tag: 'label', children: 
+                                                                            [
+                                                                                { tag: 'input', class: 'addToLibrary', type:'checkbox', 'data-checked' : "${libraryWidget}" , html: strings['widget.add.to.library'] },
+                                                              			        { tag: 'span', class:'hide iframe_medium chart_iframe', href: (addWidgetToLibraryUrl + '/${id}')} 
+                                                                            ]
+                                                                        }   
+
                                                               		] 
                                                               },
                                                               { tag: 'li', class: 'privilegedOption' , children: 
                                                               		[ 
-                                                              			{ tag: 'input', class: 'setAsDefault', type:'checkbox', 'data-checked' : "${defaultWidget}" , html: strings['widget.set.as.default'] } 
+                                                                        { tag: 'label', children: 
+                                                                            [ { tag: 'input', class: 'setAsDefault', type:'checkbox', 'data-checked' : "${defaultWidget}" , html: strings['widget.set.as.default'] } ]
+                                                                        }
                                                               		] 
                                                               },
                                                               { tag: 'li', children: [ { tag: 'a', class: 'delete', html: strings['label.widget.delete'] } ] }
