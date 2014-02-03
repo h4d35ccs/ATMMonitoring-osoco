@@ -444,7 +444,6 @@ function initButtonsIframe(selectorPrefix) {
 	return initIframes(selectorPrefix);
 }
 
-
 //WORKARROUND http://code.google.com/p/google-visualization-api-issues/issues/detail?id=598
 function fixGeoMapRectElements(chartElementContent) {
 	return function() {
