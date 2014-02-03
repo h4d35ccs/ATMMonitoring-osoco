@@ -335,7 +335,7 @@ public class Role implements Serializable {
 	if ((canAccessReports != null) && canAccessReports) {
 	    authList.add(new SimpleGrantedAuthority("CAN_ACCESS_REPORTS"));
 	}
-	if ((canEditTerminals != null) && canEditWidgetsLibrary) {
+	if ((canEditWidgetsLibrary != null) && canEditWidgetsLibrary) {
 	    authList.add(new SimpleGrantedAuthority("CAN_EDIT_WIDGETS_LIBRARY"));
 	}
 	
