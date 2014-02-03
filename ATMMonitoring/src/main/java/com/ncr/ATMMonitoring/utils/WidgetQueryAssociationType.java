@@ -33,7 +33,6 @@ public enum WidgetQueryAssociationType {
 	INTERNET_EXPLORER("auditableInternetExplorers.internetExplorer","internetExplorer", InternetExplorer.getComboboxes()),
 	OPERATING_SYSTEM("configs.operatingSystems" , "operatingSystem", OperatingSystem.getComboboxes()),
 	SOFTWARE("configs.software" , "software", Software.getComboboxes()),
-	HARDWARE_DEVICE("hardwareDevices" , "hardwareDevice", HardwareDevice.getComboboxes()),		
 	HARDWARE_COMPUTER_SYSTEM(DeviceClassId.COMPUTER_SYSTEM), 
 	HARDWARE_PROCESSOR(DeviceClassId.PROCESSOR), 
 	HARDWARE_PHYSICAL_MEMORY(DeviceClassId.PHYSICAL_MEMORY), 
