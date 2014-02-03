@@ -367,7 +367,7 @@ input:disabled:hover {
   border-radius: 4px;
   text-align: center;
   margin: 1%;
-  width: 10%;
+  width: 12%;
   overflow: hidden;
 }
 /* line 222, ../sass/_forms.scss */
@@ -424,7 +424,7 @@ input:disabled:hover {
   -moz-box-shadow: 0px 0px 8px #b3b3b3;
   box-shadow: 0px 0px 8px #b3b3b3;
   position: absolute;
-  top: 5px;
+  top: 25px;
   right: 5px;
   width: 73px;
   height: 32px;
@@ -896,41 +896,44 @@ td .add span, th .add span {
 .icons_menu ul li {
   display: block;
   color: white;
-  padding: 0.5em 1em;
   border-bottom: 1px solid #cccccc;
   background: #6ca932;
   -webkit-box-shadow: 0px 0px 8px #b3b3b3;
   -moz-box-shadow: 0px 0px 8px #b3b3b3;
   box-shadow: 0px 0px 8px #b3b3b3;
-  width: 85px;
+  width: 150px;
+}
+/* line 393, ../sass/_icons.scss */
+.icons_menu ul li label {
+  float: none;
+  clear: none;
+  margin: none;
+  text-align: left;
+  padding: .5em;
+  cursor: pointer;
 }
 
-/* line 395, ../sass/_icons.scss */
-.icons_menu ul li:hover {
-  background: #b3b3b3;
-}
-
-/* line 399, ../sass/_icons.scss */
+/* line 406, ../sass/_icons.scss */
 .icons_menu ul li a {
   color: white;
 }
 
-/* line 402, ../sass/_icons.scss */
+/* line 409, ../sass/_icons.scss */
 .icons_menu ul li a:hover {
   text-decoration: none;
 }
 
-/* line 405, ../sass/_icons.scss */
+/* line 412, ../sass/_icons.scss */
 .icons_menu ul li input[type="checkbox"] {
   margin: 0 0.5em 0 0;
 }
 
-/* line 409, ../sass/_icons.scss */
+/* line 416, ../sass/_icons.scss */
 .icons_menu ul li:last-child a {
   border: none;
 }
 
-/* line 413, ../sass/_icons.scss */
+/* line 420, ../sass/_icons.scss */
 .icons_action .note, .icons_action .edit, .icons_action .delete, .icons_action .edit, .icons_action .delete, .icons_action .delete_wrong {
   background: url("../images/icons/icon_note.png") no-repeat;
   width: 20px;
@@ -942,7 +945,7 @@ td .add span, th .add span {
   float: left;
 }
 
-/* line 424, ../sass/_icons.scss */
+/* line 431, ../sass/_icons.scss */
 .icons_action .note span, .icons_action .edit span, .icons_action .delete span, .icons_action .edit span, .icons_action .delete span, .icons_action .delete_wrong span {
   display: block;
   overflow: hidden;
@@ -951,32 +954,32 @@ td .add span, th .add span {
   width: 0;
 }
 
-/* line 431, ../sass/_icons.scss */
+/* line 438, ../sass/_icons.scss */
 .icons_action .note:hover, .icons_action .edit:hover, .icons_action .delete:hover, .icons_action .edit:hover, .icons_action .delete:hover, .icons_action .delete_wrong:hover {
   background-position-y: -20px;
 }
 
-/* line 435, ../sass/_icons.scss */
+/* line 442, ../sass/_icons.scss */
 .icons_action .delete_wrong {
   background: url("../images/icons/close_grey_small.png") no-repeat;
 }
 
-/* line 439, ../sass/_icons.scss */
+/* line 446, ../sass/_icons.scss */
 .icons_action .delete_wrong:hover {
   background-position-y: 0px;
 }
 
-/* line 443, ../sass/_icons.scss */
+/* line 450, ../sass/_icons.scss */
 .timeline-event-icon.firstLine {
   top: 7px !important;
 }
 
-/* line 447, ../sass/_icons.scss */
+/* line 454, ../sass/_icons.scss */
 .timeline-event-icon.secondLine {
   top: 30px !important;
 }
 
-/* line 451, ../sass/_icons.scss */
+/* line 458, ../sass/_icons.scss */
 span.cluster {
   color: white;
   left: 0;

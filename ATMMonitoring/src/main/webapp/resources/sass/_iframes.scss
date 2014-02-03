@@ -37,7 +37,7 @@
 				}
 			}
 			label{
-				width: 150px;
+				width: 140px;
 				margin-left: 2%;
 				display: block;
 				float: left;
@@ -112,10 +112,14 @@
 	}
 	.row{
 		padding: 0;
+		margin: .3em 0;
 		label{
 			width: 30%;
 			text-align: left;
 			margin-right: 1em;
+		}
+		select{
+			margin: .5em 0;
 		}
 	}
 }

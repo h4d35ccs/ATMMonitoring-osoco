@@ -34,7 +34,7 @@
 		div.content{
 			position: relative;
 			border:1px solid $colorK3;
-			background:$colorW url("../images/icons/icon_loader.gif") no-repeat center;
+			//background:$colorW url("../images/icons/icon_loader.gif") no-repeat center;
 			cursor: move;
 			padding-bottom: 86.25%;
 			padding-top: 3em;
@@ -45,14 +45,23 @@
 				position: absolute;
 				top: 0;
 				left: 0;
-				width: 100%;
-				height: 100%;
+				width: 98.5%;
+				height: 98.5%;
 			}
 			&:hover{
 				.icons_bg{
 					display: block;
 				}
 			}
+		}
+		.title{
+			font-size: 1.5em;
+			display: block;
+			color:$colorG;
+			padding: .5em 0;
+			overflow: hidden;
+			height: 2em;
+			line-height: 2em;
 		}
 	}
 	.message{
@@ -135,9 +144,11 @@
 		left: 50%;
 		width: 50%;
 		li{
-			padding: .5em 1em;
+			padding: 0;
 			background:$colorK6;
 			border-bottom: 1px dotted $colorK4;
+			z-index : 2;
+			min-height: 1.5em;
 		}
 	}
 	li{
@@ -153,7 +164,20 @@
 			text-align: left;
 			width: 50%;
 			cursor: pointer;
-			padding: 0 .5em;
+			padding: 1em;
+			&.selected{
+				background:$colorK6;
+			}
+			input[type="checkbox"] {
+				margin-top:0;
+				margin-bottom: 0;
+			}
 		}
 	}
+	input[type="radio"] {
+	    margin: 0;
+	}
+}
+div.loading {
+	background: url("../images/icons/icon_loader.gif") no-repeat scroll center center $colorW;
 }
