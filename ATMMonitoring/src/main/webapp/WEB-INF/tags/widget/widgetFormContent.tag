@@ -106,18 +106,28 @@ $(function() {
 	
 	function init() {
 		chartTypeRadios.change(function(event) {
-			var selectedValue = $(this).val()
-			showChartTypeFields(selectedValue);
-			applyQueryTypeSelectRestrictions(selectedValue);
+			var selectedRadio = $(this);
+			onRadioChanged(selectedRadio);
 		});
 		
-		var selectedRadioValue = chartTypeRadios.filter(':checked').val()
+		var selectedRadio = chartTypeRadios.filter(':checked');
+		onRadioChanged(selectedRadio);
+	}
+	
+	function onRadioChanged(selectedRadio) {
+		var selectedRadioValue = selectedRadio.val()
+		addSelectedClass(selectedRadio)
 		showChartTypeFields(selectedRadioValue);
 		applyQueryTypeSelectRestrictions(selectedRadioValue);
 	}
 	
 	function addSelectHiddenValueToForm(value) {
 		chartTypeFieldSelects.parent
+	}
+	
+	function addSelectedClass(selectedRadio) {
+		chartTypeRadios.parent().removeClass('current');
+		selectedRadio.parent().addClass('current')
 	}
 	
 	function showChartTypeFields(chartType) {
