@@ -54,6 +54,35 @@ p{
 		font-weight: bold;
 	}
 }
+#help{
+	h1{
+		font-size: 2.2em;
+		color: $colorG;
+		margin: .5em 0;
+		font-weight: normal;
+		clear: left;
+	}
+	h2{
+		@extend h1;
+		font-size: 1.7em;
+	}
+	h3{
+		@extend h1;
+		font-size: 1.5em;
+		color: $colorK2;
+	}
+	h4{
+		@extend h1;
+		font-size: 1.2em;
+		color: $colorK2;
+		font-weight: bold;
+	}
+	h5{
+		@extend h1;
+		font-size: 1em;
+		font-weight: bold;
+	}
+}
 #cboxContent{
 	@extend #main;
 	border:none;

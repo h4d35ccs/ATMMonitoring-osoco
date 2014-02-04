@@ -8,7 +8,11 @@ h1,
 #main h4,
 #cboxContent h4,
 #main h5,
-#cboxContent h5, h2, h3, h4, h5, h6, p, blockquote, pre,
+#cboxContent h5,
+#help h2,
+#help h3,
+#help h4,
+#help h5, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -461,7 +465,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   background: url("../images/general/rButton.png") no-repeat top;
 }
 /* line 24, ../sass/_header.scss */
-#main_header h1, #main_header #main h2, #main #main_header h2, #main_header #cboxContent h2, #cboxContent #main_header h2, #main_header #main h3, #main #main_header h3, #main_header #cboxContent h3, #cboxContent #main_header h3, #main_header #main h4, #main #main_header h4, #main_header #cboxContent h4, #cboxContent #main_header h4, #main_header #main h5, #main #main_header h5, #main_header #cboxContent h5, #cboxContent #main_header h5 {
+#main_header h1, #main_header #main h2, #main #main_header h2, #main_header #cboxContent h2, #cboxContent #main_header h2, #main_header #main h3, #main #main_header h3, #main_header #cboxContent h3, #cboxContent #main_header h3, #main_header #main h4, #main #main_header h4, #main_header #cboxContent h4, #cboxContent #main_header h4, #main_header #main h5, #main #main_header h5, #main_header #cboxContent h5, #cboxContent #main_header h5, #main_header #help h2, #help #main_header h2, #main_header #help h3, #help #main_header h3, #main_header #help h4, #help #main_header h4, #main_header #help h5, #help #main_header h5 {
   position: absolute;
   font-size: 16px;
   color: white;
@@ -470,13 +474,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   left: 0;
 }
 /* line 31, ../sass/_header.scss */
-#main_header h1 img, #main_header #main h2 img, #main #main_header h2 img, #main_header #cboxContent h2 img, #cboxContent #main_header h2 img, #main_header #main h3 img, #main #main_header h3 img, #main_header #cboxContent h3 img, #cboxContent #main_header h3 img, #main_header #main h4 img, #main #main_header h4 img, #main_header #cboxContent h4 img, #cboxContent #main_header h4 img, #main_header #main h5 img, #main #main_header h5 img, #main_header #cboxContent h5 img, #cboxContent #main_header h5 img {
+#main_header h1 img, #main_header #main h2 img, #main #main_header h2 img, #main_header #cboxContent h2 img, #cboxContent #main_header h2 img, #main_header #main h3 img, #main #main_header h3 img, #main_header #cboxContent h3 img, #cboxContent #main_header h3 img, #main_header #main h4 img, #main #main_header h4 img, #main_header #cboxContent h4 img, #cboxContent #main_header h4 img, #main_header #main h5 img, #main #main_header h5 img, #main_header #cboxContent h5 img, #cboxContent #main_header h5 img, #main_header #help h2 img, #help #main_header h2 img, #main_header #help h3 img, #help #main_header h3 img, #main_header #help h4 img, #help #main_header h4 img, #main_header #help h5 img, #help #main_header h5 img {
   position: absolute;
   top: 0;
   left: 0;
 }
 /* line 36, ../sass/_header.scss */
-#main_header h1 span, #main_header #main h2 span, #main #main_header h2 span, #main_header #cboxContent h2 span, #cboxContent #main_header h2 span, #main_header #main h3 span, #main #main_header h3 span, #main_header #cboxContent h3 span, #cboxContent #main_header h3 span, #main_header #main h4 span, #main #main_header h4 span, #main_header #cboxContent h4 span, #cboxContent #main_header h4 span, #main_header #main h5 span, #main #main_header h5 span, #main_header #cboxContent h5 span, #cboxContent #main_header h5 span {
+#main_header h1 span, #main_header #main h2 span, #main #main_header h2 span, #main_header #cboxContent h2 span, #cboxContent #main_header h2 span, #main_header #main h3 span, #main #main_header h3 span, #main_header #cboxContent h3 span, #cboxContent #main_header h3 span, #main_header #main h4 span, #main #main_header h4 span, #main_header #cboxContent h4 span, #cboxContent #main_header h4 span, #main_header #main h5 span, #main #main_header h5 span, #main_header #cboxContent h5 span, #cboxContent #main_header h5 span, #main_header #help h2 span, #help #main_header h2 span, #main_header #help h3 span, #help #main_header h3 span, #main_header #help h4 span, #help #main_header h4 span, #main_header #help h5 span, #help #main_header h5 span {
   position: absolute;
   top: -200px;
 }
@@ -810,6 +814,11 @@ div.loading {
   background: url("../images/icons/icon_loader.gif") no-repeat scroll center center white;
 }
 
+/* line 185, ../sass/_dashboard.scss */
+.TABLE .graph {
+  overflow: auto;
+}
+
 /* line 1, ../sass/_list.scss */
 .box_list {
   margin: 1% 0 0 1%;
@@ -993,7 +1002,7 @@ div.loading {
   border-radius: 4px;
 }
 /* line 20, ../sass/_action_box.scss */
-#main .action_box h1#editQuery, #cboxContent .action_box h1#editQuery, #main .pagination h1#editQuery, #cboxContent .pagination h1#editQuery, #main .action_box h2#editQuery, #cboxContent .action_box #main h2#editQuery, #main #cboxContent .action_box h2#editQuery, #main .pagination h2#editQuery, #cboxContent .pagination #main h2#editQuery, #main #cboxContent .pagination h2#editQuery, #main .action_box #cboxContent h2#editQuery, #cboxContent #main .action_box h2#editQuery, #cboxContent .action_box h2#editQuery, #main .pagination #cboxContent h2#editQuery, #cboxContent #main .pagination h2#editQuery, #cboxContent .pagination h2#editQuery, #main .action_box h3#editQuery, #cboxContent .action_box #main h3#editQuery, #main #cboxContent .action_box h3#editQuery, #main .pagination h3#editQuery, #cboxContent .pagination #main h3#editQuery, #main #cboxContent .pagination h3#editQuery, #main .action_box #cboxContent h3#editQuery, #cboxContent #main .action_box h3#editQuery, #cboxContent .action_box h3#editQuery, #main .pagination #cboxContent h3#editQuery, #cboxContent #main .pagination h3#editQuery, #cboxContent .pagination h3#editQuery, #main .action_box h4#editQuery, #cboxContent .action_box #main h4#editQuery, #main #cboxContent .action_box h4#editQuery, #main .pagination h4#editQuery, #cboxContent .pagination #main h4#editQuery, #main #cboxContent .pagination h4#editQuery, #main .action_box #cboxContent h4#editQuery, #cboxContent #main .action_box h4#editQuery, #cboxContent .action_box h4#editQuery, #main .pagination #cboxContent h4#editQuery, #cboxContent #main .pagination h4#editQuery, #cboxContent .pagination h4#editQuery, #main .action_box h5#editQuery, #cboxContent .action_box #main h5#editQuery, #main #cboxContent .action_box h5#editQuery, #main .pagination h5#editQuery, #cboxContent .pagination #main h5#editQuery, #main #cboxContent .pagination h5#editQuery, #main .action_box #cboxContent h5#editQuery, #cboxContent #main .action_box h5#editQuery, #cboxContent .action_box h5#editQuery, #main .pagination #cboxContent h5#editQuery, #cboxContent #main .pagination h5#editQuery, #cboxContent .pagination h5#editQuery,
+#main .action_box h1#editQuery, #cboxContent .action_box h1#editQuery, #main .pagination h1#editQuery, #cboxContent .pagination h1#editQuery, #main .action_box h2#editQuery, #cboxContent .action_box #main h2#editQuery, #main #cboxContent .action_box h2#editQuery, #main .pagination h2#editQuery, #cboxContent .pagination #main h2#editQuery, #main #cboxContent .pagination h2#editQuery, #main .action_box #cboxContent h2#editQuery, #cboxContent #main .action_box h2#editQuery, #cboxContent .action_box h2#editQuery, #main .pagination #cboxContent h2#editQuery, #cboxContent #main .pagination h2#editQuery, #cboxContent .pagination h2#editQuery, #main .action_box h3#editQuery, #cboxContent .action_box #main h3#editQuery, #main #cboxContent .action_box h3#editQuery, #main .pagination h3#editQuery, #cboxContent .pagination #main h3#editQuery, #main #cboxContent .pagination h3#editQuery, #main .action_box #cboxContent h3#editQuery, #cboxContent #main .action_box h3#editQuery, #cboxContent .action_box h3#editQuery, #main .pagination #cboxContent h3#editQuery, #cboxContent #main .pagination h3#editQuery, #cboxContent .pagination h3#editQuery, #main .action_box h4#editQuery, #cboxContent .action_box #main h4#editQuery, #main #cboxContent .action_box h4#editQuery, #main .pagination h4#editQuery, #cboxContent .pagination #main h4#editQuery, #main #cboxContent .pagination h4#editQuery, #main .action_box #cboxContent h4#editQuery, #cboxContent #main .action_box h4#editQuery, #cboxContent .action_box h4#editQuery, #main .pagination #cboxContent h4#editQuery, #cboxContent #main .pagination h4#editQuery, #cboxContent .pagination h4#editQuery, #main .action_box h5#editQuery, #cboxContent .action_box #main h5#editQuery, #main #cboxContent .action_box h5#editQuery, #main .pagination h5#editQuery, #cboxContent .pagination #main h5#editQuery, #main #cboxContent .pagination h5#editQuery, #main .action_box #cboxContent h5#editQuery, #cboxContent #main .action_box h5#editQuery, #cboxContent .action_box h5#editQuery, #main .pagination #cboxContent h5#editQuery, #cboxContent #main .pagination h5#editQuery, #cboxContent .pagination h5#editQuery, #main .action_box #help h2#editQuery, #help #main .action_box h2#editQuery, #cboxContent .action_box #help h2#editQuery, #help #cboxContent .action_box h2#editQuery, #main .pagination #help h2#editQuery, #help #main .pagination h2#editQuery, #cboxContent .pagination #help h2#editQuery, #help #cboxContent .pagination h2#editQuery, #main .action_box #help h3#editQuery, #help #main .action_box h3#editQuery, #cboxContent .action_box #help h3#editQuery, #help #cboxContent .action_box h3#editQuery, #main .pagination #help h3#editQuery, #help #main .pagination h3#editQuery, #cboxContent .pagination #help h3#editQuery, #help #cboxContent .pagination h3#editQuery, #main .action_box #help h4#editQuery, #help #main .action_box h4#editQuery, #cboxContent .action_box #help h4#editQuery, #help #cboxContent .action_box h4#editQuery, #main .pagination #help h4#editQuery, #help #main .pagination h4#editQuery, #cboxContent .pagination #help h4#editQuery, #help #cboxContent .pagination h4#editQuery, #main .action_box #help h5#editQuery, #help #main .action_box h5#editQuery, #cboxContent .action_box #help h5#editQuery, #help #cboxContent .action_box h5#editQuery, #main .pagination #help h5#editQuery, #help #main .pagination h5#editQuery, #cboxContent .pagination #help h5#editQuery, #help #cboxContent .pagination h5#editQuery,
 #main .action_box h2#editQuery,
 #cboxContent .action_box h2#editQuery,
 #main .pagination h2#editQuery,
@@ -1066,6 +1075,38 @@ div.loading {
 #main .pagination #cboxContent h5.txt,
 #cboxContent #main .pagination h5.txt,
 #cboxContent .pagination h5.txt,
+#main .action_box #help h2.txt,
+#help #main .action_box h2.txt,
+#cboxContent .action_box #help h2.txt,
+#help #cboxContent .action_box h2.txt,
+#main .pagination #help h2.txt,
+#help #main .pagination h2.txt,
+#cboxContent .pagination #help h2.txt,
+#help #cboxContent .pagination h2.txt,
+#main .action_box #help h3.txt,
+#help #main .action_box h3.txt,
+#cboxContent .action_box #help h3.txt,
+#help #cboxContent .action_box h3.txt,
+#main .pagination #help h3.txt,
+#help #main .pagination h3.txt,
+#cboxContent .pagination #help h3.txt,
+#help #cboxContent .pagination h3.txt,
+#main .action_box #help h4.txt,
+#help #main .action_box h4.txt,
+#cboxContent .action_box #help h4.txt,
+#help #cboxContent .action_box h4.txt,
+#main .pagination #help h4.txt,
+#help #main .pagination h4.txt,
+#cboxContent .pagination #help h4.txt,
+#help #cboxContent .pagination h4.txt,
+#main .action_box #help h5.txt,
+#help #main .action_box h5.txt,
+#cboxContent .action_box #help h5.txt,
+#help #cboxContent .action_box h5.txt,
+#main .pagination #help h5.txt,
+#help #main .pagination h5.txt,
+#cboxContent .pagination #help h5.txt,
+#help #cboxContent .pagination h5.txt,
 #main .action_box h2.txt,
 #cboxContent .action_box h2.txt,
 #main .pagination h2.txt,
@@ -1098,7 +1139,7 @@ div.loading {
   border-radius: 4px;
 }
 /* line 28, ../sass/_action_box.scss */
-#main .action_box h1#editQuery:hover, #cboxContent .action_box h1#editQuery:hover, #main .pagination h1#editQuery:hover, #cboxContent .pagination h1#editQuery:hover, #main .action_box h2#editQuery:hover, #cboxContent .action_box #main h2#editQuery:hover, #main #cboxContent .action_box h2#editQuery:hover, #main .pagination h2#editQuery:hover, #cboxContent .pagination #main h2#editQuery:hover, #main #cboxContent .pagination h2#editQuery:hover, #main .action_box #cboxContent h2#editQuery:hover, #cboxContent #main .action_box h2#editQuery:hover, #cboxContent .action_box h2#editQuery:hover, #main .pagination #cboxContent h2#editQuery:hover, #cboxContent #main .pagination h2#editQuery:hover, #cboxContent .pagination h2#editQuery:hover, #main .action_box h3#editQuery:hover, #cboxContent .action_box #main h3#editQuery:hover, #main #cboxContent .action_box h3#editQuery:hover, #main .pagination h3#editQuery:hover, #cboxContent .pagination #main h3#editQuery:hover, #main #cboxContent .pagination h3#editQuery:hover, #main .action_box #cboxContent h3#editQuery:hover, #cboxContent #main .action_box h3#editQuery:hover, #cboxContent .action_box h3#editQuery:hover, #main .pagination #cboxContent h3#editQuery:hover, #cboxContent #main .pagination h3#editQuery:hover, #cboxContent .pagination h3#editQuery:hover, #main .action_box h4#editQuery:hover, #cboxContent .action_box #main h4#editQuery:hover, #main #cboxContent .action_box h4#editQuery:hover, #main .pagination h4#editQuery:hover, #cboxContent .pagination #main h4#editQuery:hover, #main #cboxContent .pagination h4#editQuery:hover, #main .action_box #cboxContent h4#editQuery:hover, #cboxContent #main .action_box h4#editQuery:hover, #cboxContent .action_box h4#editQuery:hover, #main .pagination #cboxContent h4#editQuery:hover, #cboxContent #main .pagination h4#editQuery:hover, #cboxContent .pagination h4#editQuery:hover, #main .action_box h5#editQuery:hover, #cboxContent .action_box #main h5#editQuery:hover, #main #cboxContent .action_box h5#editQuery:hover, #main .pagination h5#editQuery:hover, #cboxContent .pagination #main h5#editQuery:hover, #main #cboxContent .pagination h5#editQuery:hover, #main .action_box #cboxContent h5#editQuery:hover, #cboxContent #main .action_box h5#editQuery:hover, #cboxContent .action_box h5#editQuery:hover, #main .pagination #cboxContent h5#editQuery:hover, #cboxContent #main .pagination h5#editQuery:hover, #cboxContent .pagination h5#editQuery:hover,
+#main .action_box h1#editQuery:hover, #cboxContent .action_box h1#editQuery:hover, #main .pagination h1#editQuery:hover, #cboxContent .pagination h1#editQuery:hover, #main .action_box h2#editQuery:hover, #cboxContent .action_box #main h2#editQuery:hover, #main #cboxContent .action_box h2#editQuery:hover, #main .pagination h2#editQuery:hover, #cboxContent .pagination #main h2#editQuery:hover, #main #cboxContent .pagination h2#editQuery:hover, #main .action_box #cboxContent h2#editQuery:hover, #cboxContent #main .action_box h2#editQuery:hover, #cboxContent .action_box h2#editQuery:hover, #main .pagination #cboxContent h2#editQuery:hover, #cboxContent #main .pagination h2#editQuery:hover, #cboxContent .pagination h2#editQuery:hover, #main .action_box h3#editQuery:hover, #cboxContent .action_box #main h3#editQuery:hover, #main #cboxContent .action_box h3#editQuery:hover, #main .pagination h3#editQuery:hover, #cboxContent .pagination #main h3#editQuery:hover, #main #cboxContent .pagination h3#editQuery:hover, #main .action_box #cboxContent h3#editQuery:hover, #cboxContent #main .action_box h3#editQuery:hover, #cboxContent .action_box h3#editQuery:hover, #main .pagination #cboxContent h3#editQuery:hover, #cboxContent #main .pagination h3#editQuery:hover, #cboxContent .pagination h3#editQuery:hover, #main .action_box h4#editQuery:hover, #cboxContent .action_box #main h4#editQuery:hover, #main #cboxContent .action_box h4#editQuery:hover, #main .pagination h4#editQuery:hover, #cboxContent .pagination #main h4#editQuery:hover, #main #cboxContent .pagination h4#editQuery:hover, #main .action_box #cboxContent h4#editQuery:hover, #cboxContent #main .action_box h4#editQuery:hover, #cboxContent .action_box h4#editQuery:hover, #main .pagination #cboxContent h4#editQuery:hover, #cboxContent #main .pagination h4#editQuery:hover, #cboxContent .pagination h4#editQuery:hover, #main .action_box h5#editQuery:hover, #cboxContent .action_box #main h5#editQuery:hover, #main #cboxContent .action_box h5#editQuery:hover, #main .pagination h5#editQuery:hover, #cboxContent .pagination #main h5#editQuery:hover, #main #cboxContent .pagination h5#editQuery:hover, #main .action_box #cboxContent h5#editQuery:hover, #cboxContent #main .action_box h5#editQuery:hover, #cboxContent .action_box h5#editQuery:hover, #main .pagination #cboxContent h5#editQuery:hover, #cboxContent #main .pagination h5#editQuery:hover, #cboxContent .pagination h5#editQuery:hover, #main .action_box #help h2#editQuery:hover, #help #main .action_box h2#editQuery:hover, #cboxContent .action_box #help h2#editQuery:hover, #help #cboxContent .action_box h2#editQuery:hover, #main .pagination #help h2#editQuery:hover, #help #main .pagination h2#editQuery:hover, #cboxContent .pagination #help h2#editQuery:hover, #help #cboxContent .pagination h2#editQuery:hover, #main .action_box #help h3#editQuery:hover, #help #main .action_box h3#editQuery:hover, #cboxContent .action_box #help h3#editQuery:hover, #help #cboxContent .action_box h3#editQuery:hover, #main .pagination #help h3#editQuery:hover, #help #main .pagination h3#editQuery:hover, #cboxContent .pagination #help h3#editQuery:hover, #help #cboxContent .pagination h3#editQuery:hover, #main .action_box #help h4#editQuery:hover, #help #main .action_box h4#editQuery:hover, #cboxContent .action_box #help h4#editQuery:hover, #help #cboxContent .action_box h4#editQuery:hover, #main .pagination #help h4#editQuery:hover, #help #main .pagination h4#editQuery:hover, #cboxContent .pagination #help h4#editQuery:hover, #help #cboxContent .pagination h4#editQuery:hover, #main .action_box #help h5#editQuery:hover, #help #main .action_box h5#editQuery:hover, #cboxContent .action_box #help h5#editQuery:hover, #help #cboxContent .action_box h5#editQuery:hover, #main .pagination #help h5#editQuery:hover, #help #main .pagination h5#editQuery:hover, #cboxContent .pagination #help h5#editQuery:hover, #help #cboxContent .pagination h5#editQuery:hover,
 #main .action_box h2#editQuery:hover,
 #cboxContent .action_box h2#editQuery:hover,
 #main .pagination h2#editQuery:hover,
@@ -1171,6 +1212,38 @@ div.loading {
 #main .pagination #cboxContent h5.txt:hover,
 #cboxContent #main .pagination h5.txt:hover,
 #cboxContent .pagination h5.txt:hover,
+#main .action_box #help h2.txt:hover,
+#help #main .action_box h2.txt:hover,
+#cboxContent .action_box #help h2.txt:hover,
+#help #cboxContent .action_box h2.txt:hover,
+#main .pagination #help h2.txt:hover,
+#help #main .pagination h2.txt:hover,
+#cboxContent .pagination #help h2.txt:hover,
+#help #cboxContent .pagination h2.txt:hover,
+#main .action_box #help h3.txt:hover,
+#help #main .action_box h3.txt:hover,
+#cboxContent .action_box #help h3.txt:hover,
+#help #cboxContent .action_box h3.txt:hover,
+#main .pagination #help h3.txt:hover,
+#help #main .pagination h3.txt:hover,
+#cboxContent .pagination #help h3.txt:hover,
+#help #cboxContent .pagination h3.txt:hover,
+#main .action_box #help h4.txt:hover,
+#help #main .action_box h4.txt:hover,
+#cboxContent .action_box #help h4.txt:hover,
+#help #cboxContent .action_box h4.txt:hover,
+#main .pagination #help h4.txt:hover,
+#help #main .pagination h4.txt:hover,
+#cboxContent .pagination #help h4.txt:hover,
+#help #cboxContent .pagination h4.txt:hover,
+#main .action_box #help h5.txt:hover,
+#help #main .action_box h5.txt:hover,
+#cboxContent .action_box #help h5.txt:hover,
+#help #cboxContent .action_box h5.txt:hover,
+#main .pagination #help h5.txt:hover,
+#help #main .pagination h5.txt:hover,
+#cboxContent .pagination #help h5.txt:hover,
+#help #cboxContent .pagination h5.txt:hover,
 #main .action_box h2.txt:hover,
 #cboxContent .action_box h2.txt:hover,
 #main .pagination h2.txt:hover,
@@ -1194,7 +1267,7 @@ div.loading {
   background-color: #e6e6e6;
 }
 /* line 31, ../sass/_action_box.scss */
-#main .action_box h1#editQuery.content_hide, #cboxContent .action_box h1#editQuery.content_hide, #main .pagination h1#editQuery.content_hide, #cboxContent .pagination h1#editQuery.content_hide, #main .action_box h2#editQuery.content_hide, #cboxContent .action_box #main h2#editQuery.content_hide, #main #cboxContent .action_box h2#editQuery.content_hide, #main .pagination h2#editQuery.content_hide, #cboxContent .pagination #main h2#editQuery.content_hide, #main #cboxContent .pagination h2#editQuery.content_hide, #main .action_box #cboxContent h2#editQuery.content_hide, #cboxContent #main .action_box h2#editQuery.content_hide, #cboxContent .action_box h2#editQuery.content_hide, #main .pagination #cboxContent h2#editQuery.content_hide, #cboxContent #main .pagination h2#editQuery.content_hide, #cboxContent .pagination h2#editQuery.content_hide, #main .action_box h3#editQuery.content_hide, #cboxContent .action_box #main h3#editQuery.content_hide, #main #cboxContent .action_box h3#editQuery.content_hide, #main .pagination h3#editQuery.content_hide, #cboxContent .pagination #main h3#editQuery.content_hide, #main #cboxContent .pagination h3#editQuery.content_hide, #main .action_box #cboxContent h3#editQuery.content_hide, #cboxContent #main .action_box h3#editQuery.content_hide, #cboxContent .action_box h3#editQuery.content_hide, #main .pagination #cboxContent h3#editQuery.content_hide, #cboxContent #main .pagination h3#editQuery.content_hide, #cboxContent .pagination h3#editQuery.content_hide, #main .action_box h4#editQuery.content_hide, #cboxContent .action_box #main h4#editQuery.content_hide, #main #cboxContent .action_box h4#editQuery.content_hide, #main .pagination h4#editQuery.content_hide, #cboxContent .pagination #main h4#editQuery.content_hide, #main #cboxContent .pagination h4#editQuery.content_hide, #main .action_box #cboxContent h4#editQuery.content_hide, #cboxContent #main .action_box h4#editQuery.content_hide, #cboxContent .action_box h4#editQuery.content_hide, #main .pagination #cboxContent h4#editQuery.content_hide, #cboxContent #main .pagination h4#editQuery.content_hide, #cboxContent .pagination h4#editQuery.content_hide, #main .action_box h5#editQuery.content_hide, #cboxContent .action_box #main h5#editQuery.content_hide, #main #cboxContent .action_box h5#editQuery.content_hide, #main .pagination h5#editQuery.content_hide, #cboxContent .pagination #main h5#editQuery.content_hide, #main #cboxContent .pagination h5#editQuery.content_hide, #main .action_box #cboxContent h5#editQuery.content_hide, #cboxContent #main .action_box h5#editQuery.content_hide, #cboxContent .action_box h5#editQuery.content_hide, #main .pagination #cboxContent h5#editQuery.content_hide, #cboxContent #main .pagination h5#editQuery.content_hide, #cboxContent .pagination h5#editQuery.content_hide,
+#main .action_box h1#editQuery.content_hide, #cboxContent .action_box h1#editQuery.content_hide, #main .pagination h1#editQuery.content_hide, #cboxContent .pagination h1#editQuery.content_hide, #main .action_box h2#editQuery.content_hide, #cboxContent .action_box #main h2#editQuery.content_hide, #main #cboxContent .action_box h2#editQuery.content_hide, #main .pagination h2#editQuery.content_hide, #cboxContent .pagination #main h2#editQuery.content_hide, #main #cboxContent .pagination h2#editQuery.content_hide, #main .action_box #cboxContent h2#editQuery.content_hide, #cboxContent #main .action_box h2#editQuery.content_hide, #cboxContent .action_box h2#editQuery.content_hide, #main .pagination #cboxContent h2#editQuery.content_hide, #cboxContent #main .pagination h2#editQuery.content_hide, #cboxContent .pagination h2#editQuery.content_hide, #main .action_box h3#editQuery.content_hide, #cboxContent .action_box #main h3#editQuery.content_hide, #main #cboxContent .action_box h3#editQuery.content_hide, #main .pagination h3#editQuery.content_hide, #cboxContent .pagination #main h3#editQuery.content_hide, #main #cboxContent .pagination h3#editQuery.content_hide, #main .action_box #cboxContent h3#editQuery.content_hide, #cboxContent #main .action_box h3#editQuery.content_hide, #cboxContent .action_box h3#editQuery.content_hide, #main .pagination #cboxContent h3#editQuery.content_hide, #cboxContent #main .pagination h3#editQuery.content_hide, #cboxContent .pagination h3#editQuery.content_hide, #main .action_box h4#editQuery.content_hide, #cboxContent .action_box #main h4#editQuery.content_hide, #main #cboxContent .action_box h4#editQuery.content_hide, #main .pagination h4#editQuery.content_hide, #cboxContent .pagination #main h4#editQuery.content_hide, #main #cboxContent .pagination h4#editQuery.content_hide, #main .action_box #cboxContent h4#editQuery.content_hide, #cboxContent #main .action_box h4#editQuery.content_hide, #cboxContent .action_box h4#editQuery.content_hide, #main .pagination #cboxContent h4#editQuery.content_hide, #cboxContent #main .pagination h4#editQuery.content_hide, #cboxContent .pagination h4#editQuery.content_hide, #main .action_box h5#editQuery.content_hide, #cboxContent .action_box #main h5#editQuery.content_hide, #main #cboxContent .action_box h5#editQuery.content_hide, #main .pagination h5#editQuery.content_hide, #cboxContent .pagination #main h5#editQuery.content_hide, #main #cboxContent .pagination h5#editQuery.content_hide, #main .action_box #cboxContent h5#editQuery.content_hide, #cboxContent #main .action_box h5#editQuery.content_hide, #cboxContent .action_box h5#editQuery.content_hide, #main .pagination #cboxContent h5#editQuery.content_hide, #cboxContent #main .pagination h5#editQuery.content_hide, #cboxContent .pagination h5#editQuery.content_hide, #main .action_box #help h2#editQuery.content_hide, #help #main .action_box h2#editQuery.content_hide, #cboxContent .action_box #help h2#editQuery.content_hide, #help #cboxContent .action_box h2#editQuery.content_hide, #main .pagination #help h2#editQuery.content_hide, #help #main .pagination h2#editQuery.content_hide, #cboxContent .pagination #help h2#editQuery.content_hide, #help #cboxContent .pagination h2#editQuery.content_hide, #main .action_box #help h3#editQuery.content_hide, #help #main .action_box h3#editQuery.content_hide, #cboxContent .action_box #help h3#editQuery.content_hide, #help #cboxContent .action_box h3#editQuery.content_hide, #main .pagination #help h3#editQuery.content_hide, #help #main .pagination h3#editQuery.content_hide, #cboxContent .pagination #help h3#editQuery.content_hide, #help #cboxContent .pagination h3#editQuery.content_hide, #main .action_box #help h4#editQuery.content_hide, #help #main .action_box h4#editQuery.content_hide, #cboxContent .action_box #help h4#editQuery.content_hide, #help #cboxContent .action_box h4#editQuery.content_hide, #main .pagination #help h4#editQuery.content_hide, #help #main .pagination h4#editQuery.content_hide, #cboxContent .pagination #help h4#editQuery.content_hide, #help #cboxContent .pagination h4#editQuery.content_hide, #main .action_box #help h5#editQuery.content_hide, #help #main .action_box h5#editQuery.content_hide, #cboxContent .action_box #help h5#editQuery.content_hide, #help #cboxContent .action_box h5#editQuery.content_hide, #main .pagination #help h5#editQuery.content_hide, #help #main .pagination h5#editQuery.content_hide, #cboxContent .pagination #help h5#editQuery.content_hide, #help #cboxContent .pagination h5#editQuery.content_hide,
 #main .action_box h2#editQuery.content_hide,
 #cboxContent .action_box h2#editQuery.content_hide,
 #main .pagination h2#editQuery.content_hide,
@@ -1267,6 +1340,38 @@ div.loading {
 #main .pagination #cboxContent h5.txt.content_hide,
 #cboxContent #main .pagination h5.txt.content_hide,
 #cboxContent .pagination h5.txt.content_hide,
+#main .action_box #help h2.txt.content_hide,
+#help #main .action_box h2.txt.content_hide,
+#cboxContent .action_box #help h2.txt.content_hide,
+#help #cboxContent .action_box h2.txt.content_hide,
+#main .pagination #help h2.txt.content_hide,
+#help #main .pagination h2.txt.content_hide,
+#cboxContent .pagination #help h2.txt.content_hide,
+#help #cboxContent .pagination h2.txt.content_hide,
+#main .action_box #help h3.txt.content_hide,
+#help #main .action_box h3.txt.content_hide,
+#cboxContent .action_box #help h3.txt.content_hide,
+#help #cboxContent .action_box h3.txt.content_hide,
+#main .pagination #help h3.txt.content_hide,
+#help #main .pagination h3.txt.content_hide,
+#cboxContent .pagination #help h3.txt.content_hide,
+#help #cboxContent .pagination h3.txt.content_hide,
+#main .action_box #help h4.txt.content_hide,
+#help #main .action_box h4.txt.content_hide,
+#cboxContent .action_box #help h4.txt.content_hide,
+#help #cboxContent .action_box h4.txt.content_hide,
+#main .pagination #help h4.txt.content_hide,
+#help #main .pagination h4.txt.content_hide,
+#cboxContent .pagination #help h4.txt.content_hide,
+#help #cboxContent .pagination h4.txt.content_hide,
+#main .action_box #help h5.txt.content_hide,
+#help #main .action_box h5.txt.content_hide,
+#cboxContent .action_box #help h5.txt.content_hide,
+#help #cboxContent .action_box h5.txt.content_hide,
+#main .pagination #help h5.txt.content_hide,
+#help #main .pagination h5.txt.content_hide,
+#cboxContent .pagination #help h5.txt.content_hide,
+#help #cboxContent .pagination h5.txt.content_hide,
 #main .action_box h2.txt.content_hide,
 #cboxContent .action_box h2.txt.content_hide,
 #main .pagination h2.txt.content_hide,
@@ -1290,7 +1395,7 @@ div.loading {
   background-position: left -62px;
 }
 /* line 33, ../sass/_action_box.scss */
-#main .action_box h1#editQuery.content_hide.last, #cboxContent .action_box h1#editQuery.content_hide.last, #main .pagination h1#editQuery.content_hide.last, #cboxContent .pagination h1#editQuery.content_hide.last, #main .action_box h2#editQuery.content_hide.last, #cboxContent .action_box #main h2#editQuery.content_hide.last, #main #cboxContent .action_box h2#editQuery.content_hide.last, #main .pagination h2#editQuery.content_hide.last, #cboxContent .pagination #main h2#editQuery.content_hide.last, #main #cboxContent .pagination h2#editQuery.content_hide.last, #main .action_box #cboxContent h2#editQuery.content_hide.last, #cboxContent #main .action_box h2#editQuery.content_hide.last, #cboxContent .action_box h2#editQuery.content_hide.last, #main .pagination #cboxContent h2#editQuery.content_hide.last, #cboxContent #main .pagination h2#editQuery.content_hide.last, #cboxContent .pagination h2#editQuery.content_hide.last, #main .action_box h3#editQuery.content_hide.last, #cboxContent .action_box #main h3#editQuery.content_hide.last, #main #cboxContent .action_box h3#editQuery.content_hide.last, #main .pagination h3#editQuery.content_hide.last, #cboxContent .pagination #main h3#editQuery.content_hide.last, #main #cboxContent .pagination h3#editQuery.content_hide.last, #main .action_box #cboxContent h3#editQuery.content_hide.last, #cboxContent #main .action_box h3#editQuery.content_hide.last, #cboxContent .action_box h3#editQuery.content_hide.last, #main .pagination #cboxContent h3#editQuery.content_hide.last, #cboxContent #main .pagination h3#editQuery.content_hide.last, #cboxContent .pagination h3#editQuery.content_hide.last, #main .action_box h4#editQuery.content_hide.last, #cboxContent .action_box #main h4#editQuery.content_hide.last, #main #cboxContent .action_box h4#editQuery.content_hide.last, #main .pagination h4#editQuery.content_hide.last, #cboxContent .pagination #main h4#editQuery.content_hide.last, #main #cboxContent .pagination h4#editQuery.content_hide.last, #main .action_box #cboxContent h4#editQuery.content_hide.last, #cboxContent #main .action_box h4#editQuery.content_hide.last, #cboxContent .action_box h4#editQuery.content_hide.last, #main .pagination #cboxContent h4#editQuery.content_hide.last, #cboxContent #main .pagination h4#editQuery.content_hide.last, #cboxContent .pagination h4#editQuery.content_hide.last, #main .action_box h5#editQuery.content_hide.last, #cboxContent .action_box #main h5#editQuery.content_hide.last, #main #cboxContent .action_box h5#editQuery.content_hide.last, #main .pagination h5#editQuery.content_hide.last, #cboxContent .pagination #main h5#editQuery.content_hide.last, #main #cboxContent .pagination h5#editQuery.content_hide.last, #main .action_box #cboxContent h5#editQuery.content_hide.last, #cboxContent #main .action_box h5#editQuery.content_hide.last, #cboxContent .action_box h5#editQuery.content_hide.last, #main .pagination #cboxContent h5#editQuery.content_hide.last, #cboxContent #main .pagination h5#editQuery.content_hide.last, #cboxContent .pagination h5#editQuery.content_hide.last,
+#main .action_box h1#editQuery.content_hide.last, #cboxContent .action_box h1#editQuery.content_hide.last, #main .pagination h1#editQuery.content_hide.last, #cboxContent .pagination h1#editQuery.content_hide.last, #main .action_box h2#editQuery.content_hide.last, #cboxContent .action_box #main h2#editQuery.content_hide.last, #main #cboxContent .action_box h2#editQuery.content_hide.last, #main .pagination h2#editQuery.content_hide.last, #cboxContent .pagination #main h2#editQuery.content_hide.last, #main #cboxContent .pagination h2#editQuery.content_hide.last, #main .action_box #cboxContent h2#editQuery.content_hide.last, #cboxContent #main .action_box h2#editQuery.content_hide.last, #cboxContent .action_box h2#editQuery.content_hide.last, #main .pagination #cboxContent h2#editQuery.content_hide.last, #cboxContent #main .pagination h2#editQuery.content_hide.last, #cboxContent .pagination h2#editQuery.content_hide.last, #main .action_box h3#editQuery.content_hide.last, #cboxContent .action_box #main h3#editQuery.content_hide.last, #main #cboxContent .action_box h3#editQuery.content_hide.last, #main .pagination h3#editQuery.content_hide.last, #cboxContent .pagination #main h3#editQuery.content_hide.last, #main #cboxContent .pagination h3#editQuery.content_hide.last, #main .action_box #cboxContent h3#editQuery.content_hide.last, #cboxContent #main .action_box h3#editQuery.content_hide.last, #cboxContent .action_box h3#editQuery.content_hide.last, #main .pagination #cboxContent h3#editQuery.content_hide.last, #cboxContent #main .pagination h3#editQuery.content_hide.last, #cboxContent .pagination h3#editQuery.content_hide.last, #main .action_box h4#editQuery.content_hide.last, #cboxContent .action_box #main h4#editQuery.content_hide.last, #main #cboxContent .action_box h4#editQuery.content_hide.last, #main .pagination h4#editQuery.content_hide.last, #cboxContent .pagination #main h4#editQuery.content_hide.last, #main #cboxContent .pagination h4#editQuery.content_hide.last, #main .action_box #cboxContent h4#editQuery.content_hide.last, #cboxContent #main .action_box h4#editQuery.content_hide.last, #cboxContent .action_box h4#editQuery.content_hide.last, #main .pagination #cboxContent h4#editQuery.content_hide.last, #cboxContent #main .pagination h4#editQuery.content_hide.last, #cboxContent .pagination h4#editQuery.content_hide.last, #main .action_box h5#editQuery.content_hide.last, #cboxContent .action_box #main h5#editQuery.content_hide.last, #main #cboxContent .action_box h5#editQuery.content_hide.last, #main .pagination h5#editQuery.content_hide.last, #cboxContent .pagination #main h5#editQuery.content_hide.last, #main #cboxContent .pagination h5#editQuery.content_hide.last, #main .action_box #cboxContent h5#editQuery.content_hide.last, #cboxContent #main .action_box h5#editQuery.content_hide.last, #cboxContent .action_box h5#editQuery.content_hide.last, #main .pagination #cboxContent h5#editQuery.content_hide.last, #cboxContent #main .pagination h5#editQuery.content_hide.last, #cboxContent .pagination h5#editQuery.content_hide.last, #main .action_box #help h2#editQuery.content_hide.last, #help #main .action_box h2#editQuery.content_hide.last, #cboxContent .action_box #help h2#editQuery.content_hide.last, #help #cboxContent .action_box h2#editQuery.content_hide.last, #main .pagination #help h2#editQuery.content_hide.last, #help #main .pagination h2#editQuery.content_hide.last, #cboxContent .pagination #help h2#editQuery.content_hide.last, #help #cboxContent .pagination h2#editQuery.content_hide.last, #main .action_box #help h3#editQuery.content_hide.last, #help #main .action_box h3#editQuery.content_hide.last, #cboxContent .action_box #help h3#editQuery.content_hide.last, #help #cboxContent .action_box h3#editQuery.content_hide.last, #main .pagination #help h3#editQuery.content_hide.last, #help #main .pagination h3#editQuery.content_hide.last, #cboxContent .pagination #help h3#editQuery.content_hide.last, #help #cboxContent .pagination h3#editQuery.content_hide.last, #main .action_box #help h4#editQuery.content_hide.last, #help #main .action_box h4#editQuery.content_hide.last, #cboxContent .action_box #help h4#editQuery.content_hide.last, #help #cboxContent .action_box h4#editQuery.content_hide.last, #main .pagination #help h4#editQuery.content_hide.last, #help #main .pagination h4#editQuery.content_hide.last, #cboxContent .pagination #help h4#editQuery.content_hide.last, #help #cboxContent .pagination h4#editQuery.content_hide.last, #main .action_box #help h5#editQuery.content_hide.last, #help #main .action_box h5#editQuery.content_hide.last, #cboxContent .action_box #help h5#editQuery.content_hide.last, #help #cboxContent .action_box h5#editQuery.content_hide.last, #main .pagination #help h5#editQuery.content_hide.last, #help #main .pagination h5#editQuery.content_hide.last, #cboxContent .pagination #help h5#editQuery.content_hide.last, #help #cboxContent .pagination h5#editQuery.content_hide.last,
 #main .action_box h2#editQuery.content_hide.last,
 #cboxContent .action_box h2#editQuery.content_hide.last,
 #main .pagination h2#editQuery.content_hide.last,
@@ -1363,6 +1468,38 @@ div.loading {
 #main .pagination #cboxContent h5.txt.content_hide.last,
 #cboxContent #main .pagination h5.txt.content_hide.last,
 #cboxContent .pagination h5.txt.content_hide.last,
+#main .action_box #help h2.txt.content_hide.last,
+#help #main .action_box h2.txt.content_hide.last,
+#cboxContent .action_box #help h2.txt.content_hide.last,
+#help #cboxContent .action_box h2.txt.content_hide.last,
+#main .pagination #help h2.txt.content_hide.last,
+#help #main .pagination h2.txt.content_hide.last,
+#cboxContent .pagination #help h2.txt.content_hide.last,
+#help #cboxContent .pagination h2.txt.content_hide.last,
+#main .action_box #help h3.txt.content_hide.last,
+#help #main .action_box h3.txt.content_hide.last,
+#cboxContent .action_box #help h3.txt.content_hide.last,
+#help #cboxContent .action_box h3.txt.content_hide.last,
+#main .pagination #help h3.txt.content_hide.last,
+#help #main .pagination h3.txt.content_hide.last,
+#cboxContent .pagination #help h3.txt.content_hide.last,
+#help #cboxContent .pagination h3.txt.content_hide.last,
+#main .action_box #help h4.txt.content_hide.last,
+#help #main .action_box h4.txt.content_hide.last,
+#cboxContent .action_box #help h4.txt.content_hide.last,
+#help #cboxContent .action_box h4.txt.content_hide.last,
+#main .pagination #help h4.txt.content_hide.last,
+#help #main .pagination h4.txt.content_hide.last,
+#cboxContent .pagination #help h4.txt.content_hide.last,
+#help #cboxContent .pagination h4.txt.content_hide.last,
+#main .action_box #help h5.txt.content_hide.last,
+#help #main .action_box h5.txt.content_hide.last,
+#cboxContent .action_box #help h5.txt.content_hide.last,
+#help #cboxContent .action_box h5.txt.content_hide.last,
+#main .pagination #help h5.txt.content_hide.last,
+#help #main .pagination h5.txt.content_hide.last,
+#cboxContent .pagination #help h5.txt.content_hide.last,
+#help #cboxContent .pagination h5.txt.content_hide.last,
 #main .action_box h2.txt.content_hide.last,
 #cboxContent .action_box h2.txt.content_hide.last,
 #main .pagination h2.txt.content_hide.last,
@@ -2493,7 +2630,7 @@ p {
   display: block;
 }
 /* line 29, ../sass/_main.scss */
-#main h1, #cboxContent h1, #main h2, #cboxContent #main h2, #main #cboxContent h2, #main #cboxContent h2, #cboxContent #main h2, #cboxContent h2, #main h3, #cboxContent #main h3, #main #cboxContent h3, #main #cboxContent h3, #cboxContent #main h3, #cboxContent h3, #main h4, #cboxContent #main h4, #main #cboxContent h4, #main #cboxContent h4, #cboxContent #main h4, #cboxContent h4, #main h5, #cboxContent #main h5, #main #cboxContent h5, #main #cboxContent h5, #cboxContent #main h5, #cboxContent h5 {
+#main h1, #cboxContent h1, #main h2, #cboxContent #main h2, #main #cboxContent h2, #main #cboxContent h2, #cboxContent #main h2, #cboxContent h2, #main h3, #cboxContent #main h3, #main #cboxContent h3, #main #cboxContent h3, #cboxContent #main h3, #cboxContent h3, #main h4, #cboxContent #main h4, #main #cboxContent h4, #main #cboxContent h4, #cboxContent #main h4, #cboxContent h4, #main h5, #cboxContent #main h5, #main #cboxContent h5, #main #cboxContent h5, #cboxContent #main h5, #cboxContent h5, #main #help h2, #help #main h2, #cboxContent #help h2, #help #cboxContent h2, #main #help h3, #help #main h3, #cboxContent #help h3, #help #cboxContent h3, #main #help h4, #help #main h4, #cboxContent #help h4, #help #cboxContent h4, #main #help h5, #help #main h5, #cboxContent #help h5, #help #cboxContent h5 {
   font-size: 2.2em;
   color: #6ca932;
   margin: 0.5em 0;
@@ -2521,54 +2658,83 @@ p {
   font-weight: bold;
 }
 
-/* line 57, ../sass/_main.scss */
+/* line 58, ../sass/_main.scss */
+#help h1, #help #main h2, #main #help h2, #help #cboxContent h2, #cboxContent #help h2, #help #main h3, #main #help h3, #help #cboxContent h3, #cboxContent #help h3, #help #main h4, #main #help h4, #help #cboxContent h4, #cboxContent #help h4, #help #main h5, #main #help h5, #help #cboxContent h5, #cboxContent #help h5, #help h2, #help h3, #help h4, #help h5 {
+  font-size: 2.2em;
+  color: #6ca932;
+  margin: 0.5em 0;
+  font-weight: normal;
+  clear: left;
+}
+/* line 65, ../sass/_main.scss */
+#help h2 {
+  font-size: 1.7em;
+}
+/* line 69, ../sass/_main.scss */
+#help h3 {
+  font-size: 1.5em;
+  color: gray;
+}
+/* line 74, ../sass/_main.scss */
+#help h4 {
+  font-size: 1.2em;
+  color: gray;
+  font-weight: bold;
+}
+/* line 80, ../sass/_main.scss */
+#help h5 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/* line 86, ../sass/_main.scss */
 #cboxContent {
   border: none;
 }
-/* line 60, ../sass/_main.scss */
+/* line 89, ../sass/_main.scss */
 #cboxContent #help_pop {
   margin-right: 1em;
 }
 
-/* line 64, ../sass/_main.scss */
+/* line 93, ../sass/_main.scss */
 .left {
   float: left !important;
 }
 
-/* line 67, ../sass/_main.scss */
+/* line 96, ../sass/_main.scss */
 .right {
   float: right !important;
 }
-/* line 69, ../sass/_main.scss */
+/* line 98, ../sass/_main.scss */
 .right.photo {
   margin: 0 0 1em 2em;
 }
 
-/* line 73, ../sass/_main.scss */
+/* line 102, ../sass/_main.scss */
 .pagination {
   overflow: hidden;
   margin: 2em 0;
 }
-/* line 77, ../sass/_main.scss */
+/* line 106, ../sass/_main.scss */
 .pagination .t_number {
   float: left;
   font-size: 1.2em;
   font-weight: bold;
 }
-/* line 82, ../sass/_main.scss */
+/* line 111, ../sass/_main.scss */
 .pagination .p_number {
   float: right;
 }
-/* line 85, ../sass/_main.scss */
+/* line 114, ../sass/_main.scss */
 .pagination span {
   float: left;
   margin-right: .2em;
 }
-/* line 88, ../sass/_main.scss */
+/* line 117, ../sass/_main.scss */
 .pagination span.text {
   padding: 0.3em 0.5em;
 }
-/* line 91, ../sass/_main.scss */
+/* line 120, ../sass/_main.scss */
 .pagination span.pagingItemCurrent {
   -o-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -2579,7 +2745,7 @@ p {
   text-decoration: none;
   color: white;
 }
-/* line 98, ../sass/_main.scss */
+/* line 127, ../sass/_main.scss */
 .pagination span a {
   padding: 0.3em 0.5em;
   display: block;
@@ -2589,68 +2755,68 @@ p {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 103, ../sass/_main.scss */
+/* line 132, ../sass/_main.scss */
 .pagination span a:hover {
   background-color: #6ca932;
   text-decoration: none;
   color: white;
 }
 
-/* line 112, ../sass/_main.scss */
+/* line 141, ../sass/_main.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 115, ../sass/_main.scss */
+/* line 144, ../sass/_main.scss */
 .hidden, .hide {
   display: none;
 }
 
-/* line 119, ../sass/_main.scss */
+/* line 148, ../sass/_main.scss */
 #help .content {
   border-top: 2px dotted #cccccc;
   padding-bottom: 1em;
   margin-bottom: .5em;
 }
-/* line 123, ../sass/_main.scss */
+/* line 152, ../sass/_main.scss */
 #help .content ul {
   list-style-type: square;
   padding-left: 2em;
 }
-/* line 127, ../sass/_main.scss */
+/* line 156, ../sass/_main.scss */
 #help .content ol {
   list-style-type: decimal;
   padding-left: 2em;
 }
-/* line 131, ../sass/_main.scss */
+/* line 160, ../sass/_main.scss */
 #help .content li {
   padding: .5em;
   padding-left: .5em;
 }
 
-/* line 137, ../sass/_main.scss */
+/* line 166, ../sass/_main.scss */
 .photo {
   border: 5px solid white;
   padding: .5em;
   background: white;
 }
 
-/* line 142, ../sass/_main.scss */
+/* line 171, ../sass/_main.scss */
 .td {
   border: none;
 }
-/* line 144, ../sass/_main.scss */
+/* line 173, ../sass/_main.scss */
 .td label, .td input, .td select, .td div, .td form {
   display: inline;
   float: none;
 }
 
-/* line 150, ../sass/_main.scss */
+/* line 179, ../sass/_main.scss */
 .editable .relative {
   position: relative;
   padding-right: 4em;
 }
-/* line 153, ../sass/_main.scss */
+/* line 182, ../sass/_main.scss */
 .editable .relative .botonera {
   position: absolute;
   right: 0;
@@ -2659,54 +2825,54 @@ strong {
   padding: 0;
 }
 
-/* line 162, ../sass/_main.scss */
+/* line 191, ../sass/_main.scss */
 .nowrap {
   white-space: nowrap;
 }
 
-/* line 165, ../sass/_main.scss */
+/* line 194, ../sass/_main.scss */
 .w33 {
   width: 33%;
 }
 
-/* line 168, ../sass/_main.scss */
+/* line 197, ../sass/_main.scss */
 .w66 {
   width: 66%;
 }
 
-/* line 171, ../sass/_main.scss */
+/* line 200, ../sass/_main.scss */
 .w25 {
   width: 25%;
 }
 
-/* line 174, ../sass/_main.scss */
+/* line 203, ../sass/_main.scss */
 .w50 {
   width: 50%;
 }
 
-/* line 177, ../sass/_main.scss */
+/* line 206, ../sass/_main.scss */
 .w75 {
   width: 75%;
 }
 
-/* line 180, ../sass/_main.scss */
+/* line 209, ../sass/_main.scss */
 .h100 {
   height: 100%;
 }
 
-/* line 183, ../sass/_main.scss */
+/* line 212, ../sass/_main.scss */
 .column33 {
   width: 33%;
   float: left;
 }
 
-/* line 187, ../sass/_main.scss */
+/* line 216, ../sass/_main.scss */
 .column66 {
   width: 66%;
   float: left;
 }
 
-/* line 191, ../sass/_main.scss */
+/* line 220, ../sass/_main.scss */
 #error_box {
   background: url("../images/general/bg_error.png") no-repeat;
   width: 580px;
@@ -2714,7 +2880,7 @@ strong {
   margin: 1em auto;
   position: relative;
 }
-/* line 197, ../sass/_main.scss */
+/* line 226, ../sass/_main.scss */
 #error_box .message_box {
   position: absolute;
   top: 0;
@@ -2776,23 +2942,23 @@ strong {
   padding-bottom: 1em;
 }
 /* line 35, ../sass/_login_user.scss */
-#login_user #login_box h1, #login_user #login_box #main h2, #main #login_user #login_box h2, #login_user #login_box #cboxContent h2, #cboxContent #login_user #login_box h2, #login_user #login_box #main h3, #main #login_user #login_box h3, #login_user #login_box #cboxContent h3, #cboxContent #login_user #login_box h3, #login_user #login_box #main h4, #main #login_user #login_box h4, #login_user #login_box #cboxContent h4, #cboxContent #login_user #login_box h4, #login_user #login_box #main h5, #main #login_user #login_box h5, #login_user #login_box #cboxContent h5, #cboxContent #login_user #login_box h5 {
+#login_user #login_box h1, #login_user #login_box #main h2, #main #login_user #login_box h2, #login_user #login_box #cboxContent h2, #cboxContent #login_user #login_box h2, #login_user #login_box #main h3, #main #login_user #login_box h3, #login_user #login_box #cboxContent h3, #cboxContent #login_user #login_box h3, #login_user #login_box #main h4, #main #login_user #login_box h4, #login_user #login_box #cboxContent h4, #cboxContent #login_user #login_box h4, #login_user #login_box #main h5, #main #login_user #login_box h5, #login_user #login_box #cboxContent h5, #cboxContent #login_user #login_box h5, #login_user #login_box #help h2, #help #login_user #login_box h2, #login_user #login_box #help h3, #help #login_user #login_box h3, #login_user #login_box #help h4, #help #login_user #login_box h4, #login_user #login_box #help h5, #help #login_user #login_box h5 {
   color: white;
   background: url("../images/general/livinggreen.jpg") no-repeat #6ca932;
   padding: 0.5em 1.2em;
   text-align: right;
 }
 /* line 40, ../sass/_login_user.scss */
-#login_user #login_box h1 span, #login_user #login_box #main h2 span, #main #login_user #login_box h2 span, #login_user #login_box #cboxContent h2 span, #cboxContent #login_user #login_box h2 span, #login_user #login_box #main h3 span, #main #login_user #login_box h3 span, #login_user #login_box #cboxContent h3 span, #cboxContent #login_user #login_box h3 span, #login_user #login_box #main h4 span, #main #login_user #login_box h4 span, #login_user #login_box #cboxContent h4 span, #cboxContent #login_user #login_box h4 span, #login_user #login_box #main h5 span, #main #login_user #login_box h5 span, #login_user #login_box #cboxContent h5 span, #cboxContent #login_user #login_box h5 span {
+#login_user #login_box h1 span, #login_user #login_box #main h2 span, #main #login_user #login_box h2 span, #login_user #login_box #cboxContent h2 span, #cboxContent #login_user #login_box h2 span, #login_user #login_box #main h3 span, #main #login_user #login_box h3 span, #login_user #login_box #cboxContent h3 span, #cboxContent #login_user #login_box h3 span, #login_user #login_box #main h4 span, #main #login_user #login_box h4 span, #login_user #login_box #cboxContent h4 span, #cboxContent #login_user #login_box h4 span, #login_user #login_box #main h5 span, #main #login_user #login_box h5 span, #login_user #login_box #cboxContent h5 span, #cboxContent #login_user #login_box h5 span, #login_user #login_box #help h2 span, #help #login_user #login_box h2 span, #login_user #login_box #help h3 span, #help #login_user #login_box h3 span, #login_user #login_box #help h4 span, #help #login_user #login_box h4 span, #login_user #login_box #help h5 span, #help #login_user #login_box h5 span {
   position: absolute;
   top: -300px;
 }
 /* line 44, ../sass/_login_user.scss */
-#login_user #login_box h1 img, #login_user #login_box #main h2 img, #main #login_user #login_box h2 img, #login_user #login_box #cboxContent h2 img, #cboxContent #login_user #login_box h2 img, #login_user #login_box #main h3 img, #main #login_user #login_box h3 img, #login_user #login_box #cboxContent h3 img, #cboxContent #login_user #login_box h3 img, #login_user #login_box #main h4 img, #main #login_user #login_box h4 img, #login_user #login_box #cboxContent h4 img, #cboxContent #login_user #login_box h4 img, #login_user #login_box #main h5 img, #main #login_user #login_box h5 img, #login_user #login_box #cboxContent h5 img, #cboxContent #login_user #login_box h5 img {
+#login_user #login_box h1 img, #login_user #login_box #main h2 img, #main #login_user #login_box h2 img, #login_user #login_box #cboxContent h2 img, #cboxContent #login_user #login_box h2 img, #login_user #login_box #main h3 img, #main #login_user #login_box h3 img, #login_user #login_box #cboxContent h3 img, #cboxContent #login_user #login_box h3 img, #login_user #login_box #main h4 img, #main #login_user #login_box h4 img, #login_user #login_box #cboxContent h4 img, #cboxContent #login_user #login_box h4 img, #login_user #login_box #main h5 img, #main #login_user #login_box h5 img, #login_user #login_box #cboxContent h5 img, #cboxContent #login_user #login_box h5 img, #login_user #login_box #help h2 img, #help #login_user #login_box h2 img, #login_user #login_box #help h3 img, #help #login_user #login_box h3 img, #login_user #login_box #help h4 img, #help #login_user #login_box h4 img, #login_user #login_box #help h5 img, #help #login_user #login_box h5 img {
   float: left;
 }
 /* line 47, ../sass/_login_user.scss */
-#login_user #login_box h1 strong, #login_user #login_box #main h2 strong, #main #login_user #login_box h2 strong, #login_user #login_box #cboxContent h2 strong, #cboxContent #login_user #login_box h2 strong, #login_user #login_box #main h3 strong, #main #login_user #login_box h3 strong, #login_user #login_box #cboxContent h3 strong, #cboxContent #login_user #login_box h3 strong, #login_user #login_box #main h4 strong, #main #login_user #login_box h4 strong, #login_user #login_box #cboxContent h4 strong, #cboxContent #login_user #login_box h4 strong, #login_user #login_box #main h5 strong, #main #login_user #login_box h5 strong, #login_user #login_box #cboxContent h5 strong, #cboxContent #login_user #login_box h5 strong {
+#login_user #login_box h1 strong, #login_user #login_box #main h2 strong, #main #login_user #login_box h2 strong, #login_user #login_box #cboxContent h2 strong, #cboxContent #login_user #login_box h2 strong, #login_user #login_box #main h3 strong, #main #login_user #login_box h3 strong, #login_user #login_box #cboxContent h3 strong, #cboxContent #login_user #login_box h3 strong, #login_user #login_box #main h4 strong, #main #login_user #login_box h4 strong, #login_user #login_box #cboxContent h4 strong, #cboxContent #login_user #login_box h4 strong, #login_user #login_box #main h5 strong, #main #login_user #login_box h5 strong, #login_user #login_box #cboxContent h5 strong, #cboxContent #login_user #login_box h5 strong, #login_user #login_box #help h2 strong, #help #login_user #login_box h2 strong, #login_user #login_box #help h3 strong, #help #login_user #login_box h3 strong, #login_user #login_box #help h4 strong, #help #login_user #login_box h4 strong, #login_user #login_box #help h5 strong, #help #login_user #login_box h5 strong {
   font-size: 2em;
   font-weight: normal;
 }
@@ -3440,7 +3606,7 @@ span.cluster {
   position: relative;
 }
 /* line 13, ../sass/_iframes.scss */
-#iframe #main .box h1, #iframe #cboxContent .box h1, #iframe #main .box h2, #iframe #cboxContent .box #main h2, #main #iframe #cboxContent .box h2, #iframe #main .box #cboxContent h2, #cboxContent #iframe #main .box h2, #iframe #cboxContent .box h2, #iframe #main .box h3, #iframe #cboxContent .box #main h3, #main #iframe #cboxContent .box h3, #iframe #main .box #cboxContent h3, #cboxContent #iframe #main .box h3, #iframe #cboxContent .box h3, #iframe #main .box h4, #iframe #cboxContent .box #main h4, #main #iframe #cboxContent .box h4, #iframe #main .box #cboxContent h4, #cboxContent #iframe #main .box h4, #iframe #cboxContent .box h4, #iframe #main .box h5, #iframe #cboxContent .box #main h5, #main #iframe #cboxContent .box h5, #iframe #main .box #cboxContent h5, #cboxContent #iframe #main .box h5, #iframe #cboxContent .box h5 {
+#iframe #main .box h1, #iframe #cboxContent .box h1, #iframe #main .box h2, #iframe #cboxContent .box #main h2, #main #iframe #cboxContent .box h2, #iframe #main .box #cboxContent h2, #cboxContent #iframe #main .box h2, #iframe #cboxContent .box h2, #iframe #main .box h3, #iframe #cboxContent .box #main h3, #main #iframe #cboxContent .box h3, #iframe #main .box #cboxContent h3, #cboxContent #iframe #main .box h3, #iframe #cboxContent .box h3, #iframe #main .box h4, #iframe #cboxContent .box #main h4, #main #iframe #cboxContent .box h4, #iframe #main .box #cboxContent h4, #cboxContent #iframe #main .box h4, #iframe #cboxContent .box h4, #iframe #main .box h5, #iframe #cboxContent .box #main h5, #main #iframe #cboxContent .box h5, #iframe #main .box #cboxContent h5, #cboxContent #iframe #main .box h5, #iframe #cboxContent .box h5, #iframe #main .box #help h2, #help #iframe #main .box h2, #iframe #cboxContent .box #help h2, #help #iframe #cboxContent .box h2, #iframe #main .box #help h3, #help #iframe #main .box h3, #iframe #cboxContent .box #help h3, #help #iframe #cboxContent .box h3, #iframe #main .box #help h4, #help #iframe #main .box h4, #iframe #cboxContent .box #help h4, #help #iframe #cboxContent .box h4, #iframe #main .box #help h5, #help #iframe #main .box h5, #iframe #cboxContent .box #help h5, #help #iframe #cboxContent .box h5 {
   color: white;
   background: #6ca932;
   padding: .5em;
@@ -3707,11 +3873,11 @@ legend.map li {
   }
 
   /* line 20, ../sass/_responsive.scss */
-  #main_header h1, #main_header #main h2, #main #main_header h2, #main_header #cboxContent h2, #cboxContent #main_header h2, #main_header #main h3, #main #main_header h3, #main_header #cboxContent h3, #cboxContent #main_header h3, #main_header #main h4, #main #main_header h4, #main_header #cboxContent h4, #cboxContent #main_header h4, #main_header #main h5, #main #main_header h5, #main_header #cboxContent h5, #cboxContent #main_header h5 {
+  #main_header h1, #main_header #main h2, #main #main_header h2, #main_header #cboxContent h2, #cboxContent #main_header h2, #main_header #main h3, #main #main_header h3, #main_header #cboxContent h3, #cboxContent #main_header h3, #main_header #main h4, #main #main_header h4, #main_header #cboxContent h4, #cboxContent #main_header h4, #main_header #main h5, #main #main_header h5, #main_header #cboxContent h5, #cboxContent #main_header h5, #main_header #help h2, #help #main_header h2, #main_header #help h3, #help #main_header h3, #main_header #help h4, #help #main_header h4, #main_header #help h5, #help #main_header h5 {
     left: 40px;
   }
   /* line 22, ../sass/_responsive.scss */
-  #main_header h1 strong, #main_header #main h2 strong, #main #main_header h2 strong, #main_header #cboxContent h2 strong, #cboxContent #main_header h2 strong, #main_header #main h3 strong, #main #main_header h3 strong, #main_header #cboxContent h3 strong, #cboxContent #main_header h3 strong, #main_header #main h4 strong, #main #main_header h4 strong, #main_header #cboxContent h4 strong, #cboxContent #main_header h4 strong, #main_header #main h5 strong, #main #main_header h5 strong, #main_header #cboxContent h5 strong, #cboxContent #main_header h5 strong {
+  #main_header h1 strong, #main_header #main h2 strong, #main #main_header h2 strong, #main_header #cboxContent h2 strong, #cboxContent #main_header h2 strong, #main_header #main h3 strong, #main #main_header h3 strong, #main_header #cboxContent h3 strong, #cboxContent #main_header h3 strong, #main_header #main h4 strong, #main #main_header h4 strong, #main_header #cboxContent h4 strong, #cboxContent #main_header h4 strong, #main_header #main h5 strong, #main #main_header h5 strong, #main_header #cboxContent h5 strong, #cboxContent #main_header h5 strong, #main_header #help h2 strong, #help #main_header h2 strong, #main_header #help h3 strong, #help #main_header h3 strong, #main_header #help h4 strong, #help #main_header h4 strong, #main_header #help h5 strong, #help #main_header h5 strong {
     left: 85px;
     font-size: 1.2em;
     top: 10px;

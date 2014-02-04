@@ -181,3 +181,8 @@
 div.loading {
 	background: url("../images/icons/icon_loader.gif") no-repeat scroll center center $colorW;
 }
+.TABLE{
+	.graph{
+		overflow: auto;
+	}
+}
