@@ -454,7 +454,19 @@ function initButtonsIframe(selectorPrefix) {
 //WORKARROUND http://code.google.com/p/google-visualization-api-issues/issues/detail?id=598
 function fixGeoMapRectElements(chartElementContent) {
 	return function() {
-		var element = chartElementContent.find('g rect[fill*="url(#"]');
+		var element = findProblematicElement(chartElementContent)
+		fixChart(chartElementContent);
+		element.parent().bind("DOMNodeInserted", function(event) {
+			fixChart(chartElementContent);
+		});
+	}
+	
+	function fixChart(chart) {
+		var element = findProblematicElement(chart)
 		element.attr( 'fill', 'url(' + document.location + element.attr( 'fill' ).substring( 4 ) );
+	}
+	
+	function findProblematicElement(chart) {
+		return chart.find('g rect[fill*="url(#"]');
 	}
 }
