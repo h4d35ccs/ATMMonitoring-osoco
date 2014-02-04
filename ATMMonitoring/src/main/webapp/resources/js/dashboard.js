@@ -362,7 +362,7 @@ function onChangedColumns(newColumns) {
 var transforms = {
     "chartsHiddenMenu": [ { tag: 'li', class: 'on', id: "${id}", html: "${title}" } ],
     "chartsVisibleMenu": [ { tag: 'li', class: 'off', id: "${id}", html: "${title}" } ],
-    "charts": [ { tag: 'li', class: 'chart ui-state-default', id: "${id}",
+    "charts": [ { tag: 'li', class: 'chart ui-state-default ${type}', id: "${id}",
                   children: [
                       { tag: 'span', class: 'title', html:'${description}' },
                       { tag: 'div', class: 'content loading',
