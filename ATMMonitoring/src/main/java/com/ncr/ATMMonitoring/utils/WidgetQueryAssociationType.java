@@ -21,6 +21,13 @@ import com.ncr.ATMMonitoring.pojo.Software;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.XfsComponent;
 
+/**
+ * The types of associations for group by field widget quieries
+ * 
+ * 
+ * @author jmartin
+ *
+ */
 public enum WidgetQueryAssociationType {
 	
 	TERMINAL(null, "terminal", Terminal.getComboboxes()),
@@ -57,13 +64,31 @@ public enum WidgetQueryAssociationType {
 	HARDWARE_BIOS(DeviceClassId.BIOS), 
 	HARDWARE_VIDEO_CONTROLLER(DeviceClassId.VIDEO_CONTROLLER);
 	
+	/** The association name */
 	private String associationName;
+	
+	/** The combobox name */
 	private String comboboxName;
+	
+	/** Comboboxes */
 	private Map<String,?> comboboxes;
+	
+	/** Association names */
 	private String[] associationNames;
+	
+	/** The las association name */
 	private String lastAssociationName;
+	
+	/** The hardware class */
 	private String hardwareClass;
 	
+	/**
+	 * Constructor
+	 * @param associationName The association name
+	 * @param comboboxName The combobox name
+	 * @param comboboxes The comboboxes
+	 * @param hardwareClass The hardware class
+	 */
 	private WidgetQueryAssociationType(String associationName, String comboboxName, Map<String,?> comboboxes,
 				String hardwareClass) {
 		this.hardwareClass = hardwareClass;
@@ -76,6 +101,10 @@ public enum WidgetQueryAssociationType {
 		}
 	}
 	
+	/**
+	 * Buils an installation place combobox
+	 * @return The installatin place combobox
+	 */
 	private static Map<String, ?> buildInstallationPlacesCombobox() {
 		Map<String, ?> comboboxes = new HashMap<String, Object>();
 		String[] fields = {"location.addressCityAndCountry", "location.addressCountry"};
@@ -85,15 +114,30 @@ public enum WidgetQueryAssociationType {
 		return comboboxes;
 	}
 
+	/**
+	 * Constructor
+	 * @param associationName The association name
+	 * @param comboboxName The combobox name
+	 * @param comboboxes The comboboxes
+	 */
 	private WidgetQueryAssociationType(String associationName, String comboboxName, Map<String,?> comboboxes) {
 		this(associationName,comboboxName,comboboxes, null);
 	}
 	
+	/**
+	 * Constructor
+	 * @param hardwareDeviceClassId The hardware device class id
+	 */
 	private WidgetQueryAssociationType(DeviceClassId hardwareDeviceClassId) {
 		this("hardwareDevices" , "hardwareDevice", HardwareDevice.getComboboxesByDeviceClassId(hardwareDeviceClassId),
 				HardwareDevice.getDeviceClasses().get(hardwareDeviceClassId));
 	}
 	
+	/**
+	 * Find widget query association type by combobox name
+	 * @param comboboxName The combobox name
+	 * @return The widget query association type
+	 */
 	public static WidgetQueryAssociationType findByComboboxName(String comboboxName) {
 		for( WidgetQueryAssociationType associationType : values() ) {
 			if( associationType.comboboxName == comboboxName) {
@@ -103,6 +147,11 @@ public enum WidgetQueryAssociationType {
 		return null;
 	}
 	
+	/**
+	 * Find widget query association type by association name
+	 * @param comboboxName The association name
+	 * @return The widget query association type
+	 */
 	public static WidgetQueryAssociationType findByAssociationName(String associationName) {
 		for( WidgetQueryAssociationType associationType : values() ) {
 			if( associationType.associationName == associationName) {
@@ -112,12 +161,22 @@ public enum WidgetQueryAssociationType {
 		return null;
 	}
 
+	/**
+	 * Build gruoup nmae
+	 * @param defaultAssociationName The defaultAssociationName
+	 * @param groupByField The group by field
+	 * @return The groupName
+	 */
 	public String buildGroupName(String defaultAssociationName, String groupByField) {
 		String association = (associationName != null) ? lastAssociationName : defaultAssociationName;
 		return association + "." + groupByField;
 	}
 
-
+	/**
+	 * Build the join hql
+	 * @param rootTableAlias Root table alias
+	 * @return The join hql
+	 */
 	public String buildJoin(String rootTableAlias) {
 		String join = "";
 		if (associationName != null) {
@@ -131,6 +190,15 @@ public enum WidgetQueryAssociationType {
 		return join;
 	}
 	
+	/**
+	 * Build where hlq
+	 * @param queryDate The query date
+	 * @param query The query
+	 * @param values The values
+	 * @param types The types
+	 * @param locale The locale
+	 * @return The string with the where hql
+	 */
 	public String buildWhere(Date queryDate, Query query, List<Object> values, List<Type> types, Locale locale) {
 		String where = " ";
 		if (associationName != null) {
@@ -150,10 +218,19 @@ public enum WidgetQueryAssociationType {
 		return where + " "; 
 	}
 
+	/**
+	 * Get the comboboxes
+	 * @return The comboboxes
+	 */
 	public Map<String,?> getComboboxes() {
 		return comboboxes;
 	}
 	
+	/**
+	 * Build the I18n message code
+	 * @param fieldsSepparatedByPoints The fields sepparated by points
+	 * @return The i18n message code
+	 */
 	public String buildI18nMessage(String fieldsSepparatedByPoints) {
 		String i18nMessage = "label.";
 		

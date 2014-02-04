@@ -16,6 +16,9 @@ import com.ncr.ATMMonitoring.pojo.Auditable;
 
 public class AuditableSetOperationsImpl implements AuditableSetOperations {
 
+	/**
+	 * @see AuditableSetOperations
+	 */
 	public Map<Date, Integer> buildAuditableChangesForCollection(Set<? extends Auditable> auditableElements) {
 
 		Map<Date, Integer> auditableElementsDates = new HashMap<Date, Integer>();
@@ -38,6 +41,9 @@ public class AuditableSetOperationsImpl implements AuditableSetOperations {
 		return auditableElementsDates;
 	}
 	
+	/**
+	 * @see AuditableSetOperations
+	 */
 	public <T extends Auditable> T getCurrentAuditableElementByDate( Set <T> auditableElements, 
 			Date date) {
 
@@ -51,10 +57,16 @@ public class AuditableSetOperationsImpl implements AuditableSetOperations {
 		return null;
 	}
 
+	/**
+	 * @see AuditableSetOperations
+	 */
 	public <T extends Auditable> T getCurrentAuditable(Set <T> auditableElements) {
 		return getCurrentAuditableElementByDate(auditableElements, null);
 	}
 
+	/**
+	 * @see AuditableSetOperations
+	 */
 	public <T extends Auditable> void setCurrentAuditableElement( Set<T> auditableElements,
 				T newauditableElement) {
 
@@ -65,6 +77,9 @@ public class AuditableSetOperationsImpl implements AuditableSetOperations {
 		auditableElements.add(newauditableElement);
 	}
 
+	/**
+	 * @see AuditableSetOperations
+	 */
 	public <T extends Auditable> Set<T> getCreatedAuditableElementsByDate(Set<T> auditableElements, Date date) {
 
 		Set<T> auditableElementsByDate = new HashSet<T>();
@@ -76,6 +91,9 @@ public class AuditableSetOperationsImpl implements AuditableSetOperations {
 		return auditableElementsByDate;
 	}
 
+	/**
+	 * @see AuditableSetOperations
+	 */
 	public <T extends Auditable> Set<T> getActiveAuditableElementsByDate(Set<T> auditableElements, Date date) {
 
 		Set<T> auditableElementsByDate = new HashSet<T>();

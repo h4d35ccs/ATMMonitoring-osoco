@@ -3,6 +3,12 @@ package com.ncr.ATMMonitoring.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The differents regions on the world
+ * 
+ * @author jmartin
+ *
+ */
 public enum RegionType {
 	WORLD("world", null),
 
@@ -47,10 +53,20 @@ public enum RegionType {
 	MICRONESIA("057", OCEANIA), 	
 	POLYNESIA("061", OCEANIA);
 
+	/** The region code */
 	private String regionCode;
+	
+	/** The parent region */
 	private RegionType parentRegion;
+	
+	/** The child regiogs */
 	private List<RegionType> childrenRegion = new ArrayList<RegionType>();
 	
+	/**
+	 * Constructor 
+	 * @param regionCode The region code
+	 * @param parentRegion The parent region
+	 */
 	private RegionType(String regionCode, RegionType parentRegion) {
 		this.regionCode = regionCode;
 		this.parentRegion = parentRegion;
@@ -60,22 +76,42 @@ public enum RegionType {
 		}
 	}
 
+	/**
+	 * Indicate if a region is a continent
+	 * @return True if is a continent. False otherwise
+	 */
 	public boolean isContinent() {
 		return this.parentRegion == WORLD;
 	}
 
+	/**
+	 * Indicate if a region is a sub-continent
+	 * @return True if is a sub-continent. False otherwise
+	 */
 	public boolean isSubContinent() {
 		return this.parentRegion.isContinent();
 	}
 
+	/**
+	 * Indicate if a region is a country
+	 * @return True if is a country. False otherwise
+	 */
 	public boolean isCountry() {
 		return this.parentRegion.isSubContinent();
 	}
 
+	/**
+	 * Gets the children region
+	 * @return The childrens
+	 */
 	public List<RegionType> getChildrenRegion() {
 		return this.childrenRegion;
 	}
 	
+	/**
+	 * Get the region code
+	 * @return The region code
+	 */
 	public String getCode() {
 		return this.regionCode;
 	}

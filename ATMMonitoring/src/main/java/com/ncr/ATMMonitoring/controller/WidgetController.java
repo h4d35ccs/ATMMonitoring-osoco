@@ -30,12 +30,19 @@ import com.ncr.ATMMonitoring.service.WidgetService;
 import com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType;
 import com.ncr.ATMMonitoring.utils.RegionType;
 
+/**
+ * Controller for Widget related actions.
+ * 
+ * @author jmartin
+ *
+ */
 @Controller
 public class WidgetController {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(WidgetController.class.getName());
 
+	/** The query service */
 	@Autowired
     private QueryService queryService;
 
@@ -43,6 +50,7 @@ public class WidgetController {
     @Autowired
     private WidgetService widgetService;
     
+    /** The widget category service*/
     @Autowired
     private WidgetCategoryService widgetCategoryService;
     
@@ -50,11 +58,21 @@ public class WidgetController {
     @Autowired
     private UserService userService;
     
+    /**
+     * Show new widget form
+     * @return the petition response
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/dashboard/newWidget")
     public String newWidget() {
     	return "widget/newWidget";
     }
-    
+   
+    /**
+     * Show creates new widget form
+     * @param model The model
+     * @param principal The principal user
+     * @return the request response
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/dashboard/create")
     public String createWidget(
     		Map<String, Object> model,
@@ -63,6 +81,12 @@ public class WidgetController {
     	return createOrEditWidget(model, principal, null);
     }
     
+    /**
+     * Creates a new widget from library
+     * @param model The model
+     * @param principal The principal user
+     * @return The request response
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/dashboard/createFromLibrary")
     public String createWidgetFromLibrary(
     		Map<String, Object> model,
@@ -75,6 +99,13 @@ public class WidgetController {
     	return "widget/createFromLibrary";
     }
 	
+    /**
+     * Edit a widget
+     * @param model The model
+     * @param widgetId The widget id
+     * @param principal The principal user
+     * @return The request response
+     */
 	@RequestMapping(method = RequestMethod.GET, value = "/dashboard/edit/{widgetId}")
     public String editWidget(
     		Map<String, Object> model,
@@ -84,6 +115,11 @@ public class WidgetController {
     	return createOrEditWidget(model, principal, widgetId);
     }
 	
+	/**
+	 * Delete a widget
+	 * @param widgetId The widget id
+	 * @param principal The principal user
+	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/dashboard/delete")
 	@ResponseStatus(HttpStatus.OK)
     public void deleteWidget(
@@ -101,6 +137,15 @@ public class WidgetController {
         }
     }
     
+	/**
+	 * Update a widget
+	 * @param widget The widget
+	 * @param result The binding result
+	 * @param model The model
+	 * @param request The request
+	 * @param principal The principal user
+	 * @return The request response
+	 */
     @RequestMapping(value = "/dashboard/save", method = RequestMethod.POST)
     public String updateWidget(
 	    @Valid @ModelAttribute("widget") Widget widget,
@@ -117,6 +162,13 @@ public class WidgetController {
     	return "closeIframeUpdateParent";
     }
     
+    /**
+     * Add a widget to user dashboard from library
+     * 
+     * @param widgetIds A list with the widgets ids
+     * @param principal The principal user
+     * @return The request response
+     */
     @RequestMapping(value = "/dashboard/addFromLibrary", method = RequestMethod.POST)
     public String addFromLibrary(
     		@RequestParam(value="widgetIds", required = false) ArrayList<Integer> widgetIds,
@@ -130,6 +182,13 @@ public class WidgetController {
     	return "closeIframeUpdateParent";
     }
     
+    /**
+     * Show add widget to library form
+     * @param model The model
+     * @param widgetId The widget id
+     * @param principal The principal user
+     * @return The petition response
+     */
     @RequestMapping(value = "/dashboard/showAddToLibraryForm/{widgetId}", method = RequestMethod.GET)
     public String showAddToLibraryForm(
     		Map<String, Object> model,
@@ -142,6 +201,13 @@ public class WidgetController {
     	return "widget/addToLibrary";
     }
     
+    /**
+     * Add a widget to library
+     * @param widgetId The widget id
+     * @param categoryId The category id
+     * @param principal The principal user
+     * @return The request response
+     */
     @RequestMapping(value = "/dashboard/addToLibrary", method = RequestMethod.POST)
     public String addToLibrary(
     		@RequestParam(value="widgetId") Integer widgetId,
@@ -151,14 +217,24 @@ public class WidgetController {
     	return "closeIframeUpdateParent";
     }
     
+    /**
+     * Remove a widget from library
+     * @param widgetId The widget id
+     * @param principal The principal user
+     */
     @RequestMapping(value = "/dashboard/removeFromLibrary", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    public void removeFrom(
+    public void removeFromLibrary(
     		@RequestParam(value="widgetId") Integer widgetId,
     		Principal principal) {
     	addOrRemoveWidgetFromLibrary(widgetId, principal, null);
     }
     
+    /**
+     * Set a widget as default
+     * @param widgetId The widget id
+     * @param principal The principal user
+     */
     @RequestMapping(value = "/dashboard/setAsDefault", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public void setAsDefault(
@@ -167,6 +243,11 @@ public class WidgetController {
     	setWidgetDefault(widgetId, principal, true);
     }
     
+    /**
+     * Unset a widget as default
+     * @param widgetId The widget id
+     * @param principal The principal user
+     */
     @RequestMapping(value = "/dashboard/unsetAsDefault", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public void unsetAsDefault(
@@ -175,6 +256,12 @@ public class WidgetController {
     	setWidgetDefault(widgetId, principal, false);
     }
     
+    /**
+     * Set a widget as default
+     * @param widgetId The widget id
+     * @param principal The principal user
+     * @param isDefault Indicates if default is true or false
+     */
     private void setWidgetDefault(Integer widgetId, Principal principal, boolean isDefault) {
     	if (widgetId != null && principal != null) {
     		User loggedUser = userService.getUserByUsername(principal.getName());
@@ -182,6 +269,13 @@ public class WidgetController {
     	}
     }
     
+    /**
+     * Create or edit a widget
+     * @param model The model
+     * @param principal The principal user
+     * @param widgetId The widget id
+     * @return The petition response
+     */
     private String createOrEditWidget(Map<String, Object> model, Principal principal,  Integer widgetId) {
     	User loggedUser = null;
         Set<Query> userQueries = null;
@@ -212,7 +306,12 @@ public class WidgetController {
     	
     	return "widget/createOrEdit";
     }
-    
+    /**
+     * Add or remove a widget from library
+     * @param widgetId the widget id
+     * @param principal the principal user
+     * @param categoryId the category id
+     */
     private void addOrRemoveWidgetFromLibrary(Integer widgetId, Principal principal, Integer categoryId) {
     	if (widgetId != null && principal != null) {
     		User loggedUser = userService.getUserByUsername(principal.getName());
