@@ -20,6 +20,7 @@
 	<div class="contentFrame">
     	<a id="returnFromHelp" href="#"> << <sping:message code="label.help.return"/>  </a>
     	<div id="help">
+    		<h2> <spring:message code="library.widget.help.title" /></h2>
     		<p>
     			<spring:message code="library.widget.help.p1" />
 			</p>
