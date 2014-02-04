@@ -1088,54 +1088,114 @@ public class Terminal {
 	this.terminalModel = terminalModel;
     }
 
+    /**
+     * Get the installations
+     * @return The installations
+     */
     public Set<Installation> getInstallations() {
     	return installations;
     }
-    
+
+    /**
+     * Set current installation 
+     * @param installation The current installation
+     */
     public void setCurrentInstallation(Installation installation) {
     	auditableSetOperations.setCurrentAuditableElement(installations, installation);
     }
     
+    /**
+     * Set the current terminal config
+     * @param terminalConfig The terminal config
+     */
     public void setCurrentTerminalConfig(TerminalConfig terminalConfig) {
     	auditableSetOperations.setCurrentAuditableElement(configs, terminalConfig);
     }
 
+    /**
+     * Get the current terminal config
+     * @return The terminal config
+     */
     public TerminalConfig getCurrentTerminalConfig() {
     	return auditableSetOperations.getCurrentAuditable(configs);
     }
     
+    /**
+     * Get the current installation
+     * @return The current installation
+     */
     public Installation getCurrentInstallation() {
     	return auditableSetOperations.getCurrentAuditable(installations);
     }
     
+    /**
+     * Get current terminal config active by date
+     * @param date The date
+     * @return The current terminal config
+     */
     public TerminalConfig getCurrentTerminalConfigActiveByDate(Date date) {
     	return auditableSetOperations.getCurrentAuditableElementByDate(configs, date);
     }
     
+    /**
+     * Get the current installation by date
+     * @param date The date
+     * @return The current installation
+     */
     public Installation getCurrentInstallationByDate(Date date) {
     	return auditableSetOperations.getCurrentAuditableElementByDate(installations, date);
     }
     
+    /**
+     * Get active hardware device by date
+     * @param date The date
+     * @return The active hardware device
+     */
     public Set<HardwareDevice> getActiveHardwareDevicesByDate(Date date) {
     	return auditableSetOperations.getActiveAuditableElementsByDate(hardwareDevices, date);
     }
     
+    /**
+     * Get the active installations by date
+     * @param date The date
+     * @return The active installations
+     */
     public Set<Installation> getActiveInstallationsByDate(Date date) {
     	return auditableSetOperations.getActiveAuditableElementsByDate(installations, date);
     }
 
+    /**
+     * Get the active financial devices by date
+     * @param date The date
+     * @return The active financial devices
+     */
     public Set<FinancialDevice> getActiveFinancialDevicesByDate(Date date) {
     	return auditableSetOperations.getActiveAuditableElementsByDate(financialDevices, date);
     }
     
+    /**
+     * Get active software aggregates by date
+     * @param date The date
+     * @return The active software aggregates
+     */
     public Set<SoftwareAggregate> getActiveSoftwareAggregatesByDate(Date date) {
     	return auditableSetOperations.getActiveAuditableElementsByDate(softwareAggregates, date);
     }
     
+    /**
+     * Get the active hotfixes by date
+     * @param date The date
+     * @return The active hotfixes
+     */
     public Set<Hotfix> getActiveHotfixesByDate(Date date) {
     	return auditableSetOperations.getActiveAuditableElementsByDate(hotfixes, date);
     }
     
+    /**
+     * Get the auditable internet explorers by date
+     * @param date The date
+     * @return The auditable internet explorers
+     */
     public Set<AuditableInternetExplorer> getActiveAuditableInternetExplorersByDate(Date date) {
     	return auditableSetOperations.getActiveAuditableElementsByDate(auditableInternetExplorers, date);
     }
@@ -1158,6 +1218,10 @@ public class Terminal {
 	this.matricula = matricula;
     }
 
+    /**
+     * Build the historical changes
+     * @return The historicalChanges
+     */
     public Map<Class<? extends Auditable>, Map<Date, Integer>> buildHistoricalChanges() {
     	Map<Class<? extends Auditable>, Map<Date, Integer>> historicableChanges = 
     			new HashMap<Class<? extends Auditable>, Map<Date,Integer>>();

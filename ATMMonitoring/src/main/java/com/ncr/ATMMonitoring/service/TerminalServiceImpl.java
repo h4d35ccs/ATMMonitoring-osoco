@@ -200,6 +200,9 @@ public class TerminalServiceImpl implements TerminalService {
 	return terminalDAO.getTerminal(id);
     }
     
+    /**
+     * @see TerminalService
+     */
     @Override
     public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> terminalIds, Set<BankCompany> bankCompanies) {
     	return terminalDAO.listTerminalsByIdsAndBankCompanies(terminalIds, bankCompanies);
@@ -1233,7 +1236,10 @@ public class TerminalServiceImpl implements TerminalService {
 	return hwDevs;
     }
 
-	
+
+    /**
+     * @see TerminalService
+     */
 	public void addInstallationAndUpdateHistoricalData(Terminal terminal, Installation installation) {
 		terminal.setCurrentInstallation(installation);
 		updateTerminal(terminal);
