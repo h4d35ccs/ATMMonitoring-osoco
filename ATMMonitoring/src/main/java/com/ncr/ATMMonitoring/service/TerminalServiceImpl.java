@@ -408,7 +408,7 @@ public class TerminalServiceImpl implements TerminalService {
 	    try {
 		terminal = new Terminal(dataStoreTerminal);
 	    } catch (NumberFormatException e) {
-		logger.error("Couldn't parse matricula number...", e);
+		logger.error("Couldn't parse generated id number...", e);
 		throw e;
 	    }
 	    Terminal dbTerminal = terminalDAO.getTerminalByMatricula(terminal
@@ -427,20 +427,20 @@ public class TerminalServiceImpl implements TerminalService {
 		terminal = dbTerminal;
 		terminalDAO.updateTerminal(terminal);
 		logger.debug("Updated Terminal from ATMDataStore with IP "
-			+ terminal.getIp() + " and matricula "
+			+ terminal.getIp() + " and generated id "
 			+ terminal.getMatricula());
 		removeRelatedEntities(terminal);
 	    } else {
 		terminalDAO.addTerminal(terminal);
 		logger.debug("Created Terminal from ATMDataStore with IP "
-			+ terminal.getIp() + " and matricula "
+			+ terminal.getIp() + " and generated id "
 			+ terminal.getMatricula());
 	    }
 	    addNewEntities(terminal, dataStoreTerminal);
 	    terminalDAO.updateTerminal(terminal);
 	    logger.debug("Created all new devices and software for Terminal with IP "
 		    + terminal.getIp()
-		    + " and matricula "
+		    + " and generated id "
 		    + terminal.getMatricula());
 	} catch (ATMWrongDataException e) {
 	    logger.error(

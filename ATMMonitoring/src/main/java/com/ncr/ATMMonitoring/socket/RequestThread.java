@@ -91,7 +91,7 @@ public class RequestThread extends Thread {
      * For confirming an ATM's reliability we send it a random string which it
      * must hash, along with a hardcoded one and a configurable one, and then
      * send us the result so we can check whether it matches the expected one.
-     * If we detect the agent is using and old version of the configurable
+     * If we detect the agent is using an old version of the configurable
      * string, then we send it the new version so it can replace it.
      * 
      * @param socket
@@ -197,7 +197,7 @@ public class RequestThread extends Thread {
 		    if (matricula != null) {
 			// Tenemos una matrícula nueva, así que la enviamos al
 			// agente
-			logger.info("New matricula " + matricula
+			logger.info("New generated id " + matricula
 				+ " will be sent to IP: " + ip);
 			endMsg += ":" + matricula;
 		    }

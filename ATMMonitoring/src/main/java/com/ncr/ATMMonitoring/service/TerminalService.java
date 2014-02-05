@@ -109,10 +109,10 @@ public interface TerminalService {
     public Terminal loadTerminalByMac(String mac);
 
     /**
-     * Get terminal by matricula.
+     * Get terminal by generated id.
      * 
      * @param matricula
-     *            the matricula
+     *            the generated id
      * @return the terminal
      */
     public Terminal loadTerminalByMatricula(Long matricula);

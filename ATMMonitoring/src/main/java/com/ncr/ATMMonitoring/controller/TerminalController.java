@@ -1115,7 +1115,7 @@ public class TerminalController {
      * @param map
      *            the map
      * @param matricula
-     *            the matricula
+     *            the generated id
      * @return the petition response
      */
     @RequestMapping(value = { "terminals/installations/new" }, method = RequestMethod.GET)
@@ -1148,7 +1148,7 @@ public class TerminalController {
      * @param map
      *            the map
      * @param matricula
-     *            the matricula
+     *            the generated id
      * @param request
      *            the request
      * @param principal

@@ -145,7 +145,7 @@ public class Terminal {
     @Type(type = "text")
     private String tracerNumber;
 
-    /** The matricula. */
+    /** The generated id. */
     @Column(name = "matricula", nullable = false)
     private Long matricula;
 
@@ -1201,18 +1201,19 @@ public class Terminal {
     }
     
     /**
-     * Gets the matricula.
-     *
-     * @return the matricula
+     * Gets the generated id.
+     * 
+     * @return the generated id
      */
     public Long getMatricula() {
 	return matricula;
     }
 
     /**
-     * Sets the matricula.
-     *
-     * @param matricula the new matricula
+     * Sets the generated id.
+     * 
+     * @param matricula
+     *            the new generated id
      */
     public void setMatricula(Long matricula) {
 	this.matricula = matricula;

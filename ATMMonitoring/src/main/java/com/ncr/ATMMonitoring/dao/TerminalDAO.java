@@ -144,11 +144,11 @@ public interface TerminalDAO {
     public Terminal getTerminalByMac(String mac);
 
     /**
-     * Gets the terminal by matricula.
+     * Gets the terminal by the generated id.
      * 
      * @param matricula
-     *            the matricula
-     * @return the terminal by matricula, or null if it doesn't exist
+     *            the generated id
+     * @return the terminal by the generated id, or null if it doesn't exist
      */
     public Terminal getTerminalByMatricula(Long matricula);
 

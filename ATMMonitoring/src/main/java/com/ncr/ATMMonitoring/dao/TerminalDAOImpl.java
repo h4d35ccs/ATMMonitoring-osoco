@@ -226,9 +226,9 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
     }
 
     /**
-     * Gets the next matricula.
-     *
-     * @return the next matricula
+     * Gets the next generated id.
+     * 
+     * @return the next generated id
      */
     private Long getNextMatricula() {
 	BigInteger seq = (BigInteger) sessionFactory.getCurrentSession()
