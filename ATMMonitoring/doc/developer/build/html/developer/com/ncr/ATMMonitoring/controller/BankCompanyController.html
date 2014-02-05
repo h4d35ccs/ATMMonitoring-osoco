@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>BankCompanyController &mdash; ATMMonitoring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="../../../../../index.html" />
+    <link rel="up" title="com.ncr.ATMMonitoring.controller" href="package-index.html" />
+    <link rel="next" title="DashboardController" href="DashboardController.html" />
+    <link rel="prev" title="com.ncr.ATMMonitoring.controller" href="package-index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="DashboardController.html" title="DashboardController"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="package-index.html" title="com.ncr.ATMMonitoring.controller"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" accesskey="U">com.ncr.ATMMonitoring.controller</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="bankcompanycontroller">
+<h1>BankCompanyController<a class="headerlink" href="#bankcompanycontroller" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.ncr.ATMMonitoring.controller.BankCompanyController">
+public class <tt class="descname">BankCompanyController</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.BankCompanyController" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Class BankCompanyController. Controller for handling bank company related HTTP petitions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author :</th><td class="field-body">Jorge López Fernández (<a class="reference external" href="mailto:lopez&#46;fernandez&#46;jorge&#37;&#52;&#48;gmail&#46;com">lopez<span>&#46;</span>fernandez<span>&#46;</span>jorge<span>&#64;</span>gmail<span>&#46;</span>com</a>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addbankcompany">
+<h3>addBankCompany<a class="headerlink" href="#addbankcompany" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.BankCompanyController.addBankCompany(BankCompany, BindingResult, Map, HttpServletRequest, String, Principal)">
+public String <tt class="descname">addBankCompany</tt><big>(</big><a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a><em> bankCompany</em>, BindingResult<em> result</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, String<em> p</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.BankCompanyController.addBankCompany(BankCompany, BindingResult, Map, HttpServletRequest, String, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add bank company URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bankCompany</strong> &#8211; the bank company</li>
+<li><strong>result</strong> &#8211; the result</li>
+<li><strong>map</strong> &#8211; the map</li>
+<li><strong>request</strong> &#8211; the request</li>
+<li><strong>p</strong> &#8211; the page number</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="bankcompanydetails">
+<h3>bankCompanyDetails<a class="headerlink" href="#bankcompanydetails" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.BankCompanyController.bankCompanyDetails(Integer, Map, HttpServletRequest, Principal)">
+public String <tt class="descname">bankCompanyDetails</tt><big>(</big>Integer<em> bankCompanyId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.BankCompanyController.bankCompanyDetails(Integer, Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bank company details URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bankCompanyId</strong> &#8211; the bank company id</li>
+<li><strong>map</strong> &#8211; the map</li>
+<li><strong>request</strong> &#8211; the request</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="deletebankcompany">
+<h3>deleteBankCompany<a class="headerlink" href="#deletebankcompany" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.BankCompanyController.deleteBankCompany(Integer, Principal)">
+public String <tt class="descname">deleteBankCompany</tt><big>(</big>Integer<em> bankCompanyId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.BankCompanyController.deleteBankCompany(Integer, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete bank company URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bankCompanyId</strong> &#8211; the bank company id</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="listbankcompanies">
+<h3>listBankCompanies<a class="headerlink" href="#listbankcompanies" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.BankCompanyController.listBankCompanies(Map, Principal, String, HttpServletRequest)">
+public String <tt class="descname">listBankCompanies</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, String<em> p</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.BankCompanyController.listBankCompanies(Map, Principal, String, HttpServletRequest)" title="Permalink to this definition">¶</a></dt>
+<dd><p>List bank companies URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>map</strong> &#8211; the map</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+<li><strong>p</strong> &#8211; the page number</li>
+<li><strong>request</strong> &#8211; the request</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="redirecttobankcompanies">
+<h3>redirectToBankCompanies<a class="headerlink" href="#redirecttobankcompanies" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.BankCompanyController.redirectToBankCompanies()">
+public String <tt class="descname">redirectToBankCompanies</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.BankCompanyController.redirectToBankCompanies()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Redirect to bank companies URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the petition response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="updatebankcompany">
+<h3>updateBankCompany<a class="headerlink" href="#updatebankcompany" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.BankCompanyController.updateBankCompany(BankCompany, BindingResult, Map, HttpServletRequest, Principal)">
+public String <tt class="descname">updateBankCompany</tt><big>(</big><a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a><em> bankCompany</em>, BindingResult<em> result</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.BankCompanyController.updateBankCompany(BankCompany, BindingResult, Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update bank company URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bankCompany</strong> &#8211; the bank company</li>
+<li><strong>result</strong> &#8211; the result</li>
+<li><strong>map</strong> &#8211; the map</li>
+<li><strong>request</strong> &#8211; the request</li>
+<li><strong>principal</strong> &#8211; the principal</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../../index.html">
+              <img class="logo" src="../../../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">BankCompanyController</a><ul>
+<li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#addbankcompany">addBankCompany</a></li>
+<li><a class="reference internal" href="#bankcompanydetails">bankCompanyDetails</a></li>
+<li><a class="reference internal" href="#deletebankcompany">deleteBankCompany</a></li>
+<li><a class="reference internal" href="#listbankcompanies">listBankCompanies</a></li>
+<li><a class="reference internal" href="#redirecttobankcompanies">redirectToBankCompanies</a></li>
+<li><a class="reference internal" href="#updatebankcompany">updateBankCompany</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="package-index.html"
+                        title="previous chapter">com.ncr.ATMMonitoring.controller</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="DashboardController.html"
+                        title="next chapter">DashboardController</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../../../_sources/developer/com/ncr/ATMMonitoring/controller/BankCompanyController.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="DashboardController.html" title="DashboardController"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="package-index.html" title="com.ncr.ATMMonitoring.controller"
+             >previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" >com.ncr.ATMMonitoring.controller</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, NCR.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

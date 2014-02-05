@@ -1,0 +1,923 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Software &mdash; ATMMonitoring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="../../../../../index.html" />
+    <link rel="up" title="com.ncr.ATMMonitoring.pojo" href="package-index.html" />
+    <link rel="next" title="SoftwareAggregate" href="SoftwareAggregate.html" />
+    <link rel="prev" title="ScheduledUpdate" href="ScheduledUpdate.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="SoftwareAggregate.html" title="SoftwareAggregate"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ScheduledUpdate.html" title="ScheduledUpdate"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" accesskey="U">com.ncr.ATMMonitoring.pojo</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="software">
+<h1>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.ncr.ATMMonitoring.pojo.Software">
+public class <tt class="descname">Software</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Software Pojo.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author :</th><td class="field-body">Jorge López Fernández (<a class="reference external" href="mailto:lopez&#46;fernandez&#46;jorge&#37;&#52;&#48;gmail&#46;com">lopez<span>&#46;</span>fernandez<span>&#46;</span>jorge<span>&#64;</span>gmail<span>&#46;</span>com</a>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Software<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.Software()">
+public <tt class="descname">Software</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.Software()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates a new software.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>Software<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.Software(ProductPojo)">
+public <tt class="descname">Software</tt><big>(</big>ProductPojo<em> sw</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.Software(ProductPojo)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates a new software with the given software data from the agent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sw</strong> &#8211; the sw</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getbuildversion">
+<h3>getBuildVersion<a class="headerlink" href="#getbuildversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getBuildVersion()">
+public Integer <tt class="descname">getBuildVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getBuildVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the builds the version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the buildVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getcaption">
+<h3>getCaption<a class="headerlink" href="#getcaption" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getCaption()">
+public String <tt class="descname">getCaption</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getCaption()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the caption.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the caption</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getcomboboxes">
+<h3>getComboboxes<a class="headerlink" href="#getcomboboxes" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getComboboxes()">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&gt; <tt class="descname">getComboboxes</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getComboboxes()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the comboboxes data for the query GUI.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the comboboxes data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getdescription">
+<h3>getDescription<a class="headerlink" href="#getdescription" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getDescription()">
+public String <tt class="descname">getDescription</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getDescription()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the description.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the description</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getid">
+<h3>getId<a class="headerlink" href="#getid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getId()">
+public Integer <tt class="descname">getId</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getId()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the id</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getidentifyingnumber">
+<h3>getIdentifyingNumber<a class="headerlink" href="#getidentifyingnumber" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getIdentifyingNumber()">
+public String <tt class="descname">getIdentifyingNumber</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getIdentifyingNumber()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the identifying number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the identifyingNumber</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getinstalldate">
+<h3>getInstallDate<a class="headerlink" href="#getinstalldate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getInstallDate()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a> <tt class="descname">getInstallDate</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getInstallDate()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the install date.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the installDate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getlanguage">
+<h3>getLanguage<a class="headerlink" href="#getlanguage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getLanguage()">
+public String <tt class="descname">getLanguage</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getLanguage()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the language.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the language</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getlocalpackage">
+<h3>getLocalPackage<a class="headerlink" href="#getlocalpackage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getLocalPackage()">
+public String <tt class="descname">getLocalPackage</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getLocalPackage()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the local package.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the localPackage</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getmajorversion">
+<h3>getMajorVersion<a class="headerlink" href="#getmajorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getMajorVersion()">
+public Integer <tt class="descname">getMajorVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getMajorVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the major version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the majorVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getminorversion">
+<h3>getMinorVersion<a class="headerlink" href="#getminorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getMinorVersion()">
+public Integer <tt class="descname">getMinorVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getMinorVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the minor version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the minorVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getname">
+<h3>getName<a class="headerlink" href="#getname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getName()">
+public String <tt class="descname">getName</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getName()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getnameversion">
+<h3>getNameVersion<a class="headerlink" href="#getnameversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getNameVersion()">
+public String <tt class="descname">getNameVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getNameVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the name version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the name and version concatenated</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getpackagename">
+<h3>getPackageName<a class="headerlink" href="#getpackagename" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getPackageName()">
+public String <tt class="descname">getPackageName</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getPackageName()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the package name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the packageName</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getproductid">
+<h3>getProductId<a class="headerlink" href="#getproductid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getProductId()">
+public String <tt class="descname">getProductId</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getProductId()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the product id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the productId</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getremainingversion">
+<h3>getRemainingVersion<a class="headerlink" href="#getremainingversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getRemainingVersion()">
+public String <tt class="descname">getRemainingVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getRemainingVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the remaining version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the remainingVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getrevisionversion">
+<h3>getRevisionVersion<a class="headerlink" href="#getrevisionversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getRevisionVersion()">
+public Integer <tt class="descname">getRevisionVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getRevisionVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the revision version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the revisionVersion</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getswtype">
+<h3>getSwType<a class="headerlink" href="#getswtype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getSwType()">
+public String <tt class="descname">getSwType</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getSwType()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the sw type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the swType</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getvendor">
+<h3>getVendor<a class="headerlink" href="#getvendor" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getVendor()">
+public String <tt class="descname">getVendor</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getVendor()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the vendor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the vendor</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getversion">
+<h3>getVersion<a class="headerlink" href="#getversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.getVersion()">
+public String <tt class="descname">getVersion</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.getVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the version complete</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setbuildversion">
+<h3>setBuildVersion<a class="headerlink" href="#setbuildversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setBuildVersion(Integer)">
+public void <tt class="descname">setBuildVersion</tt><big>(</big>Integer<em> buildVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setBuildVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the builds the version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>buildVersion</strong> &#8211; the buildVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setcaption">
+<h3>setCaption<a class="headerlink" href="#setcaption" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setCaption(String)">
+public void <tt class="descname">setCaption</tt><big>(</big>String<em> caption</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setCaption(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the caption.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>caption</strong> &#8211; the caption to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setdescription">
+<h3>setDescription<a class="headerlink" href="#setdescription" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setDescription(String)">
+public void <tt class="descname">setDescription</tt><big>(</big>String<em> description</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setDescription(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the description.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>description</strong> &#8211; the description to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setid">
+<h3>setId<a class="headerlink" href="#setid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setId(Integer)">
+public void <tt class="descname">setId</tt><big>(</big>Integer<em> id</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setId(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>id</strong> &#8211; the id to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setidentifyingnumber">
+<h3>setIdentifyingNumber<a class="headerlink" href="#setidentifyingnumber" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setIdentifyingNumber(String)">
+public void <tt class="descname">setIdentifyingNumber</tt><big>(</big>String<em> identifyingNumber</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setIdentifyingNumber(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the identifying number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>identifyingNumber</strong> &#8211; the identifyingNumber to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setinstalldate">
+<h3>setInstallDate<a class="headerlink" href="#setinstalldate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setInstallDate(Date)">
+public void <tt class="descname">setInstallDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> installDate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setInstallDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the install date.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>installDate</strong> &#8211; the installDate to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setlanguage">
+<h3>setLanguage<a class="headerlink" href="#setlanguage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setLanguage(String)">
+public void <tt class="descname">setLanguage</tt><big>(</big>String<em> language</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setLanguage(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the language.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>language</strong> &#8211; the language to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setlocalpackage">
+<h3>setLocalPackage<a class="headerlink" href="#setlocalpackage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setLocalPackage(String)">
+public void <tt class="descname">setLocalPackage</tt><big>(</big>String<em> localPackage</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setLocalPackage(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the local package.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>localPackage</strong> &#8211; the localPackage to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setmajorversion">
+<h3>setMajorVersion<a class="headerlink" href="#setmajorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setMajorVersion(Integer)">
+public void <tt class="descname">setMajorVersion</tt><big>(</big>Integer<em> majorVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setMajorVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the major version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>majorVersion</strong> &#8211; the majorVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setminorversion">
+<h3>setMinorVersion<a class="headerlink" href="#setminorversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setMinorVersion(Integer)">
+public void <tt class="descname">setMinorVersion</tt><big>(</big>Integer<em> minorVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setMinorVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the minor version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>minorVersion</strong> &#8211; the minorVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setname">
+<h3>setName<a class="headerlink" href="#setname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setName(String)">
+public void <tt class="descname">setName</tt><big>(</big>String<em> name</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setName(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; the name to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setpackagename">
+<h3>setPackageName<a class="headerlink" href="#setpackagename" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setPackageName(String)">
+public void <tt class="descname">setPackageName</tt><big>(</big>String<em> packageName</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setPackageName(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the package name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>packageName</strong> &#8211; the packageName to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setproductid">
+<h3>setProductId<a class="headerlink" href="#setproductid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setProductId(String)">
+public void <tt class="descname">setProductId</tt><big>(</big>String<em> productId</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setProductId(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the product id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>productId</strong> &#8211; the productId to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setremainingversion">
+<h3>setRemainingVersion<a class="headerlink" href="#setremainingversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setRemainingVersion(String)">
+public void <tt class="descname">setRemainingVersion</tt><big>(</big>String<em> remainingVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setRemainingVersion(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the remaining version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>remainingVersion</strong> &#8211; the remainingVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setrevisionversion">
+<h3>setRevisionVersion<a class="headerlink" href="#setrevisionversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setRevisionVersion(Integer)">
+public void <tt class="descname">setRevisionVersion</tt><big>(</big>Integer<em> revisionVersion</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setRevisionVersion(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the revision version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>revisionVersion</strong> &#8211; the revisionVersion to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setswtype">
+<h3>setSwType<a class="headerlink" href="#setswtype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setSwType(String)">
+public void <tt class="descname">setSwType</tt><big>(</big>String<em> swType</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setSwType(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the sw type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>swType</strong> &#8211; the swType to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setvendor">
+<h3>setVendor<a class="headerlink" href="#setvendor" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setVendor(String)">
+public void <tt class="descname">setVendor</tt><big>(</big>String<em> vendor</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setVendor(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the vendor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vendor</strong> &#8211; the vendor to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setversion">
+<h3>setVersion<a class="headerlink" href="#setversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Software.setVersion(String)">
+public void <tt class="descname">setVersion</tt><big>(</big>String<em> version</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Software.setVersion(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>version</strong> &#8211; the complete version to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../../index.html">
+              <img class="logo" src="../../../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Software</a><ul>
+<li><a class="reference internal" href="#constructors">Constructors</a><ul>
+<li><a class="reference internal" href="#id1">Software</a></li>
+<li><a class="reference internal" href="#id2">Software</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#getbuildversion">getBuildVersion</a></li>
+<li><a class="reference internal" href="#getcaption">getCaption</a></li>
+<li><a class="reference internal" href="#getcomboboxes">getComboboxes</a></li>
+<li><a class="reference internal" href="#getdescription">getDescription</a></li>
+<li><a class="reference internal" href="#getid">getId</a></li>
+<li><a class="reference internal" href="#getidentifyingnumber">getIdentifyingNumber</a></li>
+<li><a class="reference internal" href="#getinstalldate">getInstallDate</a></li>
+<li><a class="reference internal" href="#getlanguage">getLanguage</a></li>
+<li><a class="reference internal" href="#getlocalpackage">getLocalPackage</a></li>
+<li><a class="reference internal" href="#getmajorversion">getMajorVersion</a></li>
+<li><a class="reference internal" href="#getminorversion">getMinorVersion</a></li>
+<li><a class="reference internal" href="#getname">getName</a></li>
+<li><a class="reference internal" href="#getnameversion">getNameVersion</a></li>
+<li><a class="reference internal" href="#getpackagename">getPackageName</a></li>
+<li><a class="reference internal" href="#getproductid">getProductId</a></li>
+<li><a class="reference internal" href="#getremainingversion">getRemainingVersion</a></li>
+<li><a class="reference internal" href="#getrevisionversion">getRevisionVersion</a></li>
+<li><a class="reference internal" href="#getswtype">getSwType</a></li>
+<li><a class="reference internal" href="#getvendor">getVendor</a></li>
+<li><a class="reference internal" href="#getversion">getVersion</a></li>
+<li><a class="reference internal" href="#setbuildversion">setBuildVersion</a></li>
+<li><a class="reference internal" href="#setcaption">setCaption</a></li>
+<li><a class="reference internal" href="#setdescription">setDescription</a></li>
+<li><a class="reference internal" href="#setid">setId</a></li>
+<li><a class="reference internal" href="#setidentifyingnumber">setIdentifyingNumber</a></li>
+<li><a class="reference internal" href="#setinstalldate">setInstallDate</a></li>
+<li><a class="reference internal" href="#setlanguage">setLanguage</a></li>
+<li><a class="reference internal" href="#setlocalpackage">setLocalPackage</a></li>
+<li><a class="reference internal" href="#setmajorversion">setMajorVersion</a></li>
+<li><a class="reference internal" href="#setminorversion">setMinorVersion</a></li>
+<li><a class="reference internal" href="#setname">setName</a></li>
+<li><a class="reference internal" href="#setpackagename">setPackageName</a></li>
+<li><a class="reference internal" href="#setproductid">setProductId</a></li>
+<li><a class="reference internal" href="#setremainingversion">setRemainingVersion</a></li>
+<li><a class="reference internal" href="#setrevisionversion">setRevisionVersion</a></li>
+<li><a class="reference internal" href="#setswtype">setSwType</a></li>
+<li><a class="reference internal" href="#setvendor">setVendor</a></li>
+<li><a class="reference internal" href="#setversion">setVersion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ScheduledUpdate.html"
+                        title="previous chapter">ScheduledUpdate</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="SoftwareAggregate.html"
+                        title="next chapter">SoftwareAggregate</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../../../_sources/developer/com/ncr/ATMMonitoring/pojo/Software.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="SoftwareAggregate.html" title="SoftwareAggregate"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ScheduledUpdate.html" title="ScheduledUpdate"
+             >previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" >com.ncr.ATMMonitoring.pojo</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, NCR.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

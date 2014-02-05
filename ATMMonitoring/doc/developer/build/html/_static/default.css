@@ -14,16 +14,16 @@
 /* -- page layout ----------------------------------------------------------- */
 
 body {
-    font-family: sans-serif;
+    font-family: Arial, Sans-Serif;
     font-size: 100%;
-    background-color: #11303d;
+    background-color: #666666;
     color: #000;
     margin: 0;
     padding: 0;
 }
 
 div.document {
-    background-color: #1c4e63;
+    background-color: #3A8741;
 }
 
 div.documentwrapper {
@@ -37,12 +37,12 @@ div.bodywrapper {
 
 div.body {
     background-color: #ffffff;
-    color: #000000;
+    color: #666666;
     padding: 0 20px 30px 20px;
 }
 
 div.footer {
-    color: #ffffff;
+    color: #E8EAEC;
     width: 100%;
     padding: 9px 0 9px 0;
     text-align: center;
@@ -50,18 +50,18 @@ div.footer {
 }
 
 div.footer a {
-    color: #ffffff;
+    color: #E8EAEC;
     text-decoration: underline;
 }
 
 div.related {
-    background-color: #133f52;
+    background-color: #E8EAEC;
     line-height: 30px;
     color: #ffffff;
 }
 
 div.related a {
-    color: #ffffff;
+    color: #686868;
 }
 
 div.sphinxsidebar {
@@ -118,12 +118,12 @@ div.sphinxsidebar input {
 /* -- hyperlink styles ------------------------------------------------------ */
 
 a {
-    color: #355f7c;
+    color: #5d5c5c;
     text-decoration: none;
 }
 
 a:visited {
-    color: #355f7c;
+    color: #54B948;
     text-decoration: none;
 }
 
@@ -144,7 +144,7 @@ div.body h6 {
     font-family: 'Trebuchet MS', sans-serif;
     background-color: #f2f2f2;
     font-weight: normal;
-    color: #20435c;
+    color: #54b948;
     border-bottom: 1px solid #ccc;
     margin: 20px -20px 10px -20px;
     padding: 3px 0 3px 10px;
@@ -246,7 +246,7 @@ th {
 }
 
 .viewcode-back {
-    font-family: sans-serif;
+    font-family: Arial, Sans-Serif;
 }
 
 div.viewcode-block:target {

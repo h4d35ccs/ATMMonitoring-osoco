@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Sequence Diagrams &mdash; ATMMonitoring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Architecture" href="architecture.html" />
+    <link rel="next" title="Package Diagram" href="package-diagrams.html" />
+    <link rel="prev" title="Class Diagrams" href="class-diagrams.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="package-diagrams.html" title="Package Diagram"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="class-diagrams.html" title="Class Diagrams"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="architecture.html" accesskey="U">Architecture</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="sequence-diagrams">
+<h1>Sequence Diagrams<a class="headerlink" href="#sequence-diagrams" title="Permalink to this headline">¶</a></h1>
+<p>In this section are presented the sequence diagrams that allow to understand how the different calls are made between the objects</p>
+<div class="section" id="general-sequence-diagram">
+<h2>General Sequence Diagram<a class="headerlink" href="#general-sequence-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/General_Sequence_Diagram.png" class="align-center" src="../_images/General_Sequence_Diagram.png" style="width: 800px; height: 600px;" />
+<p>The general behavior of ATMMonitoring is as shown above: first the user selects an operation from the HTML view, that operation sends
+a message to the corresponding controller, and after the message is received, the controller invokes a service to operate over the entities.
+When the service receives the message, it will call the corresponding DAO operation. Finally, the DAO will use the Hibernate session to
+perform the corresponding database operation(s).</p>
+<p>After the operation has ended in the database, Hibernate will generate the object, if the operation was a fetch, or will update the state of
+each entity object. Then the result of the operation will be show to the user.</p>
+</div>
+<div class="section" id="update-request">
+<h2>Update Request<a class="headerlink" href="#update-request" title="Permalink to this headline">¶</a></h2>
+<p>The update process can be requested by two actors, the user or the ATM itself. The user may as well request an update in two different ways:
+first, requesting it using the web page; the other way, by scheduling an update that will run at specific times defined by the user.</p>
+<div class="section" id="user-request">
+<h3>User Request<a class="headerlink" href="#user-request" title="Permalink to this headline">¶</a></h3>
+<p>The user can request a data update by simply clicking onto the <strong>Update</strong> button in the Terminal&#8217;s data page. The sequence diagram of the process
+is included next:</p>
+<img alt="../_images/Update_Request_Process.png" class="align-center" src="../_images/Update_Request_Process.png" style="width: 800px; height: 400px;" />
+<p>First the user calls the controller by pressing the update button, that calls the method <em>updateTerminal</em> in the <em>TerminalController</em> who calls
+the <em>SocketService</em> to initiate the update process. The <em>SocketService</em> asks <em>TerminalService</em> for all the terminals that can be updated, when
+the list is received, it calls the method in charge of updating the list of terminals pending to be updated by connecting the agent.</p>
+<p>In an independent thread the <a class="reference internal" href="#update-process">Update Process</a> will run every minute to perform the actual update.</p>
+<div class="section" id="scheduled-request">
+<h4>Scheduled Request<a class="headerlink" href="#scheduled-request" title="Permalink to this headline">¶</a></h4>
+<p>The scheduled updates are made using the web interface where we can plan an update based on a saved query that returns all the ATMs we want to
+be updated on a weekly or monthly basis. The following is the sequence diagram of that process:</p>
+<img alt="../_images/Schedule_Update.png" class="align-center" src="../_images/Schedule_Update.png" style="width: 800px; height: 400px;" />
+<p>To add a new scheduled update, first we retrieve all the queries saved by the user: the <em>ScheduledController</em> calls the <em>UserService</em>.</p>
+<p>When the user fills all the required fields on the HTML interface and submits the form, that information is received by the
+<em>ScheduledController</em> by calling the addScheduledUpdate. That method will invoke the <em>ScheduledService</em> who will call the corresponding DAO
+in order to save the new scheduled update.</p>
+<p>In a different thread a process will be running in order to check every minute if any scheduled update must be executed. This process starts
+in the <em>ScheduledService</em>, who first asks the <em>ScheduledDAO</em> for all scheduled updates that must be executed that minute. After retrieving them,
+it will obtain the <em>Terminals</em> returned by the related <em>Query</em>, and then, after calling the <em>SocketServer</em>, the <a class="reference internal" href="#update-process">Update Process</a>  will start.</p>
+</div>
+</div>
+<div class="section" id="atm-request">
+<h3>ATM Request<a class="headerlink" href="#atm-request" title="Permalink to this headline">¶</a></h3>
+<p>The ATMs can also request data updates to the ATMMonitoring on their own. For achieving this, our server application is listening to any possible
+request from the ATM&#8217;s through a socket connection (same technology used in the ATMs&#8217; agent connections).
+Next you can see the sequence diagram of this process:</p>
+<img alt="../_images/ATM_Request.png" class="align-center" src="../_images/ATM_Request.png" style="width: 800px; height: 400px;" />
+<p>The first step of this process is done by the application context, in other words, the Tomcat and the Spring Framework. When the application
+starts for the first time, it creates a new Thread (<em>SocketListener</em>) that will listen to a specific port waiting for any data update requested
+from an ATM.
+When a new request arrives, the <em>SocketListener</em> creates a new <a class="reference external" href="http://docs.oracle.com/javase/7/docs/api/index.html?java/net/Socket.html">Socket</a>
+and passes it to a new <em>SocketListenerThread</em> who will be in charge of extracting the message from the remote ATM agent. After the message is
+received, the control is returned to the <em>SocketListener</em> who will call the <em>SocketService</em> in order to start the  <a class="reference internal" href="#update-process">Update Process</a></p>
+</div>
+<div class="section" id="update-process">
+<h3>Update Process<a class="headerlink" href="#update-process" title="Permalink to this headline">¶</a></h3>
+<p>This is the process which effectively updates the ATM info in the database. It&#8217;s a cron process that is run only at specific times, requesting the
+most recent data from the ATM&#8217;s agent. The following diagram illustrates how this process flows:</p>
+<img alt="../_images/UpdateATM.png" class="align-center" src="../_images/UpdateATM.png" style="width: 800px; height: 400px;" />
+<p>The <em>SocketService</em> has a method called <strong>processAwaitingIps</strong> that was marked as an
+<a class="reference external" href="http://docs.spring.io/spring/docs/3.1.3.RELEASE/javadoc-api/org/springframework/scheduling/annotation/Scheduled.html">Spring Scheduled process</a>
+which means that the method will be run periodically at specific times, just like a <a class="reference external" href="http://en.wikipedia.org/wiki/Cron">cron process in Linux</a>.</p>
+<p>When <strong>processAwaitingIps</strong> runs, it reads all the IPs (in string) contained in a private Set attribute of the class. If that Set is not empty,
+the method will create a new <em>RequestThreadManager</em>, which will iterate over each stored IP and create a new <em>RequestThread</em> per each group of IPs
+<a class="footnote-reference" href="#id2" id="id1">[1]</a> to retrieve the information from the ATMs.</p>
+<p>The <em>RequestThread</em> will open a Socket to communicate with the remote ATM. If the <em>RequestThread</em> succesfully receives the information from the ATM,
+it will call the method <em>handleSuccess</em> in the <em>RequestThreadManager</em>. From there the method <em>processTerminalJson</em> in the <em>SocketService</em> will be
+called, which will read the JSON received from the ATM. After the JSON is read, the information obtained will be saved into the Database calling
+the method <em>persistDataStoreTerminal</em> in the class <em>TerminalService</em>.</p>
+<p>If the information from the ATM can&#8217;t be received, the <em>RequestThread</em> will call the method <em>handleError</em> in the class <em>RequestThreadManager</em>. From
+there, the method <em>updateTerminalSocket</em> in the class <em>SocketService</em> will be called and all the IPs of ATMs that raised errors will be put into
+the set to try again in the next cycle.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><em>With the default configuration, up to a maximum of 50 IPs per thread and 20 threads.</em></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="query-management">
+<h2>Query Management<a class="headerlink" href="#query-management" title="Permalink to this headline">¶</a></h2>
+<p>Each user of ATMMonitoring can create, store and execute Queries that fetch a list of ATMs. These queries can also be used for the scheduled updates.
+In the following diagram we detail the query process:</p>
+<img alt="../_images/Query_Sequence_Diagram.png" class="align-center" src="../_images/Query_Sequence_Diagram.png" style="width: 800px; height: 400px;" />
+<p>In order to save a new query or update an existing one, the user must select all the desired fields to query and their conditions to be fulfilled
+by the ATMS through the web interface. When the user has set all the parameters, by sending the form the method <em>saveOrUpdateQuery</em> in the
+<em>QueryController</em> is called. An additional parameter telling us whether the operation is an update or save is included in the request.
+Depending on the value of that parameter, the method <em>addQuery</em> (for saving) or <em>updateQuery</em> (for updating) in the <em>QueryService</em> will be called
+and from there the operation to be executed will be either a save or a update in the database.</p>
+<p>For executing the query, the user simply presses the corresponding button in the HTML interface, which will call the same method, <em>saveOrUpdateQuery</em>
+in the <em>QueryController</em>, but with the difference that the value in that additional parameter will be <em>execute</em>. The <em>QueryController</em> will then call
+the method <em>executeQuery</em> in the <em>QueryService</em>, and that service will call the method <em>getTerminalsByHQL</em> in the <em>TerminalDAO</em>. That method is in
+charge of generating and executing the HQL query with the parameters selected by the user. When the operation is performed, the list of matching ATMs
+is shown to the user.</p>
+</div>
+<div class="section" id="diagrams-download">
+<h2>Diagrams Download<a class="headerlink" href="#diagrams-download" title="Permalink to this headline">¶</a></h2>
+<p>These diagrams were made using <a class="reference external" href="http://astah.net/download)">Astah Community Edition 6.8.0/d254c5</a>:</p>
+<ul class="simple">
+<li><a class="reference download internal" href="../_downloads/Sequence_Diagrams.asta"><tt class="xref download docutils literal"><span class="pre">Sequence</span> <span class="pre">Diagrams</span> <span class="pre">Diagram</span></tt></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Sequence Diagrams</a><ul>
+<li><a class="reference internal" href="#general-sequence-diagram">General Sequence Diagram</a></li>
+<li><a class="reference internal" href="#update-request">Update Request</a><ul>
+<li><a class="reference internal" href="#user-request">User Request</a><ul>
+<li><a class="reference internal" href="#scheduled-request">Scheduled Request</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#atm-request">ATM Request</a></li>
+<li><a class="reference internal" href="#update-process">Update Process</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#query-management">Query Management</a></li>
+<li><a class="reference internal" href="#diagrams-download">Diagrams Download</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="class-diagrams.html"
+                        title="previous chapter">Class Diagrams</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="package-diagrams.html"
+                        title="next chapter">Package Diagram</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/architecture/sequence-diagrams.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="package-diagrams.html" title="Package Diagram"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="class-diagrams.html" title="Class Diagrams"
+             >previous</a> |</li>
+        <li><a href="../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="architecture.html" >Architecture</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, NCR.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

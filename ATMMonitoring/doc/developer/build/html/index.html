@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to ATMMonitoring’s documentation! &mdash; ATMMonitoring 2.0 documentation</title>
+    <title>ATMMonitoring: ATM’s Data Management Application &mdash; ATMMonitoring 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0',
+        VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,8 +25,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ATMMonitoring 2.0 documentation" href="#" />
-    <link rel="next" title="com.ncr.ATMMonitoring.pojo" href="com/ncr/ATMMonitoring/pojo/package-index.html" /> 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="#" />
+    <link rel="next" title="Environment setup" href="enviroment_setup/environment-setup.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,9 +37,9 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="com/ncr/ATMMonitoring/pojo/package-index.html" title="com.ncr.ATMMonitoring.pojo"
+          <a href="enviroment_setup/environment-setup.html" title="Environment setup"
              accesskey="N">next</a> |</li>
-        <li><a href="#">ATMMonitoring 2.0 documentation</a> &raquo;</li> 
+        <li><a href="#">ATMMonitoring 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -47,189 +48,70 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="welcome-to-atmmonitoring-s-documentation">
-<h1>Welcome to ATMMonitoring&#8217;s documentation!<a class="headerlink" href="#welcome-to-atmmonitoring-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
+  <div class="section" id="atmmonitoring-atm-s-data-management-application">
+<h1>ATMMonitoring: ATM&#8217;s Data Management Application<a class="headerlink" href="#atmmonitoring-atm-s-data-management-application" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-to-atmmonitoring">
+<h2>Introduction to ATMMonitoring<a class="headerlink" href="#introduction-to-atmmonitoring" title="Permalink to this headline">¶</a></h2>
+<p>ATMMonitoring is a web application that allows us to manage the data of a set of ATM&#8217;s holistically. On top of allowing us to add, edit and remove an ATM from the system, if the ATMs have the agent supplied with the application installed, the server can communicate with them to receive their data at any time. The agent can also send the ATM data by its own (e.g. when it detects a change in the ATM configuration).</p>
+<p>The application also allows us to schedule updates of the ATM data for specific times on a weekly or monthly basis.</p>
+<p>It also has its own queries engine that allows us to execute a series of restrictions on all data when displaying a list of ATMs, the queries can be combined with scheduled updates to update the data of only a subset of ATMs .</p>
+</div>
+<div class="section" id="features-summary">
+<h2>Features Summary<a class="headerlink" href="#features-summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Full management of ATM data with a complete data model that includes all hardware and software components, and other meta-entities such as installation or location.</li>
+<li>ATM Data recovery in real time <a class="footnote-reference" href="#id2" id="id1">[1]</a>.</li>
+<li>Custom query engine that allows us to fetch the ATMs filtering by checking their attributes through multiple operations.</li>
+<li>Allows to plan the ATM data updates weekly or monthly, can be based on a query to limit updates to a subset of machines.</li>
+</ul>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><em>The agent developed jointly with the server application must be installed in the ATMs.</em></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation:<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/package-index.html">com.ncr.ATMMonitoring.pojo</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/BankCompany.html">BankCompany</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Dashboard.html">Dashboard</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Dashboard-ColumnOptions.html">Dashboard.ColumnOptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/FinancialDevice.html">FinancialDevice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/HardwareDevice.html">HardwareDevice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/HardwareDevice-DeviceClassId.html">HardwareDevice.DeviceClassId</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Hotfix.html">Hotfix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Installation.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/InternetExplorer.html">InternetExplorer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/JxfsComponent.html">JxfsComponent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Location.html">Location</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/LogicalCashUnit.html">LogicalCashUnit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/OperatingSystem.html">OperatingSystem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/PhysicalCashUnit.html">PhysicalCashUnit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Query.html">Query</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Role.html">Role</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/ScheduledUpdate.html">ScheduledUpdate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Software.html">Software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/SoftwareAggregate.html">SoftwareAggregate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Terminal.html">Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/TerminalConfig.html">TerminalConfig</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/TerminalModel.html">TerminalModel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/User.html">User</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Widget.html">Widget</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/Widget-ChartType.html">Widget.ChartType</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/pojo/XfsComponent.html">XfsComponent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enviroment_setup/environment-setup.html">Environment setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enviroment_setup/database-setup.html">Database Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enviroment_setup/sw-environment-setup.html">Software Environment Setup</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/package-index.html">com.ncr.ATMMonitoring.dao</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/AbstractGenericDAO.html">AbstractGenericDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/BankCompanyDAO.html">BankCompanyDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/BankCompanyDAOImpl.html">BankCompanyDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/DashboardDAO.html">DashboardDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/DashboardDAOImpl.html">DashboardDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/FinancialDeviceDAO.html">FinancialDeviceDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/FinancialDeviceDAOImpl.html">FinancialDeviceDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/HardwareDeviceDAO.html">HardwareDeviceDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/HardwareDeviceDAOImpl.html">HardwareDeviceDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/HotfixDAO.html">HotfixDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/HotfixDAOImpl.html">HotfixDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/InstallationDAO.html">InstallationDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/InstallationDAOImpl.html">InstallationDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/InternetExplorerDAO.html">InternetExplorerDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/InternetExplorerDAOImpl.html">InternetExplorerDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/JxfsComponentDAO.html">JxfsComponentDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/JxfsComponentDAOImpl.html">JxfsComponentDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/LocationDAO.html">LocationDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/LocationDAOImpl.html">LocationDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/LogicalCashUnitDAO.html">LogicalCashUnitDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/LogicalCashUnitDAOImpl.html">LogicalCashUnitDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/OperatingSystemDAO.html">OperatingSystemDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/OperatingSystemDAOImpl.html">OperatingSystemDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/PhysicalCashUnitDAO.html">PhysicalCashUnitDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/PhysicalCashUnitDAOImpl.html">PhysicalCashUnitDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/QueryDAO.html">QueryDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/QueryDAOImpl.html">QueryDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/RoleDAO.html">RoleDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/RoleDAOImpl.html">RoleDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/ScheduledUpdateDAO.html">ScheduledUpdateDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/ScheduledUpdateDAOImpl.html">ScheduledUpdateDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/SoftwareAggregateDAO.html">SoftwareAggregateDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/SoftwareAggregateDAOImpl.html">SoftwareAggregateDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/SoftwareDAO.html">SoftwareDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/SoftwareDAOImpl.html">SoftwareDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/TerminalConfigDAO.html">TerminalConfigDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/TerminalConfigDAOImpl.html">TerminalConfigDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/TerminalDAO.html">TerminalDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/TerminalDAOImpl.html">TerminalDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/TerminalModelDAO.html">TerminalModelDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/TerminalModelDAOImpl.html">TerminalModelDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/UserDAO.html">UserDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/UserDAOImpl.html">UserDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/WidgetDAO.html">WidgetDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/WidgetDAOImpl.html">WidgetDAOImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/XfsComponentDAO.html">XfsComponentDAO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/dao/XfsComponentDAOImpl.html">XfsComponentDAOImpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/install-deploy.html">Install And Deploy ATM Monitoring</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/install-deploy.html#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/install-deploy.html#test-production">Test-Production</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="com/ncr/ATMMonitoring/service/package-index.html">com.ncr.ATMMonitoring.service</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/BankCompanyService.html">BankCompanyService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/BankCompanyServiceImpl.html">BankCompanyServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/DashboardService.html">DashboardService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/DashboardServiceImpl.html">DashboardServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/FinancialDeviceService.html">FinancialDeviceService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/FinancialDeviceServiceImpl.html">FinancialDeviceServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/HardwareDeviceService.html">HardwareDeviceService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/HardwareDeviceServiceImpl.html">HardwareDeviceServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/HotfixService.html">HotfixService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/HotfixServiceImpl.html">HotfixServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/InstallationService.html">InstallationService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/InstallationServiceImpl.html">InstallationServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/InternetExplorerService.html">InternetExplorerService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/InternetExplorerServiceImpl.html">InternetExplorerServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/LocationService.html">LocationService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/LocationServiceImpl.html">LocationServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/LogicalCashUnitService.html">LogicalCashUnitService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/LogicalCashUnitServiceImpl.html">LogicalCashUnitServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/OperatingSystemService.html">OperatingSystemService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/OperatingSystemServiceImpl.html">OperatingSystemServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/PhysicalCashUnitService.html">PhysicalCashUnitService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/PhysicalCashUnitServiceImpl.html">PhysicalCashUnitServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/QueryService.html">QueryService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/QueryServiceImpl.html">QueryServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/RoleService.html">RoleService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/RoleServiceImpl.html">RoleServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/ScheduledUpdateService.html">ScheduledUpdateService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/ScheduledUpdateServiceImpl.html">ScheduledUpdateServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/SoftwareAggregateService.html">SoftwareAggregateService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/SoftwareAggregateServiceImpl.html">SoftwareAggregateServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/SoftwareService.html">SoftwareService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/SoftwareServiceImpl.html">SoftwareServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/TerminalConfigService.html">TerminalConfigService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/TerminalConfigServiceImpl.html">TerminalConfigServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/TerminalModelService.html">TerminalModelService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/TerminalModelServiceImpl.html">TerminalModelServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/TerminalService.html">TerminalService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/TerminalServiceImpl.html">TerminalServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/UserService.html">UserService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/UserServiceImpl.html">UserServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/WidgetService.html">WidgetService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/WidgetServiceImpl.html">WidgetServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/XfsComponentService.html">XfsComponentService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/service/XfsComponentServiceImpl.html">XfsComponentServiceImpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture/architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture/class-diagrams.html">Class Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture/sequence-diagrams.html">Sequence Diagrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture/package-diagrams.html">Package Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture/component-diagram.html">Component Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture/deployment-diagram.html">Deployment Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/developer-notes.html">Developer Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="com/ncr/ATMMonitoring/socket/package-index.html">com.ncr.ATMMonitoring.socket</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/socket/ATMWrongDataException.html">ATMWrongDataException</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/socket/RequestThread.html">RequestThread</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/socket/RequestThreadManager.html">RequestThreadManager</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/socket/SocketListener.html">SocketListener</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/socket/SocketListenerThread.html">SocketListenerThread</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/socket/SocketService.html">SocketService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/socket/SocketServiceImpl.html">SocketServiceImpl</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/socket/SocketTimeOutException.html">SocketTimeOutException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/javadoc.html">ATMMonitoring Javadocs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer/com/ncr/ATMMonitoring/pojo/package-index.html">com.ncr.ATMMonitoring.pojo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/com/ncr/ATMMonitoring/dao/package-index.html">com.ncr.ATMMonitoring.dao</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/com/ncr/ATMMonitoring/service/package-index.html">com.ncr.ATMMonitoring.service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/com/ncr/ATMMonitoring/socket/package-index.html">com.ncr.ATMMonitoring.socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/com/ncr/ATMMonitoring/controller/package-index.html">com.ncr.ATMMonitoring.controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/com/ncr/ATMMonitoring/controller/propertyEditor/package-index.html">com.ncr.ATMMonitoring.controller.propertyEditor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/com/ncr/ATMMonitoring/tag/package-index.html">com.ncr.ATMMonitoring.tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/com/ncr/ATMMonitoring/utils/package-index.html">com.ncr.ATMMonitoring.utils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/package-index.html">com.ncr.ATMMonitoring.controller</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/BankCompanyController.html">BankCompanyController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/DashboardController.html">DashboardController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/HelpController.html">HelpController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/InstallationController.html">InstallationController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/LoginController.html">LoginController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/QueryController.html">QueryController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/ScheduledUpdateController.html">ScheduledUpdateController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/TerminalConfigController.html">TerminalConfigController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/TerminalController.html">TerminalController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/UserController.html">UserController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/XfsComponentController.html">XfsComponentController</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/externalreportsController.html">externalreportsController</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/propertyEditor/package-index.html">com.ncr.ATMMonitoring.controller.propertyEditor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/propertyEditor/DatePropertyEditor.html">DatePropertyEditor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/propertyEditor/RolePropertyEditor.html">RolePropertyEditor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/controller/propertyEditor/SoftwarePropertyEditor.html">SoftwarePropertyEditor</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="com/ncr/ATMMonitoring/tag/package-index.html">com.ncr.ATMMonitoring.tag</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/tag/TemplateModelPhotoUrlTag.html">TemplateModelPhotoUrlTag</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="com/ncr/ATMMonitoring/utils/package-index.html">com.ncr.ATMMonitoring.utils</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/utils/Operation.html">Operation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/utils/Operation-DataType.html">Operation.DataType</a></li>
-<li class="toctree-l2"><a class="reference internal" href="com/ncr/ATMMonitoring/utils/Utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user/user-main.html">User Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user/scheduled_updates.html">Scheduled Updates</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
-</ul>
 </div>
 
 
@@ -238,17 +120,24 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to ATMMonitoring&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#">ATMMonitoring: ATM&#8217;s Data Management Application</a><ul>
+<li><a class="reference internal" href="#introduction-to-atmmonitoring">Introduction to ATMMonitoring</a></li>
+<li><a class="reference internal" href="#features-summary">Features Summary</a></li>
+<li><a class="reference internal" href="#documentation">Documentation:</a><ul>
 </ul>
 </li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
 </ul>
 
   <h4>Next topic</h4>
-  <p class="topless"><a href="com/ncr/ATMMonitoring/pojo/package-index.html"
-                        title="next chapter">com.ncr.ATMMonitoring.pojo</a></p>
+  <p class="topless"><a href="enviroment_setup/environment-setup.html"
+                        title="next chapter">Environment setup</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/index.txt"
@@ -278,13 +167,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="com/ncr/ATMMonitoring/pojo/package-index.html" title="com.ncr.ATMMonitoring.pojo"
+          <a href="enviroment_setup/environment-setup.html" title="Environment setup"
              >next</a> |</li>
-        <li><a href="#">ATMMonitoring 2.0 documentation</a> &raquo;</li> 
+        <li><a href="#">ATMMonitoring 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2013, Jorge López Fernández.
+        &copy; Copyright 2014, NCR.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>

@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>BankCompanyDAO &mdash; ATMMonitoring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="../../../../../index.html" />
+    <link rel="up" title="com.ncr.ATMMonitoring.dao" href="package-index.html" />
+    <link rel="next" title="BankCompanyDAOImpl" href="BankCompanyDAOImpl.html" />
+    <link rel="prev" title="AbstractGenericDAO" href="AbstractGenericDAO.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="BankCompanyDAOImpl.html" title="BankCompanyDAOImpl"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="AbstractGenericDAO.html" title="AbstractGenericDAO"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" accesskey="U">com.ncr.ATMMonitoring.dao</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="bankcompanydao">
+<h1>BankCompanyDAO<a class="headerlink" href="#bankcompanydao" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.ncr.ATMMonitoring.dao.BankCompanyDAO">
+public interface <tt class="descname">BankCompanyDAO</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.BankCompanyDAO" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Interface BankCompanyDAO. Dao with the operations for managing BankCompany Pojos.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author :</th><td class="field-body">Jorge López Fernández (<a class="reference external" href="mailto:lopez&#46;fernandez&#46;jorge&#37;&#52;&#48;gmail&#46;com">lopez<span>&#46;</span>fernandez<span>&#46;</span>jorge<span>&#64;</span>gmail<span>&#46;</span>com</a>)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addbankcompany">
+<h3>addBankCompany<a class="headerlink" href="#addbankcompany" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.dao.BankCompanyDAO.addBankCompany(BankCompany)">
+public void <tt class="descname">addBankCompany</tt><big>(</big><a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a><em> bank</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.BankCompanyDAO.addBankCompany(BankCompany)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the bank company.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bank</strong> &#8211; the bank company</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getbankcompany">
+<h3>getBankCompany<a class="headerlink" href="#getbankcompany" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.dao.BankCompanyDAO.getBankCompany(Integer)">
+public <a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a> <tt class="descname">getBankCompany</tt><big>(</big>Integer<em> id</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.BankCompanyDAO.getBankCompany(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the bank company with the given id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> &#8211; the id</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the bank company, or null if it doesn&#8217;t exist</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="listbankcompanies">
+<h3>listBankCompanies<a class="headerlink" href="#listbankcompanies" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.dao.BankCompanyDAO.listBankCompanies()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a>&gt; <tt class="descname">listBankCompanies</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.BankCompanyDAO.listBankCompanies()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists all bank companies.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="removebankcompany">
+<h3>removeBankCompany<a class="headerlink" href="#removebankcompany" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.dao.BankCompanyDAO.removeBankCompany(Integer)">
+public void <tt class="descname">removeBankCompany</tt><big>(</big>Integer<em> id</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.BankCompanyDAO.removeBankCompany(Integer)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the bank company with the given id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>id</strong> &#8211; the id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="updatebankcompany">
+<h3>updateBankCompany<a class="headerlink" href="#updatebankcompany" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.dao.BankCompanyDAO.updateBankCompany(BankCompany)">
+public void <tt class="descname">updateBankCompany</tt><big>(</big><a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a><em> bank</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.BankCompanyDAO.updateBankCompany(BankCompany)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates bank company.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bank</strong> &#8211; the bank</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../../index.html">
+              <img class="logo" src="../../../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">BankCompanyDAO</a><ul>
+<li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#addbankcompany">addBankCompany</a></li>
+<li><a class="reference internal" href="#getbankcompany">getBankCompany</a></li>
+<li><a class="reference internal" href="#listbankcompanies">listBankCompanies</a></li>
+<li><a class="reference internal" href="#removebankcompany">removeBankCompany</a></li>
+<li><a class="reference internal" href="#updatebankcompany">updateBankCompany</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="AbstractGenericDAO.html"
+                        title="previous chapter">AbstractGenericDAO</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="BankCompanyDAOImpl.html"
+                        title="next chapter">BankCompanyDAOImpl</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../../../_sources/developer/com/ncr/ATMMonitoring/dao/BankCompanyDAO.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="BankCompanyDAOImpl.html" title="BankCompanyDAOImpl"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="AbstractGenericDAO.html" title="AbstractGenericDAO"
+             >previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" >com.ncr.ATMMonitoring.dao</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, NCR.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,701 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Install And Deploy ATM Monitoring &mdash; ATMMonitoring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="../index.html" />
+    <link rel="next" title="Architecture" href="../architecture/architecture.html" />
+    <link rel="prev" title="Software Environment Setup" href="../enviroment_setup/sw-environment-setup.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../architecture/architecture.html" title="Architecture"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../enviroment_setup/sw-environment-setup.html" title="Software Environment Setup"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="install-and-deploy-atm-monitoring">
+<h1>Install And Deploy ATM Monitoring<a class="headerlink" href="#install-and-deploy-atm-monitoring" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>In order to install and deploy the ATM Monitoring server application, you must have the proper software environment:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Database Setup:</dt>
+<dd><ul class="first last simple">
+<li>The database server should be installed (Section <a class="reference internal" href="../enviroment_setup/database-setup.html"><em>Database Installation</em></a>).</li>
+<li>The ATM Monitoring database must have been restored  (Section <a class="reference internal" href="../enviroment_setup/database-setup.html"><em>Creating the Database for ATMMonitoring</em></a>)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>The Runtime environment should have been installed:</dt>
+<dd><ul class="first last simple">
+<li>Depending on the purpose of the installation (development or testing/production) you must follow the steps described in <a class="reference internal" href="../enviroment_setup/sw-environment-setup.html"><em>Software environment setup</em></a>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>If you already have the whole environment installed, then you can proceed to install and deploy the application itself. We detail the process for
+both development and production environments.</p>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>This environment is meant for developers who want to make changes onto the software and test them in their local server.</p>
+<ol class="arabic">
+<li><p class="first">Import the project into eclipse</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the import could be done by two ways, first importing from a version control tool, such as git or svn, second adding the sources
+from an external source, such as usb drive.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Once the project is correctly imported into eclipse, check the maven POM file and make sure that the <em>ATMAgent</em> is referenced in it this way:</p>
+<blockquote>
+<div><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;repositories&gt;</span>
+        .
+        .
+        .
+        <span class="nt">&lt;repository&gt;</span>
+                <span class="nt">&lt;id&gt;</span>local-repo<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;url&gt;</span>file://${project.basedir}/lib<span class="nt">&lt;/url&gt;</span>
+        <span class="nt">&lt;/repository&gt;</span>
+        .
+        .
+        .
+<span class="nt">&lt;/repositories&gt;</span>
+<span class="nt">&lt;dependencies&gt;</span>
+        .
+        .
+        .
+        <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>ncr.ATMMonitoring.agent<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>ATMAgent<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        .
+        .
+        .
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">make sure that the jar <em>InventoryAgentData.jar</em> is present in the folder <strong>lib</strong></p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Next we must make the ATM Agent jar available to Maven as a dependency package. We can do it in two ways:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Installing it in the local Maven repo: select the pom file and right click on it, search for <strong>Run As</strong> ⇒ <strong>Maven build...</strong>, that will open a window, search for the option <em>goal</em> and write the following:</p>
+<blockquote>
+<div><div class="highlight-text"><div class="highlight"><pre>org.apache.maven.plugins:maven-install-plugin:2.3.1:install-file -Dfile=${project.basedir}/lib/InventoryAgentData.jar-DgroupId=ncr.ATMMonitoring.agent  -DartifactId=ATMAgent -Dversion=1.0 -Dpackaging=jar -DlocalRepositoryPath=${project.basedir}/lib/
+</pre></div>
+</div>
+<img alt="../_images/image11.png" class="align-center" src="../_images/image11.png" style="width: 500px; height: 400px;" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">this step is actually independent from the whole process and can also be done using the command line.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Referencing the jar path: this method is completely discouraged, but it still can be used in testing environments:</p>
+<blockquote>
+<div><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;dependencies&gt;</span>
+        .
+        .
+        .
+        <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>ncr.ATMMonitoring.agent<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>ATMAgent<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>system<span class="nt">&lt;/scope&gt;</span>
+                <span class="nt">&lt;systemPath&gt;</span>${project.basedir}/lib/InventoryAgentData.jar<span class="nt">&lt;/systemPath&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        .
+        .
+        .
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">by using this approach Maven won&#8217;t include the jar inside the resulting war, making this a bad practice. Use it only if you
+are completely aware of what you are doing.</p>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<div class="section" id="add-a-tomcat-server-in-eclipse">
+<h3>Add a Tomcat Server in Eclipse<a class="headerlink" href="#add-a-tomcat-server-in-eclipse" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <em>File ⇒ New ⇒ Server</em></p>
+</li>
+<li><p class="first">From the list select Tomcat 7:</p>
+<blockquote>
+<div><img alt="../_images/image01.png" class="align-center" src="../_images/image01.png" style="width: 500px; height: 400px;" />
+</div></blockquote>
+</li>
+<li><p class="first">Specify the home folder of the apache Tomcat in your machine:</p>
+<blockquote>
+<div><img alt="../_images/image02.png" class="align-center" src="../_images/image02.png" style="width: 500px; height: 400px;" />
+</div></blockquote>
+</li>
+<li><p class="first">Add the ATMMonitoring and press <em>Finish</em>:</p>
+<blockquote>
+<div><img alt="../_images/image21.png" class="align-center" src="../_images/image21.png" style="width: 500px; height: 400px;" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">in this window you will see all the projects available to deploy in the Tomcat server.</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<div class="section" id="configure-the-ports">
+<h4>Configure The Ports<a class="headerlink" href="#configure-the-ports" title="Permalink to this headline">¶</a></h4>
+<p>This is optional and you should do it only in case you have another Tomcat server which is already using the default ports.</p>
+<ol class="arabic">
+<li><p class="first">Double click the server in the servers view.</p>
+</li>
+<li><p class="first">Replace the ports values in the ports section (left side of the interface) with any other available ones:</p>
+<blockquote>
+<div><img alt="../_images/image03.png" class="align-center" src="../_images/image03.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Save the configuration.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="starting-tomcat">
+<h4>Starting Tomcat<a class="headerlink" href="#starting-tomcat" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Start the server and verify that there is no error while starting:</dt>
+<dd><img alt="../_images/image22.png" class="first align-center" src="../_images/image22.png" />
+<img alt="../_images/image23.png" class="align-center" src="../_images/image23.png" style="width: 500px; height: 400px;" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>to stop the server, press the red square button in the server view:</p>
+<img alt="../_images/image24.png" class="align-center" src="../_images/image24.png" />
+<p class="last">You can also start the server by pressing the play button in this interface.</p>
+</div>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">a more detailed tutorial about configuring Eclipse and Tomcat can be found in <a class="reference external" href="http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html">Coreservlets.com</a></p>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="section" id="restart-and-debug-mode">
+<h5>Restart and Debug Mode<a class="headerlink" href="#restart-and-debug-mode" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li>Is possible to restart the running instance, to do this press the same button (green with a white arrow) shown above.</li>
+<li>The debug mode will allow you to put breakpoints in the code and see in running time how the code is performing, to do so, press the green bug(located to the left of the start/restart button; see the picture above). This will launch the debug perspective (probably a pop up willshow up, press <em>Yes</em> in that case) after that you can put breakpoints and control the execution. A more detailed guide can be found in <a class="reference external" href="http://www.vogella.com/tutorials/EclipseDebugging/article.html">Vogella</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="configure-the-application">
+<h3>Configure the Application<a class="headerlink" href="#configure-the-application" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Make sure that the application has the Maven feature enabled:</dt>
+<dd><ul class="first simple">
+<li>Should have a M above the folder icon:</li>
+</ul>
+<img alt="../_images/image041.png" class="last align-center" src="../_images/image041.png" />
+</dd>
+</dl>
+</li>
+<li><p class="first">If the M is not present, right click over the project folder, select the option <em>Configure ⇒ Convert to Maven Project</em>.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the process may take a while because the eclipse will download all the dependencies defined in the pom and then try to compile
+the project.</p>
+</div>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Right click onto the project folder and select <em>Properties</em>:</dt>
+<dd><ul class="first">
+<li><dl class="first docutils">
+<dt>Search for the option <em>Deployment Assembly</em>:</dt>
+<dd><ul class="first last">
+<li><p class="first">Make sure that it looks like the next picture:</p>
+<blockquote>
+<div><img alt="../_images/image051.png" class="align-center" src="../_images/image051.png" style="width: 500px; height: 400px;" />
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">despite that the Maven plugin is in charge of managing the dependencies and should include the <strong>InventoryAgentData.jar</strong> into
+the war, if you are using <em>scope system</em> after launching the application you will see an exception like this:
+<strong>Caused by: java.lang.ClassNotFoundException:com.ncr.agent.baseData.standard.jxfs.siu.CapabilitiesJxfsSIUCollector.</strong> To workaround
+this, add the lib folder into the Deployment Assembly as shown below,but remember that using <em>scope system</em> in the dependencies is
+discouraged and should be done only in test environments.</p>
+</div>
+<img alt="../_images/image06.png" class="last align-center" src="../_images/image06.png" style="width: 500px; height: 400px;" />
+</dd>
+</dl>
+</li>
+<li><p class="first">Check that the application is running (you may need to start or restart the Tomcat server, follow the steps in <a class="reference internal" href="#starting-tomcat">Starting Tomcat</a> ), open <em>http://localhost:8080/atm</em> in your browser and check if you see the following:</p>
+<blockquote>
+<div><img alt="../_images/image071.png" class="align-center" src="../_images/image071.png" style="width: 500px; height: 400px;" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">using the commmand <em>Run As ⇒ Maven build...</em> it is posible to execute tests, compile and deploy
+(and combining these steps in several ways) in any Tomcat server.</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="test-production">
+<h2>Test-Production<a class="headerlink" href="#test-production" title="Permalink to this headline">¶</a></h2>
+<p>This environment has only the components that are essential for running the application (Database, JRE,  and Tomcat), and will only
+work with a generated war file (except if you use Jenkins, which could compile a definitive version using the sources).</p>
+<div class="section" id="configuring-the-tests-in-maven">
+<h3>Configuring the Tests in Maven<a class="headerlink" href="#configuring-the-tests-in-maven" title="Permalink to this headline">¶</a></h3>
+<p>In order to add testing functionality to Maven, which will enable the automated test before deploying the application, follow the next steps:</p>
+<ol class="arabic">
+<li><p class="first">Make sure that the Maven central repository is present in the pom:</p>
+<blockquote>
+<div><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;repositories&gt;</span>
+        .
+        .
+        .
+        <span class="nt">&lt;repository&gt;</span>
+                <span class="nt">&lt;id&gt;</span>central<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Maven Repository Switchboard<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;layout&gt;</span>default<span class="nt">&lt;/layout&gt;</span>
+                <span class="nt">&lt;url&gt;</span>http://repo1.maven.org/maven2<span class="nt">&lt;/url&gt;</span>
+                <span class="nt">&lt;snapshots&gt;</span>
+                        <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
+                <span class="nt">&lt;/snapshots&gt;</span>
+        <span class="nt">&lt;/repository&gt;</span>
+        .
+        .
+        .
+<span class="nt">&lt;/repositories&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">this may not be necessary if any other of the defined repositories already has the <em>junit</em> package.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Make sure that Junit is defined as a dependency with <em>test</em> scope</p>
+<blockquote>
+<div><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;dependencies&gt;</span>
+        .
+        .
+        .
+        <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>4.11<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-test<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${org.springframework.version}<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        .
+        .
+        .
+<span class="nt">&lt;dependencies&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if we don&#8217;t do this, our tests will simply not be run.</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="using-maven-to-compile-and-generate-the-war-file-manual-deploy">
+<h3>Using Maven To Compile And Generate The War File (Manual Deploy)<a class="headerlink" href="#using-maven-to-compile-and-generate-the-war-file-manual-deploy" title="Permalink to this headline">¶</a></h3>
+<p>This installation uses Maven only to generate the war file, which we will manually deploy in the web applications Tomcat
+folder (<em>TOMCAT_HOME/webapps</em>)</p>
+<div class="section" id="compiling-and-packaging-the-application">
+<h4>Compiling And Packaging The Application<a class="headerlink" href="#compiling-and-packaging-the-application" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic">
+<li><p class="first">Go to the project root, where the pom.xml is.</p>
+</li>
+<li><p class="first">Open a new command line and type:</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mvn org.apache.maven.plugins:maven-install-plugin:2.3.1:install-file <span class="se">\</span>
+-Dfile<span class="o">=</span>lib/InventoryAgentData.jar <span class="se">\</span>
+-DgroupId<span class="o">=</span>ncr.ATMMonitoring.agent <span class="se">\</span>
+-DartifactId<span class="o">=</span>ATMAgent -Dversion<span class="o">=</span>1.0 -Dpackaging<span class="o">=</span>jar <span class="se">\</span>
+-DlocalRepositoryPath<span class="o">=</span>lib/
+</pre></div>
+</div>
+<img alt="../_images/image12.png" class="align-center" src="../_images/image12.png" />
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Then type:</dt>
+<dd><blockquote class="first">
+<div><div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mvn clean validate compile <span class="nb">test </span>package
+</pre></div>
+</div>
+<img alt="../_images/image081.png" class="align-center" src="../_images/image081.png" />
+</div></blockquote>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">this step can be accomplished from Eclipse as well. Right click onto the project and select <em>Run As</em> ⇒ <em>Maven build...</em>, then
+write the goals (<em>clean validate compile test package</em>) in the proper field and click <em>Run</em>.</p>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">If there is no error during the whole process, you should see something like this:</p>
+<blockquote>
+<div><img alt="../_images/image09.png" class="align-center" src="../_images/image09.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the <strong>clean</strong> goal deletes previous compiled sources in the target/classes directory; the <strong>validate</strong> goal makes sure
+that everything the applications need to compile is present; the <strong>compile</strong> goal compiles all the classes from <em>main/src/java</em>
+and <em>test/java</em>; the <strong>test</strong> goal execute all the test classes that are present inside the test folder; and last of all,
+<strong>package</strong> generates the war file. For more info visit the <a class="reference external" href="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">Maven Documentation</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">if any of the tests fail or an exception is thrown, the whole build process will be marked as <em>failed</em> and maven
+will <strong>not</strong> produce the war file.</p>
+</div>
+<img alt="../_images/image101.png" class="align-center" src="../_images/image101.png" />
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="deploying-in-tomcat">
+<h4>Deploying in Tomcat<a class="headerlink" href="#deploying-in-tomcat" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="manual-deployment">
+<h5>Manual Deployment<a class="headerlink" href="#manual-deployment" title="Permalink to this headline">¶</a></h5>
+<p>Copy the generated war file, located in the folder target, to the webapps folder of Tomcat (<em>TOMCAT_HOME/webapps</em>):</p>
+<ol class="arabic simple">
+<li>Simply use the command <em>mv</em> or <em>cp</em> in linux, or drag and drop using a graphical interface.</li>
+</ol>
+</div>
+<div class="section" id="using-tomcat-application-manager">
+<h5>Using Tomcat Application Manager<a class="headerlink" href="#using-tomcat-application-manager" title="Permalink to this headline">¶</a></h5>
+<ol class="arabic">
+<li><p class="first">Go to <a class="reference external" href="http://localhost:8080/manager/html/">http://localhost:8080/manager/html/</a>
+#. Enter user and password for tomcat admin.</p>
+</li>
+<li><p class="first">In the bottom of the page, search for the option <em>WAR file to deploy</em>.</p>
+</li>
+<li><p class="first">Press the button labeled <strong>Choose File</strong>:</p>
+<blockquote>
+<div><img alt="../_images/image13.png" class="align-center" src="../_images/image13.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Search for the war file generated by Maven.</p>
+</li>
+<li><p class="first">Confirm with <strong>Deploy</strong>.</p>
+</li>
+<li><p class="first">You should see a new application row with the value <strong>true</strong> in the <em>Running</em> column:</p>
+<blockquote>
+<div><img alt="../_images/image14.png" class="align-center" src="../_images/image14.png" />
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="using-maven-to-compile-generate-the-war-file-and-deploy-into-a-tomcat-server">
+<h3>Using Maven To Compile, Generate The War File And Deploy Into a Tomcat server<a class="headerlink" href="#using-maven-to-compile-generate-the-war-file-and-deploy-into-a-tomcat-server" title="Permalink to this headline">¶</a></h3>
+<p>This schema uses Maven not only to generate the war file, but to deploy it directly into a server.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Maven and the Tomcat server must have been configured as described in the sections <em>Configuration for Using Deploy with Maven</em>
+and <em>Configure Maven to deploy in Tomcat</em> included in <a class="reference internal" href="../enviroment_setup/sw-environment-setup.html"><em>Software Environment Setup</em></a>.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Check that the pom file includes the following section:</p>
+<blockquote>
+<div><div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;plugins&gt;</span>
+        .
+        .
+        .
+        <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.tomcat.maven<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>tomcat7-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.0<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                        <span class="nt">&lt;url&gt;</span>http://localhost:8080/manager/text<span class="nt">&lt;/url&gt;</span>
+                        <span class="nt">&lt;path&gt;</span>/atm<span class="nt">&lt;/path&gt;</span>
+                        <span class="nt">&lt;username&gt;</span>admin<span class="nt">&lt;/username&gt;</span>
+                        <span class="nt">&lt;password&gt;</span>tomcat<span class="nt">&lt;/password&gt;</span>
+                        <span class="nt">&lt;update&gt;</span>true<span class="nt">&lt;/update&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+        .
+        .
+        .
+<span class="nt">&lt;/plugins&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">in the url parameter it is possible to add a remote address, and the Tomcat admin user and password should
+match the ones defined in Tomcat itself (please refer to <em>Configuration For Deploying With Maven</em> in <a class="reference internal" href="../enviroment_setup/sw-environment-setup.html"><em>Software Environment Setup</em></a>).</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Repeat the steps 1 and 2 of the section <a class="reference internal" href="#compiling-and-packaging-the-application">Compiling and packaging the application</a></p>
+</li>
+<li><dl class="first docutils">
+<dt>Execute:</dt>
+<dd><blockquote class="first">
+<div><div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mvn clean validate compile <span class="nb">test </span>tomcat7:deploy
+</pre></div>
+</div>
+</div></blockquote>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">this step can be accomplished from Eclipse as well. Right click onto the project and select <em>Run As</em> ⇒ <em>Maven build...</em>, then
+write the goals (<em>clean validate compile test tomcat7:deploy</em>) in the proper field and click <em>Run</em>.</p>
+</div>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="using-jenkins-to-compile-generate-the-war-file-and-deploy-into-a-tomcat-server">
+<h3>Using Jenkins To Compile, Generate The War File And Deploy Into a Tomcat server<a class="headerlink" href="#using-jenkins-to-compile-generate-the-war-file-and-deploy-into-a-tomcat-server" title="Permalink to this headline">¶</a></h3>
+<p>This installation procedure uses Jenkins to handle Maven and the whole compile and deploy process. It can be configured to use Maven only
+for generating the war and then manually moving it into the webapps folder, or it can use Maven to deploy the app in Tomcat using the Maven
+tomcat 7 plugin.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if the code is local (no version control system is being used) you have to make sure that the user that runs Jenkins
+(usually called <em>jenkins</em>) has permission to read and write over the directory where the sources are.</p>
+</div>
+<div class="section" id="compile-and-deploy-the-application">
+<h4>Compile And Deploy The Application<a class="headerlink" href="#compile-and-deploy-the-application" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic">
+<li><p class="first">Create a new Job by clicking onto the icon called <strong>New Job</strong> in the left menu:</p>
+<blockquote>
+<div><img alt="../_images/image15.png" src="../_images/image15.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Assign a name to the new job.</p>
+</li>
+<li><p class="first">Select the option <strong>Build a maven2/3 project</strong>.</p>
+</li>
+<li><p class="first">Press the ok button:</p>
+<blockquote>
+<div><img alt="../_images/image16.png" src="../_images/image16.png" />
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>In the section <strong>Source Code Management</strong>, select <em>none</em>.</dt>
+<dd><ol class="first last arabic simple">
+<li>This can be changed and select a control version system.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first">In the section <strong>build/Root POM</strong> indicate where the <em>pom.xml</em> is located.</p>
+</li>
+<li><p class="first">In the <strong>build/goal</strong> write <em>clean validate compile test tomcat7:deploy</em></p>
+<blockquote>
+<div><img alt="../_images/image17.png" class="align-center" src="../_images/image17.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Press <strong>Save</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="create-the-local-repo">
+<h4>Create The Local Repo<a class="headerlink" href="#create-the-local-repo" title="Permalink to this headline">¶</a></h4>
+<p>To have the <em>ATMAgent.jar</em> available in compilation time a local repo must be created. This is similar to the second
+step defined in <a class="reference internal" href="#compiling-and-packaging-the-application">Compiling and packaging the application</a> . In order to do so, follow the next steps:</p>
+<ol class="arabic">
+<li><p class="first">Follow the steps 1-6 from the previous section <a class="reference internal" href="#compile-and-deploy-the-application">Compile and deploy the application</a></p>
+</li>
+<li><p class="first">In the <strong>build/goal</strong> write</p>
+<blockquote>
+<div><div class="highlight-text"><div class="highlight"><pre>org.apache.maven.plugins:maven-install-plugin:2.3.1:install-file -Dfile=${project.basedir}/lib/InventoryAgentData.jar-DgroupId=ncr.ATMMonitoring.agent  -DartifactId=ATMAgent -Dversion=1.0 -Dpackaging=jar -DlocalRepositoryPath=${project.basedir}/lib/
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">In the section <strong>Post-build Actions</strong> press the button <strong>Add Post Build Action</strong> and from the options available choose <strong>Build other projects</strong>:</p>
+<blockquote>
+<div><img alt="../_images/image18.png" src="../_images/image18.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Write the name given to the job created in the previous section <a class="reference internal" href="#compile-and-deploy-the-application">Compile and deploy the application</a></p>
+</li>
+<li><p class="first">Press <strong>Save</strong>.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if the jar ATMAgent.jar is located in a remote repository and referenced in the pom, this step is not needed.</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Install And Deploy ATM Monitoring</a><ul>
+<li><a class="reference internal" href="#development">Development</a><ul>
+<li><a class="reference internal" href="#add-a-tomcat-server-in-eclipse">Add a Tomcat Server in Eclipse</a><ul>
+<li><a class="reference internal" href="#configure-the-ports">Configure The Ports</a></li>
+<li><a class="reference internal" href="#starting-tomcat">Starting Tomcat</a><ul>
+<li><a class="reference internal" href="#restart-and-debug-mode">Restart and Debug Mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configure-the-application">Configure the Application</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-production">Test-Production</a><ul>
+<li><a class="reference internal" href="#configuring-the-tests-in-maven">Configuring the Tests in Maven</a></li>
+<li><a class="reference internal" href="#using-maven-to-compile-and-generate-the-war-file-manual-deploy">Using Maven To Compile And Generate The War File (Manual Deploy)</a><ul>
+<li><a class="reference internal" href="#compiling-and-packaging-the-application">Compiling And Packaging The Application</a></li>
+<li><a class="reference internal" href="#deploying-in-tomcat">Deploying in Tomcat</a><ul>
+<li><a class="reference internal" href="#manual-deployment">Manual Deployment</a></li>
+<li><a class="reference internal" href="#using-tomcat-application-manager">Using Tomcat Application Manager</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-maven-to-compile-generate-the-war-file-and-deploy-into-a-tomcat-server">Using Maven To Compile, Generate The War File And Deploy Into a Tomcat server</a></li>
+<li><a class="reference internal" href="#using-jenkins-to-compile-generate-the-war-file-and-deploy-into-a-tomcat-server">Using Jenkins To Compile, Generate The War File And Deploy Into a Tomcat server</a><ul>
+<li><a class="reference internal" href="#compile-and-deploy-the-application">Compile And Deploy The Application</a></li>
+<li><a class="reference internal" href="#create-the-local-repo">Create The Local Repo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../enviroment_setup/sw-environment-setup.html"
+                        title="previous chapter">Software Environment Setup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../architecture/architecture.html"
+                        title="next chapter">Architecture</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/installation/install-deploy.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../architecture/architecture.html" title="Architecture"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../enviroment_setup/sw-environment-setup.html" title="Software Environment Setup"
+             >previous</a> |</li>
+        <li><a href="../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, NCR.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

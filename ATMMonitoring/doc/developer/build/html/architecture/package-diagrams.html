@@ -1,0 +1,162 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Package Diagram &mdash; ATMMonitoring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Architecture" href="architecture.html" />
+    <link rel="next" title="Component Diagram" href="component-diagram.html" />
+    <link rel="prev" title="Sequence Diagrams" href="sequence-diagrams.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="component-diagram.html" title="Component Diagram"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sequence-diagrams.html" title="Sequence Diagrams"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="architecture.html" accesskey="U">Architecture</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="package-diagram">
+<h1>Package Diagram<a class="headerlink" href="#package-diagram" title="Permalink to this headline">¶</a></h1>
+<img alt="../_images/package.png" class="align-center" src="../_images/package.png" style="width: 900px; height: 500px;" />
+<p>The main package of the system is <strong>com.ncr.ATMMonitoring</strong>, from there we have the following specific packages:</p>
+<ul class="simple">
+<li><strong>com.ncr.ATMMonitoring.controller</strong>: holds all the controller classes, those in charge of connecting the web pages with the services.</li>
+<li><strong>com.ncr.ATMMonitoring.service</strong>: contains all the interfaces and implementations for each specific service.</li>
+<li><strong>com.ncr.ATMMonitoring.socket</strong>: holds the classes in charge of the communication between the ATM agent and the server.</li>
+<li><strong>com.ncr.ATMMonitoring.dao</strong>: inside we have all the interfaces and implementations of each DAO.</li>
+<li><strong>com.ncr.ATMMonitoring.pojo</strong>: holds all the entities (POJOs) used by the system.</li>
+<li><strong>com.ncr.ATMMonitoring.util</strong>: contains the util or helpers classes.</li>
+<li><strong>com.ncr.ATMMonitoring.tag</strong>: inside we can find the classes that hold the logic required to define a custom JSP tag.</li>
+</ul>
+<dl class="docutils">
+<dt>The whole system has dependencies with the following external packages:</dt>
+<dd><ul class="first last simple">
+<li><strong>com.ncr.agent</strong>: defines all the data classes related to the ATM agent in order to allow the communication with the server.</li>
+<li><em>Libraries</em>: this system currently uses some well known frameworks and libraries included in the following external packages:<ul>
+<li><strong>org.hibernate</strong>: package that has all the <a class="reference external" href="http://hibernate.org/orm/documentation/">Hibernate</a> classes.</li>
+<li><strong>org.springframework</strong>: holds the <a class="reference external" href="http://spring.io/docs">Spring Framework</a>.</li>
+<li><strong>com.google.code.gson</strong>: includes <a class="reference external" href="http://https://code.google.com/p/google-gson/">GSON</a>, the library that eases the (de)serialization of Java objects to Json.</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">in this diagram we reflected only the main dependencies. Others, such as log4j, were omitted beacuse they are not actually relevant to the architecture.</p>
+</div>
+<div class="section" id="diagrams-download">
+<h2>Diagrams Download<a class="headerlink" href="#diagrams-download" title="Permalink to this headline">¶</a></h2>
+<p>This diagram was made using <a class="reference external" href="http://dia-installer.de/)">Dia 0.96</a>:</p>
+<ul class="simple">
+<li><a class="reference download internal" href="../_downloads/package.dia"><tt class="xref download docutils literal"><span class="pre">Package</span> <span class="pre">Diagram</span></tt></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Package Diagram</a><ul>
+<li><a class="reference internal" href="#diagrams-download">Diagrams Download</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sequence-diagrams.html"
+                        title="previous chapter">Sequence Diagrams</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="component-diagram.html"
+                        title="next chapter">Component Diagram</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/architecture/package-diagrams.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="component-diagram.html" title="Component Diagram"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sequence-diagrams.html" title="Sequence Diagrams"
+             >previous</a> |</li>
+        <li><a href="../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="architecture.html" >Architecture</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, NCR.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
