@@ -56,7 +56,7 @@ public class Location {
     @Type(type = "text")
     private String addressCountry;
 
-    @Formula("concat(address_city, ', ' , address_country, ', ', address_postcode )")
+    @Formula("address_city || ', ' || address_country || ', ' || address_postcode")
     public String addressCityAndCountry;
     
     /** The coord x. */
