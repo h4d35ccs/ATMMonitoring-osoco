@@ -28,7 +28,7 @@
         <intercept-url pattern="/terminals/byQuery" access="hasAnyRole(${security.queriesAccessAllowedRoles})"/>
         <intercept-url pattern="/externalreports/**" access="hasAnyRole(${security.reportsAccessAllowedRoles})"/>
         <!-- <intercept-url pattern="/banks/**" access="hasAnyRole(${security.banksAccessAllowedRoles})"/> -->
-        <form-login login-page="/login"
+        <form-login login-page="/preLogin"
                     authentication-success-handler-ref="loginSuccessHandler"
                     authentication-failure-url="/loginfailed" />
         <logout logout-url="/logout"/>
