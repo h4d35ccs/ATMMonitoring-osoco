@@ -5,7 +5,7 @@
 
 <%@attribute name="terminals" required="true" type="java.util.List"%>
 <%@attribute name="baseUrl" required="true" type="java.lang.String"%>
-<%@attribute name="stringQueryDate" required="true" type="java.lang.String"%>
+<%@attribute name="stringQueryDate" required="false" type="java.lang.String"%>
 <%@attribute name="query" required="false" type="java.lang.Object"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>

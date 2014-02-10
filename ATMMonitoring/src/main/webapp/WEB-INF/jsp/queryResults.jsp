@@ -1,4 +1,4 @@
-
+<%@taglib tagdir="/WEB-INF/tags/terminal/" prefix="terminal" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -1111,18 +1111,16 @@
 		</c:if>
 		<c:if  test="${!empty pagedListHolder.pageList}">
 		<h2>${pagedListHolder.source.size()} <spring:message code="label.results"/></h2>
-		<div class="table_buttons">
-
-			<div class="botonera">
-				<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
-			</div>
-
-			<div class="margin-box">
-
-			<t:terminalsTable baseUrl="queries/results" terminals="${pagedListHolder.pageList}"/>
-
-            		</div>
-			<form:form id="exportForm" method="post" action="queries/results/export" commandName="query" target="_blank">
+		  <terminal:terminalsTable baseUrl="queries/results" terminals="${pagedListHolder.pageList}" query="${query}"/>
+		    <script type="text/javascript">
+		      $(function() {
+		          $("#exportTerminals").click(function(event) {
+		              $("#exportForm").submit();
+		              event.preventDefault();
+		          });
+		      });
+		    </script>  
+            <form:form id="exportForm" method="post" action="queries/results/export" commandName="query" target="_blank">
               <input type="hidden" name="sort" value="${sort}"/>
               <input type="hidden" name="order" value="${order}"/>
 				<c:forEach var="i" begin="1" end="5">
@@ -1166,21 +1164,7 @@
 					<form:hidden path="internetExplorerCombo${i}2"/>
 					<form:hidden path="internetExplorerField${i}"/>
 				</c:forEach>
-
-				<div class="botonera ">
-					<a href="#" class="btn download" onclick="$('#exportForm').submit(); return false;" ><spring:message code="label.query.downloadCsv"/></a>
-				</div>
-
-		   </div><!-- /table_buttons -->
-
-			<div class="pagination">
-                <div class="t_number"><span class="text">${pagedListHolder.source.size()} <spring:message code="label.terminals"/></span></div>
-                <div class="p_number">
-                  <span class="text"><spring:message code="label.page"/></span>
-                  <t:paging pagedListHolder="${pagedListHolder}" pagedLink="queries/results?p=~&queryId=${query.id}&sort=${sort}&order=${order}"/>
-                </div>
-
-			</form:form>
+            </form:form>
 		</c:if>
 	</div>
 </div>

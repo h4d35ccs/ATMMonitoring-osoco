@@ -18,7 +18,7 @@
 				<spring:message code="label.update.schedule" /> 
 			</a>
 		</sec:authorize>
-		<a href="terminals/exportAll" class="btn download" target="_blank"> 
+		<a href="terminals/exportAll" class="btn download" target="_blank" id="exportTerminals"> 
 			<spring:message code="label.query.downloadCsv" />
 		</a>
 	</c:if>
@@ -33,7 +33,7 @@
 				<spring:message code="label.update.schedule" />
 			</a>
 		</sec:authorize>
-		<a href="terminals/export/${query.id}" class="btn download" target="_blank"> 
+		<a href="terminals/export/${query.id}" class="btn download" target="_blank" id="exportTerminals"> 
 			<spring:message code="label.query.downloadCsv" />
 		</a>
 	</c:if>
