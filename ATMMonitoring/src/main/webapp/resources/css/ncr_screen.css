@@ -4067,3 +4067,13 @@ legend.map li {
     font-size: 1em;
   }
 }
+
+.icons_action .delete {
+  background-position: -20px 0;
+  cursor: pointer;
+}
+
+/* line 265, ../sass/_icons.scss */
+.icons_action .delete:hover {
+    background-position: -20px -20px;
+}
