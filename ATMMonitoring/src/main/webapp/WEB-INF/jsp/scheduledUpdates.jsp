@@ -43,7 +43,7 @@
 
 <c:if test="${success != null}">
   <div class="notification">
-    <p>${success}</p>
+    <p><spring:message code="${success}" /></p>
   </div>
 </c:if>
 
