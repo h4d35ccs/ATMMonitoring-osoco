@@ -75,8 +75,9 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.ncr.ATMMonitoring.service.WidgetService#copyDefaultWidgetsToUserDashboard(com.ncr.ATMMonitoring.pojo.User, com.ncr.ATMMonitoring.pojo.Dashboard)
+
+	/**
+	 * @see WidgetService
 	 */
 	@Override
 	public List<Widget> copyDefaultWidgetsToUserDashboard(User user) {
@@ -89,6 +90,9 @@ public class WidgetServiceImpl implements WidgetService {
 		return userDefaultWidgets;
 	}
 	
+	/**
+	 * @see WidgetService
+	 */
 	@Override
 	public void deleteWidgetFromUser(Integer widgetId, User user) {
 		Widget widget = findWidgetById(widgetId);
@@ -134,24 +138,37 @@ public class WidgetServiceImpl implements WidgetService {
 			widget.getQueryDate());
 	}
 
+	/**
+	 * @see WidgetService
+	 */
 	@Override
 	public void createWidgetForUser(Widget widget, User loggedUser) {
 		Set<Query> userQueries = loggedUser.getQueries();
-		Dashboard dashboard = loggedUser.getDashboard();
 		Integer queryId = widget.getQuery().getId(); 
 		if(queryId != null) {
 			widget.setQuery(queryService.getQuery(queryId));
 		}
 		
 		if (userQueries.contains(widget.getQuery())) {
+			Dashboard dashboard = loggedUser.getDashboard();
+			Integer widgetId = widget.getId();
+			
 			widget.setOwner(loggedUser);
 			widget.setDashboard(dashboard);
-			widget.setOrder(dashboard.getWidgets().size());
+			
+			if(widgetId != null) {
+				widget.setOrder(widgetDAO.findById(widgetId).getOrder());
+			} else {
+				widget.setOrder(dashboard.getWidgets().size());
+			}
 			
 			this.saveWidget(widget);
 		}
 	}
 	
+	/**
+	 * @see WidgetService
+	 */
 	@Override 
 	public void addWidgetsFromLibrary(List<Integer> widgetIds, User user) {
 		for(Integer widgetId : widgetIds) {
@@ -163,6 +180,9 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 	}
 	
+	/**
+	 * @see WidgetService
+	 */
 	@Override 
 	public void addOrRemoveWidgetToLibrary(Integer widgetId ,User user, Integer categoryId) {
 		Widget widget = findWidgetById(widgetId);
@@ -178,6 +198,9 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 	}
 	
+	/**
+	 * @see WidgetService
+	 */
 	@Override 
 	public void setWidgetDefault(Integer widgetId, User user,	boolean isDefault) {
 		Widget widget = findWidgetById(widgetId);
@@ -190,11 +213,17 @@ public class WidgetServiceImpl implements WidgetService {
 		}
 	}
 	
+	/**
+	 * @see WidgetService
+	 */
 	@Override
 	public List<WidgetCategory> findLibraryWidgetsByCategory() {
 		return widgetCategoryDAO.findLibraryWidgetsByCategory();
 	}
 	
+	/**
+	 * @see WidgetService
+	 */
 	@Override
 	public WidgetCategory findCategoryById(Integer categoryId) {
 		return widgetCategoryDAO.findCategoryById(categoryId);

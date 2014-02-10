@@ -167,16 +167,18 @@ $(function() {
 			var queryTypeSelect = $(this);
 			var queryType = queryTypeSelect.val();
 			
-			groupByEntitySelectValueInput.val(queryType);
-			
-			queryTypeValueRows.addClass("hide");
-			queryTypeValuesByRow.attr("disabled", "disabled");
-			queryTypeValuesByRow.removeAttr("required");
-			
-			$('div#' + queryType).removeClass("hide");
-			var groupBySelectByQueryType = getGroupBySelectByQueryType(queryType);
-			groupBySelectByQueryType.removeAttr("disabled");
-			groupBySelectByQueryType.attr("required", "required");	
+			if(queryType) {
+				groupByEntitySelectValueInput.val(queryType);
+				
+				queryTypeValueRows.addClass("hide");
+				queryTypeValuesByRow.attr("disabled", "disabled");
+				queryTypeValuesByRow.removeAttr("required");
+				
+				$('div#' + queryType).removeClass("hide");
+				var groupBySelectByQueryType = getGroupBySelectByQueryType(queryType);
+				groupBySelectByQueryType.removeAttr("disabled");
+				groupBySelectByQueryType.attr("required", "required");
+			}	
 		})
 	}
 	

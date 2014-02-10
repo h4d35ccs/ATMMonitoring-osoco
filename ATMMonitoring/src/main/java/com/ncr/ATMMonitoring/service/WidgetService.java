@@ -56,19 +56,61 @@ public interface WidgetService {
 	 */
 	public List<?> executeQuery(Widget widget, Locale locale);
 	
+	/**
+	 * Delete a widget from user
+	 * @param widgetId widget id
+	 * @param loggedUser user
+	 */
 	public void deleteWidgetFromUser(Integer widgetId, User loggedUser);
 
+	/**
+	 * Is widget owner by user
+	 * @param widget The widget
+	 * @param user The user
+	 * @return Ther operation result
+	 */
 	public Boolean isWidgetOwnedByUser(Widget widget, User user);
 
+	/**
+	 * Create a widget and assign it to a user
+	 * @param widget The widget
+	 * @param user the user
+	 */
 	public void createWidgetForUser(Widget widget, User user);
 
+	/**
+	 * Adds a widget to a user from widget library
+	 * @param widgetIds The widget ids
+	 * @param user The user
+	 */
 	public void addWidgetsFromLibrary(List<Integer> widgetIds, User user);
 
+	/**
+	 * Find category widgets
+	 * @return The category widgets
+	 */
 	public List<WidgetCategory> findLibraryWidgetsByCategory();
 
+	/**
+	 * Add or removes a widget from library
+	 * @param widgetId The widget id
+	 * @param user The widget owner
+	 * @param categoryId The category id
+	 */
 	public void addOrRemoveWidgetToLibrary(Integer widgetId, User user, Integer categoryId);
 
+	/**
+	 * Set widget default
+	 * @param widgetId The widget id
+	 * @param user The user
+	 * @param isDefault The default value
+	 */
 	public void setWidgetDefault(Integer widgetId, User user, boolean isDefault);
 
+	/**
+	 * Find category by id
+	 * @param categoryId The category id
+	 * @return The category
+	 */
 	public WidgetCategory findCategoryById(Integer categoryId);
 }
