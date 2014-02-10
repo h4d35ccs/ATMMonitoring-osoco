@@ -62,8 +62,4 @@ public class LoginController {
 	map.put("error", true);
 	return "login";
     }
-    
-    @RequestMapping(value = "/imAlive", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public void imAlive() {  }
 }
