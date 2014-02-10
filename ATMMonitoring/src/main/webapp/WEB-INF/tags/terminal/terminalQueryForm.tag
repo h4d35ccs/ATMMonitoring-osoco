@@ -55,8 +55,7 @@
 <script type="text/javascript">
 $(function() {
 	$("#queryDate").datepicker({ dateFormat: "dd/mm/yy" });
-	$("#queryDate").datepicker();
-    $("#queryDateButton").click(function(event) {
+	$("#queryDateButton").click(function(event) {
         event.preventDefault();
         $("#queryDate").datepicker("show");
 	});

@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.controller.propertyEditor;
 import java.beans.PropertyEditorSupport;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
@@ -16,12 +17,18 @@ import java.util.Locale;
 
 public class DatePropertyEditor extends PropertyEditorSupport {
 
+	private static final String DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
     /**
      * Flag for using current time as default value if a void or invalid one is
      * supplied.
      */
     private boolean nowAsDefault = false;
 
+    /**
+     * The date formmater
+     */
+    
+    private static SimpleDateFormat formatter = new SimpleDateFormat(DEFAULT_DATE_FORMAT);
     /**
      * Instantiates a new date property editor.
      */
@@ -43,9 +50,8 @@ public class DatePropertyEditor extends PropertyEditorSupport {
     public void setAsText(final String date) {
     	if(nowAsDefault || date != null && !date.equals("")) {
     		try {
-    			setValue(DateFormat.getDateInstance(DateFormat.SHORT,
-    					Locale.getDefault()).parse(date));
-    		} catch (ParseException e) {
+    			setValue(formatter.parse(date));
+    		} catch (Exception e) {
     			if (nowAsDefault) {
     				setValue(new Date());
     			} else {
@@ -61,7 +67,6 @@ public class DatePropertyEditor extends PropertyEditorSupport {
     @Override
     public String getAsText() {
 	Date value = (Date) getValue();
-	return (value != null) ? DateFormat.getDateInstance(DateFormat.SHORT,
-		Locale.getDefault()).format(value) : "";
+	return (value != null) ? formatter.format(value) : "";
     }
 }

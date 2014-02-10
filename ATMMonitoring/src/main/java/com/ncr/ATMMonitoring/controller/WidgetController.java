@@ -2,6 +2,7 @@ package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.ncr.ATMMonitoring.controller.propertyEditor.DatePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.Widget;
@@ -57,6 +61,16 @@ public class WidgetController {
     /** The user service. */
     @Autowired
     private UserService userService;
+    
+    /**
+     * Binds custom editors.
+     * @param binder the binder
+     * @throws Exception the exception
+     */
+    @InitBinder
+    protected void binder(WebDataBinder binder) throws Exception {
+    	binder.registerCustomEditor(Date.class, new DatePropertyEditor());
+    }
     
     /**
      * Show new widget form
@@ -154,7 +168,7 @@ public class WidgetController {
 	    HttpServletRequest request,
 	    Principal principal) {
     	
-        if (widget != null && principal != null) {
+    	if (widget != null && principal != null) {
         	User loggedUser = userService.getUserByUsername(principal.getName());
         	widgetService.createWidgetForUser(widget, loggedUser);
         }
