@@ -52,7 +52,7 @@
                         <h4> <a href="terminals/details/${terminal.id}"><spring:message code="label.terminal.returnToNow" /></a></h4>    
                     </c:if>
 					<c:if test="${success != null}">
-					      <div class="notification"><p>${success}</p></div>
+					      <div class="notification"><p><spring:message code="${success}"/></p></div>
 					</c:if>
 
 					<c:if test="${errors != null}">

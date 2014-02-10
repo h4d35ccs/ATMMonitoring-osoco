@@ -279,7 +279,6 @@ public class Terminal {
 	this.terminalVendor = terminal.terminalVendor;
 	this.tracerNumber = terminal.tracerNumber;
 	this.bankCompany = terminal.bankCompany;
-	this.setCurrentInstallation(terminal.getCurrentInstallation());
 	this.terminalModel = terminal.terminalModel;
     }
 
