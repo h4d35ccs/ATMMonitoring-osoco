@@ -18,11 +18,11 @@
 		    
 		    $("thead th.order").click(function(event) {
                 var headerUrl = $(this).find("a").attr("href");
-                document.location.href = headerUrl;
+                window.location.assignWithBase(headerUrl);
             });
             $("#terminals tbody tr").click(function(event) {
                 var terminalUrl = $(this).find("a").attr("href");
-                document.location.href = terminalUrl;
+                window.location.assignWithBase(terminalUrl);
             });
         });
     </script>

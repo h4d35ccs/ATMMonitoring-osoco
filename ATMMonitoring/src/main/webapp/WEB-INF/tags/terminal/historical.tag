@@ -115,7 +115,7 @@
         eventSource.loadJSON(buildEventsJSONData(), '');
         
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
-            document.location.assign(document.location.pathname + evt.getDescription());
+            window.location.assign(document.location.pathname + evt.getDescription());
   		}
   		
   		var resizeTimerID = null;

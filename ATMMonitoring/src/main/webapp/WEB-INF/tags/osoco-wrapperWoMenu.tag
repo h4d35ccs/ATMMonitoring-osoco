@@ -22,6 +22,7 @@
         <script src="resources/js/jquery-1.8.3.min.js"></script>
         <script type='text/javascript' src="resources/js/jquery-ui.min.js"></script>
 		<script type='text/javascript' src="resources/js/initHelp.js"></script>
+		<script src="resources/js/windowLocationHenhancer.js"></script>
         <title><spring:message code="label.baseTitle"/> - <spring:message code="${titleCode}"/></title>
         <link rel="stylesheet" type="text/css" media="all" href="resources/css/ncr_screen.css" />
 

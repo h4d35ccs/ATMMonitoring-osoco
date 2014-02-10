@@ -39,6 +39,7 @@
 	    <script type='text/javascript' src="resources/js/jquery-ui.min.js"></script>
 	    <script type='text/javascript' src="resources/js/jquery.ui.touch-punch.min.js"></script>
 	    <script type='text/javascript' src='resources/js/jquery.colorbox-min.js'></script>
+        <script src="resources/js/windowLocationHenhancer.js"></script>
         <script src="resources/js/menu.js"></script>
         <script src="resources/js/application.js"></script>
 

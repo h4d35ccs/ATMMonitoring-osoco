@@ -34,7 +34,7 @@
 <script type="text/javascript">
 	$("input#next").click(function() {
 		var selectedOption = $("input[type=radio]:checked");
-		window.location.assign("${base}" + selectedOption.val());
+		window.location.assignWithBase(selectedOption.val());
 	})
 </script>
 

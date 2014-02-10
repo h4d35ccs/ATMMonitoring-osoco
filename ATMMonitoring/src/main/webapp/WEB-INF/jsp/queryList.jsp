@@ -13,7 +13,7 @@
         $("tr.queryRow").click(function(event) {
             event.preventDefault();
             var queryId = $(this).data('queryId');
-            document.location.href = "queries/show?queryId=" + queryId;
+            window.location.assignWithBase("queries/show?queryId=" + queryId);
         });
 
         $(".delete").click(function(event) {
@@ -21,7 +21,7 @@
             event.preventDefault();
             var queryId= $(this).data('queryId');
             if (confirm('¿Estás seguro que quieres borrar la consulta?')) {
-                document.location.href = "queries/delete?queryId=" + queryId;
+                window.location.assignWithBase("queries/delete?queryId=" + queryId);
             }
         });
     });

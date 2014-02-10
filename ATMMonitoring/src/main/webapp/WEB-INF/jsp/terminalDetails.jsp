@@ -1195,8 +1195,7 @@
 	};
 
 	function requestSnmpUpdate() {
-
-			window.location.href = "terminals/request/${terminal.id}";
+	   window.location.assignWithBase("terminals/request/${terminal.id}");
 	}
 	
 	$(document).ready(function(){
