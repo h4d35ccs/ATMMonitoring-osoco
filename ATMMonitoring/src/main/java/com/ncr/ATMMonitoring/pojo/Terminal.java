@@ -66,7 +66,6 @@ public class Terminal {
 	comboboxes.put("branch", operations);
 	comboboxes.put("bank", operations);
 	comboboxes.put("manufacturingSite", operations);
-	comboboxes.put("productClass", operations);
 	comboboxes.put("productClassDescription", operations);
 	comboboxes.put("serialNumber", operations);
 	comboboxes.put("tracerNumber", operations);
