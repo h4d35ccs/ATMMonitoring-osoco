@@ -12,4 +12,6 @@ On agent dependecy, delete lines
 <scope>system</scope>
 <systemPath>${project.basedir}/lib/InventoryAgentData.jar</systemPath>"
 
-3 -> mvn package
+3 -> Copy messages.properties to messages_es.properties
+
+4 -> mvn package
