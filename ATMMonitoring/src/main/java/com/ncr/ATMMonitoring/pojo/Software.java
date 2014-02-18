@@ -137,14 +137,6 @@ public class Software {
     @Type(type = "text")
     private String swType;
 
-    // We don't need this for now
-    // @ManyToMany
-    // @Cascade(CascadeType.ALL)
-    // @JoinTable(name = "terminal_config_software", joinColumns = {
-    // @JoinColumn(name = "software_id") }, inverseJoinColumns = {
-    // @JoinColumn(name = "terminal_config_id") })
-    // private Set<TerminalConfig> configs;
-
     /**
      * Instantiates a new software.
      */
@@ -574,4 +566,132 @@ public class Software {
     public void setSwType(String swType) {
 	this.swType = swType;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((buildVersion == null) ? 0 : buildVersion.hashCode());
+		result = prime * result + ((caption == null) ? 0 : caption.hashCode());
+		result = prime * result
+				+ ((description == null) ? 0 : description.hashCode());
+		result = prime
+				* result
+				+ ((identifyingNumber == null) ? 0 : identifyingNumber
+						.hashCode());
+		result = prime * result
+				+ ((language == null) ? 0 : language.hashCode());
+		result = prime * result
+				+ ((localPackage == null) ? 0 : localPackage.hashCode());
+		result = prime * result
+				+ ((majorVersion == null) ? 0 : majorVersion.hashCode());
+		result = prime * result
+				+ ((minorVersion == null) ? 0 : minorVersion.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((packageName == null) ? 0 : packageName.hashCode());
+		result = prime * result
+				+ ((productId == null) ? 0 : productId.hashCode());
+		result = prime
+				* result
+				+ ((remainingVersion == null) ? 0 : remainingVersion.hashCode());
+		result = prime * result
+				+ ((revisionVersion == null) ? 0 : revisionVersion.hashCode());
+		result = prime * result + ((swType == null) ? 0 : swType.hashCode());
+		result = prime * result + ((vendor == null) ? 0 : vendor.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Software other = (Software) obj;
+		if (buildVersion == null) {
+			if (other.buildVersion != null)
+				return false;
+		} else if (!buildVersion.equals(other.buildVersion))
+			return false;
+		if (caption == null) {
+			if (other.caption != null)
+				return false;
+		} else if (!caption.equals(other.caption))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (identifyingNumber == null) {
+			if (other.identifyingNumber != null)
+				return false;
+		} else if (!identifyingNumber.equals(other.identifyingNumber))
+			return false;
+		if (installDate == null) {
+			if (other.installDate != null)
+				return false;
+		} else if (! (installDate.getTime() == other.installDate.getTime()))
+			return false;
+		if (language == null) {
+			if (other.language != null)
+				return false;
+		} else if (!language.equals(other.language))
+			return false;
+		if (localPackage == null) {
+			if (other.localPackage != null)
+				return false;
+		} else if (!localPackage.equals(other.localPackage))
+			return false;
+		if (majorVersion == null) {
+			if (other.majorVersion != null)
+				return false;
+		} else if (!majorVersion.equals(other.majorVersion))
+			return false;
+		if (minorVersion == null) {
+			if (other.minorVersion != null)
+				return false;
+		} else if (!minorVersion.equals(other.minorVersion))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (packageName == null) {
+			if (other.packageName != null)
+				return false;
+		} else if (!packageName.equals(other.packageName))
+			return false;
+		if (productId == null) {
+			if (other.productId != null)
+				return false;
+		} else if (!productId.equals(other.productId))
+			return false;
+		if (remainingVersion == null) {
+			if (other.remainingVersion != null)
+				return false;
+		} else if (!remainingVersion.equals(other.remainingVersion))
+			return false;
+		if (revisionVersion == null) {
+			if (other.revisionVersion != null)
+				return false;
+		} else if (!revisionVersion.equals(other.revisionVersion))
+			return false;
+		if (swType == null) {
+			if (other.swType != null)
+				return false;
+		} else if (!swType.equals(other.swType))
+			return false;
+		if (vendor == null) {
+			if (other.vendor != null)
+				return false;
+		} else if (!vendor.equals(other.vendor))
+			return false;
+		return true;
+	}
 }

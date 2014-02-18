@@ -605,4 +605,149 @@ public class OperatingSystem {
     public void setOsLanguage(String oSLanguage) {
 	osLanguage = oSLanguage;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((buildVersion == null) ? 0 : buildVersion.hashCode());
+		result = prime * result
+				+ ((majorVersion == null) ? 0 : majorVersion.hashCode());
+		result = prime * result
+				+ ((manufacturer == null) ? 0 : manufacturer.hashCode());
+		result = prime * result
+				+ ((minorVersion == null) ? 0 : minorVersion.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((organization == null) ? 0 : organization.hashCode());
+		result = prime * result
+				+ ((osLanguage == null) ? 0 : osLanguage.hashCode());
+		result = prime * result + ((osType == null) ? 0 : osType.hashCode());
+		result = prime
+				* result
+				+ ((remainingVersion == null) ? 0 : remainingVersion.hashCode());
+		result = prime * result
+				+ ((revisionVersion == null) ? 0 : revisionVersion.hashCode());
+		result = prime * result
+				+ ((serialNumber == null) ? 0 : serialNumber.hashCode());
+		result = prime
+				* result
+				+ ((servicePackBuildVersion == null) ? 0
+						: servicePackBuildVersion.hashCode());
+		result = prime
+				* result
+				+ ((servicePackMajorVersion == null) ? 0
+						: servicePackMajorVersion.hashCode());
+		result = prime
+				* result
+				+ ((servicePackMinorVersion == null) ? 0
+						: servicePackMinorVersion.hashCode());
+		result = prime
+				* result
+				+ ((servicePackRemainingVersion == null) ? 0
+						: servicePackRemainingVersion.hashCode());
+		result = prime
+				* result
+				+ ((servicePackRevisionVersion == null) ? 0
+						: servicePackRevisionVersion.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		OperatingSystem other = (OperatingSystem) obj;
+		if (buildVersion == null) {
+			if (other.buildVersion != null)
+				return false;
+		} else if (!buildVersion.equals(other.buildVersion))
+			return false;
+		if (majorVersion == null) {
+			if (other.majorVersion != null)
+				return false;
+		} else if (!majorVersion.equals(other.majorVersion))
+			return false;
+		if (manufacturer == null) {
+			if (other.manufacturer != null)
+				return false;
+		} else if (!manufacturer.equals(other.manufacturer))
+			return false;
+		if (minorVersion == null) {
+			if (other.minorVersion != null)
+				return false;
+		} else if (!minorVersion.equals(other.minorVersion))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (organization == null) {
+			if (other.organization != null)
+				return false;
+		} else if (!organization.equals(other.organization))
+			return false;
+		if (osLanguage == null) {
+			if (other.osLanguage != null)
+				return false;
+		} else if (!osLanguage.equals(other.osLanguage))
+			return false;
+		if (osType == null) {
+			if (other.osType != null)
+				return false;
+		} else if (!osType.equals(other.osType))
+			return false;
+		if (remainingVersion == null) {
+			if (other.remainingVersion != null)
+				return false;
+		} else if (!remainingVersion.equals(other.remainingVersion))
+			return false;
+		if (revisionVersion == null) {
+			if (other.revisionVersion != null)
+				return false;
+		} else if (!revisionVersion.equals(other.revisionVersion))
+			return false;
+		if (serialNumber == null) {
+			if (other.serialNumber != null)
+				return false;
+		} else if (!serialNumber.equals(other.serialNumber))
+			return false;
+		if (servicePackBuildVersion == null) {
+			if (other.servicePackBuildVersion != null)
+				return false;
+		} else if (!servicePackBuildVersion
+				.equals(other.servicePackBuildVersion))
+			return false;
+		if (servicePackMajorVersion == null) {
+			if (other.servicePackMajorVersion != null)
+				return false;
+		} else if (!servicePackMajorVersion
+				.equals(other.servicePackMajorVersion))
+			return false;
+		if (servicePackMinorVersion == null) {
+			if (other.servicePackMinorVersion != null)
+				return false;
+		} else if (!servicePackMinorVersion
+				.equals(other.servicePackMinorVersion))
+			return false;
+		if (servicePackRemainingVersion == null) {
+			if (other.servicePackRemainingVersion != null)
+				return false;
+		} else if (!servicePackRemainingVersion
+				.equals(other.servicePackRemainingVersion))
+			return false;
+		if (servicePackRevisionVersion == null) {
+			if (other.servicePackRevisionVersion != null)
+				return false;
+		} else if (!servicePackRevisionVersion
+				.equals(other.servicePackRevisionVersion))
+			return false;
+		return true;
+	}
 }

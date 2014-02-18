@@ -156,17 +156,12 @@ public class TerminalConfig extends Auditable {
     	this.operatingSystems = operatingSystems;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
+    @Override
     public boolean equals(Object o) {
 		if (!(o instanceof TerminalConfig)) {
 		    return false;
 		}
 		TerminalConfig tc = (TerminalConfig) o;
-		if (id.equals(tc.getId())) {
-		    return true;
-		}
 		Set<Software> swAux = tc.getSoftware();
 		Set<OperatingSystem> osAux = tc.getOperatingSystems();
 		if (!((swAux.size() == software.size()) && (osAux.size() == operatingSystems.size()))) {

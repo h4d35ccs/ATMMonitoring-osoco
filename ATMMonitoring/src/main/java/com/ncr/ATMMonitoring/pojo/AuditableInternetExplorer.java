@@ -59,4 +59,31 @@ public class AuditableInternetExplorer extends Auditable {
 	public void setInternetExplorer(InternetExplorer internetExplorer) {
 		this.internetExplorer = internetExplorer;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime
+				* result
+				+ ((internetExplorer == null) ? 0 : internetExplorer.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AuditableInternetExplorer other = (AuditableInternetExplorer) obj;
+		if (internetExplorer == null) {
+			if (other.internetExplorer != null)
+				return false;
+		} else if (!internetExplorer.equals(other.internetExplorer))
+			return false;
+		return true;
+	}
 }

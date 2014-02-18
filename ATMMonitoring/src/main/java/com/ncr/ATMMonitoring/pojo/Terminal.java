@@ -986,7 +986,7 @@ public class Terminal {
      */
     public void setHotfixes(Set<Hotfix> hotfixes) {
 	this.hotfixes = hotfixes;
-    }
+	}
 
     /**
      * Gets the internet explorers.
@@ -1196,6 +1196,38 @@ public class Terminal {
      */
     public Set<AuditableInternetExplorer> getActiveAuditableInternetExplorersByDate(Date date) {
     	return auditableSetOperations.getActiveAuditableElementsByDate(auditableInternetExplorers, date);
+    }
+
+    /**
+     * Update the collection  hardware devices of auditable elements
+     * @param hardwareDevices The hardware devices
+     */
+    public void updateHardwareDevices(Set<HardwareDevice> newHardwareDevices) {
+    	auditableSetOperations.updateAuditableElements(this.hardwareDevices, newHardwareDevices);
+    }
+
+    /**
+     * Update the collection  hardware devices of auditable elements
+     * @param hardwareDevices The hotfixes
+     */
+    public void updateHotfixes(Set<Hotfix> newHotfixes) {
+    	auditableSetOperations.updateAuditableElements(this.hotfixes, newHotfixes);
+	}
+    
+    /**
+     * Update the collection financial devices of auditable elements
+     * @param hardwareDevices The financial devices
+     */
+    public void updateFinancialDevices(Set<FinancialDevice> newFinancialDevices) {
+    	auditableSetOperations.updateAuditableElements(this.financialDevices, newFinancialDevices);
+    }
+    
+    /**
+     * Update the collection of auditable internet explorer
+     * @param internetExplorers the internetExplorers to set
+     */
+    public void updateAuditableInternetExplorers(Set<AuditableInternetExplorer> newAuditableInternetExplorers) {
+    	auditableSetOperations.updateAuditableElements(this.auditableInternetExplorers, newAuditableInternetExplorers);
     }
     
     /**

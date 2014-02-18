@@ -69,7 +69,10 @@ public class AuditableSetOperationsImpl implements AuditableSetOperations {
 	 */
 	public <T extends Auditable> void setCurrentAuditableElement( Set<T> auditableElements,
 				T newAuditableElement) {
-
+		if(newAuditableElement.getStartDate() == null) {
+			newAuditableElement.setStartDate(new Date());
+		}
+		
 		T oldauditableElement = getCurrentAuditable(auditableElements);
 		
 		if(!newAuditableElement.equals(oldauditableElement)) {
@@ -88,8 +91,10 @@ public class AuditableSetOperationsImpl implements AuditableSetOperations {
 		Date now = new Date();
 		
 		for (T element : auditableElements) {
-			if (!newAuditableElements.remove(element)) {
-				element.setEndDate(now);
+			if(element.isActive(now)) {
+				if (!newAuditableElements.remove(element)) {
+					element.setEndDate(now);
+				}	
 			}
 		}
 		

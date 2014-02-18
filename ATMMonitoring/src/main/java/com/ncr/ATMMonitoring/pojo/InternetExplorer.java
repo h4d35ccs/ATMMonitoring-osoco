@@ -265,4 +265,61 @@ public class InternetExplorer {
 	    break;
 	}
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((buildVersion == null) ? 0 : buildVersion.hashCode());
+		result = prime * result
+				+ ((majorVersion == null) ? 0 : majorVersion.hashCode());
+		result = prime * result
+				+ ((minorVersion == null) ? 0 : minorVersion.hashCode());
+		result = prime
+				* result
+				+ ((remainingVersion == null) ? 0 : remainingVersion.hashCode());
+		result = prime * result
+				+ ((revisionVersion == null) ? 0 : revisionVersion.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		InternetExplorer other = (InternetExplorer) obj;
+		if (buildVersion == null) {
+			if (other.buildVersion != null)
+				return false;
+		} else if (!buildVersion.equals(other.buildVersion))
+			return false;
+		if (majorVersion == null) {
+			if (other.majorVersion != null)
+				return false;
+		} else if (!majorVersion.equals(other.majorVersion))
+			return false;
+		if (minorVersion == null) {
+			if (other.minorVersion != null)
+				return false;
+		} else if (!minorVersion.equals(other.minorVersion))
+			return false;
+		if (remainingVersion == null) {
+			if (other.remainingVersion != null)
+				return false;
+		} else if (!remainingVersion.equals(other.remainingVersion))
+			return false;
+		if (revisionVersion == null) {
+			if (other.revisionVersion != null)
+				return false;
+		} else if (!revisionVersion.equals(other.revisionVersion))
+			return false;
+		return true;
+	}
+    
+    
 }
