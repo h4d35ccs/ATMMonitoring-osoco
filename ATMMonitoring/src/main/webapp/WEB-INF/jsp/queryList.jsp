@@ -45,7 +45,7 @@
       <a href="queries/create" class="btn right"><spring:message code="label.query.new"/></a>
     </div>
     <c:if test="${success != null}">
-       <div class="notification"><p>${success}</p></div>
+       <div class="notification"><p><spring:message code="${success}" /></p></div>
     </c:if>
     <c:if test="${error != null}">
       <div class="alert"><p>${error}</p></div>

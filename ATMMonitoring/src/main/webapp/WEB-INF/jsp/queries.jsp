@@ -754,7 +754,7 @@
 			<div class="btn txt content_hide"><spring:message code="label.query.save"/></div>
 			<div class="hide collapsible">
 				<ul>
-					<li><label for="namequery"><spring:message code="label.name"/></label> <form:input type="text" path="name"/></li>
+					<li><label for="namequery"><spring:message code="label.name"/></label> <input type="text" path="name" required=""/></li>
 					<li><label for="descriptionquery"><spring:message code="label.description"/></label> <form:textarea path="description"/></li>
 				</ul>
 				<div class="botonera"><input type="submit" class="save" id="save" name="save" value="<spring:message code="label.save"/>" /></div>
