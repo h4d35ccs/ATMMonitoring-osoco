@@ -17,6 +17,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.ncr.ATMMonitoring.dao.TerminalDAO;
 import com.ncr.ATMMonitoring.pojo.AuditableInternetExplorer;
+import com.ncr.ATMMonitoring.pojo.AuditableSoftwareAggregate;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 import com.ncr.ATMMonitoring.pojo.HardwareDevice;
@@ -293,24 +294,9 @@ public class TerminalServiceImpl implements TerminalService {
 		terminal.setCurrentTerminalConfig(newConfig);
 		logger.debug("Adding new Software Config to Terminal with IP " + terminal.getIp());
 		
-//		Set<SoftwareAggregate> swAggregates = getSwAggregates(dataStoreTerminal);
-//		Set<SoftwareAggregate> swAggregatesAux = new HashSet<SoftwareAggregate>();
-//		for (SoftwareAggregate swAggregate : swAggregates) {
-//			SoftwareAggregate swAggregateAux = softwareAggregateService
-//					.getSoftwareAggregateByVersionName(
-//							swAggregate.getMajorVersion(),
-//							swAggregate.getMinorVersion(),
-//							swAggregate.getBuildVersion(),
-//							swAggregate.getRevisionVersion(),
-//							swAggregate.getRemainingVersion(),
-//							swAggregate.getName());
-//			if (swAggregateAux != null) {
-//				swAggregatesAux.add(swAggregateAux);
-//			} else {
-//				swAggregatesAux.add(swAggregate);
-//			}
-//		}
-//		terminal.setSoftwareAggregates(swAggregatesAux);
+		
+		Set<SoftwareAggregate> swAggregates = getSwAggregates(dataStoreTerminal);
+		terminal.updateAuditableSoftwareAggregates(buildAuditableSoftwareAggregate(swAggregates));
 	}
 
 	/**
@@ -1194,7 +1180,7 @@ public class TerminalServiceImpl implements TerminalService {
 	/**
 	 * Build terminal internet explorers from a data store pojo
 	 * @param dataStoreTerminal The data store pojo
-	 * @return The terminal config
+	 * @return The auditable internet explorer
 	 */
 	private Set<AuditableInternetExplorer> buildAuditableInternetExplorers(Set<InternetExplorer> ies) {
 		Set<AuditableInternetExplorer> iesAux = new HashSet<AuditableInternetExplorer>();
@@ -1211,6 +1197,32 @@ public class TerminalServiceImpl implements TerminalService {
 		return iesAux;
 	}
 
+	/**
+	 * Build auditables software aggregates from a data store pojo
+	 * @param dataStoreTerminal The data store pojo
+	 * @return The auditable terminal configs
+	 */
+	private Set<AuditableSoftwareAggregate> buildAuditableSoftwareAggregate(Set<SoftwareAggregate> swAggregates ) {
+		Set<AuditableSoftwareAggregate> swAggregatesAux = new HashSet<AuditableSoftwareAggregate>();
+		for (SoftwareAggregate swAggregate : swAggregates) {
+			SoftwareAggregate swAggregateAux = softwareAggregateService
+					.getSoftwareAggregateByVersionName(
+							swAggregate.getMajorVersion(),
+							swAggregate.getMinorVersion(),
+							swAggregate.getBuildVersion(),
+							swAggregate.getRevisionVersion(),
+							swAggregate.getRemainingVersion(),
+							swAggregate.getName());
+			
+			AuditableSoftwareAggregate auditableSwAggregate =  new AuditableSoftwareAggregate(
+						swAggregateAux != null ? swAggregateAux : swAggregate);
+			
+			swAggregatesAux.add(auditableSwAggregate);
+		}
+		
+		return swAggregatesAux;
+	}
+	
 	/**
 	 * @see TerminalService
 	 */

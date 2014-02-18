@@ -23,7 +23,7 @@ import com.ncr.agent.baseData.vendor.utils.FinancialPackagePojo;
 @Table(name = "software_aggregates", uniqueConstraints = { @UniqueConstraint(columnNames = {
 	"name", "major_version", "minor_version", "build_version",
 	"revision_version", "remaining_version" }) })
-public class SoftwareAggregate extends Auditable {
+public class SoftwareAggregate {
 
     /** The id. */
     @Id
@@ -71,14 +71,6 @@ public class SoftwareAggregate extends Auditable {
     @Column(name = "remaining_version")
     @Type(type = "text")
     private String remainingVersion;
-
-    // We don't need this for now
-    // @ManyToMany(cascade = CascadeType.REFRESH)
-    // @Cascade(CascadeType.ALL)
-    // @JoinTable(name = "terminal_software_aggregate", joinColumns = {
-    // @JoinColumn(name = "software_aggregate_id") }, inverseJoinColumns = {
-    // @JoinColumn(name = "terminal_id") })
-    // private Set<Terminal> terminals;
 
     /**
      * Instantiates a new software aggregate.
@@ -348,4 +340,86 @@ public class SoftwareAggregate extends Auditable {
     public String getNameVersion() {
 	return name + " (V. " + getVersion() + ")";
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((buildVersion == null) ? 0 : buildVersion.hashCode());
+		result = prime * result
+				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result
+				+ ((majorVersion == null) ? 0 : majorVersion.hashCode());
+		result = prime * result
+				+ ((minorVersion == null) ? 0 : minorVersion.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((number == null) ? 0 : number.hashCode());
+		result = prime * result + ((profile == null) ? 0 : profile.hashCode());
+		result = prime
+				* result
+				+ ((remainingVersion == null) ? 0 : remainingVersion.hashCode());
+		result = prime * result
+				+ ((revisionVersion == null) ? 0 : revisionVersion.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SoftwareAggregate other = (SoftwareAggregate) obj;
+		if (buildVersion == null) {
+			if (other.buildVersion != null)
+				return false;
+		} else if (!buildVersion.equals(other.buildVersion))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (majorVersion == null) {
+			if (other.majorVersion != null)
+				return false;
+		} else if (!majorVersion.equals(other.majorVersion))
+			return false;
+		if (minorVersion == null) {
+			if (other.minorVersion != null)
+				return false;
+		} else if (!minorVersion.equals(other.minorVersion))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (number == null) {
+			if (other.number != null)
+				return false;
+		} else if (!number.equals(other.number))
+			return false;
+		if (profile == null) {
+			if (other.profile != null)
+				return false;
+		} else if (!profile.equals(other.profile))
+			return false;
+		if (remainingVersion == null) {
+			if (other.remainingVersion != null)
+				return false;
+		} else if (!remainingVersion.equals(other.remainingVersion))
+			return false;
+		if (revisionVersion == null) {
+			if (other.revisionVersion != null)
+				return false;
+		} else if (!revisionVersion.equals(other.revisionVersion))
+			return false;
+		return true;
+	}
+    
+    
 }

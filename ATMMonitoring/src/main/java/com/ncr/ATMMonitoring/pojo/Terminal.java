@@ -15,7 +15,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
@@ -173,14 +172,13 @@ public class Terminal {
     private Set<Hotfix> hotfixes = new HashSet<Hotfix>();
 
     /** The software aggregates. */
-    @ManyToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
-    @JoinTable(name = "terminal_software_aggregate", joinColumns = { @JoinColumn(name = "terminal_id") }, inverseJoinColumns = { @JoinColumn(name = "software_aggregate_id") })
-    @OrderBy("name asc, major_version desc, minor_version desc, build_version desc, revision_version desc, remaining_version asc")
-    private Set<SoftwareAggregate> softwareAggregates = new HashSet<SoftwareAggregate>();
+    @JoinTable(name = "terminal_auditable_software_aggregate", joinColumns = { @JoinColumn(name = "terminal_id") }, inverseJoinColumns = { @JoinColumn(name = "auditable_software_aggreate_id") })    
+    private Set<AuditableSoftwareAggregate> auditableSoftwareAggregates = new HashSet<AuditableSoftwareAggregate>();
 
     /** The internet explorers. */
-    @ManyToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @JoinTable(name = "terminal_auditable_internet_explorer", joinColumns = { @JoinColumn(name = "terminal_id") }, inverseJoinColumns = { @JoinColumn(name = "auditable_internet_explorer_id") })
     private Set<AuditableInternetExplorer> auditableInternetExplorers = new HashSet<AuditableInternetExplorer>();
@@ -958,17 +956,13 @@ public class Terminal {
      * @return the softwareAggregates
      */
     public Set<SoftwareAggregate> getSoftwareAggregates() {
-	return softwareAggregates;
+    	Set<SoftwareAggregate> aggregates = new HashSet<SoftwareAggregate>();
+    	for (AuditableSoftwareAggregate auditableAggregate : auditableSoftwareAggregates) {
+    		aggregates.add(auditableAggregate.getSoftwareAggregate());
+    	}
+    	return aggregates;
     }
 
-    /**
-     * Sets the software aggregates.
-     *
-     * @param softwareAggregates the softwareAggregates to set
-     */
-    public void setSoftwareAggregates(Set<SoftwareAggregate> softwareAggregates) {
-	this.softwareAggregates = softwareAggregates;
-    }
 
     /**
      * Gets the hotfixes.
@@ -1176,8 +1170,8 @@ public class Terminal {
      * @param date The date
      * @return The active software aggregates
      */
-    public Set<SoftwareAggregate> getActiveSoftwareAggregatesByDate(Date date) {
-    	return auditableSetOperations.getActiveAuditableElementsByDate(softwareAggregates, date);
+    public Set<AuditableSoftwareAggregate> getActiveAuditableSoftwareAggregatesByDate(Date date) {
+    	return auditableSetOperations.getActiveAuditableElementsByDate(auditableSoftwareAggregates, date);
     }
     
     /**
@@ -1224,10 +1218,19 @@ public class Terminal {
     
     /**
      * Update the collection of auditable internet explorer
-     * @param internetExplorers the internetExplorers to set
+     * @param newAuditableInternetExplorers the internetExplorers to set
      */
     public void updateAuditableInternetExplorers(Set<AuditableInternetExplorer> newAuditableInternetExplorers) {
     	auditableSetOperations.updateAuditableElements(this.auditableInternetExplorers, newAuditableInternetExplorers);
+    }
+    
+
+    /**
+     * Update the collection of auditable sofware aggregates
+     * @param newAuditableSoftwareAggregate the new software aggregates
+     */
+    public void updateAuditableSoftwareAggregates(Set<AuditableSoftwareAggregate> newAuditableSoftwareAggregate) {
+    	auditableSetOperations.updateAuditableElements(this.auditableSoftwareAggregates, newAuditableSoftwareAggregate);
     }
     
     /**
@@ -1263,7 +1266,7 @@ public class Terminal {
     	historicableChanges.put(Hotfix.class, auditableSetOperations.buildAuditableChangesForCollection(hotfixes));
     	historicableChanges.put(FinancialDevice.class, auditableSetOperations.buildAuditableChangesForCollection(financialDevices));
     	historicableChanges.put(AuditableInternetExplorer.class, auditableSetOperations.buildAuditableChangesForCollection(auditableInternetExplorers));
-    	historicableChanges.put(SoftwareAggregate.class, auditableSetOperations.buildAuditableChangesForCollection(softwareAggregates));
+    	historicableChanges.put(AuditableSoftwareAggregate.class, auditableSetOperations.buildAuditableChangesForCollection(auditableSoftwareAggregates));
     	
     	return historicableChanges;
     }

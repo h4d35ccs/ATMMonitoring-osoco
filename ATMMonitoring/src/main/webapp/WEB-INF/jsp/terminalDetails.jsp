@@ -855,15 +855,15 @@
 
 					</div>
 			<div class="content_tab">
-					<c:if  test="${empty terminal.getActiveSoftwareAggregatesByDate(date)}">
+					<c:if  test="${empty terminal.getActiveAuditableSoftwareAggregatesByDate(date)}">
 						<div class="empty-list message">
 							<spring:message code="label.terminal.noSwAggregates"/>
 						</div>
 					</c:if>
-					<c:if test="${!empty terminal.getActiveSoftwareAggregatesByDate(date)}">
+					<c:if test="${!empty terminal.getActiveAuditableSoftwareAggregatesByDate(date)}">
 					<div class="margin-box">
 						<c:choose>
-							<c:when  test="${terminal.getActiveSoftwareAggregatesByDate(date).size() >
+							<c:when  test="${terminal.getActiveAuditableSoftwareAggregatesByDate(date).size() >
 								5}">
 								<table id="AggregateChromatable" class="data link">
 									<thead>
@@ -922,13 +922,13 @@
 									</c:otherwise>
 								</c:choose>
 								<c:set var="alt" value="${false}"/>
-								<c:forEach items="${terminal.getActiveSoftwareAggregatesByDate(date)}" var="softwareAggregate">
+								<c:forEach items="${terminal.getActiveAuditableSoftwareAggregatesByDate(date)}" var="auditableSoftwareAggregate">
 									<tr <c:if test="${alt}">class="alt"</c:if>
 									>
-									<td>${softwareAggregate.nameVersion}</td>
-									<td>${softwareAggregate.number}</td>
-									<td>${softwareAggregate.description}</td>
-									<td>${softwareAggregate.profile}</td>
+									<td>${auditableSoftwareAggregate.softwareAggregate.nameVersion}</td>
+									<td>${auditableSoftwareAggregate.softwareAggregate.number}</td>
+									<td>${auditableSoftwareAggregate.softwareAggregate.description}</td>
+									<td>${auditableSoftwareAggregate.softwareAggregate.profile}</td>
 								</tr>
 								<c:set var="alt" value="${!alt}"/>
 							</c:forEach>
