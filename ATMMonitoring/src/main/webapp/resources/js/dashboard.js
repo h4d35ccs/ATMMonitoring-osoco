@@ -463,7 +463,9 @@ function fixGeoMapRectElements(chartElementContent) {
 	
 	function fixChart(chart) {
 		var element = findProblematicElement(chart)
-		element.attr( 'fill', 'url(' + document.location + element.attr( 'fill' ).substring( 4 ) );
+		if(element.attr('fill')) {
+		  element.attr( 'fill', 'url(' + document.location + element.attr( 'fill' ).substring( 4 ) );
+		}
 	}
 	
 	function findProblematicElement(chart) {
