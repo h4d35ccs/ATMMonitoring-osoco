@@ -3559,4 +3559,678 @@ public class HardwareDevice extends Auditable {
     public void setSignature(String signature) {
 	this.signature = signature;
     }
+    
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((BitsPerPixel == null) ? 0 : BitsPerPixel.hashCode());
+		result = prime * result
+				+ ((adapterRam == null) ? 0 : adapterRam.hashCode());
+		result = prime * result
+				+ ((adapterType == null) ? 0 : adapterType.hashCode());
+		result = prime * result
+				+ ((addressWidth == null) ? 0 : addressWidth.hashCode());
+		result = prime * result
+				+ ((architecture == null) ? 0 : architecture.hashCode());
+		result = prime * result
+				+ ((bytesPerSector == null) ? 0 : bytesPerSector.hashCode());
+		result = prime * result
+				+ ((capacity == null) ? 0 : capacity.hashCode());
+		result = prime * result + ((caption == null) ? 0 : caption.hashCode());
+		result = prime * result + ((colors == null) ? 0 : colors.hashCode());
+		result = prime
+				* result
+				+ ((currentBitsPerPixel == null) ? 0 : currentBitsPerPixel
+						.hashCode());
+		result = prime
+				* result
+				+ ((currentClockSpeed == null) ? 0 : currentClockSpeed
+						.hashCode());
+		result = prime
+				* result
+				+ ((currentHorizontalResolution == null) ? 0
+						: currentHorizontalResolution.hashCode());
+		result = prime * result
+				+ ((currentLanguage == null) ? 0 : currentLanguage.hashCode());
+		result = prime
+				* result
+				+ ((currentNumberOfColors == null) ? 0 : currentNumberOfColors
+						.hashCode());
+		result = prime
+				* result
+				+ ((currentRefreshRate == null) ? 0 : currentRefreshRate
+						.hashCode());
+		result = prime * result
+				+ ((currentTimeZone == null) ? 0 : currentTimeZone.hashCode());
+		result = prime * result
+				+ ((currentUsage == null) ? 0 : currentUsage.hashCode());
+		result = prime
+				* result
+				+ ((currentVerticalResolution == null) ? 0
+						: currentVerticalResolution.hashCode());
+		result = prime * result
+				+ ((dataWidth == null) ? 0 : dataWidth.hashCode());
+		result = prime
+				* result
+				+ ((daylightInEffect == null) ? 0 : daylightInEffect.hashCode());
+		result = prime
+				* result
+				+ ((defaultIpGateway == null) ? 0 : defaultIpGateway.hashCode());
+		result = prime * result
+				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result
+				+ ((deviceId == null) ? 0 : deviceId.hashCode());
+		result = prime * result
+				+ ((dhcpEnabled == null) ? 0 : dhcpEnabled.hashCode());
+		result = prime * result
+				+ ((dhcpServer == null) ? 0 : dhcpServer.hashCode());
+		result = prime * result
+				+ ((displayType == null) ? 0 : displayType.hashCode());
+		result = prime * result + ((domain == null) ? 0 : domain.hashCode());
+		result = prime * result
+				+ ((driverName == null) ? 0 : driverName.hashCode());
+		result = prime * result
+				+ ((extClock == null) ? 0 : extClock.hashCode());
+		result = prime * result
+				+ ((fileSystem == null) ? 0 : fileSystem.hashCode());
+		result = prime
+				* result
+				+ ((firmwareRevision == null) ? 0 : firmwareRevision.hashCode());
+		result = prime * result
+				+ ((freeSpace == null) ? 0 : freeSpace.hashCode());
+		result = prime * result
+				+ ((hardwareClass == null) ? 0 : hardwareClass.hashCode());
+		result = prime * result
+				+ ((hardwareType == null) ? 0 : hardwareType.hashCode());
+		result = prime * result
+				+ ((hardwareVersion == null) ? 0 : hardwareVersion.hashCode());
+		result = prime * result
+				+ ((horizontalRes == null) ? 0 : horizontalRes.hashCode());
+		result = prime * result
+				+ ((interfaceIndex == null) ? 0 : interfaceIndex.hashCode());
+		result = prime * result
+				+ ((ipAddress == null) ? 0 : ipAddress.hashCode());
+		result = prime * result
+				+ ((ipSubnet == null) ? 0 : ipSubnet.hashCode());
+		result = prime * result + ((layout == null) ? 0 : layout.hashCode());
+		result = prime * result
+				+ ((macAddress == null) ? 0 : macAddress.hashCode());
+		result = prime * result
+				+ ((manufacturer == null) ? 0 : manufacturer.hashCode());
+		result = prime * result
+				+ ((maxBaudRate == null) ? 0 : maxBaudRate.hashCode());
+		result = prime * result
+				+ ((maxClockSpeed == null) ? 0 : maxClockSpeed.hashCode());
+		result = prime * result
+				+ ((maxMediaSize == null) ? 0 : maxMediaSize.hashCode());
+		result = prime * result
+				+ ((mediaType == null) ? 0 : mediaType.hashCode());
+		result = prime * result + ((model == null) ? 0 : model.hashCode());
+		result = prime
+				* result
+				+ ((monitorManufacturer == null) ? 0 : monitorManufacturer
+						.hashCode());
+		result = prime * result
+				+ ((monitorType == null) ? 0 : monitorType.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((netConnectionId == null) ? 0 : netConnectionId.hashCode());
+		result = prime
+				* result
+				+ ((netConnectionStatus == null) ? 0 : netConnectionStatus
+						.hashCode());
+		result = prime * result
+				+ ((numberOfPorts == null) ? 0 : numberOfPorts.hashCode());
+		result = prime
+				* result
+				+ ((numberOfProcessors == null) ? 0 : numberOfProcessors
+						.hashCode());
+		result = prime * result
+				+ ((partitions == null) ? 0 : partitions.hashCode());
+		result = prime
+				* result
+				+ ((pixelsPerXLogicalInch == null) ? 0 : pixelsPerXLogicalInch
+						.hashCode());
+		result = prime
+				* result
+				+ ((pixelsPerYLogicalInch == null) ? 0 : pixelsPerYLogicalInch
+						.hashCode());
+		result = prime * result
+				+ ((pointingType == null) ? 0 : pointingType.hashCode());
+		result = prime * result
+				+ ((primaryBios == null) ? 0 : primaryBios.hashCode());
+		result = prime * result + ((product == null) ? 0 : product.hashCode());
+		result = prime * result
+				+ ((protocolCode == null) ? 0 : protocolCode.hashCode());
+		result = prime
+				* result
+				+ ((protocolSupported == null) ? 0 : protocolSupported
+						.hashCode());
+		result = prime * result
+				+ ((refreshRate == null) ? 0 : refreshRate.hashCode());
+		result = prime * result
+				+ ((sectorsPerTrack == null) ? 0 : sectorsPerTrack.hashCode());
+		result = prime * result
+				+ ((serialNumber == null) ? 0 : serialNumber.hashCode());
+		result = prime * result
+				+ ((signature == null) ? 0 : signature.hashCode());
+		result = prime * result + ((size == null) ? 0 : size.hashCode());
+		result = prime * result
+				+ ((slotDesignation == null) ? 0 : slotDesignation.hashCode());
+		result = prime
+				* result
+				+ ((smbiosMajorVersion == null) ? 0 : smbiosMajorVersion
+						.hashCode());
+		result = prime
+				* result
+				+ ((smbiosMinorVersion == null) ? 0 : smbiosMinorVersion
+						.hashCode());
+		result = prime * result
+				+ ((smbiosPresent == null) ? 0 : smbiosPresent.hashCode());
+		result = prime * result
+				+ ((smbiosVersion == null) ? 0 : smbiosVersion.hashCode());
+		result = prime * result + ((speed == null) ? 0 : speed.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result
+				+ ((statusInfo == null) ? 0 : statusInfo.hashCode());
+		result = prime * result
+				+ ((stepping == null) ? 0 : stepping.hashCode());
+		result = prime * result + ((tag == null) ? 0 : tag.hashCode());
+		result = prime * result
+				+ ((terminal == null) ? 0 : terminal.hashCode());
+		result = prime * result
+				+ ((totalCylinders == null) ? 0 : totalCylinders.hashCode());
+		result = prime
+				* result
+				+ ((totalPhysicalMemory == null) ? 0 : totalPhysicalMemory
+						.hashCode());
+		result = prime
+				* result
+				+ ((tracksPerCylinder == null) ? 0 : tracksPerCylinder
+						.hashCode());
+		result = prime * result
+				+ ((usbVersion == null) ? 0 : usbVersion.hashCode());
+		result = prime * result + ((version == null) ? 0 : version.hashCode());
+		result = prime * result
+				+ ((verticalRes == null) ? 0 : verticalRes.hashCode());
+		result = prime * result
+				+ ((videoMemory == null) ? 0 : videoMemory.hashCode());
+		result = prime * result
+				+ ((videoProcessor == null) ? 0 : videoProcessor.hashCode());
+		result = prime * result
+				+ ((volumeName == null) ? 0 : volumeName.hashCode());
+		result = prime
+				* result
+				+ ((volumeSerialNumber == null) ? 0 : volumeSerialNumber
+						.hashCode());
+		result = prime * result
+				+ ((workgroup == null) ? 0 : workgroup.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		HardwareDevice other = (HardwareDevice) obj;
+		if (hardwareClass == null) {
+			if (other.hardwareClass != null)
+				return false;
+		} else if (!hardwareClass.equals(other.hardwareClass))
+			return false;
+		if (BitsPerPixel == null) {
+			if (other.BitsPerPixel != null)
+				return false;
+		} else if (!BitsPerPixel.equals(other.BitsPerPixel))
+			return false;
+		if (adapterRam == null) {
+			if (other.adapterRam != null)
+				return false;
+		} else if (!adapterRam.equals(other.adapterRam))
+			return false;
+		if (adapterType == null) {
+			if (other.adapterType != null)
+				return false;
+		} else if (!adapterType.equals(other.adapterType))
+			return false;
+		if (addressWidth == null) {
+			if (other.addressWidth != null)
+				return false;
+		} else if (!addressWidth.equals(other.addressWidth))
+			return false;
+		if (architecture == null) {
+			if (other.architecture != null)
+				return false;
+		} else if (!architecture.equals(other.architecture))
+			return false;
+		if (bytesPerSector == null) {
+			if (other.bytesPerSector != null)
+				return false;
+		} else if (!bytesPerSector.equals(other.bytesPerSector))
+			return false;
+		if (capacity == null) {
+			if (other.capacity != null)
+				return false;
+		} else if (!capacity.equals(other.capacity))
+			return false;
+		if (caption == null) {
+			if (other.caption != null)
+				return false;
+		} else if (!caption.equals(other.caption))
+			return false;
+		if (colors == null) {
+			if (other.colors != null)
+				return false;
+		} else if (!colors.equals(other.colors))
+			return false;
+		if (currentBitsPerPixel == null) {
+			if (other.currentBitsPerPixel != null)
+				return false;
+		} else if (!currentBitsPerPixel.equals(other.currentBitsPerPixel))
+			return false;
+		if (currentClockSpeed == null) {
+			if (other.currentClockSpeed != null)
+				return false;
+		} else if (!currentClockSpeed.equals(other.currentClockSpeed))
+			return false;
+		if (currentHorizontalResolution == null) {
+			if (other.currentHorizontalResolution != null)
+				return false;
+		} else if (!currentHorizontalResolution
+				.equals(other.currentHorizontalResolution))
+			return false;
+		if (currentLanguage == null) {
+			if (other.currentLanguage != null)
+				return false;
+		} else if (!currentLanguage.equals(other.currentLanguage))
+			return false;
+		if (currentNumberOfColors == null) {
+			if (other.currentNumberOfColors != null)
+				return false;
+		} else if (!currentNumberOfColors.equals(other.currentNumberOfColors))
+			return false;
+		if (currentRefreshRate == null) {
+			if (other.currentRefreshRate != null)
+				return false;
+		} else if (!currentRefreshRate.equals(other.currentRefreshRate))
+			return false;
+		if (currentTimeZone == null) {
+			if (other.currentTimeZone != null)
+				return false;
+		} else if (!currentTimeZone.equals(other.currentTimeZone))
+			return false;
+		if (currentUsage == null) {
+			if (other.currentUsage != null)
+				return false;
+		} else if (!currentUsage.equals(other.currentUsage))
+			return false;
+		if (currentVerticalResolution == null) {
+			if (other.currentVerticalResolution != null)
+				return false;
+		} else if (!currentVerticalResolution
+				.equals(other.currentVerticalResolution))
+			return false;
+		if (dataWidth == null) {
+			if (other.dataWidth != null)
+				return false;
+		} else if (!dataWidth.equals(other.dataWidth))
+			return false;
+		if (daylightInEffect == null) {
+			if (other.daylightInEffect != null)
+				return false;
+		} else if (!daylightInEffect.equals(other.daylightInEffect))
+			return false;
+		if (defaultIpGateway == null) {
+			if (other.defaultIpGateway != null)
+				return false;
+		} else if (!defaultIpGateway.equals(other.defaultIpGateway))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (deviceId == null) {
+			if (other.deviceId != null)
+				return false;
+		} else if (!deviceId.equals(other.deviceId))
+			return false;
+		if (dhcpEnabled == null) {
+			if (other.dhcpEnabled != null)
+				return false;
+		} else if (!dhcpEnabled.equals(other.dhcpEnabled))
+			return false;
+		if (dhcpServer == null) {
+			if (other.dhcpServer != null)
+				return false;
+		} else if (!dhcpServer.equals(other.dhcpServer))
+			return false;
+		if (displayType == null) {
+			if (other.displayType != null)
+				return false;
+		} else if (!displayType.equals(other.displayType))
+			return false;
+		if (domain == null) {
+			if (other.domain != null)
+				return false;
+		} else if (!domain.equals(other.domain))
+			return false;
+		if (driverName == null) {
+			if (other.driverName != null)
+				return false;
+		} else if (!driverName.equals(other.driverName))
+			return false;
+		if (extClock == null) {
+			if (other.extClock != null)
+				return false;
+		} else if (!extClock.equals(other.extClock))
+			return false;
+		if (fileSystem == null) {
+			if (other.fileSystem != null)
+				return false;
+		} else if (!fileSystem.equals(other.fileSystem))
+			return false;
+		if (firmwareRevision == null) {
+			if (other.firmwareRevision != null)
+				return false;
+		} else if (!firmwareRevision.equals(other.firmwareRevision))
+			return false;
+		if (freeSpace == null) {
+			if (other.freeSpace != null)
+				return false;
+		} else if (!freeSpace.equals(other.freeSpace))
+			return false;
+		if (hardwareType == null) {
+			if (other.hardwareType != null)
+				return false;
+		} else if (!hardwareType.equals(other.hardwareType))
+			return false;
+		if (hardwareVersion == null) {
+			if (other.hardwareVersion != null)
+				return false;
+		} else if (!hardwareVersion.equals(other.hardwareVersion))
+			return false;
+		if (horizontalRes == null) {
+			if (other.horizontalRes != null)
+				return false;
+		} else if (!horizontalRes.equals(other.horizontalRes))
+			return false;
+		if (interfaceIndex == null) {
+			if (other.interfaceIndex != null)
+				return false;
+		} else if (!interfaceIndex.equals(other.interfaceIndex))
+			return false;
+		if (ipAddress == null) {
+			if (other.ipAddress != null)
+				return false;
+		} else if (!ipAddress.equals(other.ipAddress))
+			return false;
+		if (ipSubnet == null) {
+			if (other.ipSubnet != null)
+				return false;
+		} else if (!ipSubnet.equals(other.ipSubnet))
+			return false;
+		if (layout == null) {
+			if (other.layout != null)
+				return false;
+		} else if (!layout.equals(other.layout))
+			return false;
+		if (macAddress == null) {
+			if (other.macAddress != null)
+				return false;
+		} else if (!macAddress.equals(other.macAddress))
+			return false;
+		if (manufacturer == null) {
+			if (other.manufacturer != null)
+				return false;
+		} else if (!manufacturer.equals(other.manufacturer))
+			return false;
+		if (maxBaudRate == null) {
+			if (other.maxBaudRate != null)
+				return false;
+		} else if (!maxBaudRate.equals(other.maxBaudRate))
+			return false;
+		if (maxClockSpeed == null) {
+			if (other.maxClockSpeed != null)
+				return false;
+		} else if (!maxClockSpeed.equals(other.maxClockSpeed))
+			return false;
+		if (maxMediaSize == null) {
+			if (other.maxMediaSize != null)
+				return false;
+		} else if (!maxMediaSize.equals(other.maxMediaSize))
+			return false;
+		if (mediaType == null) {
+			if (other.mediaType != null)
+				return false;
+		} else if (!mediaType.equals(other.mediaType))
+			return false;
+		if (model == null) {
+			if (other.model != null)
+				return false;
+		} else if (!model.equals(other.model))
+			return false;
+		if (monitorManufacturer == null) {
+			if (other.monitorManufacturer != null)
+				return false;
+		} else if (!monitorManufacturer.equals(other.monitorManufacturer))
+			return false;
+		if (monitorType == null) {
+			if (other.monitorType != null)
+				return false;
+		} else if (!monitorType.equals(other.monitorType))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (netConnectionId == null) {
+			if (other.netConnectionId != null)
+				return false;
+		} else if (!netConnectionId.equals(other.netConnectionId))
+			return false;
+		if (netConnectionStatus == null) {
+			if (other.netConnectionStatus != null)
+				return false;
+		} else if (!netConnectionStatus.equals(other.netConnectionStatus))
+			return false;
+		if (numberOfPorts == null) {
+			if (other.numberOfPorts != null)
+				return false;
+		} else if (!numberOfPorts.equals(other.numberOfPorts))
+			return false;
+		if (numberOfProcessors == null) {
+			if (other.numberOfProcessors != null)
+				return false;
+		} else if (!numberOfProcessors.equals(other.numberOfProcessors))
+			return false;
+		if (partitions == null) {
+			if (other.partitions != null)
+				return false;
+		} else if (!partitions.equals(other.partitions))
+			return false;
+		if (pixelsPerXLogicalInch == null) {
+			if (other.pixelsPerXLogicalInch != null)
+				return false;
+		} else if (!pixelsPerXLogicalInch.equals(other.pixelsPerXLogicalInch))
+			return false;
+		if (pixelsPerYLogicalInch == null) {
+			if (other.pixelsPerYLogicalInch != null)
+				return false;
+		} else if (!pixelsPerYLogicalInch.equals(other.pixelsPerYLogicalInch))
+			return false;
+		if (pointingType == null) {
+			if (other.pointingType != null)
+				return false;
+		} else if (!pointingType.equals(other.pointingType))
+			return false;
+		if (primaryBios == null) {
+			if (other.primaryBios != null)
+				return false;
+		} else if (!primaryBios.equals(other.primaryBios))
+			return false;
+		if (product == null) {
+			if (other.product != null)
+				return false;
+		} else if (!product.equals(other.product))
+			return false;
+		if (protocolCode == null) {
+			if (other.protocolCode != null)
+				return false;
+		} else if (!protocolCode.equals(other.protocolCode))
+			return false;
+		if (protocolSupported == null) {
+			if (other.protocolSupported != null)
+				return false;
+		} else if (!protocolSupported.equals(other.protocolSupported))
+			return false;
+		if (refreshRate == null) {
+			if (other.refreshRate != null)
+				return false;
+		} else if (!refreshRate.equals(other.refreshRate))
+			return false;
+		if (releaseDate == null) {
+			if (other.releaseDate != null)
+				return false;
+		} else if (! (releaseDate.getTime() == other.releaseDate.getTime()))
+			return false;
+		if (sectorsPerTrack == null) {
+			if (other.sectorsPerTrack != null)
+				return false;
+		} else if (!sectorsPerTrack.equals(other.sectorsPerTrack))
+			return false;
+		if (serialNumber == null) {
+			if (other.serialNumber != null)
+				return false;
+		} else if (!serialNumber.equals(other.serialNumber))
+			return false;
+		if (signature == null) {
+			if (other.signature != null)
+				return false;
+		} else if (!signature.equals(other.signature))
+			return false;
+		if (size == null) {
+			if (other.size != null)
+				return false;
+		} else if (!size.equals(other.size))
+			return false;
+		if (slotDesignation == null) {
+			if (other.slotDesignation != null)
+				return false;
+		} else if (!slotDesignation.equals(other.slotDesignation))
+			return false;
+		if (smbiosMajorVersion == null) {
+			if (other.smbiosMajorVersion != null)
+				return false;
+		} else if (!smbiosMajorVersion.equals(other.smbiosMajorVersion))
+			return false;
+		if (smbiosMinorVersion == null) {
+			if (other.smbiosMinorVersion != null)
+				return false;
+		} else if (!smbiosMinorVersion.equals(other.smbiosMinorVersion))
+			return false;
+		if (smbiosPresent == null) {
+			if (other.smbiosPresent != null)
+				return false;
+		} else if (!smbiosPresent.equals(other.smbiosPresent))
+			return false;
+		if (smbiosVersion == null) {
+			if (other.smbiosVersion != null)
+				return false;
+		} else if (!smbiosVersion.equals(other.smbiosVersion))
+			return false;
+		if (speed == null) {
+			if (other.speed != null)
+				return false;
+		} else if (!speed.equals(other.speed))
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		if (statusInfo == null) {
+			if (other.statusInfo != null)
+				return false;
+		} else if (!statusInfo.equals(other.statusInfo))
+			return false;
+		if (stepping == null) {
+			if (other.stepping != null)
+				return false;
+		} else if (!stepping.equals(other.stepping))
+			return false;
+		if (tag == null) {
+			if (other.tag != null)
+				return false;
+		} else if (!tag.equals(other.tag))
+			return false;
+		if (terminal == null) {
+			if (other.terminal != null)
+				return false;
+		} else if (!terminal.equals(other.terminal))
+			return false;
+		if (totalCylinders == null) {
+			if (other.totalCylinders != null)
+				return false;
+		} else if (!totalCylinders.equals(other.totalCylinders))
+			return false;
+		if (totalPhysicalMemory == null) {
+			if (other.totalPhysicalMemory != null)
+				return false;
+		} else if (!totalPhysicalMemory.equals(other.totalPhysicalMemory))
+			return false;
+		if (tracksPerCylinder == null) {
+			if (other.tracksPerCylinder != null)
+				return false;
+		} else if (!tracksPerCylinder.equals(other.tracksPerCylinder))
+			return false;
+		if (usbVersion == null) {
+			if (other.usbVersion != null)
+				return false;
+		} else if (!usbVersion.equals(other.usbVersion))
+			return false;
+		if (version == null) {
+			if (other.version != null)
+				return false;
+		} else if (!version.equals(other.version))
+			return false;
+		if (verticalRes == null) {
+			if (other.verticalRes != null)
+				return false;
+		} else if (!verticalRes.equals(other.verticalRes))
+			return false;
+		if (videoMemory == null) {
+			if (other.videoMemory != null)
+				return false;
+		} else if (!videoMemory.equals(other.videoMemory))
+			return false;
+		if (videoProcessor == null) {
+			if (other.videoProcessor != null)
+				return false;
+		} else if (!videoProcessor.equals(other.videoProcessor))
+			return false;
+		if (volumeName == null) {
+			if (other.volumeName != null)
+				return false;
+		} else if (!volumeName.equals(other.volumeName))
+			return false;
+		if (volumeSerialNumber == null) {
+			if (other.volumeSerialNumber != null)
+				return false;
+		} else if (!volumeSerialNumber.equals(other.volumeSerialNumber))
+			return false;
+		if (workgroup == null) {
+			if (other.workgroup != null)
+				return false;
+		} else if (!workgroup.equals(other.workgroup))
+			return false;
+		return true;
+	}
 }

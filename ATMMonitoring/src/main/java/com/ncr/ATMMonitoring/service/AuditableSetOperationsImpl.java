@@ -68,13 +68,35 @@ public class AuditableSetOperationsImpl implements AuditableSetOperations {
 	 * @see AuditableSetOperations
 	 */
 	public <T extends Auditable> void setCurrentAuditableElement( Set<T> auditableElements,
-				T newauditableElement) {
+				T newAuditableElement) {
 
 		T oldauditableElement = getCurrentAuditable(auditableElements);
-		if (oldauditableElement != null) {
-			oldauditableElement.setEndDate(newauditableElement.getStartDate());
+		
+		if(!newAuditableElement.equals(oldauditableElement)) {
+			if (oldauditableElement != null ) {
+				oldauditableElement.setEndDate(newAuditableElement.getStartDate());
+			}
+			auditableElements.add(newAuditableElement);
 		}
-		auditableElements.add(newauditableElement);
+	}
+	
+	/**
+	 * @see AuditableSetOperations
+	 */
+	public <T extends Auditable> void updateAuditableElements(Set<T> auditableElements, 
+			Set<T> newAuditableElements) {
+		Date now = new Date();
+		
+		for (T element : auditableElements) {
+			if (!newAuditableElements.remove(element)) {
+				element.setEndDate(now);
+			}
+		}
+		
+		for (T newElement : newAuditableElements) {
+			newElement.setStartDate(now);
+			auditableElements.add(newElement);
+		}
 	}
 
 	/**

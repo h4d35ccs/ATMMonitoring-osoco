@@ -265,4 +265,58 @@ public class Hotfix extends Auditable {
 	this.terminal = terminal;
     }
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result
+				+ ((fixComments == null) ? 0 : fixComments.hashCode());
+		result = prime * result
+				+ ((hotfixId == null) ? 0 : hotfixId.hashCode());
+		result = prime * result + ((number == null) ? 0 : number.hashCode());
+		result = prime * result
+				+ ((terminal == null) ? 0 : terminal.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Hotfix other = (Hotfix) obj;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (fixComments == null) {
+			if (other.fixComments != null)
+				return false;
+		} else if (!fixComments.equals(other.fixComments))
+			return false;
+		if (hotfixId == null) {
+			if (other.hotfixId != null)
+				return false;
+		} else if (!hotfixId.equals(other.hotfixId))
+			return false;
+		if (number == null) {
+			if (other.number != null)
+				return false;
+		} else if (!number.equals(other.number))
+			return false;
+		if (terminal == null) {
+			if (other.terminal != null)
+				return false;
+		} else if (!terminal.equals(other.terminal))
+			return false;
+		return true;
+	}
+
+    
 }
