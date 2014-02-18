@@ -14,7 +14,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
@@ -174,13 +173,13 @@ public class Terminal {
     /** The software aggregates. */
     @OneToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
-    @JoinTable(name = "terminal_auditable_software_aggregate", joinColumns = { @JoinColumn(name = "terminal_id") }, inverseJoinColumns = { @JoinColumn(name = "auditable_software_aggreate_id") })    
+    @OrderBy("start_date desc")    
     private Set<AuditableSoftwareAggregate> auditableSoftwareAggregates = new HashSet<AuditableSoftwareAggregate>();
 
     /** The internet explorers. */
     @OneToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
-    @JoinTable(name = "terminal_auditable_internet_explorer", joinColumns = { @JoinColumn(name = "terminal_id") }, inverseJoinColumns = { @JoinColumn(name = "auditable_internet_explorer_id") })
+    @OrderBy("start_date desc")
     private Set<AuditableInternetExplorer> auditableInternetExplorers = new HashSet<AuditableInternetExplorer>();
 
     /** The ip. */
