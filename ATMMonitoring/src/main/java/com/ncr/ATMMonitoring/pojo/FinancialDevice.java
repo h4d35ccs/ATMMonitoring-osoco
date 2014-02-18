@@ -590,4 +590,141 @@ public class FinancialDevice extends Auditable {
     public void setJxfsComponents(Set<JxfsComponent> jxfsComponents) {
 	this.jxfsComponents = jxfsComponents;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((caption == null) ? 0 : caption.hashCode());
+		result = prime * result
+				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result
+				+ ((deviceInstance == null) ? 0 : deviceInstance.hashCode());
+		result = prime * result
+				+ ((deviceStatus == null) ? 0 : deviceStatus.hashCode());
+		result = prime * result
+				+ ((firmwareVersion == null) ? 0 : firmwareVersion.hashCode());
+		result = prime * result
+				+ ((hotSwappable == null) ? 0 : hotSwappable.hashCode());
+		result = prime * result
+				+ ((manufacturer == null) ? 0 : manufacturer.hashCode());
+		result = prime * result + ((model == null) ? 0 : model.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((pmStatus == null) ? 0 : pmStatus.hashCode());
+		result = prime * result
+				+ ((removable == null) ? 0 : removable.hashCode());
+		result = prime * result
+				+ ((replaceable == null) ? 0 : replaceable.hashCode());
+		result = prime * result
+				+ ((serialNumber == null) ? 0 : serialNumber.hashCode());
+		result = prime * result
+				+ ((universalId == null) ? 0 : universalId.hashCode());
+		result = prime * result + ((variant == null) ? 0 : variant.hashCode());
+		result = prime * result + ((version == null) ? 0 : version.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FinancialDevice other = (FinancialDevice) obj;
+		if (caption == null) {
+			if (other.caption != null)
+				return false;
+		} else if (!caption.equals(other.caption))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (deviceInstance == null) {
+			if (other.deviceInstance != null)
+				return false;
+		} else if (!deviceInstance.equals(other.deviceInstance))
+			return false;
+		if (deviceStatus == null) {
+			if (other.deviceStatus != null)
+				return false;
+		} else if (!deviceStatus.equals(other.deviceStatus))
+			return false;
+		if (firmwareVersion == null) {
+			if (other.firmwareVersion != null)
+				return false;
+		} else if (!firmwareVersion.equals(other.firmwareVersion))
+			return false;
+		if (hotSwappable == null) {
+			if (other.hotSwappable != null)
+				return false;
+		} else if (!hotSwappable.equals(other.hotSwappable))
+			return false;
+		if (jxfsComponents == null) {
+			if (other.jxfsComponents != null)
+				return false;
+		} else if (!jxfsComponents.equals(other.jxfsComponents))
+			return false;
+		if (manufacturer == null) {
+			if (other.manufacturer != null)
+				return false;
+		} else if (!manufacturer.equals(other.manufacturer))
+			return false;
+		if (model == null) {
+			if (other.model != null)
+				return false;
+		} else if (!model.equals(other.model))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (pmStatus == null) {
+			if (other.pmStatus != null)
+				return false;
+		} else if (!pmStatus.equals(other.pmStatus))
+			return false;
+		if (removable == null) {
+			if (other.removable != null)
+				return false;
+		} else if (!removable.equals(other.removable))
+			return false;
+		if (replaceable == null) {
+			if (other.replaceable != null)
+				return false;
+		} else if (!replaceable.equals(other.replaceable))
+			return false;
+		if (serialNumber == null) {
+			if (other.serialNumber != null)
+				return false;
+		} else if (!serialNumber.equals(other.serialNumber))
+			return false;
+		if (universalId == null) {
+			if (other.universalId != null)
+				return false;
+		} else if (!universalId.equals(other.universalId))
+			return false;
+		if (variant == null) {
+			if (other.variant != null)
+				return false;
+		} else if (!variant.equals(other.variant))
+			return false;
+		if (version == null) {
+			if (other.version != null)
+				return false;
+		} else if (!version.equals(other.version))
+			return false;
+		if (xfsComponents == null) {
+			if (other.xfsComponents != null)
+				return false;
+		} else if (xfsComponents.size() != other.xfsComponents.size()) {
+			return false;
+		}
+		return true;
+	}
 }

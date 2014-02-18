@@ -4057,4 +4057,1144 @@ public class XfsComponent {
     	this.retract = retract;
     }
     //<--
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((acceptMedia == null) ? 0 : acceptMedia.hashCode());
+		result = prime * result
+				+ ((algorithms == null) ? 0 : algorithms.hashCode());
+		result = prime * result
+				+ ((autobeep == null) ? 0 : autobeep.hashCode());
+		result = prime * result
+				+ ((autodeposit == null) ? 0 : autodeposit.hashCode());
+		result = prime
+				* result
+				+ ((autoretractPeriod == null) ? 0 : autoretractPeriod
+						.hashCode());
+		result = prime * result
+				+ ((auxiliaries == null) ? 0 : auxiliaries.hashCode());
+		result = prime
+				* result
+				+ ((backImageColorFormat == null) ? 0 : backImageColorFormat
+						.hashCode());
+		result = prime * result
+				+ ((backscanColor == null) ? 0 : backscanColor.hashCode());
+		result = prime * result + ((camdata == null) ? 0 : camdata.hashCode());
+		result = prime * result + ((cameras == null) ? 0 : cameras.hashCode());
+		result = prime
+				* result
+				+ ((canFilterSymbologies == null) ? 0 : canFilterSymbologies
+						.hashCode());
+		result = prime * result + ((cards == null) ? 0 : cards.hashCode());
+		result = prime * result + ((cashin == null) ? 0 : cashin.hashCode());
+		result = prime * result
+				+ ((charSupport == null) ? 0 : charSupport.hashCode());
+		result = prime * result
+				+ ((chipPower == null) ? 0 : chipPower.hashCode());
+		result = prime * result
+				+ ((chipProtocol == null) ? 0 : chipProtocol.hashCode());
+		result = prime * result + ((chipio == null) ? 0 : chipio.hashCode());
+		result = prime * result
+				+ ((codeLineFormat == null) ? 0 : codeLineFormat.hashCode());
+		result = prime * result + ((coins == null) ? 0 : coins.hashCode());
+		result = prime
+				* result
+				+ ((comparemagneticstripe == null) ? 0 : comparemagneticstripe
+						.hashCode());
+		result = prime * result
+				+ ((compound == null) ? 0 : compound.hashCode());
+		result = prime * result + ((control == null) ? 0 : control.hashCode());
+		result = prime * result + ((cursor == null) ? 0 : cursor.hashCode());
+		result = prime * result
+				+ ((cylinders == null) ? 0 : cylinders.hashCode());
+		result = prime
+				* result
+				+ ((defaultBackscanColor == null) ? 0 : defaultBackscanColor
+						.hashCode());
+		result = prime
+				* result
+				+ ((defaultFrontscanColor == null) ? 0 : defaultFrontscanColor
+						.hashCode());
+		result = prime * result
+				+ ((deptransport == null) ? 0 : deptransport.hashCode());
+		result = prime
+				* result
+				+ ((derivationAlgorithms == null) ? 0 : derivationAlgorithms
+						.hashCode());
+		result = prime * result + ((dipMode == null) ? 0 : dipMode.hashCode());
+		result = prime * result
+				+ ((dispenseTo == null) ? 0 : dispenseTo.hashCode());
+		result = prime * result + ((display == null) ? 0 : display.hashCode());
+		result = prime * result
+				+ ((displayLight == null) ? 0 : displayLight.hashCode());
+		result = prime * result + ((doors == null) ? 0 : doors.hashCode());
+		result = prime * result
+				+ ((ejectPosition == null) ? 0 : ejectPosition.hashCode());
+		result = prime
+				* result
+				+ ((emvHashAlgorithm == null) ? 0 : emvHashAlgorithm.hashCode());
+		result = prime
+				* result
+				+ ((emvImportSchemes == null) ? 0 : emvImportSchemes.hashCode());
+		result = prime * result
+				+ ((encioProtocols == null) ? 0 : encioProtocols.hashCode());
+		result = prime * result
+				+ ((encodenames == null) ? 0 : encodenames.hashCode());
+		result = prime * result + ((encoder == null) ? 0 : encoder.hashCode());
+		result = prime * result
+				+ ((endorser == null) ? 0 : endorser.hashCode());
+		result = prime * result
+				+ ((envelopesupply == null) ? 0 : envelopesupply.hashCode());
+		result = prime * result
+				+ ((exchangeTypes == null) ? 0 : exchangeTypes.hashCode());
+		result = prime * result + ((extents == null) ? 0 : extents.hashCode());
+		result = prime * result + ((extra == null) ? 0 : extra.hashCode());
+		result = prime * result
+				+ ((fontnames == null) ? 0 : fontnames.hashCode());
+		result = prime * result + ((forms == null) ? 0 : forms.hashCode());
+		result = prime
+				* result
+				+ ((frontImageColorFormat == null) ? 0 : frontImageColorFormat
+						.hashCode());
+		result = prime * result
+				+ ((frontscanColor == null) ? 0 : frontscanColor.hashCode());
+		result = prime * result
+				+ ((guidlights == null) ? 0 : guidlights.hashCode());
+		result = prime * result
+				+ ((hasCashBox == null) ? 0 : hasCashBox.hashCode());
+		result = prime
+				* result
+				+ ((hasInsertedSensor == null) ? 0 : hasInsertedSensor
+						.hashCode());
+		result = prime * result
+				+ ((hasShutter == null) ? 0 : hasShutter.hashCode());
+		result = prime * result
+				+ ((hasTakenSensor == null) ? 0 : hasTakenSensor.hashCode());
+		result = prime * result
+				+ ((hsmVendor == null) ? 0 : hsmVendor.hashCode());
+		result = prime * result
+				+ ((idConnect == null) ? 0 : idConnect.hashCode());
+		result = prime * result + ((idKey == null) ? 0 : idKey.hashCode());
+		result = prime * result
+				+ ((imageSource == null) ? 0 : imageSource.hashCode());
+		result = prime * result
+				+ ((imageType == null) ? 0 : imageType.hashCode());
+		result = prime * result
+				+ ((imagecapture == null) ? 0 : imagecapture.hashCode());
+		result = prime * result
+				+ ((indicators == null) ? 0 : indicators.hashCode());
+		result = prime
+				* result
+				+ ((insertOrientation == null) ? 0 : insertOrientation
+						.hashCode());
+		result = prime
+				* result
+				+ ((intermediateStacker == null) ? 0 : intermediateStacker
+						.hashCode());
+		result = prime
+				* result
+				+ ((isApplicationRefuse == null) ? 0 : isApplicationRefuse
+						.hashCode());
+		result = prime * result
+				+ ((isAutofeed == null) ? 0 : isAutofeed.hashCode());
+		result = prime
+				* result
+				+ ((isCardTakenSensor == null) ? 0 : isCardTakenSensor
+						.hashCode());
+		result = prime
+				* result
+				+ ((isCompareSignatures == null) ? 0 : isCompareSignatures
+						.hashCode());
+		result = prime * result
+				+ ((isHsmJournaling == null) ? 0 : isHsmJournaling.hashCode());
+		result = prime
+				* result
+				+ ((isIntermediateStacker == null) ? 0 : isIntermediateStacker
+						.hashCode());
+		result = prime
+				* result
+				+ ((isItemsTakenSensor == null) ? 0 : isItemsTakenSensor
+						.hashCode());
+		result = prime
+				* result
+				+ ((isKeyImportThroughParts == null) ? 0
+						: isKeyImportThroughParts.hashCode());
+		result = prime
+				* result
+				+ ((isMediaPresented == null) ? 0 : isMediaPresented.hashCode());
+		result = prime
+				* result
+				+ ((isPinCanPersistAfterUse == null) ? 0
+						: isPinCanPersistAfterUse.hashCode());
+		result = prime
+				* result
+				+ ((isPrepareDispense == null) ? 0 : isPrepareDispense
+						.hashCode());
+		result = prime
+				* result
+				+ ((isPresentControl == null) ? 0 : isPresentControl.hashCode());
+		result = prime * result
+				+ ((isRescan == null) ? 0 : isRescan.hashCode());
+		result = prime
+				* result
+				+ ((isRetractCountsItems == null) ? 0 : isRetractCountsItems
+						.hashCode());
+		result = prime
+				* result
+				+ ((isRetractToTransport == null) ? 0 : isRetractToTransport
+						.hashCode());
+		result = prime * result
+				+ ((isSafeDoor == null) ? 0 : isSafeDoor.hashCode());
+		result = prime
+				* result
+				+ ((isSetPinBlockDataRequired == null) ? 0
+						: isSetPinBlockDataRequired.hashCode());
+		result = prime * result + ((isStamp == null) ? 0 : isStamp.hashCode());
+		result = prime * result
+				+ ((isTypeCombined == null) ? 0 : isTypeCombined.hashCode());
+		result = prime * result
+				+ ((itemInfoTypes == null) ? 0 : itemInfoTypes.hashCode());
+		result = prime
+				* result
+				+ ((keyBlockImportFormats == null) ? 0 : keyBlockImportFormats
+						.hashCode());
+		result = prime * result
+				+ ((keyCheckModes == null) ? 0 : keyCheckModes.hashCode());
+		result = prime * result + ((keyLock == null) ? 0 : keyLock.hashCode());
+		result = prime * result + ((keyNum == null) ? 0 : keyNum.hashCode());
+		result = prime * result + ((keys == null) ? 0 : keys.hashCode());
+		result = prime * result + ((logical == null) ? 0 : logical.hashCode());
+		result = prime
+				* result
+				+ ((magneticstriperead == null) ? 0 : magneticstriperead
+						.hashCode());
+		result = prime
+				* result
+				+ ((magneticstripewrite == null) ? 0 : magneticstripewrite
+						.hashCode());
+		result = prime * result
+				+ ((max2Retract == null) ? 0 : max2Retract.hashCode());
+		result = prime * result
+				+ ((maxBills == null) ? 0 : maxBills.hashCode());
+		result = prime * result
+				+ ((maxCashInItems == null) ? 0 : maxCashInItems.hashCode());
+		result = prime * result
+				+ ((maxCoins == null) ? 0 : maxCoins.hashCode());
+		result = prime * result
+				+ ((maxDataLength == null) ? 0 : maxDataLength.hashCode());
+		result = prime
+				* result
+				+ ((maxDispenseItems == null) ? 0 : maxDispenseItems.hashCode());
+		result = prime
+				* result
+				+ ((maxMediaOnStacker == null) ? 0 : maxMediaOnStacker
+						.hashCode());
+		result = prime * result
+				+ ((maxNumChars == null) ? 0 : maxNumChars.hashCode());
+		result = prime * result
+				+ ((maxPictures == null) ? 0 : maxPictures.hashCode());
+		result = prime * result
+				+ ((maxRetract == null) ? 0 : maxRetract.hashCode());
+		result = prime * result
+				+ ((mediaTaken == null) ? 0 : mediaTaken.hashCode());
+		result = prime
+				* result
+				+ ((memoryChipProtocols == null) ? 0 : memoryChipProtocols
+						.hashCode());
+		result = prime * result + ((micr == null) ? 0 : micr.hashCode());
+		result = prime * result
+				+ ((moveItems == null) ? 0 : moveItems.hashCode());
+		result = prime * result
+				+ ((multiPage == null) ? 0 : multiPage.hashCode());
+		result = prime * result + ((numLeds == null) ? 0 : numLeds.hashCode());
+		result = prime * result + ((ocr == null) ? 0 : ocr.hashCode());
+		result = prime * result
+				+ ((outputPositions == null) ? 0 : outputPositions.hashCode());
+		result = prime * result
+				+ ((paperSources == null) ? 0 : paperSources.hashCode());
+		result = prime * result
+				+ ((pinFormats == null) ? 0 : pinFormats.hashCode());
+		result = prime * result + ((pockets == null) ? 0 : pockets.hashCode());
+		result = prime * result
+				+ ((positions == null) ? 0 : positions.hashCode());
+		result = prime * result
+				+ ((powerOff == null) ? 0 : powerOff.hashCode());
+		result = prime * result + ((powerOn == null) ? 0 : powerOn.hashCode());
+		result = prime
+				* result
+				+ ((powerSaveControl == null) ? 0 : powerSaveControl.hashCode());
+		result = prime
+				* result
+				+ ((presentationAlgorithms == null) ? 0
+						: presentationAlgorithms.hashCode());
+		result = prime * result
+				+ ((printOnRetracts == null) ? 0 : printOnRetracts.hashCode());
+		result = prime * result
+				+ ((printSize == null) ? 0 : printSize.hashCode());
+		result = prime * result + ((printer == null) ? 0 : printer.hashCode());
+		result = prime
+				* result
+				+ ((programaticallyDeactivate == null) ? 0
+						: programaticallyDeactivate.hashCode());
+		result = prime * result
+				+ ((provider == null) ? 0 : provider.hashCode());
+		result = prime * result
+				+ ((readForm == null) ? 0 : readForm.hashCode());
+		result = prime * result
+				+ ((readTracks == null) ? 0 : readTracks.hashCode());
+		result = prime * result + ((refill == null) ? 0 : refill.hashCode());
+		result = prime * result
+				+ ((resetControl == null) ? 0 : resetControl.hashCode());
+		result = prime * result
+				+ ((resolutions == null) ? 0 : resolutions.hashCode());
+		result = prime * result + ((retract == null) ? 0 : retract.hashCode());
+		result = prime * result
+				+ ((retractAreas == null) ? 0 : retractAreas.hashCode());
+		result = prime * result
+				+ ((retractBins == null) ? 0 : retractBins.hashCode());
+		result = prime
+				* result
+				+ ((retractStackerActions == null) ? 0 : retractStackerActions
+						.hashCode());
+		result = prime
+				* result
+				+ ((retractToDeposit == null) ? 0 : retractToDeposit.hashCode());
+		result = prime
+				* result
+				+ ((retractTransportActions == null) ? 0
+						: retractTransportActions.hashCode());
+		result = prime * result
+				+ ((retractenvelope == null) ? 0 : retractenvelope.hashCode());
+		result = prime
+				* result
+				+ ((rsaAuthenticationScheme == null) ? 0
+						: rsaAuthenticationScheme.hashCode());
+		result = prime
+				* result
+				+ ((rsaCryptAlgorithm == null) ? 0 : rsaCryptAlgorithm
+						.hashCode());
+		result = prime * result
+				+ ((rsaKeycheckMode == null) ? 0 : rsaKeycheckMode.hashCode());
+		result = prime
+				* result
+				+ ((rsaSignatureAlgorithm == null) ? 0 : rsaSignatureAlgorithm
+						.hashCode());
+		result = prime * result
+				+ ((securityType == null) ? 0 : securityType.hashCode());
+		result = prime * result + ((sensors == null) ? 0 : sensors.hashCode());
+		result = prime * result
+				+ ((shutterControl == null) ? 0 : shutterControl.hashCode());
+		result = prime * result
+				+ ((signatureScheme == null) ? 0 : signatureScheme.hashCode());
+		result = prime * result + ((stamp == null) ? 0 : stamp.hashCode());
+		result = prime * result
+				+ ((symbologies == null) ? 0 : symbologies.hashCode());
+		result = prime * result + ((toner == null) ? 0 : toner.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime
+				* result
+				+ ((validationAlgorithms == null) ? 0 : validationAlgorithms
+						.hashCode());
+		result = prime * result
+				+ ((vandalCheck == null) ? 0 : vandalCheck.hashCode());
+		result = prime * result
+				+ ((windowsPrinter == null) ? 0 : windowsPrinter.hashCode());
+		result = prime * result
+				+ ((writeForm == null) ? 0 : writeForm.hashCode());
+		result = prime * result
+				+ ((writeMode == null) ? 0 : writeMode.hashCode());
+		result = prime * result
+				+ ((writeTracks == null) ? 0 : writeTracks.hashCode());
+		result = prime * result
+				+ ((xfsClass == null) ? 0 : xfsClass.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		XfsComponent other = (XfsComponent) obj;
+		if (acceptMedia == null) {
+			if (other.acceptMedia != null)
+				return false;
+		} else if (!acceptMedia.equals(other.acceptMedia))
+			return false;
+		if (algorithms == null) {
+			if (other.algorithms != null)
+				return false;
+		} else if (!algorithms.equals(other.algorithms))
+			return false;
+		if (autobeep == null) {
+			if (other.autobeep != null)
+				return false;
+		} else if (!autobeep.equals(other.autobeep))
+			return false;
+		if (autodeposit == null) {
+			if (other.autodeposit != null)
+				return false;
+		} else if (!autodeposit.equals(other.autodeposit))
+			return false;
+		if (autoretractPeriod == null) {
+			if (other.autoretractPeriod != null)
+				return false;
+		} else if (!autoretractPeriod.equals(other.autoretractPeriod))
+			return false;
+		if (auxiliaries == null) {
+			if (other.auxiliaries != null)
+				return false;
+		} else if (!auxiliaries.equals(other.auxiliaries))
+			return false;
+		if (backImageColorFormat == null) {
+			if (other.backImageColorFormat != null)
+				return false;
+		} else if (!backImageColorFormat.equals(other.backImageColorFormat))
+			return false;
+		if (backscanColor == null) {
+			if (other.backscanColor != null)
+				return false;
+		} else if (!backscanColor.equals(other.backscanColor))
+			return false;
+		if (camdata == null) {
+			if (other.camdata != null)
+				return false;
+		} else if (!camdata.equals(other.camdata))
+			return false;
+		if (cameras == null) {
+			if (other.cameras != null)
+				return false;
+		} else if (!cameras.equals(other.cameras))
+			return false;
+		if (canFilterSymbologies == null) {
+			if (other.canFilterSymbologies != null)
+				return false;
+		} else if (!canFilterSymbologies.equals(other.canFilterSymbologies))
+			return false;
+		if (cards == null) {
+			if (other.cards != null)
+				return false;
+		} else if (!cards.equals(other.cards))
+			return false;
+		if (cashin == null) {
+			if (other.cashin != null)
+				return false;
+		} else if (!cashin.equals(other.cashin))
+			return false;
+		if (charSupport == null) {
+			if (other.charSupport != null)
+				return false;
+		} else if (!charSupport.equals(other.charSupport))
+			return false;
+		if (chipPower == null) {
+			if (other.chipPower != null)
+				return false;
+		} else if (!chipPower.equals(other.chipPower))
+			return false;
+		if (chipProtocol == null) {
+			if (other.chipProtocol != null)
+				return false;
+		} else if (!chipProtocol.equals(other.chipProtocol))
+			return false;
+		if (chipio == null) {
+			if (other.chipio != null)
+				return false;
+		} else if (!chipio.equals(other.chipio))
+			return false;
+		if (codeLineFormat == null) {
+			if (other.codeLineFormat != null)
+				return false;
+		} else if (!codeLineFormat.equals(other.codeLineFormat))
+			return false;
+		if (coins == null) {
+			if (other.coins != null)
+				return false;
+		} else if (!coins.equals(other.coins))
+			return false;
+		if (comparemagneticstripe == null) {
+			if (other.comparemagneticstripe != null)
+				return false;
+		} else if (!comparemagneticstripe.equals(other.comparemagneticstripe))
+			return false;
+		if (compound == null) {
+			if (other.compound != null)
+				return false;
+		} else if (!compound.equals(other.compound))
+			return false;
+		if (control == null) {
+			if (other.control != null)
+				return false;
+		} else if (!control.equals(other.control))
+			return false;
+		if (cursor == null) {
+			if (other.cursor != null)
+				return false;
+		} else if (!cursor.equals(other.cursor))
+			return false;
+		if (cylinders == null) {
+			if (other.cylinders != null)
+				return false;
+		} else if (!cylinders.equals(other.cylinders))
+			return false;
+		if (defaultBackscanColor == null) {
+			if (other.defaultBackscanColor != null)
+				return false;
+		} else if (!defaultBackscanColor.equals(other.defaultBackscanColor))
+			return false;
+		if (defaultFrontscanColor == null) {
+			if (other.defaultFrontscanColor != null)
+				return false;
+		} else if (!defaultFrontscanColor.equals(other.defaultFrontscanColor))
+			return false;
+		if (deptransport == null) {
+			if (other.deptransport != null)
+				return false;
+		} else if (!deptransport.equals(other.deptransport))
+			return false;
+		if (derivationAlgorithms == null) {
+			if (other.derivationAlgorithms != null)
+				return false;
+		} else if (!derivationAlgorithms.equals(other.derivationAlgorithms))
+			return false;
+		if (dipMode == null) {
+			if (other.dipMode != null)
+				return false;
+		} else if (!dipMode.equals(other.dipMode))
+			return false;
+		if (dispenseTo == null) {
+			if (other.dispenseTo != null)
+				return false;
+		} else if (!dispenseTo.equals(other.dispenseTo))
+			return false;
+		if (display == null) {
+			if (other.display != null)
+				return false;
+		} else if (!display.equals(other.display))
+			return false;
+		if (displayLight == null) {
+			if (other.displayLight != null)
+				return false;
+		} else if (!displayLight.equals(other.displayLight))
+			return false;
+		if (doors == null) {
+			if (other.doors != null)
+				return false;
+		} else if (!doors.equals(other.doors))
+			return false;
+		if (ejectPosition == null) {
+			if (other.ejectPosition != null)
+				return false;
+		} else if (!ejectPosition.equals(other.ejectPosition))
+			return false;
+		if (emvHashAlgorithm == null) {
+			if (other.emvHashAlgorithm != null)
+				return false;
+		} else if (!emvHashAlgorithm.equals(other.emvHashAlgorithm))
+			return false;
+		if (emvImportSchemes == null) {
+			if (other.emvImportSchemes != null)
+				return false;
+		} else if (!emvImportSchemes.equals(other.emvImportSchemes))
+			return false;
+		if (encioProtocols == null) {
+			if (other.encioProtocols != null)
+				return false;
+		} else if (!encioProtocols.equals(other.encioProtocols))
+			return false;
+		if (encodenames == null) {
+			if (other.encodenames != null)
+				return false;
+		} else if (!encodenames.equals(other.encodenames))
+			return false;
+		if (encoder == null) {
+			if (other.encoder != null)
+				return false;
+		} else if (!encoder.equals(other.encoder))
+			return false;
+		if (endorser == null) {
+			if (other.endorser != null)
+				return false;
+		} else if (!endorser.equals(other.endorser))
+			return false;
+		if (envelopesupply == null) {
+			if (other.envelopesupply != null)
+				return false;
+		} else if (!envelopesupply.equals(other.envelopesupply))
+			return false;
+		if (exchangeTypes == null) {
+			if (other.exchangeTypes != null)
+				return false;
+		} else if (!exchangeTypes.equals(other.exchangeTypes))
+			return false;
+		if (extents == null) {
+			if (other.extents != null)
+				return false;
+		} else if (!extents.equals(other.extents))
+			return false;
+		if (extra == null) {
+			if (other.extra != null)
+				return false;
+		} else if (!extra.equals(other.extra))
+			return false;
+		if (fontnames == null) {
+			if (other.fontnames != null)
+				return false;
+		} else if (!fontnames.equals(other.fontnames))
+			return false;
+		if (forms == null) {
+			if (other.forms != null)
+				return false;
+		} else if (!forms.equals(other.forms))
+			return false;
+		if (frontImageColorFormat == null) {
+			if (other.frontImageColorFormat != null)
+				return false;
+		} else if (!frontImageColorFormat.equals(other.frontImageColorFormat))
+			return false;
+		if (frontscanColor == null) {
+			if (other.frontscanColor != null)
+				return false;
+		} else if (!frontscanColor.equals(other.frontscanColor))
+			return false;
+		if (guidlights == null) {
+			if (other.guidlights != null)
+				return false;
+		} else if (!guidlights.equals(other.guidlights))
+			return false;
+		if (hasCashBox == null) {
+			if (other.hasCashBox != null)
+				return false;
+		} else if (!hasCashBox.equals(other.hasCashBox))
+			return false;
+		if (hasInsertedSensor == null) {
+			if (other.hasInsertedSensor != null)
+				return false;
+		} else if (!hasInsertedSensor.equals(other.hasInsertedSensor))
+			return false;
+		if (hasShutter == null) {
+			if (other.hasShutter != null)
+				return false;
+		} else if (!hasShutter.equals(other.hasShutter))
+			return false;
+		if (hasTakenSensor == null) {
+			if (other.hasTakenSensor != null)
+				return false;
+		} else if (!hasTakenSensor.equals(other.hasTakenSensor))
+			return false;
+		if (hsmVendor == null) {
+			if (other.hsmVendor != null)
+				return false;
+		} else if (!hsmVendor.equals(other.hsmVendor))
+			return false;
+		if (idConnect == null) {
+			if (other.idConnect != null)
+				return false;
+		} else if (!idConnect.equals(other.idConnect))
+			return false;
+		if (idKey == null) {
+			if (other.idKey != null)
+				return false;
+		} else if (!idKey.equals(other.idKey))
+			return false;
+		if (imageSource == null) {
+			if (other.imageSource != null)
+				return false;
+		} else if (!imageSource.equals(other.imageSource))
+			return false;
+		if (imageType == null) {
+			if (other.imageType != null)
+				return false;
+		} else if (!imageType.equals(other.imageType))
+			return false;
+		if (imagecapture == null) {
+			if (other.imagecapture != null)
+				return false;
+		} else if (!imagecapture.equals(other.imagecapture))
+			return false;
+		if (indicators == null) {
+			if (other.indicators != null)
+				return false;
+		} else if (!indicators.equals(other.indicators))
+			return false;
+		if (insertOrientation == null) {
+			if (other.insertOrientation != null)
+				return false;
+		} else if (!insertOrientation.equals(other.insertOrientation))
+			return false;
+		if (intermediateStacker == null) {
+			if (other.intermediateStacker != null)
+				return false;
+		} else if (!intermediateStacker.equals(other.intermediateStacker))
+			return false;
+		if (isApplicationRefuse == null) {
+			if (other.isApplicationRefuse != null)
+				return false;
+		} else if (!isApplicationRefuse.equals(other.isApplicationRefuse))
+			return false;
+		if (isAutofeed == null) {
+			if (other.isAutofeed != null)
+				return false;
+		} else if (!isAutofeed.equals(other.isAutofeed))
+			return false;
+		if (isCardTakenSensor == null) {
+			if (other.isCardTakenSensor != null)
+				return false;
+		} else if (!isCardTakenSensor.equals(other.isCardTakenSensor))
+			return false;
+		if (isCompareSignatures == null) {
+			if (other.isCompareSignatures != null)
+				return false;
+		} else if (!isCompareSignatures.equals(other.isCompareSignatures))
+			return false;
+		if (isHsmJournaling == null) {
+			if (other.isHsmJournaling != null)
+				return false;
+		} else if (!isHsmJournaling.equals(other.isHsmJournaling))
+			return false;
+		if (isIntermediateStacker == null) {
+			if (other.isIntermediateStacker != null)
+				return false;
+		} else if (!isIntermediateStacker.equals(other.isIntermediateStacker))
+			return false;
+		if (isItemsTakenSensor == null) {
+			if (other.isItemsTakenSensor != null)
+				return false;
+		} else if (!isItemsTakenSensor.equals(other.isItemsTakenSensor))
+			return false;
+		if (isKeyImportThroughParts == null) {
+			if (other.isKeyImportThroughParts != null)
+				return false;
+		} else if (!isKeyImportThroughParts
+				.equals(other.isKeyImportThroughParts))
+			return false;
+		if (isMediaPresented == null) {
+			if (other.isMediaPresented != null)
+				return false;
+		} else if (!isMediaPresented.equals(other.isMediaPresented))
+			return false;
+		if (isPinCanPersistAfterUse == null) {
+			if (other.isPinCanPersistAfterUse != null)
+				return false;
+		} else if (!isPinCanPersistAfterUse
+				.equals(other.isPinCanPersistAfterUse))
+			return false;
+		if (isPrepareDispense == null) {
+			if (other.isPrepareDispense != null)
+				return false;
+		} else if (!isPrepareDispense.equals(other.isPrepareDispense))
+			return false;
+		if (isPresentControl == null) {
+			if (other.isPresentControl != null)
+				return false;
+		} else if (!isPresentControl.equals(other.isPresentControl))
+			return false;
+		if (isRescan == null) {
+			if (other.isRescan != null)
+				return false;
+		} else if (!isRescan.equals(other.isRescan))
+			return false;
+		if (isRetractCountsItems == null) {
+			if (other.isRetractCountsItems != null)
+				return false;
+		} else if (!isRetractCountsItems.equals(other.isRetractCountsItems))
+			return false;
+		if (isRetractToTransport == null) {
+			if (other.isRetractToTransport != null)
+				return false;
+		} else if (!isRetractToTransport.equals(other.isRetractToTransport))
+			return false;
+		if (isSafeDoor == null) {
+			if (other.isSafeDoor != null)
+				return false;
+		} else if (!isSafeDoor.equals(other.isSafeDoor))
+			return false;
+		if (isSetPinBlockDataRequired == null) {
+			if (other.isSetPinBlockDataRequired != null)
+				return false;
+		} else if (!isSetPinBlockDataRequired
+				.equals(other.isSetPinBlockDataRequired))
+			return false;
+		if (isStamp == null) {
+			if (other.isStamp != null)
+				return false;
+		} else if (!isStamp.equals(other.isStamp))
+			return false;
+		if (isTypeCombined == null) {
+			if (other.isTypeCombined != null)
+				return false;
+		} else if (!isTypeCombined.equals(other.isTypeCombined))
+			return false;
+		if (itemInfoTypes == null) {
+			if (other.itemInfoTypes != null)
+				return false;
+		} else if (!itemInfoTypes.equals(other.itemInfoTypes))
+			return false;
+		if (keyBlockImportFormats == null) {
+			if (other.keyBlockImportFormats != null)
+				return false;
+		} else if (!keyBlockImportFormats.equals(other.keyBlockImportFormats))
+			return false;
+		if (keyCheckModes == null) {
+			if (other.keyCheckModes != null)
+				return false;
+		} else if (!keyCheckModes.equals(other.keyCheckModes))
+			return false;
+		if (keyLock == null) {
+			if (other.keyLock != null)
+				return false;
+		} else if (!keyLock.equals(other.keyLock))
+			return false;
+		if (keyNum == null) {
+			if (other.keyNum != null)
+				return false;
+		} else if (!keyNum.equals(other.keyNum))
+			return false;
+		if (keys == null) {
+			if (other.keys != null)
+				return false;
+		} else if (!keys.equals(other.keys))
+			return false;
+		if (logical == null) {
+			if (other.logical != null)
+				return false;
+		} else if (!logical.equals(other.logical))
+			return false;
+		if (logicalCashUnits == null) {
+			if (other.logicalCashUnits != null)
+				return false;
+		} else if (!logicalCashUnits.equals(other.logicalCashUnits))
+			return false;
+		if (magneticstriperead == null) {
+			if (other.magneticstriperead != null)
+				return false;
+		} else if (!magneticstriperead.equals(other.magneticstriperead))
+			return false;
+		if (magneticstripewrite == null) {
+			if (other.magneticstripewrite != null)
+				return false;
+		} else if (!magneticstripewrite.equals(other.magneticstripewrite))
+			return false;
+		if (max2Retract == null) {
+			if (other.max2Retract != null)
+				return false;
+		} else if (!max2Retract.equals(other.max2Retract))
+			return false;
+		if (maxBills == null) {
+			if (other.maxBills != null)
+				return false;
+		} else if (!maxBills.equals(other.maxBills))
+			return false;
+		if (maxCashInItems == null) {
+			if (other.maxCashInItems != null)
+				return false;
+		} else if (!maxCashInItems.equals(other.maxCashInItems))
+			return false;
+		if (maxCoins == null) {
+			if (other.maxCoins != null)
+				return false;
+		} else if (!maxCoins.equals(other.maxCoins))
+			return false;
+		if (maxDataLength == null) {
+			if (other.maxDataLength != null)
+				return false;
+		} else if (!maxDataLength.equals(other.maxDataLength))
+			return false;
+		if (maxDispenseItems == null) {
+			if (other.maxDispenseItems != null)
+				return false;
+		} else if (!maxDispenseItems.equals(other.maxDispenseItems))
+			return false;
+		if (maxMediaOnStacker == null) {
+			if (other.maxMediaOnStacker != null)
+				return false;
+		} else if (!maxMediaOnStacker.equals(other.maxMediaOnStacker))
+			return false;
+		if (maxNumChars == null) {
+			if (other.maxNumChars != null)
+				return false;
+		} else if (!maxNumChars.equals(other.maxNumChars))
+			return false;
+		if (maxPictures == null) {
+			if (other.maxPictures != null)
+				return false;
+		} else if (!maxPictures.equals(other.maxPictures))
+			return false;
+		if (maxRetract == null) {
+			if (other.maxRetract != null)
+				return false;
+		} else if (!maxRetract.equals(other.maxRetract))
+			return false;
+		if (mediaTaken == null) {
+			if (other.mediaTaken != null)
+				return false;
+		} else if (!mediaTaken.equals(other.mediaTaken))
+			return false;
+		if (memoryChipProtocols == null) {
+			if (other.memoryChipProtocols != null)
+				return false;
+		} else if (!memoryChipProtocols.equals(other.memoryChipProtocols))
+			return false;
+		if (micr == null) {
+			if (other.micr != null)
+				return false;
+		} else if (!micr.equals(other.micr))
+			return false;
+		if (moveItems == null) {
+			if (other.moveItems != null)
+				return false;
+		} else if (!moveItems.equals(other.moveItems))
+			return false;
+		if (multiPage == null) {
+			if (other.multiPage != null)
+				return false;
+		} else if (!multiPage.equals(other.multiPage))
+			return false;
+		if (numLeds == null) {
+			if (other.numLeds != null)
+				return false;
+		} else if (!numLeds.equals(other.numLeds))
+			return false;
+		if (ocr == null) {
+			if (other.ocr != null)
+				return false;
+		} else if (!ocr.equals(other.ocr))
+			return false;
+		if (outputPositions == null) {
+			if (other.outputPositions != null)
+				return false;
+		} else if (!outputPositions.equals(other.outputPositions))
+			return false;
+		if (paperSources == null) {
+			if (other.paperSources != null)
+				return false;
+		} else if (!paperSources.equals(other.paperSources))
+			return false;
+		if (pinFormats == null) {
+			if (other.pinFormats != null)
+				return false;
+		} else if (!pinFormats.equals(other.pinFormats))
+			return false;
+		if (pockets == null) {
+			if (other.pockets != null)
+				return false;
+		} else if (!pockets.equals(other.pockets))
+			return false;
+		if (positions == null) {
+			if (other.positions != null)
+				return false;
+		} else if (!positions.equals(other.positions))
+			return false;
+		if (powerOff == null) {
+			if (other.powerOff != null)
+				return false;
+		} else if (!powerOff.equals(other.powerOff))
+			return false;
+		if (powerOn == null) {
+			if (other.powerOn != null)
+				return false;
+		} else if (!powerOn.equals(other.powerOn))
+			return false;
+		if (powerSaveControl == null) {
+			if (other.powerSaveControl != null)
+				return false;
+		} else if (!powerSaveControl.equals(other.powerSaveControl))
+			return false;
+		if (presentationAlgorithms == null) {
+			if (other.presentationAlgorithms != null)
+				return false;
+		} else if (!presentationAlgorithms.equals(other.presentationAlgorithms))
+			return false;
+		if (printOnRetracts == null) {
+			if (other.printOnRetracts != null)
+				return false;
+		} else if (!printOnRetracts.equals(other.printOnRetracts))
+			return false;
+		if (printSize == null) {
+			if (other.printSize != null)
+				return false;
+		} else if (!printSize.equals(other.printSize))
+			return false;
+		if (printer == null) {
+			if (other.printer != null)
+				return false;
+		} else if (!printer.equals(other.printer))
+			return false;
+		if (programaticallyDeactivate == null) {
+			if (other.programaticallyDeactivate != null)
+				return false;
+		} else if (!programaticallyDeactivate
+				.equals(other.programaticallyDeactivate))
+			return false;
+		if (provider == null) {
+			if (other.provider != null)
+				return false;
+		} else if (!provider.equals(other.provider))
+			return false;
+		if (readForm == null) {
+			if (other.readForm != null)
+				return false;
+		} else if (!readForm.equals(other.readForm))
+			return false;
+		if (readTracks == null) {
+			if (other.readTracks != null)
+				return false;
+		} else if (!readTracks.equals(other.readTracks))
+			return false;
+		if (refill == null) {
+			if (other.refill != null)
+				return false;
+		} else if (!refill.equals(other.refill))
+			return false;
+		if (resetControl == null) {
+			if (other.resetControl != null)
+				return false;
+		} else if (!resetControl.equals(other.resetControl))
+			return false;
+		if (resolutions == null) {
+			if (other.resolutions != null)
+				return false;
+		} else if (!resolutions.equals(other.resolutions))
+			return false;
+		if (retract == null) {
+			if (other.retract != null)
+				return false;
+		} else if (!retract.equals(other.retract))
+			return false;
+		if (retractAreas == null) {
+			if (other.retractAreas != null)
+				return false;
+		} else if (!retractAreas.equals(other.retractAreas))
+			return false;
+		if (retractBins == null) {
+			if (other.retractBins != null)
+				return false;
+		} else if (!retractBins.equals(other.retractBins))
+			return false;
+		if (retractStackerActions == null) {
+			if (other.retractStackerActions != null)
+				return false;
+		} else if (!retractStackerActions.equals(other.retractStackerActions))
+			return false;
+		if (retractToDeposit == null) {
+			if (other.retractToDeposit != null)
+				return false;
+		} else if (!retractToDeposit.equals(other.retractToDeposit))
+			return false;
+		if (retractTransportActions == null) {
+			if (other.retractTransportActions != null)
+				return false;
+		} else if (!retractTransportActions
+				.equals(other.retractTransportActions))
+			return false;
+		if (retractenvelope == null) {
+			if (other.retractenvelope != null)
+				return false;
+		} else if (!retractenvelope.equals(other.retractenvelope))
+			return false;
+		if (rsaAuthenticationScheme == null) {
+			if (other.rsaAuthenticationScheme != null)
+				return false;
+		} else if (!rsaAuthenticationScheme
+				.equals(other.rsaAuthenticationScheme))
+			return false;
+		if (rsaCryptAlgorithm == null) {
+			if (other.rsaCryptAlgorithm != null)
+				return false;
+		} else if (!rsaCryptAlgorithm.equals(other.rsaCryptAlgorithm))
+			return false;
+		if (rsaKeycheckMode == null) {
+			if (other.rsaKeycheckMode != null)
+				return false;
+		} else if (!rsaKeycheckMode.equals(other.rsaKeycheckMode))
+			return false;
+		if (rsaSignatureAlgorithm == null) {
+			if (other.rsaSignatureAlgorithm != null)
+				return false;
+		} else if (!rsaSignatureAlgorithm.equals(other.rsaSignatureAlgorithm))
+			return false;
+		if (securityType == null) {
+			if (other.securityType != null)
+				return false;
+		} else if (!securityType.equals(other.securityType))
+			return false;
+		if (sensors == null) {
+			if (other.sensors != null)
+				return false;
+		} else if (!sensors.equals(other.sensors))
+			return false;
+		if (shutterControl == null) {
+			if (other.shutterControl != null)
+				return false;
+		} else if (!shutterControl.equals(other.shutterControl))
+			return false;
+		if (signatureScheme == null) {
+			if (other.signatureScheme != null)
+				return false;
+		} else if (!signatureScheme.equals(other.signatureScheme))
+			return false;
+		if (stamp == null) {
+			if (other.stamp != null)
+				return false;
+		} else if (!stamp.equals(other.stamp))
+			return false;
+		if (symbologies == null) {
+			if (other.symbologies != null)
+				return false;
+		} else if (!symbologies.equals(other.symbologies))
+			return false;
+		if (toner == null) {
+			if (other.toner != null)
+				return false;
+		} else if (!toner.equals(other.toner))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
+		if (validationAlgorithms == null) {
+			if (other.validationAlgorithms != null)
+				return false;
+		} else if (!validationAlgorithms.equals(other.validationAlgorithms))
+			return false;
+		if (vandalCheck == null) {
+			if (other.vandalCheck != null)
+				return false;
+		} else if (!vandalCheck.equals(other.vandalCheck))
+			return false;
+		if (windowsPrinter == null) {
+			if (other.windowsPrinter != null)
+				return false;
+		} else if (!windowsPrinter.equals(other.windowsPrinter))
+			return false;
+		if (writeForm == null) {
+			if (other.writeForm != null)
+				return false;
+		} else if (!writeForm.equals(other.writeForm))
+			return false;
+		if (writeMode == null) {
+			if (other.writeMode != null)
+				return false;
+		} else if (!writeMode.equals(other.writeMode))
+			return false;
+		if (writeTracks == null) {
+			if (other.writeTracks != null)
+				return false;
+		} else if (!writeTracks.equals(other.writeTracks))
+			return false;
+		if (xfsClass == null) {
+			if (other.xfsClass != null)
+				return false;
+		} else if (!xfsClass.equals(other.xfsClass))
+			return false;
+		return true;
+	}
+
+    
 }

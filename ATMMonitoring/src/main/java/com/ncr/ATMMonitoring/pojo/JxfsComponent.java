@@ -3293,4 +3293,915 @@ public class JxfsComponent {
 	return comboboxes;
     }
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((acceptLimit == null) ? 0 : acceptLimit.hashCode());
+		result = prime * result
+				+ ((autopresent == null) ? 0 : autopresent.hashCode());
+		result = prime * result
+				+ ((auxiliaries == null) ? 0 : auxiliaries.hashCode());
+		result = prime
+				* result
+				+ ((availableResolution == null) ? 0 : availableResolution
+						.hashCode());
+		result = prime * result
+				+ ((baitTrap == null) ? 0 : baitTrap.hashCode());
+		result = prime
+				* result
+				+ ((barcodeCapabilities == null) ? 0 : barcodeCapabilities
+						.hashCode());
+		result = prime
+				* result
+				+ ((beepOnPressSupported == null) ? 0 : beepOnPressSupported
+						.hashCode());
+		result = prime * result
+				+ ((beepSupported == null) ? 0 : beepSupported.hashCode());
+		result = prime
+				* result
+				+ ((billsTakenSensor == null) ? 0 : billsTakenSensor.hashCode());
+		result = prime * result + ((cashbox == null) ? 0 : cashbox.hashCode());
+		result = prime * result
+				+ ((category2 == null) ? 0 : category2.hashCode());
+		result = prime * result
+				+ ((category3 == null) ? 0 : category3.hashCode());
+		result = prime * result + ((cdType == null) ? 0 : cdType.hashCode());
+		result = prime * result
+				+ ((checkVandalism == null) ? 0 : checkVandalism.hashCode());
+		result = prime
+				* result
+				+ ((chequeCapabilities == null) ? 0 : chequeCapabilities
+						.hashCode());
+		result = prime * result + ((coins == null) ? 0 : coins.hashCode());
+		result = prime * result + ((complex == null) ? 0 : complex.hashCode());
+		result = prime * result
+				+ ((compound == null) ? 0 : compound.hashCode());
+		result = prime
+				* result
+				+ ((createSignatureCommandSupported == null) ? 0
+						: createSignatureCommandSupported.hashCode());
+		result = prime * result
+				+ ((ctrlTurn == null) ? 0 : ctrlTurn.hashCode());
+		result = prime * result
+				+ ((cursorSupported == null) ? 0 : cursorSupported.hashCode());
+		result = prime * result
+				+ ((cylinders == null) ? 0 : cylinders.hashCode());
+		result = prime
+				* result
+				+ ((defaultInputPosition == null) ? 0 : defaultInputPosition
+						.hashCode());
+		result = prime
+				* result
+				+ ((defaultOutputPosition == null) ? 0 : defaultOutputPosition
+						.hashCode());
+		result = prime
+				* result
+				+ ((defaultRollbackPosition == null) ? 0
+						: defaultRollbackPosition.hashCode());
+		result = prime * result + ((deposit == null) ? 0 : deposit.hashCode());
+		result = prime * result
+				+ ((detector == null) ? 0 : detector.hashCode());
+		result = prime
+				* result
+				+ ((deviceControlName == null) ? 0 : deviceControlName
+						.hashCode());
+		result = prime * result
+				+ ((deviceId == null) ? 0 : deviceId.hashCode());
+		result = prime
+				* result
+				+ ((deviceOrientation == null) ? 0 : deviceOrientation
+						.hashCode());
+		result = prime
+				* result
+				+ ((deviceScanningBothLongSide == null) ? 0
+						: deviceScanningBothLongSide.hashCode());
+		result = prime
+				* result
+				+ ((deviceScanningBothShortSide == null) ? 0
+						: deviceScanningBothShortSide.hashCode());
+		result = prime
+				* result
+				+ ((deviceServiceName == null) ? 0 : deviceServiceName
+						.hashCode());
+		result = prime * result
+				+ ((deviceType == null) ? 0 : deviceType.hashCode());
+		result = prime * result
+				+ ((dispense == null) ? 0 : dispense.hashCode());
+		result = prime
+				* result
+				+ ((displayLightSupported == null) ? 0 : displayLightSupported
+						.hashCode());
+		result = prime * result + ((doors == null) ? 0 : doors.hashCode());
+		result = prime * result
+				+ ((ejectStatus == null) ? 0 : ejectStatus.hashCode());
+		result = prime * result + ((entry == null) ? 0 : entry.hashCode());
+		result = prime * result
+				+ ((envSupply == null) ? 0 : envSupply.hashCode());
+		result = prime * result + ((escrow == null) ? 0 : escrow.hashCode());
+		result = prime * result
+				+ ((escrowSize == null) ? 0 : escrowSize.hashCode());
+		result = prime
+				* result
+				+ ((eventOnStartSupported == null) ? 0 : eventOnStartSupported
+						.hashCode());
+		result = prime * result + ((extent == null) ? 0 : extent.hashCode());
+		result = prime
+				* result
+				+ ((financialDevices == null) ? 0 : financialDevices.hashCode());
+		result = prime * result
+				+ ((guidlights == null) ? 0 : guidlights.hashCode());
+		result = prime * result + ((idKey == null) ? 0 : idKey.hashCode());
+		result = prime
+				* result
+				+ ((imageCapabilities == null) ? 0 : imageCapabilities
+						.hashCode());
+		result = prime * result
+				+ ((imageCapture == null) ? 0 : imageCapture.hashCode());
+		result = prime * result
+				+ ((indicators == null) ? 0 : indicators.hashCode());
+		result = prime
+				* result
+				+ ((inputCookSupported == null) ? 0 : inputCookSupported
+						.hashCode());
+		result = prime * result
+				+ ((inputPositions == null) ? 0 : inputPositions.hashCode());
+		result = prime
+				* result
+				+ ((inputRawSupported == null) ? 0 : inputRawSupported
+						.hashCode());
+		result = prime
+				* result
+				+ ((insertTextSupported == null) ? 0 : insertTextSupported
+						.hashCode());
+		result = prime
+				* result
+				+ ((intermediateStacker == null) ? 0 : intermediateStacker
+						.hashCode());
+		result = prime * result
+				+ ((jxfsClass == null) ? 0 : jxfsClass.hashCode());
+		result = prime
+				* result
+				+ ((keyboardLockSupported == null) ? 0 : keyboardLockSupported
+						.hashCode());
+		result = prime
+				* result
+				+ ((keyboardSupported == null) ? 0 : keyboardSupported
+						.hashCode());
+		result = prime * result
+				+ ((keysSupported == null) ? 0 : keysSupported.hashCode());
+		result = prime * result
+				+ ((maxDataLength == null) ? 0 : maxDataLength.hashCode());
+		result = prime * result
+				+ ((maxInBills == null) ? 0 : maxInBills.hashCode());
+		result = prime * result
+				+ ((maxInCoins == null) ? 0 : maxInCoins.hashCode());
+		result = prime * result + ((maxLed == null) ? 0 : maxLed.hashCode());
+		result = prime * result
+				+ ((maxNumOfChars == null) ? 0 : maxNumOfChars.hashCode());
+		result = prime * result
+				+ ((maxOutBills == null) ? 0 : maxOutBills.hashCode());
+		result = prime * result
+				+ ((maxOutCoins == null) ? 0 : maxOutCoins.hashCode());
+		result = prime * result
+				+ ((maxPictures == null) ? 0 : maxPictures.hashCode());
+		result = prime * result
+				+ ((maxRetract == null) ? 0 : maxRetract.hashCode());
+		result = prime * result
+				+ ((maxStacker == null) ? 0 : maxStacker.hashCode());
+		result = prime
+				* result
+				+ ((multipleCurrenciesCashInSupported == null) ? 0
+						: multipleCurrenciesCashInSupported.hashCode());
+		result = prime * result
+				+ ((numberOfKeys == null) ? 0 : numberOfKeys.hashCode());
+		result = prime
+				* result
+				+ ((orientationToBeScanned == null) ? 0
+						: orientationToBeScanned.hashCode());
+		result = prime * result
+				+ ((outputPositions == null) ? 0 : outputPositions.hashCode());
+		result = prime * result
+				+ ((positions == null) ? 0 : positions.hashCode());
+		result = prime * result
+				+ ((powerOff == null) ? 0 : powerOff.hashCode());
+		result = prime * result + ((powerOn == null) ? 0 : powerOn.hashCode());
+		result = prime * result + ((print == null) ? 0 : print.hashCode());
+		result = prime * result
+				+ ((ptrCapabilities == null) ? 0 : ptrCapabilities.hashCode());
+		result = prime * result
+				+ ((ptrControlMedia == null) ? 0 : ptrControlMedia.hashCode());
+		result = prime * result
+				+ ((readFonts == null) ? 0 : readFonts.hashCode());
+		result = prime * result
+				+ ((readForm == null) ? 0 : readForm.hashCode());
+		result = prime * result
+				+ ((readImage == null) ? 0 : readImage.hashCode());
+		result = prime
+				* result
+				+ ((readKeyboardDataWithDefault == null) ? 0
+						: readKeyboardDataWithDefault.hashCode());
+		result = prime * result
+				+ ((readMicr == null) ? 0 : readMicr.hashCode());
+		result = prime * result + ((readOcr == null) ? 0 : readOcr.hashCode());
+		result = prime * result
+				+ ((readStatus == null) ? 0 : readStatus.hashCode());
+		result = prime * result + ((refill == null) ? 0 : refill.hashCode());
+		result = prime * result
+				+ ((remoteKeyLoad == null) ? 0 : remoteKeyLoad.hashCode());
+		result = prime * result + ((retain == null) ? 0 : retain.hashCode());
+		result = prime * result + ((retract == null) ? 0 : retract.hashCode());
+		result = prime * result
+				+ ((safeDoorCmd == null) ? 0 : safeDoorCmd.hashCode());
+		result = prime
+				* result
+				+ ((safeDoorSequence == null) ? 0 : safeDoorSequence.hashCode());
+		result = prime * result
+				+ ((scnCapabilities == null) ? 0 : scnCapabilities.hashCode());
+		result = prime * result
+				+ ((secureKeyDetail == null) ? 0 : secureKeyDetail.hashCode());
+		result = prime
+				* result
+				+ ((secureKeyEntryState == null) ? 0 : secureKeyEntryState
+						.hashCode());
+		result = prime
+				* result
+				+ ((secureKeyEntrySupported == null) ? 0
+						: secureKeyEntrySupported.hashCode());
+		result = prime
+				* result
+				+ ((secureModuleType == null) ? 0 : secureModuleType.hashCode());
+		result = prime * result + ((sensors == null) ? 0 : sensors.hashCode());
+		result = prime * result
+				+ ((shutterCmd == null) ? 0 : shutterCmd.hashCode());
+		result = prime * result
+				+ ((silentAlarm == null) ? 0 : silentAlarm.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime
+				* result
+				+ ((supportedChipPresentationModes == null) ? 0
+						: supportedChipPresentationModes.hashCode());
+		result = prime
+				* result
+				+ ((supportedChipProtocols == null) ? 0
+						: supportedChipProtocols.hashCode());
+		result = prime
+				* result
+				+ ((supportedCryptoModes == null) ? 0 : supportedCryptoModes
+						.hashCode());
+		result = prime * result
+				+ ((supportedFdKeys == null) ? 0 : supportedFdKeys.hashCode());
+		result = prime
+				* result
+				+ ((supportedPinFormats == null) ? 0 : supportedPinFormats
+						.hashCode());
+		result = prime
+				* result
+				+ ((supportedReadTracks == null) ? 0 : supportedReadTracks
+						.hashCode());
+		result = prime
+				* result
+				+ ((supportedTextAttributes == null) ? 0
+						: supportedTextAttributes.hashCode());
+		result = prime
+				* result
+				+ ((supportedValidationAlgorithms == null) ? 0
+						: supportedValidationAlgorithms.hashCode());
+		result = prime
+				* result
+				+ ((supportedWriteHicoTracks == null) ? 0
+						: supportedWriteHicoTracks.hashCode());
+		result = prime
+				* result
+				+ ((supportedWriteTracks == null) ? 0 : supportedWriteTracks
+						.hashCode());
+		result = prime * result
+				+ ((testCashUnit == null) ? 0 : testCashUnit.hashCode());
+		result = prime * result
+				+ ((transport == null) ? 0 : transport.hashCode());
+		result = prime * result
+				+ ((trustedUser == null) ? 0 : trustedUser.hashCode());
+		result = prime * result + ((unfit == null) ? 0 : unfit.hashCode());
+		result = prime * result
+				+ ((vendorData == null) ? 0 : vendorData.hashCode());
+		result = prime * result
+				+ ((writeForm == null) ? 0 : writeForm.hashCode());
+		result = prime * result
+				+ ((writeMode == null) ? 0 : writeMode.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		JxfsComponent other = (JxfsComponent) obj;
+		if (acceptLimit == null) {
+			if (other.acceptLimit != null)
+				return false;
+		} else if (!acceptLimit.equals(other.acceptLimit))
+			return false;
+		if (autopresent == null) {
+			if (other.autopresent != null)
+				return false;
+		} else if (!autopresent.equals(other.autopresent))
+			return false;
+		if (auxiliaries == null) {
+			if (other.auxiliaries != null)
+				return false;
+		} else if (!auxiliaries.equals(other.auxiliaries))
+			return false;
+		if (availableResolution == null) {
+			if (other.availableResolution != null)
+				return false;
+		} else if (!availableResolution.equals(other.availableResolution))
+			return false;
+		if (baitTrap == null) {
+			if (other.baitTrap != null)
+				return false;
+		} else if (!baitTrap.equals(other.baitTrap))
+			return false;
+		if (barcodeCapabilities == null) {
+			if (other.barcodeCapabilities != null)
+				return false;
+		} else if (!barcodeCapabilities.equals(other.barcodeCapabilities))
+			return false;
+		if (beepOnPressSupported == null) {
+			if (other.beepOnPressSupported != null)
+				return false;
+		} else if (!beepOnPressSupported.equals(other.beepOnPressSupported))
+			return false;
+		if (beepSupported == null) {
+			if (other.beepSupported != null)
+				return false;
+		} else if (!beepSupported.equals(other.beepSupported))
+			return false;
+		if (billsTakenSensor == null) {
+			if (other.billsTakenSensor != null)
+				return false;
+		} else if (!billsTakenSensor.equals(other.billsTakenSensor))
+			return false;
+		if (cashbox == null) {
+			if (other.cashbox != null)
+				return false;
+		} else if (!cashbox.equals(other.cashbox))
+			return false;
+		if (category2 == null) {
+			if (other.category2 != null)
+				return false;
+		} else if (!category2.equals(other.category2))
+			return false;
+		if (category3 == null) {
+			if (other.category3 != null)
+				return false;
+		} else if (!category3.equals(other.category3))
+			return false;
+		if (cdType == null) {
+			if (other.cdType != null)
+				return false;
+		} else if (!cdType.equals(other.cdType))
+			return false;
+		if (checkVandalism == null) {
+			if (other.checkVandalism != null)
+				return false;
+		} else if (!checkVandalism.equals(other.checkVandalism))
+			return false;
+		if (chequeCapabilities == null) {
+			if (other.chequeCapabilities != null)
+				return false;
+		} else if (!chequeCapabilities.equals(other.chequeCapabilities))
+			return false;
+		if (coins == null) {
+			if (other.coins != null)
+				return false;
+		} else if (!coins.equals(other.coins))
+			return false;
+		if (complex == null) {
+			if (other.complex != null)
+				return false;
+		} else if (!complex.equals(other.complex))
+			return false;
+		if (compound == null) {
+			if (other.compound != null)
+				return false;
+		} else if (!compound.equals(other.compound))
+			return false;
+		if (createSignatureCommandSupported == null) {
+			if (other.createSignatureCommandSupported != null)
+				return false;
+		} else if (!createSignatureCommandSupported
+				.equals(other.createSignatureCommandSupported))
+			return false;
+		if (ctrlTurn == null) {
+			if (other.ctrlTurn != null)
+				return false;
+		} else if (!ctrlTurn.equals(other.ctrlTurn))
+			return false;
+		if (cursorSupported == null) {
+			if (other.cursorSupported != null)
+				return false;
+		} else if (!cursorSupported.equals(other.cursorSupported))
+			return false;
+		if (cylinders == null) {
+			if (other.cylinders != null)
+				return false;
+		} else if (!cylinders.equals(other.cylinders))
+			return false;
+		if (defaultInputPosition == null) {
+			if (other.defaultInputPosition != null)
+				return false;
+		} else if (!defaultInputPosition.equals(other.defaultInputPosition))
+			return false;
+		if (defaultOutputPosition == null) {
+			if (other.defaultOutputPosition != null)
+				return false;
+		} else if (!defaultOutputPosition.equals(other.defaultOutputPosition))
+			return false;
+		if (defaultRollbackPosition == null) {
+			if (other.defaultRollbackPosition != null)
+				return false;
+		} else if (!defaultRollbackPosition
+				.equals(other.defaultRollbackPosition))
+			return false;
+		if (deposit == null) {
+			if (other.deposit != null)
+				return false;
+		} else if (!deposit.equals(other.deposit))
+			return false;
+		if (detector == null) {
+			if (other.detector != null)
+				return false;
+		} else if (!detector.equals(other.detector))
+			return false;
+		if (deviceControlName == null) {
+			if (other.deviceControlName != null)
+				return false;
+		} else if (!deviceControlName.equals(other.deviceControlName))
+			return false;
+		if (deviceId == null) {
+			if (other.deviceId != null)
+				return false;
+		} else if (!deviceId.equals(other.deviceId))
+			return false;
+		if (deviceOrientation == null) {
+			if (other.deviceOrientation != null)
+				return false;
+		} else if (!deviceOrientation.equals(other.deviceOrientation))
+			return false;
+		if (deviceScanningBothLongSide == null) {
+			if (other.deviceScanningBothLongSide != null)
+				return false;
+		} else if (!deviceScanningBothLongSide
+				.equals(other.deviceScanningBothLongSide))
+			return false;
+		if (deviceScanningBothShortSide == null) {
+			if (other.deviceScanningBothShortSide != null)
+				return false;
+		} else if (!deviceScanningBothShortSide
+				.equals(other.deviceScanningBothShortSide))
+			return false;
+		if (deviceServiceName == null) {
+			if (other.deviceServiceName != null)
+				return false;
+		} else if (!deviceServiceName.equals(other.deviceServiceName))
+			return false;
+		if (deviceType == null) {
+			if (other.deviceType != null)
+				return false;
+		} else if (!deviceType.equals(other.deviceType))
+			return false;
+		if (dispense == null) {
+			if (other.dispense != null)
+				return false;
+		} else if (!dispense.equals(other.dispense))
+			return false;
+		if (displayLightSupported == null) {
+			if (other.displayLightSupported != null)
+				return false;
+		} else if (!displayLightSupported.equals(other.displayLightSupported))
+			return false;
+		if (doors == null) {
+			if (other.doors != null)
+				return false;
+		} else if (!doors.equals(other.doors))
+			return false;
+		if (ejectStatus == null) {
+			if (other.ejectStatus != null)
+				return false;
+		} else if (!ejectStatus.equals(other.ejectStatus))
+			return false;
+		if (entry == null) {
+			if (other.entry != null)
+				return false;
+		} else if (!entry.equals(other.entry))
+			return false;
+		if (envSupply == null) {
+			if (other.envSupply != null)
+				return false;
+		} else if (!envSupply.equals(other.envSupply))
+			return false;
+		if (escrow == null) {
+			if (other.escrow != null)
+				return false;
+		} else if (!escrow.equals(other.escrow))
+			return false;
+		if (escrowSize == null) {
+			if (other.escrowSize != null)
+				return false;
+		} else if (!escrowSize.equals(other.escrowSize))
+			return false;
+		if (eventOnStartSupported == null) {
+			if (other.eventOnStartSupported != null)
+				return false;
+		} else if (!eventOnStartSupported.equals(other.eventOnStartSupported))
+			return false;
+		if (extent == null) {
+			if (other.extent != null)
+				return false;
+		} else if (!extent.equals(other.extent))
+			return false;
+		if (financialDevices == null) {
+			if (other.financialDevices != null)
+				return false;
+		} else if (!financialDevices.equals(other.financialDevices))
+			return false;
+		if (guidlights == null) {
+			if (other.guidlights != null)
+				return false;
+		} else if (!guidlights.equals(other.guidlights))
+			return false;
+		if (idKey == null) {
+			if (other.idKey != null)
+				return false;
+		} else if (!idKey.equals(other.idKey))
+			return false;
+		if (imageCapabilities == null) {
+			if (other.imageCapabilities != null)
+				return false;
+		} else if (!imageCapabilities.equals(other.imageCapabilities))
+			return false;
+		if (imageCapture == null) {
+			if (other.imageCapture != null)
+				return false;
+		} else if (!imageCapture.equals(other.imageCapture))
+			return false;
+		if (indicators == null) {
+			if (other.indicators != null)
+				return false;
+		} else if (!indicators.equals(other.indicators))
+			return false;
+		if (inputCookSupported == null) {
+			if (other.inputCookSupported != null)
+				return false;
+		} else if (!inputCookSupported.equals(other.inputCookSupported))
+			return false;
+		if (inputPositions == null) {
+			if (other.inputPositions != null)
+				return false;
+		} else if (!inputPositions.equals(other.inputPositions))
+			return false;
+		if (inputRawSupported == null) {
+			if (other.inputRawSupported != null)
+				return false;
+		} else if (!inputRawSupported.equals(other.inputRawSupported))
+			return false;
+		if (insertTextSupported == null) {
+			if (other.insertTextSupported != null)
+				return false;
+		} else if (!insertTextSupported.equals(other.insertTextSupported))
+			return false;
+		if (intermediateStacker == null) {
+			if (other.intermediateStacker != null)
+				return false;
+		} else if (!intermediateStacker.equals(other.intermediateStacker))
+			return false;
+		if (jxfsClass == null) {
+			if (other.jxfsClass != null)
+				return false;
+		} else if (!jxfsClass.equals(other.jxfsClass))
+			return false;
+		if (keyboardLockSupported == null) {
+			if (other.keyboardLockSupported != null)
+				return false;
+		} else if (!keyboardLockSupported.equals(other.keyboardLockSupported))
+			return false;
+		if (keyboardSupported == null) {
+			if (other.keyboardSupported != null)
+				return false;
+		} else if (!keyboardSupported.equals(other.keyboardSupported))
+			return false;
+		if (keysSupported == null) {
+			if (other.keysSupported != null)
+				return false;
+		} else if (!keysSupported.equals(other.keysSupported))
+			return false;
+		if (maxDataLength == null) {
+			if (other.maxDataLength != null)
+				return false;
+		} else if (!maxDataLength.equals(other.maxDataLength))
+			return false;
+		if (maxInBills == null) {
+			if (other.maxInBills != null)
+				return false;
+		} else if (!maxInBills.equals(other.maxInBills))
+			return false;
+		if (maxInCoins == null) {
+			if (other.maxInCoins != null)
+				return false;
+		} else if (!maxInCoins.equals(other.maxInCoins))
+			return false;
+		if (maxLed == null) {
+			if (other.maxLed != null)
+				return false;
+		} else if (!maxLed.equals(other.maxLed))
+			return false;
+		if (maxNumOfChars == null) {
+			if (other.maxNumOfChars != null)
+				return false;
+		} else if (!maxNumOfChars.equals(other.maxNumOfChars))
+			return false;
+		if (maxOutBills == null) {
+			if (other.maxOutBills != null)
+				return false;
+		} else if (!maxOutBills.equals(other.maxOutBills))
+			return false;
+		if (maxOutCoins == null) {
+			if (other.maxOutCoins != null)
+				return false;
+		} else if (!maxOutCoins.equals(other.maxOutCoins))
+			return false;
+		if (maxPictures == null) {
+			if (other.maxPictures != null)
+				return false;
+		} else if (!maxPictures.equals(other.maxPictures))
+			return false;
+		if (maxRetract == null) {
+			if (other.maxRetract != null)
+				return false;
+		} else if (!maxRetract.equals(other.maxRetract))
+			return false;
+		if (maxStacker == null) {
+			if (other.maxStacker != null)
+				return false;
+		} else if (!maxStacker.equals(other.maxStacker))
+			return false;
+		if (multipleCurrenciesCashInSupported == null) {
+			if (other.multipleCurrenciesCashInSupported != null)
+				return false;
+		} else if (!multipleCurrenciesCashInSupported
+				.equals(other.multipleCurrenciesCashInSupported))
+			return false;
+		if (numberOfKeys == null) {
+			if (other.numberOfKeys != null)
+				return false;
+		} else if (!numberOfKeys.equals(other.numberOfKeys))
+			return false;
+		if (orientationToBeScanned == null) {
+			if (other.orientationToBeScanned != null)
+				return false;
+		} else if (!orientationToBeScanned.equals(other.orientationToBeScanned))
+			return false;
+		if (outputPositions == null) {
+			if (other.outputPositions != null)
+				return false;
+		} else if (!outputPositions.equals(other.outputPositions))
+			return false;
+		if (positions == null) {
+			if (other.positions != null)
+				return false;
+		} else if (!positions.equals(other.positions))
+			return false;
+		if (powerOff == null) {
+			if (other.powerOff != null)
+				return false;
+		} else if (!powerOff.equals(other.powerOff))
+			return false;
+		if (powerOn == null) {
+			if (other.powerOn != null)
+				return false;
+		} else if (!powerOn.equals(other.powerOn))
+			return false;
+		if (print == null) {
+			if (other.print != null)
+				return false;
+		} else if (!print.equals(other.print))
+			return false;
+		if (ptrCapabilities == null) {
+			if (other.ptrCapabilities != null)
+				return false;
+		} else if (!ptrCapabilities.equals(other.ptrCapabilities))
+			return false;
+		if (ptrControlMedia == null) {
+			if (other.ptrControlMedia != null)
+				return false;
+		} else if (!ptrControlMedia.equals(other.ptrControlMedia))
+			return false;
+		if (readFonts == null) {
+			if (other.readFonts != null)
+				return false;
+		} else if (!readFonts.equals(other.readFonts))
+			return false;
+		if (readForm == null) {
+			if (other.readForm != null)
+				return false;
+		} else if (!readForm.equals(other.readForm))
+			return false;
+		if (readImage == null) {
+			if (other.readImage != null)
+				return false;
+		} else if (!readImage.equals(other.readImage))
+			return false;
+		if (readKeyboardDataWithDefault == null) {
+			if (other.readKeyboardDataWithDefault != null)
+				return false;
+		} else if (!readKeyboardDataWithDefault
+				.equals(other.readKeyboardDataWithDefault))
+			return false;
+		if (readMicr == null) {
+			if (other.readMicr != null)
+				return false;
+		} else if (!readMicr.equals(other.readMicr))
+			return false;
+		if (readOcr == null) {
+			if (other.readOcr != null)
+				return false;
+		} else if (!readOcr.equals(other.readOcr))
+			return false;
+		if (readStatus == null) {
+			if (other.readStatus != null)
+				return false;
+		} else if (!readStatus.equals(other.readStatus))
+			return false;
+		if (refill == null) {
+			if (other.refill != null)
+				return false;
+		} else if (!refill.equals(other.refill))
+			return false;
+		if (remoteKeyLoad == null) {
+			if (other.remoteKeyLoad != null)
+				return false;
+		} else if (!remoteKeyLoad.equals(other.remoteKeyLoad))
+			return false;
+		if (retain == null) {
+			if (other.retain != null)
+				return false;
+		} else if (!retain.equals(other.retain))
+			return false;
+		if (retract == null) {
+			if (other.retract != null)
+				return false;
+		} else if (!retract.equals(other.retract))
+			return false;
+		if (safeDoorCmd == null) {
+			if (other.safeDoorCmd != null)
+				return false;
+		} else if (!safeDoorCmd.equals(other.safeDoorCmd))
+			return false;
+		if (safeDoorSequence == null) {
+			if (other.safeDoorSequence != null)
+				return false;
+		} else if (!safeDoorSequence.equals(other.safeDoorSequence))
+			return false;
+		if (scnCapabilities == null) {
+			if (other.scnCapabilities != null)
+				return false;
+		} else if (!scnCapabilities.equals(other.scnCapabilities))
+			return false;
+		if (secureKeyDetail == null) {
+			if (other.secureKeyDetail != null)
+				return false;
+		} else if (!secureKeyDetail.equals(other.secureKeyDetail))
+			return false;
+		if (secureKeyEntryState == null) {
+			if (other.secureKeyEntryState != null)
+				return false;
+		} else if (!secureKeyEntryState.equals(other.secureKeyEntryState))
+			return false;
+		if (secureKeyEntrySupported == null) {
+			if (other.secureKeyEntrySupported != null)
+				return false;
+		} else if (!secureKeyEntrySupported
+				.equals(other.secureKeyEntrySupported))
+			return false;
+		if (secureModuleType == null) {
+			if (other.secureModuleType != null)
+				return false;
+		} else if (!secureModuleType.equals(other.secureModuleType))
+			return false;
+		if (sensors == null) {
+			if (other.sensors != null)
+				return false;
+		} else if (!sensors.equals(other.sensors))
+			return false;
+		if (shutterCmd == null) {
+			if (other.shutterCmd != null)
+				return false;
+		} else if (!shutterCmd.equals(other.shutterCmd))
+			return false;
+		if (silentAlarm == null) {
+			if (other.silentAlarm != null)
+				return false;
+		} else if (!silentAlarm.equals(other.silentAlarm))
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		if (supportedChipPresentationModes == null) {
+			if (other.supportedChipPresentationModes != null)
+				return false;
+		} else if (!supportedChipPresentationModes
+				.equals(other.supportedChipPresentationModes))
+			return false;
+		if (supportedChipProtocols == null) {
+			if (other.supportedChipProtocols != null)
+				return false;
+		} else if (!supportedChipProtocols.equals(other.supportedChipProtocols))
+			return false;
+		if (supportedCryptoModes == null) {
+			if (other.supportedCryptoModes != null)
+				return false;
+		} else if (!supportedCryptoModes.equals(other.supportedCryptoModes))
+			return false;
+		if (supportedFdKeys == null) {
+			if (other.supportedFdKeys != null)
+				return false;
+		} else if (!supportedFdKeys.equals(other.supportedFdKeys))
+			return false;
+		if (supportedPinFormats == null) {
+			if (other.supportedPinFormats != null)
+				return false;
+		} else if (!supportedPinFormats.equals(other.supportedPinFormats))
+			return false;
+		if (supportedReadTracks == null) {
+			if (other.supportedReadTracks != null)
+				return false;
+		} else if (!supportedReadTracks.equals(other.supportedReadTracks))
+			return false;
+		if (supportedTextAttributes == null) {
+			if (other.supportedTextAttributes != null)
+				return false;
+		} else if (!supportedTextAttributes
+				.equals(other.supportedTextAttributes))
+			return false;
+		if (supportedValidationAlgorithms == null) {
+			if (other.supportedValidationAlgorithms != null)
+				return false;
+		} else if (!supportedValidationAlgorithms
+				.equals(other.supportedValidationAlgorithms))
+			return false;
+		if (supportedWriteHicoTracks == null) {
+			if (other.supportedWriteHicoTracks != null)
+				return false;
+		} else if (!supportedWriteHicoTracks
+				.equals(other.supportedWriteHicoTracks))
+			return false;
+		if (supportedWriteTracks == null) {
+			if (other.supportedWriteTracks != null)
+				return false;
+		} else if (!supportedWriteTracks.equals(other.supportedWriteTracks))
+			return false;
+		if (testCashUnit == null) {
+			if (other.testCashUnit != null)
+				return false;
+		} else if (!testCashUnit.equals(other.testCashUnit))
+			return false;
+		if (transport == null) {
+			if (other.transport != null)
+				return false;
+		} else if (!transport.equals(other.transport))
+			return false;
+		if (trustedUser == null) {
+			if (other.trustedUser != null)
+				return false;
+		} else if (!trustedUser.equals(other.trustedUser))
+			return false;
+		if (unfit == null) {
+			if (other.unfit != null)
+				return false;
+		} else if (!unfit.equals(other.unfit))
+			return false;
+		if (vendorData == null) {
+			if (other.vendorData != null)
+				return false;
+		} else if (!vendorData.equals(other.vendorData))
+			return false;
+		if (writeForm == null) {
+			if (other.writeForm != null)
+				return false;
+		} else if (!writeForm.equals(other.writeForm))
+			return false;
+		if (writeMode == null) {
+			if (other.writeMode != null)
+				return false;
+		} else if (!writeMode.equals(other.writeMode))
+			return false;
+		return true;
+	}
 }
