@@ -346,34 +346,39 @@ public class QueryController {
 	}
 
 	if (WebUtils.hasSubmitParameter(request, "save")) {
-	    if (principal != null) {
-		query.setUser(loggedUser);
-		if (query.getId() != null) {
-		    try {
-			logger.debug("Updating query - " + query.getName());
-			queryService.updateQuery(query);
-			redirectAttributes.addFlashAttribute("success",
-				"success.updatingQuery");
-		    } catch (Exception e) {
-			redirectAttributes.addFlashAttribute("error",
-				"error.updatingQuery");
-		    }
-		} else {
-		    query.setCreationDate(new Date());
-		    query.setTrueLocale(locale);
-		    try {
-			logger.debug("Guardando nueva query- "
-				+ query.getName());
-			queryService.addQuery(query);
-			redirectAttributes.addFlashAttribute("success",
-				"success.savingNewQuery");
-		    } catch (Exception e) {
-			redirectAttributes.addFlashAttribute("error",
-				"error.savingNewQuery");
-		    }
+		if (principal != null) {
+			query.setUser(loggedUser);
+			if(query.getName() != null && !query.getName().trim().isEmpty()) {
+				if (query.getId() != null) {
+					try {
+						logger.debug("Updating query - " + query.getName());
+						queryService.updateQuery(query);
+						redirectAttributes.addFlashAttribute("success",
+								"success.updatingQuery");
+					} catch (Exception e) {
+						redirectAttributes.addFlashAttribute("error",
+								"error.updatingQuery");
+					}
+				} else {
+					query.setCreationDate(new Date());
+					query.setTrueLocale(locale);
+					try {
+						logger.debug("Guardando nueva query- "
+								+ query.getName());
+						queryService.addQuery(query);
+						redirectAttributes.addFlashAttribute("success",
+								"success.savingNewQuery");
+					} catch (Exception e) {
+						redirectAttributes.addFlashAttribute("error",
+								"error.savingNewQuery");
+					}
+				}
+			} else {
+				redirectAttributes.addFlashAttribute("error",
+						"query.name.blank");
+			}
 		}
-	    }
-	    return "redirect:/queries/list";
+		return "redirect:/queries/list";
 	} else if (WebUtils.hasSubmitParameter(request, "execute")) {
 	    if (principal != null) {
 		query.setUser(loggedUser);

@@ -45,10 +45,10 @@
       <a href="queries/create" class="btn right"><spring:message code="label.query.new"/></a>
     </div>
     <c:if test="${success != null}">
-       <div class="notification"><p><spring:message code="${success}" /></p></div>
+       <div class="notification"><p><spring:message code="${success}"/></p></div>
     </c:if>
     <c:if test="${error != null}">
-      <div class="alert"><p>${error}</p></div>
+      <div class="alert"><p><spring:message code="${error}"/></p></div>
     </c:if>
     <c:if test="${!empty pagedListHolder.pageList}">
       <table class="link">
