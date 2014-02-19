@@ -31,14 +31,6 @@ public interface OperatingSystemService {
     public OperatingSystem getOperatingSystem(Integer id);
 
     /**
-     * Gets the operating system by serial number.
-     *
-     * @param number the number
-     * @return the operating system by serial number
-     */
-    public OperatingSystem getOperatingSystemBySerialNumber(String number);
-
-    /**
      * List operating system.
      * 
      * @return the operating system list

@@ -63,7 +63,7 @@ public class OperatingSystem {
     private String name;
 
     /** The serial number. */
-    @Column(name = "serial_number", unique = true)
+    @Column(name = "serial_number")
     @Type(type = "text")
     private String serialNumber;
 

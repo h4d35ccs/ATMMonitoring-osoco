@@ -59,14 +59,4 @@ public class OperatingSystemDAOImpl extends AbstractGenericDAO<OperatingSystem>
     public OperatingSystem getOperatingSystem(Integer id) {
 	return get(id);
     }
-
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#getOperatingSystemBySerialNumber(java.lang.String)
-     */
-    @Override
-    public OperatingSystem getOperatingSystemBySerialNumber(String number) {
-	return (OperatingSystem) sessionFactory.getCurrentSession()
-		.createCriteria(OperatingSystem.class)
-		.add(Restrictions.eq("serialNumber", number)).uniqueResult();
-    }
 }

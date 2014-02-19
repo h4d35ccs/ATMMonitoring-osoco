@@ -42,14 +42,6 @@ public class OperatingSystemServiceImpl implements OperatingSystemService {
     }
 
     /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.OperatingSystemService#getOperatingSystemBySerialNumber(java.lang.String)
-     */
-    @Override
-    public OperatingSystem getOperatingSystemBySerialNumber(String number) {
-	return operatingSystemDAO.getOperatingSystemBySerialNumber(number);
-    }
-
-    /* (non-Javadoc)
      * @see com.ncr.ATMMonitoring.service.OperatingSystemService#getOperatingSystem(java.lang.Integer)
      */
     @Override

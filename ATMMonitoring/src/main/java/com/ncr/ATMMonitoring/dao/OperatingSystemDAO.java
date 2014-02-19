@@ -29,16 +29,6 @@ public interface OperatingSystemDAO {
     public List<OperatingSystem> listOperatingSystem();
 
     /**
-     * Gets the operating system by serial number.
-     * 
-     * @param number
-     *            the number
-     * @return the operating system by serial number, or null if it doesn't
-     *         exist
-     */
-    public OperatingSystem getOperatingSystemBySerialNumber(String number);
-
-    /**
      * Gets the operating system with the given id.
      * 
      * @param id

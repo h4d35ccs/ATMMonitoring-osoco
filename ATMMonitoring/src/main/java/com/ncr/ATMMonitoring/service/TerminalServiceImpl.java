@@ -1159,21 +1159,7 @@ public class TerminalServiceImpl implements TerminalService {
 		newConfig.setSoftware(swsAux);
 
 		Set<OperatingSystem> oss = getOperatingSystems(dataStoreTerminal);
-		Set<OperatingSystem> ossAux = new HashSet<OperatingSystem>();
-		for (OperatingSystem os : oss) {
-			OperatingSystem osAux = operatingSystemService
-					.getOperatingSystemBySerialNumber(os.getSerialNumber());
-			if (osAux != null) {
-				logger.debug("Found os with serial number "
-						+ os.getSerialNumber());
-				ossAux.add(osAux);
-			} else {
-				logger.debug("Couldn't find os with serial number "
-						+ os.getSerialNumber());
-				ossAux.add(os);
-			}
-		}
-		newConfig.setOperatingSystems(ossAux);
+		newConfig.setOperatingSystems(oss);
 		return newConfig;
 	}
 	
