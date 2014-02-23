@@ -105,6 +105,497 @@ public <tt class="descname">Terminal</tt><big>(</big>ATMDataStorePojo<em> termin
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="buildhistoricalchanges">
+<h3>buildHistoricalChanges<a class="headerlink" href="#buildhistoricalchanges" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.buildHistoricalChanges()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;Class&lt;? extends <a class="reference internal" href="Auditable.html#com.ncr.ATMMonitoring.pojo.Auditable" title="com.ncr.ATMMonitoring.pojo.Auditable">Auditable</a>&gt;, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a>, Integer&gt;&gt; <tt class="descname">buildHistoricalChanges</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.buildHistoricalChanges()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the historical changes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The historicalChanges</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactiveauditableinternetexplorersbydate">
+<h3>getActiveAuditableInternetExplorersByDate<a class="headerlink" href="#getactiveauditableinternetexplorersbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveAuditableInternetExplorersByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="AuditableInternetExplorer.html#com.ncr.ATMMonitoring.pojo.AuditableInternetExplorer" title="com.ncr.ATMMonitoring.pojo.AuditableInternetExplorer">AuditableInternetExplorer</a>&gt; <tt class="descname">getActiveAuditableInternetExplorersByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveAuditableInternetExplorersByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the auditable internet explorers by date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date</strong> &#8211; The date</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The auditable internet explorers</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactiveauditablesoftwareaggregatesbydate">
+<h3>getActiveAuditableSoftwareAggregatesByDate<a class="headerlink" href="#getactiveauditablesoftwareaggregatesbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveAuditableSoftwareAggregatesByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="AuditableSoftwareAggregate.html#com.ncr.ATMMonitoring.pojo.AuditableSoftwareAggregate" title="com.ncr.ATMMonitoring.pojo.AuditableSoftwareAggregate">AuditableSoftwareAggregate</a>&gt; <tt class="descname">getActiveAuditableSoftwareAggregatesByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveAuditableSoftwareAggregatesByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get active software aggregates by date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date</strong> &#8211; The date</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The active software aggregates</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivebaseboardsbydate">
+<h3>getActiveBaseBoardsByDate<a class="headerlink" href="#getactivebaseboardsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveBaseBoardsByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveBaseBoardsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveBaseBoardsByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivebiosbydate">
+<h3>getActiveBiosByDate<a class="headerlink" href="#getactivebiosbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveBiosByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveBiosByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveBiosByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivecdromdrivesbydate">
+<h3>getActiveCdromDrivesByDate<a class="headerlink" href="#getactivecdromdrivesbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveCdromDrivesByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveCdromDrivesByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveCdromDrivesByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivecomputersystemsbydate">
+<h3>getActiveComputerSystemsByDate<a class="headerlink" href="#getactivecomputersystemsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveComputerSystemsByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveComputerSystemsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveComputerSystemsByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivecontrollers1394bydate">
+<h3>getActiveControllers1394ByDate<a class="headerlink" href="#getactivecontrollers1394bydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveControllers1394ByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveControllers1394ByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveControllers1394ByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivedesktopmonitorsbydate">
+<h3>getActiveDesktopMonitorsByDate<a class="headerlink" href="#getactivedesktopmonitorsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveDesktopMonitorsByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveDesktopMonitorsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveDesktopMonitorsByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivediskdrivesbydate">
+<h3>getActiveDiskDrivesByDate<a class="headerlink" href="#getactivediskdrivesbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveDiskDrivesByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveDiskDrivesByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveDiskDrivesByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivefinancialdevicesbydate">
+<h3>getActiveFinancialDevicesByDate<a class="headerlink" href="#getactivefinancialdevicesbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveFinancialDevicesByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="FinancialDevice.html#com.ncr.ATMMonitoring.pojo.FinancialDevice" title="com.ncr.ATMMonitoring.pojo.FinancialDevice">FinancialDevice</a>&gt; <tt class="descname">getActiveFinancialDevicesByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveFinancialDevicesByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the active financial devices by date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date</strong> &#8211; The date</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The active financial devices</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivefloppydrivesbydate">
+<h3>getActiveFloppyDrivesByDate<a class="headerlink" href="#getactivefloppydrivesbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveFloppyDrivesByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveFloppyDrivesByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveFloppyDrivesByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivehardwaredevicesbydate">
+<h3>getActiveHardwareDevicesByDate<a class="headerlink" href="#getactivehardwaredevicesbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveHardwareDevicesByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveHardwareDevicesByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveHardwareDevicesByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get active hardware device by date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date</strong> &#8211; The date</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The active hardware device</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivehotfixesbydate">
+<h3>getActiveHotfixesByDate<a class="headerlink" href="#getactivehotfixesbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveHotfixesByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="Hotfix.html#com.ncr.ATMMonitoring.pojo.Hotfix" title="com.ncr.ATMMonitoring.pojo.Hotfix">Hotfix</a>&gt; <tt class="descname">getActiveHotfixesByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveHotfixesByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the active hotfixes by date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date</strong> &#8211; The date</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The active hotfixes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactiveinstallationsbydate">
+<h3>getActiveInstallationsByDate<a class="headerlink" href="#getactiveinstallationsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveInstallationsByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="Installation.html#com.ncr.ATMMonitoring.pojo.Installation" title="com.ncr.ATMMonitoring.pojo.Installation">Installation</a>&gt; <tt class="descname">getActiveInstallationsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveInstallationsByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the active installations by date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date</strong> &#8211; The date</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The active installations</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivekeyboardsbydate">
+<h3>getActiveKeyboardsByDate<a class="headerlink" href="#getactivekeyboardsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveKeyboardsByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveKeyboardsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveKeyboardsByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivelogicaldisksbydate">
+<h3>getActiveLogicalDisksByDate<a class="headerlink" href="#getactivelogicaldisksbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveLogicalDisksByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveLogicalDisksByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveLogicalDisksByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivenetworkadaptersbydate">
+<h3>getActiveNetworkAdaptersByDate<a class="headerlink" href="#getactivenetworkadaptersbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveNetworkAdaptersByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveNetworkAdaptersByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveNetworkAdaptersByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactiveparallelportsbydate">
+<h3>getActiveParallelPortsByDate<a class="headerlink" href="#getactiveparallelportsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveParallelPortsByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveParallelPortsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveParallelPortsByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivephysicalmemoriesbydate">
+<h3>getActivePhysicalMemoriesByDate<a class="headerlink" href="#getactivephysicalmemoriesbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActivePhysicalMemoriesByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActivePhysicalMemoriesByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActivePhysicalMemoriesByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivepointingdevicesbydate">
+<h3>getActivePointingDevicesByDate<a class="headerlink" href="#getactivepointingdevicesbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActivePointingDevicesByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActivePointingDevicesByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActivePointingDevicesByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactiveprocessorsbydate">
+<h3>getActiveProcessorsByDate<a class="headerlink" href="#getactiveprocessorsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveProcessorsByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveProcessorsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveProcessorsByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivescsicontrollersbydate">
+<h3>getActiveScsiControllersByDate<a class="headerlink" href="#getactivescsicontrollersbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveScsiControllersByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveScsiControllersByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveScsiControllersByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactiveserialportsbydate">
+<h3>getActiveSerialPortsByDate<a class="headerlink" href="#getactiveserialportsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveSerialPortsByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveSerialPortsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveSerialPortsByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivesounddevicesbydate">
+<h3>getActiveSoundDevicesByDate<a class="headerlink" href="#getactivesounddevicesbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveSoundDevicesByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveSoundDevicesByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveSoundDevicesByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivesystemslotsbydate">
+<h3>getActiveSystemSlotsByDate<a class="headerlink" href="#getactivesystemslotsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveSystemSlotsByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveSystemSlotsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveSystemSlotsByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactiveusbcontrollersbydate">
+<h3>getActiveUsbControllersByDate<a class="headerlink" href="#getactiveusbcontrollersbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveUsbControllersByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveUsbControllersByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveUsbControllersByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getactivevideocontrollersbydate">
+<h3>getActiveVideoControllersByDate<a class="headerlink" href="#getactivevideocontrollersbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getActiveVideoControllersByDate(Date)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt; <tt class="descname">getActiveVideoControllersByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getActiveVideoControllersByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the hardwareDevices</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 <div class="section" id="getbank">
 <h3>getBank<a class="headerlink" href="#getbank" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -301,17 +792,80 @@ public static String <tt class="descname">getCsvHeader</tt><big>(</big><big>)</b
 </dd></dl>
 
 </div>
-<div class="section" id="getcurrentconfig">
-<h3>getCurrentConfig<a class="headerlink" href="#getcurrentconfig" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="getcurrentinstallation">
+<h3>getCurrentInstallation<a class="headerlink" href="#getcurrentinstallation" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getCurrentConfig()">
-public <a class="reference internal" href="TerminalConfig.html#com.ncr.ATMMonitoring.pojo.TerminalConfig" title="com.ncr.ATMMonitoring.pojo.TerminalConfig">TerminalConfig</a> <tt class="descname">getCurrentConfig</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getCurrentConfig()" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the currently valid config.</p>
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getCurrentInstallation()">
+public <a class="reference internal" href="Installation.html#com.ncr.ATMMonitoring.pojo.Installation" title="com.ncr.ATMMonitoring.pojo.Installation">Installation</a> <tt class="descname">getCurrentInstallation</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getCurrentInstallation()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current installation</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the current config</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The current installation</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getcurrentinstallationbydate">
+<h3>getCurrentInstallationByDate<a class="headerlink" href="#getcurrentinstallationbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getCurrentInstallationByDate(Date)">
+public <a class="reference internal" href="Installation.html#com.ncr.ATMMonitoring.pojo.Installation" title="com.ncr.ATMMonitoring.pojo.Installation">Installation</a> <tt class="descname">getCurrentInstallationByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getCurrentInstallationByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current installation by date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date</strong> &#8211; The date</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The current installation</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getcurrentterminalconfig">
+<h3>getCurrentTerminalConfig<a class="headerlink" href="#getcurrentterminalconfig" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getCurrentTerminalConfig()">
+public <a class="reference internal" href="TerminalConfig.html#com.ncr.ATMMonitoring.pojo.TerminalConfig" title="com.ncr.ATMMonitoring.pojo.TerminalConfig">TerminalConfig</a> <tt class="descname">getCurrentTerminalConfig</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getCurrentTerminalConfig()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current terminal config</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The terminal config</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getcurrentterminalconfigactivebydate">
+<h3>getCurrentTerminalConfigActiveByDate<a class="headerlink" href="#getcurrentterminalconfigactivebydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getCurrentTerminalConfigActiveByDate(Date)">
+public <a class="reference internal" href="TerminalConfig.html#com.ncr.ATMMonitoring.pojo.TerminalConfig" title="com.ncr.ATMMonitoring.pojo.TerminalConfig">TerminalConfig</a> <tt class="descname">getCurrentTerminalConfigActiveByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getCurrentTerminalConfigActiveByDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current terminal config active by date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>date</strong> &#8211; The date</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The current terminal config</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -471,17 +1025,17 @@ public Integer <tt class="descname">getId</tt><big>(</big><big>)</big><a class="
 </dd></dl>
 
 </div>
-<div class="section" id="getinstallation">
-<h3>getInstallation<a class="headerlink" href="#getinstallation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="getinstallations">
+<h3>getInstallations<a class="headerlink" href="#getinstallations" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getInstallation()">
-public <a class="reference internal" href="Installation.html#com.ncr.ATMMonitoring.pojo.Installation" title="com.ncr.ATMMonitoring.pojo.Installation">Installation</a> <tt class="descname">getInstallation</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getInstallation()" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the installation.</p>
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.getInstallations()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="Installation.html#com.ncr.ATMMonitoring.pojo.Installation" title="com.ncr.ATMMonitoring.pojo.Installation">Installation</a>&gt; <tt class="descname">getInstallations</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getInstallations()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the installations</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the installation</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The installations</td>
 </tr>
 </tbody>
 </table>
@@ -595,12 +1149,12 @@ public String <tt class="descname">getManufacturingSite</tt><big>(</big><big>)</
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.pojo.Terminal.getMatricula()">
 public Long <tt class="descname">getMatricula</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.getMatricula()" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the matricula.</p>
+<dd><p>Gets the generated id.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the matricula</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the generated id</td>
 </tr>
 </tbody>
 </table>
@@ -953,6 +1507,26 @@ public void <tt class="descname">replaceTerminalDataWoVoidValues</tt><big>(</big
 </dd></dl>
 
 </div>
+<div class="section" id="setauditableinternetexplorers">
+<h3>setAuditableInternetExplorers<a class="headerlink" href="#setauditableinternetexplorers" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.setAuditableInternetExplorers(Set)">
+public void <tt class="descname">setAuditableInternetExplorers</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="AuditableInternetExplorer.html#com.ncr.ATMMonitoring.pojo.AuditableInternetExplorer" title="com.ncr.ATMMonitoring.pojo.AuditableInternetExplorer">AuditableInternetExplorer</a>&gt;<em> auditableInternetExplorers</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.setAuditableInternetExplorers(Set)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the internet explorers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>internetExplorers</strong> &#8211; the internetExplorers to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 <div class="section" id="setbank">
 <h3>setBank<a class="headerlink" href="#setbank" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -1025,6 +1599,46 @@ public void <tt class="descname">setConfigs</tt><big>(</big><a class="reference 
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>configs</strong> &#8211; the configs to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setcurrentinstallation">
+<h3>setCurrentInstallation<a class="headerlink" href="#setcurrentinstallation" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.setCurrentInstallation(Installation)">
+public void <tt class="descname">setCurrentInstallation</tt><big>(</big><a class="reference internal" href="Installation.html#com.ncr.ATMMonitoring.pojo.Installation" title="com.ncr.ATMMonitoring.pojo.Installation">Installation</a><em> installation</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.setCurrentInstallation(Installation)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set current installation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>installation</strong> &#8211; The current installation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setcurrentterminalconfig">
+<h3>setCurrentTerminalConfig<a class="headerlink" href="#setcurrentterminalconfig" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.setCurrentTerminalConfig(TerminalConfig)">
+public void <tt class="descname">setCurrentTerminalConfig</tt><big>(</big><a class="reference internal" href="TerminalConfig.html#com.ncr.ATMMonitoring.pojo.TerminalConfig" title="com.ncr.ATMMonitoring.pojo.TerminalConfig">TerminalConfig</a><em> terminalConfig</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.setCurrentTerminalConfig(TerminalConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current terminal config</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>terminalConfig</strong> &#8211; The terminal config</li>
 </ul>
 </td>
 </tr>
@@ -1153,46 +1767,6 @@ public void <tt class="descname">setId</tt><big>(</big>Integer<em> id</em><big>)
 </dd></dl>
 
 </div>
-<div class="section" id="setinstallation">
-<h3>setInstallation<a class="headerlink" href="#setinstallation" title="Permalink to this headline">¶</a></h3>
-<dl class="method">
-<dt id="com.ncr.ATMMonitoring.pojo.Terminal.setInstallation(Installation)">
-public void <tt class="descname">setInstallation</tt><big>(</big><a class="reference internal" href="Installation.html#com.ncr.ATMMonitoring.pojo.Installation" title="com.ncr.ATMMonitoring.pojo.Installation">Installation</a><em> installation</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.setInstallation(Installation)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the installation.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>installation</strong> &#8211; the new installation</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<div class="section" id="setinternetexplorers">
-<h3>setInternetExplorers<a class="headerlink" href="#setinternetexplorers" title="Permalink to this headline">¶</a></h3>
-<dl class="method">
-<dt id="com.ncr.ATMMonitoring.pojo.Terminal.setInternetExplorers(Set)">
-public void <tt class="descname">setInternetExplorers</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="InternetExplorer.html#com.ncr.ATMMonitoring.pojo.InternetExplorer" title="com.ncr.ATMMonitoring.pojo.InternetExplorer">InternetExplorer</a>&gt;<em> internetExplorers</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.setInternetExplorers(Set)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the internet explorers.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>internetExplorers</strong> &#8211; the internetExplorers to set</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
 <div class="section" id="setip">
 <h3>setIp<a class="headerlink" href="#setip" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -1258,13 +1832,13 @@ public void <tt class="descname">setManufacturingSite</tt><big>(</big>String<em>
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.pojo.Terminal.setMatricula(Long)">
 public void <tt class="descname">setMatricula</tt><big>(</big>Long<em> matricula</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.setMatricula(Long)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the matricula.</p>
+<dd><p>Sets the generated id.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>matricula</strong> &#8211; the new matricula</li>
+<li><strong>matricula</strong> &#8211; the new generated id</li>
 </ul>
 </td>
 </tr>
@@ -1305,26 +1879,6 @@ public void <tt class="descname">setSerialNumber</tt><big>(</big>String<em> seri
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>serialNumber</strong> &#8211; the serialNumber to set</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<div class="section" id="setsoftwareaggregates">
-<h3>setSoftwareAggregates<a class="headerlink" href="#setsoftwareaggregates" title="Permalink to this headline">¶</a></h3>
-<dl class="method">
-<dt id="com.ncr.ATMMonitoring.pojo.Terminal.setSoftwareAggregates(Set)">
-public void <tt class="descname">setSoftwareAggregates</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="SoftwareAggregate.html#com.ncr.ATMMonitoring.pojo.SoftwareAggregate" title="com.ncr.ATMMonitoring.pojo.SoftwareAggregate">SoftwareAggregate</a>&gt;<em> softwareAggregates</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.setSoftwareAggregates(Set)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the software aggregates.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>softwareAggregates</strong> &#8211; the softwareAggregates to set</li>
 </ul>
 </td>
 </tr>
@@ -1413,6 +1967,106 @@ public void <tt class="descname">setTracerNumber</tt><big>(</big>String<em> trac
 </dd></dl>
 
 </div>
+<div class="section" id="updateauditableinternetexplorers">
+<h3>updateAuditableInternetExplorers<a class="headerlink" href="#updateauditableinternetexplorers" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.updateAuditableInternetExplorers(Set)">
+public void <tt class="descname">updateAuditableInternetExplorers</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="AuditableInternetExplorer.html#com.ncr.ATMMonitoring.pojo.AuditableInternetExplorer" title="com.ncr.ATMMonitoring.pojo.AuditableInternetExplorer">AuditableInternetExplorer</a>&gt;<em> newAuditableInternetExplorers</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.updateAuditableInternetExplorers(Set)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the collection of auditable internet explorer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>newAuditableInternetExplorers</strong> &#8211; the internetExplorers to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="updateauditablesoftwareaggregates">
+<h3>updateAuditableSoftwareAggregates<a class="headerlink" href="#updateauditablesoftwareaggregates" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.updateAuditableSoftwareAggregates(Set)">
+public void <tt class="descname">updateAuditableSoftwareAggregates</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="AuditableSoftwareAggregate.html#com.ncr.ATMMonitoring.pojo.AuditableSoftwareAggregate" title="com.ncr.ATMMonitoring.pojo.AuditableSoftwareAggregate">AuditableSoftwareAggregate</a>&gt;<em> newAuditableSoftwareAggregate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.updateAuditableSoftwareAggregates(Set)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the collection of auditable sofware aggregates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>newAuditableSoftwareAggregate</strong> &#8211; the new software aggregates</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="updatefinancialdevices">
+<h3>updateFinancialDevices<a class="headerlink" href="#updatefinancialdevices" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.updateFinancialDevices(Set)">
+public void <tt class="descname">updateFinancialDevices</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="FinancialDevice.html#com.ncr.ATMMonitoring.pojo.FinancialDevice" title="com.ncr.ATMMonitoring.pojo.FinancialDevice">FinancialDevice</a>&gt;<em> newFinancialDevices</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.updateFinancialDevices(Set)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the collection financial devices of auditable elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hardwareDevices</strong> &#8211; The financial devices</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="updatehardwaredevices">
+<h3>updateHardwareDevices<a class="headerlink" href="#updatehardwaredevices" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.updateHardwareDevices(Set)">
+public void <tt class="descname">updateHardwareDevices</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="HardwareDevice.html#com.ncr.ATMMonitoring.pojo.HardwareDevice" title="com.ncr.ATMMonitoring.pojo.HardwareDevice">HardwareDevice</a>&gt;<em> newHardwareDevices</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.updateHardwareDevices(Set)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the collection hardware devices of auditable elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hardwareDevices</strong> &#8211; The hardware devices</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="updatehotfixes">
+<h3>updateHotfixes<a class="headerlink" href="#updatehotfixes" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Terminal.updateHotfixes(Set)">
+public void <tt class="descname">updateHotfixes</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="Hotfix.html#com.ncr.ATMMonitoring.pojo.Hotfix" title="com.ncr.ATMMonitoring.pojo.Hotfix">Hotfix</a>&gt;<em> newHotfixes</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Terminal.updateHotfixes(Set)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the collection hardware devices of auditable elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hardwareDevices</strong> &#8211; The hotfixes</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 </div>
 </div>
 
@@ -1434,6 +2088,34 @@ public void <tt class="descname">setTracerNumber</tt><big>(</big>String<em> trac
 </ul>
 </li>
 <li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#buildhistoricalchanges">buildHistoricalChanges</a></li>
+<li><a class="reference internal" href="#getactiveauditableinternetexplorersbydate">getActiveAuditableInternetExplorersByDate</a></li>
+<li><a class="reference internal" href="#getactiveauditablesoftwareaggregatesbydate">getActiveAuditableSoftwareAggregatesByDate</a></li>
+<li><a class="reference internal" href="#getactivebaseboardsbydate">getActiveBaseBoardsByDate</a></li>
+<li><a class="reference internal" href="#getactivebiosbydate">getActiveBiosByDate</a></li>
+<li><a class="reference internal" href="#getactivecdromdrivesbydate">getActiveCdromDrivesByDate</a></li>
+<li><a class="reference internal" href="#getactivecomputersystemsbydate">getActiveComputerSystemsByDate</a></li>
+<li><a class="reference internal" href="#getactivecontrollers1394bydate">getActiveControllers1394ByDate</a></li>
+<li><a class="reference internal" href="#getactivedesktopmonitorsbydate">getActiveDesktopMonitorsByDate</a></li>
+<li><a class="reference internal" href="#getactivediskdrivesbydate">getActiveDiskDrivesByDate</a></li>
+<li><a class="reference internal" href="#getactivefinancialdevicesbydate">getActiveFinancialDevicesByDate</a></li>
+<li><a class="reference internal" href="#getactivefloppydrivesbydate">getActiveFloppyDrivesByDate</a></li>
+<li><a class="reference internal" href="#getactivehardwaredevicesbydate">getActiveHardwareDevicesByDate</a></li>
+<li><a class="reference internal" href="#getactivehotfixesbydate">getActiveHotfixesByDate</a></li>
+<li><a class="reference internal" href="#getactiveinstallationsbydate">getActiveInstallationsByDate</a></li>
+<li><a class="reference internal" href="#getactivekeyboardsbydate">getActiveKeyboardsByDate</a></li>
+<li><a class="reference internal" href="#getactivelogicaldisksbydate">getActiveLogicalDisksByDate</a></li>
+<li><a class="reference internal" href="#getactivenetworkadaptersbydate">getActiveNetworkAdaptersByDate</a></li>
+<li><a class="reference internal" href="#getactiveparallelportsbydate">getActiveParallelPortsByDate</a></li>
+<li><a class="reference internal" href="#getactivephysicalmemoriesbydate">getActivePhysicalMemoriesByDate</a></li>
+<li><a class="reference internal" href="#getactivepointingdevicesbydate">getActivePointingDevicesByDate</a></li>
+<li><a class="reference internal" href="#getactiveprocessorsbydate">getActiveProcessorsByDate</a></li>
+<li><a class="reference internal" href="#getactivescsicontrollersbydate">getActiveScsiControllersByDate</a></li>
+<li><a class="reference internal" href="#getactiveserialportsbydate">getActiveSerialPortsByDate</a></li>
+<li><a class="reference internal" href="#getactivesounddevicesbydate">getActiveSoundDevicesByDate</a></li>
+<li><a class="reference internal" href="#getactivesystemslotsbydate">getActiveSystemSlotsByDate</a></li>
+<li><a class="reference internal" href="#getactiveusbcontrollersbydate">getActiveUsbControllersByDate</a></li>
+<li><a class="reference internal" href="#getactivevideocontrollersbydate">getActiveVideoControllersByDate</a></li>
 <li><a class="reference internal" href="#getbank">getBank</a></li>
 <li><a class="reference internal" href="#getbankcompany">getBankCompany</a></li>
 <li><a class="reference internal" href="#getbaseboards">getBaseBoards</a></li>
@@ -1446,7 +2128,10 @@ public void <tt class="descname">setTracerNumber</tt><big>(</big>String<em> trac
 <li><a class="reference internal" href="#getcontrollers1394">getControllers1394</a></li>
 <li><a class="reference internal" href="#getcsvdescription">getCsvDescription</a></li>
 <li><a class="reference internal" href="#getcsvheader">getCsvHeader</a></li>
-<li><a class="reference internal" href="#getcurrentconfig">getCurrentConfig</a></li>
+<li><a class="reference internal" href="#getcurrentinstallation">getCurrentInstallation</a></li>
+<li><a class="reference internal" href="#getcurrentinstallationbydate">getCurrentInstallationByDate</a></li>
+<li><a class="reference internal" href="#getcurrentterminalconfig">getCurrentTerminalConfig</a></li>
+<li><a class="reference internal" href="#getcurrentterminalconfigactivebydate">getCurrentTerminalConfigActiveByDate</a></li>
 <li><a class="reference internal" href="#getdesktopmonitors">getDesktopMonitors</a></li>
 <li><a class="reference internal" href="#getdiskdrives">getDiskDrives</a></li>
 <li><a class="reference internal" href="#getfinancialdevices">getFinancialDevices</a></li>
@@ -1456,7 +2141,7 @@ public void <tt class="descname">setTracerNumber</tt><big>(</big>String<em> trac
 <li><a class="reference internal" href="#gethardwaredevices">getHardwareDevices</a></li>
 <li><a class="reference internal" href="#gethotfixes">getHotfixes</a></li>
 <li><a class="reference internal" href="#getid">getId</a></li>
-<li><a class="reference internal" href="#getinstallation">getInstallation</a></li>
+<li><a class="reference internal" href="#getinstallations">getInstallations</a></li>
 <li><a class="reference internal" href="#getinternetexplorers">getInternetExplorers</a></li>
 <li><a class="reference internal" href="#getip">getIp</a></li>
 <li><a class="reference internal" href="#getkeyboards">getKeyboards</a></li>
@@ -1484,29 +2169,34 @@ public void <tt class="descname">setTracerNumber</tt><big>(</big>String<em> trac
 <li><a class="reference internal" href="#getvideocontrollers">getVideoControllers</a></li>
 <li><a class="reference internal" href="#replaceterminaldata">replaceTerminalData</a></li>
 <li><a class="reference internal" href="#replaceterminaldatawovoidvalues">replaceTerminalDataWoVoidValues</a></li>
+<li><a class="reference internal" href="#setauditableinternetexplorers">setAuditableInternetExplorers</a></li>
 <li><a class="reference internal" href="#setbank">setBank</a></li>
 <li><a class="reference internal" href="#setbankcompany">setBankCompany</a></li>
 <li><a class="reference internal" href="#setbranch">setBranch</a></li>
 <li><a class="reference internal" href="#setconfigs">setConfigs</a></li>
+<li><a class="reference internal" href="#setcurrentinstallation">setCurrentInstallation</a></li>
+<li><a class="reference internal" href="#setcurrentterminalconfig">setCurrentTerminalConfig</a></li>
 <li><a class="reference internal" href="#setfinancialdevices">setFinancialDevices</a></li>
 <li><a class="reference internal" href="#setfrontreplenish">setFrontReplenish</a></li>
 <li><a class="reference internal" href="#setgeographicaddress">setGeographicAddress</a></li>
 <li><a class="reference internal" href="#sethardwaredevices">setHardwareDevices</a></li>
 <li><a class="reference internal" href="#sethotfixes">setHotfixes</a></li>
 <li><a class="reference internal" href="#setid">setId</a></li>
-<li><a class="reference internal" href="#setinstallation">setInstallation</a></li>
-<li><a class="reference internal" href="#setinternetexplorers">setInternetExplorers</a></li>
 <li><a class="reference internal" href="#setip">setIp</a></li>
 <li><a class="reference internal" href="#setmac">setMac</a></li>
 <li><a class="reference internal" href="#setmanufacturingsite">setManufacturingSite</a></li>
 <li><a class="reference internal" href="#setmatricula">setMatricula</a></li>
 <li><a class="reference internal" href="#setproductclassdescription">setProductClassDescription</a></li>
 <li><a class="reference internal" href="#setserialnumber">setSerialNumber</a></li>
-<li><a class="reference internal" href="#setsoftwareaggregates">setSoftwareAggregates</a></li>
 <li><a class="reference internal" href="#setterminalmodel">setTerminalModel</a></li>
 <li><a class="reference internal" href="#setterminaltype">setTerminalType</a></li>
 <li><a class="reference internal" href="#setterminalvendor">setTerminalVendor</a></li>
 <li><a class="reference internal" href="#settracernumber">setTracerNumber</a></li>
+<li><a class="reference internal" href="#updateauditableinternetexplorers">updateAuditableInternetExplorers</a></li>
+<li><a class="reference internal" href="#updateauditablesoftwareaggregates">updateAuditableSoftwareAggregates</a></li>
+<li><a class="reference internal" href="#updatefinancialdevices">updateFinancialDevices</a></li>
+<li><a class="reference internal" href="#updatehardwaredevices">updateHardwareDevices</a></li>
+<li><a class="reference internal" href="#updatehotfixes">updateHotfixes</a></li>
 </ul>
 </li>
 </ul>

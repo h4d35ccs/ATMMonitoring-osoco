@@ -8,7 +8,11 @@
 
 .. java:import:: com.ncr ATMMonitoring.dao.RoleDAO
 
+.. java:import:: com.ncr ATMMonitoring.pojo.Query
+
 .. java:import:: com.ncr ATMMonitoring.pojo.Role
+
+.. java:import:: com.ncr ATMMonitoring.pojo.User
 
 RoleServiceImpl
 ===============
@@ -30,16 +34,34 @@ addRole
 .. java:method:: @Override public void addRole(Role role)
    :outertype: RoleServiceImpl
 
+deleteRole
+^^^^^^^^^^
+
+.. java:method:: @Override public void deleteRole(Role role)
+   :outertype: RoleServiceImpl
+
 getRole
 ^^^^^^^
 
 .. java:method:: @Override public Role getRole(Integer id)
    :outertype: RoleServiceImpl
 
+getRoleByName
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public Role getRoleByName(String name)
+   :outertype: RoleServiceImpl
+
 listManageableRoles
 ^^^^^^^^^^^^^^^^^^^
 
 .. java:method:: @Override public List<Role> listManageableRoles()
+   :outertype: RoleServiceImpl
+
+listManageableRoles
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public List<Role> listManageableRoles(String sort, String order)
    :outertype: RoleServiceImpl
 
 listRoles
@@ -52,5 +74,11 @@ removeRole
 ^^^^^^^^^^
 
 .. java:method:: @Override public void removeRole(Integer id)
+   :outertype: RoleServiceImpl
+
+updateRole
+^^^^^^^^^^
+
+.. java:method:: @Override public void updateRole(Role role)
    :outertype: RoleServiceImpl
 

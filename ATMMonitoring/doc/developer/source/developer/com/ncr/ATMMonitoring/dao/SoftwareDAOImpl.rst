@@ -2,6 +2,8 @@
 
 .. java:import:: org.apache.log4j Logger
 
+.. java:import:: org.hibernate Criteria
+
 .. java:import:: org.hibernate.criterion Order
 
 .. java:import:: org.hibernate.criterion Restrictions

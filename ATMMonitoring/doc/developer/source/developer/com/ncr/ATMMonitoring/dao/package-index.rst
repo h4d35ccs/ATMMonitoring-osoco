@@ -49,6 +49,8 @@ com.ncr.ATMMonitoring.dao
    TerminalModelDAOImpl
    UserDAO
    UserDAOImpl
+   WidgetCategoryDAO
+   WidgetCategoryDAOImpl
    WidgetDAO
    WidgetDAOImpl
    XfsComponentDAO

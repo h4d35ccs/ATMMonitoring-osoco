@@ -96,7 +96,7 @@ HardwareDevice
 .. java:package:: com.ncr.ATMMonitoring.pojo
    :noindex:
 
-.. java:type:: @Entity @Table public class HardwareDevice
+.. java:type:: @Entity @Table public class HardwareDevice extends Auditable
 
    The HardwareDevice Pojo.
 
@@ -334,6 +334,12 @@ HardwareDevice
 
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: HardwareDevice
+
 filter1394Controller
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -687,6 +693,12 @@ getComboboxes
 
    :return: the comboboxes data
 
+getComboboxesByDeviceClassId
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static Map<String, Map> getComboboxesByDeviceClassId(DeviceClassId deviceClassId)
+   :outertype: HardwareDevice
+
 getCurrentBitsPerPixel
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -816,6 +828,12 @@ getDescription
    Gets the description.
 
    :return: the description
+
+getDeviceClasses
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public static Map<DeviceClassId, String> getDeviceClasses()
+   :outertype: HardwareDevice
 
 getDeviceId
 ^^^^^^^^^^^
@@ -1546,6 +1564,12 @@ getWorkgroup
    Gets the workgroup.
 
    :return: the workgroup
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: HardwareDevice
 
 setAdapterRam
 ^^^^^^^^^^^^^

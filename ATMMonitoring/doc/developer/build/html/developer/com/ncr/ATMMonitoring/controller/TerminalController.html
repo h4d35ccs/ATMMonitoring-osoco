@@ -174,8 +174,8 @@ protected void <tt class="descname">binder</tt><big>(</big>WebDataBinder<em> bin
 <div class="section" id="deleteterminalmodel">
 <h3>deleteTerminalModel<a class="headerlink" href="#deleteterminalmodel" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.controller.TerminalController.deleteTerminalModel(Integer, Principal)">
-public String <tt class="descname">deleteTerminalModel</tt><big>(</big>Integer<em> terminalModelId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.deleteTerminalModel(Integer, Principal)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.controller.TerminalController.deleteTerminalModel(Integer)">
+public String <tt class="descname">deleteTerminalModel</tt><big>(</big>Integer<em> terminalModelId</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.deleteTerminalModel(Integer)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete terminal model URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -183,7 +183,6 @@ public String <tt class="descname">deleteTerminalModel</tt><big>(</big>Integer<e
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>terminalModelId</strong> &#8211; the terminal model id</li>
-<li><strong>principal</strong> &#8211; the principal</li>
 </ul>
 </td>
 </tr>
@@ -253,8 +252,8 @@ public void <tt class="descname">getTerminalModelImage</tt><big>(</big>Integer<e
 <li><strong>terminalModelId</strong> &#8211; the terminal model id</li>
 <li><strong>request</strong> &#8211; the request</li>
 <li><strong>response</strong> &#8211; the response</li>
-<li><strong>width</strong> &#8211; the width</li>
-<li><strong>height</strong> &#8211; the height</li>
+<li><strong>width</strong> &#8211; the required image width</li>
+<li><strong>height</strong> &#8211; the required image height</li>
 </ul>
 </td>
 </tr>
@@ -269,8 +268,8 @@ public void <tt class="descname">getTerminalModelImage</tt><big>(</big>Integer<e
 <div class="section" id="importterminal">
 <h3>importTerminal<a class="headerlink" href="#importterminal" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.controller.TerminalController.importTerminal(CommonsMultipartFile, Map, HttpServletRequest, Principal)">
-public String <tt class="descname">importTerminal</tt><big>(</big>CommonsMultipartFile<em> file</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.importTerminal(CommonsMultipartFile, Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.controller.TerminalController.importTerminal(CommonsMultipartFile)">
+public String <tt class="descname">importTerminal</tt><big>(</big>CommonsMultipartFile<em> file</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.importTerminal(CommonsMultipartFile)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Import terminals from json file URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -335,6 +334,7 @@ public String <tt class="descname">listTerminals</tt><big>(</big><a class="refer
 <li><strong>sort</strong> &#8211; the fields for sorting terminals</li>
 <li><strong>order</strong> &#8211; the order for sorting terminals</li>
 <li><strong>request</strong> &#8211; the request</li>
+<li><strong>request</strong> &#8211; the queryDate</li>
 </ul>
 </td>
 </tr>
@@ -349,8 +349,8 @@ public String <tt class="descname">listTerminals</tt><big>(</big><a class="refer
 <div class="section" id="listterminalsbyquery">
 <h3>listTerminalsByQuery<a class="headerlink" href="#listterminalsbyquery" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.controller.TerminalController.listTerminalsByQuery(Map, Integer, Principal, String, String, String, HttpServletRequest)">
-public String <tt class="descname">listTerminalsByQuery</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, Integer<em> queryId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, String<em> p</em>, String<em> sort</em>, String<em> order</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.listTerminalsByQuery(Map, Integer, Principal, String, String, String, HttpServletRequest)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.controller.TerminalController.listTerminalsByQuery(Map, Integer, Principal, String, String, String, HttpServletRequest, Date)">
+public String <tt class="descname">listTerminalsByQuery</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, Integer<em> queryId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, String<em> p</em>, String<em> sort</em>, String<em> order</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> queryDate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.listTerminalsByQuery(Map, Integer, Principal, String, String, String, HttpServletRequest, Date)" title="Permalink to this definition">¶</a></dt>
 <dd><p>List terminals by query URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -364,6 +364,7 @@ public String <tt class="descname">listTerminalsByQuery</tt><big>(</big><a class
 <li><strong>sort</strong> &#8211; the fields for sorting terminals</li>
 <li><strong>order</strong> &#8211; the order for sorting terminals</li>
 <li><strong>request</strong> &#8211; the request</li>
+<li><strong>queryDate</strong> &#8211; the date the date</li>
 </ul>
 </td>
 </tr>
@@ -389,7 +390,7 @@ public String <tt class="descname">newInstallation</tt><big>(</big><a class="ref
 <li><strong>installation</strong> &#8211; the installation</li>
 <li><strong>result</strong> &#8211; the result</li>
 <li><strong>map</strong> &#8211; the map</li>
-<li><strong>matricula</strong> &#8211; the matricula</li>
+<li><strong>matricula</strong> &#8211; the generated id</li>
 <li><strong>request</strong> &#8211; the request</li>
 <li><strong>principal</strong> &#8211; the principal</li>
 </ul>
@@ -415,7 +416,7 @@ public String <tt class="descname">newInstallationForm</tt><big>(</big><a class=
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>map</strong> &#8211; the map</li>
-<li><strong>matricula</strong> &#8211; the matricula</li>
+<li><strong>matricula</strong> &#8211; the generated id</li>
 </ul>
 </td>
 </tr>
@@ -461,20 +462,18 @@ public String <tt class="descname">redirectToTerminals</tt><big>(</big><big>)</b
 </dd></dl>
 
 </div>
-<div class="section" id="requestterminalupdate">
-<h3>requestTerminalUpdate<a class="headerlink" href="#requestterminalupdate" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="requestterminalupdatebyid">
+<h3>requestTerminalUpdateById<a class="headerlink" href="#requestterminalupdatebyid" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalUpdate(Integer, Map, HttpServletRequest, RedirectAttributes, Principal)">
-public String <tt class="descname">requestTerminalUpdate</tt><big>(</big>Integer<em> terminalId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, RedirectAttributes<em> redirectAttributes</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalUpdate(Integer, Map, HttpServletRequest, RedirectAttributes, Principal)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Request terminal update URL.</p>
+<dt id="com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalUpdateById(Integer, RedirectAttributes, Principal)">
+public String <tt class="descname">requestTerminalUpdateById</tt><big>(</big>Integer<em> terminalId</em>, RedirectAttributes<em> redirectAttributes</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalUpdateById(Integer, RedirectAttributes, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request terminal update by id URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>terminalId</strong> &#8211; the terminal id</li>
-<li><strong>map</strong> &#8211; the map</li>
-<li><strong>request</strong> &#8211; the request</li>
 <li><strong>redirectAttributes</strong> &#8211; the redirect attributes</li>
 <li><strong>principal</strong> &#8211; the principal</li>
 </ul>
@@ -488,20 +487,18 @@ public String <tt class="descname">requestTerminalUpdate</tt><big>(</big>Integer
 </dd></dl>
 
 </div>
-<div class="section" id="requestterminalsupdate">
-<h3>requestTerminalsUpdate<a class="headerlink" href="#requestterminalsupdate" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="requestterminalsupdatebyquery">
+<h3>requestTerminalsUpdateByQuery<a class="headerlink" href="#requestterminalsupdatebyquery" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalsUpdate(Map, String, HttpServletRequest, Principal, RedirectAttributes)">
-public String <tt class="descname">requestTerminalsUpdate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, String<em> queryId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, RedirectAttributes<em> redirectAttributes</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalsUpdate(Map, String, HttpServletRequest, Principal, RedirectAttributes)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalsUpdateByQuery(String, Principal, RedirectAttributes)">
+public String <tt class="descname">requestTerminalsUpdateByQuery</tt><big>(</big>String<em> queryId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, RedirectAttributes<em> redirectAttributes</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.requestTerminalsUpdateByQuery(String, Principal, RedirectAttributes)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request query results&#8217; terminals update URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>map</strong> &#8211; the map</li>
 <li><strong>queryId</strong> &#8211; the query id</li>
-<li><strong>request</strong> &#8211; the request</li>
 <li><strong>principal</strong> &#8211; the principal</li>
 <li><strong>redirectAttributes</strong> &#8211; the redirect attributes</li>
 </ul>
@@ -518,8 +515,8 @@ public String <tt class="descname">requestTerminalsUpdate</tt><big>(</big><a cla
 <div class="section" id="terminaldetails">
 <h3>terminalDetails<a class="headerlink" href="#terminaldetails" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.controller.TerminalController.terminalDetails(Integer, Map, HttpServletRequest, Principal)">
-public String <tt class="descname">terminalDetails</tt><big>(</big>Integer<em> terminalId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.terminalDetails(Integer, Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.controller.TerminalController.terminalDetails(Integer, Map, HttpServletRequest, Principal, Long, String)">
+public String <tt class="descname">terminalDetails</tt><big>(</big>Integer<em> terminalId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, Long<em> dateTime</em>, String<em> preselectedTab</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.terminalDetails(Integer, Map, HttpServletRequest, Principal, Long, String)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Terminal details URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -565,6 +562,14 @@ public String <tt class="descname">terminalModelDetails</tt><big>(</big>Integer<
 </tbody>
 </table>
 </dd></dl>
+
+</div>
+<div class="section" id="terminalsummary">
+<h3>terminalSummary<a class="headerlink" href="#terminalsummary" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.TerminalController.terminalSummary(ArrayList, Map, HttpServletRequest, Principal, Long)">
+public String <tt class="descname">terminalSummary</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/ArrayList.html" title="java.util.ArrayList">ArrayList</a>&lt;Integer&gt;<em> terminalIds</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> model</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, Long<em> dateTime</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.TerminalController.terminalSummary(ArrayList, Map, HttpServletRequest, Principal, Long)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="updateterminal">
@@ -684,10 +689,11 @@ public String <tt class="descname">viewNewTerminal</tt><big>(</big><a class="ref
 <li><a class="reference internal" href="#newinstallationform">newInstallationForm</a></li>
 <li><a class="reference internal" href="#redirecttoterminalmodels">redirectToTerminalModels</a></li>
 <li><a class="reference internal" href="#redirecttoterminals">redirectToTerminals</a></li>
-<li><a class="reference internal" href="#requestterminalupdate">requestTerminalUpdate</a></li>
-<li><a class="reference internal" href="#requestterminalsupdate">requestTerminalsUpdate</a></li>
+<li><a class="reference internal" href="#requestterminalupdatebyid">requestTerminalUpdateById</a></li>
+<li><a class="reference internal" href="#requestterminalsupdatebyquery">requestTerminalsUpdateByQuery</a></li>
 <li><a class="reference internal" href="#terminaldetails">terminalDetails</a></li>
 <li><a class="reference internal" href="#terminalmodeldetails">terminalModelDetails</a></li>
+<li><a class="reference internal" href="#terminalsummary">terminalSummary</a></li>
 <li><a class="reference internal" href="#updateterminal">updateTerminal</a></li>
 <li><a class="reference internal" href="#updateterminalmodel">updateTerminalModel</a></li>
 <li><a class="reference internal" href="#viewnewterminal">viewNewTerminal</a></li>

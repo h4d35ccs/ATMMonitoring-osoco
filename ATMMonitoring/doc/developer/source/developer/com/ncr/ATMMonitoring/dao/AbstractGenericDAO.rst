@@ -2,6 +2,8 @@
 
 .. java:import:: java.util List
 
+.. java:import:: org.hibernate Criteria
+
 .. java:import:: org.hibernate SessionFactory
 
 .. java:import:: org.springframework.beans.factory.annotation Autowired

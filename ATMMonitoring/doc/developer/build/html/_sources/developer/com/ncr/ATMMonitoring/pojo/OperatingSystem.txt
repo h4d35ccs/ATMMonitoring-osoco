@@ -56,6 +56,12 @@ OperatingSystem
 
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: OperatingSystem
+
 getBuildVersion
 ^^^^^^^^^^^^^^^
 
@@ -265,6 +271,12 @@ getVersion
    Gets the version.
 
    :return: the version complete
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: OperatingSystem
 
 setBuildVersion
 ^^^^^^^^^^^^^^^

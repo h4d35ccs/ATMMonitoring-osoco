@@ -27,6 +27,25 @@ Features Summary
 
 .. [1] *The agent developed jointly with the server application must be installed in the ATMs.*
 
+Agent collected Information
+---------------------------
+
+ATMMonitoring(Server) communicates with an Agent(Client) that is able to catch all the information provided by the ATM in order to be stored in the NCR HSAM Database. Although it is mainly intented to be run in ATMs, it is also able to collect information from any other devices.
+
+It is divided into two main pieces, *HSAMAgent.jar* and *XFSCollector.dll*.
+
+	*  **HSAMAgent.jar** The Java based core of the HSAM Agent. It manages all the processes  to collect the required information from the Operating System, Hardware, Software and any other specific information from ATMs (XFS, J/XFS, Financial Devices, etc).
+	* **XFSCollector.dll** A C++ based collector of the information coming from the standard XFS. It is directly managed by the core agent. It automatically detects the highest XFS version supported for each XFS Service Provider starting from XFS 3.10 to XFS 2.00 and extracts the Capabilities information. 
+
+The NCR HSAM Agent performs the following actions:
+
+
+	* *ATM Information Collector* that gathers all the ATM information and stores it in a JSON formatted file (`<www.json.org>`_).
+	* *Server Requests Receptor* for getting on-demand information. When an update order is received the ATM information is refreshed and restored into a JSON file. Once finished, the server is notified.
+	* *Request Sender for notifying the server* that an update has been completed and a data update can be requested after a manual or scheduled demand for updating, or after refreshing the ATMinformation the first time the agent starts up.
+
+To know more about the information gathered by the agent please see the :doc:`Agent Collected Information <collected-info>`
+
 Documentation:
 --------------
 
@@ -34,10 +53,10 @@ Documentation:
    :maxdepth: 2
    
    enviroment_setup/environment-setup.rst
-   installation/install-deploy.rst
+   installation/install-main.rst
    architecture/architecture.rst
    developer/javadoc.rst
-   user/user-main.rst
+   user/source/en/user-main.rst
 
 
 

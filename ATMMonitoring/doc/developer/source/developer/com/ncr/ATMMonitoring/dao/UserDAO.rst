@@ -58,8 +58,20 @@ listUsers
 .. java:method:: public List<User> listUsers()
    :outertype: UserDAO
 
+   Lists all users with the default sorting.
+
+   :return: the list
+
+listUsers
+^^^^^^^^^
+
+.. java:method:: public List<User> listUsers(String order, String sort)
+   :outertype: UserDAO
+
    Lists all users.
 
+   :param sort: the sort
+   :param order: the order
    :return: the list
 
 listUsersByBankCompanies

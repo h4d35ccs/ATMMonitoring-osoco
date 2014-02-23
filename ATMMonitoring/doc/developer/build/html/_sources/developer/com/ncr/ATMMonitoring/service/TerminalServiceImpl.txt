@@ -26,6 +26,10 @@
 
 .. java:import:: com.ncr ATMMonitoring.dao.TerminalDAO
 
+.. java:import:: com.ncr ATMMonitoring.pojo.AuditableInternetExplorer
+
+.. java:import:: com.ncr ATMMonitoring.pojo.AuditableSoftwareAggregate
+
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
 
 .. java:import:: com.ncr ATMMonitoring.pojo.FinancialDevice
@@ -33,6 +37,8 @@
 .. java:import:: com.ncr ATMMonitoring.pojo.HardwareDevice
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Hotfix
+
+.. java:import:: com.ncr ATMMonitoring.pojo.Installation
 
 .. java:import:: com.ncr ATMMonitoring.pojo.InternetExplorer
 
@@ -184,6 +190,12 @@ TerminalServiceImpl
 
 Methods
 -------
+addInstallationAndUpdateHistoricalData
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void addInstallationAndUpdateHistoricalData(Terminal terminal, Installation installation)
+   :outertype: TerminalServiceImpl
+
 addTerminal
 ^^^^^^^^^^^
 
@@ -224,6 +236,12 @@ listTerminalsByBankCompany
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. java:method:: @Override public List<Terminal> listTerminalsByBankCompany(BankCompany bank)
+   :outertype: TerminalServiceImpl
+
+listTerminalsByIdsAndBankCompanies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> terminalIds, Set<BankCompany> bankCompanies)
    :outertype: TerminalServiceImpl
 
 loadTerminalByIp

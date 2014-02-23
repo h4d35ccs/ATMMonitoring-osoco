@@ -1,0 +1,1099 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Agent Collected Information &mdash; ATMMonitoring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="agent-collected-information">
+<h1>Agent Collected Information<a class="headerlink" href="#agent-collected-information" title="Permalink to this headline">¶</a></h1>
+<p>The NCR HSAM Agent is able to collect information from two main differentareas in the ATMs, <a class="reference internal" href="#hardware">Hardware</a> and <a class="reference internal" href="#software">Software</a>.</p>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Hardware Devices</strong></td>
+<td>General Hardware Information</td>
+</tr>
+<tr class="row-even"><td><em>Computer System</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Model</li>
+<li>Number of Processors</li>
+<li>Caption</li>
+<li>Total Physical Memory</li>
+<li>Status</li>
+<li>Description</li>
+<li>Domain</li>
+<li>Workgroup</li>
+<li>Current Time Zone</li>
+<li>Daylight in Effect</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>Processor</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Architecture</li>
+<li>Address Width</li>
+<li>Data Width</li>
+<li>Current Clock Speed</li>
+<li>Ext Clock</li>
+<li>Stepping</li>
+<li>Max Clock Speed</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><em>Physical Memory</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Capacity</li>
+<li>Speed</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>Disk Drives</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Model</li>
+<li>Caption</li>
+<li>Partitions</li>
+<li>Size</li>
+<li>Status</li>
+<li>Description</li>
+<li>Device ID</li>
+<li>Firmware Revision</li>
+<li>Serial Number</li>
+<li>Media Type</li>
+<li>Max Media Size</li>
+<li>Total Cylinders</li>
+<li>Tracks Per Cylinder</li>
+<li>Sectors Per Track</li>
+<li>Bytes Per Sector</li>
+<li>Signature</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><em>Logical Disks</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Size</li>
+<li>Free Space</li>
+<li>File System</li>
+<li>Caption</li>
+<li>Description</li>
+<li>Device ID</li>
+<li>Volume Name</li>
+<li>Volume Serial Number</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>Base Boards</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Model</li>
+<li>Product</li>
+<li>Serial Number</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><em>Network Adapters</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Adapter Type</li>
+<li>Caption</li>
+<li>Description</li>
+<li>DHCP Enabled</li>
+<li>DHCP Server</li>
+<li>IP Address</li>
+<li>IP Subnet</li>
+<li>Default IP Gateway</li>
+<li>Mac Address</li>
+<li>Speed</li>
+<li>Net Connection ID</li>
+<li>Net Connection Status</li>
+<li>Interface Index</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>CDROM Drives</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Media Type</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><em>Sound Devices</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>USB Controllers</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Protocol Supported</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><em>Serial Ports</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Max Baud Rate</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>Parallel Ports</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><em>Desktop Monitors</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Display Type</li>
+<li>Monitor Manufacturer</li>
+<li>Monitor Type</li>
+<li>Pixels Per X Logical Inch</li>
+<li>Pixels Per Y Logical Inch</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>Keyboards</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Caption</li>
+<li>Description</li>
+<li>Layout</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><em>Pointing Devices</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Description</li>
+<li>Hardware Type</li>
+<li>Pointing Type</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>CDROM Drives</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Media Type</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><em>BIOS</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>SMBios Version</li>
+<li>SMBios Major Version</li>
+<li>SMBios Minor Version</li>
+<li>Caption</li>
+<li>Current Language</li>
+<li>Primary Bios</li>
+<li>Release Date</li>
+<li>SMBios Present</li>
+<li>Serial Number</li>
+<li>Version</li>
+<li>Status</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>Video Controllers</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Description</li>
+<li>Video Processor</li>
+<li>Adapter RAM</li>
+<li>Current Bits Per Pixel</li>
+<li>Current Number of Colors</li>
+<li>Current Vertical Resolution</li>
+<li>Current Horizontal Resolution</li>
+<li>Current Refresh Rate</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Financial Devices</strong></td>
+<td>Information from specific ATM devices This information is vendor dependant.</td>
+</tr>
+<tr class="row-even"><td><em>For NCR ATMs</em></td>
+<td><ul class="first last simple">
+<li>Name</li>
+<li>Version</li>
+<li>Serial Number</li>
+<li>Caption</li>
+<li>Description</li>
+<li>Universal ID</li>
+<li>Device Instance</li>
+<li>Device Status</li>
+<li>PM Status</li>
+<li>Model</li>
+<li>Variant</li>
+<li>Manufacturer</li>
+<li>Firmware Version</li>
+<li>Removable</li>
+<li>eplaceable</li>
+<li>Hot Swappable</li>
+<li>XFS Components <a class="footnote-reference" href="#id3" id="id1">[1]</a></li>
+<li>JXFS Components <a class="footnote-reference" href="#id4" id="id2">[2]</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id7">2</a>)</em> <em>XFS Information – Capabilities from all the devices defined by the XFS Standard from 3.10 to 2.00 versions.</em></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id8">2</a>)</em> <em>JXFS Information – Capabilities from all the devices defined by the JXFS Standard from CWA 2001 to CWA 2009 version (although this version does not have an official kernel, some devices are supported by extending and personalizing the 2004 kernel).</em></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="software">
+<h2>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="51%" />
+<col width="49%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Software</strong></td>
+<td>General Software Information</td>
+</tr>
+<tr class="row-even"><td><em>Operating System</em></td>
+<td><ul class="first last simple">
+<li>Name + Version</li>
+<li>OS Type</li>
+<li>Serial Number</li>
+<li>Manufacturer</li>
+<li>Service Pack Version</li>
+<li>Organization</li>
+<li>OS Language</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>Installed Software</em></td>
+<td><ul class="first last simple">
+<li>Name + Version</li>
+<li>Software Type</li>
+<li>Caption</li>
+<li>Description</li>
+<li>Language</li>
+<li>Local Package</li>
+<li>Package Name</li>
+<li>Product ID</li>
+<li>Identifying Number</li>
+<li>Install Date</li>
+<li>Vendor</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><em>Hotfixes</em></td>
+<td><ul class="first last simple">
+<li>Hotfix ID</li>
+<li>Description</li>
+<li>Number</li>
+<li>Installed On</li>
+<li>Fix Comments</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><em>NCR Aggregate Packages Installed</em> <a class="footnote-reference" href="#id6" id="id5">[3]</a></td>
+<td><ul class="first last simple">
+<li>Name + Version</li>
+<li>FNumber</li>
+<li>FDescription</li>
+<li>FProfile</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id9">2</a>)</em> (only for NCR ATMs)</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Information extracted from a real ATM JSON file:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Computer System</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Model</li>
+<li>Number of Processors</li>
+<li>Caption</li>
+<li>Total Physical Memory</li>
+<li>Status</li>
+<li>Description</li>
+<li>Domain</li>
+<li>Workgroup</li>
+<li>Current Time Zone</li>
+<li>Daylight in Effect</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>AMNNSS32XX-XXXX</li>
+<li>NCR Corporation</li>
+<li>xxxx-xxxx-xxxx</li>
+<li>1</li>
+<li>AMNNSS32XX-XXXX</li>
+<li>2121379840</li>
+<li>OK</li>
+<li>AT/AT Compatible</li>
+<li>WORKGROUP</li>
+<li>Null</li>
+<li>-180</li>
+<li>false</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>PROCESSORS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Architecture</li>
+<li>Address Width</li>
+<li>Data Width</li>
+<li>Current Clock Speed</li>
+<li>Ext Clock</li>
+<li>Stepping</li>
+<li>Max Clock Speed</li>
+<li>Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Intel Pentium III Xeon Processor</li>
+<li>GenuineIntel</li>
+<li>X86 Family 6 Model 23 Stepping 10</li>
+<li>0</li>
+<li>32</li>
+<li></li>
+<li>2792</li>
+<li>267</li>
+<li></li>
+<li>2792</li>
+<li>OK</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>PHYSICAL MEMORY</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Capacity</li>
+<li>Speed</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Physical Memory</li>
+<li>null</li>
+<li></li>
+<li></li>
+<li>1024</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>DISK DRIVES</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Model</li>
+<li>Caption</li>
+<li>Partitions</li>
+<li>Size</li>
+<li>Status</li>
+<li>Description</li>
+<li>Device ID</li>
+<li>Firmware Revision</li>
+<li>Serial Number</li>
+<li>Media Type</li>
+<li>Max Media Size</li>
+<li>Total Cylinders</li>
+<li>Tracks Per Cylinder</li>
+<li>Sectors Per Track</li>
+<li>Bytes Per Sector</li>
+<li>Signature</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>\\.\PHYSICALDRIVE0</li>
+<li>(Standard disk drives)</li>
+<li>ST3500413AS</li>
+<li>ST3500413AS</li>
+<li>2</li>
+<li>500105249280</li>
+<li>OK</li>
+<li>Disk Drive</li>
+<li>\\.\PHYSICALDRIVE0</li>
+<li></li>
+<li></li>
+<li>Fixed Hard Disk Media</li>
+<li></li>
+<li>60801</li>
+<li>255</li>
+<li>63</li>
+<li>512</li>
+<li>446175896</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>LOGICAL DISKS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Size</li>
+<li>Free Space</li>
+<li>File System</li>
+<li>Caption</li>
+<li>Description</li>
+<li>Device ID</li>
+<li>Volume Name</li>
+<li>Volume Serial Number</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>C:</li>
+<li>255115358208</li>
+<li>243766812672</li>
+<li>NTFS</li>
+<li>C:</li>
+<li>Local Fixed Disk</li>
+<li>C:</li>
+<li>Null</li>
+<li>0035CBEE</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>BASE BOARDS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Model</li>
+<li>Product</li>
+<li>Serial Number</li>
+<li>Status Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Base Board</li>
+<li>NCR Corporation</li>
+<li>Null</li>
+<li>Talladega</li>
+<li></li>
+<li>null</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>BASE BOARDS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Adapter Type</li>
+<li>Caption</li>
+<li>Description</li>
+<li>DHCP Enabled</li>
+<li>DHCP Server</li>
+<li>IP Address</li>
+<li>IP Subnet</li>
+<li>Default IP Gateway</li>
+<li>Mac Address</li>
+<li>Speed</li>
+<li>Net Connection ID</li>
+<li>Net Connection Status</li>
+<li>Interface Index</li>
+<li>Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Intel® 82566DM Gigabit Network Connection</li>
+<li>Intel</li>
+<li>Ethernet 802.3</li>
+<li>[00000001] Intel® 82566DM Gigabit Network Connection</li>
+<li>Intel® 82566DM Gigabit Network Connection</li>
+<li>True</li>
+<li>153.57.97.61</li>
+<li>153.57.103.101</li>
+<li>255.255.255.0</li>
+<li>153.57.103.1</li>
+<li>00:1A:D4:1B:DC:4E</li>
+<li></li>
+<li>Local Area Connection</li>
+<li>2</li>
+<li></li>
+<li>null</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>CD-ROM DRIVES</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Media Type</li>
+<li>Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>TEAC DV-W524GSB</li>
+<li>(Standard CR-ROM drives)</li>
+<li>TEAC DV-W524GSB</li>
+<li>IDE\CDROMTEAC_DV-W524GSB____AT11</li>
+<li>CD-ROM</li>
+<li>OK</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>SOUND DEVICES</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Realtek High Definition Audio</li>
+<li>Realtek</li>
+<li>Realtek High Definition Audio</li>
+<li>OK</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>USB CONTROLLERS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Protocol Supported</li>
+<li>status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Intel®ICH8 Family USB2 Enhanced Host Controller–2836</li>
+<li>Intel</li>
+<li>Intel®ICH8 Family USB2 Enhanced Host Controller–2836</li>
+<li>PCI\VEN_8086&amp;DEV_2836&amp;SUBSYS_28368086&amp;REV_02\3</li>
+<li>16</li>
+<li>OK</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>SERIAL PORTS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Max Baud Rate</li>
+<li>Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Communications Port (COM1)</li>
+<li>Communications Port (COM1)</li>
+<li>COM1</li>
+<li>115200</li>
+<li>OK</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>PARALLEL PORTS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>LPT1</li>
+<li>LPT1</li>
+<li>LPT1</li>
+<li>null</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>DESKTOP MONITORS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Caption</li>
+<li>Device ID</li>
+<li>Display Type</li>
+<li>Monitor Manufacturer</li>
+<li>Monitor Type</li>
+<li>Pixels Per X Logical Inch</li>
+<li>Pixels Per Y Logical Inch</li>
+<li>Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Plug and Play Monitor</li>
+<li>Plug and Play Monitor</li>
+<li>DesktopMonitor2</li>
+<li>False</li>
+<li>(Standard monitor types)</li>
+<li>Plug and Play Monitor</li>
+<li>96</li>
+<li>96</li>
+<li>OK</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>KEYBOARDS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Caption</li>
+<li>Description</li>
+<li>Layout</li>
+<li>Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Enhanced (101-or 102-key)</li>
+<li>Enhanced (101-or 102-key)</li>
+<li>Standard 101/102-Key or Microsoft Natural PS/2 Keyboard</li>
+<li>0000080A</li>
+<li>OK</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>POINTING DEVICES</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>Caption</li>
+<li>Description</li>
+<li>Hardware Type</li>
+<li>Pointing Type</li>
+<li>Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>USB HID Touch Screen Controller</li>
+<li>Microchip Technology, Inc.</li>
+<li>USB HID Touch Screen Controller</li>
+<li>USB HID Touch Screen Controller</li>
+<li>USB HID Touch Screen Controller</li>
+<li>2</li>
+<li>OK</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>BIOS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Manufacturer</li>
+<li>SMBios Version</li>
+<li>SMBios Major Version</li>
+<li>SMBios Minor Version</li>
+<li>Caption</li>
+<li>Current Language</li>
+<li>Primary Bios</li>
+<li>Release Date</li>
+<li>SMBios Present</li>
+<li>Serial Number</li>
+<li>Version</li>
+<li>Status</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>BIOS Date: 01/24/11 11:24:07 Ver: 08.00.15</li>
+<li>American Megatrends Inc.</li>
+<li>080015</li>
+<li></li>
+<li></li>
+<li></li>
+<li>En|US|iso8859-1</li>
+<li>True</li>
+<li>2011-01-24 00:00:00.0</li>
+<li></li>
+<li>xxx-xxxxxxxx</li>
+<li>NCR-1001124</li>
+<li>OK</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>VIDEO CONTROLLERS</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Description</li>
+<li>Video Processor</li>
+<li>Adapter RAM</li>
+<li>Current Bits Per Pixel</li>
+<li>Current Number of Colors</li>
+<li>Current Vertical Resolution</li>
+<li>Current Horizontal Resolution</li>
+<li>Current Refresh Rate</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Intel® Q965/Q963 Express Chipset Family</li>
+<li>Intel® Q965/Q963 Express Chipset Family</li>
+<li>Intel® GMA 3000</li>
+<li>128</li>
+<li>32</li>
+<li>4294967296</li>
+<li>800</li>
+<li>600</li>
+<li>60</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>FINANCIAL DEVICES</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name</li>
+<li>Version</li>
+<li>Serial Number</li>
+<li>Caption</li>
+<li>Description</li>
+<li>Universal ID</li>
+<li>Device Instance</li>
+<li>Device Status</li>
+<li>PM Status</li>
+<li>Model</li>
+<li>Variant</li>
+<li>Manufacturer</li>
+<li>Firmware Version</li>
+<li>Removable</li>
+<li>Replaceable</li>
+<li>Hot Swappable</li>
+<li>XFS Components <a class="footnote-reference" href="#id3" id="id7">[1]</a></li>
+<li>JXFS Components <a class="footnote-reference" href="#id4" id="id8">[2]</a></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>MCRW-01-USBMotorised</li>
+<li>Null</li>
+<li>9111124816</li>
+<li>USB Motorised Card Reader Writer</li>
+<li>3 track write USB MCRW + Smart Card + CROPF</li>
+<li>137</li>
+<li>65763</li>
+<li>0</li>
+<li>0</li>
+<li>MCRW-01-USMMotorised</li>
+<li>88</li>
+<li></li>
+<li>1=”03.62”</li>
+<li>True</li>
+<li>True</li>
+<li>False</li>
+<li>IDC</li>
+<li>IDC</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>OPERATING SYSTEM</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name + Version</li>
+<li>OS Type</li>
+<li>Serial Number</li>
+<li>Manufacturer</li>
+<li>Service Pack Version</li>
+<li>Organization</li>
+<li>OS Language</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Microsoft Windows XP Professional|C:\WINDOWS| (V. 5.1.2600)</li>
+<li>18</li>
+<li>76487-OEM-0011903-02810</li>
+<li>Microsoft Corporation</li>
+<li>3.0</li>
+<li>NCR Corporation</li>
+<li>1033</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>INSTALLED SOFTWARE</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name + Version</li>
+<li>Software Type</li>
+<li>Caption</li>
+<li>Description</li>
+<li>Language</li>
+<li>Local Package</li>
+<li>Package Name</li>
+<li>Product ID</li>
+<li>Identifying Number</li>
+<li>Install Date</li>
+<li>Vendor</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Microsoft Visual C++ 2010 x86 Redistributable - 10.0.40219 (V. 10.0.40219)</li>
+<li>Generic Software</li>
+<li>Microsoft Visual C++ 2010 x86 Redistributable -10.0.40219</li>
+<li>Microsoft Visual C++ 2010 x86 Redistributable -10.0.40219</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li>{F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}</li>
+<li>8/28/13</li>
+<li>Microsoft Corporation</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>INSTALLED SOFTWARE</strong></td>
+<td>Values</td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Hotfix ID</li>
+<li>Description</li>
+<li>Number</li>
+<li>Installed On</li>
+<li>Fix Comments</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>KB952069_WM9</li>
+<li>Security Update for Windows Media Player (KB952069)</li>
+<li></li>
+<li>null</li>
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>NCR Aggregate Packages Installed</strong></td>
+<td>Values <a class="footnote-reference" href="#id6" id="id9">[3]</a></td>
+</tr>
+<tr class="row-even"><td><ul class="first last simple">
+<li>Name + Version</li>
+<li>Number</li>
+<li>Description</li>
+<li>Profile</li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li>Self Service Assistant for APTRA (V. 2.7.0)</li>
+<li>1</li>
+<li>Self Service Assistant for APTRA</li>
+<li>NCR</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><strong>XFS CAPABILITIES</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="2"><img alt="_images/xfsComponentDetails.png" class="first last" src="_images/xfsComponentDetails.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><strong>JXFS CAPABILITIES</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td colspan="2"><img alt="_images/jxfsComponentDetails.png" class="first last" src="_images/jxfsComponentDetails.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Agent Collected Information</a><ul>
+<li><a class="reference internal" href="#hardware">Hardware</a></li>
+<li><a class="reference internal" href="#software">Software</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/collected-info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, NCR.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

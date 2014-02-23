@@ -73,10 +73,10 @@ getTerminalByMatricula
 .. java:method:: public Terminal getTerminalByMatricula(Long matricula)
    :outertype: TerminalDAO
 
-   Gets the terminal by matricula.
+   Gets the terminal by the generated id.
 
-   :param matricula: the matricula
-   :return: the terminal by matricula, or null if it doesn't exist
+   :param matricula: the generated id
+   :return: the terminal by the generated id, or null if it doesn't exist
 
 getTerminalBySerialNumber
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -152,7 +152,7 @@ listTerminalsByBankCompanies
 listTerminalsByBankCompanies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank, String sort, String order)
+.. java:method:: public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank, String sort, String order, List<Integer> terminalIds)
    :outertype: TerminalDAO
 
    Lists all terminals for the given bank companies with a specific order and sorting.
@@ -172,6 +172,12 @@ listTerminalsByBankCompany
 
    :param bank: the bank company
    :return: the list
+
+listTerminalsByIdsAndBankCompanies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> ids, Set<BankCompany> bank)
+   :outertype: TerminalDAO
 
 updateTerminal
 ^^^^^^^^^^^^^^

@@ -58,6 +58,12 @@ listUsers
 .. java:method:: @Override public List<User> listUsers()
    :outertype: UserServiceImpl
 
+listUsers
+^^^^^^^^^
+
+.. java:method:: @Override public List<User> listUsers(String sort, String order)
+   :outertype: UserServiceImpl
+
 listUsersByBankCompanies
 ^^^^^^^^^^^^^^^^^^^^^^^^
 

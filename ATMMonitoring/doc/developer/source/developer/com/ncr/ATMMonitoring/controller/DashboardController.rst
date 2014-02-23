@@ -12,8 +12,6 @@
 
 .. java:import:: java.util Map
 
-.. java:import:: java.util Set
-
 .. java:import:: javax.servlet.http HttpServletRequest
 
 .. java:import:: org.apache.log4j Logger
@@ -43,6 +41,8 @@
 .. java:import:: com.ncr ATMMonitoring.pojo.Widget
 
 .. java:import:: com.ncr ATMMonitoring.service.DashboardService
+
+.. java:import:: com.ncr ATMMonitoring.service.QueryService
 
 .. java:import:: com.ncr ATMMonitoring.service.UserService
 
@@ -85,16 +85,6 @@ hideChart
    :param widgetId: the widget id
    :param request: the request
    :param principal: the principal
-
-newWidget
-^^^^^^^^^
-
-.. java:method:: @RequestMapping public String newWidget()
-   :outertype: DashboardController
-
-   New widget.
-
-   :return: the string
 
 showChart
 ^^^^^^^^^

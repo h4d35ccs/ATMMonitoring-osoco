@@ -164,8 +164,8 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <div class="section" id="id2">
 <h3>listTerminalsByBankCompanies<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.dao.TerminalDAOImpl.listTerminalsByBankCompanies(Set, String, String)">
-public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByBankCompanies</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a>&gt;<em> banks</em>, String<em> order</em>, String<em> sort</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAOImpl.listTerminalsByBankCompanies(Set, String, String)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.dao.TerminalDAOImpl.listTerminalsByBankCompanies(Set, String, String, List)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByBankCompanies</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a>&gt;<em> banks</em>, String<em> sort</em>, String<em> order</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Integer&gt;<em> terminalIds</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAOImpl.listTerminalsByBankCompanies(Set, String, String, List)" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -174,6 +174,14 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAOImpl.listTerminalsByBankCompany(BankCompany)">
 public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByBankCompany</tt><big>(</big><a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a><em> bank</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAOImpl.listTerminalsByBankCompany(BankCompany)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="listterminalsbyidsandbankcompanies">
+<h3>listTerminalsByIdsAndBankCompanies<a class="headerlink" href="#listterminalsbyidsandbankcompanies" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.dao.TerminalDAOImpl.listTerminalsByIdsAndBankCompanies(List, Set)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByIdsAndBankCompanies</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Integer&gt;<em> terminalIds</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a>&gt;<em> banks</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAOImpl.listTerminalsByIdsAndBankCompanies(List, Set)" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -214,6 +222,7 @@ public void <tt class="descname">updateTerminal</tt><big>(</big><a class="refere
 <li><a class="reference internal" href="#listterminalsbybankcompanies">listTerminalsByBankCompanies</a></li>
 <li><a class="reference internal" href="#id2">listTerminalsByBankCompanies</a></li>
 <li><a class="reference internal" href="#listterminalsbybankcompany">listTerminalsByBankCompany</a></li>
+<li><a class="reference internal" href="#listterminalsbyidsandbankcompanies">listTerminalsByIdsAndBankCompanies</a></li>
 <li><a class="reference internal" href="#updateterminal">updateTerminal</a></li>
 </ul>
 </li>

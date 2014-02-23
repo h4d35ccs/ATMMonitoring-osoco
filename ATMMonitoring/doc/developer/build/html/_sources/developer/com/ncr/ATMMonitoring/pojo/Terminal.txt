@@ -1,3 +1,7 @@
+.. java:import:: java.util Date
+
+.. java:import:: java.util HashMap
+
 .. java:import:: java.util HashSet
 
 .. java:import:: java.util Map
@@ -20,10 +24,6 @@
 
 .. java:import:: javax.persistence JoinColumn
 
-.. java:import:: javax.persistence JoinTable
-
-.. java:import:: javax.persistence ManyToMany
-
 .. java:import:: javax.persistence ManyToOne
 
 .. java:import:: javax.persistence OneToMany
@@ -34,6 +34,8 @@
 
 .. java:import:: javax.persistence Table
 
+.. java:import:: javax.persistence Transient
+
 .. java:import:: org.apache.log4j Logger
 
 .. java:import:: org.hibernate.annotations Cascade
@@ -41,6 +43,10 @@
 .. java:import:: org.hibernate.annotations CascadeType
 
 .. java:import:: org.hibernate.annotations Type
+
+.. java:import:: com.ncr ATMMonitoring.service.AuditableSetOperations
+
+.. java:import:: com.ncr ATMMonitoring.service.AuditableSetOperationsImpl
 
 .. java:import:: com.ncr ATMMonitoring.socket.ATMWrongDataException
 
@@ -84,6 +90,250 @@ Terminal
 
 Methods
 -------
+buildHistoricalChanges
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Map<Class<? extends Auditable>, Map<Date, Integer>> buildHistoricalChanges()
+   :outertype: Terminal
+
+   Build the historical changes
+
+   :return: The historicalChanges
+
+getActiveAuditableInternetExplorersByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<AuditableInternetExplorer> getActiveAuditableInternetExplorersByDate(Date date)
+   :outertype: Terminal
+
+   Get the auditable internet explorers by date
+
+   :param date: The date
+   :return: The auditable internet explorers
+
+getActiveAuditableSoftwareAggregatesByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<AuditableSoftwareAggregate> getActiveAuditableSoftwareAggregatesByDate(Date date)
+   :outertype: Terminal
+
+   Get active software aggregates by date
+
+   :param date: The date
+   :return: The active software aggregates
+
+getActiveBaseBoardsByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveBaseBoardsByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveBiosByDate
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveBiosByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveCdromDrivesByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveCdromDrivesByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveComputerSystemsByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveComputerSystemsByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveControllers1394ByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveControllers1394ByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveDesktopMonitorsByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveDesktopMonitorsByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveDiskDrivesByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveDiskDrivesByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveFinancialDevicesByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<FinancialDevice> getActiveFinancialDevicesByDate(Date date)
+   :outertype: Terminal
+
+   Get the active financial devices by date
+
+   :param date: The date
+   :return: The active financial devices
+
+getActiveFloppyDrivesByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveFloppyDrivesByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveHardwareDevicesByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveHardwareDevicesByDate(Date date)
+   :outertype: Terminal
+
+   Get active hardware device by date
+
+   :param date: The date
+   :return: The active hardware device
+
+getActiveHotfixesByDate
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<Hotfix> getActiveHotfixesByDate(Date date)
+   :outertype: Terminal
+
+   Get the active hotfixes by date
+
+   :param date: The date
+   :return: The active hotfixes
+
+getActiveInstallationsByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<Installation> getActiveInstallationsByDate(Date date)
+   :outertype: Terminal
+
+   Get the active installations by date
+
+   :param date: The date
+   :return: The active installations
+
+getActiveKeyboardsByDate
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveKeyboardsByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveLogicalDisksByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveLogicalDisksByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveNetworkAdaptersByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveNetworkAdaptersByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveParallelPortsByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveParallelPortsByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActivePhysicalMemoriesByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActivePhysicalMemoriesByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActivePointingDevicesByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActivePointingDevicesByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveProcessorsByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveProcessorsByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveScsiControllersByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveScsiControllersByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveSerialPortsByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveSerialPortsByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveSoundDevicesByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveSoundDevicesByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveSystemSlotsByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveSystemSlotsByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveUsbControllersByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveUsbControllersByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
+getActiveVideoControllersByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<HardwareDevice> getActiveVideoControllersByDate(Date date)
+   :outertype: Terminal
+
+   :return: the hardwareDevices
+
 getBank
 ^^^^^^^
 
@@ -202,15 +452,47 @@ getCsvHeader
 
    :return: the csv header
 
-getCurrentConfig
-^^^^^^^^^^^^^^^^
+getCurrentInstallation
+^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public TerminalConfig getCurrentConfig()
+.. java:method:: public Installation getCurrentInstallation()
    :outertype: Terminal
 
-   Gets the currently valid config.
+   Get the current installation
 
-   :return: the current config
+   :return: The current installation
+
+getCurrentInstallationByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Installation getCurrentInstallationByDate(Date date)
+   :outertype: Terminal
+
+   Get the current installation by date
+
+   :param date: The date
+   :return: The current installation
+
+getCurrentTerminalConfig
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public TerminalConfig getCurrentTerminalConfig()
+   :outertype: Terminal
+
+   Get the current terminal config
+
+   :return: The terminal config
+
+getCurrentTerminalConfigActiveByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public TerminalConfig getCurrentTerminalConfigActiveByDate(Date date)
+   :outertype: Terminal
+
+   Get current terminal config active by date
+
+   :param date: The date
+   :return: The current terminal config
 
 getDesktopMonitors
 ^^^^^^^^^^^^^^^^^^
@@ -302,15 +584,15 @@ getId
 
    :return: the id
 
-getInstallation
-^^^^^^^^^^^^^^^
+getInstallations
+^^^^^^^^^^^^^^^^
 
-.. java:method:: public Installation getInstallation()
+.. java:method:: public Set<Installation> getInstallations()
    :outertype: Terminal
 
-   Gets the installation.
+   Get the installations
 
-   :return: the installation
+   :return: The installations
 
 getInternetExplorers
 ^^^^^^^^^^^^^^^^^^^^
@@ -378,9 +660,9 @@ getMatricula
 .. java:method:: public Long getMatricula()
    :outertype: Terminal
 
-   Gets the matricula.
+   Gets the generated id.
 
-   :return: the matricula
+   :return: the generated id
 
 getNetworkAdapters
 ^^^^^^^^^^^^^^^^^^
@@ -582,6 +864,16 @@ replaceTerminalDataWoVoidValues
 
    :param terminal: the terminal with its data rewritten
 
+setAuditableInternetExplorers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setAuditableInternetExplorers(Set<AuditableInternetExplorer> auditableInternetExplorers)
+   :outertype: Terminal
+
+   Sets the internet explorers.
+
+   :param internetExplorers: the internetExplorers to set
+
 setBank
 ^^^^^^^
 
@@ -621,6 +913,26 @@ setConfigs
    Sets the configs.
 
    :param configs: the configs to set
+
+setCurrentInstallation
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setCurrentInstallation(Installation installation)
+   :outertype: Terminal
+
+   Set current installation
+
+   :param installation: The current installation
+
+setCurrentTerminalConfig
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setCurrentTerminalConfig(TerminalConfig terminalConfig)
+   :outertype: Terminal
+
+   Set the current terminal config
+
+   :param terminalConfig: The terminal config
 
 setFinancialDevices
 ^^^^^^^^^^^^^^^^^^^
@@ -682,26 +994,6 @@ setId
 
    :param id: the id to set
 
-setInstallation
-^^^^^^^^^^^^^^^
-
-.. java:method:: public void setInstallation(Installation installation)
-   :outertype: Terminal
-
-   Sets the installation.
-
-   :param installation: the new installation
-
-setInternetExplorers
-^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public void setInternetExplorers(Set<InternetExplorer> internetExplorers)
-   :outertype: Terminal
-
-   Sets the internet explorers.
-
-   :param internetExplorers: the internetExplorers to set
-
 setIp
 ^^^^^
 
@@ -738,9 +1030,9 @@ setMatricula
 .. java:method:: public void setMatricula(Long matricula)
    :outertype: Terminal
 
-   Sets the matricula.
+   Sets the generated id.
 
-   :param matricula: the new matricula
+   :param matricula: the new generated id
 
 setProductClassDescription
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -761,16 +1053,6 @@ setSerialNumber
    Sets the serial number.
 
    :param serialNumber: the serialNumber to set
-
-setSoftwareAggregates
-^^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public void setSoftwareAggregates(Set<SoftwareAggregate> softwareAggregates)
-   :outertype: Terminal
-
-   Sets the software aggregates.
-
-   :param softwareAggregates: the softwareAggregates to set
 
 setTerminalModel
 ^^^^^^^^^^^^^^^^
@@ -811,4 +1093,54 @@ setTracerNumber
    Sets the tracer number.
 
    :param tracerNumber: the tracerNumber to set
+
+updateAuditableInternetExplorers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void updateAuditableInternetExplorers(Set<AuditableInternetExplorer> newAuditableInternetExplorers)
+   :outertype: Terminal
+
+   Update the collection of auditable internet explorer
+
+   :param newAuditableInternetExplorers: the internetExplorers to set
+
+updateAuditableSoftwareAggregates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void updateAuditableSoftwareAggregates(Set<AuditableSoftwareAggregate> newAuditableSoftwareAggregate)
+   :outertype: Terminal
+
+   Update the collection of auditable sofware aggregates
+
+   :param newAuditableSoftwareAggregate: the new software aggregates
+
+updateFinancialDevices
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void updateFinancialDevices(Set<FinancialDevice> newFinancialDevices)
+   :outertype: Terminal
+
+   Update the collection financial devices of auditable elements
+
+   :param hardwareDevices: The financial devices
+
+updateHardwareDevices
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void updateHardwareDevices(Set<HardwareDevice> newHardwareDevices)
+   :outertype: Terminal
+
+   Update the collection hardware devices of auditable elements
+
+   :param hardwareDevices: The hardware devices
+
+updateHotfixes
+^^^^^^^^^^^^^^
+
+.. java:method:: public void updateHotfixes(Set<Hotfix> newHotfixes)
+   :outertype: Terminal
+
+   Update the collection hardware devices of auditable elements
+
+   :param hardwareDevices: The hotfixes
 

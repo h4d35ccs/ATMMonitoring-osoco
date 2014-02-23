@@ -75,7 +75,7 @@ Methods
 addScheduledUpdate
 ^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String addScheduledUpdate(ScheduledUpdate scheduledUpdate, BindingResult result, Map<String, Object> map, HttpServletRequest request, Principal principal, RedirectAttributes redirectAttributes)
+.. java:method:: @RequestMapping public String addScheduledUpdate(ScheduledUpdate scheduledUpdate, Map<String, Object> map, HttpServletRequest request, Principal principal, RedirectAttributes redirectAttributes)
    :outertype: ScheduledUpdateController
 
    Adds the scheduled update.
@@ -126,14 +126,13 @@ listSchedules
 listUpdateEvents
 ^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping @ResponseBody public List listUpdateEvents(long start, long end, HttpServletRequest request, Principal principal)
+.. java:method:: @SuppressWarnings @RequestMapping @ResponseBody public List<Map> listUpdateEvents(long start, long end, Principal principal)
    :outertype: ScheduledUpdateController
 
    List update events between two dates.
 
    :param start: the start date
    :param end: the end date
-   :param request: the request
    :param principal: the principal
    :return: the list of update events
 

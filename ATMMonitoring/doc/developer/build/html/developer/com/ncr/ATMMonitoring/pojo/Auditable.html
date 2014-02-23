@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Auditable &mdash; ATMMonitoring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="../../../../../index.html" />
+    <link rel="up" title="com.ncr.ATMMonitoring.pojo" href="package-index.html" />
+    <link rel="next" title="AuditableInternetExplorer" href="AuditableInternetExplorer.html" />
+    <link rel="prev" title="com.ncr.ATMMonitoring.pojo" href="package-index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="AuditableInternetExplorer.html" title="AuditableInternetExplorer"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="package-index.html" title="com.ncr.ATMMonitoring.pojo"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" accesskey="U">com.ncr.ATMMonitoring.pojo</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="auditable">
+<h1>Auditable<a class="headerlink" href="#auditable" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable">
+public abstract class <tt class="descname">Auditable</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Domain class for auditable elements related actions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author :</th><td class="field-body">jmartin</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="datecreated">
+<h3>dateCreated<a class="headerlink" href="#datecreated" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.dateCreated">
+protected <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a> <tt class="descname">dateCreated</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.dateCreated" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date created</p>
+</dd></dl>
+
+</div>
+<div class="section" id="enddate">
+<h3>endDate<a class="headerlink" href="#enddate" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.endDate">
+protected <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a> <tt class="descname">endDate</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.endDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The end date</p>
+</dd></dl>
+
+</div>
+<div class="section" id="startdate">
+<h3>startDate<a class="headerlink" href="#startdate" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.startDate">
+protected <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a> <tt class="descname">startDate</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.startDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The start date</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exists">
+<h3>exists<a class="headerlink" href="#exists" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.exists(Date)">
+public boolean <tt class="descname">exists</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> searchDate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.exists(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate if an auditable element exists by date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>searchDate</strong> &#8211; The search date</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if auditable element exists at the search date. False otherwhise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getdatecreated">
+<h3>getDateCreated<a class="headerlink" href="#getdatecreated" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.getDateCreated()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a> <tt class="descname">getDateCreated</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.getDateCreated()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the date created</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The date created</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getdefaultdate">
+<h3>getDefaultDate<a class="headerlink" href="#getdefaultdate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.getDefaultDate()">
+public static <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a> <tt class="descname">getDefaultDate</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.getDefaultDate()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the default date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The default date</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getenddate">
+<h3>getEndDate<a class="headerlink" href="#getenddate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.getEndDate()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a> <tt class="descname">getEndDate</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.getEndDate()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the end date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The end date</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="getstartdate">
+<h3>getStartDate<a class="headerlink" href="#getstartdate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.getStartDate()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a> <tt class="descname">getStartDate</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.getStartDate()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the start date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The start date</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="isactive">
+<h3>isActive<a class="headerlink" href="#isactive" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.isActive(Date)">
+public boolean <tt class="descname">isActive</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> searchDate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.isActive(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate if an auditable element is active by date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>searchDate</strong> &#8211; The search date</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if auditable element is active at the search date. False otherwhise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setdatecreated">
+<h3>setDateCreated<a class="headerlink" href="#setdatecreated" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.setDateCreated(Date)">
+public void <tt class="descname">setDateCreated</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> dateCreated</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.setDateCreated(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the date created</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dateCreated</strong> &#8211; The date created</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setenddate">
+<h3>setEndDate<a class="headerlink" href="#setenddate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.setEndDate(Date)">
+public void <tt class="descname">setEndDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> endDate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.setEndDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the end date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>endDate</strong> &#8211; The end date</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setstartdate">
+<h3>setStartDate<a class="headerlink" href="#setstartdate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Auditable.setStartDate(Date)">
+public void <tt class="descname">setStartDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> startDate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Auditable.setStartDate(Date)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the start date</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>startDate</strong> &#8211; The start date</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../../index.html">
+              <img class="logo" src="../../../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Auditable</a><ul>
+<li><a class="reference internal" href="#fields">Fields</a><ul>
+<li><a class="reference internal" href="#datecreated">dateCreated</a></li>
+<li><a class="reference internal" href="#enddate">endDate</a></li>
+<li><a class="reference internal" href="#startdate">startDate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#exists">exists</a></li>
+<li><a class="reference internal" href="#getdatecreated">getDateCreated</a></li>
+<li><a class="reference internal" href="#getdefaultdate">getDefaultDate</a></li>
+<li><a class="reference internal" href="#getenddate">getEndDate</a></li>
+<li><a class="reference internal" href="#getstartdate">getStartDate</a></li>
+<li><a class="reference internal" href="#isactive">isActive</a></li>
+<li><a class="reference internal" href="#setdatecreated">setDateCreated</a></li>
+<li><a class="reference internal" href="#setenddate">setEndDate</a></li>
+<li><a class="reference internal" href="#setstartdate">setStartDate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="package-index.html"
+                        title="previous chapter">com.ncr.ATMMonitoring.pojo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="AuditableInternetExplorer.html"
+                        title="next chapter">AuditableInternetExplorer</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../../../_sources/developer/com/ncr/ATMMonitoring/pojo/Auditable.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="AuditableInternetExplorer.html" title="AuditableInternetExplorer"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="package-index.html" title="com.ncr.ATMMonitoring.pojo"
+             >previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" >com.ncr.ATMMonitoring.pojo</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, NCR.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

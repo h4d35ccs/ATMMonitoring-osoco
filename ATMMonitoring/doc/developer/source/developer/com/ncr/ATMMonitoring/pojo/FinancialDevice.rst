@@ -50,7 +50,7 @@ FinancialDevice
 .. java:package:: com.ncr.ATMMonitoring.pojo
    :noindex:
 
-.. java:type:: @Entity @Table public class FinancialDevice
+.. java:type:: @Entity @Table public class FinancialDevice extends Auditable
 
    The FinancialDevice Pojo.
 
@@ -78,6 +78,12 @@ FinancialDevice
 
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: FinancialDevice
+
 getCaption
 ^^^^^^^^^^
 
@@ -307,6 +313,12 @@ getXfsComponents
    Gets the xfs components.
 
    :return: the xfsComponents
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: FinancialDevice
 
 setCaption
 ^^^^^^^^^^

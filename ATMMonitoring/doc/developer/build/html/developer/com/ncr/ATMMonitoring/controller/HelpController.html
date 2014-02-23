@@ -29,7 +29,7 @@
     <link rel="top" title="ATMMonitoring 1.0 documentation" href="../../../../../index.html" />
     <link rel="up" title="com.ncr.ATMMonitoring.controller" href="package-index.html" />
     <link rel="next" title="InstallationController" href="InstallationController.html" />
-    <link rel="prev" title="DashboardController" href="DashboardController.html" /> 
+    <link rel="prev" title="ExternalReportsController" href="ExternalReportsController.html" /> 
   </head>
   <body>
     <div class="related">
@@ -42,7 +42,7 @@
           <a href="InstallationController.html" title="InstallationController"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="DashboardController.html" title="DashboardController"
+          <a href="ExternalReportsController.html" title="ExternalReportsController"
              accesskey="P">previous</a> |</li>
         <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
           <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
@@ -76,9 +76,9 @@ public class <tt class="descname">HelpController</tt><a class="headerlink" href=
 <div class="section" id="showdashboardhelp">
 <h3>showDashboardHelp<a class="headerlink" href="#showdashboardhelp" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.controller.HelpController.showDashboardHelp(Map, Principal, HttpServletRequest)">
-public String <tt class="descname">showDashboardHelp</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.HelpController.showDashboardHelp(Map, Principal, HttpServletRequest)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Show dashboard help URL.</p>
+<dt id="com.ncr.ATMMonitoring.controller.HelpController.showDashboardHelp(String, Map, Principal, HttpServletRequest)">
+public String <tt class="descname">showDashboardHelp</tt><big>(</big>String<em> section</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.HelpController.showDashboardHelp(String, Map, Principal, HttpServletRequest)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show section help URL.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -123,31 +123,6 @@ public String <tt class="descname">showHelp</tt><big>(</big><a class="reference 
 </dd></dl>
 
 </div>
-<div class="section" id="showterminalshelp">
-<h3>showTerminalsHelp<a class="headerlink" href="#showterminalshelp" title="Permalink to this headline">¶</a></h3>
-<dl class="method">
-<dt id="com.ncr.ATMMonitoring.controller.HelpController.showTerminalsHelp(Map, Principal, HttpServletRequest)">
-public String <tt class="descname">showTerminalsHelp</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.HelpController.showTerminalsHelp(Map, Principal, HttpServletRequest)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Show terminals help URL.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>map</strong> &#8211; the map</li>
-<li><strong>principal</strong> &#8211; the principal</li>
-<li><strong>request</strong> &#8211; the request</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the petition response</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
 </div>
 </div>
 
@@ -166,7 +141,6 @@ public String <tt class="descname">showTerminalsHelp</tt><big>(</big><a class="r
 <li><a class="reference internal" href="#methods">Methods</a><ul>
 <li><a class="reference internal" href="#showdashboardhelp">showDashboardHelp</a></li>
 <li><a class="reference internal" href="#showhelp">showHelp</a></li>
-<li><a class="reference internal" href="#showterminalshelp">showTerminalsHelp</a></li>
 </ul>
 </li>
 </ul>
@@ -174,8 +148,8 @@ public String <tt class="descname">showTerminalsHelp</tt><big>(</big><a class="r
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="DashboardController.html"
-                        title="previous chapter">DashboardController</a></p>
+  <p class="topless"><a href="ExternalReportsController.html"
+                        title="previous chapter">ExternalReportsController</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="InstallationController.html"
                         title="next chapter">InstallationController</a></p>
@@ -211,7 +185,7 @@ public String <tt class="descname">showTerminalsHelp</tt><big>(</big><a class="r
           <a href="InstallationController.html" title="InstallationController"
              >next</a> |</li>
         <li class="right" >
-          <a href="DashboardController.html" title="DashboardController"
+          <a href="ExternalReportsController.html" title="ExternalReportsController"
              >previous</a> |</li>
         <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
           <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>

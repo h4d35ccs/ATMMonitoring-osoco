@@ -1,6 +1,10 @@
+.. java:import:: java.util Arrays
+
 .. java:import:: java.util Date
 
 .. java:import:: java.util HashSet
+
+.. java:import:: java.util List
 
 .. java:import:: java.util Set
 
@@ -42,7 +46,7 @@ TerminalConfig
 .. java:package:: com.ncr.ATMMonitoring.pojo
    :noindex:
 
-.. java:type:: @Entity @Table public class TerminalConfig
+.. java:type:: @Entity @Table public class TerminalConfig extends Auditable
 
    The TerminalConfig Pojo.
 
@@ -53,7 +57,7 @@ Methods
 equals
 ^^^^^^
 
-.. java:method:: public boolean equals(Object o)
+.. java:method:: @Override public boolean equals(Object o)
    :outertype: TerminalConfig
 
 getId
@@ -85,16 +89,6 @@ getSoftware
    Gets the software.
 
    :return: the software
-
-getStartDate
-^^^^^^^^^^^^
-
-.. java:method:: public Date getStartDate()
-   :outertype: TerminalConfig
-
-   Gets the start date.
-
-   :return: the startDate
 
 getTerminal
 ^^^^^^^^^^^
@@ -135,16 +129,6 @@ setSoftware
    Sets the software.
 
    :param software: the software to set
-
-setStartDate
-^^^^^^^^^^^^
-
-.. java:method:: public void setStartDate(Date startDate)
-   :outertype: TerminalConfig
-
-   Sets the start date.
-
-   :param startDate: the startDate to set
 
 setTerminal
 ^^^^^^^^^^^

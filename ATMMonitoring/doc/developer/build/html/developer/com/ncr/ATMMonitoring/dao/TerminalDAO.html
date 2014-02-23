@@ -167,17 +167,17 @@ public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMoni
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.getTerminalByMatricula(Long)">
 public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a> <tt class="descname">getTerminalByMatricula</tt><big>(</big>Long<em> matricula</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.getTerminalByMatricula(Long)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the terminal by matricula.</p>
+<dd><p>Gets the terminal by the generated id.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>matricula</strong> &#8211; the matricula</li>
+<li><strong>matricula</strong> &#8211; the generated id</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by matricula, or null if it doesn&#8217;t exist</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the terminal by the generated id, or null if it doesn&#8217;t exist</p>
 </td>
 </tr>
 </tbody>
@@ -326,8 +326,8 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <div class="section" id="id2">
 <h3>listTerminalsByBankCompanies<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByBankCompanies(Set, String, String)">
-public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByBankCompanies</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a>&gt;<em> bank</em>, String<em> sort</em>, String<em> order</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByBankCompanies(Set, String, String)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByBankCompanies(Set, String, String, List)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByBankCompanies</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a>&gt;<em> bank</em>, String<em> sort</em>, String<em> order</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Integer&gt;<em> terminalIds</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByBankCompanies(Set, String, String, List)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lists all terminals for the given bank companies with a specific order and sorting.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -369,6 +369,14 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 </tbody>
 </table>
 </dd></dl>
+
+</div>
+<div class="section" id="listterminalsbyidsandbankcompanies">
+<h3>listTerminalsByIdsAndBankCompanies<a class="headerlink" href="#listterminalsbyidsandbankcompanies" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByIdsAndBankCompanies(List, Set)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByIdsAndBankCompanies</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Integer&gt;<em> ids</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a>&gt;<em> bank</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.dao.TerminalDAO.listTerminalsByIdsAndBankCompanies(List, Set)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="updateterminal">
@@ -420,6 +428,7 @@ public void <tt class="descname">updateTerminal</tt><big>(</big><a class="refere
 <li><a class="reference internal" href="#listterminalsbybankcompanies">listTerminalsByBankCompanies</a></li>
 <li><a class="reference internal" href="#id2">listTerminalsByBankCompanies</a></li>
 <li><a class="reference internal" href="#listterminalsbybankcompany">listTerminalsByBankCompany</a></li>
+<li><a class="reference internal" href="#listterminalsbyidsandbankcompanies">listTerminalsByIdsAndBankCompanies</a></li>
 <li><a class="reference internal" href="#updateterminal">updateTerminal</a></li>
 </ul>
 </li>

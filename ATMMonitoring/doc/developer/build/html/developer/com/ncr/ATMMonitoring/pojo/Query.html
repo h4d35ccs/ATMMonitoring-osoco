@@ -59,7 +59,7 @@
 <h1>Query<a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h1>
 <dl class="type">
 <dt id="com.ncr.ATMMonitoring.pojo.Query">
-public class <tt class="descname">Query</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Query" title="Permalink to this definition">¶</a></dt>
+public class <tt class="descname">Query</tt> implements <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/io/Serializable.html" title="java.io.Serializable">Serializable</a><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Query" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Query Pojo.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -73,6 +73,14 @@ public class <tt class="descname">Query</tt><a class="headerlink" href="#com.ncr
 
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="buildisauditableelementactivebydatewhere">
+<h3>buildIsAuditableElementActiveByDateWhere<a class="headerlink" href="#buildisauditableelementactivebydatewhere" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Query.buildIsAuditableElementActiveByDateWhere(String, List, List, Locale, Date)">
+public String <tt class="descname">buildIsAuditableElementActiveByDateWhere</tt><big>(</big>String<em> fieldNamePrefix</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Object&gt;<em> values</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Type&gt;<em> types</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html" title="java.util.Locale">Locale</a><em> locale</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> queryDate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Query.buildIsAuditableElementActiveByDateWhere(String, List, List, Locale, Date)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="equals">
 <h3>equals<a class="headerlink" href="#equals" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -857,6 +865,14 @@ public String <tt class="descname">getHQL</tt><big>(</big><a class="reference ex
 <div class="section" id="id1">
 <h3>getHQL<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
+<dt id="com.ncr.ATMMonitoring.pojo.Query.getHQL(List, List, Locale, boolean, Date)">
+public String <tt class="descname">getHQL</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Object&gt;<em> values</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Type&gt;<em> types</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html" title="java.util.Locale">Locale</a><em> locale</em>, boolean<em> order</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> queryDate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Query.getHQL(List, List, Locale, boolean, Date)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>getHQL<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
 <dt id="com.ncr.ATMMonitoring.pojo.Query.getHQL(List, List, Locale, boolean)">
 public String <tt class="descname">getHQL</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Object&gt;<em> values</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Type&gt;<em> types</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html" title="java.util.Locale">Locale</a><em> locale</em>, boolean<em> order</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Query.getHQL(List, List, Locale, boolean)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the HQL for the stored data, and stores values and types in the passed variables. No duplicated data is shown.</p>
@@ -880,11 +896,11 @@ public String <tt class="descname">getHQL</tt><big>(</big><a class="reference ex
 </dd></dl>
 
 </div>
-<div class="section" id="id2">
-<h3>getHQL<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>getHQL<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.pojo.Query.getHQL(List, List, Locale, boolean, boolean)">
-public String <tt class="descname">getHQL</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Object&gt;<em> values</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Type&gt;<em> types</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html" title="java.util.Locale">Locale</a><em> locale</em>, boolean<em> distinct</em>, boolean<em> order</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Query.getHQL(List, List, Locale, boolean, boolean)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.pojo.Query.getHQL(List, List, Locale, boolean, boolean, Date)">
+public String <tt class="descname">getHQL</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Object&gt;<em> values</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Type&gt;<em> types</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html" title="java.util.Locale">Locale</a><em> locale</em>, boolean<em> distinct</em>, boolean<em> order</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> queryDate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Query.getHQL(List, List, Locale, boolean, boolean, Date)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the HQL for the stored data, and stores values and types in the passed variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -910,8 +926,8 @@ public String <tt class="descname">getHQL</tt><big>(</big><a class="reference ex
 <div class="section" id="gethqlgroupingby">
 <h3>getHQLGroupingBy<a class="headerlink" href="#gethqlgroupingby" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.pojo.Query.getHQLGroupingBy(List, List, Locale, String, String)">
-public String <tt class="descname">getHQLGroupingBy</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Object&gt;<em> values</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Type&gt;<em> types</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html" title="java.util.Locale">Locale</a><em> locale</em>, String<em> groupByEntity</em>, String<em> groupByField</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Query.getHQLGroupingBy(List, List, Locale, String, String)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.pojo.Query.getHQLGroupingBy(List, List, Locale, WidgetQueryAssociationType, String, Date)">
+public String <tt class="descname">getHQLGroupingBy</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Object&gt;<em> values</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Type&gt;<em> types</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html" title="java.util.Locale">Locale</a><em> locale</em>, <a class="reference internal" href="../utils/WidgetQueryAssociationType.html#com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType" title="com.ncr.ATMMonitoring.utils.WidgetQueryAssociationType">WidgetQueryAssociationType</a><em> queryAssociationType</em>, String<em> groupByField</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> queryDate</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Query.getHQLGroupingBy(List, List, Locale, WidgetQueryAssociationType, String, Date)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the HQL grouping by.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -8010,7 +8026,7 @@ public void <tt class="descname">setXfsComponentField5</tt><big>(</big>String<em
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.pojo.Query.setXfsSwCB1(Boolean)">
 public void <tt class="descname">setXfsSwCB1</tt><big>(</big>Boolean<em> xfsSwCB1</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.pojo.Query.setXfsSwCB1(Boolean)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the xfs sw checkbox1 value.</p>
+<dd><p>ets the xfs sw checkbox1 value.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -8421,6 +8437,7 @@ public void <tt class="descname">setXfsSwField5</tt><big>(</big>String<em> xfsSw
   <ul>
 <li><a class="reference internal" href="#">Query</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#buildisauditableelementactivebydatewhere">buildIsAuditableElementActiveByDateWhere</a></li>
 <li><a class="reference internal" href="#equals">equals</a></li>
 <li><a class="reference internal" href="#getcomboboxes">getComboboxes</a></li>
 <li><a class="reference internal" href="#getcreationdate">getCreationDate</a></li>
@@ -8469,6 +8486,7 @@ public void <tt class="descname">setXfsSwField5</tt><big>(</big>String<em> xfsSw
 <li><a class="reference internal" href="#gethql">getHQL</a></li>
 <li><a class="reference internal" href="#id1">getHQL</a></li>
 <li><a class="reference internal" href="#id2">getHQL</a></li>
+<li><a class="reference internal" href="#id3">getHQL</a></li>
 <li><a class="reference internal" href="#gethqlgroupingby">getHQLGroupingBy</a></li>
 <li><a class="reference internal" href="#gethardwaredevicecb1">getHardwareDeviceCB1</a></li>
 <li><a class="reference internal" href="#gethardwaredevicecb2">getHardwareDeviceCB2</a></li>

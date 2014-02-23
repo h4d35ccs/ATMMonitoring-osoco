@@ -1,12 +1,14 @@
-.. java:import:: java.util List
+.. java:import:: java.util Date
 
-.. java:import:: java.util Map
+.. java:import:: java.util List
 
 .. java:import:: java.util Locale
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Query
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Terminal
+
+.. java:import:: com.ncr ATMMonitoring.utils.WidgetQueryAssociationType
 
 QueryService
 ============
@@ -41,6 +43,21 @@ deleteQuery
    Delete query.
 
    :param query: the query
+
+executeQuery
+^^^^^^^^^^^^
+
+.. java:method:: public List<Terminal> executeQuery(Query query, Locale locale, String sort, String order, Date queryDate)
+   :outertype: QueryService
+
+   Execute query.
+
+   :param query: the query
+   :param locale: the locale
+   :param sort: the fields for sorting terminals
+   :param order: the order for sorting terminals
+   :param queryDate: date for query to auditable elements
+   :return: the terminal list
 
 executeQuery
 ^^^^^^^^^^^^
@@ -82,7 +99,7 @@ executeQuery
 executeQueryGroupingBy
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public List executeQueryGroupingBy(Query query, String groupByEntity, String groupBy, Locale locale)
+.. java:method:: public List<?> executeQueryGroupingBy(Query query, WidgetQueryAssociationType groupByEntity, String groupBy, Locale locale, Date queryDate)
    :outertype: QueryService
 
    Execute query grouping by.

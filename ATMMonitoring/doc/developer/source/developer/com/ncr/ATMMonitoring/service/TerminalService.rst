@@ -6,6 +6,8 @@
 
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
 
+.. java:import:: com.ncr ATMMonitoring.pojo.Installation
+
 .. java:import:: com.ncr ATMMonitoring.pojo.Terminal
 
 .. java:import:: com.ncr.agent.baseData ATMDataStorePojo
@@ -24,6 +26,17 @@ TerminalService
 
 Methods
 -------
+addInstallationAndUpdateHistoricalData
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void addInstallationAndUpdateHistoricalData(Terminal terminal, Installation installation)
+   :outertype: TerminalService
+
+   Add an installation and update his historical data
+
+   :param terminal: The terminal
+   :param installation: The installation
+
 addTerminal
 ^^^^^^^^^^^
 
@@ -101,6 +114,18 @@ listTerminalsByBankCompany
    :param bank: the bank company
    :return: the terminal list
 
+listTerminalsByIdsAndBankCompanies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> terminalIds, Set<BankCompany> bankCompanies)
+   :outertype: TerminalService
+
+   List terminals by ids and bank companies
+
+   :param terminalIds: The terminal ids
+   :param bankCompanies: The bank companies
+   :return: The list of terminals
+
 loadTerminalByIp
 ^^^^^^^^^^^^^^^^
 
@@ -129,9 +154,9 @@ loadTerminalByMatricula
 .. java:method:: public Terminal loadTerminalByMatricula(Long matricula)
    :outertype: TerminalService
 
-   Get terminal by matricula.
+   Get terminal by generated id.
 
-   :param matricula: the matricula
+   :param matricula: the generated id
    :return: the terminal
 
 loadTerminalBySerialNumber

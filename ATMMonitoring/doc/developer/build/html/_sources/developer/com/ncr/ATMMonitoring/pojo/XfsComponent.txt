@@ -262,6 +262,12 @@ XfsComponent
 
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: XfsComponent
+
 getAcceptMedia
 ^^^^^^^^^^^^^^
 
@@ -377,6 +383,12 @@ getCards
    Gets the cards.
 
    :return: the cards
+
+getCashin
+^^^^^^^^^
+
+.. java:method:: public Boolean getCashin()
+   :outertype: XfsComponent
 
 getCharSupport
 ^^^^^^^^^^^^^^
@@ -1516,6 +1528,12 @@ getResolutions
 
    :return: the resolutions
 
+getRetract
+^^^^^^^^^^
+
+.. java:method:: public Boolean getRetract()
+   :outertype: XfsComponent
+
 getRetractAreas
 ^^^^^^^^^^^^^^^
 
@@ -1768,6 +1786,12 @@ getXfsclasses
 
    :return: the xfsclasses
 
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: XfsComponent
+
 setAcceptMedia
 ^^^^^^^^^^^^^^
 
@@ -1883,6 +1907,12 @@ setCards
    Sets the cards.
 
    :param cards: the new cards
+
+setCashin
+^^^^^^^^^
+
+.. java:method:: public void setCashin(Boolean cashin)
+   :outertype: XfsComponent
 
 setCharSupport
 ^^^^^^^^^^^^^^
@@ -3011,6 +3041,12 @@ setResolutions
    Sets the resolutions.
 
    :param resolutions: the new resolutions
+
+setRetract
+^^^^^^^^^^
+
+.. java:method:: public void setRetract(Boolean retract)
+   :outertype: XfsComponent
 
 setRetractAreas
 ^^^^^^^^^^^^^^^

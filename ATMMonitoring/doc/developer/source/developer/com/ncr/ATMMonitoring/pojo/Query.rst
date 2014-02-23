@@ -1,3 +1,5 @@
+.. java:import:: java.io Serializable
+
 .. java:import:: java.text DateFormat
 
 .. java:import:: java.util Date
@@ -48,13 +50,15 @@
 
 .. java:import:: com.ncr ATMMonitoring.utils.Operation.DataType
 
+.. java:import:: com.ncr ATMMonitoring.utils.WidgetQueryAssociationType
+
 Query
 =====
 
 .. java:package:: com.ncr.ATMMonitoring.pojo
    :noindex:
 
-.. java:type:: @Entity @Table public class Query
+.. java:type:: @Entity @Table public class Query implements Serializable
 
    The Query Pojo.
 
@@ -62,6 +66,12 @@ Query
 
 Methods
 -------
+buildIsAuditableElementActiveByDateWhere
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public String buildIsAuditableElementActiveByDateWhere(String fieldNamePrefix, List<Object> values, List<Type> types, Locale locale, Date queryDate)
+   :outertype: Query
+
 equals
 ^^^^^^
 
@@ -524,6 +534,12 @@ getHQL
 getHQL
 ^^^^^^
 
+.. java:method:: public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean order, Date queryDate)
+   :outertype: Query
+
+getHQL
+^^^^^^
+
 .. java:method:: public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean order)
    :outertype: Query
 
@@ -538,7 +554,7 @@ getHQL
 getHQL
 ^^^^^^
 
-.. java:method:: public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean distinct, boolean order)
+.. java:method:: public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean distinct, boolean order, Date queryDate)
    :outertype: Query
 
    Gets the HQL for the stored data, and stores values and types in the passed variables.
@@ -553,7 +569,7 @@ getHQL
 getHQLGroupingBy
 ^^^^^^^^^^^^^^^^
 
-.. java:method:: public String getHQLGroupingBy(List<Object> values, List<Type> types, Locale locale, String groupByEntity, String groupByField)
+.. java:method:: public String getHQLGroupingBy(List<Object> values, List<Type> types, Locale locale, WidgetQueryAssociationType queryAssociationType, String groupByField, Date queryDate)
    :outertype: Query
 
    Gets the HQL grouping by.
@@ -4377,7 +4393,7 @@ setXfsSwCB1
 .. java:method:: public void setXfsSwCB1(Boolean xfsSwCB1)
    :outertype: Query
 
-   Sets the xfs sw checkbox1 value.
+   ets the xfs sw checkbox1 value.
 
    :param xfsSwCB1: the xfsSwCB1 to set
 

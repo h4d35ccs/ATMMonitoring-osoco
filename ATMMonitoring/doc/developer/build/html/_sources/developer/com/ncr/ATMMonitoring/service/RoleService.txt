@@ -1,6 +1,10 @@
 .. java:import:: java.util List
 
+.. java:import:: com.ncr ATMMonitoring.pojo.Query
+
 .. java:import:: com.ncr ATMMonitoring.pojo.Role
+
+.. java:import:: com.ncr ATMMonitoring.pojo.User
 
 RoleService
 ===========
@@ -26,6 +30,16 @@ addRole
 
    :param role: the role
 
+deleteRole
+^^^^^^^^^^
+
+.. java:method:: public void deleteRole(Role query)
+   :outertype: RoleService
+
+   Delete role.
+
+   :param role: the role
+
 getRole
 ^^^^^^^
 
@@ -37,6 +51,17 @@ getRole
    :param id: the role id
    :return: the role
 
+getRoleByName
+^^^^^^^^^^^^^
+
+.. java:method:: public Role getRoleByName(String name)
+   :outertype: RoleService
+
+   Gets the role by its name.
+
+   :param name: the role name
+   :return: the role
+
 listManageableRoles
 ^^^^^^^^^^^^^^^^^^^
 
@@ -45,6 +70,18 @@ listManageableRoles
 
    List manageable roles.
 
+   :return: the role list
+
+listManageableRoles
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public List<Role> listManageableRoles(String sort, String order)
+   :outertype: RoleService
+
+   List sorted manageable roles.
+
+   :param sort: the sort
+   :param order: the order
    :return: the role list
 
 listRoles
@@ -66,4 +103,14 @@ removeRole
    Removes the role by its id.
 
    :param id: the role id
+
+updateRole
+^^^^^^^^^^
+
+.. java:method:: public void updateRole(Role role)
+   :outertype: RoleService
+
+   Updates the role.
+
+   :param role: the role
 

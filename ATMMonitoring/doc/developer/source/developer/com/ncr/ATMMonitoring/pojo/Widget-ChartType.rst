@@ -1,3 +1,7 @@
+.. java:import:: java.io Serializable
+
+.. java:import:: java.util Date
+
 .. java:import:: java.util HashMap
 
 .. java:import:: java.util Map
@@ -19,6 +23,10 @@
 .. java:import:: javax.persistence SequenceGenerator
 
 .. java:import:: javax.persistence Table
+
+.. java:import:: com.ncr ATMMonitoring.utils.RegionType
+
+.. java:import:: com.ncr ATMMonitoring.utils.WidgetQueryAssociationType
 
 Widget.ChartType
 ================
@@ -64,4 +72,10 @@ PIE_CHART
    :outertype: Widget.ChartType
 
    The pie chart.
+
+TABLE
+^^^^^
+
+.. java:field:: public static final Widget.ChartType TABLE
+   :outertype: Widget.ChartType
 

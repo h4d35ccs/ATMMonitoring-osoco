@@ -6,7 +6,7 @@
 
 .. java:import:: java.util Locale
 
-.. java:import:: java.util Map
+.. java:import:: java.util Set
 
 .. java:import:: org.springframework.beans.factory.annotation Autowired
 
@@ -22,7 +22,9 @@
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Widget
 
-.. java:import:: com.ncr ATMMonitoring.pojo.Widget.ChartType
+.. java:import:: com.ncr ATMMonitoring.pojo.WidgetCategory
+
+.. java:import:: com.ncr ATMMonitoring.dao.WidgetCategoryDAO
 
 .. java:import:: com.ncr ATMMonitoring.dao.WidgetDAO
 
@@ -40,22 +42,46 @@ WidgetServiceImpl
 
 Methods
 -------
-buildDefaultWidgets
-^^^^^^^^^^^^^^^^^^^
+addOrRemoveWidgetToLibrary
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override public void buildDefaultWidgets()
+.. java:method:: @Override public void addOrRemoveWidgetToLibrary(Integer widgetId, User user, Integer categoryId)
+   :outertype: WidgetServiceImpl
+
+addWidgetsFromLibrary
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void addWidgetsFromLibrary(List<Integer> widgetIds, User user)
    :outertype: WidgetServiceImpl
 
 copyDefaultWidgetsToUserDashboard
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override public List<Widget> copyDefaultWidgetsToUserDashboard(User user, Dashboard dashboard)
+.. java:method:: @Override public List<Widget> copyDefaultWidgetsToUserDashboard(User user)
+   :outertype: WidgetServiceImpl
+
+createWidgetForUser
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void createWidgetForUser(Widget widget, User loggedUser)
+   :outertype: WidgetServiceImpl
+
+deleteWidgetFromUser
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void deleteWidgetFromUser(Integer widgetId, User user)
    :outertype: WidgetServiceImpl
 
 executeQuery
 ^^^^^^^^^^^^
 
-.. java:method:: @Override public List executeQuery(Widget widget, Locale locale)
+.. java:method:: @Override public List<?> executeQuery(Widget widget, Locale locale)
+   :outertype: WidgetServiceImpl
+
+findCategoryById
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public WidgetCategory findCategoryById(Integer categoryId)
    :outertype: WidgetServiceImpl
 
 findDefaultWidgets
@@ -64,15 +90,33 @@ findDefaultWidgets
 .. java:method:: @Override public List<Widget> findDefaultWidgets()
    :outertype: WidgetServiceImpl
 
+findLibraryWidgetsByCategory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public List<WidgetCategory> findLibraryWidgetsByCategory()
+   :outertype: WidgetServiceImpl
+
 findWidgetById
 ^^^^^^^^^^^^^^
 
 .. java:method:: @Override public Widget findWidgetById(int widgetId)
    :outertype: WidgetServiceImpl
 
+isWidgetOwnedByUser
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Boolean isWidgetOwnedByUser(Widget widget, User user)
+   :outertype: WidgetServiceImpl
+
 saveWidget
 ^^^^^^^^^^
 
 .. java:method:: @Override public void saveWidget(Widget widget)
+   :outertype: WidgetServiceImpl
+
+setWidgetDefault
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void setWidgetDefault(Integer widgetId, User user, boolean isDefault)
    :outertype: WidgetServiceImpl
 

@@ -76,8 +76,8 @@ public class <tt class="descname">ScheduledUpdateController</tt><a class="header
 <div class="section" id="addscheduledupdate">
 <h3>addScheduledUpdate<a class="headerlink" href="#addscheduledupdate" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.controller.ScheduledUpdateController.addScheduledUpdate(ScheduledUpdate, BindingResult, Map, HttpServletRequest, Principal, RedirectAttributes)">
-public String <tt class="descname">addScheduledUpdate</tt><big>(</big><a class="reference internal" href="../pojo/ScheduledUpdate.html#com.ncr.ATMMonitoring.pojo.ScheduledUpdate" title="com.ncr.ATMMonitoring.pojo.ScheduledUpdate">ScheduledUpdate</a><em> scheduledUpdate</em>, BindingResult<em> result</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, RedirectAttributes<em> redirectAttributes</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.ScheduledUpdateController.addScheduledUpdate(ScheduledUpdate, BindingResult, Map, HttpServletRequest, Principal, RedirectAttributes)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.controller.ScheduledUpdateController.addScheduledUpdate(ScheduledUpdate, Map, HttpServletRequest, Principal, RedirectAttributes)">
+public String <tt class="descname">addScheduledUpdate</tt><big>(</big><a class="reference internal" href="../pojo/ScheduledUpdate.html#com.ncr.ATMMonitoring.pojo.ScheduledUpdate" title="com.ncr.ATMMonitoring.pojo.ScheduledUpdate">ScheduledUpdate</a><em> scheduledUpdate</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> map</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em>, RedirectAttributes<em> redirectAttributes</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.ScheduledUpdateController.addScheduledUpdate(ScheduledUpdate, Map, HttpServletRequest, Principal, RedirectAttributes)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds the scheduled update.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -173,8 +173,8 @@ public String <tt class="descname">listSchedules</tt><big>(</big><a class="refer
 <div class="section" id="listupdateevents">
 <h3>listUpdateEvents<a class="headerlink" href="#listupdateevents" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.controller.ScheduledUpdateController.listUpdateEvents(long, long, HttpServletRequest, Principal)">
-public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a> <tt class="descname">listUpdateEvents</tt><big>(</big>long<em> start</em>, long<em> end</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.ScheduledUpdateController.listUpdateEvents(long, long, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.controller.ScheduledUpdateController.listUpdateEvents(long, long, Principal)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&gt; <tt class="descname">listUpdateEvents</tt><big>(</big>long<em> start</em>, long<em> end</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.ScheduledUpdateController.listUpdateEvents(long, long, Principal)" title="Permalink to this definition">¶</a></dt>
 <dd><p>List update events between two dates.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -183,7 +183,6 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>start</strong> &#8211; the start date</li>
 <li><strong>end</strong> &#8211; the end date</li>
-<li><strong>request</strong> &#8211; the request</li>
 <li><strong>principal</strong> &#8211; the principal</li>
 </ul>
 </td>

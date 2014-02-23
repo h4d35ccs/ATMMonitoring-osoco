@@ -14,6 +14,8 @@
 
 .. java:import:: java.util Date
 
+.. java:import:: java.util HashMap
+
 .. java:import:: java.util HashSet
 
 .. java:import:: java.util List
@@ -66,9 +68,13 @@
 
 .. java:import:: com.ncr ATMMonitoring.controller.propertyEditor.DatePropertyEditor
 
+.. java:import:: com.ncr ATMMonitoring.pojo.Auditable
+
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Installation
+
+.. java:import:: com.ncr ATMMonitoring.pojo.Location
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Query
 
@@ -170,13 +176,12 @@ binder
 deleteTerminalModel
 ^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String deleteTerminalModel(Integer terminalModelId, Principal principal)
+.. java:method:: @RequestMapping public String deleteTerminalModel(Integer terminalModelId)
    :outertype: TerminalController
 
    Delete terminal model URL.
 
    :param terminalModelId: the terminal model id
-   :param principal: the principal
    :return: the petition response
 
 downloadResultsCsv
@@ -214,14 +219,14 @@ getTerminalModelImage
    :param terminalModelId: the terminal model id
    :param request: the request
    :param response: the response
-   :param width: the width
-   :param height: the height
+   :param width: the required image width
+   :param height: the required image height
    :return: the terminal model image
 
 importTerminal
 ^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String importTerminal(CommonsMultipartFile file, Map<String, Object> map, HttpServletRequest request, Principal principal)
+.. java:method:: @RequestMapping public String importTerminal(CommonsMultipartFile file)
    :outertype: TerminalController
 
    Import terminals from json file URL.
@@ -260,12 +265,13 @@ listTerminals
    :param sort: the fields for sorting terminals
    :param order: the order for sorting terminals
    :param request: the request
+   :param request: the queryDate
    :return: the petition response
 
 listTerminalsByQuery
 ^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String listTerminalsByQuery(Map<String, Object> map, Integer queryId, Principal principal, String p, String sort, String order, HttpServletRequest request)
+.. java:method:: @RequestMapping public String listTerminalsByQuery(Map<String, Object> map, Integer queryId, Principal principal, String p, String sort, String order, HttpServletRequest request, Date queryDate)
    :outertype: TerminalController
 
    List terminals by query URL.
@@ -277,6 +283,7 @@ listTerminalsByQuery
    :param sort: the fields for sorting terminals
    :param order: the order for sorting terminals
    :param request: the request
+   :param queryDate: the date the date
    :return: the petition response
 
 newInstallation
@@ -290,7 +297,7 @@ newInstallation
    :param installation: the installation
    :param result: the result
    :param map: the map
-   :param matricula: the matricula
+   :param matricula: the generated id
    :param request: the request
    :param principal: the principal
    :return: the petition response
@@ -304,7 +311,7 @@ newInstallationForm
    New installation form URL.
 
    :param map: the map
-   :param matricula: the matricula
+   :param matricula: the generated id
    :return: the petition response
 
 redirectToTerminalModels
@@ -327,32 +334,28 @@ redirectToTerminals
 
    :return: the petition response
 
-requestTerminalUpdate
-^^^^^^^^^^^^^^^^^^^^^
+requestTerminalUpdateById
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String requestTerminalUpdate(Integer terminalId, Map<String, Object> map, HttpServletRequest request, RedirectAttributes redirectAttributes, Principal principal)
+.. java:method:: @RequestMapping public String requestTerminalUpdateById(Integer terminalId, RedirectAttributes redirectAttributes, Principal principal)
    :outertype: TerminalController
 
-   Request terminal update URL.
+   Request terminal update by id URL.
 
    :param terminalId: the terminal id
-   :param map: the map
-   :param request: the request
    :param redirectAttributes: the redirect attributes
    :param principal: the principal
    :return: the petition response
 
-requestTerminalsUpdate
-^^^^^^^^^^^^^^^^^^^^^^
+requestTerminalsUpdateByQuery
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String requestTerminalsUpdate(Map<String, Object> map, String queryId, HttpServletRequest request, Principal principal, RedirectAttributes redirectAttributes)
+.. java:method:: @RequestMapping public String requestTerminalsUpdateByQuery(String queryId, Principal principal, RedirectAttributes redirectAttributes)
    :outertype: TerminalController
 
    Request query results' terminals update URL.
 
-   :param map: the map
    :param queryId: the query id
-   :param request: the request
    :param principal: the principal
    :param redirectAttributes: the redirect attributes
    :return: the petition response
@@ -360,7 +363,7 @@ requestTerminalsUpdate
 terminalDetails
 ^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String terminalDetails(Integer terminalId, Map<String, Object> map, HttpServletRequest request, Principal principal)
+.. java:method:: @RequestMapping public String terminalDetails(Integer terminalId, Map<String, Object> map, HttpServletRequest request, Principal principal, Long dateTime, String preselectedTab)
    :outertype: TerminalController
 
    Terminal details URL.
@@ -384,6 +387,12 @@ terminalModelDetails
    :param request: the request
    :param principal: the principal
    :return: the petition response
+
+terminalSummary
+^^^^^^^^^^^^^^^
+
+.. java:method:: @RequestMapping public String terminalSummary(ArrayList<Integer> terminalIds, Map<String, Object> model, HttpServletRequest request, Principal principal, Long dateTime)
+   :outertype: TerminalController
 
 updateTerminal
 ^^^^^^^^^^^^^^

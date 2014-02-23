@@ -55,7 +55,7 @@ processTerminalJson
    Process terminal json.
 
    :param json: the json
-   :return: the matricula of the resulting ATM, or null if there was an error
+   :return: the generated id of the resulting ATM, or null if there was an error
 
 updateAllTerminalsSocket
 ^^^^^^^^^^^^^^^^^^^^^^^^

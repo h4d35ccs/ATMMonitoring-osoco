@@ -6,6 +6,8 @@ com.ncr.ATMMonitoring.service
 .. toctree::
    :maxdepth: 1
 
+   AuditableSetOperations
+   AuditableSetOperationsImpl
    BankCompanyService
    BankCompanyServiceImpl
    DashboardService
@@ -46,6 +48,8 @@ com.ncr.ATMMonitoring.service
    TerminalServiceImpl
    UserService
    UserServiceImpl
+   WidgetCategoryService
+   WidgetCategoryServiceImpl
    WidgetService
    WidgetServiceImpl
    XfsComponentService

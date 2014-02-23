@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>AuditableSetOperationsImpl &mdash; ATMMonitoring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="../../../../../index.html" />
+    <link rel="up" title="com.ncr.ATMMonitoring.service" href="package-index.html" />
+    <link rel="next" title="BankCompanyService" href="BankCompanyService.html" />
+    <link rel="prev" title="AuditableSetOperations" href="AuditableSetOperations.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="BankCompanyService.html" title="BankCompanyService"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="AuditableSetOperations.html" title="AuditableSetOperations"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" accesskey="U">com.ncr.ATMMonitoring.service</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="auditablesetoperationsimpl">
+<h1>AuditableSetOperationsImpl<a class="headerlink" href="#auditablesetoperationsimpl" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl">
+public class <tt class="descname">AuditableSetOperationsImpl</tt> implements <a class="reference internal" href="AuditableSetOperations.html#com.ncr.ATMMonitoring.service.AuditableSetOperations" title="com.ncr.ATMMonitoring.service.AuditableSetOperations">AuditableSetOperations</a><a class="headerlink" href="#com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="buildauditablechangesforcollection">
+<h3>buildAuditableChangesForCollection<a class="headerlink" href="#buildauditablechangesforcollection" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.buildAuditableChangesForCollection(Set)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;<a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a>, Integer&gt; <tt class="descname">buildAuditableChangesForCollection</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;? extends <a class="reference internal" href="../pojo/Auditable.html#com.ncr.ATMMonitoring.pojo.Auditable" title="com.ncr.ATMMonitoring.pojo.Auditable">Auditable</a>&gt;<em> auditableElements</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.buildAuditableChangesForCollection(Set)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getactiveauditableelementsbydate">
+<h3>getActiveAuditableElementsByDate<a class="headerlink" href="#getactiveauditableelementsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.getActiveAuditableElementsByDate(Set, Date)">
+public &lt;T extends Auditable&gt; <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;T&gt; <tt class="descname">getActiveAuditableElementsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;T&gt;<em> auditableElements</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.getActiveAuditableElementsByDate(Set, Date)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getcreatedauditableelementsbydate">
+<h3>getCreatedAuditableElementsByDate<a class="headerlink" href="#getcreatedauditableelementsbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.getCreatedAuditableElementsByDate(Set, Date)">
+public &lt;T extends Auditable&gt; <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;T&gt; <tt class="descname">getCreatedAuditableElementsByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;T&gt;<em> auditableElements</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.getCreatedAuditableElementsByDate(Set, Date)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getcurrentauditable">
+<h3>getCurrentAuditable<a class="headerlink" href="#getcurrentauditable" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.getCurrentAuditable(Set)">
+public &lt;T extends Auditable&gt; T <tt class="descname">getCurrentAuditable</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;T&gt;<em> auditableElements</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.getCurrentAuditable(Set)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getcurrentauditableelementbydate">
+<h3>getCurrentAuditableElementByDate<a class="headerlink" href="#getcurrentauditableelementbydate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.getCurrentAuditableElementByDate(Set, Date)">
+public &lt;T extends Auditable&gt; T <tt class="descname">getCurrentAuditableElementByDate</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;T&gt;<em> auditableElements</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html" title="java.util.Date">Date</a><em> date</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.getCurrentAuditableElementByDate(Set, Date)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setcurrentauditableelement">
+<h3>setCurrentAuditableElement<a class="headerlink" href="#setcurrentauditableelement" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.setCurrentAuditableElement(Set, T)">
+public &lt;T extends Auditable&gt; void <tt class="descname">setCurrentAuditableElement</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;T&gt;<em> auditableElements</em>, T<em> newAuditableElement</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.setCurrentAuditableElement(Set, T)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="updateauditableelements">
+<h3>updateAuditableElements<a class="headerlink" href="#updateauditableelements" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.updateAuditableElements(Set, Set)">
+public &lt;T extends Auditable&gt; void <tt class="descname">updateAuditableElements</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;T&gt;<em> auditableElements</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;T&gt;<em> newAuditableElements</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl.updateAuditableElements(Set, Set)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../../index.html">
+              <img class="logo" src="../../../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">AuditableSetOperationsImpl</a><ul>
+<li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#buildauditablechangesforcollection">buildAuditableChangesForCollection</a></li>
+<li><a class="reference internal" href="#getactiveauditableelementsbydate">getActiveAuditableElementsByDate</a></li>
+<li><a class="reference internal" href="#getcreatedauditableelementsbydate">getCreatedAuditableElementsByDate</a></li>
+<li><a class="reference internal" href="#getcurrentauditable">getCurrentAuditable</a></li>
+<li><a class="reference internal" href="#getcurrentauditableelementbydate">getCurrentAuditableElementByDate</a></li>
+<li><a class="reference internal" href="#setcurrentauditableelement">setCurrentAuditableElement</a></li>
+<li><a class="reference internal" href="#updateauditableelements">updateAuditableElements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="AuditableSetOperations.html"
+                        title="previous chapter">AuditableSetOperations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="BankCompanyService.html"
+                        title="next chapter">BankCompanyService</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../../../_sources/developer/com/ncr/ATMMonitoring/service/AuditableSetOperationsImpl.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="BankCompanyService.html" title="BankCompanyService"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="AuditableSetOperations.html" title="AuditableSetOperations"
+             >previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" >com.ncr.ATMMonitoring.service</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, NCR.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -50,6 +50,12 @@ LogicalCashUnit
 
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: LogicalCashUnit
+
 getCurrencyId
 ^^^^^^^^^^^^^
 
@@ -159,6 +165,12 @@ getXfsComponent
    Gets the xfs component.
 
    :return: the xfsComponent
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: LogicalCashUnit
 
 setCurrencyId
 ^^^^^^^^^^^^^

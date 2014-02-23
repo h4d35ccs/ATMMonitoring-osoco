@@ -16,6 +16,12 @@ WidgetDAO
 
 Methods
 -------
+delete
+^^^^^^
+
+.. java:method:: public void delete(Widget widget)
+   :outertype: WidgetDAO
+
 findById
 ^^^^^^^^
 

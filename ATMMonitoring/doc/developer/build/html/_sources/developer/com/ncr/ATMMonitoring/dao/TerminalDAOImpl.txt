@@ -117,13 +117,19 @@ listTerminalsByBankCompanies
 listTerminalsByBankCompanies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks, String order, String sort)
+.. java:method:: @Override public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks, String sort, String order, List<Integer> terminalIds)
    :outertype: TerminalDAOImpl
 
 listTerminalsByBankCompany
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. java:method:: @Override public List<Terminal> listTerminalsByBankCompany(BankCompany bank)
+   :outertype: TerminalDAOImpl
+
+listTerminalsByIdsAndBankCompanies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> terminalIds, Set<BankCompany> banks)
    :outertype: TerminalDAOImpl
 
 updateTerminal

@@ -107,25 +107,23 @@ binder
 deleteInstallation
 ^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String deleteInstallation(Integer installationId, Principal principal)
+.. java:method:: @RequestMapping public String deleteInstallation(Integer installationId)
    :outertype: InstallationController
 
    Delete installation URL.
 
    :param installationId: the installation id
-   :param principal: the principal
    :return: the petition response
 
 deleteLocation
 ^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String deleteLocation(Integer locationId, Principal principal)
+.. java:method:: @RequestMapping public String deleteLocation(Integer locationId)
    :outertype: InstallationController
 
    Delete location URL.
 
    :param locationId: the location id
-   :param principal: the principal
    :return: the petition response
 
 installationDetails

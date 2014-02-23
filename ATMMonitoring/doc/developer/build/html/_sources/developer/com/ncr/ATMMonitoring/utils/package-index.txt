@@ -8,5 +8,7 @@ com.ncr.ATMMonitoring.utils
 
    Operation
    Operation-DataType
+   RegionType
    Utils
+   WidgetQueryAssociationType
 

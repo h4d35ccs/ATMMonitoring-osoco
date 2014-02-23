@@ -46,7 +46,7 @@ Hotfix
 .. java:package:: com.ncr.ATMMonitoring.pojo
    :noindex:
 
-.. java:type:: @Entity @Table public class Hotfix
+.. java:type:: @Entity @Table public class Hotfix extends Auditable
 
    The Hotfix Pojo.
 
@@ -74,6 +74,12 @@ Hotfix
 
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: Hotfix
+
 getComboboxes
 ^^^^^^^^^^^^^
 
@@ -124,16 +130,6 @@ getId
 
    :return: the id
 
-getInstalledOn
-^^^^^^^^^^^^^^
-
-.. java:method:: public Date getInstalledOn()
-   :outertype: Hotfix
-
-   Gets the date it was installed on.
-
-   :return: the date
-
 getNumber
 ^^^^^^^^^
 
@@ -153,6 +149,12 @@ getTerminal
    Gets the terminal.
 
    :return: the terminal
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: Hotfix
 
 setDescription
 ^^^^^^^^^^^^^^
@@ -193,16 +195,6 @@ setId
    Sets the id.
 
    :param id: the id to set
-
-setInstalledOn
-^^^^^^^^^^^^^^
-
-.. java:method:: public void setInstalledOn(Date installedOn)
-   :outertype: Hotfix
-
-   Sets the date it wass installed on.
-
-   :param installedOn: the date to set
 
 setNumber
 ^^^^^^^^^

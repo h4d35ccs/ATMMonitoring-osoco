@@ -14,6 +14,8 @@
 
 .. java:import:: javax.persistence UniqueConstraint
 
+.. java:import:: org.hibernate.annotations Formula
+
 .. java:import:: org.hibernate.annotations Type
 
 Location
@@ -28,8 +30,22 @@ Location
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 
+Fields
+------
+addressCityAndCountry
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: @Formula public String addressCityAndCountry
+   :outertype: Location
+
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: Location
+
 getAddressCity
 ^^^^^^^^^^^^^^
 
@@ -169,6 +185,18 @@ getPublicAccess
    Gets the public access.
 
    :return: the public access
+
+hasCoordinates
+^^^^^^^^^^^^^^
+
+.. java:method:: public boolean hasCoordinates()
+   :outertype: Location
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: Location
 
 setAddressCity
 ^^^^^^^^^^^^^^

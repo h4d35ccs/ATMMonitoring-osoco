@@ -4,6 +4,8 @@
 
 .. java:import:: org.apache.log4j Logger
 
+.. java:import:: org.hibernate Criteria
+
 .. java:import:: org.hibernate.criterion Criterion
 
 .. java:import:: org.hibernate.criterion Order
@@ -15,6 +17,8 @@
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
+
+.. java:import:: com.ncr ATMMonitoring.pojo.Terminal
 
 .. java:import:: com.ncr ATMMonitoring.pojo.User
 
@@ -48,6 +52,12 @@ getUserByUsername
 ^^^^^^^^^^^^^^^^^
 
 .. java:method:: @Override public User getUserByUsername(String username)
+   :outertype: UserDAOImpl
+
+listUsers
+^^^^^^^^^
+
+.. java:method:: @Override public List<User> listUsers(String sort, String order)
    :outertype: UserDAOImpl
 
 listUsers

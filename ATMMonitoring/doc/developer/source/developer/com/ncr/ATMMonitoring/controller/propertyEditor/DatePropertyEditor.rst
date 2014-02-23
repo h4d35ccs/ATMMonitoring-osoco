@@ -4,6 +4,8 @@
 
 .. java:import:: java.text ParseException
 
+.. java:import:: java.text SimpleDateFormat
+
 .. java:import:: java.util Date
 
 .. java:import:: java.util Locale

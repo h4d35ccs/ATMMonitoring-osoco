@@ -6,6 +6,9 @@ com.ncr.ATMMonitoring.pojo
 .. toctree::
    :maxdepth: 1
 
+   Auditable
+   AuditableInternetExplorer
+   AuditableSoftwareAggregate
    BankCompany
    Dashboard
    Dashboard-ColumnOptions
@@ -31,5 +34,6 @@ com.ncr.ATMMonitoring.pojo
    User
    Widget
    Widget-ChartType
+   WidgetCategory
    XfsComponent
 

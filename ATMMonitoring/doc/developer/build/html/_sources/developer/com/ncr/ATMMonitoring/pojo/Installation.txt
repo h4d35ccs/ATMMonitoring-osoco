@@ -1,4 +1,6 @@
-.. java:import:: java.util Date
+.. java:import:: java.util Map
+
+.. java:import:: java.util TreeMap
 
 .. java:import:: javax.persistence Column
 
@@ -22,13 +24,15 @@
 
 .. java:import:: org.hibernate.annotations CascadeType
 
+.. java:import:: com.ncr ATMMonitoring.utils.Operation
+
 Installation
 ============
 
 .. java:package:: com.ncr.ATMMonitoring.pojo
    :noindex:
 
-.. java:type:: @Entity @Table public class Installation
+.. java:type:: @Entity @Table public class Installation extends Auditable
 
    The Installation Pojo.
 
@@ -36,15 +40,15 @@ Installation
 
 Methods
 -------
-getEndDate
-^^^^^^^^^^
+getComboboxes
+^^^^^^^^^^^^^
 
-.. java:method:: public Date getEndDate()
+.. java:method:: public static Map<String, Map> getComboboxes()
    :outertype: Installation
 
-   Gets the end date.
+   Gets the comboboxes data for the query GUI.
 
-   :return: the end date
+   :return: the comboboxes data
 
 getId
 ^^^^^
@@ -126,16 +130,6 @@ getProcessed
 
    :return: the processed
 
-getStartDate
-^^^^^^^^^^^^
-
-.. java:method:: public Date getStartDate()
-   :outertype: Installation
-
-   Gets the start date.
-
-   :return: the start date
-
 getType
 ^^^^^^^
 
@@ -145,16 +139,6 @@ getType
    Gets the type.
 
    :return: the type
-
-setEndDate
-^^^^^^^^^^
-
-.. java:method:: public void setEndDate(Date endDate)
-   :outertype: Installation
-
-   Sets the end date.
-
-   :param endDate: the new end date
 
 setId
 ^^^^^
@@ -225,16 +209,6 @@ setProcessed
    Sets the processed.
 
    :param processed: the new processed
-
-setStartDate
-^^^^^^^^^^^^
-
-.. java:method:: public void setStartDate(Date startDate)
-   :outertype: Installation
-
-   Sets the start date.
-
-   :param startDate: the new start date
 
 setType
 ^^^^^^^

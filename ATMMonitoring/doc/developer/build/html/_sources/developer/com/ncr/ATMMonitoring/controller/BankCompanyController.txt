@@ -83,13 +83,12 @@ bankCompanyDetails
 deleteBankCompany
 ^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String deleteBankCompany(Integer bankCompanyId, Principal principal)
+.. java:method:: @RequestMapping public String deleteBankCompany(Integer bankCompanyId)
    :outertype: BankCompanyController
 
    Delete bank company URL.
 
    :param bankCompanyId: the bank company id
-   :param principal: the principal
    :return: the petition response
 
 listBankCompanies

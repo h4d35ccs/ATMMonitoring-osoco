@@ -93,6 +93,26 @@ public void <tt class="descname">addRole</tt><big>(</big><a class="reference int
 </dd></dl>
 
 </div>
+<div class="section" id="deleterole">
+<h3>deleteRole<a class="headerlink" href="#deleterole" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.RoleService.deleteRole(Role)">
+public void <tt class="descname">deleteRole</tt><big>(</big><a class="reference internal" href="../pojo/Role.html#com.ncr.ATMMonitoring.pojo.Role" title="com.ncr.ATMMonitoring.pojo.Role">Role</a><em> query</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.RoleService.deleteRole(Role)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete role.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>role</strong> &#8211; the role</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 <div class="section" id="getrole">
 <h3>getRole<a class="headerlink" href="#getrole" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -116,6 +136,29 @@ public <a class="reference internal" href="../pojo/Role.html#com.ncr.ATMMonitori
 </dd></dl>
 
 </div>
+<div class="section" id="getrolebyname">
+<h3>getRoleByName<a class="headerlink" href="#getrolebyname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.RoleService.getRoleByName(String)">
+public <a class="reference internal" href="../pojo/Role.html#com.ncr.ATMMonitoring.pojo.Role" title="com.ncr.ATMMonitoring.pojo.Role">Role</a> <tt class="descname">getRoleByName</tt><big>(</big>String<em> name</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.RoleService.getRoleByName(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the role by its name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> &#8211; the role name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the role</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 <div class="section" id="listmanageableroles">
 <h3>listManageableRoles<a class="headerlink" href="#listmanageableroles" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -127,6 +170,30 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the role list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h3>listManageableRoles<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.RoleService.listManageableRoles(String, String)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Role.html#com.ncr.ATMMonitoring.pojo.Role" title="com.ncr.ATMMonitoring.pojo.Role">Role</a>&gt; <tt class="descname">listManageableRoles</tt><big>(</big>String<em> sort</em>, String<em> order</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.RoleService.listManageableRoles(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>List sorted manageable roles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sort</strong> &#8211; the sort</li>
+<li><strong>order</strong> &#8211; the order</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the role list</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -170,6 +237,26 @@ public void <tt class="descname">removeRole</tt><big>(</big>Integer<em> id</em><
 </dd></dl>
 
 </div>
+<div class="section" id="updaterole">
+<h3>updateRole<a class="headerlink" href="#updaterole" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.RoleService.updateRole(Role)">
+public void <tt class="descname">updateRole</tt><big>(</big><a class="reference internal" href="../pojo/Role.html#com.ncr.ATMMonitoring.pojo.Role" title="com.ncr.ATMMonitoring.pojo.Role">Role</a><em> role</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.RoleService.updateRole(Role)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the role.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>role</strong> &#8211; the role</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 </div>
 </div>
 
@@ -187,10 +274,14 @@ public void <tt class="descname">removeRole</tt><big>(</big>Integer<em> id</em><
 <li><a class="reference internal" href="#">RoleService</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a><ul>
 <li><a class="reference internal" href="#addrole">addRole</a></li>
+<li><a class="reference internal" href="#deleterole">deleteRole</a></li>
 <li><a class="reference internal" href="#getrole">getRole</a></li>
+<li><a class="reference internal" href="#getrolebyname">getRoleByName</a></li>
 <li><a class="reference internal" href="#listmanageableroles">listManageableRoles</a></li>
+<li><a class="reference internal" href="#id1">listManageableRoles</a></li>
 <li><a class="reference internal" href="#listroles">listRoles</a></li>
 <li><a class="reference internal" href="#removerole">removeRole</a></li>
+<li><a class="reference internal" href="#updaterole">updateRole</a></li>
 </ul>
 </li>
 </ul>

@@ -64,6 +64,12 @@ Software
 
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: Software
+
 getBuildVersion
 ^^^^^^^^^^^^^^^
 
@@ -263,6 +269,12 @@ getVersion
    Gets the version.
 
    :return: the version complete
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: Software
 
 setBuildVersion
 ^^^^^^^^^^^^^^^

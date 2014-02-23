@@ -8,6 +8,8 @@ com.ncr.ATMMonitoring.controller
 
    BankCompanyController
    DashboardController
+   ErrorController
+   ExternalReportsController
    HelpController
    InstallationController
    LoginController
@@ -16,6 +18,6 @@ com.ncr.ATMMonitoring.controller
    TerminalConfigController
    TerminalController
    UserController
+   WidgetController
    XfsComponentController
-   externalreportsController
 

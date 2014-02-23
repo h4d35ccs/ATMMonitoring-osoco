@@ -144,12 +144,36 @@ public <a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitori
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.service.UserService.listUsers()">
 public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitoring.pojo.User" title="com.ncr.ATMMonitoring.pojo.User">User</a>&gt; <tt class="descname">listUsers</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.UserService.listUsers()" title="Permalink to this definition">¶</a></dt>
-<dd><p>List users.</p>
+<dd><p>List users with the default sorting.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the user list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h3>listUsers<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.UserService.listUsers(String, String)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitoring.pojo.User" title="com.ncr.ATMMonitoring.pojo.User">User</a>&gt; <tt class="descname">listUsers</tt><big>(</big>String<em> sort</em>, String<em> order</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.UserService.listUsers(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>List sorted users.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>sort</strong> &#8211; the sort</li>
+<li><strong>order</strong> &#8211; the order</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the user list</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -290,6 +314,7 @@ public void <tt class="descname">updateUser</tt><big>(</big><a class="reference 
 <li><a class="reference internal" href="#getuser">getUser</a></li>
 <li><a class="reference internal" href="#getuserbyusername">getUserByUsername</a></li>
 <li><a class="reference internal" href="#listusers">listUsers</a></li>
+<li><a class="reference internal" href="#id1">listUsers</a></li>
 <li><a class="reference internal" href="#listusersbybankcompanies">listUsersByBankCompanies</a></li>
 <li><a class="reference internal" href="#listusersbybankcompany">listUsersByBankCompany</a></li>
 <li><a class="reference internal" href="#loaduserbyusername">loadUserByUsername</a></li>

@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>WidgetController &mdash; ATMMonitoring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="ATMMonitoring 1.0 documentation" href="../../../../../index.html" />
+    <link rel="up" title="com.ncr.ATMMonitoring.controller" href="package-index.html" />
+    <link rel="next" title="XfsComponentController" href="XfsComponentController.html" />
+    <link rel="prev" title="UserController" href="UserController.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="XfsComponentController.html" title="XfsComponentController"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="UserController.html" title="UserController"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" accesskey="U">com.ncr.ATMMonitoring.controller</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="widgetcontroller">
+<h1>WidgetController<a class="headerlink" href="#widgetcontroller" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController">
+public class <tt class="descname">WidgetController</tt><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controller for Widget related actions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author :</th><td class="field-body">jmartin</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addfromlibrary">
+<h3>addFromLibrary<a class="headerlink" href="#addfromlibrary" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.addFromLibrary(ArrayList, Principal)">
+public String <tt class="descname">addFromLibrary</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/ArrayList.html" title="java.util.ArrayList">ArrayList</a>&lt;Integer&gt;<em> widgetIds</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.addFromLibrary(ArrayList, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a widget to user dashboard from library</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>widgetIds</strong> &#8211; A list with the widgets ids</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The request response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="addtolibrary">
+<h3>addToLibrary<a class="headerlink" href="#addtolibrary" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.addToLibrary(Integer, Integer, Principal)">
+public String <tt class="descname">addToLibrary</tt><big>(</big>Integer<em> widgetId</em>, Integer<em> categoryId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.addToLibrary(Integer, Integer, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a widget to library</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>widgetId</strong> &#8211; The widget id</li>
+<li><strong>categoryId</strong> &#8211; The category id</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The request response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="binder">
+<h3>binder<a class="headerlink" href="#binder" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.binder(WebDataBinder)">
+protected void <tt class="descname">binder</tt><big>(</big>WebDataBinder<em> binder</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.binder(WebDataBinder)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Binds custom editors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>binder</strong> &#8211; the binder</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="createwidget">
+<h3>createWidget<a class="headerlink" href="#createwidget" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.createWidget(Map, Principal)">
+public String <tt class="descname">createWidget</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> model</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.createWidget(Map, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show creates new widget form</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> &#8211; The model</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the request response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="createwidgetfromlibrary">
+<h3>createWidgetFromLibrary<a class="headerlink" href="#createwidgetfromlibrary" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.createWidgetFromLibrary(Map, Principal)">
+public String <tt class="descname">createWidgetFromLibrary</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> model</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.createWidgetFromLibrary(Map, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new widget from library</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> &#8211; The model</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The request response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="deletewidget">
+<h3>deleteWidget<a class="headerlink" href="#deletewidget" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.deleteWidget(Integer, Principal)">
+public void <tt class="descname">deleteWidget</tt><big>(</big>Integer<em> widgetId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.deleteWidget(Integer, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a widget</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>widgetId</strong> &#8211; The widget id</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="editwidget">
+<h3>editWidget<a class="headerlink" href="#editwidget" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.editWidget(Map, Integer, Principal)">
+public String <tt class="descname">editWidget</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> model</em>, Integer<em> widgetId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.editWidget(Map, Integer, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edit a widget</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> &#8211; The model</li>
+<li><strong>widgetId</strong> &#8211; The widget id</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The request response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="newwidget">
+<h3>newWidget<a class="headerlink" href="#newwidget" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.newWidget()">
+public String <tt class="descname">newWidget</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.newWidget()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show new widget form</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the petition response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="removefromlibrary">
+<h3>removeFromLibrary<a class="headerlink" href="#removefromlibrary" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.removeFromLibrary(Integer, Principal)">
+public void <tt class="descname">removeFromLibrary</tt><big>(</big>Integer<em> widgetId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.removeFromLibrary(Integer, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a widget from library</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>widgetId</strong> &#8211; The widget id</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="setasdefault">
+<h3>setAsDefault<a class="headerlink" href="#setasdefault" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.setAsDefault(Integer, Principal)">
+public void <tt class="descname">setAsDefault</tt><big>(</big>Integer<em> widgetId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.setAsDefault(Integer, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a widget as default</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>widgetId</strong> &#8211; The widget id</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="showaddtolibraryform">
+<h3>showAddToLibraryForm<a class="headerlink" href="#showaddtolibraryform" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.showAddToLibraryForm(Map, Integer, Principal)">
+public String <tt class="descname">showAddToLibraryForm</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> model</em>, Integer<em> widgetId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.showAddToLibraryForm(Map, Integer, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show add widget to library form</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> &#8211; The model</li>
+<li><strong>widgetId</strong> &#8211; The widget id</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The petition response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="unsetasdefault">
+<h3>unsetAsDefault<a class="headerlink" href="#unsetasdefault" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.unsetAsDefault(Integer, Principal)">
+public void <tt class="descname">unsetAsDefault</tt><big>(</big>Integer<em> widgetId</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.unsetAsDefault(Integer, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unset a widget as default</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>widgetId</strong> &#8211; The widget id</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="updatewidget">
+<h3>updateWidget<a class="headerlink" href="#updatewidget" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.controller.WidgetController.updateWidget(Widget, BindingResult, Map, HttpServletRequest, Principal)">
+public String <tt class="descname">updateWidget</tt><big>(</big><a class="reference internal" href="../pojo/Widget.html#com.ncr.ATMMonitoring.pojo.Widget" title="com.ncr.ATMMonitoring.pojo.Widget">Widget</a><em> widget</em>, BindingResult<em> result</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Map.html" title="java.util.Map">Map</a>&lt;String, Object&gt;<em> model</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/javax/servlet/http/HttpServletRequest.html" title="javax.servlet.http.HttpServletRequest">HttpServletRequest</a><em> request</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/security/Principal.html" title="java.security.Principal">Principal</a><em> principal</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.controller.WidgetController.updateWidget(Widget, BindingResult, Map, HttpServletRequest, Principal)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a widget</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>widget</strong> &#8211; The widget</li>
+<li><strong>result</strong> &#8211; The binding result</li>
+<li><strong>model</strong> &#8211; The model</li>
+<li><strong>request</strong> &#8211; The request</li>
+<li><strong>principal</strong> &#8211; The principal user</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The request response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../../index.html">
+              <img class="logo" src="../../../../../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">WidgetController</a><ul>
+<li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#addfromlibrary">addFromLibrary</a></li>
+<li><a class="reference internal" href="#addtolibrary">addToLibrary</a></li>
+<li><a class="reference internal" href="#binder">binder</a></li>
+<li><a class="reference internal" href="#createwidget">createWidget</a></li>
+<li><a class="reference internal" href="#createwidgetfromlibrary">createWidgetFromLibrary</a></li>
+<li><a class="reference internal" href="#deletewidget">deleteWidget</a></li>
+<li><a class="reference internal" href="#editwidget">editWidget</a></li>
+<li><a class="reference internal" href="#newwidget">newWidget</a></li>
+<li><a class="reference internal" href="#removefromlibrary">removeFromLibrary</a></li>
+<li><a class="reference internal" href="#setasdefault">setAsDefault</a></li>
+<li><a class="reference internal" href="#showaddtolibraryform">showAddToLibraryForm</a></li>
+<li><a class="reference internal" href="#unsetasdefault">unsetAsDefault</a></li>
+<li><a class="reference internal" href="#updatewidget">updateWidget</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="UserController.html"
+                        title="previous chapter">UserController</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="XfsComponentController.html"
+                        title="next chapter">XfsComponentController</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../../../_sources/developer/com/ncr/ATMMonitoring/controller/WidgetController.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="XfsComponentController.html" title="XfsComponentController"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="UserController.html" title="UserController"
+             >previous</a> |</li>
+        <li><a href="../../../../../index.html">ATMMonitoring 1.0 documentation</a> &raquo;</li>
+          <li><a href="../../../../javadoc.html" >ATMMonitoring Javadocs</a> &raquo;</li>
+          <li><a href="package-index.html" >com.ncr.ATMMonitoring.controller</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, NCR.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

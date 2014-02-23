@@ -2,6 +2,8 @@
 
 .. java:import:: org.apache.log4j Logger
 
+.. java:import:: org.hibernate Criteria
+
 .. java:import:: org.hibernate.criterion Order
 
 .. java:import:: org.hibernate.criterion Restrictions
@@ -24,6 +26,12 @@ WidgetDAOImpl
 
 Methods
 -------
+delete
+^^^^^^
+
+.. java:method:: @Override public void delete(Widget widget)
+   :outertype: WidgetDAOImpl
+
 findById
 ^^^^^^^^
 

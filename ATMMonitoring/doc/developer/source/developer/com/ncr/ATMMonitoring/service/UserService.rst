@@ -62,8 +62,20 @@ listUsers
 .. java:method:: public List<User> listUsers()
    :outertype: UserService
 
-   List users.
+   List users with the default sorting.
 
+   :return: the user list
+
+listUsers
+^^^^^^^^^
+
+.. java:method:: public List<User> listUsers(String sort, String order)
+   :outertype: UserService
+
+   List sorted users.
+
+   :param sort: the sort
+   :param order: the order
    :return: the user list
 
 listUsersByBankCompanies

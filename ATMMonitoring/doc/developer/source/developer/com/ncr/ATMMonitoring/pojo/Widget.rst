@@ -1,3 +1,7 @@
+.. java:import:: java.io Serializable
+
+.. java:import:: java.util Date
+
 .. java:import:: java.util HashMap
 
 .. java:import:: java.util Map
@@ -20,13 +24,17 @@
 
 .. java:import:: javax.persistence Table
 
+.. java:import:: com.ncr ATMMonitoring.utils.RegionType
+
+.. java:import:: com.ncr ATMMonitoring.utils.WidgetQueryAssociationType
+
 Widget
 ======
 
 .. java:package:: com.ncr.ATMMonitoring.pojo
    :noindex:
 
-.. java:type:: @Entity @Table public class Widget
+.. java:type:: @Entity @Table public class Widget implements Serializable
 
    The Widget Pojo.
 
@@ -58,6 +66,12 @@ equals
 ^^^^^^
 
 .. java:method:: @Override public boolean equals(Object o)
+   :outertype: Widget
+
+getCategory
+^^^^^^^^^^^
+
+.. java:method:: public WidgetCategory getCategory()
    :outertype: Widget
 
 getChartType
@@ -93,7 +107,7 @@ getGroupBy
 getGroupByEntity
 ^^^^^^^^^^^^^^^^
 
-.. java:method:: public String getGroupByEntity()
+.. java:method:: public WidgetQueryAssociationType getGroupByEntity()
    :outertype: Widget
 
    Gets the group by entity.
@@ -140,6 +154,18 @@ getQuery
 
    :return: the query
 
+getQueryDate
+^^^^^^^^^^^^
+
+.. java:method:: public Date getQueryDate()
+   :outertype: Widget
+
+getRegion
+^^^^^^^^^
+
+.. java:method:: public RegionType getRegion()
+   :outertype: Widget
+
 getTitle
 ^^^^^^^^
 
@@ -166,6 +192,12 @@ isDefaultWidget
 
    :return: true, if is default widget
 
+isLibraryWidget
+^^^^^^^^^^^^^^^
+
+.. java:method:: public boolean isLibraryWidget()
+   :outertype: Widget
+
 isVisible
 ^^^^^^^^^
 
@@ -175,6 +207,12 @@ isVisible
    Checks if is visible.
 
    :return: true, if is visible
+
+setCategory
+^^^^^^^^^^^
+
+.. java:method:: public void setCategory(WidgetCategory category)
+   :outertype: Widget
 
 setChartType
 ^^^^^^^^^^^^
@@ -219,7 +257,7 @@ setGroupBy
 setGroupByEntity
 ^^^^^^^^^^^^^^^^
 
-.. java:method:: public void setGroupByEntity(String groupByEntity)
+.. java:method:: public void setGroupByEntity(WidgetQueryAssociationType groupByEntity)
    :outertype: Widget
 
    Sets the group by entity.
@@ -266,6 +304,18 @@ setQuery
 
    :param query: the new query
 
+setQueryDate
+^^^^^^^^^^^^
+
+.. java:method:: public void setQueryDate(Date queryDate)
+   :outertype: Widget
+
+setRegion
+^^^^^^^^^
+
+.. java:method:: public void setRegion(RegionType region)
+   :outertype: Widget
+
 setTitle
 ^^^^^^^^
 
@@ -289,10 +339,16 @@ setVisible
 toJSON
 ^^^^^^
 
-.. java:method:: public Map toJSON()
+.. java:method:: public Map<String, Object> toJSON()
    :outertype: Widget
 
    To json.
 
    :return: the map
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: Widget
 

@@ -71,6 +71,26 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="agent-collected-information">
+<h2>Agent collected Information<a class="headerlink" href="#agent-collected-information" title="Permalink to this headline">¶</a></h2>
+<p>ATMMonitoring(Server) communicates with an Agent(Client) that is able to catch all the information provided by the ATM in order to be stored in the NCR HSAM Database. Although it is mainly intented to be run in ATMs, it is also able to collect information from any other devices.</p>
+<p>It is divided into two main pieces, <em>HSAMAgent.jar</em> and <em>XFSCollector.dll</em>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>HSAMAgent.jar</strong> The Java based core of the HSAM Agent. It manages all the processes  to collect the required information from the Operating System, Hardware, Software and any other specific information from ATMs (XFS, J/XFS, Financial Devices, etc).</li>
+<li><strong>XFSCollector.dll</strong> A C++ based collector of the information coming from the standard XFS. It is directly managed by the core agent. It automatically detects the highest XFS version supported for each XFS Service Provider starting from XFS 3.10 to XFS 2.00 and extracts the Capabilities information.</li>
+</ul>
+</div></blockquote>
+<p>The NCR HSAM Agent performs the following actions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>ATM Information Collector</em> that gathers all the ATM information and stores it in a JSON formatted file (<a class="reference external" href="www.json.org">www.json.org</a>).</li>
+<li><em>Server Requests Receptor</em> for getting on-demand information. When an update order is received the ATM information is refreshed and restored into a JSON file. Once finished, the server is notified.</li>
+<li><em>Request Sender for notifying the server</em> that an update has been completed and a data update can be requested after a manual or scheduled demand for updating, or after refreshing the ATMinformation the first time the agent starts up.</li>
+</ul>
+</div></blockquote>
+<p>To know more about the information gathered by the agent please see the <a class="reference internal" href="collected-info.html"><em>Agent Collected Information</em></a></p>
+</div>
 <div class="section" id="documentation">
 <h2>Documentation:<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -80,9 +100,9 @@
 <li class="toctree-l2"><a class="reference internal" href="enviroment_setup/sw-environment-setup.html">Software Environment Setup</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="installation/install-deploy.html">Install And Deploy ATM Monitoring</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation/install-deploy.html#development">Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation/install-deploy.html#test-production">Test-Production</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/install-main.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/install-deploy.html">Install And Deploy ATM Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/quick-installation-guide.html">Quick Installation Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="architecture/architecture.html">Architecture</a><ul>
@@ -105,10 +125,6 @@
 <li class="toctree-l2"><a class="reference internal" href="developer/com/ncr/ATMMonitoring/utils/package-index.html">com.ncr.ATMMonitoring.utils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="user/user-main.html">User Manual</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user/scheduled_updates.html">Scheduled Updates</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -128,6 +144,7 @@
 <li><a class="reference internal" href="#">ATMMonitoring: ATM&#8217;s Data Management Application</a><ul>
 <li><a class="reference internal" href="#introduction-to-atmmonitoring">Introduction to ATMMonitoring</a></li>
 <li><a class="reference internal" href="#features-summary">Features Summary</a></li>
+<li><a class="reference internal" href="#agent-collected-information">Agent collected Information</a></li>
 <li><a class="reference internal" href="#documentation">Documentation:</a><ul>
 </ul>
 </li>

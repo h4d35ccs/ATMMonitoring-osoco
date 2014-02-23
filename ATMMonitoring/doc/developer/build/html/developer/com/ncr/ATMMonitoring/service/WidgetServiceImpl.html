@@ -73,19 +73,43 @@ public class <tt class="descname">WidgetServiceImpl</tt> implements <a class="re
 
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="builddefaultwidgets">
-<h3>buildDefaultWidgets<a class="headerlink" href="#builddefaultwidgets" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="addorremovewidgettolibrary">
+<h3>addOrRemoveWidgetToLibrary<a class="headerlink" href="#addorremovewidgettolibrary" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.buildDefaultWidgets()">
-public void <tt class="descname">buildDefaultWidgets</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.buildDefaultWidgets()" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.addOrRemoveWidgetToLibrary(Integer, User, Integer)">
+public void <tt class="descname">addOrRemoveWidgetToLibrary</tt><big>(</big>Integer<em> widgetId</em>, <a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitoring.pojo.User" title="com.ncr.ATMMonitoring.pojo.User">User</a><em> user</em>, Integer<em> categoryId</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.addOrRemoveWidgetToLibrary(Integer, User, Integer)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="addwidgetsfromlibrary">
+<h3>addWidgetsFromLibrary<a class="headerlink" href="#addwidgetsfromlibrary" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.addWidgetsFromLibrary(List, User)">
+public void <tt class="descname">addWidgetsFromLibrary</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Integer&gt;<em> widgetIds</em>, <a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitoring.pojo.User" title="com.ncr.ATMMonitoring.pojo.User">User</a><em> user</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.addWidgetsFromLibrary(List, User)" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="copydefaultwidgetstouserdashboard">
 <h3>copyDefaultWidgetsToUserDashboard<a class="headerlink" href="#copydefaultwidgetstouserdashboard" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
-<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.copyDefaultWidgetsToUserDashboard(User, Dashboard)">
-public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Widget.html#com.ncr.ATMMonitoring.pojo.Widget" title="com.ncr.ATMMonitoring.pojo.Widget">Widget</a>&gt; <tt class="descname">copyDefaultWidgetsToUserDashboard</tt><big>(</big><a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitoring.pojo.User" title="com.ncr.ATMMonitoring.pojo.User">User</a><em> user</em>, <a class="reference internal" href="../pojo/Dashboard.html#com.ncr.ATMMonitoring.pojo.Dashboard" title="com.ncr.ATMMonitoring.pojo.Dashboard">Dashboard</a><em> dashboard</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.copyDefaultWidgetsToUserDashboard(User, Dashboard)" title="Permalink to this definition">¶</a></dt>
+<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.copyDefaultWidgetsToUserDashboard(User)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Widget.html#com.ncr.ATMMonitoring.pojo.Widget" title="com.ncr.ATMMonitoring.pojo.Widget">Widget</a>&gt; <tt class="descname">copyDefaultWidgetsToUserDashboard</tt><big>(</big><a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitoring.pojo.User" title="com.ncr.ATMMonitoring.pojo.User">User</a><em> user</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.copyDefaultWidgetsToUserDashboard(User)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="createwidgetforuser">
+<h3>createWidgetForUser<a class="headerlink" href="#createwidgetforuser" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.createWidgetForUser(Widget, User)">
+public void <tt class="descname">createWidgetForUser</tt><big>(</big><a class="reference internal" href="../pojo/Widget.html#com.ncr.ATMMonitoring.pojo.Widget" title="com.ncr.ATMMonitoring.pojo.Widget">Widget</a><em> widget</em>, <a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitoring.pojo.User" title="com.ncr.ATMMonitoring.pojo.User">User</a><em> loggedUser</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.createWidgetForUser(Widget, User)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="deletewidgetfromuser">
+<h3>deleteWidgetFromUser<a class="headerlink" href="#deletewidgetfromuser" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.deleteWidgetFromUser(Integer, User)">
+public void <tt class="descname">deleteWidgetFromUser</tt><big>(</big>Integer<em> widgetId</em>, <a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitoring.pojo.User" title="com.ncr.ATMMonitoring.pojo.User">User</a><em> user</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.deleteWidgetFromUser(Integer, User)" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -93,7 +117,15 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <h3>executeQuery<a class="headerlink" href="#executequery" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.executeQuery(Widget, Locale)">
-public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a> <tt class="descname">executeQuery</tt><big>(</big><a class="reference internal" href="../pojo/Widget.html#com.ncr.ATMMonitoring.pojo.Widget" title="com.ncr.ATMMonitoring.pojo.Widget">Widget</a><em> widget</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html" title="java.util.Locale">Locale</a><em> locale</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.executeQuery(Widget, Locale)" title="Permalink to this definition">¶</a></dt>
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;?&gt; <tt class="descname">executeQuery</tt><big>(</big><a class="reference internal" href="../pojo/Widget.html#com.ncr.ATMMonitoring.pojo.Widget" title="com.ncr.ATMMonitoring.pojo.Widget">Widget</a><em> widget</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Locale.html" title="java.util.Locale">Locale</a><em> locale</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.executeQuery(Widget, Locale)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="findcategorybyid">
+<h3>findCategoryById<a class="headerlink" href="#findcategorybyid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.findCategoryById(Integer)">
+public <a class="reference internal" href="../pojo/WidgetCategory.html#com.ncr.ATMMonitoring.pojo.WidgetCategory" title="com.ncr.ATMMonitoring.pojo.WidgetCategory">WidgetCategory</a> <tt class="descname">findCategoryById</tt><big>(</big>Integer<em> categoryId</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.findCategoryById(Integer)" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -105,6 +137,14 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 <dd></dd></dl>
 
 </div>
+<div class="section" id="findlibrarywidgetsbycategory">
+<h3>findLibraryWidgetsByCategory<a class="headerlink" href="#findlibrarywidgetsbycategory" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.findLibraryWidgetsByCategory()">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/WidgetCategory.html#com.ncr.ATMMonitoring.pojo.WidgetCategory" title="com.ncr.ATMMonitoring.pojo.WidgetCategory">WidgetCategory</a>&gt; <tt class="descname">findLibraryWidgetsByCategory</tt><big>(</big><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.findLibraryWidgetsByCategory()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="findwidgetbyid">
 <h3>findWidgetById<a class="headerlink" href="#findwidgetbyid" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -113,11 +153,27 @@ public <a class="reference internal" href="../pojo/Widget.html#com.ncr.ATMMonito
 <dd></dd></dl>
 
 </div>
+<div class="section" id="iswidgetownedbyuser">
+<h3>isWidgetOwnedByUser<a class="headerlink" href="#iswidgetownedbyuser" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.isWidgetOwnedByUser(Widget, User)">
+public Boolean <tt class="descname">isWidgetOwnedByUser</tt><big>(</big><a class="reference internal" href="../pojo/Widget.html#com.ncr.ATMMonitoring.pojo.Widget" title="com.ncr.ATMMonitoring.pojo.Widget">Widget</a><em> widget</em>, <a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitoring.pojo.User" title="com.ncr.ATMMonitoring.pojo.User">User</a><em> user</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.isWidgetOwnedByUser(Widget, User)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="savewidget">
 <h3>saveWidget<a class="headerlink" href="#savewidget" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.saveWidget(Widget)">
 public void <tt class="descname">saveWidget</tt><big>(</big><a class="reference internal" href="../pojo/Widget.html#com.ncr.ATMMonitoring.pojo.Widget" title="com.ncr.ATMMonitoring.pojo.Widget">Widget</a><em> widget</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.saveWidget(Widget)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setwidgetdefault">
+<h3>setWidgetDefault<a class="headerlink" href="#setwidgetdefault" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.WidgetServiceImpl.setWidgetDefault(Integer, User, boolean)">
+public void <tt class="descname">setWidgetDefault</tt><big>(</big>Integer<em> widgetId</em>, <a class="reference internal" href="../pojo/User.html#com.ncr.ATMMonitoring.pojo.User" title="com.ncr.ATMMonitoring.pojo.User">User</a><em> user</em>, boolean<em> isDefault</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.WidgetServiceImpl.setWidgetDefault(Integer, User, boolean)" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -137,12 +193,19 @@ public void <tt class="descname">saveWidget</tt><big>(</big><a class="reference 
   <ul>
 <li><a class="reference internal" href="#">WidgetServiceImpl</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a><ul>
-<li><a class="reference internal" href="#builddefaultwidgets">buildDefaultWidgets</a></li>
+<li><a class="reference internal" href="#addorremovewidgettolibrary">addOrRemoveWidgetToLibrary</a></li>
+<li><a class="reference internal" href="#addwidgetsfromlibrary">addWidgetsFromLibrary</a></li>
 <li><a class="reference internal" href="#copydefaultwidgetstouserdashboard">copyDefaultWidgetsToUserDashboard</a></li>
+<li><a class="reference internal" href="#createwidgetforuser">createWidgetForUser</a></li>
+<li><a class="reference internal" href="#deletewidgetfromuser">deleteWidgetFromUser</a></li>
 <li><a class="reference internal" href="#executequery">executeQuery</a></li>
+<li><a class="reference internal" href="#findcategorybyid">findCategoryById</a></li>
 <li><a class="reference internal" href="#finddefaultwidgets">findDefaultWidgets</a></li>
+<li><a class="reference internal" href="#findlibrarywidgetsbycategory">findLibraryWidgetsByCategory</a></li>
 <li><a class="reference internal" href="#findwidgetbyid">findWidgetById</a></li>
+<li><a class="reference internal" href="#iswidgetownedbyuser">isWidgetOwnedByUser</a></li>
 <li><a class="reference internal" href="#savewidget">saveWidget</a></li>
+<li><a class="reference internal" href="#setwidgetdefault">setWidgetDefault</a></li>
 </ul>
 </li>
 </ul>

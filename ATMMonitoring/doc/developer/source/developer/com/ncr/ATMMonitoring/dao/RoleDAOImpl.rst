@@ -2,11 +2,21 @@
 
 .. java:import:: org.apache.log4j Logger
 
+.. java:import:: org.hibernate Criteria
+
+.. java:import:: org.hibernate.criterion Order
+
 .. java:import:: org.hibernate.criterion Restrictions
 
 .. java:import:: org.springframework.stereotype Repository
 
+.. java:import:: com.ncr ATMMonitoring.pojo.Query
+
 .. java:import:: com.ncr ATMMonitoring.pojo.Role
+
+.. java:import:: com.ncr ATMMonitoring.pojo.Terminal
+
+.. java:import:: com.ncr ATMMonitoring.pojo.User
 
 RoleDAOImpl
 ===========
@@ -28,16 +38,34 @@ addRole
 .. java:method:: @Override public void addRole(Role role)
    :outertype: RoleDAOImpl
 
+deleteRole
+^^^^^^^^^^
+
+.. java:method:: @Override public void deleteRole(Role role)
+   :outertype: RoleDAOImpl
+
 getRole
 ^^^^^^^
 
 .. java:method:: @Override public Role getRole(Integer id)
    :outertype: RoleDAOImpl
 
+getRoleByName
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public Role getRoleByName(String name)
+   :outertype: RoleDAOImpl
+
 listManageableRoles
 ^^^^^^^^^^^^^^^^^^^
 
 .. java:method:: @Override public List<Role> listManageableRoles()
+   :outertype: RoleDAOImpl
+
+listManageableRoles
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public List<Role> listManageableRoles(String sort, String order)
    :outertype: RoleDAOImpl
 
 listRoles
@@ -50,5 +78,11 @@ removeRole
 ^^^^^^^^^^
 
 .. java:method:: @Override public void removeRole(Integer id)
+   :outertype: RoleDAOImpl
+
+updateRole
+^^^^^^^^^^
+
+.. java:method:: @Override public void updateRole(Role role)
    :outertype: RoleDAOImpl
 

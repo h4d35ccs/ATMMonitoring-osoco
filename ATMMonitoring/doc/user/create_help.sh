@@ -5,8 +5,8 @@
 
 basepath=$(dirname $0)
 
-langs=(es)
-pages=(dashboard terminals)
+langs=(en)
+pages=(user-main users dashboard terminals reports scheduled_updates login-logout)
 for lang in ${langs[*]}
 do
 	for page in ${pages[*]}

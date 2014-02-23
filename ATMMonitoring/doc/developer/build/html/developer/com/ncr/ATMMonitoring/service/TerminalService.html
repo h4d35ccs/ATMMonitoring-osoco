@@ -73,6 +73,27 @@ public interface <tt class="descname">TerminalService</tt><a class="headerlink" 
 
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addinstallationandupdatehistoricaldata">
+<h3>addInstallationAndUpdateHistoricalData<a class="headerlink" href="#addinstallationandupdatehistoricaldata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.TerminalService.addInstallationAndUpdateHistoricalData(Terminal, Installation)">
+public void <tt class="descname">addInstallationAndUpdateHistoricalData</tt><big>(</big><a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a><em> terminal</em>, <a class="reference internal" href="../pojo/Installation.html#com.ncr.ATMMonitoring.pojo.Installation" title="com.ncr.ATMMonitoring.pojo.Installation">Installation</a><em> installation</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.TerminalService.addInstallationAndUpdateHistoricalData(Terminal, Installation)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an installation and update his historical data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>terminal</strong> &#8211; The terminal</li>
+<li><strong>installation</strong> &#8211; The installation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 <div class="section" id="addterminal">
 <h3>addTerminal<a class="headerlink" href="#addterminal" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -227,6 +248,30 @@ public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/
 </dd></dl>
 
 </div>
+<div class="section" id="listterminalsbyidsandbankcompanies">
+<h3>listTerminalsByIdsAndBankCompanies<a class="headerlink" href="#listterminalsbyidsandbankcompanies" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="com.ncr.ATMMonitoring.service.TerminalService.listTerminalsByIdsAndBankCompanies(List, Set)">
+public <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a>&gt; <tt class="descname">listTerminalsByIdsAndBankCompanies</tt><big>(</big><a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;Integer&gt;<em> terminalIds</em>, <a class="reference external" href="http://docs.oracle.com/javase/6/docs/api/java/util/Set.html" title="java.util.Set">Set</a>&lt;<a class="reference internal" href="../pojo/BankCompany.html#com.ncr.ATMMonitoring.pojo.BankCompany" title="com.ncr.ATMMonitoring.pojo.BankCompany">BankCompany</a>&gt;<em> bankCompanies</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.TerminalService.listTerminalsByIdsAndBankCompanies(List, Set)" title="Permalink to this definition">¶</a></dt>
+<dd><p>List terminals by ids and bank companies</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>terminalIds</strong> &#8211; The terminal ids</li>
+<li><strong>bankCompanies</strong> &#8211; The bank companies</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The list of terminals</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 <div class="section" id="loadterminalbyip">
 <h3>loadTerminalByIp<a class="headerlink" href="#loadterminalbyip" title="Permalink to this headline">¶</a></h3>
 <dl class="method">
@@ -278,13 +323,13 @@ public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMoni
 <dl class="method">
 <dt id="com.ncr.ATMMonitoring.service.TerminalService.loadTerminalByMatricula(Long)">
 public <a class="reference internal" href="../pojo/Terminal.html#com.ncr.ATMMonitoring.pojo.Terminal" title="com.ncr.ATMMonitoring.pojo.Terminal">Terminal</a> <tt class="descname">loadTerminalByMatricula</tt><big>(</big>Long<em> matricula</em><big>)</big><a class="headerlink" href="#com.ncr.ATMMonitoring.service.TerminalService.loadTerminalByMatricula(Long)" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get terminal by matricula.</p>
+<dd><p>Get terminal by generated id.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>matricula</strong> &#8211; the matricula</li>
+<li><strong>matricula</strong> &#8211; the generated id</li>
 </ul>
 </td>
 </tr>
@@ -378,6 +423,7 @@ public void <tt class="descname">updateTerminal</tt><big>(</big><a class="refere
   <ul>
 <li><a class="reference internal" href="#">TerminalService</a><ul>
 <li><a class="reference internal" href="#methods">Methods</a><ul>
+<li><a class="reference internal" href="#addinstallationandupdatehistoricaldata">addInstallationAndUpdateHistoricalData</a></li>
 <li><a class="reference internal" href="#addterminal">addTerminal</a></li>
 <li><a class="reference internal" href="#getterminal">getTerminal</a></li>
 <li><a class="reference internal" href="#importjsonterminal">importJsonTerminal</a></li>
@@ -385,6 +431,7 @@ public void <tt class="descname">updateTerminal</tt><big>(</big><a class="refere
 <li><a class="reference internal" href="#listterminalsbybankcompanies">listTerminalsByBankCompanies</a></li>
 <li><a class="reference internal" href="#id1">listTerminalsByBankCompanies</a></li>
 <li><a class="reference internal" href="#listterminalsbybankcompany">listTerminalsByBankCompany</a></li>
+<li><a class="reference internal" href="#listterminalsbyidsandbankcompanies">listTerminalsByIdsAndBankCompanies</a></li>
 <li><a class="reference internal" href="#loadterminalbyip">loadTerminalByIp</a></li>
 <li><a class="reference internal" href="#loadterminalbymac">loadTerminalByMac</a></li>
 <li><a class="reference internal" href="#loadterminalbymatricula">loadTerminalByMatricula</a></li>

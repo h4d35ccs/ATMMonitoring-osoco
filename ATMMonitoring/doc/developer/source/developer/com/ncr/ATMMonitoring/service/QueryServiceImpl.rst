@@ -1,5 +1,7 @@
 .. java:import:: java.util ArrayList
 
+.. java:import:: java.util Date
+
 .. java:import:: java.util HashMap
 
 .. java:import:: java.util List
@@ -25,6 +27,8 @@
 .. java:import:: com.ncr ATMMonitoring.pojo.Query
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Terminal
+
+.. java:import:: com.ncr ATMMonitoring.utils.WidgetQueryAssociationType
 
 QueryServiceImpl
 ================
@@ -70,10 +74,16 @@ executeQuery
 .. java:method:: @Override public List<Terminal> executeQuery(Query query, Locale locale, String sort, String order)
    :outertype: QueryServiceImpl
 
+executeQuery
+^^^^^^^^^^^^
+
+.. java:method:: @Override public List<Terminal> executeQuery(Query query, Locale locale, String sort, String order, Date queryDate)
+   :outertype: QueryServiceImpl
+
 executeQueryGroupingBy
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override public List executeQueryGroupingBy(Query query, String groupByEntity, String groupByField, Locale locale)
+.. java:method:: @Override public List<?> executeQueryGroupingBy(Query query, WidgetQueryAssociationType groupByEntity, String groupByField, Locale locale, Date queryDate)
    :outertype: QueryServiceImpl
 
 findOrCreateQuery
