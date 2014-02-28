@@ -722,7 +722,7 @@ public class FinancialDevice extends Auditable {
 		if (xfsComponents == null) {
 			if (other.xfsComponents != null)
 				return false;
-		} else if (xfsComponents.size() != other.xfsComponents.size()) {
+		} else if (!xfsComponents.equals(other.xfsComponents)) {
 			return false;
 		}
 		return true;
