@@ -79,6 +79,4 @@ public interface ScheduledUpdateDAO {
      * @return true if it does exist
      */
     public boolean existsWeeklyScheduledUpdate(ScheduledUpdate scheduledUpdate);
-
-    public void deleteAllTerminalData();
 }

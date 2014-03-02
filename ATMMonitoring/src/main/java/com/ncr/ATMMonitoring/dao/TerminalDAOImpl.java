@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.dao;
 
 import java.math.BigInteger;
+import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
@@ -13,6 +14,7 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.type.Type;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
@@ -34,6 +36,14 @@ import com.ncr.agent.baseData.os.module.BaseBoardPojo;
 @Repository
 public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	TerminalDAO {
+
+    /** The encrypted max number of terminals this version can handle. */
+    @Value("${license.terminalsLimit}")
+    private String terminalsLimit;
+
+    /** The key for the current license. */
+    @Value("${license.licenseKey}")
+    private String licenseKey;
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalDAOImpl.class
@@ -58,8 +68,11 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 			+ terminal.getMatricula());
 	    }
 	} catch (TrialEndedException e) {
-	    logger.warn("You have exceeded the maximum number of different "
-		    + "terminals to store during the trial. Terminal data won't be saved.");
+	    if (e.getCause() != null) {
+		logger.fatal(e.getMessage(), e);
+	    } else {
+		logger.fatal(e.getMessage());
+	    }
 	}
     }
 
@@ -239,12 +252,49 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
      * @throws TrialEndedException
      */
     private Long getNextMatricula() throws TrialEndedException {
+	try {
+	    if ((licenseKey == null) || (licenseKey.length() != 16)) {
+		throw new TrialEndedException(
+			"The configured license key isn't correct."
+				+ " Terminal data won't be saved. Please contact the support team.");
+	    }
+	    if ((terminalsLimit == null) || (terminalsLimit.length() < 1)) {
+		throw new TrialEndedException(
+			"The configured terminal number limit key isn't correct."
+				+ " Terminal data won't be saved. Please contact the support team.");
+	    }
+	    long terminalsLimit = Long.parseLong(Utils.decrypt(licenseKey,
+		    this.terminalsLimit));
+	    BigInteger terminals = (BigInteger) sessionFactory
+		    .getCurrentSession()
+		    .createSQLQuery(
+			    "select count(distinct(matricula)) from terminals")
+		    .uniqueResult();
+	    if ((terminalsLimit != Utils.NO_TERMINAL_LIMIT)
+		    && (terminals.longValue() > terminalsLimit)) {
+		throw new TrialEndedException(
+			"You have exceeded the maximum number of different "
+				+ "terminals to store during the trial. Terminal data won't be saved.");
+	    }
+	} catch (GeneralSecurityException e) {
+	    throw new TrialEndedException(
+		    "There was some problem while checking your license key."
+			    + " Terminal data won't be saved. Please contact the support team.",
+		    e);
+	} catch (NumberFormatException e) {
+	    throw new TrialEndedException(
+		    "The configured terminal number limit key isn't correct."
+			    + " Terminal data won't be saved. Please contact the support team.",
+		    e);
+	} catch (ArrayIndexOutOfBoundsException e) {
+	    throw new TrialEndedException(
+		    "The configured terminal number limit key isn't correct."
+			    + " Terminal data won't be saved. Please contact the support team.",
+		    e);
+	}
 	BigInteger seq = (BigInteger) sessionFactory.getCurrentSession()
 		.createSQLQuery("select nextval('terminals_matricula_seq')")
 		.uniqueResult();
-	if (seq.longValue() > Utils.LIMIT_TERMINALS) {
-	    throw new TrialEndedException();
-	}
 	return seq.longValue();
     }
 
@@ -298,5 +348,40 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 					.ne("mac", ""))))
 		.setMaxResults(1).uniqueResult();
 	return result;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#deleteAllTerminalData()
+     */
+    @Override
+    public void deleteAllTerminalData() {
+	sessionFactory
+		.getCurrentSession()
+		.createSQLQuery(
+			"DELETE FROM terminals_installations;"
+				+ "DELETE FROM terminals_auditable_software_aggregate;"
+				+ "DELETE FROM terminals_auditable_internet_explorer;"
+				+ "DELETE FROM terminal_config_software;"
+				+ "DELETE FROM t_config_op_system;"
+				+ "DELETE FROM terminal_configs;"
+				+ "DELETE FROM logical_cash_units;"
+				+ "DELETE FROM physical_cash_units;"
+				+ "DELETE FROM financial_device_jxfs_component;"
+				+ "DELETE FROM financial_device_xfs_component;"
+				+ "DELETE FROM xfs_components;"
+				+ "DELETE FROM jxfs_components;"
+				+ "DELETE FROM financial_devices;"
+				+ "DELETE FROM hardware_devices;"
+				+ "DELETE FROM hotfixes;"
+				+ "DELETE FROM software;"
+				+ "DELETE FROM auditable_software_aggregate;"
+				+ "DELETE FROM software_aggregates;"
+				+ "DELETE FROM operating_systems;"
+				+ "DELETE FROM auditable_internet_explorer;"
+				+ "DELETE FROM internet_explorers;"
+				+ "DELETE FROM terminals;"
+				+ "DELETE FROM installations;").executeUpdate();
     }
 }

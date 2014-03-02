@@ -305,6 +305,45 @@ fi
 
 
 
+# Now we check the ATMMonitoring license parameters
+echo ""
+while true; do
+    read -p "Do you wish to specify ATMMonitoring's licenses' values? " yn
+    case $yn in
+        [Yy]es ) break;;
+        [Nn]o ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+if [ "$yn" == "Yes" ] || [ "$yn" == "yes" ]; then
+	
+	read -p "Please type your license key: " license_key
+	if [ -z "$license_key" ] ; then
+		license_key="";
+	fi
+	
+	read -p "Please type your expiration date key: " date_limit
+	if [ -z "$date_limit" ] ; then
+		date_limit="";
+	fi
+	
+	read -p "Please type your terminals' limit key: " terminals_limit
+	if [ -z "$terminals_limit" ] ; then
+		terminals_limit="";
+	fi
+
+	# We replace the original values with the provided ones
+	sed --in-place "s/^license\.licenseKey=.*\$/license.licenseKey=$license_key/g;" $config_file
+	
+	sed --in-place "s/^license\.dateLimit=.*\$/license.dateLimit=$date_limit/g;" $config_file
+	
+	sed --in-place "s/^license\.terminalsLimit=.*\$/license.terminalsLimit=$terminals_limit/g;" $config_file
+
+fi
+
+
+
 # Last of all, the database connection parameters
 echo ""
 while true; do

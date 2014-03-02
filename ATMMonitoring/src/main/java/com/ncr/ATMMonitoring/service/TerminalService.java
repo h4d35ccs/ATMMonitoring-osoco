@@ -149,5 +149,11 @@ public interface TerminalService {
      * @return The list of terminals
      */
 	public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> terminalIds, Set<BankCompany> bankCompanies);
+
+    /**
+     * Check if date license has expired, and delete terminals' data in that
+     * case.
+     */
+    public void checkDateLicense();
 	
 }

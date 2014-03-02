@@ -141,33 +141,4 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
 						.shortValue()))))
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
-
-    public void deleteAllTerminalData() {
-	sessionFactory
-		.getCurrentSession()
-		.createSQLQuery(
-			"DELETE FROM terminals_installations;"
-				+ "DELETE FROM terminals_auditable_software_aggregate;"
-				+ "DELETE FROM terminals_auditable_internet_explorer;"
-				+ "DELETE FROM terminal_config_software;"
-				+ "DELETE FROM t_config_op_system;"
-				+ "DELETE FROM terminal_configs;"
-				+ "DELETE FROM logical_cash_units;"
-				+ "DELETE FROM physical_cash_units;"
-				+ "DELETE FROM financial_device_jxfs_component;"
-				+ "DELETE FROM financial_device_xfs_component;"
-				+ "DELETE FROM xfs_components;"
-				+ "DELETE FROM jxfs_components;"
-				+ "DELETE FROM financial_devices;"
-				+ "DELETE FROM hardware_devices;"
-				+ "DELETE FROM hotfixes;"
-				+ "DELETE FROM software;"
-				+ "DELETE FROM auditable_software_aggregate;"
-				+ "DELETE FROM software_aggregates;"
-				+ "DELETE FROM operating_systems;"
-				+ "DELETE FROM auditable_internet_explorer;"
-				+ "DELETE FROM internet_explorers;"
-				+ "DELETE FROM terminals;"
-				+ "DELETE FROM installations;").executeUpdate();
-    }
 }

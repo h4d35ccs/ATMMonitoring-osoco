@@ -1,7 +1,13 @@
 package com.ncr.ATMMonitoring.service;
 
 import java.io.InputStream;
+import java.security.GeneralSecurityException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -11,6 +17,8 @@ import java.util.Vector;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -26,6 +34,7 @@ import com.ncr.ATMMonitoring.pojo.Installation;
 import com.ncr.ATMMonitoring.pojo.InternetExplorer;
 import com.ncr.ATMMonitoring.pojo.JxfsComponent;
 import com.ncr.ATMMonitoring.pojo.OperatingSystem;
+import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 import com.ncr.ATMMonitoring.pojo.Software;
 import com.ncr.ATMMonitoring.pojo.SoftwareAggregate;
 import com.ncr.ATMMonitoring.pojo.Terminal;
@@ -33,6 +42,8 @@ import com.ncr.ATMMonitoring.pojo.TerminalConfig;
 import com.ncr.ATMMonitoring.pojo.TerminalModel;
 import com.ncr.ATMMonitoring.pojo.XfsComponent;
 import com.ncr.ATMMonitoring.socket.ATMWrongDataException;
+import com.ncr.ATMMonitoring.utils.TrialEndedException;
+import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.ATMDataStorePojo;
 import com.ncr.agent.baseData.os.module.BaseBoardPojo;
 import com.ncr.agent.baseData.os.module.BiosPojo;
@@ -107,6 +118,14 @@ public class TerminalServiceImpl implements TerminalService {
 	/** The logger. */
 	static private Logger logger = Logger.getLogger(TerminalServiceImpl.class
 			.getName());
+
+    /** The encrypted date limit for this version. */
+    @Value("${license.dateLimit}")
+    private String dateLimit;
+
+    /** The key for the current license. */
+    @Value("${license.licenseKey}")
+    private String licenseKey;
 
 	/** The terminal dao. */
 	@Autowired
@@ -1216,4 +1235,51 @@ public class TerminalServiceImpl implements TerminalService {
 			terminal.setCurrentInstallation(installation);
 			updateTerminal(terminal);
 	}
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.service.TerminalService#checkDateLicense ()
+     */
+    @Override
+    @Scheduled(cron = "0 * * * * *")
+    public void checkDateLicense() {
+	try {
+	    if ((licenseKey == null) || (licenseKey.length() != 16)) {
+		logger.fatal("The configured license key isn't correct."
+			+ " Deleting DB. Please contact the support team.");
+		terminalDAO.deleteAllTerminalData();
+	    } else {
+		if ((dateLimit == null) || (dateLimit.length() < 1)) {
+		    logger.fatal("The configured limit date key isn't correct."
+			    + " Deleting DB. Please contact the support team.");
+		    terminalDAO.deleteAllTerminalData();
+		} else {
+		    String dateLimitString = Utils.decrypt(licenseKey,
+			    this.dateLimit);
+		    Date dateLimit = new SimpleDateFormat("yyyy-MM-dd hh:mm")
+			    .parse(dateLimitString);
+		    if ((dateLimit.compareTo(Utils.NO_DATE_LIMIT) != 0)
+			    && (new Date().compareTo(dateLimit) >= 0)) {
+			logger.fatal("Trial time has expired. Deleting DB.");
+			terminalDAO.deleteAllTerminalData();
+		    }
+		}
+	    }
+	} catch (GeneralSecurityException e) {
+	    logger.fatal(
+		    "There was some problem while checking your license key."
+			    + " Deleting DB. Please contact the support team.",
+		    e);
+	    terminalDAO.deleteAllTerminalData();
+	} catch (ParseException e) {
+	    logger.fatal("The configured limit date key isn't correct."
+		    + " Deleting DB. Please contact the support team.", e);
+	    terminalDAO.deleteAllTerminalData();
+	} catch (ArrayIndexOutOfBoundsException e) {
+	    logger.fatal("The configured limit date key isn't correct."
+		    + " Deleting DB. Please contact the support team.", e);
+	    terminalDAO.deleteAllTerminalData();
+	}
+    }
 }

@@ -7,6 +7,7 @@ import org.hibernate.type.Type;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Terminal;
+import com.ncr.ATMMonitoring.utils.TrialEndedException;
 import com.ncr.agent.baseData.ATMDataStorePojo;
 
 /**
@@ -163,4 +164,9 @@ public interface TerminalDAO {
      * @return the terminal by similarity, or null if it doesn't exist
      */
     public Terminal getTerminalBySimilarity(ATMDataStorePojo terminal);
+
+    /**
+     * Deletes all the terminals' related data from the DB.
+     */
+    public void deleteAllTerminalData();
 }
