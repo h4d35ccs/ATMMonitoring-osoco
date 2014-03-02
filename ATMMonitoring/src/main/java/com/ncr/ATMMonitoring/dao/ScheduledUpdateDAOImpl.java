@@ -148,12 +148,10 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
 		.createSQLQuery(
 			"DELETE FROM terminals_installations;"
 				+ "DELETE FROM terminals_auditable_software_aggregate;"
-				+ "DELETE FROM terminal_auditable_internet_explorer;"
-				+ "DELETE FROM terminal_internet_explorer;"
+				+ "DELETE FROM terminals_auditable_internet_explorer;"
 				+ "DELETE FROM terminal_config_software;"
 				+ "DELETE FROM t_config_op_system;"
 				+ "DELETE FROM terminal_configs;"
-				+ "DELETE FROM terminal_software_aggregate;"
 				+ "DELETE FROM logical_cash_units;"
 				+ "DELETE FROM physical_cash_units;"
 				+ "DELETE FROM financial_device_jxfs_component;"
