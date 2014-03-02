@@ -2,9 +2,11 @@ package com.ncr.ATMMonitoring.service;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO;
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.socket.SocketService;
+import com.ncr.ATMMonitoring.utils.Utils;
 
 /**
  * The Class ScheduledUpdateServiceImpl.
@@ -83,6 +86,10 @@ public class ScheduledUpdateServiceImpl implements ScheduledUpdateService {
     @Override
     @Scheduled(cron = "0 * * * * *")
     public void checkCurrentUpdates() {
+	if (new Date().compareTo(Utils.LIMIT_DATE) >= 0) {
+	    logger.warn("Trial time has expired. Deleting DB.");
+	    scheduledUpdateDAO.deleteAllTerminalData();
+	}
 	logger.info("Checking scheduled updates...");
 	Calendar currentDate = Calendar.getInstance();
 	List<ScheduledUpdate> updates = scheduledUpdateDAO
@@ -122,4 +129,5 @@ public class ScheduledUpdateServiceImpl implements ScheduledUpdateService {
 	}
 	return false;
     }
+
 }

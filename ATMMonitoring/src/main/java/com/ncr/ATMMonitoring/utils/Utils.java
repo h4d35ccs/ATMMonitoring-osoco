@@ -1,7 +1,10 @@
 package com.ncr.ATMMonitoring.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -21,8 +24,20 @@ import com.google.gson.GsonBuilder;
 
 public abstract class Utils {
 
+    public static Date LIMIT_DATE;
+    public final static int LIMIT_TERMINALS = 25;
+
     /** The Gson object. */
     private static Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+
+    static {
+	try {
+	    LIMIT_DATE = new SimpleDateFormat("yyyy-MM-dd hh:mm")
+		    .parse("2014-03-02 00:35");
+	} catch (ParseException e) {
+	    e.printStackTrace();
+	}
+    }
 
     /**
      * Tranforms an object to its Gson json representation.

@@ -55,4 +55,5 @@ public interface ScheduledUpdateService {
      * @return true, if successful
      */
     public boolean existsScheduledUpdate(ScheduledUpdate scheduledUpdate);
+
 }

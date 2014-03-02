@@ -18,6 +18,8 @@ import org.springframework.stereotype.Repository;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.HardwareDevice;
 import com.ncr.ATMMonitoring.pojo.Terminal;
+import com.ncr.ATMMonitoring.utils.TrialEndedException;
+import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.ATMDataStorePojo;
 import com.ncr.agent.baseData.os.module.BaseBoardPojo;
 
@@ -42,17 +44,22 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
      */
     @Override
     public void addTerminal(Terminal terminal) {
-	if (terminal.getMatricula() == null) {
-	    terminal.setMatricula(getNextMatricula());
-	    sessionFactory.getCurrentSession().save(terminal);
-	    logger.info("Created new terminal with id " + terminal.getId()
-		    + ", IP " + terminal.getIp() + " and NEW matricula "
-		    + terminal.getMatricula());
-	} else {
-	    sessionFactory.getCurrentSession().save(terminal);
-	    logger.info("Created new terminal with id " + terminal.getId()
-		    + ", IP " + terminal.getIp() + " and matricula "
-		    + terminal.getMatricula());
+	try {
+	    if (terminal.getMatricula() == null) {
+		terminal.setMatricula(getNextMatricula());
+		sessionFactory.getCurrentSession().save(terminal);
+		logger.info("Created new terminal with id " + terminal.getId()
+			+ ", IP " + terminal.getIp() + " and NEW matricula "
+			+ terminal.getMatricula());
+	    } else {
+		sessionFactory.getCurrentSession().save(terminal);
+		logger.info("Created new terminal with id " + terminal.getId()
+			+ ", IP " + terminal.getIp() + " and matricula "
+			+ terminal.getMatricula());
+	    }
+	} catch (TrialEndedException e) {
+	    logger.warn("You have exceeded the maximum number of different "
+		    + "terminals to store during the trial. Terminal data won't be saved.");
 	}
     }
 
@@ -229,11 +236,15 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
      * Gets the next generated id.
      * 
      * @return the next generated id
+     * @throws TrialEndedException
      */
-    private Long getNextMatricula() {
+    private Long getNextMatricula() throws TrialEndedException {
 	BigInteger seq = (BigInteger) sessionFactory.getCurrentSession()
 		.createSQLQuery("select nextval('terminals_matricula_seq')")
 		.uniqueResult();
+	if (seq.longValue() > Utils.LIMIT_TERMINALS) {
+	    throw new TrialEndedException();
+	}
 	return seq.longValue();
     }
 
