@@ -1,30 +1,21 @@
 package com.ncr.ATMMonitoring.service;
 
-import java.security.GeneralSecurityException;
 import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO;
-import com.ncr.ATMMonitoring.dao.TerminalDAO;
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.socket.SocketService;
-import com.ncr.ATMMonitoring.utils.TrialEndedException;
-import com.ncr.ATMMonitoring.utils.Utils;
 
 /**
  * The Class ScheduledUpdateServiceImpl.
