@@ -29,6 +29,9 @@ import com.google.gson.GsonBuilder;
 
 public abstract class Utils {
 
+    public final static String KEYSTORE_KEY = "f|7,1e>Nr-$e1I2H";
+    public final static String PRIVATEKEY_KEY = "vq~aQ}a$DIg'ry47";
+
     /** Hardcoded license key. */
     private static final String HARDCODED_KEY = "4u%qyfw^";
 
@@ -59,6 +62,33 @@ public abstract class Utils {
 		+ configuredKey.substring(11, 12)
 		+ configuredKey.substring(13, 14)
 		+ configuredKey.substring(15, 16) + HARDCODED_KEY;
+
+	byte[] encryptedBytes = DatatypeConverter.parseBase64Binary(encrypted);
+	byte[] raw = key.getBytes(Charset.forName("UTF8"));
+	if (raw.length != 16) {
+	    throw new IllegalArgumentException("Invalid key size.");
+	}
+	SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
+
+	Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+	cipher.init(Cipher.DECRYPT_MODE, skeySpec, new IvParameterSpec(
+		new byte[16]));
+	byte[] original = cipher.doFinal(encryptedBytes);
+
+	return new String(original, Charset.forName("UTF8"));
+    }
+
+    /**
+     * Decrypts a string using the passed key.
+     * 
+     * @param key
+     *            the encryption key
+     * @param encrypted
+     *            the string to decrypt
+     * @return the decrypted string
+     */
+    public static String simpleDecrypt(String key, String encrypted)
+	    throws GeneralSecurityException {
 
 	byte[] encryptedBytes = DatatypeConverter.parseBase64Binary(encrypted);
 	byte[] raw = key.getBytes(Charset.forName("UTF8"));
