@@ -51,5 +51,15 @@ Sensitive code sections
    used by the listener before destroying the servlet. It's also important pointing that the ScheduledUpdateService includes a @Scheduled
    annotated method which checks the scheduled updates according to the cron expression (each minute by default) and calls the SocketService
    function for updating the proper Terminals in case we have a scheduled update.
+#. Keystore related keys: they are stored encrypted in both the server and the agent inside the config files. Utils classes have hardcoded AES keys
+   used for decrypting their values.
+#. Server license management: license is handled in the server through three strings in its config file: a general key (which contains part of the
+   AES key used for encrypting the other two), an encrypted license for limiting the number of terminals it can store, and another encrypted string
+   license for setting a date limit. If the number of terminals is surpassed, it simply stores no new terminals. And when the limit date arrives,
+   the terminals data in the DB is deleted. If any of the three strings seems to have been manipulated or does not result in a valid value, the
+   license is considered revoked and system will act as described earlier. For decrypting the limits we take the odd characters from the configured
+   key and concat them with the hardcoded ones inside the Utils class, and use this whole string as an AES key.
+#. Agent license management: license is handled in the agent via a hardcoded date limit inside ConfigSupport. When that date is reached, the agent
+   stops and it can no longer be started. If the date limit is null, then there is no limit.
    
    

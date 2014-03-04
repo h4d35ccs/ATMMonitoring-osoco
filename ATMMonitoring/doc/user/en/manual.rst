@@ -26,6 +26,17 @@ Functionalities summary
 
 .. [1] the ATMs must have the agent developed along with the server application correctly installed and configured.
 
+About the sw license
+********************
+
+ATMMonitoring checks the user license through some encrypted codes located inside the *config.properties* file. There is a general key license, which
+is unique for each user, and two licenses which control the application use in two different ways: first, by the number of different terminals it can
+store; and second, by a date limit.
+If you surpass the number of terminals your license can handle, it simply won't store more data. And in the case of the date limit, once that date
+arrives the database will be deleted and the application can no longer be used.
+Because of this, take special care with those fields and don't try to alter them without speaking with NCR support team. If any of the licenses seems
+to have been manipulated or has a wrong value, the license will be considered expired and the program will act as described earlier.
+
 User manual
 ~~~~~~~~~~~
 

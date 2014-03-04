@@ -29,7 +29,10 @@ import com.google.gson.GsonBuilder;
 
 public abstract class Utils {
 
+    /** Hardcoded key for the encrypted keystore. */
     public final static String KEYSTORE_KEY = "f|7,1e>Nr-$e1I2H";
+
+    /** Hardcoded key for the encrypted privatekey. */
     public final static String PRIVATEKEY_KEY = "vq~aQ}a$DIg'ry47";
 
     /** Hardcoded license key. */
