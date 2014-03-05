@@ -99,7 +99,6 @@ public class ScheduledUpdateServiceImpl implements ScheduledUpdateService {
      * ()
      */
     @Override
-    @Scheduled(cron = "0 * * * * *")
     public void checkCurrentUpdates() {
 	logger.info("Checking scheduled updates...");
 	Calendar currentDate = Calendar.getInstance();

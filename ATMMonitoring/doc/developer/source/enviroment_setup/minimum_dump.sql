@@ -1633,7 +1633,39 @@ ALTER TABLE public.xfs_components_id_seq OWNER TO postgres;
 -- Name: xfs_components_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('xfs_components_id_seq', 1, false);
+SELECT pg_catalog.setval('xfs_components_id_seq', 1, false);CREATE TABLE ups (
+	id integer NOT NULL,
+	ip character varying(23),
+	firmware_revision text,
+	charge_percentage  decimal,
+	expense_percentage decimal,
+	alarm_msg text,
+	type text,
+	model text,
+	series_number text NOT NULL,
+	running_time_millisec bigint,
+	autonomy_millisec bigint,
+	num_position text,
+	aud_fmo timestamp without time zone,
+	general_status_msg text,
+	last_execution text,
+	xml text
+);
+
+
+
+CREATE SEQUENCE ups_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+ALTER TABLE ONLY ups
+    ADD CONSTRAINT ups_pkey PRIMARY KEY (id);
+
+ALTER TABLE ONLY ups
+    ADD CONSTRAINT series_number_key UNIQUE (series_number);
 
 
 --

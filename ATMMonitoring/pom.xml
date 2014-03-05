@@ -253,13 +253,6 @@
   		</dependency>
 
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.6.4</version>
-        </dependency>
-
-
-        <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.2.2</version>
@@ -275,6 +268,18 @@
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections-maven</artifactId>
+			<version>0.9.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
 		</dependency>
 
 
@@ -304,8 +309,7 @@
 <!-- 						</goals> -->
 <!-- 					</execution> -->
 <!-- 					<execution> -->
-<!-- 						Last step is to make sure that the war is built in the package -->
-<!-- 							phase -->
+<!-- 						Last step is to make sure that the war is built in the package phase -->
 <!-- 						<id>custom-war</id> -->
 <!-- 						<phase>package</phase> -->
 <!-- 						<goals> -->

@@ -154,7 +154,6 @@ public class SocketServiceImpl implements SocketService {
      * @see com.ncr.ATMMonitoring.socket.SocketService#processAwaitingIps()
      */
     @Override
-    @Scheduled(cron = "30 * * * * *")
     public void processAwaitingIps() {
 	logger.info("Checking the IPs waiting for update...");
 	if (awaitingIps.isEmpty()) {
