@@ -10,6 +10,7 @@ import com.ncr.ATMMonitoring.service.ScheduledUpdateService;
 
 /**
  * Class that periodically checks if there are any Scheduled updates to execute
+ * 
  * @author Otto Abreu
  * 
  */
@@ -26,8 +27,6 @@ public class ScheduledUpdateTask {
 	/** The financial device service. */
 	@Autowired
 	private ScheduledUpdateService scheduledUpdateService;
-	
-
 
 	/**
 	 * Method that checks if there are any Scheduled updates to execute,

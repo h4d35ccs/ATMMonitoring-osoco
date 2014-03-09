@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.ncr.ATMMonitoring.dao;
 
 import java.util.List;
@@ -27,12 +24,12 @@ public class UpsDAOImpl extends AbstractGenericDAO<Ups> implements UpsDAO {
     /** The logger. */
     private static final Logger logger = Logger.getLogger(UpsDAOImpl.class);
 
-    @Override
     /*
      * (non-Javadoc)
      * 
      * @see com.ncr.ATMMonitoring.dao.UpsDAO#getUps(int)
      */
+    @Override
     public Ups getUps(int id) {
 	return this.get(id);
 
@@ -51,28 +48,20 @@ public class UpsDAOImpl extends AbstractGenericDAO<Ups> implements UpsDAO {
 	logger.debug("series number: " + seriesNumber);
 	Ups ups = this.getOnlyOneResultFromList(Restrictions.eq("seriesNumber",
 		seriesNumber));
-	// List<Ups> fetch = this.listUps(Restrictions.eq("seriesNumber",
-	// seriesNumber));
-	// if (fetch != null && !fetch.isEmpty()) {
-	//
-	// ups = fetch.get(0);
-	//
-	// }
 
 	return ups;
     }
 
-    @Override
     /*
      * (non-Javadoc)
      * 
      * @see com.ncr.ATMMonitoring.dao.UpsDAO#removeUps(int)
      */
+    @Override
     public void removeUps(int id) {
 	this.delete(id);
     }
 
-    @Override
     /*
      * (non-Javadoc)
      * 
@@ -80,43 +69,45 @@ public class UpsDAOImpl extends AbstractGenericDAO<Ups> implements UpsDAO {
      * com.ncr.ATMMonitoring.dao.UpsDAO#updateUps(com.ncr.ATMMonitoring.pojo
      * .Ups)
      */
+    @Override
     public void updateUps(Ups ups) {
 	this.update(ups);
 
     }
 
-    @Override
     /*
      * (non-Javadoc)
      * 
      * @see com.ncr.ATMMonitoring.dao.UpsDAO#listAllUps()
      */
+    @Override
     public List<Ups> listAllUps() {
 	return this.list();
     }
 
-    @Override
     /*
      * (non-Javadoc)
      * 
      * @see
      * com.ncr.ATMMonitoring.dao.UpsDAO#addUps(com.ncr.ATMMonitoring.pojo.Ups)
      */
+    @Override
     public void addUps(Ups ups) {
 	this.add(ups);
 
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Returns the ups that matches the given criterions. To add a criterion
+     * please use {@link Restrictions} or another class that implement
+     * {@link Criterion}
      * 
-     * @see
-     * com.ncr.ATMMonitoring.dao.UpsDAO#listUps(org.hibernate.criterion.Criterion
-     * [])
+     * @param criterions
+     *            {@link Criterion}
+     * @return List<Ups>
      */
-    @Override
     @SuppressWarnings("unchecked")
-    public List<Ups> listUps(Criterion... criterions) {
+    private List<Ups> listUps(Criterion... criterions) {
 	Criteria crit = sessionFactory.getCurrentSession().createCriteria(
 		Ups.class);
 	for (Criterion rest : criterions) {
@@ -125,7 +116,6 @@ public class UpsDAOImpl extends AbstractGenericDAO<Ups> implements UpsDAO {
 	return (List<Ups>) crit.list();
     }
 
-    @Override
     /*
      * (non-Javadoc)
      * 
@@ -133,6 +123,7 @@ public class UpsDAOImpl extends AbstractGenericDAO<Ups> implements UpsDAO {
      * com.ncr.ATMMonitoring.dao.UpsDAO#getUpsBySerialNumberAndModel(java.lang
      * .String, java.lang.String)
      */
+    @Override
     public Ups getUpsBySerialNumberAndModel(String seriesNumber, String model) {
 
 	logger.debug("Get UPS by series number: " + seriesNumber + " model: "
@@ -140,16 +131,6 @@ public class UpsDAOImpl extends AbstractGenericDAO<Ups> implements UpsDAO {
 	Ups ups = this.getOnlyOneResultFromList(Restrictions.and(
 		Restrictions.eq("seriesNumber", seriesNumber),
 		Restrictions.eq("model", model)));
-	// List<Ups> fetch =
-	// this.listUps(Restrictions.and(Restrictions.eq("seriesNumber",
-	// seriesNumber),Restrictions.eq("model",
-	// model)));
-	// if (fetch != null && !fetch.isEmpty()) {
-	//
-	// ups = fetch.get(0);
-	//
-	// }
-	//
 	return ups;
     }
 

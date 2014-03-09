@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.ncr.ATMMonitoring.service;
 
 import java.io.InputStream;
@@ -19,10 +16,9 @@ import java.util.List;
 public interface UpsService {
 
     /**
-     * Generates the XML files, extract the information and store it in the
-     * database<br>
-     * will return the list of not processed (parsed) files, empty if all was
-     * processed
+     * Generates the XML files, extracts the information and stores it in the
+     * database. It will return the list of not processed (parsed) files, empty
+     * if all were processed
      * 
      * @param xmlFiles
      *            List<String> with valid file paths
@@ -31,9 +27,8 @@ public interface UpsService {
     public List<String> storeUPSinfo(List<String> xmlFiles);
 
     /**
-     * Generates the XML file, extract the information and store it in the
-     * database<br>
-     * Return true if the file was processed by the parser
+     * Generates the XML file, extracts the information and stores it in the
+     * database. Return true if the file was processed by the parser
      * 
      * @param xmlFile
      *            InputStream with a valid XML file
@@ -42,9 +37,9 @@ public interface UpsService {
     public boolean storeUPSinfo(InputStream xmlFile);
 
     /**
-     * Generates the XML files, extract the information and store it in the
-     * database will return the List of not processed (parsed) files, empty if
-     * all was processed
+     * Generates the XML files, extracts the information and stores it in the
+     * database. It will return the List of not processed (parsed) files, empty
+     * if all were processed.
      * 
      * @param xmlFiles
      *            Collection<InputStream> with valid inputstreams
@@ -54,8 +49,7 @@ public interface UpsService {
 
     /**
      * Generates the XML files, extract the information and store it in the
-     * database<br>
-     * Return true if the file was processed by the parser
+     * database. Returns true if the file was processed by the parser
      * 
      * @param xmlFiles
      *            String with a valid file path

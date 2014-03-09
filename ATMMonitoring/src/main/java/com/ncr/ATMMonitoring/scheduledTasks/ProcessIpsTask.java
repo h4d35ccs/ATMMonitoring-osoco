@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
 import com.ncr.ATMMonitoring.socket.SocketService;
 
 /**
- *  Class that periodically executes the ATM Update Process
+ * Class that periodically executes the ATM Update Process
+ * 
  * @author Otto Abreu
  * 
  */

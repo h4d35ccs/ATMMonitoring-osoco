@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.ncr.ATMMonitoring.parser.ups.imp;
 
 import java.io.InputStream;
@@ -24,9 +21,7 @@ import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
 import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 
 /**
- * 
- * 
- * Class that parse an Emerson UPS XML with the following structure:<br>
+ * Class that parses an Emerson UPS XML with the following structure:<br>
  * &lt;PK-C1-UPS&gt;<br>
  * &nbsp;&nbsp;&lt;NUMPUESTO&gt;&lt;/NUMPUESTO&gt;<br>
  * &nbsp;&nbsp;&lt;IP_UPS&gt;&lt;/IP_UPS&gt;<br>
@@ -48,320 +43,339 @@ import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
  * <b><i>Do not call the parser directly, call
  * {@link ParseUPSChainBuilder#parse(InputStream)}</i></b>
  * 
- * @author ottoabreu
+ * @author Otto Abreu
  * 
  */
 @UPSParser(priority = UPSParser.HIGH_PRIORITY)
 public class ParseEmersonUPS extends ParseUPSDom {
-	// root element
-	private static final String ROOT_ELEMENT = "PK-C1-UPS";
 
-	private static final String NUM_POSITION_ELEMENT = "NUMPUESTO";
+    /** Root element tag */
+    private static final String ROOT_ELEMENT = "PK-C1-UPS";
 
-	private static final String IP_ELEMENT = "IP_UPS";
+    /** Num position tag */
+    private static final String NUM_POSITION_ELEMENT = "NUMPUESTO";
 
-	private static final String FIRMWARE_ELEMENT = "FIRMWARE_UPS";
+    /** IP tag */
+    private static final String IP_ELEMENT = "IP_UPS";
 
-	private static final String UPS_STATUS_ELEMENT = "ESTADO_UPS";
+    /** Firmware tag */
+    private static final String FIRMWARE_ELEMENT = "FIRMWARE_UPS";
 
-	private static final String CHARGE_PERCENTAGE_ELEMENT = "PORCENTAJE_CARGA_UPS";
+    /** UPS Status tag */
+    private static final String UPS_STATUS_ELEMENT = "ESTADO_UPS";
 
-	private static final String EXPENSE_PERCENTAGE_ELEMENT = "PORCENTAJE_GASTO_UPS";
+    /** Charge % tag */
+    private static final String CHARGE_PERCENTAGE_ELEMENT = "PORCENTAJE_CARGA_UPS";
 
-	private static final String ALARMS_ELEMENT = "ALARMAS_UPS";
+    /** Expense % tag */
+    private static final String EXPENSE_PERCENTAGE_ELEMENT = "PORCENTAJE_GASTO_UPS";
 
-	private static final String NAME_ELEMENT = "NOMBRE_UPS";
+    /** Alarms tag */
+    private static final String ALARMS_ELEMENT = "ALARMAS_UPS";
 
-	private static final String MODEL_ELEMENT = "MODELO_UPS";
+    /** Name tag */
+    private static final String NAME_ELEMENT = "NOMBRE_UPS";
 
-	private static final String SERIES_NUMBER_ELEMENT = "NUM_SERIE_UPS";
+    /** Model tag */
+    private static final String MODEL_ELEMENT = "MODELO_UPS";
 
-	private static final String RUNNING_TIME_ELEMENT = "TIEMPO_ENCENDIDO_UPS";
+    /** Series number tag */
+    private static final String SERIES_NUMBER_ELEMENT = "NUM_SERIE_UPS";
 
-	private static final String AUTONOMY_ELEMENT = "AUTONOMIA_UPS";
+    /** Running time tag */
+    private static final String RUNNING_TIME_ELEMENT = "TIEMPO_ENCENDIDO_UPS";
 
-	private static final String AUD_FMO_ELEMENT = "AUD_FMO_UPS";
+    /** Autonomy tag */
+    private static final String AUTONOMY_ELEMENT = "AUTONOMIA_UPS";
 
-	private static final String GENERAL_STATUS_ELEMENT = "STATUS";
+    /** Aud fmo tag */
+    private static final String AUD_FMO_ELEMENT = "AUD_FMO_UPS";
 
-	private static final String LAST_EXECUTION_ELEMENT = "FECHA_ULTIMA_EJECUCION";
+    /** General status tag */
+    private static final String GENERAL_STATUS_ELEMENT = "STATUS";
 
-	// DATE FORMATS PRESENT IN THE XML
-	private static final String AUD_FMO_ELEMENT_DATE_FORMAT = "dd/MM/yyyy";
+    /** Last execution tag */
+    private static final String LAST_EXECUTION_ELEMENT = "FECHA_ULTIMA_EJECUCION";
 
-	private static final String LAST_EXECUTION_ELEMENT_DATE_FORMAT = "dd/MM/yyyy";
+    /** Aud fmo element date format */
+    private static final String AUD_FMO_ELEMENT_DATE_FORMAT = "dd/MM/yyyy";
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.ncr.ATMMonitoring.parser.ParseUPSXML#applyParser(java.io.InputStream)
-	 */
-	@Override
-	protected UPSInfo applyParser() throws ParserException,
-			XMLNotReadableException, NoParserFoundException {
+    /** Last execution date format */
+    private static final String LAST_EXECUTION_ELEMENT_DATE_FORMAT = "dd/MM/yyyy";
 
-		UPSInfo info = null;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.parser.ParseUPSXML#applyParser(java.io.InputStream)
+     */
+    @Override
+    protected UPSInfo applyParser() throws ParserException,
+	    XMLNotReadableException, NoParserFoundException {
 
-		try {
-			info = new UPSInfo();
+	UPSInfo info = null;
 
-			NodeList content = this.getRootElement().getChildNodes();
+	try {
+	    info = new UPSInfo();
 
-			for (int i = 0; i < content.getLength(); i++) {
+	    NodeList content = this.getRootElement().getChildNodes();
 
-				Node nNode = content.item(i);
+	    for (int i = 0; i < content.getLength(); i++) {
 
-				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+		Node nNode = content.item(i);
 
-					Element eElement = (Element) nNode;
+		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
-					String elementValue = eElement.getTextContent();
-					if (eElement.getNodeName().equalsIgnoreCase(
-							NUM_POSITION_ELEMENT)) {
+		    Element eElement = (Element) nNode;
 
-						info.setNumPosition(elementValue);
+		    String elementValue = eElement.getTextContent();
+		    if (eElement.getNodeName().equalsIgnoreCase(
+			    NUM_POSITION_ELEMENT)) {
 
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							IP_ELEMENT)) {
+			info.setNumPosition(elementValue);
 
-						info.setIp(elementValue);
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    IP_ELEMENT)) {
 
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							FIRMWARE_ELEMENT)) {
+			info.setIp(elementValue);
 
-						info.setFirmware(elementValue);
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    FIRMWARE_ELEMENT)) {
 
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							UPS_STATUS_ELEMENT)) {
+			info.setFirmware(elementValue);
 
-						info.setRunningStatus(elementValue);
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    UPS_STATUS_ELEMENT)) {
 
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							CHARGE_PERCENTAGE_ELEMENT)) {
+			info.setRunningStatus(elementValue);
 
-						float chargePercentage = Float.parseFloat(elementValue);
-						info.setChargePercentage(chargePercentage);
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    CHARGE_PERCENTAGE_ELEMENT)) {
 
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							EXPENSE_PERCENTAGE_ELEMENT)) {
+			float chargePercentage = Float.parseFloat(elementValue);
+			info.setChargePercentage(chargePercentage);
 
-						float expensePercentage = Float
-								.parseFloat(elementValue);
-						info.setExpensePercentage(expensePercentage);
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    EXPENSE_PERCENTAGE_ELEMENT)) {
 
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							ALARMS_ELEMENT)) {
+			float expensePercentage = Float
+				.parseFloat(elementValue);
+			info.setExpensePercentage(expensePercentage);
 
-						info.setAlarmMsg(elementValue);
-
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							NAME_ELEMENT)) {
-
-						info.setUpsType(elementValue);
-
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							MODEL_ELEMENT)) {
-
-						info.setUpsModel(elementValue);
-
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							SERIES_NUMBER_ELEMENT)) {
-
-						info.setSeriesNumber(elementValue);
-
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							RUNNING_TIME_ELEMENT)) {
-
-						long runningTime = this.parseTime(elementValue);
-						info.setRunningTimeMilisec(runningTime);
-
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							AUTONOMY_ELEMENT)) {
-
-						long autonomy = this.parseTime(elementValue);
-
-						info.setAutonomyMilisec(autonomy);
-
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							AUD_FMO_ELEMENT)) {
-
-						Date audFmo = this.parseDate(elementValue,
-								AUD_FMO_ELEMENT_DATE_FORMAT);
-						info.setAudFmo(audFmo);
-
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							GENERAL_STATUS_ELEMENT)) {
-
-						info.setGeneralStatusMsg(elementValue);
-
-					} else if (eElement.getNodeName().equalsIgnoreCase(
-							LAST_EXECUTION_ELEMENT)) {
-
-						Date lastExcecutionDate = this.parseDate(elementValue,
-								LAST_EXECUTION_ELEMENT_DATE_FORMAT);
-						info.setLastExecutionDate(lastExcecutionDate);
-					}
-
-				}
-			}
-
-			String xml = this.getStringFromDoc();
-			info.setOriginalXML(xml);
-			logger.debug("Parsed xml: " + info);
-		} catch (ParseException e) {
-			throw new XMLNotReadableException(
-					XMLNotReadableException.PARSE_ELEMENT_ERROR, e);
-		} catch (DOMException e) {
-			throw new XMLNotReadableException(
-					XMLNotReadableException.PARSE_ELEMENT_ERROR, e);
-		} catch (Exception e) {
-			throw new ParserException(ParserException.GENERAL_ERROR, e);
-		}
-
-		return info;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.ncr.ATMMonitoring.parser.ParseUPSXML#canParseXML()
-	 */
-	@Override
-	protected boolean canParseXML() throws ParserException,
-			XMLNotReadableException {
-		boolean willParse = false;
-		if (this.getRootElement() != null
-				&& this.getRootElement().getNodeName()
-						.equalsIgnoreCase(ROOT_ELEMENT)) {
-			willParse = true;
-			logger.debug("Root element:" + this.getRootElement());
-		} 
-
-		return willParse;
-	}
-
-	/**
-	 * Return the time in long from the String \d* Dias \d* Hor. \d*Min.<br>
-	 * Can return 0 if the given String does not have the proper structure or is
-	 * blank
-	 * 
-	 * @param runingTime
-	 *            String
-	 * @return Long
-	 */
-	private long parseTime(String runingTime) {
-
-		String regexDays = "^[0-9]* D|d[1]";
-		String regexHours = "[0-9]* (H|h[1])or\\.";
-		String regexMin = "[0-9]* (M|m[1])in\\.";
-
-		long totalTime = 0;
-		Pattern pat = Pattern.compile(regexDays);
-		Matcher matcher = pat.matcher(runingTime);
-
-		if (matcher.find()) {
-			String days = matcher.group();
-			totalTime += this.daysToMilisec(this.getOnlyNumbers(days));
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    ALARMS_ELEMENT)) {
+
+			info.setAlarmMsg(elementValue);
+
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    NAME_ELEMENT)) {
+
+			info.setType(elementValue);
+
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    MODEL_ELEMENT)) {
+
+			info.setModel(elementValue);
+
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    SERIES_NUMBER_ELEMENT)) {
+
+			info.setSeriesNumber(elementValue);
+
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    RUNNING_TIME_ELEMENT)) {
+
+			long runningTime = this.parseTime(elementValue);
+			info.setRunningTimeMillisec(runningTime);
+
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    AUTONOMY_ELEMENT)) {
+
+			long autonomy = this.parseTime(elementValue);
+
+			info.setAutonomyMillisec(autonomy);
+
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    AUD_FMO_ELEMENT)) {
+
+			Date audFmo = this.parseDate(elementValue,
+				AUD_FMO_ELEMENT_DATE_FORMAT);
+			info.setAudFmo(audFmo);
+
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    GENERAL_STATUS_ELEMENT)) {
+
+			info.setGeneralStatusMsg(elementValue);
+
+		    } else if (eElement.getNodeName().equalsIgnoreCase(
+			    LAST_EXECUTION_ELEMENT)) {
+
+			Date lastExcecutionDate = this.parseDate(elementValue,
+				LAST_EXECUTION_ELEMENT_DATE_FORMAT);
+			info.setLastExecutionDate(lastExcecutionDate);
+		    }
 
 		}
+	    }
 
-		pat = Pattern.compile(regexHours);
-		matcher = pat.matcher(runingTime);
+	    String xml = this.getStringFromDoc();
+	    info.setOriginalXML(xml);
+	    logger.debug("Parsed xml: " + info);
+	} catch (ParseException e) {
+	    throw new XMLNotReadableException(
+		    XMLNotReadableException.PARSE_ELEMENT_ERROR, e);
+	} catch (DOMException e) {
+	    throw new XMLNotReadableException(
+		    XMLNotReadableException.PARSE_ELEMENT_ERROR, e);
+	} catch (Exception e) {
+	    throw new ParserException(ParserException.GENERAL_ERROR, e);
+	}
 
-		if (matcher.find()) {
-			String hours = matcher.group();
-			totalTime += this.hoursToMilisec(this.getOnlyNumbers(hours));
+	return info;
+    }
 
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.parser.ParseUPSXML#canParseXML()
+     */
+    @Override
+    protected boolean canParseXML() throws ParserException,
+	    XMLNotReadableException {
+	boolean willParse = false;
+	if (this.getRootElement() != null
+		&& this.getRootElement().getNodeName()
+			.equalsIgnoreCase(ROOT_ELEMENT)) {
+	    willParse = true;
+	    logger.debug("Root element:" + this.getRootElement());
+	}
 
-		pat = Pattern.compile(regexMin);
-		matcher = pat.matcher(runingTime);
+	return willParse;
+    }
 
-		if (matcher.find()) {
-			String min = matcher.group();
-			totalTime += this.minToMilisec(this.getOnlyNumbers(min));
+    /**
+     * Returns the time in long from the String \d* Dias \d* Hor. \d*Min.<br>
+     * Will return 0 if the given String does not have the proper structure or
+     * is empty
+     * 
+     * @param runingTime
+     *            String
+     * @return Long
+     */
+    private long parseTime(String runingTime) {
 
-		}
+	String regexDays = "^[0-9]* D|d[1]";
+	String regexHours = "[0-9]* (H|h[1])or\\.";
+	String regexMin = "[0-9]* (M|m[1])in\\.";
 
-		return totalTime;
+	long totalTime = 0;
+	Pattern pat = Pattern.compile(regexDays);
+	Matcher matcher = pat.matcher(runingTime);
+
+	if (matcher.find()) {
+	    String days = matcher.group();
+	    totalTime += this.daysToMilisec(this.getOnlyNumbers(days));
 
 	}
 
-	/**
-	 * transform days to miliseconds
-	 * 
-	 * @param daysString
-	 *            String
-	 * @return Long
-	 */
-	private long daysToMilisec(String daysString) {
-		int days = Integer.parseInt(daysString);
-		return TimeUnit.MILLISECONDS.convert(days, TimeUnit.DAYS);
-	}
+	pat = Pattern.compile(regexHours);
+	matcher = pat.matcher(runingTime);
 
-	/**
-	 * Transforms hours to miliseconds
-	 * 
-	 * @param hoursString
-	 *            String
-	 * @return Long
-	 */
-	private long hoursToMilisec(String hoursString) {
-		int hours = Integer.parseInt(hoursString);
-		return TimeUnit.MILLISECONDS.convert(hours, TimeUnit.HOURS);
-	}
-
-	/**
-	 * transform minutes in miliseconds
-	 * 
-	 * @param minutesString
-	 * @return
-	 */
-	private long minToMilisec(String minutesString) {
-		int minutes = Integer.parseInt(minutesString);
-		return TimeUnit.MILLISECONDS.convert(minutes, TimeUnit.MINUTES);
-	}
-
-	/**
-	 * Returns only numbers from a string
-	 * 
-	 * @param from
-	 * @return String
-	 */
-	private String getOnlyNumbers(String from) {
-
-		String onlyNumbers = "^[0-9]*";
-		Pattern pat = Pattern.compile(onlyNumbers);
-		Matcher matcher = pat.matcher(from);
-		matcher.find();
-		String numbers = matcher.group();
-
-		return numbers;
+	if (matcher.find()) {
+	    String hours = matcher.group();
+	    totalTime += this.hoursToMilisec(this.getOnlyNumbers(hours));
 
 	}
 
-	/**
-	 * Returns a date from a string using the given format
-	 * 
-	 * @param value
-	 *            String
-	 * @param format
-	 *            String
-	 * @return Date
-	 * @throws ParseException
-	 *             if the value does not match the format
-	 */
-	private Date parseDate(String value, String format) throws ParseException {
+	pat = Pattern.compile(regexMin);
+	matcher = pat.matcher(runingTime);
 
-		Date parseDate = null;
-		if (value != null && !value.equals("")) {
-			SimpleDateFormat sdf = new SimpleDateFormat(format);
+	if (matcher.find()) {
+	    String min = matcher.group();
+	    totalTime += this.minToMilisec(this.getOnlyNumbers(min));
 
-			parseDate = sdf.parse(value);
-
-		}
-		return parseDate;
 	}
+
+	return totalTime;
+
+    }
+
+    /**
+     * Transforms days to milliseconds
+     * 
+     * @param daysString
+     *            the string with the days
+     * @return Long the milliseconds
+     */
+    private long daysToMilisec(String daysString) {
+	int days = Integer.parseInt(daysString);
+	return TimeUnit.MILLISECONDS.convert(days, TimeUnit.DAYS);
+    }
+
+    /**
+     * Transforms hours to milliseconds
+     * 
+     * @param hoursString
+     *            the string with the hours
+     * @return Long the milliseconds
+     */
+    private long hoursToMilisec(String hoursString) {
+	int hours = Integer.parseInt(hoursString);
+	return TimeUnit.MILLISECONDS.convert(hours, TimeUnit.HOURS);
+    }
+
+    /**
+     * Transforms minutes in milliseconds
+     * 
+     * @param minutesString
+     *            the string with the minutes
+     * @return Long the milliseconds
+     */
+    private long minToMilisec(String minutesString) {
+	int minutes = Integer.parseInt(minutesString);
+	return TimeUnit.MILLISECONDS.convert(minutes, TimeUnit.MINUTES);
+    }
+
+    /**
+     * Returns only numbers from a string
+     * 
+     * @param from
+     *            the string we want to search for numbers
+     * @return String the string with only its numbers
+     */
+    private String getOnlyNumbers(String from) {
+
+	String onlyNumbers = "^[0-9]*";
+	Pattern pat = Pattern.compile(onlyNumbers);
+	Matcher matcher = pat.matcher(from);
+	matcher.find();
+	String numbers = matcher.group();
+
+	return numbers;
+
+    }
+
+    /**
+     * Returns a date from a string using the given format
+     * 
+     * @param value
+     *            String the string to parse
+     * @param format
+     *            String the format to use
+     * @return Date the parsed date
+     * @throws ParseException
+     *             if the value does not match the format
+     */
+    private Date parseDate(String value, String format) throws ParseException {
+
+	Date parseDate = null;
+	if (value != null && !value.equals("")) {
+	    SimpleDateFormat sdf = new SimpleDateFormat(format);
+
+	    parseDate = sdf.parse(value);
+
+	}
+	return parseDate;
+    }
 
 }

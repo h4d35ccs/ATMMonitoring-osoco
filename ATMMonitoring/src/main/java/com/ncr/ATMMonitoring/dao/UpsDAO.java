@@ -1,12 +1,6 @@
-/**
- * 
- */
 package com.ncr.ATMMonitoring.dao;
 
 import java.util.List;
-
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Restrictions;
 
 import com.ncr.ATMMonitoring.pojo.Ups;
 
@@ -58,17 +52,6 @@ public interface UpsDAO {
      *            the UPS to add
      */
     public void addUps(Ups ups);
-
-    /**
-     * Returns the ups that matches the given criterions. To add a criterion
-     * please use {@link Restrictions} or another class that implement
-     * {@link Criterion}
-     * 
-     * @param criterions
-     *            {@link Criterion}
-     * @return List<Ups>
-     */
-    public List<Ups> listUps(Criterion... criterions);
 
     /**
      * Returns a Ups by the given series number

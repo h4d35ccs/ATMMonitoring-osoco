@@ -1,9 +1,10 @@
 package com.ncr.ATMMonitoring.parser.ups.dto;
 
 /**
- * Define extra attributes that can have an UPS XML
- * @author ottoabreu
- *
+ * Class for defining extra attributes that an UPS XML may have
+ * 
+ * @author Otto Abreu
+ * 
  */
 public interface UPSExtraInfo {
 

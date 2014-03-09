@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.ncr.ATMMonitoring.service;
 
 import java.io.InputStream;
@@ -154,7 +151,7 @@ public class UpsServiceImpl implements UpsService {
     }
 
     /**
-     * Save the ups info in the Database
+     * Saves the ups info in the Database
      * 
      * @param file
      *            the UPSInfo to save
@@ -163,7 +160,7 @@ public class UpsServiceImpl implements UpsService {
     private void handleParserSucess(UPSInfo file) {
 
 	String seriesNumber = file.getSeriesNumber();
-	String model = file.getUpsModel();
+	String model = file.getModel();
 	Ups ups = this.getEntity(file);
 	// verify if is an update or a new information
 	Ups toUpdate = this.upsDao.getUpsBySerialNumberAndModel(seriesNumber,
@@ -188,7 +185,7 @@ public class UpsServiceImpl implements UpsService {
     }
 
     /**
-     * Execute the parser to the given Inputstream
+     * Executes the parser onto the given Inputstream
      * 
      * @param xml
      *            {@link InputStream} with the XML
@@ -220,11 +217,11 @@ public class UpsServiceImpl implements UpsService {
 	ups.setChargePercentage(info.getChargePercentage());
 	ups.setExpensePercentage(info.getExpensePercentage());
 	ups.setAlarmMsg(info.getAlarmMsg());
-	ups.setType(info.getUpsType());
-	ups.setModel(info.getUpsModel());
+	ups.setType(info.getType());
+	ups.setModel(info.getModel());
 	ups.setSeriesNumber(info.getSeriesNumber());
-	ups.setRunningTimeMilisec(info.getRunningTimeMilisec());
-	ups.setAutonomyMilisec(info.getAutonomyMilisec());
+	ups.setRunningTimeMilisec(info.getRunningTimeMillisec());
+	ups.setAutonomyMilisec(info.getAutonomyMillisec());
 	ups.setNumPosition(info.getNumPosition());
 	ups.setAudFmo(info.getAudFmo());
 	ups.setGeneralStatusMsg(info.getGeneralStatusMsg());

@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
-import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.User;
 
 /**
