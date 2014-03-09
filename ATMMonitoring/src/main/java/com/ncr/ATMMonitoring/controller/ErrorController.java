@@ -1,7 +1,6 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,12 +9,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.support.RequestContextUtils;
 
-import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.BankCompanyService;
-import com.ncr.ATMMonitoring.service.RoleService;
-import com.ncr.ATMMonitoring.service.UserService;
 
 /**
  * The Class ErrorController.
@@ -26,19 +21,11 @@ import com.ncr.ATMMonitoring.service.UserService;
  */
 
 @Controller
-public class ErrorController {
+public class ErrorController extends GenericController {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(ErrorController.class
 	    .getName());
-
-    /** The user service. */
-    @Autowired
-    private UserService userService;
-
-    /** The role service. */
-    @Autowired
-    private RoleService roleService;
 
     /** The bank company service. */
     @Autowired
@@ -60,11 +47,8 @@ public class ErrorController {
     public String error404(Map<String, Object> map, HttpServletRequest request,
 	    Principal principal) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	map.put("userMsg", userMsg);
 	return "404";
@@ -86,11 +70,8 @@ public class ErrorController {
     public String error403(Map<String, Object> map, HttpServletRequest request,
 	    Principal principal) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	map.put("userMsg", userMsg);
 	return "403";
@@ -112,11 +93,8 @@ public class ErrorController {
     public String error(Map<String, Object> map, HttpServletRequest request,
 	    Principal principal) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	map.put("userMsg", userMsg);
 	return "error";

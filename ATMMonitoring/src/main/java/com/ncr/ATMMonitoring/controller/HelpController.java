@@ -1,20 +1,14 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.support.RequestContextUtils;
-
-import com.ncr.ATMMonitoring.pojo.User;
-import com.ncr.ATMMonitoring.service.UserService;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * The Class HelpController.
@@ -22,13 +16,10 @@ import com.ncr.ATMMonitoring.service.UserService;
  * Controller for handling help related HTTP petitions.
  * 
  * @author Rafael Luque (rafael.luque@osoco.es)
+ * @author Otto Abreu
  */
 @Controller
-public class HelpController {
-
-    /** The user service. */
-    @Autowired
-    private UserService userService;
+public class HelpController extends GenericController {
 
     /**
      * Show default help URL.
@@ -45,11 +36,8 @@ public class HelpController {
     public String showHelp(Map<String, Object> map, Principal principal,
 	    HttpServletRequest request) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	map.put("userMsg", userMsg);
 	return "redirect:/help/user-main";
@@ -71,11 +59,8 @@ public class HelpController {
 	    Map<String, Object> map, Principal principal,
 	    HttpServletRequest request) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	map.put("userMsg", userMsg);
 	map.put("section", section);

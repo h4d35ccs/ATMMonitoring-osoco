@@ -1,7 +1,6 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,15 +11,12 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.controller.propertyEditor.SoftwarePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.Software;
 import com.ncr.ATMMonitoring.pojo.TerminalConfig;
-import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.SoftwareService;
-import com.ncr.ATMMonitoring.service.TerminalConfigService;
-import com.ncr.ATMMonitoring.service.UserService;
+import com.ncr.ATMMonitoring.serviceFacade.ATMFacade;
 
 /**
  * The Class TerminalConfigController.
@@ -31,19 +27,15 @@ import com.ncr.ATMMonitoring.service.UserService;
  */
 
 @Controller
-public class TerminalConfigController {
+public class TerminalConfigController extends GenericController {
 
-    /** The terminal config service. */
+    /** The atm service facade. */
     @Autowired
-    private TerminalConfigService terminalConfigService;
-    
+    private ATMFacade atmService;
+
     /** The software service. */
     @Autowired
     private SoftwareService softwareService;
-    
-    /** The user service. */
-    @Autowired
-    private UserService userService;
 
     /**
      * Binds custom property editors.
@@ -77,17 +69,14 @@ public class TerminalConfigController {
 	    @PathVariable("configId") Integer terminalConfigId,
 	    Map<String, Object> map, HttpServletRequest request,
 	    Principal principal) {
-	TerminalConfig terminalConfig = terminalConfigService
-		.getTerminalConfig(terminalConfigId);
+	TerminalConfig terminalConfig = this.atmService
+		.getATMMachine(terminalConfigId);
 	if (terminalConfig == null) {
 	    return "redirect:/terminals/list";
 	}
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	map.put("userMsg", userMsg);
 	map.put("config", terminalConfig);

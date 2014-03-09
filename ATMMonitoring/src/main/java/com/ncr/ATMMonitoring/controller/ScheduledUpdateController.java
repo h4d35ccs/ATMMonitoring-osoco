@@ -1,13 +1,11 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,10 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,14 +23,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.controller.propertyEditor.DatePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
-import com.ncr.ATMMonitoring.pojo.User;
-import com.ncr.ATMMonitoring.service.ScheduledUpdateService;
-import com.ncr.ATMMonitoring.service.UserService;
+import com.ncr.ATMMonitoring.service.QueryService;
+import com.ncr.ATMMonitoring.serviceFacade.ATMFacade;
 
 /**
  * The Class ScheduledUpdateController.
@@ -45,7 +39,7 @@ import com.ncr.ATMMonitoring.service.UserService;
  */
 
 @Controller
-public class ScheduledUpdateController {
+public class ScheduledUpdateController extends GenericController {
 
     /** The logger. */
     private static Logger logger = Logger
@@ -66,13 +60,13 @@ public class ScheduledUpdateController {
     /** The event duration in milliseconds. */
     private static long EVENT_DURATION_IN_MILLIS = 60 * 60 * 1000;
 
-    /** The scheduled update service. */
+    /** The atm service facade. */
     @Autowired
-    private ScheduledUpdateService scheduledUpdateService;
+    private ATMFacade atmService;
 
-    /** The user service. */
+    /** The query service */
     @Autowired
-    private UserService userService;
+    private QueryService queryService;
 
     /**
      * Binds custom property editors.
@@ -102,16 +96,13 @@ public class ScheduledUpdateController {
     public String listSchedules(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	    map.put("userMsg", userMsg);
 	    map.put("weeklyScheduledUpdates",
-		    loggedUser.getWeeklyScheduledUpdates());
+		    this.atmService.listScheduledUpdates(ATMFacade.WEEKLY));
 	    map.put("monthlyScheduledUpdates",
-		    loggedUser.getMonthlyScheduledUpdates());
+		    this.atmService.listScheduledUpdates(ATMFacade.MONTHLY));
 	}
 	return "scheduledUpdates";
     }
@@ -133,12 +124,10 @@ public class ScheduledUpdateController {
     public String newScheduledUpdate(Map<String, Object> map, String queryId,
 	    HttpServletRequest request, Principal principal) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    Set<Query> userQueries = loggedUser.getQueries();
+	    userMsg = this.getUserGreeting(principal, request);
+	    Set<Query> userQueries = this.queryService
+		    .getQueriesByUser(principal.getName());
 	    map.put("userQueries", userQueries);
 	    map.put("userMsg", userMsg);
 	    map.put("scheduledUpdate", new ScheduledUpdate());
@@ -170,13 +159,12 @@ public class ScheduledUpdateController {
 	logger.debug("update events from " + start + " to " + end);
 	List<ScheduledUpdate> updates = null;
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
 	    updates = new ArrayList<ScheduledUpdate>();
-	    List<ScheduledUpdate> weeklyUpdates = loggedUser
-		    .getWeeklyScheduledUpdates();
-	    List<ScheduledUpdate> monthlyUpdates = loggedUser
-		    .getMonthlyScheduledUpdates();
+	    List<ScheduledUpdate> weeklyUpdates = this.atmService
+		    .listScheduledUpdates(principal.getName(), ATMFacade.WEEKLY);
+	    List<ScheduledUpdate> monthlyUpdates = this.atmService
+		    .listScheduledUpdates(principal.getName(),
+			    ATMFacade.MONTHLY);
 	    updates = new ArrayList<ScheduledUpdate>();
 	    updates.addAll(weeklyUpdates);
 	    updates.addAll(monthlyUpdates);
@@ -207,12 +195,10 @@ public class ScheduledUpdateController {
 	    Map<String, Object> map, HttpServletRequest request,
 	    Principal principal, RedirectAttributes redirectAttributes) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    Set<Query> userQueries = loggedUser.getQueries();
+	    userMsg = this.getUserGreeting(principal, request);
+	    Set<Query> userQueries = this.queryService
+		    .getQueriesByUser(principal.getName());
 	    map.put("userQueries", userQueries);
 	    map.put("userMsg", userMsg);
 	}
@@ -225,8 +211,7 @@ public class ScheduledUpdateController {
 	} else if ((scheduledUpdate.getWeekDay() == null)
 		&& (scheduledUpdate.getMonthDay() == null)) {
 	    map.put("error", "scheduledUpdate.missing.mandatory.fields");
-	} else if (scheduledUpdateService
-		.existsScheduledUpdate(scheduledUpdate)) {
+	} else if (this.atmService.existScheduledUpdate(scheduledUpdate)) {
 	    map.put("error", "duplicated.scheduledUpdate");
 	}
 
@@ -235,7 +220,7 @@ public class ScheduledUpdateController {
 	    map.put("scheduledUpdate", newScheduledUpdate);
 	    return "newScheduledUpdate";
 	} else {
-	    scheduledUpdateService.addScheduledUpdate(scheduledUpdate);
+	    this.atmService.addScheduledUpdate(scheduledUpdate);
 	    redirectAttributes.addFlashAttribute("success",
 		    "label.new.scheduledUpdate.created");
 	    map.clear();
@@ -266,7 +251,7 @@ public class ScheduledUpdateController {
     public String deleteScheduledUpdate(
 	    @PathVariable("scheduledUpdateId") Integer scheduledUpdateId,
 	    RedirectAttributes redirectAttributes) {
-	scheduledUpdateService.removeScheduledUpdate(scheduledUpdateId);
+	this.atmService.removeScheduledUpdate(scheduledUpdateId);
 	redirectAttributes.addFlashAttribute("success",
 		"label.new.scheduledUpdate.deleted");
 	return "redirect:/terminals/schedules/list";

@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.service;
 
 import java.util.List;
+import java.util.Set;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 
@@ -53,4 +54,11 @@ public interface BankCompanyService {
      *            the bank company id
      */
     public void removeBankCompany(Integer id);
+    
+    /**
+     * Returns the BankCompanies associated to a user
+     * @param username String
+     * @return   Set<BankCompany>
+     */
+    Set<BankCompany> getUserManageableBankCompanies(String username);
 }

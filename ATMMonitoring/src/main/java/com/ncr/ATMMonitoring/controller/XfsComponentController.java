@@ -1,7 +1,6 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -11,14 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.FinancialDevice;
 import com.ncr.ATMMonitoring.pojo.JxfsComponent;
-import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.pojo.XfsComponent;
-import com.ncr.ATMMonitoring.service.UserService;
+import com.ncr.ATMMonitoring.service.BankCompanyService;
 import com.ncr.ATMMonitoring.service.XfsComponentService;
 
 /**
@@ -30,15 +27,15 @@ import com.ncr.ATMMonitoring.service.XfsComponentService;
  */
 
 @Controller
-public class XfsComponentController {
+public class XfsComponentController extends GenericController {
 
     /** The xfs component service. */
     @Autowired
     private XfsComponentService xfsComponentService;
-    
-    /** The user service. */
+
+    /** The bank company service. */
     @Autowired
-    private UserService userService;
+    private BankCompanyService bankCompanyService;
 
     /**
      * Xfs component details URL.
@@ -64,13 +61,11 @@ public class XfsComponentController {
 	    return "redirect:/terminals/list";
 	}
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	    boolean allowed = false;
-	    Set<BankCompany> banks = loggedUser.getManageableBankCompanies();
+	    Set<BankCompany> banks = this.bankCompanyService
+		    .getUserManageableBankCompanies(principal.getName());
 	    for (FinancialDevice dev : xfsComponent.getFinancialDevices()) {
 		BankCompany aux = dev.getTerminal().getBankCompany();
 		if ((aux == null) || (banks.contains(aux))) {
@@ -113,13 +108,11 @@ public class XfsComponentController {
 	    return "redirect:/terminals/list";
 	}
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	    boolean allowed = false;
-	    Set<BankCompany> banks = loggedUser.getManageableBankCompanies();
+	    Set<BankCompany> banks = this.bankCompanyService
+		    .getUserManageableBankCompanies(principal.getName());
 	    for (FinancialDevice dev : jxfsComponent.getFinancialDevices()) {
 		BankCompany aux = dev.getTerminal().getBankCompany();
 		if ((aux == null) || (banks.contains(aux))) {

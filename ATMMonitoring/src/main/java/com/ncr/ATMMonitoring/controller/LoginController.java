@@ -2,12 +2,9 @@ package com.ncr.ATMMonitoring.controller;
 
 import java.util.Map;
 
-import org.apache.log4j.Logger;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * The Class LoginController.
@@ -20,18 +17,18 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 public class LoginController {
 
-    
-	/**
-	 * Render a page for redirect on the client to the correct login page.
-	 * Is used for avoid login page on iframes
-	 * @return The request result
-	 */
-	@RequestMapping(value = "/preLogin", method = RequestMethod.GET)
+    /**
+     * Render a page for redirect on the client to the correct login page. Is
+     * used for avoid login page on iframes
+     * 
+     * @return The request result
+     */
+    @RequestMapping(value = "/preLogin", method = RequestMethod.GET)
     public String preLogin() {
-		return "preLogin";
+	return "preLogin";
     }
-	
-	/**
+
+    /**
      * Index URL.
      * 
      * @return the petition response

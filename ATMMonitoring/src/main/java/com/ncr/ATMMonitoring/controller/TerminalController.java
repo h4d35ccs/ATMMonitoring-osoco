@@ -45,14 +45,10 @@ import com.ncr.ATMMonitoring.pojo.Location;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.pojo.TerminalModel;
-import com.ncr.ATMMonitoring.pojo.User;
-import com.ncr.ATMMonitoring.service.InstallationService;
+import com.ncr.ATMMonitoring.service.BankCompanyService;
 import com.ncr.ATMMonitoring.service.LocationService;
 import com.ncr.ATMMonitoring.service.QueryService;
-import com.ncr.ATMMonitoring.service.TerminalModelService;
-import com.ncr.ATMMonitoring.service.TerminalService;
-import com.ncr.ATMMonitoring.service.UserService;
-import com.ncr.ATMMonitoring.socket.SocketService;
+import com.ncr.ATMMonitoring.serviceFacade.ATMFacade;
 
 /**
  * The Class TerminalController.
@@ -63,7 +59,7 @@ import com.ncr.ATMMonitoring.socket.SocketService;
  */
 
 @Controller
-public class TerminalController {
+public class TerminalController extends GenericController {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalController.class
@@ -73,7 +69,7 @@ public class TerminalController {
     public static final String DEFAULT_SORT = "serialNumber";
 
     /** The Constant DEFAULT_ORDER. */
-    public static final String DEFAULT_ORDER = "asc";
+    public static final String DEFAULT_ORDER = ATMFacade.ORDER_ASC;
 
     /** The can alter terminals roles. */
     @Value("${security.terminalsManagementAllowedRoles}")
@@ -87,33 +83,21 @@ public class TerminalController {
     @Value("${config.terminalModelsPageSize}")
     private int terminalModelsPageSize;
 
-    /** The terminal service. */
+    /** The atm service facade. */
     @Autowired
-    private TerminalService terminalService;
-
-    /** The terminal model service. */
-    @Autowired
-    private TerminalModelService terminalModelService;
-
-    /** The installation service. */
-    @Autowired
-    private InstallationService installationService;
+    private ATMFacade atmservice;
 
     /** The query service. */
     @Autowired
     private QueryService queryService;
 
-    /** The user service. */
-    @Autowired
-    private UserService userService;
-
-    /** The socket service. */
-    @Autowired
-    private SocketService socketService;
-
     /** The location service. */
     @Autowired
     private LocationService locationService;
+
+    /** The bank company service */
+    @Autowired
+    private BankCompanyService bankCompanyService;
 
     /**
      * Binds custom property editors.
@@ -141,34 +125,16 @@ public class TerminalController {
      */
     @RequestMapping(value = "/terminals/request", method = RequestMethod.GET)
     public String requestTerminalsUpdateByQuery(String queryId,
-	    Principal principal,
-	    RedirectAttributes redirectAttributes) {
+	    Principal principal, RedirectAttributes redirectAttributes) {
 	if ((queryId != null) && (principal != null)) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
 	    Query query = queryService.getQuery(Integer.parseInt(queryId));
-	    if (query.getUser().getId().equals(loggedUser.getId())) {
-		socketService.updateTerminalsSocket(query);
+	    if (this.queryService.queryBelongToUser(query, principal.getName())) {
+		this.atmservice.atmSnmpUpdate(query);
 	    }
 	} else {
-	    // try {
-	    socketService.updateAllTerminalsSocket();
+	    this.atmservice.atmSnmpUpdate(null);
 	    redirectAttributes.addFlashAttribute("success",
 		    "success.snmpUpdateAll");
-	    // } catch (SnmpTimeOutException e) {
-	    // String userMsg = "";
-	    // Locale locale = RequestContextUtils.getLocale(request);
-	    // if (principal != null) {
-	    // User loggedUser = userService.getUserByUsername(principal
-	    // .getName());
-	    // userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    //
-	    // }
-	    // map.put("userMsg", userMsg);
-	    // map.put("ips", e.getIpsHtmlList());
-	    // redirectAttributes.addFlashAttribute("timeout",
-	    // "timeout.snmpUpdateAll");
-	    // }
 	}
 
 	try {
@@ -196,15 +162,16 @@ public class TerminalController {
     public String requestTerminalUpdateById(
 	    @PathVariable("terminalId") Integer terminalId,
 	    RedirectAttributes redirectAttributes, Principal principal) {
-	Terminal terminal = terminalService.getTerminal(terminalId);
+	Terminal terminal = this.atmservice.atmSnmpUpdate(terminalId);
+
 	if (terminal == null) {
 	    return "redirect:/terminals/list";
 	}
 	// try {
-	logger.debug("request snmp update for terminal" + terminalId);
-	socketService.updateTerminalSocket(terminal);
-	redirectAttributes.addFlashAttribute("success",
-		"success.snmpUpdateTerminal");
+	// logger.debug("request snmp update for terminal" + terminalId);
+	// socketService.updateTerminalSocket(terminal);
+	// redirectAttributes.addFlashAttribute("success",
+	// "success.snmpUpdateTerminal");
 	// } catch (SnmpTimeOutException e) {
 	// String userMsg = "";
 	// Locale locale = RequestContextUtils.getLocale(request);
@@ -251,7 +218,7 @@ public class TerminalController {
      *            the order for sorting terminals
      * @param request
      *            the request
-	 * @param request
+     * @param request
      *            the queryDate
      * @return the petition response
      */
@@ -259,8 +226,7 @@ public class TerminalController {
     public String listTerminals(Map<String, Object> map, Principal principal,
 	    String p, String sort, String order, HttpServletRequest request) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	
+
 	List<Terminal> terminals = new ArrayList<Terminal>();
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
@@ -268,18 +234,18 @@ public class TerminalController {
 	String sortValue = (sort == null) ? DEFAULT_SORT : sort;
 	String orderValue = (order == null) ? DEFAULT_ORDER : order;
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    terminals = terminalService.listTerminalsByBankCompanies(
-			    loggedUser.getManageableBankCompanies(), sortValue,
-			    orderValue);
+	    userMsg = this.getUserGreeting(principal, request);
+	    bankCompanies = this.bankCompanyService
+		    .getUserManageableBankCompanies(principal.getName());
+	    terminals = this.atmservice.listATMByBanks(bankCompanies, sort,
+		    order);
 	    pagedListHolder = new PagedListHolder<Terminal>(terminals);
-	    bankCompanies = loggedUser.getManageableBankCompanies();
-	    userQueries = loggedUser.getQueries();
+
+	    userQueries = this.queryService.getQueriesByUser(principal
+		    .getName());
 	}
 	map.put("banksList", bankCompanies);
-	map.put("installationsList", installationService.listInstallations());
+	map.put("installationsList", this.atmservice.listATMInstallations());
 	map.put("userQueries", userQueries);
 	map.put("userMsg", userMsg);
 	map.put("terminal", new Terminal());
@@ -296,8 +262,9 @@ public class TerminalController {
 	pagedListHolder.setPage(page);
 	pagedListHolder.setPageSize(pageSize);
 	map.put("pagedListHolder", pagedListHolder);
-	map.put("terminalIdsByLocation", buildTerminalIdsByLocationModel(terminals, null));
-	
+	map.put("terminalIdsByLocation",
+		buildTerminalIdsByLocationModel(terminals, null));
+
 	return "terminals";
     }
 
@@ -329,40 +296,35 @@ public class TerminalController {
 	    @PathVariable("terminalId") Integer terminalId,
 	    Map<String, Object> map, HttpServletRequest request,
 	    Principal principal, Long dateTime, String preselectedTab) {
-    
-    Date date = dateTime == null ? null : new Date(dateTime);
-    	
-	Terminal terminal = terminalService.getTerminal(terminalId);
+
+	Date date = dateTime == null ? null : new Date(dateTime);
+
+	Terminal terminal = this.atmservice.getATMById(terminalId);
 	if (terminal == null) {
 	    map.clear();
 	    return "redirect:/terminals/list";
 	}
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    bankCompanies = loggedUser.getManageableBankCompanies();
+
+	    userMsg = this.getUserGreeting(principal, request);
+	    bankCompanies = this.bankCompanyService
+		    .getUserManageableBankCompanies(principal.getName());
 	    if ((terminal.getBankCompany() != null)
 		    && (!bankCompanies.contains(terminal.getBankCompany()))) {
 		map.clear();
 		return "redirect:/terminals/list";
 	    }
 	}
-	
-	Map<Class<? extends Auditable>, Map<Date,Integer>> historicalChanges = terminal.buildHistoricalChanges();
+
+	Map<Class<? extends Auditable>, Map<Date, Integer>> historicalChanges = terminal
+		.buildHistoricalChanges();
 	map.put("historicalChanges", historicalChanges);
-	
+
 	map.put("banksList", bankCompanies);
-	map.put("installationsList", installationService.listInstallations());
-	map.put("values",
-		terminalModelService.listTerminalModelsByManufacturer());
+	map.put("installationsList", this.atmservice.listATMInstallations());
+	map.put("values", this.atmservice.listATMModelsByManufacturer());
 	map.put("date", date);
 	map.put("userMsg", userMsg);
 	map.put("terminal", terminal);
@@ -376,21 +338,19 @@ public class TerminalController {
 	    @RequestParam("terminalIds") ArrayList<Integer> terminalIds,
 	    Map<String, Object> model, HttpServletRequest request,
 	    Principal principal, Long dateTime) {
-    
-	    Date date = dateTime == null ? null : new Date(dateTime);
-    
-	    User loggedUser = userService.getUserByUsername(principal.getName());
-	    Set<BankCompany> bankCompanies = loggedUser.getManageableBankCompanies();
-	    
-		List<Terminal> terminals = terminalService.
-				listTerminalsByIdsAndBankCompanies(terminalIds, bankCompanies);
-	    
-		model.put("terminals", terminals);
-		model.put("queryDate", date);
-		return "terminalsDetailsSummary";
+
+	Date date = dateTime == null ? null : new Date(dateTime);
+
+	Set<BankCompany> bankCompanies = this.bankCompanyService
+		.getUserManageableBankCompanies(principal.getName());
+	List<Terminal> terminals = this.atmservice.listATMByBanksAndAtmId(
+		bankCompanies, terminalIds);
+
+	model.put("terminals", terminals);
+	model.put("queryDate", date);
+	return "terminalsDetailsSummary";
     }
 
-    
     /**
      * Import terminals from json file URL.
      * 
@@ -403,13 +363,16 @@ public class TerminalController {
      * @param principal
      *            the principal
      * @return the petition response
+     * @throws IOException
      */
     @RequestMapping(value = "/terminals/import", method = RequestMethod.POST)
-    public String importTerminal(@RequestParam("file") CommonsMultipartFile file) {
+    public String importTerminal(@RequestParam("file") CommonsMultipartFile file)
+	    throws IOException {
 
-	boolean importResult = false;
+	// boolean importResult = false;
 	if (file != null) {
-	    importResult = terminalService.importJsonTerminal(file);
+	    // importResult = terminalService.importJsonTerminal(file);
+	    this.atmservice.addATMByFile(file.getInputStream());
 	}
 	return "redirect:/terminals/list";
     }
@@ -429,17 +392,14 @@ public class TerminalController {
     public String viewNewTerminal(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    bankCompanies = loggedUser.getManageableBankCompanies();
+	    userMsg = this.getUserGreeting(principal, request);
+	    bankCompanies = this.bankCompanyService
+		    .getUserManageableBankCompanies(principal.getName());
 	}
 
-	map.put("values",
-		terminalModelService.listTerminalModelsByManufacturer());
+	map.put("values", this.atmservice.listATMModelsByManufacturer());
 	map.put("banksList", bankCompanies);
 	map.put("terminal", new Terminal());
 	map.put("userMsg", userMsg);
@@ -473,33 +433,25 @@ public class TerminalController {
 		&& (terminal.getBankCompany().getId() == null)) {
 	    terminal.setBankCompany(null);
 	}
-	// TODO
-	// Revisar esta parte ahora que las terminales tienen varias
-	// instalaciones
-	//
-	// if ((terminal.getInstallation() != null)
-	// && (terminal.getInstallation().getId() == null)) {
-	// terminal.setInstallation(null);
-	// }
+
 	if ((terminal.getTerminalModel() != null)
 		&& (terminal.getTerminalModel().getId() == null)) {
 	    terminal.setTerminalModel(null);
 	}
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    Set<Query> userQueries = loggedUser.getQueries();
 
+	if (principal != null) {
+	    userMsg = this.getUserGreeting(principal, request);
+	    Set<Query> userQueries = this.queryService
+		    .getQueriesByUser(principal.getName());
 	    map.put("userQueries", userQueries);
+	    bankCompanies = this.bankCompanyService
+		    .getUserManageableBankCompanies(principal.getName());
 	    pagedListHolder = new PagedListHolder<Terminal>(
-		    terminalService.listTerminalsByBankCompanies(loggedUser
-			    .getManageableBankCompanies()));
-	    bankCompanies = loggedUser.getManageableBankCompanies();
+		    this.atmservice.listATMByBanks(bankCompanies, null, null));
+
 	    if ((terminal.getBankCompany() != null)
 		    && (!bankCompanies.contains(terminal.getBankCompany()))) {
 		map.clear();
@@ -519,36 +471,12 @@ public class TerminalController {
 	    pagedListHolder.setPageSize(pageSize);
 	    map.put("pagedListHolder", pagedListHolder);
 	    map.put("banksList", bankCompanies);
-	    map.put("installationsList",
-		    installationService.listInstallations());
+	    map.put("installationsList", this.atmservice.listATMInstallations());
 	    map.put("userMsg", userMsg);
 	    return "terminals";
 	}
 
-	// TODO revisar esto cuando actualicemos el modelo
-	//
-	// if (terminalService.loadTerminalBySerialNumber(terminal
-	// .getSerialNumber()) != null) {
-	// map.put("userMsg", userMsg);
-	// map.put("canAdd", canAdd);
-	// map.put("duplicatedSerialNumber", true);
-	// return "terminals";
-	// }
-	// if (terminalService.loadTerminalByIp(terminal.getIp()) != null) {
-	// map.put("userMsg", userMsg);
-	// map.put("canAdd", canAdd);
-	// map.put("duplicatedIp", true);
-	// return "terminals";
-	// }
-	//
-	// if (terminalService.loadTerminalByMac(terminal.getMac()) != null) {
-	// map.put("userMsg", userMsg);
-	// map.put("canAdd", canAdd);
-	// map.put("duplicatedMac", true);
-	// return "terminals";
-	// }
-
-	terminalService.addTerminal(terminal);
+	this.atmservice.addUpdateATM(terminal, ATMFacade.ADD);
 
 	try {
 	    // We wait to avoid not loading the recently added DB data
@@ -589,32 +517,22 @@ public class TerminalController {
 	    terminal.setBankCompany(null);
 	}
 
-	// TODO
-	// Revisar esta parte ahora que las terminales tienen varias
-	// instalaciones
-	//
-	// if ((terminal.getInstallation() != null)
-	// && (terminal.getInstallation().getId() == null)) {
-	// terminal.setInstallation(null);
-	// }
 	if ((terminal.getTerminalModel() != null)
 		&& (terminal.getTerminalModel().getId() == null)) {
 	    terminal.setTerminalModel(null);
 	}
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	List<Terminal> terminals = new ArrayList<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    terminals = terminalService.listTerminalsByBankCompanies(loggedUser
-		    .getManageableBankCompanies());
-	    bankCompanies = loggedUser.getManageableBankCompanies();
+	    userMsg = this.getUserGreeting(principal, request);
+	    bankCompanies = this.bankCompanyService
+		    .getUserManageableBankCompanies(principal.getName());
+	    terminals = this.atmservice.listATMByBanks(bankCompanies, null,
+		    null);
 	}
 	map.put("banksList", bankCompanies);
-	map.put("installationsList", installationService.listInstallations());
+	map.put("installationsList", this.atmservice.listATMInstallations());
 	map.put("terminalsList", terminals);
 	map.put("userMsg", userMsg);
 	if (result.hasErrors()) {
@@ -622,34 +540,9 @@ public class TerminalController {
 	    return "terminalDetails";
 	}
 
-	// TODO revisar esto cuando actualicemos el modelo
-	//
-	// Terminal auxTerminal = terminalService
-	// .loadTerminalBySerialNumber(terminal.getSerialNumber());
-	// if ((auxTerminal != null)
-	// && (!auxTerminal.getId().equals(terminal.getId()))) {
-	// map.put("duplicatedSerialNumber", true);
-	// map.put("errors", true);
-	// return "terminalDetails";
-	// }
-	// auxTerminal = terminalService.loadTerminalByIp(terminal.getIp());
-	// if ((auxTerminal != null)
-	// && (!auxTerminal.getId().equals(terminal.getId()))) {
-	// map.put("duplicatedIp", true);
-	// map.put("errors", true);
-	// return "terminalDetails";
-	// }
-	// auxTerminal = terminalService.loadTerminalByMac(terminal.getMac());
-	// if ((auxTerminal != null)
-	// && (!auxTerminal.getId().equals(terminal.getId()))) {
-	// map.put("duplicatedMac", true);
-	// map.put("errors", true);
-	// return "terminalDetails";
-	// }
-
-	Terminal auxTerminal = terminalService.getTerminal(terminal.getId());
+	Terminal auxTerminal = this.atmservice.getATMById(terminal.getId());
 	auxTerminal.replaceTerminalData(terminal);
-	terminalService.updateTerminal(auxTerminal);
+	this.atmservice.addUpdateATM(auxTerminal, ATMFacade.UPDATE);
 	redirectAttributes.addFlashAttribute("success",
 		"success.updatingTerminal");
 	try {
@@ -680,8 +573,8 @@ public class TerminalController {
      *            the order for sorting terminals
      * @param request
      *            the request
-     * @param queryDate the date
-     *            the date
+     * @param queryDate
+     *            the date the date
      * @return the petition response
      */
     @RequestMapping(value = "terminals/byQuery")
@@ -691,34 +584,31 @@ public class TerminalController {
 	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
 	Set<Query> userQueries = null;
-	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	}
 	String sortValue = (sort == null) ? DEFAULT_SORT : sort;
 	String orderValue = (order == null) ? DEFAULT_ORDER : order;
+
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userQueries = loggedUser.getQueries();
+	    userMsg = this.getUserGreeting(principal, request);
+	    userQueries = this.queryService.getQueriesByUser(principal
+		    .getName());
 	}
 	map.put("userQueries", userQueries);
 	map.put("userMsg", userMsg);
 	Query query = null;
 	List<Terminal> terminals = null;
 	if (queryId != null) {
-	    query = queryService.getQuery(queryId);
-	    terminals = queryService.executeQuery(query, locale, sortValue,
-		    orderValue, queryDate);
+	    query = this.queryService.getQuery(queryId);
+	    terminals = this.queryService.executeQuery(query, locale,
+		    sortValue, orderValue, queryDate);
 	}
 	if (terminals == null) {
-	    terminals = terminalService.listTerminals();
+	    // terminals = terminalService.listTerminals();
+	    terminals = this.atmservice.listAllATM();
 	}
-	
+
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>(
 		terminals);
-	
+
 	int page = 0;
 	if (p != null) {
 	    try {
@@ -734,12 +624,13 @@ public class TerminalController {
 	map.put("sort", sortValue);
 	map.put("order", orderValue);
 	map.put("queryDate", queryDate);
-	map.put("terminalIdsByLocation", buildTerminalIdsByLocationModel(terminals, queryDate));
-	
+	map.put("terminalIdsByLocation",
+		buildTerminalIdsByLocationModel(terminals, queryDate));
+
 	return "terminals";
     }
 
-	/**
+    /**
      * Redirect to terminal models URL.
      * 
      * @return the petition response
@@ -766,14 +657,11 @@ public class TerminalController {
     public String listTerminalModels(Map<String, Object> map,
 	    Principal principal, String p, HttpServletRequest request) {
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	PagedListHolder<TerminalModel> pagedListHolder = new PagedListHolder<TerminalModel>(
-		terminalModelService.listTerminalModels());
+		this.atmservice.listATMModels());
 	map.put("userMsg", userMsg);
 	map.put("terminalModel", new TerminalModel());
 	int page = 0;
@@ -823,15 +711,12 @@ public class TerminalController {
 
 	if (result.hasErrors()) {
 	    String userMsg = "";
-	    Locale locale = RequestContextUtils.getLocale(request);
 	    if (principal != null) {
-		User loggedUser = userService.getUserByUsername(principal
-			.getName());
-		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		userMsg = this.getUserGreeting(principal, request);
 	    }
 
 	    PagedListHolder<TerminalModel> pagedListHolder = new PagedListHolder<TerminalModel>(
-		    terminalModelService.listTerminalModels());
+		    this.atmservice.listATMModels());
 	    map.put("userMsg", userMsg);
 	    int page = 0;
 	    if (p != null) {
@@ -848,7 +733,7 @@ public class TerminalController {
 	    return "terminalModels";
 	}
 
-	terminalModelService.addTerminalModel(terminalModel);
+	this.atmservice.addUpdateATMModel(terminalModel, ATMFacade.ADD);
 
 	try {
 	    // We wait to avoid not loading the recently added DB data
@@ -879,18 +764,15 @@ public class TerminalController {
 	    @PathVariable("terminalModelId") Integer terminalModelId,
 	    Map<String, Object> map, HttpServletRequest request,
 	    Principal principal) {
-	TerminalModel terminalModel = terminalModelService
-		.getTerminalModel(terminalModelId);
+	TerminalModel terminalModel = this.atmservice
+		.getATMModel(terminalModelId);
 	if (terminalModel == null) {
 	    map.clear();
 	    return "redirect:/terminals/models/list";
 	}
 	String userMsg = "";
-	Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
-	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	map.put("userMsg", userMsg);
 	map.put("terminalModel", terminalModel);
@@ -927,17 +809,14 @@ public class TerminalController {
 
 	if (result.hasErrors()) {
 	    String userMsg = "";
-	    Locale locale = RequestContextUtils.getLocale(request);
 	    if (principal != null) {
-		User loggedUser = userService.getUserByUsername(principal
-			.getName());
-		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		userMsg = this.getUserGreeting(principal, request);
 	    }
 	    map.put("userMsg", userMsg);
 	    return "terminalModelDetails";
 	}
 
-	terminalModelService.updateTerminalModel(terminalModel);
+	this.atmservice.addUpdateATMModel(terminalModel, ATMFacade.UPDATE);
 
 	try {
 	    // We wait to avoid not loading the recently added DB data
@@ -961,10 +840,10 @@ public class TerminalController {
     @RequestMapping("/terminals/models/delete/{terminalModelId}")
     public String deleteTerminalModel(
 	    @PathVariable("terminalModelId") Integer terminalModelId) {
-	TerminalModel terminalModel = terminalModelService
-		.getTerminalModel(terminalModelId);
+	TerminalModel terminalModel = this.atmservice
+		.getATMModel(terminalModelId);
 	if (terminalModel != null) {
-	    terminalModelService.removeTerminalModel(terminalModelId);
+	    this.atmservice.removeATMModel(terminalModelId);
 	}
 
 	return "redirect:/terminals/models/list";
@@ -991,8 +870,7 @@ public class TerminalController {
 	    HttpServletRequest request, HttpServletResponse response,
 	    String width, String height) {
 
-	TerminalModel model = terminalModelService
-		.getTerminalModel(terminalModelId);
+	TerminalModel model = this.atmservice.getATMModel(terminalModelId);
 	try {
 	    if ((model != null) && (model.getPhoto() != null)) {
 		int realHeight = 0, realWidth = 0;
@@ -1091,12 +969,12 @@ public class TerminalController {
 	    OutputStream buffOs = new BufferedOutputStream(resOs);
 	    OutputStreamWriter outputwriter = new OutputStreamWriter(buffOs);
 	    outputwriter.write(Terminal.getCsvHeader());
-	    User loggedUser = userService
-		    .getUserByUsername(principal.getName());
 	    List<Terminal> terminals = null;
 	    logger.debug("Exporting to CSV all terminals");
-	    terminals = terminalService.listTerminalsByBankCompanies(loggedUser
-		    .getManageableBankCompanies());
+	    Set<BankCompany> banksCompanies = this.bankCompanyService
+		    .getUserManageableBankCompanies(principal.getName());
+	    terminals = this.atmservice.listATMByBanks(banksCompanies, null,
+		    null);
 
 	    for (Terminal terminal : terminals) {
 		outputwriter.write("\n" + terminal.getCsvDescription());
@@ -1123,8 +1001,8 @@ public class TerminalController {
 	Terminal terminal = null;
 	if (matricula != null) {
 	    try {
-		terminal = terminalService.loadTerminalByMatricula(Long
-			.parseLong(matricula));
+		terminal = this.atmservice.getATM(null,
+			Long.parseLong(matricula), null, null);
 	    } catch (NumberFormatException e) {
 	    }
 	}
@@ -1163,8 +1041,8 @@ public class TerminalController {
 	Terminal terminal = null;
 	if (matricula != null) {
 	    try {
-		terminal = terminalService.loadTerminalByMatricula(Long
-			.parseLong(matricula));
+		terminal = this.atmservice.getATM(null,
+			Long.parseLong(matricula), null, null);
 	    } catch (NumberFormatException e) {
 	    }
 	}
@@ -1176,31 +1054,35 @@ public class TerminalController {
 	    installation.setLocation(locationService.getLocation(installation
 		    .getLocation().getId()));
 	}
-	installationService.addInstallation(installation);
+	this.atmservice.addUpdateATMInstallation(installation, ATMFacade.ADD);
 	terminal.setCurrentInstallation(installation);
-	terminalService.updateTerminal(terminal);
+	this.atmservice.addUpdateATM(terminal, ATMFacade.UPDATE);
 	map.put("installation", new Installation());
 	map.put("locations", locationService.listLocations());
 	return "closeIframeUpdateParent";
     }
 
-    private Map<Location, List<Integer>> buildTerminalIdsByLocationModel(List<Terminal> terminals, Date queryDate) {
-    	Map<Location, List<Integer>>  terminalsLocationsInfo = new HashMap<Location, List<Integer>> ();
-		
-    	for(Terminal terminal : terminals) {
-			Installation installation = terminal.getCurrentInstallationByDate(queryDate);
-			Location location = installation != null ? installation.getLocation() : null;
-			
-			if( location != null && location.hasCoordinates()) {
-				List<Integer> terminalIds = terminalsLocationsInfo.get(location);
-				if(terminalIds == null) {
-					terminalIds = new ArrayList<Integer>();
-					terminalsLocationsInfo.put(location, terminalIds);
-				} 
-				terminalIds.add(terminal.getId());
-			}
+    private Map<Location, List<Integer>> buildTerminalIdsByLocationModel(
+	    List<Terminal> terminals, Date queryDate) {
+	Map<Location, List<Integer>> terminalsLocationsInfo = new HashMap<Location, List<Integer>>();
+
+	for (Terminal terminal : terminals) {
+	    Installation installation = terminal
+		    .getCurrentInstallationByDate(queryDate);
+	    Location location = installation != null ? installation
+		    .getLocation() : null;
+
+	    if (location != null && location.hasCoordinates()) {
+		List<Integer> terminalIds = terminalsLocationsInfo
+			.get(location);
+		if (terminalIds == null) {
+		    terminalIds = new ArrayList<Integer>();
+		    terminalsLocationsInfo.put(location, terminalIds);
 		}
-    	
-		return terminalsLocationsInfo;
+		terminalIds.add(terminal.getId());
+	    }
 	}
+
+	return terminalsLocationsInfo;
+    }
 }
