@@ -1256,7 +1256,6 @@ public class TerminalServiceImpl implements TerminalService {
      * @see com.ncr.ATMMonitoring.service.TerminalService#checkDateLicense ()
      */
     @Override
-    @Scheduled(cron = "0 * * * * *")
     public void checkDateLicense() {
 	try {
 	    if ((licenseKey == null) || (licenseKey.length() != 16)) {
