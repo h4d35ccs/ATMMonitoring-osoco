@@ -201,7 +201,7 @@ latex_elements = {
 #'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
-'preamble': mypreamble,
+'preamble': mypreamble + '\n\setcounter{tocdepth}{2}',
 'classoptions': ',oneside',
 'babel': '\\usepackage[english]{babel}'
 }
