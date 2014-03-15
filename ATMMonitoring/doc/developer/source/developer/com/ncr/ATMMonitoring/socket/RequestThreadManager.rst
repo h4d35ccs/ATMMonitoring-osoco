@@ -8,19 +8,13 @@
 
 .. java:import:: java.util Collections
 
-.. java:import:: java.util HashSet
-
 .. java:import:: java.util Iterator
-
-.. java:import:: java.util LinkedHashSet
 
 .. java:import:: java.util List
 
 .. java:import:: java.util Properties
 
 .. java:import:: java.util Queue
-
-.. java:import:: java.util Set
 
 .. java:import:: javax.net ServerSocketFactory
 
@@ -39,8 +33,6 @@
 .. java:import:: org.springframework.core.io ClassPathResource
 
 .. java:import:: org.springframework.core.io.support PropertiesLoaderUtils
-
-.. java:import:: com.ncr ATMMonitoring.handler.QueueHandler
 
 RequestThreadManager
 ====================

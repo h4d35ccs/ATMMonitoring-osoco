@@ -1,10 +1,6 @@
 .. java:import:: java.util List
 
-.. java:import:: com.ncr ATMMonitoring.pojo.Query
-
 .. java:import:: com.ncr ATMMonitoring.pojo.Role
-
-.. java:import:: com.ncr ATMMonitoring.pojo.User
 
 RoleService
 ===========

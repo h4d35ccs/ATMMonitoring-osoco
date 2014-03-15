@@ -8,6 +8,7 @@ com.ncr.ATMMonitoring.pojo
 
    Auditable
    AuditableInternetExplorer
+   AuditableSoftwareAggregate
    BankCompany
    Dashboard
    Dashboard-ColumnOptions

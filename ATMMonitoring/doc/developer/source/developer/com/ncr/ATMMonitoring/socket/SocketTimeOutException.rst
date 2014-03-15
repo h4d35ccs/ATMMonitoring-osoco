@@ -34,7 +34,7 @@ SocketTimeOutException
 
    Instantiates a new socket time out exception.
 
-   :param string: the string
+   :param string: the ip that raised the timeout
 
 SocketTimeOutException
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -44,7 +44,7 @@ SocketTimeOutException
 
    Instantiates a new socket time out exception.
 
-   :param strings: the strings
+   :param strings: the ips that raised the timeout
 
 Methods
 -------

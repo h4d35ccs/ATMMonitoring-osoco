@@ -6,8 +6,6 @@
 
 .. java:import:: org.hibernate.criterion Order
 
-.. java:import:: org.hibernate.criterion Restrictions
-
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.OperatingSystem
@@ -36,12 +34,6 @@ getOperatingSystem
 ^^^^^^^^^^^^^^^^^^
 
 .. java:method:: @Override public OperatingSystem getOperatingSystem(Integer id)
-   :outertype: OperatingSystemDAOImpl
-
-getOperatingSystemBySerialNumber
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: @Override public OperatingSystem getOperatingSystemBySerialNumber(String number)
    :outertype: OperatingSystemDAOImpl
 
 listOperatingSystem

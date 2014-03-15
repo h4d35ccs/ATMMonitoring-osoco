@@ -8,8 +8,6 @@
 
 .. java:import:: org.springframework.beans.factory.annotation Autowired
 
-.. java:import:: com.ncr ATMMonitoring.pojo.FinancialDevice
-
 AbstractGenericDAO
 ==================
 

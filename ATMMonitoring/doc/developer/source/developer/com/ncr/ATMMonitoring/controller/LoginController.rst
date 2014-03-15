@@ -1,16 +1,10 @@
 .. java:import:: java.util Map
 
-.. java:import:: org.apache.log4j Logger
-
-.. java:import:: org.springframework.http HttpStatus
-
 .. java:import:: org.springframework.stereotype Controller
 
 .. java:import:: org.springframework.web.bind.annotation RequestMapping
 
 .. java:import:: org.springframework.web.bind.annotation RequestMethod
-
-.. java:import:: org.springframework.web.bind.annotation ResponseStatus
 
 LoginController
 ===============

@@ -52,8 +52,6 @@
 
 .. java:import:: org.springframework.security.core GrantedAuthority
 
-.. java:import:: org.springframework.security.core.authority GrantedAuthorityImpl
-
 .. java:import:: org.springframework.security.core.userdetails UserDetails
 
 User

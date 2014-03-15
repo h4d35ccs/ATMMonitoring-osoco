@@ -1,10 +1,4 @@
-.. java:import:: java.util Arrays
-
-.. java:import:: java.util Date
-
 .. java:import:: java.util HashSet
-
-.. java:import:: java.util List
 
 .. java:import:: java.util Set
 
@@ -57,7 +51,7 @@ Methods
 equals
 ^^^^^^
 
-.. java:method:: public boolean equals(Object o)
+.. java:method:: @Override public boolean equals(Object o)
    :outertype: TerminalConfig
 
 getId

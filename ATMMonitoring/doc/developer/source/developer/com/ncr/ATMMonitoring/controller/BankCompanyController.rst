@@ -1,7 +1,5 @@
 .. java:import:: java.security Principal
 
-.. java:import:: java.util Locale
-
 .. java:import:: java.util Map
 
 .. java:import:: javax.servlet.http HttpServletRequest
@@ -26,15 +24,9 @@
 
 .. java:import:: org.springframework.web.bind.annotation RequestMethod
 
-.. java:import:: org.springframework.web.servlet.support RequestContextUtils
-
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
 
-.. java:import:: com.ncr ATMMonitoring.pojo.User
-
 .. java:import:: com.ncr ATMMonitoring.service.BankCompanyService
-
-.. java:import:: com.ncr ATMMonitoring.service.UserService
 
 BankCompanyController
 =====================
@@ -42,7 +34,7 @@ BankCompanyController
 .. java:package:: com.ncr.ATMMonitoring.controller
    :noindex:
 
-.. java:type:: @Controller public class BankCompanyController
+.. java:type:: @Controller public class BankCompanyController extends GenericController
 
    The Class BankCompanyController. Controller for handling bank company related HTTP petitions.
 

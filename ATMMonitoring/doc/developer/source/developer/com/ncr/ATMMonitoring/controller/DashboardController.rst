@@ -36,7 +36,7 @@
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Widget
 
-.. java:import:: com.ncr ATMMonitoring.serviceFacade.DashboardWidgetFacade
+.. java:import:: com.ncr ATMMonitoring.servicefacade.DashboardWidgetFacade
 
 DashboardController
 ===================

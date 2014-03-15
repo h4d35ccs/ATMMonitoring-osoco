@@ -1,10 +1,6 @@
 .. java:import:: java.security Principal
 
-.. java:import:: java.util ArrayList
-
 .. java:import:: java.util HashSet
-
-.. java:import:: java.util Locale
 
 .. java:import:: java.util Map
 
@@ -38,15 +34,11 @@
 
 .. java:import:: org.springframework.web.bind.annotation RequestMethod
 
-.. java:import:: org.springframework.web.servlet.support RequestContextUtils
+.. java:import:: com.ncr ATMMonitoring.controller.propertyeditor.BankCompanyPropertyEditor
 
-.. java:import:: com.ncr ATMMonitoring.controller.propertyEditor.BankCompanyPropertyEditor
-
-.. java:import:: com.ncr ATMMonitoring.controller.propertyEditor.RolePropertyEditor
+.. java:import:: com.ncr ATMMonitoring.controller.propertyeditor.RolePropertyEditor
 
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
-
-.. java:import:: com.ncr ATMMonitoring.pojo.Query
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Role
 
@@ -64,7 +56,7 @@ UserController
 .. java:package:: com.ncr.ATMMonitoring.controller
    :noindex:
 
-.. java:type:: @Controller public class UserController
+.. java:type:: @Controller public class UserController extends GenericController
 
    The Class UserController. Controller for handling user related HTTP petitions.
 

@@ -1,5 +1,7 @@
 .. java:import:: java.math BigInteger
 
+.. java:import:: java.security GeneralSecurityException
+
 .. java:import:: java.util List
 
 .. java:import:: java.util Set
@@ -22,6 +24,8 @@
 
 .. java:import:: org.hibernate.type Type
 
+.. java:import:: org.springframework.beans.factory.annotation Value
+
 .. java:import:: org.springframework.stereotype Repository
 
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
@@ -29,6 +33,10 @@
 .. java:import:: com.ncr ATMMonitoring.pojo.HardwareDevice
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Terminal
+
+.. java:import:: com.ncr ATMMonitoring.utils.TrialEndedException
+
+.. java:import:: com.ncr ATMMonitoring.utils.Utils
 
 .. java:import:: com.ncr.agent.baseData ATMDataStorePojo
 
@@ -52,6 +60,12 @@ addTerminal
 ^^^^^^^^^^^
 
 .. java:method:: @Override public void addTerminal(Terminal terminal)
+   :outertype: TerminalDAOImpl
+
+deleteAllTerminalData
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void deleteAllTerminalData()
    :outertype: TerminalDAOImpl
 
 getTerminal

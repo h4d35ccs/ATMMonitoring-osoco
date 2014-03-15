@@ -37,17 +37,6 @@ getOperatingSystem
    :param id: the id
    :return: the operating system, or null if it doesn't exist
 
-getOperatingSystemBySerialNumber
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public OperatingSystem getOperatingSystemBySerialNumber(String number)
-   :outertype: OperatingSystemDAO
-
-   Gets the operating system by serial number.
-
-   :param number: the number
-   :return: the operating system by serial number, or null if it doesn't exist
-
 listOperatingSystem
 ^^^^^^^^^^^^^^^^^^^
 

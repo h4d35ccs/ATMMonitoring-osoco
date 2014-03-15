@@ -2,8 +2,6 @@
 
 .. java:import:: com.ncr ATMMonitoring.pojo.JxfsComponent
 
-.. java:import:: com.ncr ATMMonitoring.pojo.XfsComponent
-
 JxfsComponentDAO
 ================
 

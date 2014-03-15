@@ -8,11 +8,7 @@
 
 .. java:import:: com.ncr ATMMonitoring.dao.RoleDAO
 
-.. java:import:: com.ncr ATMMonitoring.pojo.Query
-
 .. java:import:: com.ncr ATMMonitoring.pojo.Role
-
-.. java:import:: com.ncr ATMMonitoring.pojo.User
 
 RoleServiceImpl
 ===============

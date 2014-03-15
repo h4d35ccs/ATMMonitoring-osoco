@@ -18,8 +18,6 @@
 
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
 
-.. java:import:: com.ncr ATMMonitoring.pojo.Terminal
-
 .. java:import:: com.ncr ATMMonitoring.pojo.User
 
 UserDAOImpl

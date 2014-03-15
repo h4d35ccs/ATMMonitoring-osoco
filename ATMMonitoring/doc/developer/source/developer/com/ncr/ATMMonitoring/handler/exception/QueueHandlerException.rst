@@ -26,7 +26,7 @@ FILE_PATH_NOT_FOUND
 .. java:field:: public static final String FILE_PATH_NOT_FOUND
    :outertype: QueueHandlerException
 
-   FILE_PATH_NOT_FOUND ="Queue File Path not found, check the prioperty file for values: config.queue.filestore.path , and config.queue.file.name";
+   FILE_PATH_NOT_FOUND = "Queue File Path not found, check the prioperty file for values: config.queue.filestore.path , and config.queue.file.name" ;
 
 GENERAL_ERROR
 ^^^^^^^^^^^^^
@@ -50,7 +50,7 @@ NULL_OPERATION_ERROR
 .. java:field:: public static final String NULL_OPERATION_ERROR
    :outertype: QueueHandlerException
 
-   NULL_OPERATION = "This operation can not be made because the queue is null, either the load method was not called or it fails to load the queue.";
+   NULL_OPERATION = "This operation can not be made because the queue is null, either the load method was not called or it fails to load the queue."
 
 READ_IO_ERROR
 ^^^^^^^^^^^^^
@@ -76,15 +76,28 @@ QueueHandlerException
 .. java:constructor:: public QueueHandlerException(String message, Throwable cause)
    :outertype: QueueHandlerException
 
+   Constructor that accepts both another Throwable (usually an Exception) as the cause of the constructed one and a message.
+
+   :param message: the exception message
+   :param cause: the cause of this exception
+
 QueueHandlerException
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. java:constructor:: public QueueHandlerException(String message)
    :outertype: QueueHandlerException
 
+   Constructor that simply accepts a message.
+
+   :param message: the exception message
+
 QueueHandlerException
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. java:constructor:: public QueueHandlerException(Throwable cause)
    :outertype: QueueHandlerException
+
+   Constructor that accepts another Throwable (usually an Exception) as the cause of the constructed one.
+
+   :param cause: the cause of this exception
 

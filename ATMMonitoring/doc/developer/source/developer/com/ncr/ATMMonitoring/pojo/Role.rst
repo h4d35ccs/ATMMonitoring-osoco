@@ -24,8 +24,6 @@
 
 .. java:import:: javax.persistence Table
 
-.. java:import:: org.springframework.beans.factory.annotation Value
-
 .. java:import:: org.springframework.security.core GrantedAuthority
 
 .. java:import:: org.springframework.security.core.authority SimpleGrantedAuthority

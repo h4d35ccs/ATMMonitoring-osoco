@@ -1,7 +1,5 @@
 .. java:import:: java.util Arrays
 
-.. java:import:: java.util Collection
-
 .. java:import:: java.util Date
 
 .. java:import:: java.util HashMap
@@ -13,10 +11,6 @@
 .. java:import:: java.util Map
 
 .. java:import:: java.util Set
-
-.. java:import:: org.springframework.stereotype Service
-
-.. java:import:: org.springframework.transaction.annotation Transactional
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Auditable
 
@@ -63,6 +57,12 @@ getCurrentAuditableElementByDate
 setCurrentAuditableElement
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public <T extends Auditable> void setCurrentAuditableElement(Set<T> auditableElements, T newauditableElement)
+.. java:method:: public <T extends Auditable> void setCurrentAuditableElement(Set<T> auditableElements, T newAuditableElement)
+   :outertype: AuditableSetOperationsImpl
+
+updateAuditableElements
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public <T extends Auditable> void updateAuditableElements(Set<T> auditableElements, Set<T> newAuditableElements)
    :outertype: AuditableSetOperationsImpl
 

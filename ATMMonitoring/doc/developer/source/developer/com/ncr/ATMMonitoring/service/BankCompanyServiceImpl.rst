@@ -1,5 +1,7 @@
 .. java:import:: java.util List
 
+.. java:import:: java.util Set
+
 .. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Service
@@ -9,6 +11,8 @@
 .. java:import:: com.ncr ATMMonitoring.dao.BankCompanyDAO
 
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
+
+.. java:import:: com.ncr ATMMonitoring.pojo.User
 
 BankCompanyServiceImpl
 ======================
@@ -34,6 +38,12 @@ getBankCompany
 ^^^^^^^^^^^^^^
 
 .. java:method:: @Override public BankCompany getBankCompany(Integer id)
+   :outertype: BankCompanyServiceImpl
+
+getUserManageableBankCompanies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Set<BankCompany> getUserManageableBankCompanies(String username)
    :outertype: BankCompanyServiceImpl
 
 listBankCompanies

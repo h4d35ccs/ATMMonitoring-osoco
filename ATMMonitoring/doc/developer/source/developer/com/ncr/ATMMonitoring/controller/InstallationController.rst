@@ -2,8 +2,6 @@
 
 .. java:import:: java.util Date
 
-.. java:import:: java.util Locale
-
 .. java:import:: java.util Map
 
 .. java:import:: javax.servlet.http HttpServletRequest
@@ -32,21 +30,15 @@
 
 .. java:import:: org.springframework.web.bind.annotation RequestMethod
 
-.. java:import:: org.springframework.web.servlet.support RequestContextUtils
-
-.. java:import:: com.ncr ATMMonitoring.controller.propertyEditor.DatePropertyEditor
+.. java:import:: com.ncr ATMMonitoring.controller.propertyeditor.DatePropertyEditor
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Installation
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Location
 
-.. java:import:: com.ncr ATMMonitoring.pojo.User
-
 .. java:import:: com.ncr ATMMonitoring.service.InstallationService
 
 .. java:import:: com.ncr ATMMonitoring.service.LocationService
-
-.. java:import:: com.ncr ATMMonitoring.service.UserService
 
 InstallationController
 ======================
@@ -54,7 +46,7 @@ InstallationController
 .. java:package:: com.ncr.ATMMonitoring.controller
    :noindex:
 
-.. java:type:: @Controller public class InstallationController
+.. java:type:: @Controller public class InstallationController extends GenericController
 
    The Class InstallationController. Controller for handling installation related HTTP petitions.
 

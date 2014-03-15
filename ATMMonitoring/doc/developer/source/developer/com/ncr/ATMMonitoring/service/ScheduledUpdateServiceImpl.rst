@@ -12,8 +12,6 @@
 
 .. java:import:: org.springframework.beans.factory.annotation Autowired
 
-.. java:import:: org.springframework.scheduling.annotation Scheduled
-
 .. java:import:: org.springframework.stereotype Service
 
 .. java:import:: org.springframework.transaction.annotation Transactional
@@ -49,7 +47,7 @@ addScheduledUpdate
 checkCurrentUpdates
 ^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public void checkCurrentUpdates()
+.. java:method:: @Override public void checkCurrentUpdates()
    :outertype: ScheduledUpdateServiceImpl
 
 existsScheduledUpdate

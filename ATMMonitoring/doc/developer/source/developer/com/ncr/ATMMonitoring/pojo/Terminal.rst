@@ -24,10 +24,6 @@
 
 .. java:import:: javax.persistence JoinColumn
 
-.. java:import:: javax.persistence JoinTable
-
-.. java:import:: javax.persistence ManyToMany
-
 .. java:import:: javax.persistence ManyToOne
 
 .. java:import:: javax.persistence OneToMany
@@ -114,6 +110,17 @@ getActiveAuditableInternetExplorersByDate
 
    :param date: The date
    :return: The auditable internet explorers
+
+getActiveAuditableSoftwareAggregatesByDate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Set<AuditableSoftwareAggregate> getActiveAuditableSoftwareAggregatesByDate(Date date)
+   :outertype: Terminal
+
+   Get active software aggregates by date
+
+   :param date: The date
+   :return: The active software aggregates
 
 getActiveBaseBoardsByDate
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -294,17 +301,6 @@ getActiveSerialPortsByDate
    :outertype: Terminal
 
    :return: the hardwareDevices
-
-getActiveSoftwareAggregatesByDate
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public Set<SoftwareAggregate> getActiveSoftwareAggregatesByDate(Date date)
-   :outertype: Terminal
-
-   Get active software aggregates by date
-
-   :param date: The date
-   :return: The active software aggregates
 
 getActiveSoundDevicesByDate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1058,16 +1054,6 @@ setSerialNumber
 
    :param serialNumber: the serialNumber to set
 
-setSoftwareAggregates
-^^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public void setSoftwareAggregates(Set<SoftwareAggregate> softwareAggregates)
-   :outertype: Terminal
-
-   Sets the software aggregates.
-
-   :param softwareAggregates: the softwareAggregates to set
-
 setTerminalModel
 ^^^^^^^^^^^^^^^^
 
@@ -1107,4 +1093,54 @@ setTracerNumber
    Sets the tracer number.
 
    :param tracerNumber: the tracerNumber to set
+
+updateAuditableInternetExplorers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void updateAuditableInternetExplorers(Set<AuditableInternetExplorer> newAuditableInternetExplorers)
+   :outertype: Terminal
+
+   Update the collection of auditable internet explorer
+
+   :param newAuditableInternetExplorers: the internetExplorers to set
+
+updateAuditableSoftwareAggregates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void updateAuditableSoftwareAggregates(Set<AuditableSoftwareAggregate> newAuditableSoftwareAggregate)
+   :outertype: Terminal
+
+   Update the collection of auditable sofware aggregates
+
+   :param newAuditableSoftwareAggregate: the new software aggregates
+
+updateFinancialDevices
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void updateFinancialDevices(Set<FinancialDevice> newFinancialDevices)
+   :outertype: Terminal
+
+   Update the collection financial devices of auditable elements
+
+   :param hardwareDevices: The financial devices
+
+updateHardwareDevices
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void updateHardwareDevices(Set<HardwareDevice> newHardwareDevices)
+   :outertype: Terminal
+
+   Update the collection hardware devices of auditable elements
+
+   :param hardwareDevices: The hardware devices
+
+updateHotfixes
+^^^^^^^^^^^^^^
+
+.. java:method:: public void updateHotfixes(Set<Hotfix> newHotfixes)
+   :outertype: Terminal
+
+   Update the collection hardware devices of auditable elements
+
+   :param hardwareDevices: The hotfixes
 

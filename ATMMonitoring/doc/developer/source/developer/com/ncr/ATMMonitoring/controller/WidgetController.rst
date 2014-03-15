@@ -40,19 +40,17 @@
 
 .. java:import:: org.springframework.web.bind.annotation ResponseStatus
 
-.. java:import:: com.ncr ATMMonitoring.controller.propertyEditor.DatePropertyEditor
+.. java:import:: com.ncr ATMMonitoring.controller.propertyeditor.DatePropertyEditor
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Query
-
-.. java:import:: com.ncr ATMMonitoring.pojo.User
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Widget
 
 .. java:import:: com.ncr ATMMonitoring.pojo.WidgetCategory
 
-.. java:import:: com.ncr ATMMonitoring.service.UserService
+.. java:import:: com.ncr ATMMonitoring.service.QueryService
 
-.. java:import:: com.ncr ATMMonitoring.serviceFacade.DashboardWidgetFacade
+.. java:import:: com.ncr ATMMonitoring.servicefacade.DashboardWidgetFacade
 
 .. java:import:: com.ncr ATMMonitoring.utils.RegionType
 

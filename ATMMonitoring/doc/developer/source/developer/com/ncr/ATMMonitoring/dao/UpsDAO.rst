@@ -1,9 +1,5 @@
 .. java:import:: java.util List
 
-.. java:import:: org.hibernate.criterion Criterion
-
-.. java:import:: org.hibernate.criterion Restrictions
-
 .. java:import:: com.ncr ATMMonitoring.pojo.Ups
 
 UpsDAO
@@ -14,7 +10,7 @@ UpsDAO
 
 .. java:type:: public interface UpsDAO
 
-   Dao interface class that interact with the UPS table
+   The Interface UpsDAO. Dao with the operations for managing Ups Pojos.
 
    :author: Otto Abreu
 
@@ -23,22 +19,22 @@ Methods
 addUps
 ^^^^^^
 
-.. java:method::  void addUps(Ups ups)
+.. java:method:: public void addUps(Ups ups)
    :outertype: UpsDAO
 
    Adds a new Ups to the database
 
-   :param ups:
+   :param ups: the UPS to add
 
 getUps
 ^^^^^^
 
-.. java:method::  Ups getUps(int id)
+.. java:method:: public Ups getUps(int id)
    :outertype: UpsDAO
 
-   returns the UPS entity that matches the given id
+   Returns the UPS that matches the given id
 
-   :param id: int
+   :param id: the id of the UPS we want to retrieve
 
 getUpsBySerialNumber
 ^^^^^^^^^^^^^^^^^^^^
@@ -48,8 +44,8 @@ getUpsBySerialNumber
 
    Returns a Ups by the given series number
 
-   :param seriesNumber: String
-   :return: Ups
+   :param seriesNumber: the series number to search for
+   :return: the UPS that matches the given parameters, or null if it can't be found
 
 getUpsBySerialNumberAndModel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -59,46 +55,37 @@ getUpsBySerialNumberAndModel
 
    Returns a Ups by the given series number and model
 
-   :param seriesNumber: String
-   :param model: String
-   :return: Ups
+   :param seriesNumber: the series number to search for
+   :param model: the model to search for
+   :return: the UPS that matches the given parameters, or null if it can't be found
 
 listAllUps
 ^^^^^^^^^^
 
-.. java:method::  List<Ups> listAllUps()
+.. java:method:: public List<Ups> listAllUps()
    :outertype: UpsDAO
 
-   Returns all the ups from the db
+   Returns all the ups from the DB
 
-listUps
-^^^^^^^
-
-.. java:method:: public List<Ups> listUps(Criterion... criterions)
-   :outertype: UpsDAO
-
-   Returns the ups that matches the given criterions. To add a criterion please use :java:ref:`Restrictions` or another class that implement :java:ref:`Criterion`
-
-   :param criterions: :java:ref:`Criterion`
-   :return: List<Ups>
+   :return: a list with all the UPS stored
 
 removeUps
 ^^^^^^^^^
 
-.. java:method::  void removeUps(int id)
+.. java:method:: public void removeUps(int id)
    :outertype: UpsDAO
 
    Removes from the DB the UPS that matches with the given id
 
-   :param id:
+   :param id: the id of the UPS we want to delete
 
 updateUps
 ^^^^^^^^^
 
-.. java:method::  void updateUps(Ups ups)
+.. java:method:: public void updateUps(Ups ups)
    :outertype: UpsDAO
 
-   Updates the data of an ups
+   Updates the data of an UPS
 
-   :param ups:
+   :param ups: the UPS to update
 

@@ -16,6 +16,10 @@
 
 .. java:import:: javax.persistence SequenceGenerator
 
+.. java:import:: org.hibernate.annotations Cascade
+
+.. java:import:: org.hibernate.annotations CascadeType
+
 AuditableInternetExplorer
 =========================
 
@@ -50,6 +54,12 @@ AuditableInternetExplorer
 
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: AuditableInternetExplorer
+
 getInternetExplorer
 ^^^^^^^^^^^^^^^^^^^
 
@@ -59,6 +69,12 @@ getInternetExplorer
    Get the internet explorer
 
    :return: The internet explorer
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: AuditableInternetExplorer
 
 setInternetExplorer
 ^^^^^^^^^^^^^^^^^^^

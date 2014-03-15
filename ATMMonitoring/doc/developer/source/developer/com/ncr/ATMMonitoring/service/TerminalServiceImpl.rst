@@ -1,10 +1,16 @@
 .. java:import:: java.io InputStream
 
+.. java:import:: java.security GeneralSecurityException
+
+.. java:import:: java.text ParseException
+
+.. java:import:: java.text SimpleDateFormat
+
 .. java:import:: java.util Collection
 
-.. java:import:: java.util HashSet
+.. java:import:: java.util Date
 
-.. java:import:: java.util Iterator
+.. java:import:: java.util HashSet
 
 .. java:import:: java.util List
 
@@ -18,15 +24,17 @@
 
 .. java:import:: org.springframework.beans.factory.annotation Autowired
 
+.. java:import:: org.springframework.beans.factory.annotation Value
+
 .. java:import:: org.springframework.stereotype Service
 
 .. java:import:: org.springframework.transaction.annotation Transactional
 
-.. java:import:: org.springframework.web.multipart.commons CommonsMultipartFile
-
 .. java:import:: com.ncr ATMMonitoring.dao.TerminalDAO
 
 .. java:import:: com.ncr ATMMonitoring.pojo.AuditableInternetExplorer
+
+.. java:import:: com.ncr ATMMonitoring.pojo.AuditableSoftwareAggregate
 
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
 
@@ -57,6 +65,8 @@
 .. java:import:: com.ncr ATMMonitoring.pojo.XfsComponent
 
 .. java:import:: com.ncr ATMMonitoring.socket.ATMWrongDataException
+
+.. java:import:: com.ncr ATMMonitoring.utils.Utils
 
 .. java:import:: com.ncr.agent.baseData ATMDataStorePojo
 
@@ -200,6 +210,12 @@ addTerminal
 .. java:method:: @Override public void addTerminal(Terminal terminal)
    :outertype: TerminalServiceImpl
 
+checkDateLicense
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void checkDateLicense()
+   :outertype: TerminalServiceImpl
+
 getTerminal
 ^^^^^^^^^^^
 
@@ -209,7 +225,7 @@ getTerminal
 importJsonTerminal
 ^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override public boolean importJsonTerminal(CommonsMultipartFile jsonFile)
+.. java:method:: @Override public boolean importJsonTerminal(InputStream is)
    :outertype: TerminalServiceImpl
 
 listTerminals

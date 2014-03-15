@@ -8,7 +8,7 @@ FileHandlerException
 
 .. java:type:: public class FileHandlerException extends RuntimeException
 
-   Indicates an error while performing an operation in the :java:ref:`FileInDiskHandler`
+   Indicates an error while performing an operation in the \ :java:ref:`FileInDiskHandler`\
 
    :author: Otto Abreu
 
@@ -52,7 +52,7 @@ MOVE_NULL_ERROR
 .. java:field:: public static final String MOVE_NULL_ERROR
    :outertype: FileHandlerException
 
-   MOVE_NULL_ERROR = "Can not execute the move/copy operation because file or dir are null: ";
+   MOVE_NULL_ERROR = "Can not execute the move/copy operation because file or dir are null: " ;
 
 NOT_A_VALID_FILE_FOLDER
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,8 +78,10 @@ FileHandlerException
 .. java:constructor:: public FileHandlerException(String message, Throwable cause)
    :outertype: FileHandlerException
 
-   :param message:
-   :param cause:
+   Constructor that accepts both another Throwable (usually an Exception) as the cause of the constructed one and a message.
+
+   :param message: the exception message
+   :param exc: the cause of this exception
 
 FileHandlerException
 ^^^^^^^^^^^^^^^^^^^^
@@ -87,5 +89,7 @@ FileHandlerException
 .. java:constructor:: public FileHandlerException(String message)
    :outertype: FileHandlerException
 
-   :param message:
+   Constructor that simply accepts a message.
+
+   :param message: the exception message
 

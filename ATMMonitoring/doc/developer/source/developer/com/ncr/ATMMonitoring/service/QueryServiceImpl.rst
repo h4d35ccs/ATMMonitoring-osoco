@@ -2,13 +2,11 @@
 
 .. java:import:: java.util Date
 
-.. java:import:: java.util HashMap
-
 .. java:import:: java.util List
 
 .. java:import:: java.util Locale
 
-.. java:import:: java.util Map
+.. java:import:: java.util Set
 
 .. java:import:: org.apache.log4j Logger
 
@@ -27,6 +25,8 @@
 .. java:import:: com.ncr ATMMonitoring.pojo.Query
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Terminal
+
+.. java:import:: com.ncr ATMMonitoring.pojo.User
 
 .. java:import:: com.ncr ATMMonitoring.utils.WidgetQueryAssociationType
 
@@ -48,6 +48,12 @@ addQuery
 ^^^^^^^^
 
 .. java:method:: @Override public void addQuery(Query query)
+   :outertype: QueryServiceImpl
+
+addQuery
+^^^^^^^^
+
+.. java:method:: @Override public void addQuery(Query query, String username)
    :outertype: QueryServiceImpl
 
 deleteQuery
@@ -92,6 +98,18 @@ findOrCreateQuery
 .. java:method:: @Override public Query findOrCreateQuery(Query query)
    :outertype: QueryServiceImpl
 
+getQueriesByUser
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Set<Query> getQueriesByUser(String username)
+   :outertype: QueryServiceImpl
+
+getQueriesByUser
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public Set<Query> getQueriesByUser(User user)
+   :outertype: QueryServiceImpl
+
 getQuery
 ^^^^^^^^
 
@@ -104,9 +122,21 @@ listQueries
 .. java:method:: @Override public List<Query> listQueries()
    :outertype: QueryServiceImpl
 
+queryBelongToUser
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public boolean queryBelongToUser(Query query, String username)
+   :outertype: QueryServiceImpl
+
 updateQuery
 ^^^^^^^^^^^
 
 .. java:method:: @Override public void updateQuery(Query query)
+   :outertype: QueryServiceImpl
+
+updateQuery
+^^^^^^^^^^^
+
+.. java:method:: @Override public void updateQuery(Query query, String username)
    :outertype: QueryServiceImpl
 

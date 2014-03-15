@@ -1,8 +1,8 @@
+.. java:import:: java.io InputStream
+
 .. java:import:: java.util List
 
 .. java:import:: java.util Set
-
-.. java:import:: org.springframework.web.multipart.commons CommonsMultipartFile
 
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
 
@@ -47,6 +47,14 @@ addTerminal
 
    :param terminal: the terminal
 
+checkDateLicense
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public void checkDateLicense()
+   :outertype: TerminalService
+
+   Check if date license has expired, and delete terminals' data in that case.
+
 getTerminal
 ^^^^^^^^^^^
 
@@ -61,7 +69,7 @@ getTerminal
 importJsonTerminal
 ^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public boolean importJsonTerminal(CommonsMultipartFile jsonFile)
+.. java:method:: public boolean importJsonTerminal(InputStream jsonFile)
    :outertype: TerminalService
 
    Import terminal from json.

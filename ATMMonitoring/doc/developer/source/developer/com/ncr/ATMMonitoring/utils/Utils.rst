@@ -1,12 +1,26 @@
+.. java:import:: java.nio.charset Charset
+
+.. java:import:: java.security GeneralSecurityException
+
 .. java:import:: java.util ArrayList
 
 .. java:import:: java.util Arrays
+
+.. java:import:: java.util Date
 
 .. java:import:: java.util Iterator
 
 .. java:import:: java.util List
 
 .. java:import:: java.util.regex Matcher
+
+.. java:import:: javax.crypto Cipher
+
+.. java:import:: javax.crypto.spec IvParameterSpec
+
+.. java:import:: javax.crypto.spec SecretKeySpec
+
+.. java:import:: javax.xml.bind DatatypeConverter
 
 .. java:import:: org.apache.commons.codec.digest DigestUtils
 
@@ -25,6 +39,40 @@ Utils
    The Class Utils. Commodity methods for several purposes.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
+
+Fields
+------
+KEYSTORE_KEY
+^^^^^^^^^^^^
+
+.. java:field:: public static final String KEYSTORE_KEY
+   :outertype: Utils
+
+   Hardcoded key for the encrypted keystore.
+
+NO_DATE_LIMIT
+^^^^^^^^^^^^^
+
+.. java:field:: public static final Date NO_DATE_LIMIT
+   :outertype: Utils
+
+   Terminal limit value that stands for no limit (1970-01-01 01:00).
+
+NO_TERMINAL_LIMIT
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final long NO_TERMINAL_LIMIT
+   :outertype: Utils
+
+   Terminal limit value that stands for no limit.
+
+PRIVATEKEY_KEY
+^^^^^^^^^^^^^^
+
+.. java:field:: public static final String PRIVATEKEY_KEY
+   :outertype: Utils
+
+   Hardcoded key for the encrypted privatekey.
 
 Methods
 -------
@@ -52,6 +100,18 @@ concatStrings
    :param separator: the separator
    :return: the concatted strings
 
+decrypt
+^^^^^^^
+
+.. java:method:: public static String decrypt(String configuredKey, String encrypted) throws GeneralSecurityException
+   :outertype: Utils
+
+   Decrypts a string using the passed key and the hardcoded one.
+
+   :param configuredKey: the configured encryption key
+   :param encrypted: the string to decrypt
+   :return: the decrypted string
+
 getMD5Hex
 ^^^^^^^^^
 
@@ -62,6 +122,18 @@ getMD5Hex
 
    :param content: the string
    :return: the MD5 hex
+
+simpleDecrypt
+^^^^^^^^^^^^^
+
+.. java:method:: public static String simpleDecrypt(String key, String encrypted) throws GeneralSecurityException
+   :outertype: Utils
+
+   Decrypts a string using the passed key.
+
+   :param key: the encryption key
+   :param encrypted: the string to decrypt
+   :return: the decrypted string
 
 splitIntegers
 ^^^^^^^^^^^^^

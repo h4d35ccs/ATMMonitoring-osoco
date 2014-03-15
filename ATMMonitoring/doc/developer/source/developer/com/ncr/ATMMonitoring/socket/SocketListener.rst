@@ -8,8 +8,6 @@
 
 .. java:import:: javax.annotation PreDestroy
 
-.. java:import:: javax.net ServerSocketFactory
-
 .. java:import:: org.apache.log4j Logger
 
 .. java:import:: org.springframework.beans.factory.annotation Value
@@ -24,7 +22,9 @@ SocketListener
 
 .. java:type:: @Component public class SocketListener extends Thread
 
-   The listener interface for receiving socket events. The class that is interested in processing a socket event implements this interface, and the object created with that class is registered with a component using the component's <code>addSocketListener<code> method. When the socket event occurs, that object's appropriate method is invoked.
+   The listener interface for receiving socket events. The class that is interested in processing a socket event implements this interface, and the object created with that class is registered with a component using the component's addSocketListener method. When
+   the socket event occurs, that object's appropriate
+   method is invoked.
 
    :author: Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
 

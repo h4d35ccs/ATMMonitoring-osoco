@@ -24,19 +24,9 @@ Ups
 
 .. java:type:: @Entity @Table public class Ups implements Serializable
 
-   Entity that holds the info of an UPS
+   The UPS Pojo.
 
    :author: Otto Abreu
-
-Constructors
-------------
-Ups
-^^^
-
-.. java:constructor:: public Ups()
-   :outertype: Ups
-
-   default constructor
 
 Methods
 -------
@@ -46,9 +36,9 @@ getAlarmMsg
 .. java:method:: public String getAlarmMsg()
    :outertype: Ups
 
-   Getter method for alarmMsg
+   Gets the alarm msg.
 
-   :return: the alarmMsg
+   :return: the alarm msg
 
 getAudFmo
 ^^^^^^^^^
@@ -56,39 +46,39 @@ getAudFmo
 .. java:method:: public Date getAudFmo()
    :outertype: Ups
 
-   Getter method for audFmo
+   Gets the aud fmo.
 
-   :return: the audFmo
+   :return: the aud fmo
 
 getAutonomyMilisec
 ^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public Long getAutonomyMilisec()
+.. java:method:: public long getAutonomyMilisec()
    :outertype: Ups
 
-   Getter method for autonomyMilisec
+   Gets the autonomy milisec.
 
-   :return: the autonomyMilisec
+   :return: the autonomy milisec
 
 getChargePercentage
 ^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public Float getChargePercentage()
+.. java:method:: public float getChargePercentage()
    :outertype: Ups
 
-   Getter method for chargePercentage
+   Gets the charge percentage.
 
-   :return: the chargePercentage
+   :return: the charge percentage
 
 getExpensePercentage
 ^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public Float getExpensePercentage()
+.. java:method:: public float getExpensePercentage()
    :outertype: Ups
 
-   Getter method for expensePercentage
+   Gets the expense percentage.
 
-   :return: the expensePercentage
+   :return: the expense percentage
 
 getFirmware
 ^^^^^^^^^^^
@@ -96,7 +86,7 @@ getFirmware
 .. java:method:: public String getFirmware()
    :outertype: Ups
 
-   Getter method for firmware
+   Gets the firmware.
 
    :return: the firmware
 
@@ -106,9 +96,9 @@ getGeneralStatusMsg
 .. java:method:: public String getGeneralStatusMsg()
    :outertype: Ups
 
-   Getter method for generalStatusMsg
+   Gets the general status msg.
 
-   :return: the generalStatusMsg
+   :return: the general status msg
 
 getId
 ^^^^^
@@ -116,7 +106,7 @@ getId
 .. java:method:: public Integer getId()
    :outertype: Ups
 
-   Getter method for id
+   Gets the id.
 
    :return: the id
 
@@ -126,7 +116,7 @@ getIp
 .. java:method:: public String getIp()
    :outertype: Ups
 
-   Getter method for ip
+   Gets the ip.
 
    :return: the ip
 
@@ -136,9 +126,9 @@ getLastExecutionDate
 .. java:method:: public Date getLastExecutionDate()
    :outertype: Ups
 
-   Getter method for lastExecutionDate
+   Gets the last execution date.
 
-   :return: the lastExecutionDate
+   :return: the last execution date
 
 getModel
 ^^^^^^^^
@@ -146,7 +136,7 @@ getModel
 .. java:method:: public String getModel()
    :outertype: Ups
 
-   Getter method for model
+   Gets the model.
 
    :return: the model
 
@@ -156,9 +146,9 @@ getNumPosition
 .. java:method:: public String getNumPosition()
    :outertype: Ups
 
-   Getter method for numPosition
+   Gets the num position.
 
-   :return: the numPosition
+   :return: the num position
 
 getOriginalXML
 ^^^^^^^^^^^^^^
@@ -166,9 +156,9 @@ getOriginalXML
 .. java:method:: public String getOriginalXML()
    :outertype: Ups
 
-   Getter method for originalXML
+   Gets the original xml.
 
-   :return: the originalXML
+   :return: the original xml
 
 getRunningStatus
 ^^^^^^^^^^^^^^^^
@@ -176,19 +166,19 @@ getRunningStatus
 .. java:method:: public String getRunningStatus()
    :outertype: Ups
 
-   Getter method for runningStatus
+   Gets the running status.
 
-   :return: the runningStatus
+   :return: the running status
 
 getRunningTimeMilisec
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public Long getRunningTimeMilisec()
+.. java:method:: public long getRunningTimeMilisec()
    :outertype: Ups
 
-   Getter method for runningTimeMilisec
+   Gets the running time milisec.
 
-   :return: the runningTimeMilisec
+   :return: the running time milisec
 
 getSeriesNumber
 ^^^^^^^^^^^^^^^
@@ -196,9 +186,9 @@ getSeriesNumber
 .. java:method:: public String getSeriesNumber()
    :outertype: Ups
 
-   Getter method for seriesNumber
+   Gets the series number.
 
-   :return: the seriesNumber
+   :return: the series number
 
 getType
 ^^^^^^^
@@ -206,7 +196,7 @@ getType
 .. java:method:: public String getType()
    :outertype: Ups
 
-   Getter method for type
+   Gets the type.
 
    :return: the type
 
@@ -216,9 +206,9 @@ setAlarmMsg
 .. java:method:: public void setAlarmMsg(String alarmMsg)
    :outertype: Ups
 
-   Setter method for the alarmMsg
+   Sets the alarm msg.
 
-   :param alarmMsg: the alarmMsg to set
+   :param alarmMsg: the new alarm msg
 
 setAudFmo
 ^^^^^^^^^
@@ -226,9 +216,9 @@ setAudFmo
 .. java:method:: public void setAudFmo(Date audFmo)
    :outertype: Ups
 
-   Setter method for the audFmo
+   Sets the aud fmo.
 
-   :param audFmo: the audFmo to set
+   :param audFmo: the new aud fmo
 
 setAutonomyMilisec
 ^^^^^^^^^^^^^^^^^^
@@ -236,9 +226,9 @@ setAutonomyMilisec
 .. java:method:: public void setAutonomyMilisec(Long autonomyMilisec)
    :outertype: Ups
 
-   Setter method for the autonomyMilisec
+   Sets the autonomy milisec.
 
-   :param autonomyMilisec: the autonomyMilisec to set
+   :param autonomyMilisec: the new autonomy milisec
 
 setChargePercentage
 ^^^^^^^^^^^^^^^^^^^
@@ -246,9 +236,9 @@ setChargePercentage
 .. java:method:: public void setChargePercentage(Float chargePercentage)
    :outertype: Ups
 
-   Setter method for the chargePercentage
+   Sets the charge percentage.
 
-   :param chargePercentage: the chargePercentage to set
+   :param chargePercentage: the new charge percentage
 
 setExpensePercentage
 ^^^^^^^^^^^^^^^^^^^^
@@ -256,9 +246,9 @@ setExpensePercentage
 .. java:method:: public void setExpensePercentage(Float expensePercentage)
    :outertype: Ups
 
-   Setter method for the expensePercentage
+   Sets the expense percentage.
 
-   :param expensePercentage: the expensePercentage to set
+   :param expensePercentage: the new expense percentage
 
 setFirmware
 ^^^^^^^^^^^
@@ -266,9 +256,9 @@ setFirmware
 .. java:method:: public void setFirmware(String firmware)
    :outertype: Ups
 
-   Setter method for the firmware
+   Sets the firmware.
 
-   :param firmware: the firmware to set
+   :param firmware: the new firmware
 
 setGeneralStatusMsg
 ^^^^^^^^^^^^^^^^^^^
@@ -276,9 +266,9 @@ setGeneralStatusMsg
 .. java:method:: public void setGeneralStatusMsg(String generalStatusMsg)
    :outertype: Ups
 
-   Setter method for the generalStatusMsg
+   Sets the general status msg.
 
-   :param generalStatusMsg: the generalStatusMsg to set
+   :param generalStatusMsg: the new general status msg
 
 setId
 ^^^^^
@@ -286,9 +276,9 @@ setId
 .. java:method:: public void setId(Integer id)
    :outertype: Ups
 
-   Setter method for the id
+   Sets the id.
 
-   :param id: the id to set
+   :param id: the new id
 
 setIp
 ^^^^^
@@ -296,9 +286,9 @@ setIp
 .. java:method:: public void setIp(String ip)
    :outertype: Ups
 
-   Setter method for the ip
+   Sets the ip.
 
-   :param ip: the ip to set
+   :param ip: the new ip
 
 setLastExecutionDate
 ^^^^^^^^^^^^^^^^^^^^
@@ -306,9 +296,9 @@ setLastExecutionDate
 .. java:method:: public void setLastExecutionDate(Date lastExecutionDate)
    :outertype: Ups
 
-   Setter method for the lastExecutionDate
+   Sets the last execution date.
 
-   :param lastExecutionDate: the lastExecutionDate to set
+   :param lastExecutionDate: the new last execution date
 
 setModel
 ^^^^^^^^
@@ -316,9 +306,9 @@ setModel
 .. java:method:: public void setModel(String model)
    :outertype: Ups
 
-   Setter method for the model
+   Sets the model.
 
-   :param model: the model to set
+   :param model: the new model
 
 setNumPosition
 ^^^^^^^^^^^^^^
@@ -326,9 +316,9 @@ setNumPosition
 .. java:method:: public void setNumPosition(String numPosition)
    :outertype: Ups
 
-   Setter method for the numPosition
+   Sets the num position.
 
-   :param numPosition: the numPosition to set
+   :param numPosition: the new num position
 
 setOriginalXML
 ^^^^^^^^^^^^^^
@@ -336,9 +326,9 @@ setOriginalXML
 .. java:method:: public void setOriginalXML(String originalXML)
    :outertype: Ups
 
-   Setter method for the originalXML
+   Sets the original xml.
 
-   :param originalXML: the originalXML to set
+   :param originalXML: the new original xml
 
 setRunningStatus
 ^^^^^^^^^^^^^^^^
@@ -346,9 +336,9 @@ setRunningStatus
 .. java:method:: public void setRunningStatus(String runningStatus)
    :outertype: Ups
 
-   Setter method for the runningStatus
+   Sets the running status.
 
-   :param runningStatus: the runningStatus to set
+   :param runningStatus: the new running status
 
 setRunningTimeMilisec
 ^^^^^^^^^^^^^^^^^^^^^
@@ -356,9 +346,9 @@ setRunningTimeMilisec
 .. java:method:: public void setRunningTimeMilisec(Long runningTimeMilisec)
    :outertype: Ups
 
-   Setter method for the runningTimeMilisec
+   Sets the running time milisec.
 
-   :param runningTimeMilisec: the runningTimeMilisec to set
+   :param runningTimeMilisec: the new running time milisec
 
 setSeriesNumber
 ^^^^^^^^^^^^^^^
@@ -366,9 +356,9 @@ setSeriesNumber
 .. java:method:: public void setSeriesNumber(String seriesNumber)
    :outertype: Ups
 
-   Setter method for the seriesNumber
+   Sets the series number.
 
-   :param seriesNumber: the seriesNumber to set
+   :param seriesNumber: the new series number
 
 setType
 ^^^^^^^
@@ -376,7 +366,7 @@ setType
 .. java:method:: public void setType(String type)
    :outertype: Ups
 
-   Setter method for the type
+   Sets the type.
 
-   :param type: the type to set
+   :param type: the new type
 

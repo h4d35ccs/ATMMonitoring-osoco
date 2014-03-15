@@ -28,6 +28,8 @@
 
 .. java:import:: javax.servlet.http HttpServletResponse
 
+.. java:import:: org.apache.log4j Logger
+
 .. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.beans.factory.annotation Value
@@ -42,9 +44,9 @@
 
 .. java:import:: org.springframework.web.bind.annotation RequestMethod
 
-.. java:import:: org.springframework.web.servlet.support RequestContextUtils
-
 .. java:import:: org.springframework.web.servlet.mvc.support RedirectAttributes
+
+.. java:import:: org.springframework.web.servlet.support RequestContextUtils
 
 .. java:import:: org.springframework.web.util WebUtils
 
@@ -52,13 +54,7 @@
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Terminal
 
-.. java:import:: com.ncr ATMMonitoring.pojo.User
-
 .. java:import:: com.ncr ATMMonitoring.service.QueryService
-
-.. java:import:: com.ncr ATMMonitoring.service.UserService
-
-.. java:import:: org.apache.log4j Logger
 
 QueryController
 ===============
@@ -66,7 +62,7 @@ QueryController
 .. java:package:: com.ncr.ATMMonitoring.controller
    :noindex:
 
-.. java:type:: @Controller public class QueryController
+.. java:type:: @Controller public class QueryController extends GenericController
 
    The Class QueryController. Controller for handling query related HTTP petitions.
 

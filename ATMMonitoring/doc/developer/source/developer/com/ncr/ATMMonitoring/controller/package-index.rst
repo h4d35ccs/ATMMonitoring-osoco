@@ -21,5 +21,4 @@ com.ncr.ATMMonitoring.controller
    UserController
    WidgetController
    XfsComponentController
-   externalreportsController
 

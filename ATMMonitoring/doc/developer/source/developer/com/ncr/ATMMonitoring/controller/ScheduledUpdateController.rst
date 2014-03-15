@@ -10,8 +10,6 @@
 
 .. java:import:: java.util List
 
-.. java:import:: java.util Locale
-
 .. java:import:: java.util Map
 
 .. java:import:: java.util Set
@@ -25,8 +23,6 @@
 .. java:import:: org.springframework.beans.factory.annotation Autowired
 
 .. java:import:: org.springframework.stereotype Controller
-
-.. java:import:: org.springframework.validation BindingResult
 
 .. java:import:: org.springframework.web.bind WebDataBinder
 
@@ -44,19 +40,15 @@
 
 .. java:import:: org.springframework.web.servlet.mvc.support RedirectAttributes
 
-.. java:import:: org.springframework.web.servlet.support RequestContextUtils
-
-.. java:import:: com.ncr ATMMonitoring.controller.propertyEditor.DatePropertyEditor
+.. java:import:: com.ncr ATMMonitoring.controller.propertyeditor.DatePropertyEditor
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Query
 
 .. java:import:: com.ncr ATMMonitoring.pojo.ScheduledUpdate
 
-.. java:import:: com.ncr ATMMonitoring.pojo.User
+.. java:import:: com.ncr ATMMonitoring.service.QueryService
 
-.. java:import:: com.ncr ATMMonitoring.service.ScheduledUpdateService
-
-.. java:import:: com.ncr ATMMonitoring.service.UserService
+.. java:import:: com.ncr ATMMonitoring.servicefacade.AtmFacade
 
 ScheduledUpdateController
 =========================
@@ -64,7 +56,7 @@ ScheduledUpdateController
 .. java:package:: com.ncr.ATMMonitoring.controller
    :noindex:
 
-.. java:type:: @Controller public class ScheduledUpdateController
+.. java:type:: @Controller public class ScheduledUpdateController extends GenericController
 
    The Class ScheduledUpdateController. Controller for handling scheduled update related HTTP petitions.
 

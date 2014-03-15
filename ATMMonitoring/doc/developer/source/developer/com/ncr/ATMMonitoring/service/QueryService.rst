@@ -4,9 +4,13 @@
 
 .. java:import:: java.util Locale
 
+.. java:import:: java.util Set
+
 .. java:import:: com.ncr ATMMonitoring.pojo.Query
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Terminal
+
+.. java:import:: com.ncr ATMMonitoring.pojo.User
 
 .. java:import:: com.ncr ATMMonitoring.utils.WidgetQueryAssociationType
 
@@ -33,6 +37,17 @@ addQuery
    Adds the query.
 
    :param query: the query
+
+addQuery
+^^^^^^^^
+
+.. java:method::  void addQuery(Query query, String username)
+   :outertype: QueryService
+
+   Adds the query. and linkit to the given user
+
+   :param query: the query
+   :param username: String The user
 
 deleteQuery
 ^^^^^^^^^^^
@@ -121,6 +136,28 @@ findOrCreateQuery
    :param query: the query
    :return: the query
 
+getQueriesByUser
+^^^^^^^^^^^^^^^^
+
+.. java:method::  Set<Query> getQueriesByUser(String username)
+   :outertype: QueryService
+
+   Returns the queries associated to one user First search for a user from the given username, then extract the queries associated
+
+   :param username: String
+   :return: Set
+
+getQueriesByUser
+^^^^^^^^^^^^^^^^
+
+.. java:method::  Set<Query> getQueriesByUser(User user)
+   :outertype: QueryService
+
+   Returns the queries associated to one user Extract the queries associated to the User object
+
+   :param user: user
+   :return: Set
+
 getQuery
 ^^^^^^^^
 
@@ -142,6 +179,18 @@ listQueries
 
    :return: the query list
 
+queryBelongToUser
+^^^^^^^^^^^^^^^^^
+
+.. java:method::  boolean queryBelongToUser(Query query, String username)
+   :outertype: QueryService
+
+   Return true if the given query belong to the user
+
+   :param query: \ :java:ref:`Query`\
+   :param username: String
+   :return: boolean
+
 updateQuery
 ^^^^^^^^^^^
 
@@ -151,4 +200,15 @@ updateQuery
    Update query.
 
    :param query: the query
+
+updateQuery
+^^^^^^^^^^^
+
+.. java:method:: public void updateQuery(Query query, String username)
+   :outertype: QueryService
+
+   Update query. if the query does not have a owner or username param is different from the set in the Query object sets the new value to the Query object and perform the update
+
+   :param query: the query
+   :param username: String The user
 

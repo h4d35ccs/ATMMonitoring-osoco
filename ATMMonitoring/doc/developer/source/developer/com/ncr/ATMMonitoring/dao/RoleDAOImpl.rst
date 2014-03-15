@@ -10,13 +10,7 @@
 
 .. java:import:: org.springframework.stereotype Repository
 
-.. java:import:: com.ncr ATMMonitoring.pojo.Query
-
 .. java:import:: com.ncr ATMMonitoring.pojo.Role
-
-.. java:import:: com.ncr ATMMonitoring.pojo.Terminal
-
-.. java:import:: com.ncr ATMMonitoring.pojo.User
 
 RoleDAOImpl
 ===========

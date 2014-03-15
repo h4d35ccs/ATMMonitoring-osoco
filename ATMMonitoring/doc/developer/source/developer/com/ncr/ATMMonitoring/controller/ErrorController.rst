@@ -1,7 +1,5 @@
 .. java:import:: java.security Principal
 
-.. java:import:: java.util Locale
-
 .. java:import:: java.util Map
 
 .. java:import:: javax.servlet.http HttpServletRequest
@@ -14,15 +12,7 @@
 
 .. java:import:: org.springframework.web.bind.annotation RequestMapping
 
-.. java:import:: org.springframework.web.servlet.support RequestContextUtils
-
-.. java:import:: com.ncr ATMMonitoring.pojo.User
-
 .. java:import:: com.ncr ATMMonitoring.service.BankCompanyService
-
-.. java:import:: com.ncr ATMMonitoring.service.RoleService
-
-.. java:import:: com.ncr ATMMonitoring.service.UserService
 
 ErrorController
 ===============
@@ -30,7 +20,7 @@ ErrorController
 .. java:package:: com.ncr.ATMMonitoring.controller
    :noindex:
 
-.. java:type:: @Controller public class ErrorController
+.. java:type:: @Controller public class ErrorController extends GenericController
 
    The Class ErrorController. Controller for handling HTTP petitions that resulted in an error.
 

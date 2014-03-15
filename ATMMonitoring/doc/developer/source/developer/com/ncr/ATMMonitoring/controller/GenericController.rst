@@ -22,7 +22,7 @@ GenericController
 
 .. java:type:: @Controller public abstract class GenericController
 
-   Holds the common method between the controllers
+   The class GenericController Holds the common method between the controllers
 
    :author: Otto Abreu
 
@@ -34,10 +34,10 @@ clearSession
 .. java:method:: protected void clearSession(HttpServletRequest request, String sessionKey)
    :outertype: GenericController
 
-   clear a value from the session
+   Clears a value from the session.
 
-   :param request:
-   :param sessionKey:
+   :param request: the http request
+   :param sessionKey: the value to clear
 
 getUserGreeting
 ^^^^^^^^^^^^^^^
@@ -45,8 +45,21 @@ getUserGreeting
 .. java:method:: protected String getUserGreeting(Principal principal, HttpServletRequest request)
    :outertype: GenericController
 
-   Obtains the greeting for the user
+   Obtains the greeting for the user from the current session (or from DB if the session doesn't have it).
 
-   :param principal:
-   :param request:
+   :param principal: the user principal
+   :param request: the http request
+   :return: the greeting message
+
+getUserGreeting
+^^^^^^^^^^^^^^^
+
+.. java:method:: protected String getUserGreeting(User loggedUser, HttpServletRequest request)
+   :outertype: GenericController
+
+   Obtains the greeting for the user from the current session (or from DB if the session doesn't have it).
+
+   :param loggedUser: the logged user
+   :param request: the http request
+   :return: the greeting message
 

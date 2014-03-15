@@ -262,6 +262,12 @@ XfsComponent
 
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: XfsComponent
+
 getAcceptMedia
 ^^^^^^^^^^^^^^
 
@@ -1779,6 +1785,12 @@ getXfsclasses
    Gets the xfsclasses (i.e. ALM, BCR, CAM, CDM...).
 
    :return: the xfsclasses
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: XfsComponent
 
 setAcceptMedia
 ^^^^^^^^^^^^^^

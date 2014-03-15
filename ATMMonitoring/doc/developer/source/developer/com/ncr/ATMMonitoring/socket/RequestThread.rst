@@ -12,8 +12,6 @@
 
 .. java:import:: java.net UnknownHostException
 
-.. java:import:: java.util Set
-
 .. java:import:: org.apache.commons.lang RandomStringUtils
 
 .. java:import:: org.apache.log4j Logger

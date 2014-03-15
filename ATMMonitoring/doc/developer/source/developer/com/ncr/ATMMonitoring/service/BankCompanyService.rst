@@ -1,5 +1,7 @@
 .. java:import:: java.util List
 
+.. java:import:: java.util Set
+
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
 
 BankCompanyService
@@ -36,6 +38,17 @@ getBankCompany
 
    :param id: the bank company id
    :return: the bank company
+
+getUserManageableBankCompanies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  Set<BankCompany> getUserManageableBankCompanies(String username)
+   :outertype: BankCompanyService
+
+   Returns the BankCompanies associated to a user
+
+   :param username: String
+   :return: Set
 
 listBankCompanies
 ^^^^^^^^^^^^^^^^^

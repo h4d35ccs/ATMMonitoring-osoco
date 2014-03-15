@@ -2,8 +2,6 @@
 
 .. java:import:: java.text SimpleDateFormat
 
-.. java:import:: java.util Date
-
 .. java:import:: java.util Map
 
 .. java:import:: java.util TreeMap
@@ -74,6 +72,12 @@ Hotfix
 
 Methods
 -------
+equals
+^^^^^^
+
+.. java:method:: @Override public boolean equals(Object obj)
+   :outertype: Hotfix
+
 getComboboxes
 ^^^^^^^^^^^^^
 
@@ -143,6 +147,12 @@ getTerminal
    Gets the terminal.
 
    :return: the terminal
+
+hashCode
+^^^^^^^^
+
+.. java:method:: @Override public int hashCode()
+   :outertype: Hotfix
 
 setDescription
 ^^^^^^^^^^^^^^

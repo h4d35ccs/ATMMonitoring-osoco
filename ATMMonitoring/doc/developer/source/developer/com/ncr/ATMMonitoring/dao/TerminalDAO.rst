@@ -34,6 +34,14 @@ addTerminal
 
    :param terminal: the terminal
 
+deleteAllTerminalData
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void deleteAllTerminalData()
+   :outertype: TerminalDAO
+
+   Deletes all the terminals' related data from the DB.
+
 getTerminal
 ^^^^^^^^^^^
 

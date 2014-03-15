@@ -66,7 +66,7 @@
 
 .. java:import:: org.springframework.web.servlet.support RequestContextUtils
 
-.. java:import:: com.ncr ATMMonitoring.controller.propertyEditor.DatePropertyEditor
+.. java:import:: com.ncr ATMMonitoring.controller.propertyeditor.DatePropertyEditor
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Auditable
 
@@ -82,21 +82,13 @@
 
 .. java:import:: com.ncr ATMMonitoring.pojo.TerminalModel
 
-.. java:import:: com.ncr ATMMonitoring.pojo.User
-
-.. java:import:: com.ncr ATMMonitoring.service.InstallationService
+.. java:import:: com.ncr ATMMonitoring.service.BankCompanyService
 
 .. java:import:: com.ncr ATMMonitoring.service.LocationService
 
 .. java:import:: com.ncr ATMMonitoring.service.QueryService
 
-.. java:import:: com.ncr ATMMonitoring.service.TerminalModelService
-
-.. java:import:: com.ncr ATMMonitoring.service.TerminalService
-
-.. java:import:: com.ncr ATMMonitoring.service.UserService
-
-.. java:import:: com.ncr ATMMonitoring.socket.SocketService
+.. java:import:: com.ncr ATMMonitoring.servicefacade.AtmFacade
 
 TerminalController
 ==================
@@ -104,7 +96,7 @@ TerminalController
 .. java:package:: com.ncr.ATMMonitoring.controller
    :noindex:
 
-.. java:type:: @Controller public class TerminalController
+.. java:type:: @Controller public class TerminalController extends GenericController
 
    The Class TerminalController. Controller for handling terminal related HTTP petitions.
 
@@ -226,7 +218,7 @@ getTerminalModelImage
 importTerminal
 ^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String importTerminal(CommonsMultipartFile file)
+.. java:method:: @RequestMapping public String importTerminal(CommonsMultipartFile file) throws IOException
    :outertype: TerminalController
 
    Import terminals from json file URL.

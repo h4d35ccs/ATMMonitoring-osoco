@@ -9,6 +9,7 @@ com.ncr.ATMMonitoring.utils
    Operation
    Operation-DataType
    RegionType
+   TrialEndedException
    Utils
    WidgetQueryAssociationType
 
