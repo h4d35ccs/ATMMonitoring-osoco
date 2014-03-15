@@ -19,18 +19,21 @@ public class SoftwarePropertyEditor extends PropertyEditorSupport {
 
     /**
      * Instantiates a new software property editor.
-     *
-     * @param softwareService the software service
+     * 
+     * @param softwareService
+     *            the software service
      */
     public SoftwarePropertyEditor(SoftwareService softwareService) {
-    	this.softwareService = softwareService;
+	this.softwareService = softwareService;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.beans.PropertyEditorSupport#setAsText(java.lang.String)
      */
     @Override
     public void setAsText(final String name) {
-    	setValue(softwareService.getSoftware(Integer.valueOf(name)));
+	setValue(softwareService.getSoftware(Integer.valueOf(name)));
     }
 }

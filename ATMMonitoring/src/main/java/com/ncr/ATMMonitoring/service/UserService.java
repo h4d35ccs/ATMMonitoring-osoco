@@ -21,22 +21,25 @@ public interface UserService extends UserDetailsService {
 
     /**
      * Adds the user.
-     *
-     * @param user the user
+     * 
+     * @param user
+     *            the user
      */
     public void addUser(User user);
 
     /**
      * Update user.
-     *
-     * @param user the user
+     * 
+     * @param user
+     *            the user
      */
     public void updateUser(User user);
 
     /**
      * Update password.
-     *
-     * @param user the user
+     * 
+     * @param user
+     *            the user
      */
     public void updatePassword(User user);
 
@@ -51,8 +54,9 @@ public interface UserService extends UserDetailsService {
 
     /**
      * Gets the user by username.
-     *
-     * @param username the username
+     * 
+     * @param username
+     *            the username
      * @return the user by username
      */
     public User getUserByUsername(String username);
@@ -102,8 +106,11 @@ public interface UserService extends UserDetailsService {
      */
     public void removeUser(Integer id);
 
-    /* (non-Javadoc)
-     * @see org.springframework.security.core.userdetails.UserDetailsService#loadUserByUsername(java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.springframework.security.core.userdetails.UserDetailsService#
+     * loadUserByUsername(java.lang.String)
      */
     @Override
     public User loadUserByUsername(String username)

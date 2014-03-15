@@ -16,8 +16,9 @@ public interface InternetExplorerService {
 
     /**
      * Adds the internet explorer.
-     *
-     * @param internetExplorer the internet explorer
+     * 
+     * @param internetExplorer
+     *            the internet explorer
      */
     public void addInternetExplorer(InternetExplorer internetExplorer);
 
@@ -31,12 +32,17 @@ public interface InternetExplorerService {
 
     /**
      * Gets the internet explorer by version.
-     *
-     * @param majorVersion the major version
-     * @param minorVersion the minor version
-     * @param buildVersion the build version
-     * @param revisionVersion the revision version
-     * @param remainingVersion the remaining version
+     * 
+     * @param majorVersion
+     *            the major version
+     * @param minorVersion
+     *            the minor version
+     * @param buildVersion
+     *            the build version
+     * @param revisionVersion
+     *            the revision version
+     * @param remainingVersion
+     *            the remaining version
      * @return the internet explorer by version
      */
     public InternetExplorer getInternetExplorerByVersion(Integer majorVersion,

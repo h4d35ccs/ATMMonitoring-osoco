@@ -25,8 +25,12 @@ public class HotfixDAOImpl extends AbstractGenericDAO<Hotfix> implements
     static private Logger logger = Logger.getLogger(HotfixDAOImpl.class
 	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.HotfixDAO#addHotfix(com.ncr.ATMMonitoring.pojo.Hotfix)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.HotfixDAO#addHotfix(com.ncr.ATMMonitoring.pojo
+     * .Hotfix)
      */
     @Override
     public void addHotfix(Hotfix hotfix) {
@@ -34,7 +38,9 @@ public class HotfixDAOImpl extends AbstractGenericDAO<Hotfix> implements
 	logger.debug("Created new Hotfix with id " + hotfix.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.HotfixDAO#listHotfix()
      */
     @Override
@@ -49,7 +55,9 @@ public class HotfixDAOImpl extends AbstractGenericDAO<Hotfix> implements
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.HotfixDAO#getHotfix(java.lang.Integer)
      */
     @Override
@@ -57,7 +65,9 @@ public class HotfixDAOImpl extends AbstractGenericDAO<Hotfix> implements
 	return get(id);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.HotfixDAO#removeHotfix(java.lang.Integer)
      */
     @Override

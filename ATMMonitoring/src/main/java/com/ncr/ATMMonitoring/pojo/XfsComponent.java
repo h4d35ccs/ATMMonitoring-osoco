@@ -56,7 +56,7 @@ public class XfsComponent {
 
     /** The comboboxes data related to this entity for the query designer. */
     private static final Map<String, Map> comboboxes;
-    
+
     /** The Constant xfsClasses. */
     private static final Set<String> xfsClasses;
 
@@ -176,7 +176,7 @@ public class XfsComponent {
 	comboboxes.put("multiPage", boolOperations);
 	comboboxes.put("numLeds", numOperations);
 	comboboxes.put("ocr", stringOperations);
-	comboboxes.put("outputPositions",stringOperations);
+	comboboxes.put("outputPositions", stringOperations);
 	comboboxes.put("paperSources", stringOperations);
 	comboboxes.put("pinFormats", stringOperations);
 	comboboxes.put("pockets", numOperations);
@@ -271,7 +271,7 @@ public class XfsComponent {
     @Column(name = "algorithms")
     @Type(type = "text")
     private String algorithms;
-    
+
     /** The autobeep. */
     @Column(name = "autobeep")
     @Type(type = "text")
@@ -299,7 +299,7 @@ public class XfsComponent {
     @Column(name = "backscan_color")
     @Type(type = "text")
     private String backscanColor;
-    
+
     /** The cameras. */
     @Column(name = "cameras")
     @Type(type = "text")
@@ -313,7 +313,7 @@ public class XfsComponent {
     /** The cards. */
     @Column(name = "cards")
     private Integer cards;
-    
+
     /** The cashin. */
     @Column(name = "cash_in")
     private Boolean cashin;
@@ -322,7 +322,7 @@ public class XfsComponent {
     @Column(name = "char_support")
     @Type(type = "text")
     private String charSupport;
-    
+
     /** The chipio. */
     @Column(name = "chip_io")
     private Boolean chipio;
@@ -349,7 +349,7 @@ public class XfsComponent {
     /** The compound. */
     @Column(name = "compound")
     private Boolean compound;
-    
+
     /** The comparemagneticstripe. */
     @Column(name = "compare_magnetic_stripe")
     private Boolean comparemagneticstripe;
@@ -376,7 +376,7 @@ public class XfsComponent {
     @Column(name = "default_frontscan_color")
     @Type(type = "text")
     private String defaultFrontscanColor;
-    
+
     /** The deptransport. */
     @Column(name = "dep_transport")
     private Boolean deptransport;
@@ -408,7 +408,7 @@ public class XfsComponent {
     /** The display light. */
     @Column(name = "display_light")
     private Boolean displayLight;
-    
+
     /** The doors. */
     @Column(name = "doors")
     @Type(type = "text")
@@ -485,7 +485,7 @@ public class XfsComponent {
     @Column(name = "frontscan_color")
     @Type(type = "text")
     private String frontscanColor;
-    
+
     /** The guidlights. */
     @Column(name = "guidlights")
     @Type(type = "text")
@@ -515,7 +515,7 @@ public class XfsComponent {
     /** The id connect. */
     @Column(name = "id_connect")
     private Boolean idConnect;
-    
+
     /** The id key. */
     @Column(name = "id_key")
     @Type(type = "text")
@@ -535,12 +535,12 @@ public class XfsComponent {
     @Column(name = "image_type")
     @Type(type = "text")
     private String imageType;
-    
+
     /** The indicators. */
     @Column(name = "indicators")
     @Type(type = "text")
     private String indicators;
-    
+
     /** The insert orientation. */
     @Column(name = "insert_orientation")
     @Type(type = "text")
@@ -654,7 +654,7 @@ public class XfsComponent {
     @Column(name = "logical")
     @Type(type = "text")
     private String logical;
-    
+
     /** The magneticstriperead. */
     @Column(name = "magnetic_stripe_read")
     private Boolean magneticstriperead;
@@ -678,7 +678,7 @@ public class XfsComponent {
     /** The max coins. */
     @Column(name = "max_coins")
     private Integer maxCoins;
-    
+
     /** The max data length. */
     @Column(name = "max_data_length")
     private Integer maxDataLength;
@@ -690,7 +690,7 @@ public class XfsComponent {
     /** The max media on stacker. */
     @Column(name = "max_media_on_stacker")
     private Integer maxMediaOnStacker;
-    
+
     /** The max num chars. */
     @Column(name = "max_num_chars")
     private Integer maxNumChars;
@@ -712,7 +712,7 @@ public class XfsComponent {
     @Column(name = "memory_chip_protocols")
     @Type(type = "text")
     private String memoryChipProtocols;
-    
+
     /** The micr. */
     @Column(name = "micr")
     private Boolean micr;
@@ -729,7 +729,7 @@ public class XfsComponent {
     /** The num leds. */
     @Column(name = "num_leds")
     private Integer numLeds;
-    
+
     /** The ocr. */
     @Column(name = "ocr")
     private Boolean ocr;
@@ -771,7 +771,7 @@ public class XfsComponent {
     @Column(name = "presentation_algorithms")
     @Type(type = "text")
     private String presentationAlgorithms;
-    
+
     /** The printer. */
     @Column(name = "printer")
     private Boolean printer;
@@ -817,7 +817,7 @@ public class XfsComponent {
     @Column(name = "resolutions")
     @Type(type = "text")
     private String resolutions;
-    
+
     /** The retract. */
     @Column(name = "retract")
     private Boolean retract;
@@ -831,7 +831,7 @@ public class XfsComponent {
     @Column(name = "retract_bins")
     @Type(type = "text")
     private String retractBins;
-    
+
     /** The retractenvelope. */
     @Column(name = "retract_envelope")
     @Type(type = "text")
@@ -875,7 +875,7 @@ public class XfsComponent {
     @Column(name = "security_type")
     @Type(type = "text")
     private String securityType;
-    
+
     /** The sensors. */
     @Column(name = "sensors")
     @Type(type = "text")
@@ -884,7 +884,7 @@ public class XfsComponent {
     /** The shutter control. */
     @Column(name = "shutter_control")
     private Boolean shutterControl;
-    
+
     /** The signature scheme. */
     @Column(name = "signature_scheme")
     @Type(type = "text")
@@ -908,7 +908,7 @@ public class XfsComponent {
     /** The can filter symbologies. */
     @Column(name = "can_filter_symbologies")
     private Boolean canFilterSymbologies;
-    
+
     /** The toner. */
     @Column(name = "toner")
     private Boolean toner;
@@ -1012,10 +1012,10 @@ public class XfsComponent {
      */
     public XfsComponent(CDM xfs) {
 	xfsClass = "CDM";
-	//EP410008 - 28/01/2014
+	// EP410008 - 28/01/2014
 	retract = xfs.isRetract();
 	cashin = xfs.isCashin();
-	//<--
+	// <--
 	exchangeTypes = xfs.getExchangetype();
 	extra = Utils.unescapeJsonChain(xfs.getExtra());
 	guidlights = xfs.getGuidlights();
@@ -1380,7 +1380,7 @@ public class XfsComponent {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -1389,8 +1389,9 @@ public class XfsComponent {
 
     /**
      * Sets the id.
-     *
-     * @param id the new id
+     * 
+     * @param id
+     *            the new id
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -1398,7 +1399,7 @@ public class XfsComponent {
 
     /**
      * Gets the financial devices.
-     *
+     * 
      * @return the financial devices
      */
     public List<FinancialDevice> getFinancialDevices() {
@@ -1407,8 +1408,9 @@ public class XfsComponent {
 
     /**
      * Sets the financial devices.
-     *
-     * @param financialDevices the new financial devices
+     * 
+     * @param financialDevices
+     *            the new financial devices
      */
     public void setFinancialDevices(List<FinancialDevice> financialDevices) {
 	this.financialDevices = financialDevices;
@@ -1416,7 +1418,7 @@ public class XfsComponent {
 
     /**
      * Gets the logical cash units.
-     *
+     * 
      * @return the logical cash units
      */
     public List<LogicalCashUnit> getLogicalCashUnits() {
@@ -1425,8 +1427,9 @@ public class XfsComponent {
 
     /**
      * Sets the logical cash units.
-     *
-     * @param logicalCashUnits the new logical cash units
+     * 
+     * @param logicalCashUnits
+     *            the new logical cash units
      */
     public void setLogicalCashUnits(List<LogicalCashUnit> logicalCashUnits) {
 	this.logicalCashUnits = logicalCashUnits;
@@ -1434,7 +1437,7 @@ public class XfsComponent {
 
     /**
      * Gets the xfs class.
-     *
+     * 
      * @return the xfs class
      */
     public String getXfsClass() {
@@ -1443,8 +1446,9 @@ public class XfsComponent {
 
     /**
      * Sets the xfs class.
-     *
-     * @param xfsClass the new xfs class
+     * 
+     * @param xfsClass
+     *            the new xfs class
      */
     public void setXfsClass(String xfsClass) {
 	this.xfsClass = xfsClass;
@@ -1452,7 +1456,7 @@ public class XfsComponent {
 
     /**
      * Gets the accept media.
-     *
+     * 
      * @return the accept media
      */
     public Boolean getAcceptMedia() {
@@ -1461,8 +1465,9 @@ public class XfsComponent {
 
     /**
      * Sets the accept media.
-     *
-     * @param acceptMedia the new accept media
+     * 
+     * @param acceptMedia
+     *            the new accept media
      */
     public void setAcceptMedia(Boolean acceptMedia) {
 	this.acceptMedia = acceptMedia;
@@ -1470,7 +1475,7 @@ public class XfsComponent {
 
     /**
      * Gets the algorithms.
-     *
+     * 
      * @return the algorithms
      */
     public String getAlgorithms() {
@@ -1479,8 +1484,9 @@ public class XfsComponent {
 
     /**
      * Sets the algorithms.
-     *
-     * @param algorithms the new algorithms
+     * 
+     * @param algorithms
+     *            the new algorithms
      */
     public void setAlgorithms(String algorithms) {
 	this.algorithms = algorithms;
@@ -1488,7 +1494,7 @@ public class XfsComponent {
 
     /**
      * Gets the autobeep.
-     *
+     * 
      * @return the autobeep
      */
     public String getAutobeep() {
@@ -1497,8 +1503,9 @@ public class XfsComponent {
 
     /**
      * Sets the autobeep.
-     *
-     * @param autobeep the new autobeep
+     * 
+     * @param autobeep
+     *            the new autobeep
      */
     public void setAutobeep(String autobeep) {
 	this.autobeep = autobeep;
@@ -1506,7 +1513,7 @@ public class XfsComponent {
 
     /**
      * Gets the autoretract period.
-     *
+     * 
      * @return the autoretract period
      */
     public Integer getAutoretractPeriod() {
@@ -1515,8 +1522,9 @@ public class XfsComponent {
 
     /**
      * Sets the autoretract period.
-     *
-     * @param autoretractPeriod the new autoretract period
+     * 
+     * @param autoretractPeriod
+     *            the new autoretract period
      */
     public void setAutoretractPeriod(Integer autoretractPeriod) {
 	this.autoretractPeriod = autoretractPeriod;
@@ -1524,7 +1532,7 @@ public class XfsComponent {
 
     /**
      * Gets the auxiliaries.
-     *
+     * 
      * @return the auxiliaries
      */
     public String getAuxiliaries() {
@@ -1533,8 +1541,9 @@ public class XfsComponent {
 
     /**
      * Sets the auxiliaries.
-     *
-     * @param auxiliaries the new auxiliaries
+     * 
+     * @param auxiliaries
+     *            the new auxiliaries
      */
     public void setAuxiliaries(String auxiliaries) {
 	this.auxiliaries = auxiliaries;
@@ -1542,7 +1551,7 @@ public class XfsComponent {
 
     /**
      * Gets the back image color format.
-     *
+     * 
      * @return the back image color format
      */
     public String getBackImageColorFormat() {
@@ -1551,8 +1560,9 @@ public class XfsComponent {
 
     /**
      * Sets the back image color format.
-     *
-     * @param backImageColorFormat the new back image color format
+     * 
+     * @param backImageColorFormat
+     *            the new back image color format
      */
     public void setBackImageColorFormat(String backImageColorFormat) {
 	this.backImageColorFormat = backImageColorFormat;
@@ -1560,7 +1570,7 @@ public class XfsComponent {
 
     /**
      * Gets the backscan color.
-     *
+     * 
      * @return the backscan color
      */
     public String getBackscanColor() {
@@ -1569,8 +1579,9 @@ public class XfsComponent {
 
     /**
      * Sets the backscan color.
-     *
-     * @param backscanColor the new backscan color
+     * 
+     * @param backscanColor
+     *            the new backscan color
      */
     public void setBackscanColor(String backscanColor) {
 	this.backscanColor = backscanColor;
@@ -1578,7 +1589,7 @@ public class XfsComponent {
 
     /**
      * Gets the cameras.
-     *
+     * 
      * @return the cameras
      */
     public String getCameras() {
@@ -1587,8 +1598,9 @@ public class XfsComponent {
 
     /**
      * Sets the cameras.
-     *
-     * @param cameras the new cameras
+     * 
+     * @param cameras
+     *            the new cameras
      */
     public void setCameras(String cameras) {
 	this.cameras = cameras;
@@ -1596,7 +1608,7 @@ public class XfsComponent {
 
     /**
      * Gets the camdata.
-     *
+     * 
      * @return the camdata
      */
     public String getCamdata() {
@@ -1605,8 +1617,9 @@ public class XfsComponent {
 
     /**
      * Sets the camdata.
-     *
-     * @param camdata the new camdata
+     * 
+     * @param camdata
+     *            the new camdata
      */
     public void setCamdata(String camdata) {
 	this.camdata = camdata;
@@ -1614,7 +1627,7 @@ public class XfsComponent {
 
     /**
      * Gets the cards.
-     *
+     * 
      * @return the cards
      */
     public Integer getCards() {
@@ -1623,8 +1636,9 @@ public class XfsComponent {
 
     /**
      * Sets the cards.
-     *
-     * @param cards the new cards
+     * 
+     * @param cards
+     *            the new cards
      */
     public void setCards(Integer cards) {
 	this.cards = cards;
@@ -1632,7 +1646,7 @@ public class XfsComponent {
 
     /**
      * Gets the char support.
-     *
+     * 
      * @return the char support
      */
     public String getCharSupport() {
@@ -1641,8 +1655,9 @@ public class XfsComponent {
 
     /**
      * Sets the char support.
-     *
-     * @param charSupport the new char support
+     * 
+     * @param charSupport
+     *            the new char support
      */
     public void setCharSupport(String charSupport) {
 	this.charSupport = charSupport;
@@ -1650,7 +1665,7 @@ public class XfsComponent {
 
     /**
      * Gets the chipio.
-     *
+     * 
      * @return the chipio
      */
     public Boolean getChipio() {
@@ -1659,8 +1674,9 @@ public class XfsComponent {
 
     /**
      * Sets the chipio.
-     *
-     * @param chipio the new chipio
+     * 
+     * @param chipio
+     *            the new chipio
      */
     public void setChipio(Boolean chipio) {
 	this.chipio = chipio;
@@ -1668,7 +1684,7 @@ public class XfsComponent {
 
     /**
      * Gets the chip power.
-     *
+     * 
      * @return the chip power
      */
     public String getChipPower() {
@@ -1677,8 +1693,9 @@ public class XfsComponent {
 
     /**
      * Sets the chip power.
-     *
-     * @param chipPower the new chip power
+     * 
+     * @param chipPower
+     *            the new chip power
      */
     public void setChipPower(String chipPower) {
 	this.chipPower = chipPower;
@@ -1686,7 +1703,7 @@ public class XfsComponent {
 
     /**
      * Gets the chip protocol.
-     *
+     * 
      * @return the chip protocol
      */
     public String getChipProtocol() {
@@ -1695,8 +1712,9 @@ public class XfsComponent {
 
     /**
      * Sets the chip protocol.
-     *
-     * @param chipProtocol the new chip protocol
+     * 
+     * @param chipProtocol
+     *            the new chip protocol
      */
     public void setChipProtocol(String chipProtocol) {
 	this.chipProtocol = chipProtocol;
@@ -1704,7 +1722,7 @@ public class XfsComponent {
 
     /**
      * Gets the code line format.
-     *
+     * 
      * @return the code line format
      */
     public String getCodeLineFormat() {
@@ -1713,8 +1731,9 @@ public class XfsComponent {
 
     /**
      * Sets the code line format.
-     *
-     * @param codeLineFormat the new code line format
+     * 
+     * @param codeLineFormat
+     *            the new code line format
      */
     public void setCodeLineFormat(String codeLineFormat) {
 	this.codeLineFormat = codeLineFormat;
@@ -1722,7 +1741,7 @@ public class XfsComponent {
 
     /**
      * Gets the compound.
-     *
+     * 
      * @return the compound
      */
     public Boolean getCompound() {
@@ -1731,8 +1750,9 @@ public class XfsComponent {
 
     /**
      * Sets the compound.
-     *
-     * @param compound the new compound
+     * 
+     * @param compound
+     *            the new compound
      */
     public void setCompound(Boolean compound) {
 	this.compound = compound;
@@ -1740,7 +1760,7 @@ public class XfsComponent {
 
     /**
      * Gets the comparemagneticstripe.
-     *
+     * 
      * @return the comparemagneticstripe
      */
     public Boolean getComparemagneticstripe() {
@@ -1749,8 +1769,9 @@ public class XfsComponent {
 
     /**
      * Sets the comparemagneticstripe.
-     *
-     * @param comparemagneticstripe the new comparemagneticstripe
+     * 
+     * @param comparemagneticstripe
+     *            the new comparemagneticstripe
      */
     public void setComparemagneticstripe(Boolean comparemagneticstripe) {
 	this.comparemagneticstripe = comparemagneticstripe;
@@ -1758,7 +1779,7 @@ public class XfsComponent {
 
     /**
      * Gets the control.
-     *
+     * 
      * @return the control
      */
     public String getControl() {
@@ -1767,8 +1788,9 @@ public class XfsComponent {
 
     /**
      * Sets the control.
-     *
-     * @param control the new control
+     * 
+     * @param control
+     *            the new control
      */
     public void setControl(String control) {
 	this.control = control;
@@ -1776,7 +1798,7 @@ public class XfsComponent {
 
     /**
      * Gets the cursor.
-     *
+     * 
      * @return the cursor
      */
     public Boolean getCursor() {
@@ -1785,8 +1807,9 @@ public class XfsComponent {
 
     /**
      * Sets the cursor.
-     *
-     * @param cursor the new cursor
+     * 
+     * @param cursor
+     *            the new cursor
      */
     public void setCursor(Boolean cursor) {
 	this.cursor = cursor;
@@ -1794,7 +1817,7 @@ public class XfsComponent {
 
     /**
      * Gets the default backscan color.
-     *
+     * 
      * @return the default backscan color
      */
     public String getDefaultBackscanColor() {
@@ -1803,8 +1826,9 @@ public class XfsComponent {
 
     /**
      * Sets the default backscan color.
-     *
-     * @param defaultBackscanColor the new default backscan color
+     * 
+     * @param defaultBackscanColor
+     *            the new default backscan color
      */
     public void setDefaultBackscanColor(String defaultBackscanColor) {
 	this.defaultBackscanColor = defaultBackscanColor;
@@ -1812,7 +1836,7 @@ public class XfsComponent {
 
     /**
      * Gets the default frontscan color.
-     *
+     * 
      * @return the default frontscan color
      */
     public String getDefaultFrontscanColor() {
@@ -1821,8 +1845,9 @@ public class XfsComponent {
 
     /**
      * Sets the default frontscan color.
-     *
-     * @param defaultFrontscanColor the new default frontscan color
+     * 
+     * @param defaultFrontscanColor
+     *            the new default frontscan color
      */
     public void setDefaultFrontscanColor(String defaultFrontscanColor) {
 	this.defaultFrontscanColor = defaultFrontscanColor;
@@ -1830,7 +1855,7 @@ public class XfsComponent {
 
     /**
      * Gets the deptransport.
-     *
+     * 
      * @return the deptransport
      */
     public Boolean getDeptransport() {
@@ -1839,8 +1864,9 @@ public class XfsComponent {
 
     /**
      * Sets the deptransport.
-     *
-     * @param deptransport the new deptransport
+     * 
+     * @param deptransport
+     *            the new deptransport
      */
     public void setDeptransport(Boolean deptransport) {
 	this.deptransport = deptransport;
@@ -1848,7 +1874,7 @@ public class XfsComponent {
 
     /**
      * Gets the derivation algorithms.
-     *
+     * 
      * @return the derivation algorithms
      */
     public String getDerivationAlgorithms() {
@@ -1857,8 +1883,9 @@ public class XfsComponent {
 
     /**
      * Sets the derivation algorithms.
-     *
-     * @param derivationAlgorithms the new derivation algorithms
+     * 
+     * @param derivationAlgorithms
+     *            the new derivation algorithms
      */
     public void setDerivationAlgorithms(String derivationAlgorithms) {
 	this.derivationAlgorithms = derivationAlgorithms;
@@ -1866,7 +1893,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is prepare dispense.
-     *
+     * 
      * @return the checks if is prepare dispense
      */
     public Boolean getIsPrepareDispense() {
@@ -1875,8 +1902,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is prepare dispense.
-     *
-     * @param isPrepareDispense the new checks if is prepare dispense
+     * 
+     * @param isPrepareDispense
+     *            the new checks if is prepare dispense
      */
     public void setIsPrepareDispense(Boolean isPrepareDispense) {
 	this.isPrepareDispense = isPrepareDispense;
@@ -1884,7 +1912,7 @@ public class XfsComponent {
 
     /**
      * Gets the dip mode.
-     *
+     * 
      * @return the dip mode
      */
     public String getDipMode() {
@@ -1893,8 +1921,9 @@ public class XfsComponent {
 
     /**
      * Sets the dip mode.
-     *
-     * @param dipMode the new dip mode
+     * 
+     * @param dipMode
+     *            the new dip mode
      */
     public void setDipMode(String dipMode) {
 	this.dipMode = dipMode;
@@ -1902,7 +1931,7 @@ public class XfsComponent {
 
     /**
      * Gets the dispense to.
-     *
+     * 
      * @return the dispense to
      */
     public String getDispenseTo() {
@@ -1911,8 +1940,9 @@ public class XfsComponent {
 
     /**
      * Sets the dispense to.
-     *
-     * @param dispenseTo the new dispense to
+     * 
+     * @param dispenseTo
+     *            the new dispense to
      */
     public void setDispenseTo(String dispenseTo) {
 	this.dispenseTo = dispenseTo;
@@ -1920,7 +1950,7 @@ public class XfsComponent {
 
     /**
      * Gets the display.
-     *
+     * 
      * @return the display
      */
     public String getDisplay() {
@@ -1929,8 +1959,9 @@ public class XfsComponent {
 
     /**
      * Sets the display.
-     *
-     * @param display the new display
+     * 
+     * @param display
+     *            the new display
      */
     public void setDisplay(String display) {
 	this.display = display;
@@ -1938,7 +1969,7 @@ public class XfsComponent {
 
     /**
      * Gets the display light.
-     *
+     * 
      * @return the display light
      */
     public Boolean getDisplayLight() {
@@ -1947,8 +1978,9 @@ public class XfsComponent {
 
     /**
      * Sets the display light.
-     *
-     * @param displayLight the new display light
+     * 
+     * @param displayLight
+     *            the new display light
      */
     public void setDisplayLight(Boolean displayLight) {
 	this.displayLight = displayLight;
@@ -1956,7 +1988,7 @@ public class XfsComponent {
 
     /**
      * Gets the doors.
-     *
+     * 
      * @return the doors
      */
     public String getDoors() {
@@ -1965,8 +1997,9 @@ public class XfsComponent {
 
     /**
      * Sets the doors.
-     *
-     * @param doors the new doors
+     * 
+     * @param doors
+     *            the new doors
      */
     public void setDoors(String doors) {
 	this.doors = doors;
@@ -1974,7 +2007,7 @@ public class XfsComponent {
 
     /**
      * Gets the eject position.
-     *
+     * 
      * @return the eject position
      */
     public String getEjectPosition() {
@@ -1983,8 +2016,9 @@ public class XfsComponent {
 
     /**
      * Sets the eject position.
-     *
-     * @param ejectPosition the new eject position
+     * 
+     * @param ejectPosition
+     *            the new eject position
      */
     public void setEjectPosition(String ejectPosition) {
 	this.ejectPosition = ejectPosition;
@@ -1992,7 +2026,7 @@ public class XfsComponent {
 
     /**
      * Gets the emv hash algorithm.
-     *
+     * 
      * @return the emv hash algorithm
      */
     public String getEmvHashAlgorithm() {
@@ -2001,8 +2035,9 @@ public class XfsComponent {
 
     /**
      * Sets the emv hash algorithm.
-     *
-     * @param emvHashAlgorithm the new emv hash algorithm
+     * 
+     * @param emvHashAlgorithm
+     *            the new emv hash algorithm
      */
     public void setEmvHashAlgorithm(String emvHashAlgorithm) {
 	this.emvHashAlgorithm = emvHashAlgorithm;
@@ -2010,7 +2045,7 @@ public class XfsComponent {
 
     /**
      * Gets the emv import schemes.
-     *
+     * 
      * @return the emv import schemes
      */
     public String getEmvImportSchemes() {
@@ -2019,8 +2054,9 @@ public class XfsComponent {
 
     /**
      * Sets the emv import schemes.
-     *
-     * @param emvImportSchemes the new emv import schemes
+     * 
+     * @param emvImportSchemes
+     *            the new emv import schemes
      */
     public void setEmvImportSchemes(String emvImportSchemes) {
 	this.emvImportSchemes = emvImportSchemes;
@@ -2028,7 +2064,7 @@ public class XfsComponent {
 
     /**
      * Gets the encio protocols.
-     *
+     * 
      * @return the encio protocols
      */
     public String getEncioProtocols() {
@@ -2037,8 +2073,9 @@ public class XfsComponent {
 
     /**
      * Sets the encio protocols.
-     *
-     * @param encioProtocols the new encio protocols
+     * 
+     * @param encioProtocols
+     *            the new encio protocols
      */
     public void setEncioProtocols(String encioProtocols) {
 	this.encioProtocols = encioProtocols;
@@ -2046,7 +2083,7 @@ public class XfsComponent {
 
     /**
      * Gets the encoder.
-     *
+     * 
      * @return the encoder
      */
     public Boolean getEncoder() {
@@ -2055,8 +2092,9 @@ public class XfsComponent {
 
     /**
      * Sets the encoder.
-     *
-     * @param encoder the new encoder
+     * 
+     * @param encoder
+     *            the new encoder
      */
     public void setEncoder(Boolean encoder) {
 	this.encoder = encoder;
@@ -2064,7 +2102,7 @@ public class XfsComponent {
 
     /**
      * Gets the encodenames.
-     *
+     * 
      * @return the encodenames
      */
     public String getEncodenames() {
@@ -2073,8 +2111,9 @@ public class XfsComponent {
 
     /**
      * Sets the encodenames.
-     *
-     * @param encodenames the new encodenames
+     * 
+     * @param encodenames
+     *            the new encodenames
      */
     public void setEncodenames(String encodenames) {
 	this.encodenames = encodenames;
@@ -2082,7 +2121,7 @@ public class XfsComponent {
 
     /**
      * Gets the endorser.
-     *
+     * 
      * @return the endorser
      */
     public Boolean getEndorser() {
@@ -2091,8 +2130,9 @@ public class XfsComponent {
 
     /**
      * Sets the endorser.
-     *
-     * @param endorser the new endorser
+     * 
+     * @param endorser
+     *            the new endorser
      */
     public void setEndorser(Boolean endorser) {
 	this.endorser = endorser;
@@ -2100,7 +2140,7 @@ public class XfsComponent {
 
     /**
      * Gets the envelopesupply.
-     *
+     * 
      * @return the envelopesupply
      */
     public String getEnvelopesupply() {
@@ -2109,8 +2149,9 @@ public class XfsComponent {
 
     /**
      * Sets the envelopesupply.
-     *
-     * @param envelopesupply the new envelopesupply
+     * 
+     * @param envelopesupply
+     *            the new envelopesupply
      */
     public void setEnvelopesupply(String envelopesupply) {
 	this.envelopesupply = envelopesupply;
@@ -2118,7 +2159,7 @@ public class XfsComponent {
 
     /**
      * Gets the exchange types.
-     *
+     * 
      * @return the exchange types
      */
     public String getExchangeTypes() {
@@ -2127,8 +2168,9 @@ public class XfsComponent {
 
     /**
      * Sets the exchange types.
-     *
-     * @param exchangeTypes the new exchange types
+     * 
+     * @param exchangeTypes
+     *            the new exchange types
      */
     public void setExchangeTypes(String exchangeTypes) {
 	this.exchangeTypes = exchangeTypes;
@@ -2136,7 +2178,7 @@ public class XfsComponent {
 
     /**
      * Gets the extents.
-     *
+     * 
      * @return the extents
      */
     public String getExtents() {
@@ -2145,8 +2187,9 @@ public class XfsComponent {
 
     /**
      * Sets the extents.
-     *
-     * @param extents the new extents
+     * 
+     * @param extents
+     *            the new extents
      */
     public void setExtents(String extents) {
 	this.extents = extents;
@@ -2154,7 +2197,7 @@ public class XfsComponent {
 
     /**
      * Gets the extra.
-     *
+     * 
      * @return the extra
      */
     public String getExtra() {
@@ -2163,8 +2206,9 @@ public class XfsComponent {
 
     /**
      * Sets the extra.
-     *
-     * @param extra the new extra
+     * 
+     * @param extra
+     *            the new extra
      */
     public void setExtra(String extra) {
 	this.extra = extra;
@@ -2172,7 +2216,7 @@ public class XfsComponent {
 
     /**
      * Gets the fontnames.
-     *
+     * 
      * @return the fontnames
      */
     public String getFontnames() {
@@ -2181,8 +2225,9 @@ public class XfsComponent {
 
     /**
      * Sets the fontnames.
-     *
-     * @param fontnames the new fontnames
+     * 
+     * @param fontnames
+     *            the new fontnames
      */
     public void setFontnames(String fontnames) {
 	this.fontnames = fontnames;
@@ -2190,7 +2235,7 @@ public class XfsComponent {
 
     /**
      * Gets the forms.
-     *
+     * 
      * @return the forms
      */
     public Boolean getForms() {
@@ -2199,8 +2244,9 @@ public class XfsComponent {
 
     /**
      * Sets the forms.
-     *
-     * @param forms the new forms
+     * 
+     * @param forms
+     *            the new forms
      */
     public void setForms(Boolean forms) {
 	this.forms = forms;
@@ -2208,7 +2254,7 @@ public class XfsComponent {
 
     /**
      * Gets the front image color format.
-     *
+     * 
      * @return the front image color format
      */
     public String getFrontImageColorFormat() {
@@ -2217,8 +2263,9 @@ public class XfsComponent {
 
     /**
      * Sets the front image color format.
-     *
-     * @param frontImageColorFormat the new front image color format
+     * 
+     * @param frontImageColorFormat
+     *            the new front image color format
      */
     public void setFrontImageColorFormat(String frontImageColorFormat) {
 	this.frontImageColorFormat = frontImageColorFormat;
@@ -2226,7 +2273,7 @@ public class XfsComponent {
 
     /**
      * Gets the frontscan color.
-     *
+     * 
      * @return the frontscan color
      */
     public String getFrontscanColor() {
@@ -2235,8 +2282,9 @@ public class XfsComponent {
 
     /**
      * Sets the frontscan color.
-     *
-     * @param frontscanColor the new frontscan color
+     * 
+     * @param frontscanColor
+     *            the new frontscan color
      */
     public void setFrontscanColor(String frontscanColor) {
 	this.frontscanColor = frontscanColor;
@@ -2244,7 +2292,7 @@ public class XfsComponent {
 
     /**
      * Gets the guidlights.
-     *
+     * 
      * @return the guidlights
      */
     public String getGuidlights() {
@@ -2253,8 +2301,9 @@ public class XfsComponent {
 
     /**
      * Sets the guidlights.
-     *
-     * @param guidlights the new guidlights
+     * 
+     * @param guidlights
+     *            the new guidlights
      */
     public void setGuidlights(String guidlights) {
 	this.guidlights = guidlights;
@@ -2262,7 +2311,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks for cash box.
-     *
+     * 
      * @return the checks for cash box
      */
     public Boolean getHasCashBox() {
@@ -2271,8 +2320,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks for cash box.
-     *
-     * @param hasCashBox the new checks for cash box
+     * 
+     * @param hasCashBox
+     *            the new checks for cash box
      */
     public void setHasCashBox(Boolean hasCashBox) {
 	this.hasCashBox = hasCashBox;
@@ -2280,7 +2330,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks for inserted sensor.
-     *
+     * 
      * @return the checks for inserted sensor
      */
     public Boolean getHasInsertedSensor() {
@@ -2289,8 +2339,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks for inserted sensor.
-     *
-     * @param hasInsertedSensor the new checks for inserted sensor
+     * 
+     * @param hasInsertedSensor
+     *            the new checks for inserted sensor
      */
     public void setHasInsertedSensor(Boolean hasInsertedSensor) {
 	this.hasInsertedSensor = hasInsertedSensor;
@@ -2298,7 +2349,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks for shutter.
-     *
+     * 
      * @return the checks for shutter
      */
     public Boolean getHasShutter() {
@@ -2307,8 +2358,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks for shutter.
-     *
-     * @param hasShutter the new checks for shutter
+     * 
+     * @param hasShutter
+     *            the new checks for shutter
      */
     public void setHasShutter(Boolean hasShutter) {
 	this.hasShutter = hasShutter;
@@ -2316,7 +2368,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks for taken sensor.
-     *
+     * 
      * @return the checks for taken sensor
      */
     public Boolean getHasTakenSensor() {
@@ -2325,8 +2377,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks for taken sensor.
-     *
-     * @param hasTakenSensor the new checks for taken sensor
+     * 
+     * @param hasTakenSensor
+     *            the new checks for taken sensor
      */
     public void setHasTakenSensor(Boolean hasTakenSensor) {
 	this.hasTakenSensor = hasTakenSensor;
@@ -2334,7 +2387,7 @@ public class XfsComponent {
 
     /**
      * Gets the hsm vendor.
-     *
+     * 
      * @return the hsm vendor
      */
     public String getHsmVendor() {
@@ -2343,8 +2396,9 @@ public class XfsComponent {
 
     /**
      * Sets the hsm vendor.
-     *
-     * @param hsmVendor the new hsm vendor
+     * 
+     * @param hsmVendor
+     *            the new hsm vendor
      */
     public void setHsmVendor(String hsmVendor) {
 	this.hsmVendor = hsmVendor;
@@ -2352,7 +2406,7 @@ public class XfsComponent {
 
     /**
      * Gets the id connect.
-     *
+     * 
      * @return the id connect
      */
     public Boolean getIdConnect() {
@@ -2361,8 +2415,9 @@ public class XfsComponent {
 
     /**
      * Sets the id connect.
-     *
-     * @param idConnect the new id connect
+     * 
+     * @param idConnect
+     *            the new id connect
      */
     public void setIdConnect(Boolean idConnect) {
 	this.idConnect = idConnect;
@@ -2370,7 +2425,7 @@ public class XfsComponent {
 
     /**
      * Gets the id key.
-     *
+     * 
      * @return the id key
      */
     public String getIdKey() {
@@ -2379,8 +2434,9 @@ public class XfsComponent {
 
     /**
      * Sets the id key.
-     *
-     * @param idKey the new id key
+     * 
+     * @param idKey
+     *            the new id key
      */
     public void setIdKey(String idKey) {
 	this.idKey = idKey;
@@ -2388,7 +2444,7 @@ public class XfsComponent {
 
     /**
      * Gets the imagecapture.
-     *
+     * 
      * @return the imagecapture
      */
     public String getImagecapture() {
@@ -2397,8 +2453,9 @@ public class XfsComponent {
 
     /**
      * Sets the imagecapture.
-     *
-     * @param imagecapture the new imagecapture
+     * 
+     * @param imagecapture
+     *            the new imagecapture
      */
     public void setImagecapture(String imagecapture) {
 	this.imagecapture = imagecapture;
@@ -2406,7 +2463,7 @@ public class XfsComponent {
 
     /**
      * Gets the image source.
-     *
+     * 
      * @return the image source
      */
     public String getImageSource() {
@@ -2415,8 +2472,9 @@ public class XfsComponent {
 
     /**
      * Sets the image source.
-     *
-     * @param imageSource the new image source
+     * 
+     * @param imageSource
+     *            the new image source
      */
     public void setImageSource(String imageSource) {
 	this.imageSource = imageSource;
@@ -2424,7 +2482,7 @@ public class XfsComponent {
 
     /**
      * Gets the image type.
-     *
+     * 
      * @return the image type
      */
     public String getImageType() {
@@ -2433,8 +2491,9 @@ public class XfsComponent {
 
     /**
      * Sets the image type.
-     *
-     * @param imageType the new image type
+     * 
+     * @param imageType
+     *            the new image type
      */
     public void setImageType(String imageType) {
 	this.imageType = imageType;
@@ -2442,7 +2501,7 @@ public class XfsComponent {
 
     /**
      * Gets the indicators.
-     *
+     * 
      * @return the indicators
      */
     public String getIndicators() {
@@ -2451,8 +2510,9 @@ public class XfsComponent {
 
     /**
      * Sets the indicators.
-     *
-     * @param indicators the new indicators
+     * 
+     * @param indicators
+     *            the new indicators
      */
     public void setIndicators(String indicators) {
 	this.indicators = indicators;
@@ -2460,7 +2520,7 @@ public class XfsComponent {
 
     /**
      * Gets the insert orientation.
-     *
+     * 
      * @return the insert orientation
      */
     public String getInsertOrientation() {
@@ -2469,8 +2529,9 @@ public class XfsComponent {
 
     /**
      * Sets the insert orientation.
-     *
-     * @param insertOrientation the new insert orientation
+     * 
+     * @param insertOrientation
+     *            the new insert orientation
      */
     public void setInsertOrientation(String insertOrientation) {
 	this.insertOrientation = insertOrientation;
@@ -2478,7 +2539,7 @@ public class XfsComponent {
 
     /**
      * Gets the intermediate stacker.
-     *
+     * 
      * @return the intermediate stacker
      */
     public Integer getIntermediateStacker() {
@@ -2487,8 +2548,9 @@ public class XfsComponent {
 
     /**
      * Sets the intermediate stacker.
-     *
-     * @param intermediateStacker the new intermediate stacker
+     * 
+     * @param intermediateStacker
+     *            the new intermediate stacker
      */
     public void setIntermediateStacker(Integer intermediateStacker) {
 	this.intermediateStacker = intermediateStacker;
@@ -2496,7 +2558,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is application refuse.
-     *
+     * 
      * @return the checks if is application refuse
      */
     public Boolean getIsApplicationRefuse() {
@@ -2505,8 +2567,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is application refuse.
-     *
-     * @param isApplicationRefuse the new checks if is application refuse
+     * 
+     * @param isApplicationRefuse
+     *            the new checks if is application refuse
      */
     public void setIsApplicationRefuse(Boolean isApplicationRefuse) {
 	this.isApplicationRefuse = isApplicationRefuse;
@@ -2514,7 +2577,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is autofeed.
-     *
+     * 
      * @return the checks if is autofeed
      */
     public Boolean getIsAutofeed() {
@@ -2523,8 +2586,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is autofeed.
-     *
-     * @param isAutofeed the new checks if is autofeed
+     * 
+     * @param isAutofeed
+     *            the new checks if is autofeed
      */
     public void setIsAutofeed(Boolean isAutofeed) {
 	this.isAutofeed = isAutofeed;
@@ -2532,7 +2596,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is card taken sensor.
-     *
+     * 
      * @return the checks if is card taken sensor
      */
     public Boolean getIsCardTakenSensor() {
@@ -2541,8 +2605,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is card taken sensor.
-     *
-     * @param isCardTakenSensor the new checks if is card taken sensor
+     * 
+     * @param isCardTakenSensor
+     *            the new checks if is card taken sensor
      */
     public void setIsCardTakenSensor(Boolean isCardTakenSensor) {
 	this.isCardTakenSensor = isCardTakenSensor;
@@ -2550,7 +2615,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is compare signatures.
-     *
+     * 
      * @return the checks if is compare signatures
      */
     public Boolean getIsCompareSignatures() {
@@ -2559,8 +2624,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is compare signatures.
-     *
-     * @param isCompareSignatures the new checks if is compare signatures
+     * 
+     * @param isCompareSignatures
+     *            the new checks if is compare signatures
      */
     public void setIsCompareSignatures(Boolean isCompareSignatures) {
 	this.isCompareSignatures = isCompareSignatures;
@@ -2568,7 +2634,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is hsm journaling.
-     *
+     * 
      * @return the checks if is hsm journaling
      */
     public Boolean getIsHsmJournaling() {
@@ -2577,8 +2643,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is hsm journaling.
-     *
-     * @param isHsmJournaling the new checks if is hsm journaling
+     * 
+     * @param isHsmJournaling
+     *            the new checks if is hsm journaling
      */
     public void setIsHsmJournaling(Boolean isHsmJournaling) {
 	this.isHsmJournaling = isHsmJournaling;
@@ -2586,7 +2653,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is intermediate stacker.
-     *
+     * 
      * @return the checks if is intermediate stacker
      */
     public Boolean getIsIntermediateStacker() {
@@ -2595,8 +2662,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is intermediate stacker.
-     *
-     * @param isIntermediateStacker the new checks if is intermediate stacker
+     * 
+     * @param isIntermediateStacker
+     *            the new checks if is intermediate stacker
      */
     public void setIsIntermediateStacker(Boolean isIntermediateStacker) {
 	this.isIntermediateStacker = isIntermediateStacker;
@@ -2604,7 +2672,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is items taken sensor.
-     *
+     * 
      * @return the checks if is items taken sensor
      */
     public Boolean getIsItemsTakenSensor() {
@@ -2613,8 +2681,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is items taken sensor.
-     *
-     * @param isItemsTakenSensor the new checks if is items taken sensor
+     * 
+     * @param isItemsTakenSensor
+     *            the new checks if is items taken sensor
      */
     public void setIsItemsTakenSensor(Boolean isItemsTakenSensor) {
 	this.isItemsTakenSensor = isItemsTakenSensor;
@@ -2622,7 +2691,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is key import through parts.
-     *
+     * 
      * @return the checks if is key import through parts
      */
     public Boolean getIsKeyImportThroughParts() {
@@ -2631,8 +2700,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is key import through parts.
-     *
-     * @param isKeyImportThroughParts the new checks if is key import through parts
+     * 
+     * @param isKeyImportThroughParts
+     *            the new checks if is key import through parts
      */
     public void setIsKeyImportThroughParts(Boolean isKeyImportThroughParts) {
 	this.isKeyImportThroughParts = isKeyImportThroughParts;
@@ -2640,7 +2710,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is media presented.
-     *
+     * 
      * @return the checks if is media presented
      */
     public Boolean getIsMediaPresented() {
@@ -2649,8 +2719,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is media presented.
-     *
-     * @param isMediaPresented the new checks if is media presented
+     * 
+     * @param isMediaPresented
+     *            the new checks if is media presented
      */
     public void setIsMediaPresented(Boolean isMediaPresented) {
 	this.isMediaPresented = isMediaPresented;
@@ -2658,7 +2729,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is pin can persist after use.
-     *
+     * 
      * @return the checks if is pin can persist after use
      */
     public Boolean getIsPinCanPersistAfterUse() {
@@ -2667,8 +2738,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is pin can persist after use.
-     *
-     * @param isPinCanPersistAfterUse the new checks if is pin can persist after use
+     * 
+     * @param isPinCanPersistAfterUse
+     *            the new checks if is pin can persist after use
      */
     public void setIsPinCanPersistAfterUse(Boolean isPinCanPersistAfterUse) {
 	this.isPinCanPersistAfterUse = isPinCanPersistAfterUse;
@@ -2676,7 +2748,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is present control.
-     *
+     * 
      * @return the checks if is present control
      */
     public Boolean getIsPresentControl() {
@@ -2685,8 +2757,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is present control.
-     *
-     * @param isPresentControl the new checks if is present control
+     * 
+     * @param isPresentControl
+     *            the new checks if is present control
      */
     public void setIsPresentControl(Boolean isPresentControl) {
 	this.isPresentControl = isPresentControl;
@@ -2694,7 +2767,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is rescan.
-     *
+     * 
      * @return the checks if is rescan
      */
     public Boolean getIsRescan() {
@@ -2703,8 +2776,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is rescan.
-     *
-     * @param isRescan the new checks if is rescan
+     * 
+     * @param isRescan
+     *            the new checks if is rescan
      */
     public void setIsRescan(Boolean isRescan) {
 	this.isRescan = isRescan;
@@ -2712,7 +2786,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is retract counts items.
-     *
+     * 
      * @return the checks if is retract counts items
      */
     public Boolean getIsRetractCountsItems() {
@@ -2721,8 +2795,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is retract counts items.
-     *
-     * @param isRetractCountsItems the new checks if is retract counts items
+     * 
+     * @param isRetractCountsItems
+     *            the new checks if is retract counts items
      */
     public void setIsRetractCountsItems(Boolean isRetractCountsItems) {
 	this.isRetractCountsItems = isRetractCountsItems;
@@ -2730,7 +2805,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is retract to transport.
-     *
+     * 
      * @return the checks if is retract to transport
      */
     public Boolean getIsRetractToTransport() {
@@ -2739,8 +2814,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is retract to transport.
-     *
-     * @param isRetractToTransport the new checks if is retract to transport
+     * 
+     * @param isRetractToTransport
+     *            the new checks if is retract to transport
      */
     public void setIsRetractToTransport(Boolean isRetractToTransport) {
 	this.isRetractToTransport = isRetractToTransport;
@@ -2748,7 +2824,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is safe door.
-     *
+     * 
      * @return the checks if is safe door
      */
     public Boolean getIsSafeDoor() {
@@ -2757,8 +2833,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is safe door.
-     *
-     * @param isSafeDoor the new checks if is safe door
+     * 
+     * @param isSafeDoor
+     *            the new checks if is safe door
      */
     public void setIsSafeDoor(Boolean isSafeDoor) {
 	this.isSafeDoor = isSafeDoor;
@@ -2766,7 +2843,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is set pin block data required.
-     *
+     * 
      * @return the checks if is set pin block data required
      */
     public Boolean getIsSetPinBlockDataRequired() {
@@ -2775,8 +2852,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is set pin block data required.
-     *
-     * @param isSetPinBlockDataRequired the new checks if is set pin block data required
+     * 
+     * @param isSetPinBlockDataRequired
+     *            the new checks if is set pin block data required
      */
     public void setIsSetPinBlockDataRequired(Boolean isSetPinBlockDataRequired) {
 	this.isSetPinBlockDataRequired = isSetPinBlockDataRequired;
@@ -2784,7 +2862,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is stamp.
-     *
+     * 
      * @return the checks if is stamp
      */
     public Boolean getIsStamp() {
@@ -2793,8 +2871,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is stamp.
-     *
-     * @param isStamp the new checks if is stamp
+     * 
+     * @param isStamp
+     *            the new checks if is stamp
      */
     public void setIsStamp(Boolean isStamp) {
 	this.isStamp = isStamp;
@@ -2802,7 +2881,7 @@ public class XfsComponent {
 
     /**
      * Gets the checks if is type combined.
-     *
+     * 
      * @return the checks if is type combined
      */
     public Boolean getIsTypeCombined() {
@@ -2811,8 +2890,9 @@ public class XfsComponent {
 
     /**
      * Sets the checks if is type combined.
-     *
-     * @param isTypeCombined the new checks if is type combined
+     * 
+     * @param isTypeCombined
+     *            the new checks if is type combined
      */
     public void setIsTypeCombined(Boolean isTypeCombined) {
 	this.isTypeCombined = isTypeCombined;
@@ -2820,7 +2900,7 @@ public class XfsComponent {
 
     /**
      * Gets the item info types.
-     *
+     * 
      * @return the item info types
      */
     public String getItemInfoTypes() {
@@ -2829,8 +2909,9 @@ public class XfsComponent {
 
     /**
      * Sets the item info types.
-     *
-     * @param itemInfoTypes the new item info types
+     * 
+     * @param itemInfoTypes
+     *            the new item info types
      */
     public void setItemInfoTypes(String itemInfoTypes) {
 	this.itemInfoTypes = itemInfoTypes;
@@ -2838,7 +2919,7 @@ public class XfsComponent {
 
     /**
      * Gets the key block import formats.
-     *
+     * 
      * @return the key block import formats
      */
     public String getKeyBlockImportFormats() {
@@ -2847,8 +2928,9 @@ public class XfsComponent {
 
     /**
      * Sets the key block import formats.
-     *
-     * @param keyBlockImportFormats the new key block import formats
+     * 
+     * @param keyBlockImportFormats
+     *            the new key block import formats
      */
     public void setKeyBlockImportFormats(String keyBlockImportFormats) {
 	this.keyBlockImportFormats = keyBlockImportFormats;
@@ -2856,7 +2938,7 @@ public class XfsComponent {
 
     /**
      * Gets the key check modes.
-     *
+     * 
      * @return the key check modes
      */
     public String getKeyCheckModes() {
@@ -2865,8 +2947,9 @@ public class XfsComponent {
 
     /**
      * Sets the key check modes.
-     *
-     * @param keyCheckModes the new key check modes
+     * 
+     * @param keyCheckModes
+     *            the new key check modes
      */
     public void setKeyCheckModes(String keyCheckModes) {
 	this.keyCheckModes = keyCheckModes;
@@ -2874,7 +2957,7 @@ public class XfsComponent {
 
     /**
      * Gets the key lock.
-     *
+     * 
      * @return the key lock
      */
     public Boolean getKeyLock() {
@@ -2883,8 +2966,9 @@ public class XfsComponent {
 
     /**
      * Sets the key lock.
-     *
-     * @param keyLock the new key lock
+     * 
+     * @param keyLock
+     *            the new key lock
      */
     public void setKeyLock(Boolean keyLock) {
 	this.keyLock = keyLock;
@@ -2892,7 +2976,7 @@ public class XfsComponent {
 
     /**
      * Gets the key num.
-     *
+     * 
      * @return the key num
      */
     public Integer getKeyNum() {
@@ -2901,8 +2985,9 @@ public class XfsComponent {
 
     /**
      * Sets the key num.
-     *
-     * @param keyNum the new key num
+     * 
+     * @param keyNum
+     *            the new key num
      */
     public void setKeyNum(Integer keyNum) {
 	this.keyNum = keyNum;
@@ -2910,7 +2995,7 @@ public class XfsComponent {
 
     /**
      * Gets the logical.
-     *
+     * 
      * @return the logical
      */
     public String getLogical() {
@@ -2919,8 +3004,9 @@ public class XfsComponent {
 
     /**
      * Sets the logical.
-     *
-     * @param logical the new logical
+     * 
+     * @param logical
+     *            the new logical
      */
     public void setLogical(String logical) {
 	this.logical = logical;
@@ -2928,7 +3014,7 @@ public class XfsComponent {
 
     /**
      * Gets the magneticstriperead.
-     *
+     * 
      * @return the magneticstriperead
      */
     public Boolean getMagneticstriperead() {
@@ -2937,8 +3023,9 @@ public class XfsComponent {
 
     /**
      * Sets the magneticstriperead.
-     *
-     * @param magneticstriperead the new magneticstriperead
+     * 
+     * @param magneticstriperead
+     *            the new magneticstriperead
      */
     public void setMagneticstriperead(Boolean magneticstriperead) {
 	this.magneticstriperead = magneticstriperead;
@@ -2946,7 +3033,7 @@ public class XfsComponent {
 
     /**
      * Gets the magneticstripewrite.
-     *
+     * 
      * @return the magneticstripewrite
      */
     public Boolean getMagneticstripewrite() {
@@ -2955,8 +3042,9 @@ public class XfsComponent {
 
     /**
      * Sets the magneticstripewrite.
-     *
-     * @param magneticstripewrite the new magneticstripewrite
+     * 
+     * @param magneticstripewrite
+     *            the new magneticstripewrite
      */
     public void setMagneticstripewrite(Boolean magneticstripewrite) {
 	this.magneticstripewrite = magneticstripewrite;
@@ -2964,7 +3052,7 @@ public class XfsComponent {
 
     /**
      * Gets the max cash in items.
-     *
+     * 
      * @return the max cash in items
      */
     public Integer getMaxCashInItems() {
@@ -2973,8 +3061,9 @@ public class XfsComponent {
 
     /**
      * Sets the max cash in items.
-     *
-     * @param maxCashInItems the new max cash in items
+     * 
+     * @param maxCashInItems
+     *            the new max cash in items
      */
     public void setMaxCashInItems(Integer maxCashInItems) {
 	this.maxCashInItems = maxCashInItems;
@@ -2982,7 +3071,7 @@ public class XfsComponent {
 
     /**
      * Gets the max data length.
-     *
+     * 
      * @return the max data length
      */
     public Integer getMaxDataLength() {
@@ -2991,8 +3080,9 @@ public class XfsComponent {
 
     /**
      * Sets the max data length.
-     *
-     * @param maxDataLength the new max data length
+     * 
+     * @param maxDataLength
+     *            the new max data length
      */
     public void setMaxDataLength(Integer maxDataLength) {
 	this.maxDataLength = maxDataLength;
@@ -3000,7 +3090,7 @@ public class XfsComponent {
 
     /**
      * Gets the max dispense items.
-     *
+     * 
      * @return the max dispense items
      */
     public Integer getMaxDispenseItems() {
@@ -3009,8 +3099,9 @@ public class XfsComponent {
 
     /**
      * Sets the max dispense items.
-     *
-     * @param maxDispenseItems the new max dispense items
+     * 
+     * @param maxDispenseItems
+     *            the new max dispense items
      */
     public void setMaxDispenseItems(Integer maxDispenseItems) {
 	this.maxDispenseItems = maxDispenseItems;
@@ -3018,7 +3109,7 @@ public class XfsComponent {
 
     /**
      * Gets the max media on stacker.
-     *
+     * 
      * @return the max media on stacker
      */
     public Integer getMaxMediaOnStacker() {
@@ -3027,8 +3118,9 @@ public class XfsComponent {
 
     /**
      * Sets the max media on stacker.
-     *
-     * @param maxMediaOnStacker the new max media on stacker
+     * 
+     * @param maxMediaOnStacker
+     *            the new max media on stacker
      */
     public void setMaxMediaOnStacker(Integer maxMediaOnStacker) {
 	this.maxMediaOnStacker = maxMediaOnStacker;
@@ -3036,7 +3128,7 @@ public class XfsComponent {
 
     /**
      * Gets the max num chars.
-     *
+     * 
      * @return the max num chars
      */
     public Integer getMaxNumChars() {
@@ -3045,8 +3137,9 @@ public class XfsComponent {
 
     /**
      * Sets the max num chars.
-     *
-     * @param maxNumChars the new max num chars
+     * 
+     * @param maxNumChars
+     *            the new max num chars
      */
     public void setMaxNumChars(Integer maxNumChars) {
 	this.maxNumChars = maxNumChars;
@@ -3054,7 +3147,7 @@ public class XfsComponent {
 
     /**
      * Gets the max pictures.
-     *
+     * 
      * @return the max pictures
      */
     public Integer getMaxPictures() {
@@ -3063,8 +3156,9 @@ public class XfsComponent {
 
     /**
      * Sets the max pictures.
-     *
-     * @param maxPictures the new max pictures
+     * 
+     * @param maxPictures
+     *            the new max pictures
      */
     public void setMaxPictures(Integer maxPictures) {
 	this.maxPictures = maxPictures;
@@ -3072,7 +3166,7 @@ public class XfsComponent {
 
     /**
      * Gets the max retract.
-     *
+     * 
      * @return the max retract
      */
     public String getMaxRetract() {
@@ -3081,8 +3175,9 @@ public class XfsComponent {
 
     /**
      * Sets the max retract.
-     *
-     * @param maxRetract the new max retract
+     * 
+     * @param maxRetract
+     *            the new max retract
      */
     public void setMaxRetract(String maxRetract) {
 	this.maxRetract = maxRetract;
@@ -3090,7 +3185,7 @@ public class XfsComponent {
 
     /**
      * Gets the media taken.
-     *
+     * 
      * @return the media taken
      */
     public Boolean getMediaTaken() {
@@ -3099,8 +3194,9 @@ public class XfsComponent {
 
     /**
      * Sets the media taken.
-     *
-     * @param mediaTaken the new media taken
+     * 
+     * @param mediaTaken
+     *            the new media taken
      */
     public void setMediaTaken(Boolean mediaTaken) {
 	this.mediaTaken = mediaTaken;
@@ -3108,7 +3204,7 @@ public class XfsComponent {
 
     /**
      * Gets the memory chip protocols.
-     *
+     * 
      * @return the memory chip protocols
      */
     public String getMemoryChipProtocols() {
@@ -3117,8 +3213,9 @@ public class XfsComponent {
 
     /**
      * Sets the memory chip protocols.
-     *
-     * @param memoryChipProtocols the new memory chip protocols
+     * 
+     * @param memoryChipProtocols
+     *            the new memory chip protocols
      */
     public void setMemoryChipProtocols(String memoryChipProtocols) {
 	this.memoryChipProtocols = memoryChipProtocols;
@@ -3126,7 +3223,7 @@ public class XfsComponent {
 
     /**
      * Gets the micr.
-     *
+     * 
      * @return the micr
      */
     public Boolean getMicr() {
@@ -3135,8 +3232,9 @@ public class XfsComponent {
 
     /**
      * Sets the micr.
-     *
-     * @param micr the new micr
+     * 
+     * @param micr
+     *            the new micr
      */
     public void setMicr(Boolean micr) {
 	this.micr = micr;
@@ -3144,7 +3242,7 @@ public class XfsComponent {
 
     /**
      * Gets the move items.
-     *
+     * 
      * @return the move items
      */
     public String getMoveItems() {
@@ -3153,8 +3251,9 @@ public class XfsComponent {
 
     /**
      * Sets the move items.
-     *
-     * @param moveItems the new move items
+     * 
+     * @param moveItems
+     *            the new move items
      */
     public void setMoveItems(String moveItems) {
 	this.moveItems = moveItems;
@@ -3162,7 +3261,7 @@ public class XfsComponent {
 
     /**
      * Gets the multi page.
-     *
+     * 
      * @return the multi page
      */
     public Boolean getMultiPage() {
@@ -3171,8 +3270,9 @@ public class XfsComponent {
 
     /**
      * Sets the multi page.
-     *
-     * @param multiPage the new multi page
+     * 
+     * @param multiPage
+     *            the new multi page
      */
     public void setMultiPage(Boolean multiPage) {
 	this.multiPage = multiPage;
@@ -3180,7 +3280,7 @@ public class XfsComponent {
 
     /**
      * Gets the num leds.
-     *
+     * 
      * @return the num leds
      */
     public Integer getNumLeds() {
@@ -3189,8 +3289,9 @@ public class XfsComponent {
 
     /**
      * Sets the num leds.
-     *
-     * @param numLeds the new num leds
+     * 
+     * @param numLeds
+     *            the new num leds
      */
     public void setNumLeds(Integer numLeds) {
 	this.numLeds = numLeds;
@@ -3198,7 +3299,7 @@ public class XfsComponent {
 
     /**
      * Gets the ocr.
-     *
+     * 
      * @return the ocr
      */
     public Boolean getOcr() {
@@ -3207,8 +3308,9 @@ public class XfsComponent {
 
     /**
      * Sets the ocr.
-     *
-     * @param ocr the new ocr
+     * 
+     * @param ocr
+     *            the new ocr
      */
     public void setOcr(Boolean ocr) {
 	this.ocr = ocr;
@@ -3216,7 +3318,7 @@ public class XfsComponent {
 
     /**
      * Gets the paper sources.
-     *
+     * 
      * @return the paper sources
      */
     public String getPaperSources() {
@@ -3225,8 +3327,9 @@ public class XfsComponent {
 
     /**
      * Sets the paper sources.
-     *
-     * @param paperSources the new paper sources
+     * 
+     * @param paperSources
+     *            the new paper sources
      */
     public void setPaperSources(String paperSources) {
 	this.paperSources = paperSources;
@@ -3234,7 +3337,7 @@ public class XfsComponent {
 
     /**
      * Gets the pin formats.
-     *
+     * 
      * @return the pin formats
      */
     public String getPinFormats() {
@@ -3243,8 +3346,9 @@ public class XfsComponent {
 
     /**
      * Sets the pin formats.
-     *
-     * @param pinFormats the new pin formats
+     * 
+     * @param pinFormats
+     *            the new pin formats
      */
     public void setPinFormats(String pinFormats) {
 	this.pinFormats = pinFormats;
@@ -3252,7 +3356,7 @@ public class XfsComponent {
 
     /**
      * Gets the power off.
-     *
+     * 
      * @return the power off
      */
     public String getPowerOff() {
@@ -3261,8 +3365,9 @@ public class XfsComponent {
 
     /**
      * Sets the power off.
-     *
-     * @param powerOff the new power off
+     * 
+     * @param powerOff
+     *            the new power off
      */
     public void setPowerOff(String powerOff) {
 	this.powerOff = powerOff;
@@ -3270,7 +3375,7 @@ public class XfsComponent {
 
     /**
      * Gets the power on.
-     *
+     * 
      * @return the power on
      */
     public String getPowerOn() {
@@ -3279,8 +3384,9 @@ public class XfsComponent {
 
     /**
      * Sets the power on.
-     *
-     * @param powerOn the new power on
+     * 
+     * @param powerOn
+     *            the new power on
      */
     public void setPowerOn(String powerOn) {
 	this.powerOn = powerOn;
@@ -3288,7 +3394,7 @@ public class XfsComponent {
 
     /**
      * Gets the power save control.
-     *
+     * 
      * @return the power save control
      */
     public Boolean getPowerSaveControl() {
@@ -3297,8 +3403,9 @@ public class XfsComponent {
 
     /**
      * Sets the power save control.
-     *
-     * @param powerSaveControl the new power save control
+     * 
+     * @param powerSaveControl
+     *            the new power save control
      */
     public void setPowerSaveControl(Boolean powerSaveControl) {
 	this.powerSaveControl = powerSaveControl;
@@ -3306,7 +3413,7 @@ public class XfsComponent {
 
     /**
      * Gets the presentation algorithms.
-     *
+     * 
      * @return the presentation algorithms
      */
     public String getPresentationAlgorithms() {
@@ -3315,8 +3422,9 @@ public class XfsComponent {
 
     /**
      * Sets the presentation algorithms.
-     *
-     * @param presentationAlgorithms the new presentation algorithms
+     * 
+     * @param presentationAlgorithms
+     *            the new presentation algorithms
      */
     public void setPresentationAlgorithms(String presentationAlgorithms) {
 	this.presentationAlgorithms = presentationAlgorithms;
@@ -3324,7 +3432,7 @@ public class XfsComponent {
 
     /**
      * Gets the printer.
-     *
+     * 
      * @return the printer
      */
     public Boolean getPrinter() {
@@ -3333,8 +3441,9 @@ public class XfsComponent {
 
     /**
      * Sets the printer.
-     *
-     * @param printer the new printer
+     * 
+     * @param printer
+     *            the new printer
      */
     public void setPrinter(Boolean printer) {
 	this.printer = printer;
@@ -3342,7 +3451,7 @@ public class XfsComponent {
 
     /**
      * Gets the prints the on retracts.
-     *
+     * 
      * @return the prints the on retracts
      */
     public Boolean getPrintOnRetracts() {
@@ -3351,8 +3460,9 @@ public class XfsComponent {
 
     /**
      * Sets the prints the on retracts.
-     *
-     * @param printOnRetracts the new prints the on retracts
+     * 
+     * @param printOnRetracts
+     *            the new prints the on retracts
      */
     public void setPrintOnRetracts(Boolean printOnRetracts) {
 	this.printOnRetracts = printOnRetracts;
@@ -3360,7 +3470,7 @@ public class XfsComponent {
 
     /**
      * Gets the prints the size.
-     *
+     * 
      * @return the prints the size
      */
     public String getPrintSize() {
@@ -3369,8 +3479,9 @@ public class XfsComponent {
 
     /**
      * Sets the prints the size.
-     *
-     * @param printSize the new prints the size
+     * 
+     * @param printSize
+     *            the new prints the size
      */
     public void setPrintSize(String printSize) {
 	this.printSize = printSize;
@@ -3378,7 +3489,7 @@ public class XfsComponent {
 
     /**
      * Gets the programatically deactivate.
-     *
+     * 
      * @return the programatically deactivate
      */
     public Boolean getProgramaticallyDeactivate() {
@@ -3387,8 +3498,9 @@ public class XfsComponent {
 
     /**
      * Sets the programatically deactivate.
-     *
-     * @param programaticallyDeactivate the new programatically deactivate
+     * 
+     * @param programaticallyDeactivate
+     *            the new programatically deactivate
      */
     public void setProgramaticallyDeactivate(Boolean programaticallyDeactivate) {
 	this.programaticallyDeactivate = programaticallyDeactivate;
@@ -3396,7 +3508,7 @@ public class XfsComponent {
 
     /**
      * Gets the provider.
-     *
+     * 
      * @return the provider
      */
     public String getProvider() {
@@ -3405,8 +3517,9 @@ public class XfsComponent {
 
     /**
      * Sets the provider.
-     *
-     * @param provider the new provider
+     * 
+     * @param provider
+     *            the new provider
      */
     public void setProvider(String provider) {
 	this.provider = provider;
@@ -3414,7 +3527,7 @@ public class XfsComponent {
 
     /**
      * Gets the read form.
-     *
+     * 
      * @return the read form
      */
     public String getReadForm() {
@@ -3423,8 +3536,9 @@ public class XfsComponent {
 
     /**
      * Sets the read form.
-     *
-     * @param readForm the new read form
+     * 
+     * @param readForm
+     *            the new read form
      */
     public void setReadForm(String readForm) {
 	this.readForm = readForm;
@@ -3432,7 +3546,7 @@ public class XfsComponent {
 
     /**
      * Gets the read tracks.
-     *
+     * 
      * @return the read tracks
      */
     public String getReadTracks() {
@@ -3441,8 +3555,9 @@ public class XfsComponent {
 
     /**
      * Sets the read tracks.
-     *
-     * @param readTracks the new read tracks
+     * 
+     * @param readTracks
+     *            the new read tracks
      */
     public void setReadTracks(String readTracks) {
 	this.readTracks = readTracks;
@@ -3450,7 +3565,7 @@ public class XfsComponent {
 
     /**
      * Gets the refill.
-     *
+     * 
      * @return the refill
      */
     public Boolean getRefill() {
@@ -3459,8 +3574,9 @@ public class XfsComponent {
 
     /**
      * Sets the refill.
-     *
-     * @param refill the new refill
+     * 
+     * @param refill
+     *            the new refill
      */
     public void setRefill(Boolean refill) {
 	this.refill = refill;
@@ -3468,7 +3584,7 @@ public class XfsComponent {
 
     /**
      * Gets the reset control.
-     *
+     * 
      * @return the reset control
      */
     public String getResetControl() {
@@ -3477,8 +3593,9 @@ public class XfsComponent {
 
     /**
      * Sets the reset control.
-     *
-     * @param resetControl the new reset control
+     * 
+     * @param resetControl
+     *            the new reset control
      */
     public void setResetControl(String resetControl) {
 	this.resetControl = resetControl;
@@ -3486,7 +3603,7 @@ public class XfsComponent {
 
     /**
      * Gets the resolutions.
-     *
+     * 
      * @return the resolutions
      */
     public String getResolutions() {
@@ -3495,8 +3612,9 @@ public class XfsComponent {
 
     /**
      * Sets the resolutions.
-     *
-     * @param resolutions the new resolutions
+     * 
+     * @param resolutions
+     *            the new resolutions
      */
     public void setResolutions(String resolutions) {
 	this.resolutions = resolutions;
@@ -3504,7 +3622,7 @@ public class XfsComponent {
 
     /**
      * Gets the retract areas.
-     *
+     * 
      * @return the retract areas
      */
     public String getRetractAreas() {
@@ -3513,8 +3631,9 @@ public class XfsComponent {
 
     /**
      * Sets the retract areas.
-     *
-     * @param retractAreas the new retract areas
+     * 
+     * @param retractAreas
+     *            the new retract areas
      */
     public void setRetractAreas(String retractAreas) {
 	this.retractAreas = retractAreas;
@@ -3522,7 +3641,7 @@ public class XfsComponent {
 
     /**
      * Gets the retract bins.
-     *
+     * 
      * @return the retract bins
      */
     public String getRetractBins() {
@@ -3531,8 +3650,9 @@ public class XfsComponent {
 
     /**
      * Sets the retract bins.
-     *
-     * @param retractBins the new retract bins
+     * 
+     * @param retractBins
+     *            the new retract bins
      */
     public void setRetractBins(String retractBins) {
 	this.retractBins = retractBins;
@@ -3540,7 +3660,7 @@ public class XfsComponent {
 
     /**
      * Gets the retractenvelope.
-     *
+     * 
      * @return the retractenvelope
      */
     public String getRetractenvelope() {
@@ -3549,8 +3669,9 @@ public class XfsComponent {
 
     /**
      * Sets the retractenvelope.
-     *
-     * @param retractenvelope the new retractenvelope
+     * 
+     * @param retractenvelope
+     *            the new retractenvelope
      */
     public void setRetractenvelope(String retractenvelope) {
 	this.retractenvelope = retractenvelope;
@@ -3558,7 +3679,7 @@ public class XfsComponent {
 
     /**
      * Gets the retract stacker actions.
-     *
+     * 
      * @return the retract stacker actions
      */
     public String getRetractStackerActions() {
@@ -3567,8 +3688,9 @@ public class XfsComponent {
 
     /**
      * Sets the retract stacker actions.
-     *
-     * @param retractStackerActions the new retract stacker actions
+     * 
+     * @param retractStackerActions
+     *            the new retract stacker actions
      */
     public void setRetractStackerActions(String retractStackerActions) {
 	this.retractStackerActions = retractStackerActions;
@@ -3576,7 +3698,7 @@ public class XfsComponent {
 
     /**
      * Gets the retract transport actions.
-     *
+     * 
      * @return the retract transport actions
      */
     public String getRetractTransportActions() {
@@ -3585,8 +3707,9 @@ public class XfsComponent {
 
     /**
      * Sets the retract transport actions.
-     *
-     * @param retractTransportActions the new retract transport actions
+     * 
+     * @param retractTransportActions
+     *            the new retract transport actions
      */
     public void setRetractTransportActions(String retractTransportActions) {
 	this.retractTransportActions = retractTransportActions;
@@ -3594,7 +3717,7 @@ public class XfsComponent {
 
     /**
      * Gets the rsa authentication scheme.
-     *
+     * 
      * @return the rsa authentication scheme
      */
     public String getRsaAuthenticationScheme() {
@@ -3603,8 +3726,9 @@ public class XfsComponent {
 
     /**
      * Sets the rsa authentication scheme.
-     *
-     * @param rsaAuthenticationScheme the new rsa authentication scheme
+     * 
+     * @param rsaAuthenticationScheme
+     *            the new rsa authentication scheme
      */
     public void setRsaAuthenticationScheme(String rsaAuthenticationScheme) {
 	this.rsaAuthenticationScheme = rsaAuthenticationScheme;
@@ -3612,7 +3736,7 @@ public class XfsComponent {
 
     /**
      * Gets the rsa crypt algorithm.
-     *
+     * 
      * @return the rsa crypt algorithm
      */
     public String getRsaCryptAlgorithm() {
@@ -3621,8 +3745,9 @@ public class XfsComponent {
 
     /**
      * Sets the rsa crypt algorithm.
-     *
-     * @param rsaCryptAlgorithm the new rsa crypt algorithm
+     * 
+     * @param rsaCryptAlgorithm
+     *            the new rsa crypt algorithm
      */
     public void setRsaCryptAlgorithm(String rsaCryptAlgorithm) {
 	this.rsaCryptAlgorithm = rsaCryptAlgorithm;
@@ -3630,7 +3755,7 @@ public class XfsComponent {
 
     /**
      * Gets the rsa keycheck mode.
-     *
+     * 
      * @return the rsa keycheck mode
      */
     public String getRsaKeycheckMode() {
@@ -3639,8 +3764,9 @@ public class XfsComponent {
 
     /**
      * Sets the rsa keycheck mode.
-     *
-     * @param rsaKeycheckMode the new rsa keycheck mode
+     * 
+     * @param rsaKeycheckMode
+     *            the new rsa keycheck mode
      */
     public void setRsaKeycheckMode(String rsaKeycheckMode) {
 	this.rsaKeycheckMode = rsaKeycheckMode;
@@ -3648,7 +3774,7 @@ public class XfsComponent {
 
     /**
      * Gets the rsa signature algorithm.
-     *
+     * 
      * @return the rsa signature algorithm
      */
     public String getRsaSignatureAlgorithm() {
@@ -3657,8 +3783,9 @@ public class XfsComponent {
 
     /**
      * Sets the rsa signature algorithm.
-     *
-     * @param rsaSignatureAlgorithm the new rsa signature algorithm
+     * 
+     * @param rsaSignatureAlgorithm
+     *            the new rsa signature algorithm
      */
     public void setRsaSignatureAlgorithm(String rsaSignatureAlgorithm) {
 	this.rsaSignatureAlgorithm = rsaSignatureAlgorithm;
@@ -3666,7 +3793,7 @@ public class XfsComponent {
 
     /**
      * Gets the security type.
-     *
+     * 
      * @return the security type
      */
     public String getSecurityType() {
@@ -3675,8 +3802,9 @@ public class XfsComponent {
 
     /**
      * Sets the security type.
-     *
-     * @param securityType the new security type
+     * 
+     * @param securityType
+     *            the new security type
      */
     public void setSecurityType(String securityType) {
 	this.securityType = securityType;
@@ -3684,7 +3812,7 @@ public class XfsComponent {
 
     /**
      * Gets the sensors.
-     *
+     * 
      * @return the sensors
      */
     public String getSensors() {
@@ -3693,8 +3821,9 @@ public class XfsComponent {
 
     /**
      * Sets the sensors.
-     *
-     * @param sensors the new sensors
+     * 
+     * @param sensors
+     *            the new sensors
      */
     public void setSensors(String sensors) {
 	this.sensors = sensors;
@@ -3702,7 +3831,7 @@ public class XfsComponent {
 
     /**
      * Gets the shutter control.
-     *
+     * 
      * @return the shutter control
      */
     public Boolean getShutterControl() {
@@ -3711,8 +3840,9 @@ public class XfsComponent {
 
     /**
      * Sets the shutter control.
-     *
-     * @param shutterControl the new shutter control
+     * 
+     * @param shutterControl
+     *            the new shutter control
      */
     public void setShutterControl(Boolean shutterControl) {
 	this.shutterControl = shutterControl;
@@ -3720,7 +3850,7 @@ public class XfsComponent {
 
     /**
      * Gets the signature scheme.
-     *
+     * 
      * @return the signature scheme
      */
     public String getSignatureScheme() {
@@ -3729,8 +3859,9 @@ public class XfsComponent {
 
     /**
      * Sets the signature scheme.
-     *
-     * @param signatureScheme the new signature scheme
+     * 
+     * @param signatureScheme
+     *            the new signature scheme
      */
     public void setSignatureScheme(String signatureScheme) {
 	this.signatureScheme = signatureScheme;
@@ -3738,7 +3869,7 @@ public class XfsComponent {
 
     /**
      * Gets the stamp.
-     *
+     * 
      * @return the stamp
      */
     public String getStamp() {
@@ -3747,8 +3878,9 @@ public class XfsComponent {
 
     /**
      * Sets the stamp.
-     *
-     * @param stamp the new stamp
+     * 
+     * @param stamp
+     *            the new stamp
      */
     public void setStamp(String stamp) {
 	this.stamp = stamp;
@@ -3756,7 +3888,7 @@ public class XfsComponent {
 
     /**
      * Gets the positions.
-     *
+     * 
      * @return the positions
      */
     public String getPositions() {
@@ -3765,8 +3897,9 @@ public class XfsComponent {
 
     /**
      * Sets the positions.
-     *
-     * @param positions the new positions
+     * 
+     * @param positions
+     *            the new positions
      */
     public void setPositions(String positions) {
 	this.positions = positions;
@@ -3774,7 +3907,7 @@ public class XfsComponent {
 
     /**
      * Gets the symbologies.
-     *
+     * 
      * @return the symbologies
      */
     public String getSymbologies() {
@@ -3783,8 +3916,9 @@ public class XfsComponent {
 
     /**
      * Sets the symbologies.
-     *
-     * @param symbologies the new symbologies
+     * 
+     * @param symbologies
+     *            the new symbologies
      */
     public void setSymbologies(String symbologies) {
 	this.symbologies = symbologies;
@@ -3792,7 +3926,7 @@ public class XfsComponent {
 
     /**
      * Gets the can filter symbologies.
-     *
+     * 
      * @return the can filter symbologies
      */
     public Boolean getCanFilterSymbologies() {
@@ -3801,8 +3935,9 @@ public class XfsComponent {
 
     /**
      * Sets the can filter symbologies.
-     *
-     * @param canFilterSymbologies the new can filter symbologies
+     * 
+     * @param canFilterSymbologies
+     *            the new can filter symbologies
      */
     public void setCanFilterSymbologies(Boolean canFilterSymbologies) {
 	this.canFilterSymbologies = canFilterSymbologies;
@@ -3810,7 +3945,7 @@ public class XfsComponent {
 
     /**
      * Gets the toner.
-     *
+     * 
      * @return the toner
      */
     public Boolean getToner() {
@@ -3819,8 +3954,9 @@ public class XfsComponent {
 
     /**
      * Sets the toner.
-     *
-     * @param toner the new toner
+     * 
+     * @param toner
+     *            the new toner
      */
     public void setToner(Boolean toner) {
 	this.toner = toner;
@@ -3828,7 +3964,7 @@ public class XfsComponent {
 
     /**
      * Gets the type.
-     *
+     * 
      * @return the type
      */
     public String getType() {
@@ -3837,8 +3973,9 @@ public class XfsComponent {
 
     /**
      * Sets the type.
-     *
-     * @param type the new type
+     * 
+     * @param type
+     *            the new type
      */
     public void setType(String type) {
 	this.type = type;
@@ -3846,7 +3983,7 @@ public class XfsComponent {
 
     /**
      * Gets the validation algorithms.
-     *
+     * 
      * @return the validation algorithms
      */
     public String getValidationAlgorithms() {
@@ -3855,8 +3992,9 @@ public class XfsComponent {
 
     /**
      * Sets the validation algorithms.
-     *
-     * @param validationAlgorithms the new validation algorithms
+     * 
+     * @param validationAlgorithms
+     *            the new validation algorithms
      */
     public void setValidationAlgorithms(String validationAlgorithms) {
 	this.validationAlgorithms = validationAlgorithms;
@@ -3864,7 +4002,7 @@ public class XfsComponent {
 
     /**
      * Gets the windows printer.
-     *
+     * 
      * @return the windows printer
      */
     public String getWindowsPrinter() {
@@ -3873,8 +4011,9 @@ public class XfsComponent {
 
     /**
      * Sets the windows printer.
-     *
-     * @param windowsPrinter the new windows printer
+     * 
+     * @param windowsPrinter
+     *            the new windows printer
      */
     public void setWindowsPrinter(String windowsPrinter) {
 	this.windowsPrinter = windowsPrinter;
@@ -3882,7 +4021,7 @@ public class XfsComponent {
 
     /**
      * Gets the write form.
-     *
+     * 
      * @return the write form
      */
     public String getWriteForm() {
@@ -3891,8 +4030,9 @@ public class XfsComponent {
 
     /**
      * Sets the write form.
-     *
-     * @param writeForm the new write form
+     * 
+     * @param writeForm
+     *            the new write form
      */
     public void setWriteForm(String writeForm) {
 	this.writeForm = writeForm;
@@ -3900,7 +4040,7 @@ public class XfsComponent {
 
     /**
      * Gets the write mode.
-     *
+     * 
      * @return the write mode
      */
     public String getWriteMode() {
@@ -3909,8 +4049,9 @@ public class XfsComponent {
 
     /**
      * Sets the write mode.
-     *
-     * @param writeMode the new write mode
+     * 
+     * @param writeMode
+     *            the new write mode
      */
     public void setWriteMode(String writeMode) {
 	this.writeMode = writeMode;
@@ -3918,7 +4059,7 @@ public class XfsComponent {
 
     /**
      * Gets the write tracks.
-     *
+     * 
      * @return the write tracks
      */
     public String getWriteTracks() {
@@ -3927,8 +4068,9 @@ public class XfsComponent {
 
     /**
      * Sets the write tracks.
-     *
-     * @param writeTracks the new write tracks
+     * 
+     * @param writeTracks
+     *            the new write tracks
      */
     public void setWriteTracks(String writeTracks) {
 	this.writeTracks = writeTracks;
@@ -4039,1162 +4181,1162 @@ public class XfsComponent {
     public void setVandalCheck(Boolean vandalCheck) {
 	this.vandalCheck = vandalCheck;
     }
-    
-  //EP410008 - 28/01/2014
+
+    // EP410008 - 28/01/2014
     public Boolean getCashin() {
-    	return cashin;
+	return cashin;
     }
 
     public void setCashin(Boolean cashin) {
-    	this.cashin = cashin;
+	this.cashin = cashin;
     }
-    
+
     public Boolean getRetract() {
-    	return retract;
+	return retract;
     }
 
     public void setRetract(Boolean retract) {
-    	this.retract = retract;
+	this.retract = retract;
     }
-    //<--
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((acceptMedia == null) ? 0 : acceptMedia.hashCode());
-		result = prime * result
-				+ ((algorithms == null) ? 0 : algorithms.hashCode());
-		result = prime * result
-				+ ((autobeep == null) ? 0 : autobeep.hashCode());
-		result = prime * result
-				+ ((autodeposit == null) ? 0 : autodeposit.hashCode());
-		result = prime
-				* result
-				+ ((autoretractPeriod == null) ? 0 : autoretractPeriod
-						.hashCode());
-		result = prime * result
-				+ ((auxiliaries == null) ? 0 : auxiliaries.hashCode());
-		result = prime
-				* result
-				+ ((backImageColorFormat == null) ? 0 : backImageColorFormat
-						.hashCode());
-		result = prime * result
-				+ ((backscanColor == null) ? 0 : backscanColor.hashCode());
-		result = prime * result + ((camdata == null) ? 0 : camdata.hashCode());
-		result = prime * result + ((cameras == null) ? 0 : cameras.hashCode());
-		result = prime
-				* result
-				+ ((canFilterSymbologies == null) ? 0 : canFilterSymbologies
-						.hashCode());
-		result = prime * result + ((cards == null) ? 0 : cards.hashCode());
-		result = prime * result + ((cashin == null) ? 0 : cashin.hashCode());
-		result = prime * result
-				+ ((charSupport == null) ? 0 : charSupport.hashCode());
-		result = prime * result
-				+ ((chipPower == null) ? 0 : chipPower.hashCode());
-		result = prime * result
-				+ ((chipProtocol == null) ? 0 : chipProtocol.hashCode());
-		result = prime * result + ((chipio == null) ? 0 : chipio.hashCode());
-		result = prime * result
-				+ ((codeLineFormat == null) ? 0 : codeLineFormat.hashCode());
-		result = prime * result + ((coins == null) ? 0 : coins.hashCode());
-		result = prime
-				* result
-				+ ((comparemagneticstripe == null) ? 0 : comparemagneticstripe
-						.hashCode());
-		result = prime * result
-				+ ((compound == null) ? 0 : compound.hashCode());
-		result = prime * result + ((control == null) ? 0 : control.hashCode());
-		result = prime * result + ((cursor == null) ? 0 : cursor.hashCode());
-		result = prime * result
-				+ ((cylinders == null) ? 0 : cylinders.hashCode());
-		result = prime
-				* result
-				+ ((defaultBackscanColor == null) ? 0 : defaultBackscanColor
-						.hashCode());
-		result = prime
-				* result
-				+ ((defaultFrontscanColor == null) ? 0 : defaultFrontscanColor
-						.hashCode());
-		result = prime * result
-				+ ((deptransport == null) ? 0 : deptransport.hashCode());
-		result = prime
-				* result
-				+ ((derivationAlgorithms == null) ? 0 : derivationAlgorithms
-						.hashCode());
-		result = prime * result + ((dipMode == null) ? 0 : dipMode.hashCode());
-		result = prime * result
-				+ ((dispenseTo == null) ? 0 : dispenseTo.hashCode());
-		result = prime * result + ((display == null) ? 0 : display.hashCode());
-		result = prime * result
-				+ ((displayLight == null) ? 0 : displayLight.hashCode());
-		result = prime * result + ((doors == null) ? 0 : doors.hashCode());
-		result = prime * result
-				+ ((ejectPosition == null) ? 0 : ejectPosition.hashCode());
-		result = prime
-				* result
-				+ ((emvHashAlgorithm == null) ? 0 : emvHashAlgorithm.hashCode());
-		result = prime
-				* result
-				+ ((emvImportSchemes == null) ? 0 : emvImportSchemes.hashCode());
-		result = prime * result
-				+ ((encioProtocols == null) ? 0 : encioProtocols.hashCode());
-		result = prime * result
-				+ ((encodenames == null) ? 0 : encodenames.hashCode());
-		result = prime * result + ((encoder == null) ? 0 : encoder.hashCode());
-		result = prime * result
-				+ ((endorser == null) ? 0 : endorser.hashCode());
-		result = prime * result
-				+ ((envelopesupply == null) ? 0 : envelopesupply.hashCode());
-		result = prime * result
-				+ ((exchangeTypes == null) ? 0 : exchangeTypes.hashCode());
-		result = prime * result + ((extents == null) ? 0 : extents.hashCode());
-		result = prime * result + ((extra == null) ? 0 : extra.hashCode());
-		result = prime * result
-				+ ((fontnames == null) ? 0 : fontnames.hashCode());
-		result = prime * result + ((forms == null) ? 0 : forms.hashCode());
-		result = prime
-				* result
-				+ ((frontImageColorFormat == null) ? 0 : frontImageColorFormat
-						.hashCode());
-		result = prime * result
-				+ ((frontscanColor == null) ? 0 : frontscanColor.hashCode());
-		result = prime * result
-				+ ((guidlights == null) ? 0 : guidlights.hashCode());
-		result = prime * result
-				+ ((hasCashBox == null) ? 0 : hasCashBox.hashCode());
-		result = prime
-				* result
-				+ ((hasInsertedSensor == null) ? 0 : hasInsertedSensor
-						.hashCode());
-		result = prime * result
-				+ ((hasShutter == null) ? 0 : hasShutter.hashCode());
-		result = prime * result
-				+ ((hasTakenSensor == null) ? 0 : hasTakenSensor.hashCode());
-		result = prime * result
-				+ ((hsmVendor == null) ? 0 : hsmVendor.hashCode());
-		result = prime * result
-				+ ((idConnect == null) ? 0 : idConnect.hashCode());
-		result = prime * result + ((idKey == null) ? 0 : idKey.hashCode());
-		result = prime * result
-				+ ((imageSource == null) ? 0 : imageSource.hashCode());
-		result = prime * result
-				+ ((imageType == null) ? 0 : imageType.hashCode());
-		result = prime * result
-				+ ((imagecapture == null) ? 0 : imagecapture.hashCode());
-		result = prime * result
-				+ ((indicators == null) ? 0 : indicators.hashCode());
-		result = prime
-				* result
-				+ ((insertOrientation == null) ? 0 : insertOrientation
-						.hashCode());
-		result = prime
-				* result
-				+ ((intermediateStacker == null) ? 0 : intermediateStacker
-						.hashCode());
-		result = prime
-				* result
-				+ ((isApplicationRefuse == null) ? 0 : isApplicationRefuse
-						.hashCode());
-		result = prime * result
-				+ ((isAutofeed == null) ? 0 : isAutofeed.hashCode());
-		result = prime
-				* result
-				+ ((isCardTakenSensor == null) ? 0 : isCardTakenSensor
-						.hashCode());
-		result = prime
-				* result
-				+ ((isCompareSignatures == null) ? 0 : isCompareSignatures
-						.hashCode());
-		result = prime * result
-				+ ((isHsmJournaling == null) ? 0 : isHsmJournaling.hashCode());
-		result = prime
-				* result
-				+ ((isIntermediateStacker == null) ? 0 : isIntermediateStacker
-						.hashCode());
-		result = prime
-				* result
-				+ ((isItemsTakenSensor == null) ? 0 : isItemsTakenSensor
-						.hashCode());
-		result = prime
-				* result
-				+ ((isKeyImportThroughParts == null) ? 0
-						: isKeyImportThroughParts.hashCode());
-		result = prime
-				* result
-				+ ((isMediaPresented == null) ? 0 : isMediaPresented.hashCode());
-		result = prime
-				* result
-				+ ((isPinCanPersistAfterUse == null) ? 0
-						: isPinCanPersistAfterUse.hashCode());
-		result = prime
-				* result
-				+ ((isPrepareDispense == null) ? 0 : isPrepareDispense
-						.hashCode());
-		result = prime
-				* result
-				+ ((isPresentControl == null) ? 0 : isPresentControl.hashCode());
-		result = prime * result
-				+ ((isRescan == null) ? 0 : isRescan.hashCode());
-		result = prime
-				* result
-				+ ((isRetractCountsItems == null) ? 0 : isRetractCountsItems
-						.hashCode());
-		result = prime
-				* result
-				+ ((isRetractToTransport == null) ? 0 : isRetractToTransport
-						.hashCode());
-		result = prime * result
-				+ ((isSafeDoor == null) ? 0 : isSafeDoor.hashCode());
-		result = prime
-				* result
-				+ ((isSetPinBlockDataRequired == null) ? 0
-						: isSetPinBlockDataRequired.hashCode());
-		result = prime * result + ((isStamp == null) ? 0 : isStamp.hashCode());
-		result = prime * result
-				+ ((isTypeCombined == null) ? 0 : isTypeCombined.hashCode());
-		result = prime * result
-				+ ((itemInfoTypes == null) ? 0 : itemInfoTypes.hashCode());
-		result = prime
-				* result
-				+ ((keyBlockImportFormats == null) ? 0 : keyBlockImportFormats
-						.hashCode());
-		result = prime * result
-				+ ((keyCheckModes == null) ? 0 : keyCheckModes.hashCode());
-		result = prime * result + ((keyLock == null) ? 0 : keyLock.hashCode());
-		result = prime * result + ((keyNum == null) ? 0 : keyNum.hashCode());
-		result = prime * result + ((keys == null) ? 0 : keys.hashCode());
-		result = prime * result + ((logical == null) ? 0 : logical.hashCode());
-		result = prime
-				* result
-				+ ((magneticstriperead == null) ? 0 : magneticstriperead
-						.hashCode());
-		result = prime
-				* result
-				+ ((magneticstripewrite == null) ? 0 : magneticstripewrite
-						.hashCode());
-		result = prime * result
-				+ ((max2Retract == null) ? 0 : max2Retract.hashCode());
-		result = prime * result
-				+ ((maxBills == null) ? 0 : maxBills.hashCode());
-		result = prime * result
-				+ ((maxCashInItems == null) ? 0 : maxCashInItems.hashCode());
-		result = prime * result
-				+ ((maxCoins == null) ? 0 : maxCoins.hashCode());
-		result = prime * result
-				+ ((maxDataLength == null) ? 0 : maxDataLength.hashCode());
-		result = prime
-				* result
-				+ ((maxDispenseItems == null) ? 0 : maxDispenseItems.hashCode());
-		result = prime
-				* result
-				+ ((maxMediaOnStacker == null) ? 0 : maxMediaOnStacker
-						.hashCode());
-		result = prime * result
-				+ ((maxNumChars == null) ? 0 : maxNumChars.hashCode());
-		result = prime * result
-				+ ((maxPictures == null) ? 0 : maxPictures.hashCode());
-		result = prime * result
-				+ ((maxRetract == null) ? 0 : maxRetract.hashCode());
-		result = prime * result
-				+ ((mediaTaken == null) ? 0 : mediaTaken.hashCode());
-		result = prime
-				* result
-				+ ((memoryChipProtocols == null) ? 0 : memoryChipProtocols
-						.hashCode());
-		result = prime * result + ((micr == null) ? 0 : micr.hashCode());
-		result = prime * result
-				+ ((moveItems == null) ? 0 : moveItems.hashCode());
-		result = prime * result
-				+ ((multiPage == null) ? 0 : multiPage.hashCode());
-		result = prime * result + ((numLeds == null) ? 0 : numLeds.hashCode());
-		result = prime * result + ((ocr == null) ? 0 : ocr.hashCode());
-		result = prime * result
-				+ ((outputPositions == null) ? 0 : outputPositions.hashCode());
-		result = prime * result
-				+ ((paperSources == null) ? 0 : paperSources.hashCode());
-		result = prime * result
-				+ ((pinFormats == null) ? 0 : pinFormats.hashCode());
-		result = prime * result + ((pockets == null) ? 0 : pockets.hashCode());
-		result = prime * result
-				+ ((positions == null) ? 0 : positions.hashCode());
-		result = prime * result
-				+ ((powerOff == null) ? 0 : powerOff.hashCode());
-		result = prime * result + ((powerOn == null) ? 0 : powerOn.hashCode());
-		result = prime
-				* result
-				+ ((powerSaveControl == null) ? 0 : powerSaveControl.hashCode());
-		result = prime
-				* result
-				+ ((presentationAlgorithms == null) ? 0
-						: presentationAlgorithms.hashCode());
-		result = prime * result
-				+ ((printOnRetracts == null) ? 0 : printOnRetracts.hashCode());
-		result = prime * result
-				+ ((printSize == null) ? 0 : printSize.hashCode());
-		result = prime * result + ((printer == null) ? 0 : printer.hashCode());
-		result = prime
-				* result
-				+ ((programaticallyDeactivate == null) ? 0
-						: programaticallyDeactivate.hashCode());
-		result = prime * result
-				+ ((provider == null) ? 0 : provider.hashCode());
-		result = prime * result
-				+ ((readForm == null) ? 0 : readForm.hashCode());
-		result = prime * result
-				+ ((readTracks == null) ? 0 : readTracks.hashCode());
-		result = prime * result + ((refill == null) ? 0 : refill.hashCode());
-		result = prime * result
-				+ ((resetControl == null) ? 0 : resetControl.hashCode());
-		result = prime * result
-				+ ((resolutions == null) ? 0 : resolutions.hashCode());
-		result = prime * result + ((retract == null) ? 0 : retract.hashCode());
-		result = prime * result
-				+ ((retractAreas == null) ? 0 : retractAreas.hashCode());
-		result = prime * result
-				+ ((retractBins == null) ? 0 : retractBins.hashCode());
-		result = prime
-				* result
-				+ ((retractStackerActions == null) ? 0 : retractStackerActions
-						.hashCode());
-		result = prime
-				* result
-				+ ((retractToDeposit == null) ? 0 : retractToDeposit.hashCode());
-		result = prime
-				* result
-				+ ((retractTransportActions == null) ? 0
-						: retractTransportActions.hashCode());
-		result = prime * result
-				+ ((retractenvelope == null) ? 0 : retractenvelope.hashCode());
-		result = prime
-				* result
-				+ ((rsaAuthenticationScheme == null) ? 0
-						: rsaAuthenticationScheme.hashCode());
-		result = prime
-				* result
-				+ ((rsaCryptAlgorithm == null) ? 0 : rsaCryptAlgorithm
-						.hashCode());
-		result = prime * result
-				+ ((rsaKeycheckMode == null) ? 0 : rsaKeycheckMode.hashCode());
-		result = prime
-				* result
-				+ ((rsaSignatureAlgorithm == null) ? 0 : rsaSignatureAlgorithm
-						.hashCode());
-		result = prime * result
-				+ ((securityType == null) ? 0 : securityType.hashCode());
-		result = prime * result + ((sensors == null) ? 0 : sensors.hashCode());
-		result = prime * result
-				+ ((shutterControl == null) ? 0 : shutterControl.hashCode());
-		result = prime * result
-				+ ((signatureScheme == null) ? 0 : signatureScheme.hashCode());
-		result = prime * result + ((stamp == null) ? 0 : stamp.hashCode());
-		result = prime * result
-				+ ((symbologies == null) ? 0 : symbologies.hashCode());
-		result = prime * result + ((toner == null) ? 0 : toner.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		result = prime
-				* result
-				+ ((validationAlgorithms == null) ? 0 : validationAlgorithms
-						.hashCode());
-		result = prime * result
-				+ ((vandalCheck == null) ? 0 : vandalCheck.hashCode());
-		result = prime * result
-				+ ((windowsPrinter == null) ? 0 : windowsPrinter.hashCode());
-		result = prime * result
-				+ ((writeForm == null) ? 0 : writeForm.hashCode());
-		result = prime * result
-				+ ((writeMode == null) ? 0 : writeMode.hashCode());
-		result = prime * result
-				+ ((writeTracks == null) ? 0 : writeTracks.hashCode());
-		result = prime * result
-				+ ((xfsClass == null) ? 0 : xfsClass.hashCode());
-		return result;
-	}
+    // <--
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		XfsComponent other = (XfsComponent) obj;
-		if (acceptMedia == null) {
-			if (other.acceptMedia != null)
-				return false;
-		} else if (!acceptMedia.equals(other.acceptMedia))
-			return false;
-		if (algorithms == null) {
-			if (other.algorithms != null)
-				return false;
-		} else if (!algorithms.equals(other.algorithms))
-			return false;
-		if (autobeep == null) {
-			if (other.autobeep != null)
-				return false;
-		} else if (!autobeep.equals(other.autobeep))
-			return false;
-		if (autodeposit == null) {
-			if (other.autodeposit != null)
-				return false;
-		} else if (!autodeposit.equals(other.autodeposit))
-			return false;
-		if (autoretractPeriod == null) {
-			if (other.autoretractPeriod != null)
-				return false;
-		} else if (!autoretractPeriod.equals(other.autoretractPeriod))
-			return false;
-		if (auxiliaries == null) {
-			if (other.auxiliaries != null)
-				return false;
-		} else if (!auxiliaries.equals(other.auxiliaries))
-			return false;
-		if (backImageColorFormat == null) {
-			if (other.backImageColorFormat != null)
-				return false;
-		} else if (!backImageColorFormat.equals(other.backImageColorFormat))
-			return false;
-		if (backscanColor == null) {
-			if (other.backscanColor != null)
-				return false;
-		} else if (!backscanColor.equals(other.backscanColor))
-			return false;
-		if (camdata == null) {
-			if (other.camdata != null)
-				return false;
-		} else if (!camdata.equals(other.camdata))
-			return false;
-		if (cameras == null) {
-			if (other.cameras != null)
-				return false;
-		} else if (!cameras.equals(other.cameras))
-			return false;
-		if (canFilterSymbologies == null) {
-			if (other.canFilterSymbologies != null)
-				return false;
-		} else if (!canFilterSymbologies.equals(other.canFilterSymbologies))
-			return false;
-		if (cards == null) {
-			if (other.cards != null)
-				return false;
-		} else if (!cards.equals(other.cards))
-			return false;
-		if (cashin == null) {
-			if (other.cashin != null)
-				return false;
-		} else if (!cashin.equals(other.cashin))
-			return false;
-		if (charSupport == null) {
-			if (other.charSupport != null)
-				return false;
-		} else if (!charSupport.equals(other.charSupport))
-			return false;
-		if (chipPower == null) {
-			if (other.chipPower != null)
-				return false;
-		} else if (!chipPower.equals(other.chipPower))
-			return false;
-		if (chipProtocol == null) {
-			if (other.chipProtocol != null)
-				return false;
-		} else if (!chipProtocol.equals(other.chipProtocol))
-			return false;
-		if (chipio == null) {
-			if (other.chipio != null)
-				return false;
-		} else if (!chipio.equals(other.chipio))
-			return false;
-		if (codeLineFormat == null) {
-			if (other.codeLineFormat != null)
-				return false;
-		} else if (!codeLineFormat.equals(other.codeLineFormat))
-			return false;
-		if (coins == null) {
-			if (other.coins != null)
-				return false;
-		} else if (!coins.equals(other.coins))
-			return false;
-		if (comparemagneticstripe == null) {
-			if (other.comparemagneticstripe != null)
-				return false;
-		} else if (!comparemagneticstripe.equals(other.comparemagneticstripe))
-			return false;
-		if (compound == null) {
-			if (other.compound != null)
-				return false;
-		} else if (!compound.equals(other.compound))
-			return false;
-		if (control == null) {
-			if (other.control != null)
-				return false;
-		} else if (!control.equals(other.control))
-			return false;
-		if (cursor == null) {
-			if (other.cursor != null)
-				return false;
-		} else if (!cursor.equals(other.cursor))
-			return false;
-		if (cylinders == null) {
-			if (other.cylinders != null)
-				return false;
-		} else if (!cylinders.equals(other.cylinders))
-			return false;
-		if (defaultBackscanColor == null) {
-			if (other.defaultBackscanColor != null)
-				return false;
-		} else if (!defaultBackscanColor.equals(other.defaultBackscanColor))
-			return false;
-		if (defaultFrontscanColor == null) {
-			if (other.defaultFrontscanColor != null)
-				return false;
-		} else if (!defaultFrontscanColor.equals(other.defaultFrontscanColor))
-			return false;
-		if (deptransport == null) {
-			if (other.deptransport != null)
-				return false;
-		} else if (!deptransport.equals(other.deptransport))
-			return false;
-		if (derivationAlgorithms == null) {
-			if (other.derivationAlgorithms != null)
-				return false;
-		} else if (!derivationAlgorithms.equals(other.derivationAlgorithms))
-			return false;
-		if (dipMode == null) {
-			if (other.dipMode != null)
-				return false;
-		} else if (!dipMode.equals(other.dipMode))
-			return false;
-		if (dispenseTo == null) {
-			if (other.dispenseTo != null)
-				return false;
-		} else if (!dispenseTo.equals(other.dispenseTo))
-			return false;
-		if (display == null) {
-			if (other.display != null)
-				return false;
-		} else if (!display.equals(other.display))
-			return false;
-		if (displayLight == null) {
-			if (other.displayLight != null)
-				return false;
-		} else if (!displayLight.equals(other.displayLight))
-			return false;
-		if (doors == null) {
-			if (other.doors != null)
-				return false;
-		} else if (!doors.equals(other.doors))
-			return false;
-		if (ejectPosition == null) {
-			if (other.ejectPosition != null)
-				return false;
-		} else if (!ejectPosition.equals(other.ejectPosition))
-			return false;
-		if (emvHashAlgorithm == null) {
-			if (other.emvHashAlgorithm != null)
-				return false;
-		} else if (!emvHashAlgorithm.equals(other.emvHashAlgorithm))
-			return false;
-		if (emvImportSchemes == null) {
-			if (other.emvImportSchemes != null)
-				return false;
-		} else if (!emvImportSchemes.equals(other.emvImportSchemes))
-			return false;
-		if (encioProtocols == null) {
-			if (other.encioProtocols != null)
-				return false;
-		} else if (!encioProtocols.equals(other.encioProtocols))
-			return false;
-		if (encodenames == null) {
-			if (other.encodenames != null)
-				return false;
-		} else if (!encodenames.equals(other.encodenames))
-			return false;
-		if (encoder == null) {
-			if (other.encoder != null)
-				return false;
-		} else if (!encoder.equals(other.encoder))
-			return false;
-		if (endorser == null) {
-			if (other.endorser != null)
-				return false;
-		} else if (!endorser.equals(other.endorser))
-			return false;
-		if (envelopesupply == null) {
-			if (other.envelopesupply != null)
-				return false;
-		} else if (!envelopesupply.equals(other.envelopesupply))
-			return false;
-		if (exchangeTypes == null) {
-			if (other.exchangeTypes != null)
-				return false;
-		} else if (!exchangeTypes.equals(other.exchangeTypes))
-			return false;
-		if (extents == null) {
-			if (other.extents != null)
-				return false;
-		} else if (!extents.equals(other.extents))
-			return false;
-		if (extra == null) {
-			if (other.extra != null)
-				return false;
-		} else if (!extra.equals(other.extra))
-			return false;
-		if (fontnames == null) {
-			if (other.fontnames != null)
-				return false;
-		} else if (!fontnames.equals(other.fontnames))
-			return false;
-		if (forms == null) {
-			if (other.forms != null)
-				return false;
-		} else if (!forms.equals(other.forms))
-			return false;
-		if (frontImageColorFormat == null) {
-			if (other.frontImageColorFormat != null)
-				return false;
-		} else if (!frontImageColorFormat.equals(other.frontImageColorFormat))
-			return false;
-		if (frontscanColor == null) {
-			if (other.frontscanColor != null)
-				return false;
-		} else if (!frontscanColor.equals(other.frontscanColor))
-			return false;
-		if (guidlights == null) {
-			if (other.guidlights != null)
-				return false;
-		} else if (!guidlights.equals(other.guidlights))
-			return false;
-		if (hasCashBox == null) {
-			if (other.hasCashBox != null)
-				return false;
-		} else if (!hasCashBox.equals(other.hasCashBox))
-			return false;
-		if (hasInsertedSensor == null) {
-			if (other.hasInsertedSensor != null)
-				return false;
-		} else if (!hasInsertedSensor.equals(other.hasInsertedSensor))
-			return false;
-		if (hasShutter == null) {
-			if (other.hasShutter != null)
-				return false;
-		} else if (!hasShutter.equals(other.hasShutter))
-			return false;
-		if (hasTakenSensor == null) {
-			if (other.hasTakenSensor != null)
-				return false;
-		} else if (!hasTakenSensor.equals(other.hasTakenSensor))
-			return false;
-		if (hsmVendor == null) {
-			if (other.hsmVendor != null)
-				return false;
-		} else if (!hsmVendor.equals(other.hsmVendor))
-			return false;
-		if (idConnect == null) {
-			if (other.idConnect != null)
-				return false;
-		} else if (!idConnect.equals(other.idConnect))
-			return false;
-		if (idKey == null) {
-			if (other.idKey != null)
-				return false;
-		} else if (!idKey.equals(other.idKey))
-			return false;
-		if (imageSource == null) {
-			if (other.imageSource != null)
-				return false;
-		} else if (!imageSource.equals(other.imageSource))
-			return false;
-		if (imageType == null) {
-			if (other.imageType != null)
-				return false;
-		} else if (!imageType.equals(other.imageType))
-			return false;
-		if (imagecapture == null) {
-			if (other.imagecapture != null)
-				return false;
-		} else if (!imagecapture.equals(other.imagecapture))
-			return false;
-		if (indicators == null) {
-			if (other.indicators != null)
-				return false;
-		} else if (!indicators.equals(other.indicators))
-			return false;
-		if (insertOrientation == null) {
-			if (other.insertOrientation != null)
-				return false;
-		} else if (!insertOrientation.equals(other.insertOrientation))
-			return false;
-		if (intermediateStacker == null) {
-			if (other.intermediateStacker != null)
-				return false;
-		} else if (!intermediateStacker.equals(other.intermediateStacker))
-			return false;
-		if (isApplicationRefuse == null) {
-			if (other.isApplicationRefuse != null)
-				return false;
-		} else if (!isApplicationRefuse.equals(other.isApplicationRefuse))
-			return false;
-		if (isAutofeed == null) {
-			if (other.isAutofeed != null)
-				return false;
-		} else if (!isAutofeed.equals(other.isAutofeed))
-			return false;
-		if (isCardTakenSensor == null) {
-			if (other.isCardTakenSensor != null)
-				return false;
-		} else if (!isCardTakenSensor.equals(other.isCardTakenSensor))
-			return false;
-		if (isCompareSignatures == null) {
-			if (other.isCompareSignatures != null)
-				return false;
-		} else if (!isCompareSignatures.equals(other.isCompareSignatures))
-			return false;
-		if (isHsmJournaling == null) {
-			if (other.isHsmJournaling != null)
-				return false;
-		} else if (!isHsmJournaling.equals(other.isHsmJournaling))
-			return false;
-		if (isIntermediateStacker == null) {
-			if (other.isIntermediateStacker != null)
-				return false;
-		} else if (!isIntermediateStacker.equals(other.isIntermediateStacker))
-			return false;
-		if (isItemsTakenSensor == null) {
-			if (other.isItemsTakenSensor != null)
-				return false;
-		} else if (!isItemsTakenSensor.equals(other.isItemsTakenSensor))
-			return false;
-		if (isKeyImportThroughParts == null) {
-			if (other.isKeyImportThroughParts != null)
-				return false;
-		} else if (!isKeyImportThroughParts
-				.equals(other.isKeyImportThroughParts))
-			return false;
-		if (isMediaPresented == null) {
-			if (other.isMediaPresented != null)
-				return false;
-		} else if (!isMediaPresented.equals(other.isMediaPresented))
-			return false;
-		if (isPinCanPersistAfterUse == null) {
-			if (other.isPinCanPersistAfterUse != null)
-				return false;
-		} else if (!isPinCanPersistAfterUse
-				.equals(other.isPinCanPersistAfterUse))
-			return false;
-		if (isPrepareDispense == null) {
-			if (other.isPrepareDispense != null)
-				return false;
-		} else if (!isPrepareDispense.equals(other.isPrepareDispense))
-			return false;
-		if (isPresentControl == null) {
-			if (other.isPresentControl != null)
-				return false;
-		} else if (!isPresentControl.equals(other.isPresentControl))
-			return false;
-		if (isRescan == null) {
-			if (other.isRescan != null)
-				return false;
-		} else if (!isRescan.equals(other.isRescan))
-			return false;
-		if (isRetractCountsItems == null) {
-			if (other.isRetractCountsItems != null)
-				return false;
-		} else if (!isRetractCountsItems.equals(other.isRetractCountsItems))
-			return false;
-		if (isRetractToTransport == null) {
-			if (other.isRetractToTransport != null)
-				return false;
-		} else if (!isRetractToTransport.equals(other.isRetractToTransport))
-			return false;
-		if (isSafeDoor == null) {
-			if (other.isSafeDoor != null)
-				return false;
-		} else if (!isSafeDoor.equals(other.isSafeDoor))
-			return false;
-		if (isSetPinBlockDataRequired == null) {
-			if (other.isSetPinBlockDataRequired != null)
-				return false;
-		} else if (!isSetPinBlockDataRequired
-				.equals(other.isSetPinBlockDataRequired))
-			return false;
-		if (isStamp == null) {
-			if (other.isStamp != null)
-				return false;
-		} else if (!isStamp.equals(other.isStamp))
-			return false;
-		if (isTypeCombined == null) {
-			if (other.isTypeCombined != null)
-				return false;
-		} else if (!isTypeCombined.equals(other.isTypeCombined))
-			return false;
-		if (itemInfoTypes == null) {
-			if (other.itemInfoTypes != null)
-				return false;
-		} else if (!itemInfoTypes.equals(other.itemInfoTypes))
-			return false;
-		if (keyBlockImportFormats == null) {
-			if (other.keyBlockImportFormats != null)
-				return false;
-		} else if (!keyBlockImportFormats.equals(other.keyBlockImportFormats))
-			return false;
-		if (keyCheckModes == null) {
-			if (other.keyCheckModes != null)
-				return false;
-		} else if (!keyCheckModes.equals(other.keyCheckModes))
-			return false;
-		if (keyLock == null) {
-			if (other.keyLock != null)
-				return false;
-		} else if (!keyLock.equals(other.keyLock))
-			return false;
-		if (keyNum == null) {
-			if (other.keyNum != null)
-				return false;
-		} else if (!keyNum.equals(other.keyNum))
-			return false;
-		if (keys == null) {
-			if (other.keys != null)
-				return false;
-		} else if (!keys.equals(other.keys))
-			return false;
-		if (logical == null) {
-			if (other.logical != null)
-				return false;
-		} else if (!logical.equals(other.logical))
-			return false;
-		if (logicalCashUnits == null) {
-			if (other.logicalCashUnits != null)
-				return false;
-		} else if (!logicalCashUnits.equals(other.logicalCashUnits))
-			return false;
-		if (magneticstriperead == null) {
-			if (other.magneticstriperead != null)
-				return false;
-		} else if (!magneticstriperead.equals(other.magneticstriperead))
-			return false;
-		if (magneticstripewrite == null) {
-			if (other.magneticstripewrite != null)
-				return false;
-		} else if (!magneticstripewrite.equals(other.magneticstripewrite))
-			return false;
-		if (max2Retract == null) {
-			if (other.max2Retract != null)
-				return false;
-		} else if (!max2Retract.equals(other.max2Retract))
-			return false;
-		if (maxBills == null) {
-			if (other.maxBills != null)
-				return false;
-		} else if (!maxBills.equals(other.maxBills))
-			return false;
-		if (maxCashInItems == null) {
-			if (other.maxCashInItems != null)
-				return false;
-		} else if (!maxCashInItems.equals(other.maxCashInItems))
-			return false;
-		if (maxCoins == null) {
-			if (other.maxCoins != null)
-				return false;
-		} else if (!maxCoins.equals(other.maxCoins))
-			return false;
-		if (maxDataLength == null) {
-			if (other.maxDataLength != null)
-				return false;
-		} else if (!maxDataLength.equals(other.maxDataLength))
-			return false;
-		if (maxDispenseItems == null) {
-			if (other.maxDispenseItems != null)
-				return false;
-		} else if (!maxDispenseItems.equals(other.maxDispenseItems))
-			return false;
-		if (maxMediaOnStacker == null) {
-			if (other.maxMediaOnStacker != null)
-				return false;
-		} else if (!maxMediaOnStacker.equals(other.maxMediaOnStacker))
-			return false;
-		if (maxNumChars == null) {
-			if (other.maxNumChars != null)
-				return false;
-		} else if (!maxNumChars.equals(other.maxNumChars))
-			return false;
-		if (maxPictures == null) {
-			if (other.maxPictures != null)
-				return false;
-		} else if (!maxPictures.equals(other.maxPictures))
-			return false;
-		if (maxRetract == null) {
-			if (other.maxRetract != null)
-				return false;
-		} else if (!maxRetract.equals(other.maxRetract))
-			return false;
-		if (mediaTaken == null) {
-			if (other.mediaTaken != null)
-				return false;
-		} else if (!mediaTaken.equals(other.mediaTaken))
-			return false;
-		if (memoryChipProtocols == null) {
-			if (other.memoryChipProtocols != null)
-				return false;
-		} else if (!memoryChipProtocols.equals(other.memoryChipProtocols))
-			return false;
-		if (micr == null) {
-			if (other.micr != null)
-				return false;
-		} else if (!micr.equals(other.micr))
-			return false;
-		if (moveItems == null) {
-			if (other.moveItems != null)
-				return false;
-		} else if (!moveItems.equals(other.moveItems))
-			return false;
-		if (multiPage == null) {
-			if (other.multiPage != null)
-				return false;
-		} else if (!multiPage.equals(other.multiPage))
-			return false;
-		if (numLeds == null) {
-			if (other.numLeds != null)
-				return false;
-		} else if (!numLeds.equals(other.numLeds))
-			return false;
-		if (ocr == null) {
-			if (other.ocr != null)
-				return false;
-		} else if (!ocr.equals(other.ocr))
-			return false;
-		if (outputPositions == null) {
-			if (other.outputPositions != null)
-				return false;
-		} else if (!outputPositions.equals(other.outputPositions))
-			return false;
-		if (paperSources == null) {
-			if (other.paperSources != null)
-				return false;
-		} else if (!paperSources.equals(other.paperSources))
-			return false;
-		if (pinFormats == null) {
-			if (other.pinFormats != null)
-				return false;
-		} else if (!pinFormats.equals(other.pinFormats))
-			return false;
-		if (pockets == null) {
-			if (other.pockets != null)
-				return false;
-		} else if (!pockets.equals(other.pockets))
-			return false;
-		if (positions == null) {
-			if (other.positions != null)
-				return false;
-		} else if (!positions.equals(other.positions))
-			return false;
-		if (powerOff == null) {
-			if (other.powerOff != null)
-				return false;
-		} else if (!powerOff.equals(other.powerOff))
-			return false;
-		if (powerOn == null) {
-			if (other.powerOn != null)
-				return false;
-		} else if (!powerOn.equals(other.powerOn))
-			return false;
-		if (powerSaveControl == null) {
-			if (other.powerSaveControl != null)
-				return false;
-		} else if (!powerSaveControl.equals(other.powerSaveControl))
-			return false;
-		if (presentationAlgorithms == null) {
-			if (other.presentationAlgorithms != null)
-				return false;
-		} else if (!presentationAlgorithms.equals(other.presentationAlgorithms))
-			return false;
-		if (printOnRetracts == null) {
-			if (other.printOnRetracts != null)
-				return false;
-		} else if (!printOnRetracts.equals(other.printOnRetracts))
-			return false;
-		if (printSize == null) {
-			if (other.printSize != null)
-				return false;
-		} else if (!printSize.equals(other.printSize))
-			return false;
-		if (printer == null) {
-			if (other.printer != null)
-				return false;
-		} else if (!printer.equals(other.printer))
-			return false;
-		if (programaticallyDeactivate == null) {
-			if (other.programaticallyDeactivate != null)
-				return false;
-		} else if (!programaticallyDeactivate
-				.equals(other.programaticallyDeactivate))
-			return false;
-		if (provider == null) {
-			if (other.provider != null)
-				return false;
-		} else if (!provider.equals(other.provider))
-			return false;
-		if (readForm == null) {
-			if (other.readForm != null)
-				return false;
-		} else if (!readForm.equals(other.readForm))
-			return false;
-		if (readTracks == null) {
-			if (other.readTracks != null)
-				return false;
-		} else if (!readTracks.equals(other.readTracks))
-			return false;
-		if (refill == null) {
-			if (other.refill != null)
-				return false;
-		} else if (!refill.equals(other.refill))
-			return false;
-		if (resetControl == null) {
-			if (other.resetControl != null)
-				return false;
-		} else if (!resetControl.equals(other.resetControl))
-			return false;
-		if (resolutions == null) {
-			if (other.resolutions != null)
-				return false;
-		} else if (!resolutions.equals(other.resolutions))
-			return false;
-		if (retract == null) {
-			if (other.retract != null)
-				return false;
-		} else if (!retract.equals(other.retract))
-			return false;
-		if (retractAreas == null) {
-			if (other.retractAreas != null)
-				return false;
-		} else if (!retractAreas.equals(other.retractAreas))
-			return false;
-		if (retractBins == null) {
-			if (other.retractBins != null)
-				return false;
-		} else if (!retractBins.equals(other.retractBins))
-			return false;
-		if (retractStackerActions == null) {
-			if (other.retractStackerActions != null)
-				return false;
-		} else if (!retractStackerActions.equals(other.retractStackerActions))
-			return false;
-		if (retractToDeposit == null) {
-			if (other.retractToDeposit != null)
-				return false;
-		} else if (!retractToDeposit.equals(other.retractToDeposit))
-			return false;
-		if (retractTransportActions == null) {
-			if (other.retractTransportActions != null)
-				return false;
-		} else if (!retractTransportActions
-				.equals(other.retractTransportActions))
-			return false;
-		if (retractenvelope == null) {
-			if (other.retractenvelope != null)
-				return false;
-		} else if (!retractenvelope.equals(other.retractenvelope))
-			return false;
-		if (rsaAuthenticationScheme == null) {
-			if (other.rsaAuthenticationScheme != null)
-				return false;
-		} else if (!rsaAuthenticationScheme
-				.equals(other.rsaAuthenticationScheme))
-			return false;
-		if (rsaCryptAlgorithm == null) {
-			if (other.rsaCryptAlgorithm != null)
-				return false;
-		} else if (!rsaCryptAlgorithm.equals(other.rsaCryptAlgorithm))
-			return false;
-		if (rsaKeycheckMode == null) {
-			if (other.rsaKeycheckMode != null)
-				return false;
-		} else if (!rsaKeycheckMode.equals(other.rsaKeycheckMode))
-			return false;
-		if (rsaSignatureAlgorithm == null) {
-			if (other.rsaSignatureAlgorithm != null)
-				return false;
-		} else if (!rsaSignatureAlgorithm.equals(other.rsaSignatureAlgorithm))
-			return false;
-		if (securityType == null) {
-			if (other.securityType != null)
-				return false;
-		} else if (!securityType.equals(other.securityType))
-			return false;
-		if (sensors == null) {
-			if (other.sensors != null)
-				return false;
-		} else if (!sensors.equals(other.sensors))
-			return false;
-		if (shutterControl == null) {
-			if (other.shutterControl != null)
-				return false;
-		} else if (!shutterControl.equals(other.shutterControl))
-			return false;
-		if (signatureScheme == null) {
-			if (other.signatureScheme != null)
-				return false;
-		} else if (!signatureScheme.equals(other.signatureScheme))
-			return false;
-		if (stamp == null) {
-			if (other.stamp != null)
-				return false;
-		} else if (!stamp.equals(other.stamp))
-			return false;
-		if (symbologies == null) {
-			if (other.symbologies != null)
-				return false;
-		} else if (!symbologies.equals(other.symbologies))
-			return false;
-		if (toner == null) {
-			if (other.toner != null)
-				return false;
-		} else if (!toner.equals(other.toner))
-			return false;
-		if (type == null) {
-			if (other.type != null)
-				return false;
-		} else if (!type.equals(other.type))
-			return false;
-		if (validationAlgorithms == null) {
-			if (other.validationAlgorithms != null)
-				return false;
-		} else if (!validationAlgorithms.equals(other.validationAlgorithms))
-			return false;
-		if (vandalCheck == null) {
-			if (other.vandalCheck != null)
-				return false;
-		} else if (!vandalCheck.equals(other.vandalCheck))
-			return false;
-		if (windowsPrinter == null) {
-			if (other.windowsPrinter != null)
-				return false;
-		} else if (!windowsPrinter.equals(other.windowsPrinter))
-			return false;
-		if (writeForm == null) {
-			if (other.writeForm != null)
-				return false;
-		} else if (!writeForm.equals(other.writeForm))
-			return false;
-		if (writeMode == null) {
-			if (other.writeMode != null)
-				return false;
-		} else if (!writeMode.equals(other.writeMode))
-			return false;
-		if (writeTracks == null) {
-			if (other.writeTracks != null)
-				return false;
-		} else if (!writeTracks.equals(other.writeTracks))
-			return false;
-		if (xfsClass == null) {
-			if (other.xfsClass != null)
-				return false;
-		} else if (!xfsClass.equals(other.xfsClass))
-			return false;
-		return true;
-	}
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result
+		+ ((acceptMedia == null) ? 0 : acceptMedia.hashCode());
+	result = prime * result
+		+ ((algorithms == null) ? 0 : algorithms.hashCode());
+	result = prime * result
+		+ ((autobeep == null) ? 0 : autobeep.hashCode());
+	result = prime * result
+		+ ((autodeposit == null) ? 0 : autodeposit.hashCode());
+	result = prime
+		* result
+		+ ((autoretractPeriod == null) ? 0 : autoretractPeriod
+			.hashCode());
+	result = prime * result
+		+ ((auxiliaries == null) ? 0 : auxiliaries.hashCode());
+	result = prime
+		* result
+		+ ((backImageColorFormat == null) ? 0 : backImageColorFormat
+			.hashCode());
+	result = prime * result
+		+ ((backscanColor == null) ? 0 : backscanColor.hashCode());
+	result = prime * result + ((camdata == null) ? 0 : camdata.hashCode());
+	result = prime * result + ((cameras == null) ? 0 : cameras.hashCode());
+	result = prime
+		* result
+		+ ((canFilterSymbologies == null) ? 0 : canFilterSymbologies
+			.hashCode());
+	result = prime * result + ((cards == null) ? 0 : cards.hashCode());
+	result = prime * result + ((cashin == null) ? 0 : cashin.hashCode());
+	result = prime * result
+		+ ((charSupport == null) ? 0 : charSupport.hashCode());
+	result = prime * result
+		+ ((chipPower == null) ? 0 : chipPower.hashCode());
+	result = prime * result
+		+ ((chipProtocol == null) ? 0 : chipProtocol.hashCode());
+	result = prime * result + ((chipio == null) ? 0 : chipio.hashCode());
+	result = prime * result
+		+ ((codeLineFormat == null) ? 0 : codeLineFormat.hashCode());
+	result = prime * result + ((coins == null) ? 0 : coins.hashCode());
+	result = prime
+		* result
+		+ ((comparemagneticstripe == null) ? 0 : comparemagneticstripe
+			.hashCode());
+	result = prime * result
+		+ ((compound == null) ? 0 : compound.hashCode());
+	result = prime * result + ((control == null) ? 0 : control.hashCode());
+	result = prime * result + ((cursor == null) ? 0 : cursor.hashCode());
+	result = prime * result
+		+ ((cylinders == null) ? 0 : cylinders.hashCode());
+	result = prime
+		* result
+		+ ((defaultBackscanColor == null) ? 0 : defaultBackscanColor
+			.hashCode());
+	result = prime
+		* result
+		+ ((defaultFrontscanColor == null) ? 0 : defaultFrontscanColor
+			.hashCode());
+	result = prime * result
+		+ ((deptransport == null) ? 0 : deptransport.hashCode());
+	result = prime
+		* result
+		+ ((derivationAlgorithms == null) ? 0 : derivationAlgorithms
+			.hashCode());
+	result = prime * result + ((dipMode == null) ? 0 : dipMode.hashCode());
+	result = prime * result
+		+ ((dispenseTo == null) ? 0 : dispenseTo.hashCode());
+	result = prime * result + ((display == null) ? 0 : display.hashCode());
+	result = prime * result
+		+ ((displayLight == null) ? 0 : displayLight.hashCode());
+	result = prime * result + ((doors == null) ? 0 : doors.hashCode());
+	result = prime * result
+		+ ((ejectPosition == null) ? 0 : ejectPosition.hashCode());
+	result = prime
+		* result
+		+ ((emvHashAlgorithm == null) ? 0 : emvHashAlgorithm.hashCode());
+	result = prime
+		* result
+		+ ((emvImportSchemes == null) ? 0 : emvImportSchemes.hashCode());
+	result = prime * result
+		+ ((encioProtocols == null) ? 0 : encioProtocols.hashCode());
+	result = prime * result
+		+ ((encodenames == null) ? 0 : encodenames.hashCode());
+	result = prime * result + ((encoder == null) ? 0 : encoder.hashCode());
+	result = prime * result
+		+ ((endorser == null) ? 0 : endorser.hashCode());
+	result = prime * result
+		+ ((envelopesupply == null) ? 0 : envelopesupply.hashCode());
+	result = prime * result
+		+ ((exchangeTypes == null) ? 0 : exchangeTypes.hashCode());
+	result = prime * result + ((extents == null) ? 0 : extents.hashCode());
+	result = prime * result + ((extra == null) ? 0 : extra.hashCode());
+	result = prime * result
+		+ ((fontnames == null) ? 0 : fontnames.hashCode());
+	result = prime * result + ((forms == null) ? 0 : forms.hashCode());
+	result = prime
+		* result
+		+ ((frontImageColorFormat == null) ? 0 : frontImageColorFormat
+			.hashCode());
+	result = prime * result
+		+ ((frontscanColor == null) ? 0 : frontscanColor.hashCode());
+	result = prime * result
+		+ ((guidlights == null) ? 0 : guidlights.hashCode());
+	result = prime * result
+		+ ((hasCashBox == null) ? 0 : hasCashBox.hashCode());
+	result = prime
+		* result
+		+ ((hasInsertedSensor == null) ? 0 : hasInsertedSensor
+			.hashCode());
+	result = prime * result
+		+ ((hasShutter == null) ? 0 : hasShutter.hashCode());
+	result = prime * result
+		+ ((hasTakenSensor == null) ? 0 : hasTakenSensor.hashCode());
+	result = prime * result
+		+ ((hsmVendor == null) ? 0 : hsmVendor.hashCode());
+	result = prime * result
+		+ ((idConnect == null) ? 0 : idConnect.hashCode());
+	result = prime * result + ((idKey == null) ? 0 : idKey.hashCode());
+	result = prime * result
+		+ ((imageSource == null) ? 0 : imageSource.hashCode());
+	result = prime * result
+		+ ((imageType == null) ? 0 : imageType.hashCode());
+	result = prime * result
+		+ ((imagecapture == null) ? 0 : imagecapture.hashCode());
+	result = prime * result
+		+ ((indicators == null) ? 0 : indicators.hashCode());
+	result = prime
+		* result
+		+ ((insertOrientation == null) ? 0 : insertOrientation
+			.hashCode());
+	result = prime
+		* result
+		+ ((intermediateStacker == null) ? 0 : intermediateStacker
+			.hashCode());
+	result = prime
+		* result
+		+ ((isApplicationRefuse == null) ? 0 : isApplicationRefuse
+			.hashCode());
+	result = prime * result
+		+ ((isAutofeed == null) ? 0 : isAutofeed.hashCode());
+	result = prime
+		* result
+		+ ((isCardTakenSensor == null) ? 0 : isCardTakenSensor
+			.hashCode());
+	result = prime
+		* result
+		+ ((isCompareSignatures == null) ? 0 : isCompareSignatures
+			.hashCode());
+	result = prime * result
+		+ ((isHsmJournaling == null) ? 0 : isHsmJournaling.hashCode());
+	result = prime
+		* result
+		+ ((isIntermediateStacker == null) ? 0 : isIntermediateStacker
+			.hashCode());
+	result = prime
+		* result
+		+ ((isItemsTakenSensor == null) ? 0 : isItemsTakenSensor
+			.hashCode());
+	result = prime
+		* result
+		+ ((isKeyImportThroughParts == null) ? 0
+			: isKeyImportThroughParts.hashCode());
+	result = prime
+		* result
+		+ ((isMediaPresented == null) ? 0 : isMediaPresented.hashCode());
+	result = prime
+		* result
+		+ ((isPinCanPersistAfterUse == null) ? 0
+			: isPinCanPersistAfterUse.hashCode());
+	result = prime
+		* result
+		+ ((isPrepareDispense == null) ? 0 : isPrepareDispense
+			.hashCode());
+	result = prime
+		* result
+		+ ((isPresentControl == null) ? 0 : isPresentControl.hashCode());
+	result = prime * result
+		+ ((isRescan == null) ? 0 : isRescan.hashCode());
+	result = prime
+		* result
+		+ ((isRetractCountsItems == null) ? 0 : isRetractCountsItems
+			.hashCode());
+	result = prime
+		* result
+		+ ((isRetractToTransport == null) ? 0 : isRetractToTransport
+			.hashCode());
+	result = prime * result
+		+ ((isSafeDoor == null) ? 0 : isSafeDoor.hashCode());
+	result = prime
+		* result
+		+ ((isSetPinBlockDataRequired == null) ? 0
+			: isSetPinBlockDataRequired.hashCode());
+	result = prime * result + ((isStamp == null) ? 0 : isStamp.hashCode());
+	result = prime * result
+		+ ((isTypeCombined == null) ? 0 : isTypeCombined.hashCode());
+	result = prime * result
+		+ ((itemInfoTypes == null) ? 0 : itemInfoTypes.hashCode());
+	result = prime
+		* result
+		+ ((keyBlockImportFormats == null) ? 0 : keyBlockImportFormats
+			.hashCode());
+	result = prime * result
+		+ ((keyCheckModes == null) ? 0 : keyCheckModes.hashCode());
+	result = prime * result + ((keyLock == null) ? 0 : keyLock.hashCode());
+	result = prime * result + ((keyNum == null) ? 0 : keyNum.hashCode());
+	result = prime * result + ((keys == null) ? 0 : keys.hashCode());
+	result = prime * result + ((logical == null) ? 0 : logical.hashCode());
+	result = prime
+		* result
+		+ ((magneticstriperead == null) ? 0 : magneticstriperead
+			.hashCode());
+	result = prime
+		* result
+		+ ((magneticstripewrite == null) ? 0 : magneticstripewrite
+			.hashCode());
+	result = prime * result
+		+ ((max2Retract == null) ? 0 : max2Retract.hashCode());
+	result = prime * result
+		+ ((maxBills == null) ? 0 : maxBills.hashCode());
+	result = prime * result
+		+ ((maxCashInItems == null) ? 0 : maxCashInItems.hashCode());
+	result = prime * result
+		+ ((maxCoins == null) ? 0 : maxCoins.hashCode());
+	result = prime * result
+		+ ((maxDataLength == null) ? 0 : maxDataLength.hashCode());
+	result = prime
+		* result
+		+ ((maxDispenseItems == null) ? 0 : maxDispenseItems.hashCode());
+	result = prime
+		* result
+		+ ((maxMediaOnStacker == null) ? 0 : maxMediaOnStacker
+			.hashCode());
+	result = prime * result
+		+ ((maxNumChars == null) ? 0 : maxNumChars.hashCode());
+	result = prime * result
+		+ ((maxPictures == null) ? 0 : maxPictures.hashCode());
+	result = prime * result
+		+ ((maxRetract == null) ? 0 : maxRetract.hashCode());
+	result = prime * result
+		+ ((mediaTaken == null) ? 0 : mediaTaken.hashCode());
+	result = prime
+		* result
+		+ ((memoryChipProtocols == null) ? 0 : memoryChipProtocols
+			.hashCode());
+	result = prime * result + ((micr == null) ? 0 : micr.hashCode());
+	result = prime * result
+		+ ((moveItems == null) ? 0 : moveItems.hashCode());
+	result = prime * result
+		+ ((multiPage == null) ? 0 : multiPage.hashCode());
+	result = prime * result + ((numLeds == null) ? 0 : numLeds.hashCode());
+	result = prime * result + ((ocr == null) ? 0 : ocr.hashCode());
+	result = prime * result
+		+ ((outputPositions == null) ? 0 : outputPositions.hashCode());
+	result = prime * result
+		+ ((paperSources == null) ? 0 : paperSources.hashCode());
+	result = prime * result
+		+ ((pinFormats == null) ? 0 : pinFormats.hashCode());
+	result = prime * result + ((pockets == null) ? 0 : pockets.hashCode());
+	result = prime * result
+		+ ((positions == null) ? 0 : positions.hashCode());
+	result = prime * result
+		+ ((powerOff == null) ? 0 : powerOff.hashCode());
+	result = prime * result + ((powerOn == null) ? 0 : powerOn.hashCode());
+	result = prime
+		* result
+		+ ((powerSaveControl == null) ? 0 : powerSaveControl.hashCode());
+	result = prime
+		* result
+		+ ((presentationAlgorithms == null) ? 0
+			: presentationAlgorithms.hashCode());
+	result = prime * result
+		+ ((printOnRetracts == null) ? 0 : printOnRetracts.hashCode());
+	result = prime * result
+		+ ((printSize == null) ? 0 : printSize.hashCode());
+	result = prime * result + ((printer == null) ? 0 : printer.hashCode());
+	result = prime
+		* result
+		+ ((programaticallyDeactivate == null) ? 0
+			: programaticallyDeactivate.hashCode());
+	result = prime * result
+		+ ((provider == null) ? 0 : provider.hashCode());
+	result = prime * result
+		+ ((readForm == null) ? 0 : readForm.hashCode());
+	result = prime * result
+		+ ((readTracks == null) ? 0 : readTracks.hashCode());
+	result = prime * result + ((refill == null) ? 0 : refill.hashCode());
+	result = prime * result
+		+ ((resetControl == null) ? 0 : resetControl.hashCode());
+	result = prime * result
+		+ ((resolutions == null) ? 0 : resolutions.hashCode());
+	result = prime * result + ((retract == null) ? 0 : retract.hashCode());
+	result = prime * result
+		+ ((retractAreas == null) ? 0 : retractAreas.hashCode());
+	result = prime * result
+		+ ((retractBins == null) ? 0 : retractBins.hashCode());
+	result = prime
+		* result
+		+ ((retractStackerActions == null) ? 0 : retractStackerActions
+			.hashCode());
+	result = prime
+		* result
+		+ ((retractToDeposit == null) ? 0 : retractToDeposit.hashCode());
+	result = prime
+		* result
+		+ ((retractTransportActions == null) ? 0
+			: retractTransportActions.hashCode());
+	result = prime * result
+		+ ((retractenvelope == null) ? 0 : retractenvelope.hashCode());
+	result = prime
+		* result
+		+ ((rsaAuthenticationScheme == null) ? 0
+			: rsaAuthenticationScheme.hashCode());
+	result = prime
+		* result
+		+ ((rsaCryptAlgorithm == null) ? 0 : rsaCryptAlgorithm
+			.hashCode());
+	result = prime * result
+		+ ((rsaKeycheckMode == null) ? 0 : rsaKeycheckMode.hashCode());
+	result = prime
+		* result
+		+ ((rsaSignatureAlgorithm == null) ? 0 : rsaSignatureAlgorithm
+			.hashCode());
+	result = prime * result
+		+ ((securityType == null) ? 0 : securityType.hashCode());
+	result = prime * result + ((sensors == null) ? 0 : sensors.hashCode());
+	result = prime * result
+		+ ((shutterControl == null) ? 0 : shutterControl.hashCode());
+	result = prime * result
+		+ ((signatureScheme == null) ? 0 : signatureScheme.hashCode());
+	result = prime * result + ((stamp == null) ? 0 : stamp.hashCode());
+	result = prime * result
+		+ ((symbologies == null) ? 0 : symbologies.hashCode());
+	result = prime * result + ((toner == null) ? 0 : toner.hashCode());
+	result = prime * result + ((type == null) ? 0 : type.hashCode());
+	result = prime
+		* result
+		+ ((validationAlgorithms == null) ? 0 : validationAlgorithms
+			.hashCode());
+	result = prime * result
+		+ ((vandalCheck == null) ? 0 : vandalCheck.hashCode());
+	result = prime * result
+		+ ((windowsPrinter == null) ? 0 : windowsPrinter.hashCode());
+	result = prime * result
+		+ ((writeForm == null) ? 0 : writeForm.hashCode());
+	result = prime * result
+		+ ((writeMode == null) ? 0 : writeMode.hashCode());
+	result = prime * result
+		+ ((writeTracks == null) ? 0 : writeTracks.hashCode());
+	result = prime * result
+		+ ((xfsClass == null) ? 0 : xfsClass.hashCode());
+	return result;
+    }
 
-    
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	XfsComponent other = (XfsComponent) obj;
+	if (acceptMedia == null) {
+	    if (other.acceptMedia != null)
+		return false;
+	} else if (!acceptMedia.equals(other.acceptMedia))
+	    return false;
+	if (algorithms == null) {
+	    if (other.algorithms != null)
+		return false;
+	} else if (!algorithms.equals(other.algorithms))
+	    return false;
+	if (autobeep == null) {
+	    if (other.autobeep != null)
+		return false;
+	} else if (!autobeep.equals(other.autobeep))
+	    return false;
+	if (autodeposit == null) {
+	    if (other.autodeposit != null)
+		return false;
+	} else if (!autodeposit.equals(other.autodeposit))
+	    return false;
+	if (autoretractPeriod == null) {
+	    if (other.autoretractPeriod != null)
+		return false;
+	} else if (!autoretractPeriod.equals(other.autoretractPeriod))
+	    return false;
+	if (auxiliaries == null) {
+	    if (other.auxiliaries != null)
+		return false;
+	} else if (!auxiliaries.equals(other.auxiliaries))
+	    return false;
+	if (backImageColorFormat == null) {
+	    if (other.backImageColorFormat != null)
+		return false;
+	} else if (!backImageColorFormat.equals(other.backImageColorFormat))
+	    return false;
+	if (backscanColor == null) {
+	    if (other.backscanColor != null)
+		return false;
+	} else if (!backscanColor.equals(other.backscanColor))
+	    return false;
+	if (camdata == null) {
+	    if (other.camdata != null)
+		return false;
+	} else if (!camdata.equals(other.camdata))
+	    return false;
+	if (cameras == null) {
+	    if (other.cameras != null)
+		return false;
+	} else if (!cameras.equals(other.cameras))
+	    return false;
+	if (canFilterSymbologies == null) {
+	    if (other.canFilterSymbologies != null)
+		return false;
+	} else if (!canFilterSymbologies.equals(other.canFilterSymbologies))
+	    return false;
+	if (cards == null) {
+	    if (other.cards != null)
+		return false;
+	} else if (!cards.equals(other.cards))
+	    return false;
+	if (cashin == null) {
+	    if (other.cashin != null)
+		return false;
+	} else if (!cashin.equals(other.cashin))
+	    return false;
+	if (charSupport == null) {
+	    if (other.charSupport != null)
+		return false;
+	} else if (!charSupport.equals(other.charSupport))
+	    return false;
+	if (chipPower == null) {
+	    if (other.chipPower != null)
+		return false;
+	} else if (!chipPower.equals(other.chipPower))
+	    return false;
+	if (chipProtocol == null) {
+	    if (other.chipProtocol != null)
+		return false;
+	} else if (!chipProtocol.equals(other.chipProtocol))
+	    return false;
+	if (chipio == null) {
+	    if (other.chipio != null)
+		return false;
+	} else if (!chipio.equals(other.chipio))
+	    return false;
+	if (codeLineFormat == null) {
+	    if (other.codeLineFormat != null)
+		return false;
+	} else if (!codeLineFormat.equals(other.codeLineFormat))
+	    return false;
+	if (coins == null) {
+	    if (other.coins != null)
+		return false;
+	} else if (!coins.equals(other.coins))
+	    return false;
+	if (comparemagneticstripe == null) {
+	    if (other.comparemagneticstripe != null)
+		return false;
+	} else if (!comparemagneticstripe.equals(other.comparemagneticstripe))
+	    return false;
+	if (compound == null) {
+	    if (other.compound != null)
+		return false;
+	} else if (!compound.equals(other.compound))
+	    return false;
+	if (control == null) {
+	    if (other.control != null)
+		return false;
+	} else if (!control.equals(other.control))
+	    return false;
+	if (cursor == null) {
+	    if (other.cursor != null)
+		return false;
+	} else if (!cursor.equals(other.cursor))
+	    return false;
+	if (cylinders == null) {
+	    if (other.cylinders != null)
+		return false;
+	} else if (!cylinders.equals(other.cylinders))
+	    return false;
+	if (defaultBackscanColor == null) {
+	    if (other.defaultBackscanColor != null)
+		return false;
+	} else if (!defaultBackscanColor.equals(other.defaultBackscanColor))
+	    return false;
+	if (defaultFrontscanColor == null) {
+	    if (other.defaultFrontscanColor != null)
+		return false;
+	} else if (!defaultFrontscanColor.equals(other.defaultFrontscanColor))
+	    return false;
+	if (deptransport == null) {
+	    if (other.deptransport != null)
+		return false;
+	} else if (!deptransport.equals(other.deptransport))
+	    return false;
+	if (derivationAlgorithms == null) {
+	    if (other.derivationAlgorithms != null)
+		return false;
+	} else if (!derivationAlgorithms.equals(other.derivationAlgorithms))
+	    return false;
+	if (dipMode == null) {
+	    if (other.dipMode != null)
+		return false;
+	} else if (!dipMode.equals(other.dipMode))
+	    return false;
+	if (dispenseTo == null) {
+	    if (other.dispenseTo != null)
+		return false;
+	} else if (!dispenseTo.equals(other.dispenseTo))
+	    return false;
+	if (display == null) {
+	    if (other.display != null)
+		return false;
+	} else if (!display.equals(other.display))
+	    return false;
+	if (displayLight == null) {
+	    if (other.displayLight != null)
+		return false;
+	} else if (!displayLight.equals(other.displayLight))
+	    return false;
+	if (doors == null) {
+	    if (other.doors != null)
+		return false;
+	} else if (!doors.equals(other.doors))
+	    return false;
+	if (ejectPosition == null) {
+	    if (other.ejectPosition != null)
+		return false;
+	} else if (!ejectPosition.equals(other.ejectPosition))
+	    return false;
+	if (emvHashAlgorithm == null) {
+	    if (other.emvHashAlgorithm != null)
+		return false;
+	} else if (!emvHashAlgorithm.equals(other.emvHashAlgorithm))
+	    return false;
+	if (emvImportSchemes == null) {
+	    if (other.emvImportSchemes != null)
+		return false;
+	} else if (!emvImportSchemes.equals(other.emvImportSchemes))
+	    return false;
+	if (encioProtocols == null) {
+	    if (other.encioProtocols != null)
+		return false;
+	} else if (!encioProtocols.equals(other.encioProtocols))
+	    return false;
+	if (encodenames == null) {
+	    if (other.encodenames != null)
+		return false;
+	} else if (!encodenames.equals(other.encodenames))
+	    return false;
+	if (encoder == null) {
+	    if (other.encoder != null)
+		return false;
+	} else if (!encoder.equals(other.encoder))
+	    return false;
+	if (endorser == null) {
+	    if (other.endorser != null)
+		return false;
+	} else if (!endorser.equals(other.endorser))
+	    return false;
+	if (envelopesupply == null) {
+	    if (other.envelopesupply != null)
+		return false;
+	} else if (!envelopesupply.equals(other.envelopesupply))
+	    return false;
+	if (exchangeTypes == null) {
+	    if (other.exchangeTypes != null)
+		return false;
+	} else if (!exchangeTypes.equals(other.exchangeTypes))
+	    return false;
+	if (extents == null) {
+	    if (other.extents != null)
+		return false;
+	} else if (!extents.equals(other.extents))
+	    return false;
+	if (extra == null) {
+	    if (other.extra != null)
+		return false;
+	} else if (!extra.equals(other.extra))
+	    return false;
+	if (fontnames == null) {
+	    if (other.fontnames != null)
+		return false;
+	} else if (!fontnames.equals(other.fontnames))
+	    return false;
+	if (forms == null) {
+	    if (other.forms != null)
+		return false;
+	} else if (!forms.equals(other.forms))
+	    return false;
+	if (frontImageColorFormat == null) {
+	    if (other.frontImageColorFormat != null)
+		return false;
+	} else if (!frontImageColorFormat.equals(other.frontImageColorFormat))
+	    return false;
+	if (frontscanColor == null) {
+	    if (other.frontscanColor != null)
+		return false;
+	} else if (!frontscanColor.equals(other.frontscanColor))
+	    return false;
+	if (guidlights == null) {
+	    if (other.guidlights != null)
+		return false;
+	} else if (!guidlights.equals(other.guidlights))
+	    return false;
+	if (hasCashBox == null) {
+	    if (other.hasCashBox != null)
+		return false;
+	} else if (!hasCashBox.equals(other.hasCashBox))
+	    return false;
+	if (hasInsertedSensor == null) {
+	    if (other.hasInsertedSensor != null)
+		return false;
+	} else if (!hasInsertedSensor.equals(other.hasInsertedSensor))
+	    return false;
+	if (hasShutter == null) {
+	    if (other.hasShutter != null)
+		return false;
+	} else if (!hasShutter.equals(other.hasShutter))
+	    return false;
+	if (hasTakenSensor == null) {
+	    if (other.hasTakenSensor != null)
+		return false;
+	} else if (!hasTakenSensor.equals(other.hasTakenSensor))
+	    return false;
+	if (hsmVendor == null) {
+	    if (other.hsmVendor != null)
+		return false;
+	} else if (!hsmVendor.equals(other.hsmVendor))
+	    return false;
+	if (idConnect == null) {
+	    if (other.idConnect != null)
+		return false;
+	} else if (!idConnect.equals(other.idConnect))
+	    return false;
+	if (idKey == null) {
+	    if (other.idKey != null)
+		return false;
+	} else if (!idKey.equals(other.idKey))
+	    return false;
+	if (imageSource == null) {
+	    if (other.imageSource != null)
+		return false;
+	} else if (!imageSource.equals(other.imageSource))
+	    return false;
+	if (imageType == null) {
+	    if (other.imageType != null)
+		return false;
+	} else if (!imageType.equals(other.imageType))
+	    return false;
+	if (imagecapture == null) {
+	    if (other.imagecapture != null)
+		return false;
+	} else if (!imagecapture.equals(other.imagecapture))
+	    return false;
+	if (indicators == null) {
+	    if (other.indicators != null)
+		return false;
+	} else if (!indicators.equals(other.indicators))
+	    return false;
+	if (insertOrientation == null) {
+	    if (other.insertOrientation != null)
+		return false;
+	} else if (!insertOrientation.equals(other.insertOrientation))
+	    return false;
+	if (intermediateStacker == null) {
+	    if (other.intermediateStacker != null)
+		return false;
+	} else if (!intermediateStacker.equals(other.intermediateStacker))
+	    return false;
+	if (isApplicationRefuse == null) {
+	    if (other.isApplicationRefuse != null)
+		return false;
+	} else if (!isApplicationRefuse.equals(other.isApplicationRefuse))
+	    return false;
+	if (isAutofeed == null) {
+	    if (other.isAutofeed != null)
+		return false;
+	} else if (!isAutofeed.equals(other.isAutofeed))
+	    return false;
+	if (isCardTakenSensor == null) {
+	    if (other.isCardTakenSensor != null)
+		return false;
+	} else if (!isCardTakenSensor.equals(other.isCardTakenSensor))
+	    return false;
+	if (isCompareSignatures == null) {
+	    if (other.isCompareSignatures != null)
+		return false;
+	} else if (!isCompareSignatures.equals(other.isCompareSignatures))
+	    return false;
+	if (isHsmJournaling == null) {
+	    if (other.isHsmJournaling != null)
+		return false;
+	} else if (!isHsmJournaling.equals(other.isHsmJournaling))
+	    return false;
+	if (isIntermediateStacker == null) {
+	    if (other.isIntermediateStacker != null)
+		return false;
+	} else if (!isIntermediateStacker.equals(other.isIntermediateStacker))
+	    return false;
+	if (isItemsTakenSensor == null) {
+	    if (other.isItemsTakenSensor != null)
+		return false;
+	} else if (!isItemsTakenSensor.equals(other.isItemsTakenSensor))
+	    return false;
+	if (isKeyImportThroughParts == null) {
+	    if (other.isKeyImportThroughParts != null)
+		return false;
+	} else if (!isKeyImportThroughParts
+		.equals(other.isKeyImportThroughParts))
+	    return false;
+	if (isMediaPresented == null) {
+	    if (other.isMediaPresented != null)
+		return false;
+	} else if (!isMediaPresented.equals(other.isMediaPresented))
+	    return false;
+	if (isPinCanPersistAfterUse == null) {
+	    if (other.isPinCanPersistAfterUse != null)
+		return false;
+	} else if (!isPinCanPersistAfterUse
+		.equals(other.isPinCanPersistAfterUse))
+	    return false;
+	if (isPrepareDispense == null) {
+	    if (other.isPrepareDispense != null)
+		return false;
+	} else if (!isPrepareDispense.equals(other.isPrepareDispense))
+	    return false;
+	if (isPresentControl == null) {
+	    if (other.isPresentControl != null)
+		return false;
+	} else if (!isPresentControl.equals(other.isPresentControl))
+	    return false;
+	if (isRescan == null) {
+	    if (other.isRescan != null)
+		return false;
+	} else if (!isRescan.equals(other.isRescan))
+	    return false;
+	if (isRetractCountsItems == null) {
+	    if (other.isRetractCountsItems != null)
+		return false;
+	} else if (!isRetractCountsItems.equals(other.isRetractCountsItems))
+	    return false;
+	if (isRetractToTransport == null) {
+	    if (other.isRetractToTransport != null)
+		return false;
+	} else if (!isRetractToTransport.equals(other.isRetractToTransport))
+	    return false;
+	if (isSafeDoor == null) {
+	    if (other.isSafeDoor != null)
+		return false;
+	} else if (!isSafeDoor.equals(other.isSafeDoor))
+	    return false;
+	if (isSetPinBlockDataRequired == null) {
+	    if (other.isSetPinBlockDataRequired != null)
+		return false;
+	} else if (!isSetPinBlockDataRequired
+		.equals(other.isSetPinBlockDataRequired))
+	    return false;
+	if (isStamp == null) {
+	    if (other.isStamp != null)
+		return false;
+	} else if (!isStamp.equals(other.isStamp))
+	    return false;
+	if (isTypeCombined == null) {
+	    if (other.isTypeCombined != null)
+		return false;
+	} else if (!isTypeCombined.equals(other.isTypeCombined))
+	    return false;
+	if (itemInfoTypes == null) {
+	    if (other.itemInfoTypes != null)
+		return false;
+	} else if (!itemInfoTypes.equals(other.itemInfoTypes))
+	    return false;
+	if (keyBlockImportFormats == null) {
+	    if (other.keyBlockImportFormats != null)
+		return false;
+	} else if (!keyBlockImportFormats.equals(other.keyBlockImportFormats))
+	    return false;
+	if (keyCheckModes == null) {
+	    if (other.keyCheckModes != null)
+		return false;
+	} else if (!keyCheckModes.equals(other.keyCheckModes))
+	    return false;
+	if (keyLock == null) {
+	    if (other.keyLock != null)
+		return false;
+	} else if (!keyLock.equals(other.keyLock))
+	    return false;
+	if (keyNum == null) {
+	    if (other.keyNum != null)
+		return false;
+	} else if (!keyNum.equals(other.keyNum))
+	    return false;
+	if (keys == null) {
+	    if (other.keys != null)
+		return false;
+	} else if (!keys.equals(other.keys))
+	    return false;
+	if (logical == null) {
+	    if (other.logical != null)
+		return false;
+	} else if (!logical.equals(other.logical))
+	    return false;
+	if (logicalCashUnits == null) {
+	    if (other.logicalCashUnits != null)
+		return false;
+	} else if (!logicalCashUnits.equals(other.logicalCashUnits))
+	    return false;
+	if (magneticstriperead == null) {
+	    if (other.magneticstriperead != null)
+		return false;
+	} else if (!magneticstriperead.equals(other.magneticstriperead))
+	    return false;
+	if (magneticstripewrite == null) {
+	    if (other.magneticstripewrite != null)
+		return false;
+	} else if (!magneticstripewrite.equals(other.magneticstripewrite))
+	    return false;
+	if (max2Retract == null) {
+	    if (other.max2Retract != null)
+		return false;
+	} else if (!max2Retract.equals(other.max2Retract))
+	    return false;
+	if (maxBills == null) {
+	    if (other.maxBills != null)
+		return false;
+	} else if (!maxBills.equals(other.maxBills))
+	    return false;
+	if (maxCashInItems == null) {
+	    if (other.maxCashInItems != null)
+		return false;
+	} else if (!maxCashInItems.equals(other.maxCashInItems))
+	    return false;
+	if (maxCoins == null) {
+	    if (other.maxCoins != null)
+		return false;
+	} else if (!maxCoins.equals(other.maxCoins))
+	    return false;
+	if (maxDataLength == null) {
+	    if (other.maxDataLength != null)
+		return false;
+	} else if (!maxDataLength.equals(other.maxDataLength))
+	    return false;
+	if (maxDispenseItems == null) {
+	    if (other.maxDispenseItems != null)
+		return false;
+	} else if (!maxDispenseItems.equals(other.maxDispenseItems))
+	    return false;
+	if (maxMediaOnStacker == null) {
+	    if (other.maxMediaOnStacker != null)
+		return false;
+	} else if (!maxMediaOnStacker.equals(other.maxMediaOnStacker))
+	    return false;
+	if (maxNumChars == null) {
+	    if (other.maxNumChars != null)
+		return false;
+	} else if (!maxNumChars.equals(other.maxNumChars))
+	    return false;
+	if (maxPictures == null) {
+	    if (other.maxPictures != null)
+		return false;
+	} else if (!maxPictures.equals(other.maxPictures))
+	    return false;
+	if (maxRetract == null) {
+	    if (other.maxRetract != null)
+		return false;
+	} else if (!maxRetract.equals(other.maxRetract))
+	    return false;
+	if (mediaTaken == null) {
+	    if (other.mediaTaken != null)
+		return false;
+	} else if (!mediaTaken.equals(other.mediaTaken))
+	    return false;
+	if (memoryChipProtocols == null) {
+	    if (other.memoryChipProtocols != null)
+		return false;
+	} else if (!memoryChipProtocols.equals(other.memoryChipProtocols))
+	    return false;
+	if (micr == null) {
+	    if (other.micr != null)
+		return false;
+	} else if (!micr.equals(other.micr))
+	    return false;
+	if (moveItems == null) {
+	    if (other.moveItems != null)
+		return false;
+	} else if (!moveItems.equals(other.moveItems))
+	    return false;
+	if (multiPage == null) {
+	    if (other.multiPage != null)
+		return false;
+	} else if (!multiPage.equals(other.multiPage))
+	    return false;
+	if (numLeds == null) {
+	    if (other.numLeds != null)
+		return false;
+	} else if (!numLeds.equals(other.numLeds))
+	    return false;
+	if (ocr == null) {
+	    if (other.ocr != null)
+		return false;
+	} else if (!ocr.equals(other.ocr))
+	    return false;
+	if (outputPositions == null) {
+	    if (other.outputPositions != null)
+		return false;
+	} else if (!outputPositions.equals(other.outputPositions))
+	    return false;
+	if (paperSources == null) {
+	    if (other.paperSources != null)
+		return false;
+	} else if (!paperSources.equals(other.paperSources))
+	    return false;
+	if (pinFormats == null) {
+	    if (other.pinFormats != null)
+		return false;
+	} else if (!pinFormats.equals(other.pinFormats))
+	    return false;
+	if (pockets == null) {
+	    if (other.pockets != null)
+		return false;
+	} else if (!pockets.equals(other.pockets))
+	    return false;
+	if (positions == null) {
+	    if (other.positions != null)
+		return false;
+	} else if (!positions.equals(other.positions))
+	    return false;
+	if (powerOff == null) {
+	    if (other.powerOff != null)
+		return false;
+	} else if (!powerOff.equals(other.powerOff))
+	    return false;
+	if (powerOn == null) {
+	    if (other.powerOn != null)
+		return false;
+	} else if (!powerOn.equals(other.powerOn))
+	    return false;
+	if (powerSaveControl == null) {
+	    if (other.powerSaveControl != null)
+		return false;
+	} else if (!powerSaveControl.equals(other.powerSaveControl))
+	    return false;
+	if (presentationAlgorithms == null) {
+	    if (other.presentationAlgorithms != null)
+		return false;
+	} else if (!presentationAlgorithms.equals(other.presentationAlgorithms))
+	    return false;
+	if (printOnRetracts == null) {
+	    if (other.printOnRetracts != null)
+		return false;
+	} else if (!printOnRetracts.equals(other.printOnRetracts))
+	    return false;
+	if (printSize == null) {
+	    if (other.printSize != null)
+		return false;
+	} else if (!printSize.equals(other.printSize))
+	    return false;
+	if (printer == null) {
+	    if (other.printer != null)
+		return false;
+	} else if (!printer.equals(other.printer))
+	    return false;
+	if (programaticallyDeactivate == null) {
+	    if (other.programaticallyDeactivate != null)
+		return false;
+	} else if (!programaticallyDeactivate
+		.equals(other.programaticallyDeactivate))
+	    return false;
+	if (provider == null) {
+	    if (other.provider != null)
+		return false;
+	} else if (!provider.equals(other.provider))
+	    return false;
+	if (readForm == null) {
+	    if (other.readForm != null)
+		return false;
+	} else if (!readForm.equals(other.readForm))
+	    return false;
+	if (readTracks == null) {
+	    if (other.readTracks != null)
+		return false;
+	} else if (!readTracks.equals(other.readTracks))
+	    return false;
+	if (refill == null) {
+	    if (other.refill != null)
+		return false;
+	} else if (!refill.equals(other.refill))
+	    return false;
+	if (resetControl == null) {
+	    if (other.resetControl != null)
+		return false;
+	} else if (!resetControl.equals(other.resetControl))
+	    return false;
+	if (resolutions == null) {
+	    if (other.resolutions != null)
+		return false;
+	} else if (!resolutions.equals(other.resolutions))
+	    return false;
+	if (retract == null) {
+	    if (other.retract != null)
+		return false;
+	} else if (!retract.equals(other.retract))
+	    return false;
+	if (retractAreas == null) {
+	    if (other.retractAreas != null)
+		return false;
+	} else if (!retractAreas.equals(other.retractAreas))
+	    return false;
+	if (retractBins == null) {
+	    if (other.retractBins != null)
+		return false;
+	} else if (!retractBins.equals(other.retractBins))
+	    return false;
+	if (retractStackerActions == null) {
+	    if (other.retractStackerActions != null)
+		return false;
+	} else if (!retractStackerActions.equals(other.retractStackerActions))
+	    return false;
+	if (retractToDeposit == null) {
+	    if (other.retractToDeposit != null)
+		return false;
+	} else if (!retractToDeposit.equals(other.retractToDeposit))
+	    return false;
+	if (retractTransportActions == null) {
+	    if (other.retractTransportActions != null)
+		return false;
+	} else if (!retractTransportActions
+		.equals(other.retractTransportActions))
+	    return false;
+	if (retractenvelope == null) {
+	    if (other.retractenvelope != null)
+		return false;
+	} else if (!retractenvelope.equals(other.retractenvelope))
+	    return false;
+	if (rsaAuthenticationScheme == null) {
+	    if (other.rsaAuthenticationScheme != null)
+		return false;
+	} else if (!rsaAuthenticationScheme
+		.equals(other.rsaAuthenticationScheme))
+	    return false;
+	if (rsaCryptAlgorithm == null) {
+	    if (other.rsaCryptAlgorithm != null)
+		return false;
+	} else if (!rsaCryptAlgorithm.equals(other.rsaCryptAlgorithm))
+	    return false;
+	if (rsaKeycheckMode == null) {
+	    if (other.rsaKeycheckMode != null)
+		return false;
+	} else if (!rsaKeycheckMode.equals(other.rsaKeycheckMode))
+	    return false;
+	if (rsaSignatureAlgorithm == null) {
+	    if (other.rsaSignatureAlgorithm != null)
+		return false;
+	} else if (!rsaSignatureAlgorithm.equals(other.rsaSignatureAlgorithm))
+	    return false;
+	if (securityType == null) {
+	    if (other.securityType != null)
+		return false;
+	} else if (!securityType.equals(other.securityType))
+	    return false;
+	if (sensors == null) {
+	    if (other.sensors != null)
+		return false;
+	} else if (!sensors.equals(other.sensors))
+	    return false;
+	if (shutterControl == null) {
+	    if (other.shutterControl != null)
+		return false;
+	} else if (!shutterControl.equals(other.shutterControl))
+	    return false;
+	if (signatureScheme == null) {
+	    if (other.signatureScheme != null)
+		return false;
+	} else if (!signatureScheme.equals(other.signatureScheme))
+	    return false;
+	if (stamp == null) {
+	    if (other.stamp != null)
+		return false;
+	} else if (!stamp.equals(other.stamp))
+	    return false;
+	if (symbologies == null) {
+	    if (other.symbologies != null)
+		return false;
+	} else if (!symbologies.equals(other.symbologies))
+	    return false;
+	if (toner == null) {
+	    if (other.toner != null)
+		return false;
+	} else if (!toner.equals(other.toner))
+	    return false;
+	if (type == null) {
+	    if (other.type != null)
+		return false;
+	} else if (!type.equals(other.type))
+	    return false;
+	if (validationAlgorithms == null) {
+	    if (other.validationAlgorithms != null)
+		return false;
+	} else if (!validationAlgorithms.equals(other.validationAlgorithms))
+	    return false;
+	if (vandalCheck == null) {
+	    if (other.vandalCheck != null)
+		return false;
+	} else if (!vandalCheck.equals(other.vandalCheck))
+	    return false;
+	if (windowsPrinter == null) {
+	    if (other.windowsPrinter != null)
+		return false;
+	} else if (!windowsPrinter.equals(other.windowsPrinter))
+	    return false;
+	if (writeForm == null) {
+	    if (other.writeForm != null)
+		return false;
+	} else if (!writeForm.equals(other.writeForm))
+	    return false;
+	if (writeMode == null) {
+	    if (other.writeMode != null)
+		return false;
+	} else if (!writeMode.equals(other.writeMode))
+	    return false;
+	if (writeTracks == null) {
+	    if (other.writeTracks != null)
+		return false;
+	} else if (!writeTracks.equals(other.writeTracks))
+	    return false;
+	if (xfsClass == null) {
+	    if (other.xfsClass != null)
+		return false;
+	} else if (!xfsClass.equals(other.xfsClass))
+	    return false;
+	return true;
+    }
+
 }

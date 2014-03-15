@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ncr.ATMMonitoring.dao.RoleDAO;
-import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Role;
-import com.ncr.ATMMonitoring.pojo.User;
 
 /**
  * The Class RoleServiceImpl.
@@ -27,8 +25,12 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleDAO roleDAO;
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.RoleService#addRole(com.ncr.ATMMonitoring.pojo.Role)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.RoleService#addRole(com.ncr.ATMMonitoring
+     * .pojo.Role)
      */
     @Override
     public void addRole(Role role) {
@@ -80,7 +82,9 @@ public class RoleServiceImpl implements RoleService {
 	return roleDAO.getRoleByName(name);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.service.RoleService#listRoles()
      */
     @Override
@@ -88,7 +92,9 @@ public class RoleServiceImpl implements RoleService {
 	return roleDAO.listRoles();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.service.RoleService#listManageableRoles()
      */
     @Override
@@ -108,8 +114,11 @@ public class RoleServiceImpl implements RoleService {
 	return roleDAO.listManageableRoles(sort, order);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.RoleService#removeRole(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.RoleService#removeRole(java.lang.Integer)
      */
     @Override
     public void removeRole(Integer id) {

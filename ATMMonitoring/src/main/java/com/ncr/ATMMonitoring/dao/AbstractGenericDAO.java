@@ -7,8 +7,6 @@ import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ncr.ATMMonitoring.pojo.FinancialDevice;
-
 /**
  * The Class AbstractGenericDAO.
  * 
@@ -20,7 +18,7 @@ import com.ncr.ATMMonitoring.pojo.FinancialDevice;
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public abstract class AbstractGenericDAO<T> {
-    
+
     /** The specific Pojo class. */
     private Class<T> domainClass = getDomainClass();
 
@@ -106,11 +104,12 @@ public abstract class AbstractGenericDAO<T> {
      * @return the Pojo with the given id, or null if it doesn't exist
      */
     protected T get(Integer id) {
-    	if(id != null) {
-    		return (T) sessionFactory.getCurrentSession().get(getDomainClass(), id);
-    	} else {
-    		return null;
-    	}
-	
+	if (id != null) {
+	    return (T) sessionFactory.getCurrentSession().get(getDomainClass(),
+		    id);
+	} else {
+	    return null;
+	}
+
     }
 }

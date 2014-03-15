@@ -40,20 +40,19 @@ public class WidgetDAOImpl extends AbstractGenericDAO<Widget> implements
     }
 
     /**
-     * @see
-     * com.ncr.ATMMonitoring.dao.WidgetDAO#update(com.ncr.ATMMonitoring.pojo
-     * .Widget)
+     * @see com.ncr.ATMMonitoring.dao.WidgetDAO#update(com.ncr.ATMMonitoring.pojo
+     *      .Widget)
      */
     @Override
     public void update(Widget widget) {
-    	super.update(widget);
-    	logger.debug("Updated Widget with id " + widget.getId());
+	super.update(widget);
+	logger.debug("Updated Widget with id " + widget.getId());
     }
-    
+
     @Override
     public void delete(Widget widget) {
-    	logger.debug("Going to delete widget with id " + widget.getId());
-    	super.delete(widget);
+	logger.debug("Going to delete widget with id " + widget.getId());
+	super.delete(widget);
     }
 
     /*
@@ -68,7 +67,7 @@ public class WidgetDAOImpl extends AbstractGenericDAO<Widget> implements
 		.addOrder(Order.asc("title"))
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
-    
+
     /*
      * (non-Javadoc)
      * 

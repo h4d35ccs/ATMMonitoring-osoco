@@ -2,9 +2,7 @@ package com.ncr.ATMMonitoring.service;
 
 import java.util.List;
 
-import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Role;
-import com.ncr.ATMMonitoring.pojo.User;
 
 /**
  * The Interface RoleService.
@@ -18,8 +16,9 @@ public interface RoleService {
 
     /**
      * Adds the role.
-     *
-     * @param role the role
+     * 
+     * @param role
+     *            the role
      */
     public void addRole(Role role);
 

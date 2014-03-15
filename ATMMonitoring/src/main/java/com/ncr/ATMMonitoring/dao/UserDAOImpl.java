@@ -29,8 +29,12 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
     static private Logger logger = Logger
 	    .getLogger(UserDAOImpl.class.getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.UserDAO#addUser(com.ncr.ATMMonitoring.pojo.User)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.UserDAO#addUser(com.ncr.ATMMonitoring.pojo.
+     * User)
      */
     @Override
     public void addUser(User user) {
@@ -39,8 +43,12 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 		+ " and username " + user.getUsername());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.UserDAO#updateUser(com.ncr.ATMMonitoring.pojo.User)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.UserDAO#updateUser(com.ncr.ATMMonitoring.pojo
+     * .User)
      */
     @Override
     public void updateUser(User user) {
@@ -78,15 +86,17 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
      */
     @Override
     public List<User> listUsers() {
-	return sessionFactory.getCurrentSession()
-		.createCriteria(User.class)
+	return sessionFactory.getCurrentSession().createCriteria(User.class)
 		.addOrder(Order.asc("lastname"))
 		.addOrder(Order.asc("username"))
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsersByBankCompanies(java.util.Set)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.UserDAO#listUsersByBankCompanies(java.util.Set)
      */
     @Override
     public List<User> listUsersByBankCompanies(Set<BankCompany> banks) {
@@ -100,8 +110,11 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsersByBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.UserDAO#listUsersByBankCompany(com.ncr.
+     * ATMMonitoring.pojo.BankCompany)
      */
     @Override
     public List<User> listUsersByBankCompany(BankCompany bank) {
@@ -115,7 +128,9 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.UserDAO#getUser(java.lang.Integer)
      */
     @Override
@@ -123,7 +138,9 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 	return get(id);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.UserDAO#removeUser(java.lang.Integer)
      */
     @Override
@@ -137,8 +154,11 @@ public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 	}
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.UserDAO#getUserByUsername(java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.UserDAO#getUserByUsername(java.lang.String)
      */
     @Override
     public User getUserByUsername(String username) {

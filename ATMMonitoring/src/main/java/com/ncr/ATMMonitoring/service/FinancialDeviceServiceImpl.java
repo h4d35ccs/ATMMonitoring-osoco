@@ -25,35 +25,51 @@ public class FinancialDeviceServiceImpl implements FinancialDeviceService {
     @Autowired
     private FinancialDeviceDAO financialDeviceDAO;
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.FinancialDeviceService#addFinancialDevice(com.ncr.ATMMonitoring.pojo.FinancialDevice)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.FinancialDeviceService#addFinancialDevice
+     * (com.ncr.ATMMonitoring.pojo.FinancialDevice)
      */
     @Override
     public void addFinancialDevice(FinancialDevice financialDevice) {
-    	financialDeviceDAO.addFinancialDevice(financialDevice);
+	financialDeviceDAO.addFinancialDevice(financialDevice);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.FinancialDeviceService#listFinancialDevices()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.FinancialDeviceService#listFinancialDevices
+     * ()
      */
     @Override
     public List<FinancialDevice> listFinancialDevices() {
-    	return financialDeviceDAO.listFinancialDevices();
+	return financialDeviceDAO.listFinancialDevices();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.FinancialDeviceService#getFinancialDevice(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.FinancialDeviceService#getFinancialDevice
+     * (java.lang.Integer)
      */
     @Override
     public FinancialDevice getFinancialDevice(Integer id) {
-    	return financialDeviceDAO.getFinancialDevice(id);
+	return financialDeviceDAO.getFinancialDevice(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.FinancialDeviceService#removeFinancialDevice(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.FinancialDeviceService#removeFinancialDevice
+     * (java.lang.Integer)
      */
     @Override
     public void removeFinancialDevice(Integer id) {
-    	financialDeviceDAO.removeFinancialDevice(id);
+	financialDeviceDAO.removeFinancialDevice(id);
     }
 }

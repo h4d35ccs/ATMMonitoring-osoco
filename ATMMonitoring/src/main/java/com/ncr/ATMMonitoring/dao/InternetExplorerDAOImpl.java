@@ -26,8 +26,12 @@ public class InternetExplorerDAOImpl extends
     static private Logger logger = Logger
 	    .getLogger(InternetExplorerDAOImpl.class.getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#addInternetExplorer(com.ncr.ATMMonitoring.pojo.InternetExplorer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.InternetExplorerDAO#addInternetExplorer(com
+     * .ncr.ATMMonitoring.pojo.InternetExplorer)
      */
     @Override
     public void addInternetExplorer(InternetExplorer internetExplorer) {
@@ -36,7 +40,9 @@ public class InternetExplorerDAOImpl extends
 		+ internetExplorer.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#listInternetExplorer()
      */
     @Override
@@ -51,58 +57,71 @@ public class InternetExplorerDAOImpl extends
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#getInternetExplorer(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.InternetExplorerDAO#getInternetExplorer(java
+     * .lang.Integer)
      */
     @Override
     public InternetExplorer getInternetExplorer(Integer id) {
 	return get(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#removeInternetExplorer(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.InternetExplorerDAO#removeInternetExplorer(
+     * java.lang.Integer)
      */
     @Override
     public void removeInternetExplorer(Integer id) {
 	delete(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.InternetExplorerDAO#getInternetExplorerByVersion(java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.InternetExplorerDAO#getInternetExplorerByVersion
+     * (java.lang.Integer, java.lang.Integer, java.lang.Integer,
+     * java.lang.Integer, java.lang.String)
      */
     @Override
     public InternetExplorer getInternetExplorerByVersion(Integer majorVersion,
 	    Integer minorVersion, Integer buildVersion,
 	    Integer revisionVersion, String remainingVersion) {
-		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
-			InternetExplorer.class);
-		if (majorVersion == null) {
-		    criteria.add(Restrictions.isNull("majorVersion"));
-		} else {
-		    criteria.add(Restrictions.eq("majorVersion", majorVersion));
-		}
-		if (minorVersion == null) {
-		    criteria.add(Restrictions.isNull("minorVersion"));
-		} else {
-		    criteria.add(Restrictions.eq("minorVersion", minorVersion));
-		}
-		if (buildVersion == null) {
-		    criteria.add(Restrictions.isNull("buildVersion"));
-		} else {
-		    criteria.add(Restrictions.eq("buildVersion", buildVersion));
-		}
-		if (revisionVersion == null) {
-		    criteria.add(Restrictions.isNull("revisionVersion"));
-		} else {
-		    criteria.add(Restrictions.eq("revisionVersion", revisionVersion));
-		}
-		if (remainingVersion == null) {
-		    return (InternetExplorer) criteria.add(
-			    Restrictions.isNull("remainingVersion")).uniqueResult();
-		} else {
-		    return (InternetExplorer) criteria.add(
-			    Restrictions.eq("remainingVersion", remainingVersion))
-			    .uniqueResult();
-		}
+	Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+		InternetExplorer.class);
+	if (majorVersion == null) {
+	    criteria.add(Restrictions.isNull("majorVersion"));
+	} else {
+	    criteria.add(Restrictions.eq("majorVersion", majorVersion));
+	}
+	if (minorVersion == null) {
+	    criteria.add(Restrictions.isNull("minorVersion"));
+	} else {
+	    criteria.add(Restrictions.eq("minorVersion", minorVersion));
+	}
+	if (buildVersion == null) {
+	    criteria.add(Restrictions.isNull("buildVersion"));
+	} else {
+	    criteria.add(Restrictions.eq("buildVersion", buildVersion));
+	}
+	if (revisionVersion == null) {
+	    criteria.add(Restrictions.isNull("revisionVersion"));
+	} else {
+	    criteria.add(Restrictions.eq("revisionVersion", revisionVersion));
+	}
+	if (remainingVersion == null) {
+	    return (InternetExplorer) criteria.add(
+		    Restrictions.isNull("remainingVersion")).uniqueResult();
+	} else {
+	    return (InternetExplorer) criteria.add(
+		    Restrictions.eq("remainingVersion", remainingVersion))
+		    .uniqueResult();
+	}
     }
 }

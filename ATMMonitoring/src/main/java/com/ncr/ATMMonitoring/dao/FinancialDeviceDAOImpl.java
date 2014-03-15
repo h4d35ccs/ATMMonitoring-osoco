@@ -20,18 +20,26 @@ public class FinancialDeviceDAOImpl extends AbstractGenericDAO<FinancialDevice>
 	implements FinancialDeviceDAO {
 
     /** The logger. */
-    static private Logger logger = Logger.getLogger(FinancialDeviceDAOImpl.class.getName());
+    static private Logger logger = Logger
+	    .getLogger(FinancialDeviceDAOImpl.class.getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.FinancialDeviceDAO#addFinancialDevice(com.ncr.ATMMonitoring.pojo.FinancialDevice)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.FinancialDeviceDAO#addFinancialDevice(com.ncr
+     * .ATMMonitoring.pojo.FinancialDevice)
      */
     @Override
     public void addFinancialDevice(FinancialDevice financialDevice) {
 	add(financialDevice);
-		logger.debug("Created new Financial Device with id "+ financialDevice.getId());
+	logger.debug("Created new Financial Device with id "
+		+ financialDevice.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.FinancialDeviceDAO#listFinancialDevices()
      */
     @Override
@@ -39,16 +47,24 @@ public class FinancialDeviceDAOImpl extends AbstractGenericDAO<FinancialDevice>
 	return list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.FinancialDeviceDAO#getFinancialDevice(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.FinancialDeviceDAO#getFinancialDevice(java.
+     * lang.Integer)
      */
     @Override
     public FinancialDevice getFinancialDevice(Integer id) {
 	return get(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.FinancialDeviceDAO#removeFinancialDevice(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.FinancialDeviceDAO#removeFinancialDevice(java
+     * .lang.Integer)
      */
     @Override
     public void removeFinancialDevice(Integer id) {

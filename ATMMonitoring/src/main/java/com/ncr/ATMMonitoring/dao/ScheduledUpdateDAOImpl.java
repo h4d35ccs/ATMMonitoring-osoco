@@ -29,8 +29,12 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
     static private Logger logger = Logger
 	    .getLogger(ScheduledUpdateDAOImpl.class.getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#addScheduledUpdate(com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#addScheduledUpdate(com.ncr
+     * .ATMMonitoring.pojo.ScheduledUpdate)
      */
     @Override
     public void addScheduledUpdate(ScheduledUpdate scheduledUpdate) {
@@ -39,8 +43,11 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
 		+ scheduledUpdate.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#listWeeklyScheduledUpdates()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#listWeeklyScheduledUpdates()
      */
     @Override
     public List<ScheduledUpdate> listWeeklyScheduledUpdates() {
@@ -52,8 +59,12 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#listMonthlyScheduledUpdates()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#listMonthlyScheduledUpdates
+     * ()
      */
     @Override
     public List<ScheduledUpdate> listMonthlyScheduledUpdates() {
@@ -65,24 +76,36 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#getScheduledUpdate(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#getScheduledUpdate(java.
+     * lang.Integer)
      */
     @Override
     public ScheduledUpdate getScheduledUpdate(Integer id) {
 	return get(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#removeScheduledUpdate(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#removeScheduledUpdate(java
+     * .lang.Integer)
      */
     @Override
     public void removeScheduledUpdate(Integer id) {
 	delete(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#existsMonthlyScheduledUpdate(com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#existsMonthlyScheduledUpdate
+     * (com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
      */
     @Override
     public boolean existsMonthlyScheduledUpdate(ScheduledUpdate scheduledUpdate) {
@@ -97,8 +120,12 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
 	return (query.uniqueResult() != null);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#existsWeeklyScheduledUpdate(com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#existsWeeklyScheduledUpdate
+     * (com.ncr.ATMMonitoring.pojo.ScheduledUpdate)
      */
     @Override
     public boolean existsWeeklyScheduledUpdate(ScheduledUpdate scheduledUpdate) {
@@ -113,8 +140,12 @@ public class ScheduledUpdateDAOImpl extends AbstractGenericDAO<ScheduledUpdate>
 	return (query.uniqueResult() != null);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#listValidScheduledUpdates(java.util.Calendar)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO#listValidScheduledUpdates
+     * (java.util.Calendar)
      */
     @Override
     public List<ScheduledUpdate> listValidScheduledUpdates(Calendar date) {

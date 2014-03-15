@@ -23,8 +23,11 @@ public class XfsComponentDAOImpl extends AbstractGenericDAO<XfsComponent>
     static private Logger logger = Logger.getLogger(XfsComponentDAOImpl.class
 	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.XfsComponentDAO#addXfsComponent(com.ncr.ATMMonitoring.pojo.XfsComponent)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.XfsComponentDAO#addXfsComponent(com.ncr.
+     * ATMMonitoring.pojo.XfsComponent)
      */
     @Override
     public void addXfsComponent(XfsComponent xfsComponent) {
@@ -33,7 +36,9 @@ public class XfsComponentDAOImpl extends AbstractGenericDAO<XfsComponent>
 		+ xfsComponent.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.XfsComponentDAO#listXfsComponents()
      */
     @Override
@@ -41,8 +46,12 @@ public class XfsComponentDAOImpl extends AbstractGenericDAO<XfsComponent>
 	return list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.XfsComponentDAO#getXfsComponent(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.XfsComponentDAO#getXfsComponent(java.lang.Integer
+     * )
      */
     @Override
     public XfsComponent getXfsComponent(Integer id) {

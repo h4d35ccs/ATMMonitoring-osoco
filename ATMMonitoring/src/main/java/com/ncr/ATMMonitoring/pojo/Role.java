@@ -15,7 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -78,8 +77,11 @@ public class Role implements Serializable {
     /** The flag that tells us whether the users are user managers. */
     @Column(name = "user_manager", columnDefinition = "boolean default false")
     private Boolean userManager = false;
-    
-    /** The flag that tells us whether the users can add a widget to component library */
+
+    /**
+     * The flag that tells us whether the users can add a widget to component
+     * library
+     */
     @Column(name = "can_edit_widgets_library", columnDefinition = "boolean default false")
     private Boolean canEditWidgetsLibrary = false;
 
@@ -96,7 +98,7 @@ public class Role implements Serializable {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -105,8 +107,9 @@ public class Role implements Serializable {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -114,7 +117,7 @@ public class Role implements Serializable {
 
     /**
      * Gets the name.
-     *
+     * 
      * @return the name
      */
     public String getName() {
@@ -123,8 +126,9 @@ public class Role implements Serializable {
 
     /**
      * Sets the name.
-     *
-     * @param name the name to set
+     * 
+     * @param name
+     *            the name to set
      */
     public void setName(String name) {
 	this.name = name;
@@ -338,7 +342,7 @@ public class Role implements Serializable {
 	if ((canEditWidgetsLibrary != null) && canEditWidgetsLibrary) {
 	    authList.add(new SimpleGrantedAuthority("CAN_EDIT_WIDGETS_LIBRARY"));
 	}
-	
+
 	return authList;
     }
 }

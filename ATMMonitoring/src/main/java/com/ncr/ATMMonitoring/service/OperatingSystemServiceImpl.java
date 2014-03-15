@@ -25,24 +25,36 @@ public class OperatingSystemServiceImpl implements OperatingSystemService {
     @Autowired
     private OperatingSystemDAO operatingSystemDAO;
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.OperatingSystemService#addOperatingSystem(com.ncr.ATMMonitoring.pojo.OperatingSystem)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.OperatingSystemService#addOperatingSystem
+     * (com.ncr.ATMMonitoring.pojo.OperatingSystem)
      */
     @Override
     public void addOperatingSystem(OperatingSystem operatingSystem) {
 	operatingSystemDAO.addOperatingSystem(operatingSystem);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.OperatingSystemService#listOperatingSystem()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.OperatingSystemService#listOperatingSystem
+     * ()
      */
     @Override
     public List<OperatingSystem> listOperatingSystem() {
 	return operatingSystemDAO.listOperatingSystem();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.OperatingSystemService#getOperatingSystem(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.OperatingSystemService#getOperatingSystem
+     * (java.lang.Integer)
      */
     @Override
     public OperatingSystem getOperatingSystem(Integer id) {

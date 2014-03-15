@@ -19,14 +19,17 @@ public class RolePropertyEditor extends PropertyEditorSupport {
 
     /**
      * Instantiates a new role property editor.
-     *
-     * @param roleService the role service
+     * 
+     * @param roleService
+     *            the role service
      */
     public RolePropertyEditor(RoleService roleService) {
 	this.roleService = roleService;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.beans.PropertyEditorSupport#setAsText(java.lang.String)
      */
     @Override

@@ -16,8 +16,9 @@ public interface XfsComponentDAO {
 
     /**
      * Adds the xfs component.
-     *
-     * @param xfsComponent the xfs component
+     * 
+     * @param xfsComponent
+     *            the xfs component
      */
     public void addXfsComponent(XfsComponent xfsComponent);
 

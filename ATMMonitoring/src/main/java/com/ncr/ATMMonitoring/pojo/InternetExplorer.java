@@ -93,7 +93,7 @@ public class InternetExplorer {
 
     /**
      * Gets the comboboxes data for the query GUI.
-     *
+     * 
      * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
@@ -102,7 +102,7 @@ public class InternetExplorer {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -111,8 +111,9 @@ public class InternetExplorer {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -120,7 +121,7 @@ public class InternetExplorer {
 
     /**
      * Gets the major version.
-     *
+     * 
      * @return the majorVersion
      */
     public Integer getMajorVersion() {
@@ -129,7 +130,7 @@ public class InternetExplorer {
 
     /**
      * Gets the minor version.
-     *
+     * 
      * @return the minorVersion
      */
     public Integer getMinorVersion() {
@@ -138,7 +139,7 @@ public class InternetExplorer {
 
     /**
      * Gets the builds the version.
-     *
+     * 
      * @return the buildVersion
      */
     public Integer getBuildVersion() {
@@ -147,7 +148,7 @@ public class InternetExplorer {
 
     /**
      * Gets the revision version.
-     *
+     * 
      * @return the revisionVersion
      */
     public Integer getRevisionVersion() {
@@ -156,8 +157,9 @@ public class InternetExplorer {
 
     /**
      * Sets the major version.
-     *
-     * @param majorVersion the majorVersion to set
+     * 
+     * @param majorVersion
+     *            the majorVersion to set
      */
     public void setMajorVersion(Integer majorVersion) {
 	this.majorVersion = majorVersion;
@@ -165,8 +167,9 @@ public class InternetExplorer {
 
     /**
      * Sets the minor version.
-     *
-     * @param minorVersion the minorVersion to set
+     * 
+     * @param minorVersion
+     *            the minorVersion to set
      */
     public void setMinorVersion(Integer minorVersion) {
 	this.minorVersion = minorVersion;
@@ -174,8 +177,9 @@ public class InternetExplorer {
 
     /**
      * Sets the builds the version.
-     *
-     * @param buildVersion the buildVersion to set
+     * 
+     * @param buildVersion
+     *            the buildVersion to set
      */
     public void setBuildVersion(Integer buildVersion) {
 	this.buildVersion = buildVersion;
@@ -183,8 +187,9 @@ public class InternetExplorer {
 
     /**
      * Sets the revision version.
-     *
-     * @param revisionVersion the revisionVersion to set
+     * 
+     * @param revisionVersion
+     *            the revisionVersion to set
      */
     public void setRevisionVersion(Integer revisionVersion) {
 	this.revisionVersion = revisionVersion;
@@ -192,7 +197,7 @@ public class InternetExplorer {
 
     /**
      * Gets the remaining version.
-     *
+     * 
      * @return the remainingVersion
      */
     public String getRemainingVersion() {
@@ -201,8 +206,9 @@ public class InternetExplorer {
 
     /**
      * Sets the remaining version.
-     *
-     * @param remainingVersion the remainingVersion to set
+     * 
+     * @param remainingVersion
+     *            the remainingVersion to set
      */
     public void setRemainingVersion(String remainingVersion) {
 	this.remainingVersion = remainingVersion;
@@ -239,8 +245,9 @@ public class InternetExplorer {
 
     /**
      * Sets the version.
-     *
-     * @param version the complete version to set
+     * 
+     * @param version
+     *            the complete version to set
      */
     public void setVersion(String version) {
 	String[] versions = version.split("\\.", 5);
@@ -266,60 +273,59 @@ public class InternetExplorer {
 	}
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((buildVersion == null) ? 0 : buildVersion.hashCode());
-		result = prime * result
-				+ ((majorVersion == null) ? 0 : majorVersion.hashCode());
-		result = prime * result
-				+ ((minorVersion == null) ? 0 : minorVersion.hashCode());
-		result = prime
-				* result
-				+ ((remainingVersion == null) ? 0 : remainingVersion.hashCode());
-		result = prime * result
-				+ ((revisionVersion == null) ? 0 : revisionVersion.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result
+		+ ((buildVersion == null) ? 0 : buildVersion.hashCode());
+	result = prime * result
+		+ ((majorVersion == null) ? 0 : majorVersion.hashCode());
+	result = prime * result
+		+ ((minorVersion == null) ? 0 : minorVersion.hashCode());
+	result = prime
+		* result
+		+ ((remainingVersion == null) ? 0 : remainingVersion.hashCode());
+	result = prime * result
+		+ ((revisionVersion == null) ? 0 : revisionVersion.hashCode());
+	return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		InternetExplorer other = (InternetExplorer) obj;
-		if (buildVersion == null) {
-			if (other.buildVersion != null)
-				return false;
-		} else if (!buildVersion.equals(other.buildVersion))
-			return false;
-		if (majorVersion == null) {
-			if (other.majorVersion != null)
-				return false;
-		} else if (!majorVersion.equals(other.majorVersion))
-			return false;
-		if (minorVersion == null) {
-			if (other.minorVersion != null)
-				return false;
-		} else if (!minorVersion.equals(other.minorVersion))
-			return false;
-		if (remainingVersion == null) {
-			if (other.remainingVersion != null)
-				return false;
-		} else if (!remainingVersion.equals(other.remainingVersion))
-			return false;
-		if (revisionVersion == null) {
-			if (other.revisionVersion != null)
-				return false;
-		} else if (!revisionVersion.equals(other.revisionVersion))
-			return false;
-		return true;
-	}
-    
-    
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	InternetExplorer other = (InternetExplorer) obj;
+	if (buildVersion == null) {
+	    if (other.buildVersion != null)
+		return false;
+	} else if (!buildVersion.equals(other.buildVersion))
+	    return false;
+	if (majorVersion == null) {
+	    if (other.majorVersion != null)
+		return false;
+	} else if (!majorVersion.equals(other.majorVersion))
+	    return false;
+	if (minorVersion == null) {
+	    if (other.minorVersion != null)
+		return false;
+	} else if (!minorVersion.equals(other.minorVersion))
+	    return false;
+	if (remainingVersion == null) {
+	    if (other.remainingVersion != null)
+		return false;
+	} else if (!remainingVersion.equals(other.remainingVersion))
+	    return false;
+	if (revisionVersion == null) {
+	    if (other.revisionVersion != null)
+		return false;
+	} else if (!revisionVersion.equals(other.revisionVersion))
+	    return false;
+	return true;
+    }
+
 }

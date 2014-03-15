@@ -8,28 +8,29 @@ import com.ncr.ATMMonitoring.parser.ups.exception.NoParserFoundException;
 import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
 import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.imp.ParseUPSDom;
+
 @UPSParser
-public class OtherParseLink1  extends ParseUPSDom {
+public class OtherParseLink1 extends ParseUPSDom {
 
-	
-	private String xml;
-	private static final Logger logger = Logger.getLogger(OtherParseLink1.class);
+    private String xml;
+    private static final Logger logger = Logger
+	    .getLogger(OtherParseLink1.class);
 
-	@Override
-	protected UPSInfo applyParser() throws ParserException,
-			XMLNotReadableException, NoParserFoundException {
-		logger.debug("Link1 parsing: "+this.xml);
-		return new UPSInfo() ;
-	}
+    @Override
+    protected UPSInfo applyParser() throws ParserException,
+	    XMLNotReadableException, NoParserFoundException {
+	logger.debug("Link1 parsing: " + this.xml);
+	return new UPSInfo();
+    }
 
-	
-	@Override
-	protected boolean canParseXML() throws ParserException{
-		this.xml = this.getOriginalXmlString();
-		boolean parse = xml.equals("<link1></link1>");
-		logger.debug("OtherParseLink1 evaluating:"+this.xml+" acepted? "+parse);
-		return parse;
-	
-	}
+    @Override
+    protected boolean canParseXML() throws ParserException {
+	this.xml = this.getOriginalXmlString();
+	boolean parse = xml.equals("<link1></link1>");
+	logger.debug("OtherParseLink1 evaluating:" + this.xml + " acepted? "
+		+ parse);
+	return parse;
+
+    }
 
 }

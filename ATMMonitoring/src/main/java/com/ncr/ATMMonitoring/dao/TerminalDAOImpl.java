@@ -49,8 +49,12 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
     static private Logger logger = Logger.getLogger(TerminalDAOImpl.class
 	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#addTerminal(com.ncr.ATMMonitoring.pojo.Terminal)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#addTerminal(com.ncr.ATMMonitoring
+     * .pojo.Terminal)
      */
     @Override
     public void addTerminal(Terminal terminal) {
@@ -76,8 +80,12 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	}
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#updateTerminal(com.ncr.ATMMonitoring.pojo.Terminal)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#updateTerminal(com.ncr.ATMMonitoring
+     * .pojo.Terminal)
      */
     @Override
     public void updateTerminal(Terminal terminal) {
@@ -87,20 +95,30 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 		+ terminal.getMatricula());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#listTerminalsByBankCompanies(java.util.Set)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#listTerminalsByBankCompanies(java
+     * .util.Set)
      */
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks) {
-    	return listTerminalsByBankCompanies(banks, "serialNumber", "asc", null);
+	return listTerminalsByBankCompanies(banks, "serialNumber", "asc", null);
     }
 
-    public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> terminalIds, Set<BankCompany> banks) {
-    	return listTerminalsByBankCompanies(banks, "serialNumber", "asc", terminalIds);
+    public List<Terminal> listTerminalsByIdsAndBankCompanies(
+	    List<Integer> terminalIds, Set<BankCompany> banks) {
+	return listTerminalsByBankCompanies(banks, "serialNumber", "asc",
+		terminalIds);
     }
-    
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#listTerminalsByBankCompanies(java.util.Set, java.lang.String, java.lang.String)
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#listTerminalsByBankCompanies(java
+     * .util.Set, java.lang.String, java.lang.String)
      */
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks,
@@ -109,10 +127,10 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 		Restrictions.in("bankCompany", banks),
 		Restrictions.isNull("bankCompany")) : Restrictions
 		.isNull("bankCompany");
-		
-	if(terminalIds != null) {
-		restriction = Restrictions.and(restriction, 
-				Restrictions.in("id", terminalIds));
+
+	if (terminalIds != null) {
+	    restriction = Restrictions.and(restriction,
+		    Restrictions.in("id", terminalIds));
 	}
 
 	Criteria criteria = sessionFactory.getCurrentSession()
@@ -129,8 +147,12 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 		.list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#listTerminalsByBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#listTerminalsByBankCompany(com.
+     * ncr.ATMMonitoring.pojo.BankCompany)
      */
     @Override
     public List<Terminal> listTerminalsByBankCompany(BankCompany bank) {
@@ -143,7 +165,9 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.TerminalDAO#listTerminals()
      */
     @Override
@@ -154,8 +178,12 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalsByHQL(java.util.List, java.util.List, java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalsByHQL(java.util.List,
+     * java.util.List, java.lang.String)
      */
     @Override
     public List<Terminal> getTerminalsByHQL(List<Object> values,
@@ -163,8 +191,12 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	return getTerminalsByHQL(values, types, hql, null, null);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalsByHQL(java.util.List, java.util.List, java.lang.String, java.lang.String, java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalsByHQL(java.util.List,
+     * java.util.List, java.lang.String, java.lang.String, java.lang.String)
      */
     @Override
     public List<Terminal> getTerminalsByHQL(List<Object> values,
@@ -190,7 +222,9 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	}
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminal(java.lang.Integer)
      */
     @Override
@@ -198,8 +232,12 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	return get(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalBySerialNumber(java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalBySerialNumber(java.
+     * lang.String)
      */
     @Override
     public Terminal getTerminalBySerialNumber(String serialNumber) {
@@ -210,8 +248,11 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	return result;
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalByIp(java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalByIp(java.lang.String)
      */
     @Override
     public Terminal getTerminalByIp(String ip) {
@@ -221,8 +262,11 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	return result;
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalByMac(java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalByMac(java.lang.String)
      */
     @Override
     public Terminal getTerminalByMac(String mac) {
@@ -233,8 +277,12 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	return result;
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalByMatricula(java.lang.Long)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalByMatricula(java.lang
+     * .Long)
      */
     @Override
     public Terminal getTerminalByMatricula(Long matricula) {
@@ -298,8 +346,12 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	return seq.longValue();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalBySimilarity(com.ncr.agent.baseData.ATMDataStorePojo)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#getTerminalBySimilarity(com.ncr
+     * .agent.baseData.ATMDataStorePojo)
      */
     @Override
     public Terminal getTerminalBySimilarity(ATMDataStorePojo terminal) {
@@ -313,10 +365,9 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 		.createAlias("hardwareDevices", "hw")
 		.add(Restrictions.or(
 			Restrictions.and(Restrictions.eq("ip",
-					terminal.getCurrentip()),
-					Restrictions.eq("mac",
-						terminal.getCurrentmac()),
-					Restrictions.isNotNull("mac"),
+				terminal.getCurrentip()), Restrictions.eq(
+				"mac", terminal.getCurrentmac()), Restrictions
+				.isNotNull("mac"),
 				Restrictions.isNotNull("ip"), Restrictions.ne(
 					"mac", ""), Restrictions.ne("ip", "")),
 			Restrictions.and(
@@ -345,8 +396,8 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 				Restrictions.isNotNull("hw.serialNumber"),
 				Restrictions.isNotNull("mac"), Restrictions.ne(
 					"hw.serialNumber", ""), Restrictions
-					.ne("mac", ""))))
-		.setMaxResults(1).uniqueResult();
+					.ne("mac", "")))).setMaxResults(1)
+		.uniqueResult();
 	return result;
     }
 

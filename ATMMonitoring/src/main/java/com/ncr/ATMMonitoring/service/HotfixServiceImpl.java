@@ -25,15 +25,21 @@ public class HotfixServiceImpl implements HotfixService {
     @Autowired
     private HotfixDAO hotfixDAO;
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.HotfixService#addHotfix(com.ncr.ATMMonitoring.pojo.Hotfix)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.HotfixService#addHotfix(com.ncr.ATMMonitoring
+     * .pojo.Hotfix)
      */
     @Override
     public void addHotfix(Hotfix hotfix) {
 	hotfixDAO.addHotfix(hotfix);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.service.HotfixService#listHotfix()
      */
     @Override
@@ -41,16 +47,23 @@ public class HotfixServiceImpl implements HotfixService {
 	return hotfixDAO.listHotfix();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.HotfixService#getHotfix(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.HotfixService#getHotfix(java.lang.Integer)
      */
     @Override
     public Hotfix getHotfix(Integer id) {
 	return hotfixDAO.getHotfix(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.HotfixService#removeHotfix(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.HotfixService#removeHotfix(java.lang.Integer
+     * )
      */
     @Override
     public void removeHotfix(Integer id) {

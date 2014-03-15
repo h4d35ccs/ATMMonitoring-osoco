@@ -16,8 +16,9 @@ public interface FinancialDeviceDAO {
 
     /**
      * Adds the financial device.
-     *
-     * @param financialDevice the financial device
+     * 
+     * @param financialDevice
+     *            the financial device
      */
     public void addFinancialDevice(FinancialDevice financialDevice);
 
@@ -39,8 +40,9 @@ public interface FinancialDeviceDAO {
 
     /**
      * Removes the financial device.
-     *
-     * @param id the id
+     * 
+     * @param id
+     *            the id
      */
     public void removeFinancialDevice(Integer id);
 }

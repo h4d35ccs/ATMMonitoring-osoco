@@ -65,13 +65,13 @@ public interface QueryService {
      *            the fields for sorting terminals
      * @param order
      *            the order for sorting terminals
-	 * @param queryDate
-     *            date for query to auditable elements            
+     * @param queryDate
+     *            date for query to auditable elements
      * @return the terminal list
      */
-    public List<Terminal> executeQuery(Query query, Locale locale, String sort, 
-    	String order, Date queryDate);
-    
+    public List<Terminal> executeQuery(Query query, Locale locale, String sort,
+	    String order, Date queryDate);
+
     /**
      * Execute query.
      * 
@@ -87,7 +87,6 @@ public interface QueryService {
      */
     public List<Terminal> executeQuery(Query query, Locale locale, String sort,
 	    String order);
-
 
     /**
      * Execute query.
@@ -138,48 +137,62 @@ public interface QueryService {
      *            the locale
      * @return the query list
      */
-    public List<?> executeQueryGroupingBy(Query query, WidgetQueryAssociationType groupByEntity,
-	    String groupBy, Locale locale, Date queryDate);
+    public List<?> executeQueryGroupingBy(Query query,
+	    WidgetQueryAssociationType groupByEntity, String groupBy,
+	    Locale locale, Date queryDate);
+
     /**
      * Returns the queries associated to one user<br>
-     * First search for a user from the given username, then extract the queries associated
-     * @param username String 
-     * @return Set<Query> 
+     * First search for a user from the given username, then extract the queries
+     * associated
+     * 
+     * @param username
+     *            String
+     * @return Set<Query>
      */
     Set<Query> getQueriesByUser(String username);
+
     /***
      * Returns the queries associated to one user<br>
      * Extract the queries associated to the User object
-     * @param user user 
-     * @return Set<Query> 
+     * 
+     * @param user
+     *            user
+     * @return Set<Query>
      */
     Set<Query> getQueriesByUser(User user);
+
     /**
      * Return true if the given query belong to the user
-     * @param query {@link Query}
-     * @param username String
+     * 
+     * @param query
+     *            {@link Query}
+     * @param username
+     *            String
      * @return boolean
      */
-    boolean queryBelongToUser(Query query,String username);
-    
+    boolean queryBelongToUser(Query query, String username);
+
     /**
      * Adds the query. and linkit to the given user
      * 
      * @param query
      *            the query
-     * @param username  String The user
+     * @param username
+     *            String The user
      */
-     void addQuery(Query query,String username);
-     
-     /**
-      * Update query. if the query does not have a owner or username param is different from the set in the Query object
-      * sets the new value to the Query object and perform the update
-      * 
-      * @param query
-      *            the query
-      * @param username  String The user
-      */
-     public void updateQuery(Query query, String username);
-    
-    
+    void addQuery(Query query, String username);
+
+    /**
+     * Update query. if the query does not have a owner or username param is
+     * different from the set in the Query object sets the new value to the
+     * Query object and perform the update
+     * 
+     * @param query
+     *            the query
+     * @param username
+     *            String The user
+     */
+    public void updateQuery(Query query, String username);
+
 }

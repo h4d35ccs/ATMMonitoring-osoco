@@ -52,7 +52,7 @@ public class Terminal {
     @Transient
     private AuditableSetOperations auditableSetOperations = new AuditableSetOperationsImpl();
 
-    static { 
+    static {
 	comboboxes = new TreeMap<String, Map>();
 	Map<String, Map> operations = Operation
 		.getOperationsByType(Operation.DataType.STRING);
@@ -82,7 +82,7 @@ public class Terminal {
     @Cascade(CascadeType.ALL)
     @OrderBy("start_date desc")
     private Set<Installation> installations = new HashSet<Installation>();;
-  
+
     /** The bank company. */
     @ManyToOne
     @JoinColumn(name = "bank_id")
@@ -173,7 +173,7 @@ public class Terminal {
     /** The software aggregates. */
     @OneToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
-    @OrderBy("start_date desc")    
+    @OrderBy("start_date desc")
     private Set<AuditableSoftwareAggregate> auditableSoftwareAggregates = new HashSet<AuditableSoftwareAggregate>();
 
     /** The internet explorers. */
@@ -327,7 +327,7 @@ public class Terminal {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -336,8 +336,9 @@ public class Terminal {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -345,7 +346,7 @@ public class Terminal {
 
     /**
      * Gets the bank company.
-     *
+     * 
      * @return the bankCompany
      */
     public BankCompany getBankCompany() {
@@ -354,8 +355,9 @@ public class Terminal {
 
     /**
      * Sets the bank company.
-     *
-     * @param bankCompany the bankCompany to set
+     * 
+     * @param bankCompany
+     *            the bankCompany to set
      */
     public void setBankCompany(BankCompany bankCompany) {
 	this.bankCompany = bankCompany;
@@ -363,7 +365,7 @@ public class Terminal {
 
     /**
      * Gets the terminal type.
-     *
+     * 
      * @return the terminalType
      */
     public String getTerminalType() {
@@ -372,8 +374,9 @@ public class Terminal {
 
     /**
      * Sets the terminal type.
-     *
-     * @param terminalType the terminalType to set
+     * 
+     * @param terminalType
+     *            the terminalType to set
      */
     public void setTerminalType(String terminalType) {
 	this.terminalType = terminalType;
@@ -381,7 +384,7 @@ public class Terminal {
 
     /**
      * Gets the terminal vendor.
-     *
+     * 
      * @return the terminalVendor
      */
     public String getTerminalVendor() {
@@ -390,8 +393,9 @@ public class Terminal {
 
     /**
      * Sets the terminal vendor.
-     *
-     * @param terminalVendor the terminalVendor to set
+     * 
+     * @param terminalVendor
+     *            the terminalVendor to set
      */
     public void setTerminalVendor(String terminalVendor) {
 	this.terminalVendor = terminalVendor;
@@ -399,7 +403,7 @@ public class Terminal {
 
     /**
      * Gets the front replenish.
-     *
+     * 
      * @return the frontReplenish
      */
     public Boolean getFrontReplenish() {
@@ -408,8 +412,9 @@ public class Terminal {
 
     /**
      * Sets the front replenish.
-     *
-     * @param frontReplenish the frontReplenish to set
+     * 
+     * @param frontReplenish
+     *            the frontReplenish to set
      */
     public void setFrontReplenish(Boolean frontReplenish) {
 	this.frontReplenish = frontReplenish;
@@ -417,7 +422,7 @@ public class Terminal {
 
     /**
      * Gets the geographic address.
-     *
+     * 
      * @return the geographicAddress
      */
     public String getGeographicAddress() {
@@ -426,8 +431,9 @@ public class Terminal {
 
     /**
      * Sets the geographic address.
-     *
-     * @param geographicAddress the geographicAddress to set
+     * 
+     * @param geographicAddress
+     *            the geographicAddress to set
      */
     public void setGeographicAddress(String geographicAddress) {
 	this.geographicAddress = geographicAddress;
@@ -435,7 +441,7 @@ public class Terminal {
 
     /**
      * Gets the manufacturing site.
-     *
+     * 
      * @return the manufacturingSite
      */
     public String getManufacturingSite() {
@@ -444,8 +450,9 @@ public class Terminal {
 
     /**
      * Sets the manufacturing site.
-     *
-     * @param manufacturingSite the manufacturingSite to set
+     * 
+     * @param manufacturingSite
+     *            the manufacturingSite to set
      */
     public void setManufacturingSite(String manufacturingSite) {
 	this.manufacturingSite = manufacturingSite;
@@ -453,7 +460,7 @@ public class Terminal {
 
     /**
      * Gets the product class description.
-     *
+     * 
      * @return the productClassDescription
      */
     public String getProductClassDescription() {
@@ -462,8 +469,9 @@ public class Terminal {
 
     /**
      * Sets the product class description.
-     *
-     * @param productClassDescription the productClassDescription to set
+     * 
+     * @param productClassDescription
+     *            the productClassDescription to set
      */
     public void setProductClassDescription(String productClassDescription) {
 	this.productClassDescription = productClassDescription;
@@ -471,7 +479,7 @@ public class Terminal {
 
     /**
      * Gets the serial number.
-     *
+     * 
      * @return the serialNumber
      */
     public String getSerialNumber() {
@@ -480,8 +488,9 @@ public class Terminal {
 
     /**
      * Sets the serial number.
-     *
-     * @param serialNumber the serialNumber to set
+     * 
+     * @param serialNumber
+     *            the serialNumber to set
      */
     public void setSerialNumber(String serialNumber) {
 	this.serialNumber = serialNumber;
@@ -489,7 +498,7 @@ public class Terminal {
 
     /**
      * Gets the tracer number.
-     *
+     * 
      * @return the tracerNumber
      */
     public String getTracerNumber() {
@@ -498,8 +507,9 @@ public class Terminal {
 
     /**
      * Sets the tracer number.
-     *
-     * @param tracerNumber the tracerNumber to set
+     * 
+     * @param tracerNumber
+     *            the tracerNumber to set
      */
     public void setTracerNumber(String tracerNumber) {
 	this.tracerNumber = tracerNumber;
@@ -507,7 +517,7 @@ public class Terminal {
 
     /**
      * Gets the configs.
-     *
+     * 
      * @return the configs
      */
     public Set<TerminalConfig> getConfigs() {
@@ -516,8 +526,9 @@ public class Terminal {
 
     /**
      * Sets the configs.
-     *
-     * @param configs the configs to set
+     * 
+     * @param configs
+     *            the configs to set
      */
     public void setConfigs(Set<TerminalConfig> configs) {
 	this.configs = configs;
@@ -525,7 +536,7 @@ public class Terminal {
 
     /**
      * Gets the financial devices.
-     *
+     * 
      * @return the financialDevices
      */
     public Set<FinancialDevice> getFinancialDevices() {
@@ -534,8 +545,9 @@ public class Terminal {
 
     /**
      * Sets the financial devices.
-     *
-     * @param financialDevices the financialDevices to set
+     * 
+     * @param financialDevices
+     *            the financialDevices to set
      */
     public void setFinancialDevices(Set<FinancialDevice> financialDevices) {
 	this.financialDevices = financialDevices;
@@ -543,7 +555,7 @@ public class Terminal {
 
     /**
      * Gets the hardware devices.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getHardwareDevices() {
@@ -552,16 +564,16 @@ public class Terminal {
 
     /**
      * Gets the computer systems.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getComputerSystems() {
 	return HardwareDevice.filterComputerSystem(hardwareDevices);
     }
-    	
+
     /**
      * Gets the processors.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getProcessors() {
@@ -570,7 +582,7 @@ public class Terminal {
 
     /**
      * Gets the physical memories.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getPhysicalMemories() {
@@ -579,7 +591,7 @@ public class Terminal {
 
     /**
      * Gets the disk drives.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getDiskDrives() {
@@ -588,7 +600,7 @@ public class Terminal {
 
     /**
      * Gets the logical disks.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getLogicalDisks() {
@@ -597,7 +609,7 @@ public class Terminal {
 
     /**
      * Gets the base boards.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getBaseBoards() {
@@ -606,7 +618,7 @@ public class Terminal {
 
     /**
      * Gets the network adapters.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getNetworkAdapters() {
@@ -615,7 +627,7 @@ public class Terminal {
 
     /**
      * Gets the floppy drives.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getFloppyDrives() {
@@ -624,7 +636,7 @@ public class Terminal {
 
     /**
      * Gets the cdrom drives.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getCdromDrives() {
@@ -633,7 +645,7 @@ public class Terminal {
 
     /**
      * Gets the sound devices.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getSoundDevices() {
@@ -642,7 +654,7 @@ public class Terminal {
 
     /**
      * Gets the usb controllers.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getUsbControllers() {
@@ -651,7 +663,7 @@ public class Terminal {
 
     /**
      * Gets the serial ports.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getSerialPorts() {
@@ -660,7 +672,7 @@ public class Terminal {
 
     /**
      * Gets the parallel ports.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getParallelPorts() {
@@ -669,7 +681,7 @@ public class Terminal {
 
     /**
      * Gets the controllers1394.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getControllers1394() {
@@ -678,7 +690,7 @@ public class Terminal {
 
     /**
      * Gets the scsi controllers.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getScsiControllers() {
@@ -687,7 +699,7 @@ public class Terminal {
 
     /**
      * Gets the desktop monitors.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getDesktopMonitors() {
@@ -696,7 +708,7 @@ public class Terminal {
 
     /**
      * Gets the keyboards.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getKeyboards() {
@@ -705,7 +717,7 @@ public class Terminal {
 
     /**
      * Gets the pointing devices.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getPointingDevices() {
@@ -714,7 +726,7 @@ public class Terminal {
 
     /**
      * Gets the system slots.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getSystemSlots() {
@@ -723,7 +735,7 @@ public class Terminal {
 
     /**
      * Gets the bios.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getBios() {
@@ -732,7 +744,7 @@ public class Terminal {
 
     /**
      * Gets the video controllers.
-     *
+     * 
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getVideoControllers() {
@@ -741,144 +753,164 @@ public class Terminal {
 
     /**
      * Sets the hardware devices.
-     *
-     * @param hardwareDevices the hardwareDevices to set
+     * 
+     * @param hardwareDevices
+     *            the hardwareDevices to set
      */
     public void setHardwareDevices(Set<HardwareDevice> hardwareDevices) {
 	this.hardwareDevices = hardwareDevices;
     }
-    
+
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveComputerSystemsByDate(Date date) {
-	return HardwareDevice.filterComputerSystem(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterComputerSystem(getActiveHardwareDevicesByDate(date));
     }
-    
+
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveProcessorsByDate(Date date) {
-	return HardwareDevice.filterProcessor(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterProcessor(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActivePhysicalMemoriesByDate(Date date) {
-	return HardwareDevice.filterPhysicalMemory(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterPhysicalMemory(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveDiskDrivesByDate(Date date) {
-	return HardwareDevice.filterDiskDrive(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterDiskDrive(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveLogicalDisksByDate(Date date) {
-	return HardwareDevice.filterLogicalDisk(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterLogicalDisk(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveBaseBoardsByDate(Date date) {
-	return HardwareDevice.filterBaseBoard(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterBaseBoard(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveNetworkAdaptersByDate(Date date) {
-	return HardwareDevice.filterNetworkAdapter(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterNetworkAdapter(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveFloppyDrivesByDate(Date date) {
-	return HardwareDevice.filterFloppyDrive(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterFloppyDrive(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveCdromDrivesByDate(Date date) {
-	return HardwareDevice.filterCdromDrive(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterCdromDrive(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveSoundDevicesByDate(Date date) {
-	return HardwareDevice.filterSoundDevice(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterSoundDevice(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveUsbControllersByDate(Date date) {
-	return HardwareDevice.filterUsbController(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterUsbController(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveSerialPortsByDate(Date date) {
-	return HardwareDevice.filterSerialPort(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterSerialPort(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveParallelPortsByDate(Date date) {
-	return HardwareDevice.filterParallelPort(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterParallelPort(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveControllers1394ByDate(Date date) {
-	return HardwareDevice.filter1394Controller(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filter1394Controller(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveScsiControllersByDate(Date date) {
-	return HardwareDevice.filterScsiController(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterScsiController(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveDesktopMonitorsByDate(Date date) {
-	return HardwareDevice.filterDesktopMonitor(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterDesktopMonitor(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveKeyboardsByDate(Date date) {
-	return HardwareDevice.filterKeyboard(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterKeyboard(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActivePointingDevicesByDate(Date date) {
-	return HardwareDevice.filterPointingDevice(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterPointingDevice(getActiveHardwareDevicesByDate(date));
     }
 
     /**
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveSystemSlotsByDate(Date date) {
-	return HardwareDevice.filterSystemSlot(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterSystemSlot(getActiveHardwareDevicesByDate(date));
     }
 
     /**
@@ -892,12 +924,13 @@ public class Terminal {
      * @return the hardwareDevices
      */
     public Set<HardwareDevice> getActiveVideoControllersByDate(Date date) {
-	return HardwareDevice.filterVideoController(getActiveHardwareDevicesByDate(date));
+	return HardwareDevice
+		.filterVideoController(getActiveHardwareDevicesByDate(date));
     }
-    
-   /**
+
+    /**
      * Gets the bank.
-     *
+     * 
      * @return the bank
      */
     public String getBank() {
@@ -906,8 +939,9 @@ public class Terminal {
 
     /**
      * Sets the bank.
-     *
-     * @param bank the bank to set
+     * 
+     * @param bank
+     *            the bank to set
      */
     public void setBank(String bank) {
 	this.bank = bank;
@@ -915,7 +949,7 @@ public class Terminal {
 
     /**
      * Gets the branch.
-     *
+     * 
      * @return the branch
      */
     public String getBranch() {
@@ -924,8 +958,9 @@ public class Terminal {
 
     /**
      * Sets the branch.
-     *
-     * @param branch the branch to set
+     * 
+     * @param branch
+     *            the branch to set
      */
     public void setBranch(String branch) {
 	this.branch = branch;
@@ -933,7 +968,7 @@ public class Terminal {
 
     /**
      * Gets the ip.
-     *
+     * 
      * @return the ip
      */
     public String getIp() {
@@ -942,8 +977,9 @@ public class Terminal {
 
     /**
      * Sets the ip.
-     *
-     * @param ip the ip to set
+     * 
+     * @param ip
+     *            the ip to set
      */
     public void setIp(String ip) {
 	this.ip = ip;
@@ -951,21 +987,20 @@ public class Terminal {
 
     /**
      * Gets the software aggregates.
-     *
+     * 
      * @return the softwareAggregates
      */
     public Set<SoftwareAggregate> getSoftwareAggregates() {
-    	Set<SoftwareAggregate> aggregates = new HashSet<SoftwareAggregate>();
-    	for (AuditableSoftwareAggregate auditableAggregate : auditableSoftwareAggregates) {
-    		aggregates.add(auditableAggregate.getSoftwareAggregate());
-    	}
-    	return aggregates;
+	Set<SoftwareAggregate> aggregates = new HashSet<SoftwareAggregate>();
+	for (AuditableSoftwareAggregate auditableAggregate : auditableSoftwareAggregates) {
+	    aggregates.add(auditableAggregate.getSoftwareAggregate());
+	}
+	return aggregates;
     }
-
 
     /**
      * Gets the hotfixes.
-     *
+     * 
      * @return the hotfixes
      */
     public Set<Hotfix> getHotfixes() {
@@ -974,33 +1009,36 @@ public class Terminal {
 
     /**
      * Sets the hotfixes.
-     *
-     * @param hotfixes the hotfixes to set
+     * 
+     * @param hotfixes
+     *            the hotfixes to set
      */
     public void setHotfixes(Set<Hotfix> hotfixes) {
 	this.hotfixes = hotfixes;
-	}
+    }
 
     /**
      * Gets the internet explorers.
-     *
+     * 
      * @return the internetExplorers
      */
     public Set<InternetExplorer> getInternetExplorers() {
-    	Set<InternetExplorer> ies = new HashSet<InternetExplorer>();
-    	for (AuditableInternetExplorer auditableIE : auditableInternetExplorers) {
-    		ies.add(auditableIE.getInternetExplorer());
-    	}
-    	return ies;
+	Set<InternetExplorer> ies = new HashSet<InternetExplorer>();
+	for (AuditableInternetExplorer auditableIE : auditableInternetExplorers) {
+	    ies.add(auditableIE.getInternetExplorer());
+	}
+	return ies;
     }
 
     /**
      * Sets the internet explorers.
-     *
-     * @param internetExplorers the internetExplorers to set
+     * 
+     * @param internetExplorers
+     *            the internetExplorers to set
      */
-    public void setAuditableInternetExplorers(Set<AuditableInternetExplorer> auditableInternetExplorers) {
-    	this.auditableInternetExplorers = auditableInternetExplorers;
+    public void setAuditableInternetExplorers(
+	    Set<AuditableInternetExplorer> auditableInternetExplorers) {
+	this.auditableInternetExplorers = auditableInternetExplorers;
     }
 
     /**
@@ -1035,7 +1073,8 @@ public class Terminal {
 		+ (geographicAddress != null ? geographicAddress.toString()
 			: "")
 		+ ";"
-		+ (((getCurrentInstallation() != null) && (getCurrentInstallation().getLocation() != null)) ? getCurrentInstallation()
+		+ (((getCurrentInstallation() != null) && (getCurrentInstallation()
+			.getLocation() != null)) ? getCurrentInstallation()
 			.getLocation().getCompleteAddress() : "")
 		+ ";"
 		+ (manufacturingSite != null ? manufacturingSite.toString()
@@ -1045,7 +1084,7 @@ public class Terminal {
 
     /**
      * Gets the mac.
-     *
+     * 
      * @return the mac
      */
     public String getMac() {
@@ -1054,8 +1093,9 @@ public class Terminal {
 
     /**
      * Sets the mac.
-     *
-     * @param mac the mac to set
+     * 
+     * @param mac
+     *            the mac to set
      */
     public void setMac(String mac) {
 	this.mac = mac;
@@ -1063,7 +1103,7 @@ public class Terminal {
 
     /**
      * Gets the terminal model.
-     *
+     * 
      * @return the terminal model
      */
     public TerminalModel getTerminalModel() {
@@ -1072,8 +1112,9 @@ public class Terminal {
 
     /**
      * Sets the terminal model.
-     *
-     * @param terminalModel the new terminal model
+     * 
+     * @param terminalModel
+     *            the new terminal model
      */
     public void setTerminalModel(TerminalModel terminalModel) {
 	this.terminalModel = terminalModel;
@@ -1081,157 +1122,209 @@ public class Terminal {
 
     /**
      * Get the installations
+     * 
      * @return The installations
      */
     public Set<Installation> getInstallations() {
-    	return installations;
+	return installations;
     }
 
     /**
-     * Set current installation 
-     * @param installation The current installation
+     * Set current installation
+     * 
+     * @param installation
+     *            The current installation
      */
     public void setCurrentInstallation(Installation installation) {
-    	auditableSetOperations.setCurrentAuditableElement(installations, installation);
+	auditableSetOperations.setCurrentAuditableElement(installations,
+		installation);
     }
-    
+
     /**
      * Set the current terminal config
-     * @param terminalConfig The terminal config
+     * 
+     * @param terminalConfig
+     *            The terminal config
      */
     public void setCurrentTerminalConfig(TerminalConfig terminalConfig) {
-    	auditableSetOperations.setCurrentAuditableElement(configs, terminalConfig);
+	auditableSetOperations.setCurrentAuditableElement(configs,
+		terminalConfig);
     }
 
     /**
      * Get the current terminal config
+     * 
      * @return The terminal config
      */
     public TerminalConfig getCurrentTerminalConfig() {
-    	return auditableSetOperations.getCurrentAuditable(configs);
+	return auditableSetOperations.getCurrentAuditable(configs);
     }
-    
+
     /**
      * Get the current installation
+     * 
      * @return The current installation
      */
     public Installation getCurrentInstallation() {
-    	return auditableSetOperations.getCurrentAuditable(installations);
+	return auditableSetOperations.getCurrentAuditable(installations);
     }
-    
+
     /**
      * Get current terminal config active by date
-     * @param date The date
+     * 
+     * @param date
+     *            The date
      * @return The current terminal config
      */
     public TerminalConfig getCurrentTerminalConfigActiveByDate(Date date) {
-    	return auditableSetOperations.getCurrentAuditableElementByDate(configs, date);
+	return auditableSetOperations.getCurrentAuditableElementByDate(configs,
+		date);
     }
-    
+
     /**
      * Get the current installation by date
-     * @param date The date
+     * 
+     * @param date
+     *            The date
      * @return The current installation
      */
     public Installation getCurrentInstallationByDate(Date date) {
-    	return auditableSetOperations.getCurrentAuditableElementByDate(installations, date);
+	return auditableSetOperations.getCurrentAuditableElementByDate(
+		installations, date);
     }
-    
+
     /**
      * Get active hardware device by date
-     * @param date The date
+     * 
+     * @param date
+     *            The date
      * @return The active hardware device
      */
     public Set<HardwareDevice> getActiveHardwareDevicesByDate(Date date) {
-    	return auditableSetOperations.getActiveAuditableElementsByDate(hardwareDevices, date);
+	return auditableSetOperations.getActiveAuditableElementsByDate(
+		hardwareDevices, date);
     }
-    
+
     /**
      * Get the active installations by date
-     * @param date The date
+     * 
+     * @param date
+     *            The date
      * @return The active installations
      */
     public Set<Installation> getActiveInstallationsByDate(Date date) {
-    	return auditableSetOperations.getActiveAuditableElementsByDate(installations, date);
+	return auditableSetOperations.getActiveAuditableElementsByDate(
+		installations, date);
     }
 
     /**
      * Get the active financial devices by date
-     * @param date The date
+     * 
+     * @param date
+     *            The date
      * @return The active financial devices
      */
     public Set<FinancialDevice> getActiveFinancialDevicesByDate(Date date) {
-    	return auditableSetOperations.getActiveAuditableElementsByDate(financialDevices, date);
+	return auditableSetOperations.getActiveAuditableElementsByDate(
+		financialDevices, date);
     }
-    
+
     /**
      * Get active software aggregates by date
-     * @param date The date
+     * 
+     * @param date
+     *            The date
      * @return The active software aggregates
      */
-    public Set<AuditableSoftwareAggregate> getActiveAuditableSoftwareAggregatesByDate(Date date) {
-    	return auditableSetOperations.getActiveAuditableElementsByDate(auditableSoftwareAggregates, date);
+    public Set<AuditableSoftwareAggregate> getActiveAuditableSoftwareAggregatesByDate(
+	    Date date) {
+	return auditableSetOperations.getActiveAuditableElementsByDate(
+		auditableSoftwareAggregates, date);
     }
-    
+
     /**
      * Get the active hotfixes by date
-     * @param date The date
+     * 
+     * @param date
+     *            The date
      * @return The active hotfixes
      */
     public Set<Hotfix> getActiveHotfixesByDate(Date date) {
-    	return auditableSetOperations.getActiveAuditableElementsByDate(hotfixes, date);
+	return auditableSetOperations.getActiveAuditableElementsByDate(
+		hotfixes, date);
     }
-    
+
     /**
      * Get the auditable internet explorers by date
-     * @param date The date
+     * 
+     * @param date
+     *            The date
      * @return The auditable internet explorers
      */
-    public Set<AuditableInternetExplorer> getActiveAuditableInternetExplorersByDate(Date date) {
-    	return auditableSetOperations.getActiveAuditableElementsByDate(auditableInternetExplorers, date);
+    public Set<AuditableInternetExplorer> getActiveAuditableInternetExplorersByDate(
+	    Date date) {
+	return auditableSetOperations.getActiveAuditableElementsByDate(
+		auditableInternetExplorers, date);
     }
 
     /**
-     * Update the collection  hardware devices of auditable elements
-     * @param hardwareDevices The hardware devices
+     * Update the collection hardware devices of auditable elements
+     * 
+     * @param hardwareDevices
+     *            The hardware devices
      */
     public void updateHardwareDevices(Set<HardwareDevice> newHardwareDevices) {
-    	auditableSetOperations.updateAuditableElements(this.hardwareDevices, newHardwareDevices);
+	auditableSetOperations.updateAuditableElements(this.hardwareDevices,
+		newHardwareDevices);
     }
 
     /**
-     * Update the collection  hardware devices of auditable elements
-     * @param hardwareDevices The hotfixes
+     * Update the collection hardware devices of auditable elements
+     * 
+     * @param hardwareDevices
+     *            The hotfixes
      */
     public void updateHotfixes(Set<Hotfix> newHotfixes) {
-    	auditableSetOperations.updateAuditableElements(this.hotfixes, newHotfixes);
-	}
-    
+	auditableSetOperations.updateAuditableElements(this.hotfixes,
+		newHotfixes);
+    }
+
     /**
      * Update the collection financial devices of auditable elements
-     * @param hardwareDevices The financial devices
+     * 
+     * @param hardwareDevices
+     *            The financial devices
      */
     public void updateFinancialDevices(Set<FinancialDevice> newFinancialDevices) {
-    	auditableSetOperations.updateAuditableElements(this.financialDevices, newFinancialDevices);
+	auditableSetOperations.updateAuditableElements(this.financialDevices,
+		newFinancialDevices);
     }
-    
+
     /**
      * Update the collection of auditable internet explorer
-     * @param newAuditableInternetExplorers the internetExplorers to set
+     * 
+     * @param newAuditableInternetExplorers
+     *            the internetExplorers to set
      */
-    public void updateAuditableInternetExplorers(Set<AuditableInternetExplorer> newAuditableInternetExplorers) {
-    	auditableSetOperations.updateAuditableElements(this.auditableInternetExplorers, newAuditableInternetExplorers);
+    public void updateAuditableInternetExplorers(
+	    Set<AuditableInternetExplorer> newAuditableInternetExplorers) {
+	auditableSetOperations.updateAuditableElements(
+		this.auditableInternetExplorers, newAuditableInternetExplorers);
     }
-    
 
     /**
      * Update the collection of auditable sofware aggregates
-     * @param newAuditableSoftwareAggregate the new software aggregates
+     * 
+     * @param newAuditableSoftwareAggregate
+     *            the new software aggregates
      */
-    public void updateAuditableSoftwareAggregates(Set<AuditableSoftwareAggregate> newAuditableSoftwareAggregate) {
-    	auditableSetOperations.updateAuditableElements(this.auditableSoftwareAggregates, newAuditableSoftwareAggregate);
+    public void updateAuditableSoftwareAggregates(
+	    Set<AuditableSoftwareAggregate> newAuditableSoftwareAggregate) {
+	auditableSetOperations
+		.updateAuditableElements(this.auditableSoftwareAggregates,
+			newAuditableSoftwareAggregate);
     }
-    
+
     /**
      * Gets the generated id.
      * 
@@ -1253,21 +1346,31 @@ public class Terminal {
 
     /**
      * Build the historical changes
+     * 
      * @return The historicalChanges
      */
     public Map<Class<? extends Auditable>, Map<Date, Integer>> buildHistoricalChanges() {
-    	Map<Class<? extends Auditable>, Map<Date, Integer>> historicableChanges = 
-    			new HashMap<Class<? extends Auditable>, Map<Date,Integer>>();
-    	
-    	historicableChanges.put(HardwareDevice.class, auditableSetOperations.buildAuditableChangesForCollection(hardwareDevices));
-    	historicableChanges.put(Installation.class, auditableSetOperations.buildAuditableChangesForCollection(installations));
-    	historicableChanges.put(TerminalConfig.class, auditableSetOperations.buildAuditableChangesForCollection(configs));
-    	historicableChanges.put(Hotfix.class, auditableSetOperations.buildAuditableChangesForCollection(hotfixes));
-    	historicableChanges.put(FinancialDevice.class, auditableSetOperations.buildAuditableChangesForCollection(financialDevices));
-    	historicableChanges.put(AuditableInternetExplorer.class, auditableSetOperations.buildAuditableChangesForCollection(auditableInternetExplorers));
-    	historicableChanges.put(AuditableSoftwareAggregate.class, auditableSetOperations.buildAuditableChangesForCollection(auditableSoftwareAggregates));
-    	
-    	return historicableChanges;
+	Map<Class<? extends Auditable>, Map<Date, Integer>> historicableChanges = new HashMap<Class<? extends Auditable>, Map<Date, Integer>>();
+
+	historicableChanges.put(HardwareDevice.class, auditableSetOperations
+		.buildAuditableChangesForCollection(hardwareDevices));
+	historicableChanges.put(Installation.class, auditableSetOperations
+		.buildAuditableChangesForCollection(installations));
+	historicableChanges.put(TerminalConfig.class, auditableSetOperations
+		.buildAuditableChangesForCollection(configs));
+	historicableChanges.put(Hotfix.class, auditableSetOperations
+		.buildAuditableChangesForCollection(hotfixes));
+	historicableChanges.put(FinancialDevice.class, auditableSetOperations
+		.buildAuditableChangesForCollection(financialDevices));
+	historicableChanges
+		.put(AuditableInternetExplorer.class,
+			auditableSetOperations
+				.buildAuditableChangesForCollection(auditableInternetExplorers));
+	historicableChanges
+		.put(AuditableSoftwareAggregate.class,
+			auditableSetOperations
+				.buildAuditableChangesForCollection(auditableSoftwareAggregates));
+
+	return historicableChanges;
     }
 }
-

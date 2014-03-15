@@ -3,7 +3,6 @@ package com.ncr.ATMMonitoring.controller.propertyeditor;
 import java.beans.PropertyEditorSupport;
 
 import com.ncr.ATMMonitoring.service.BankCompanyService;
-import com.ncr.ATMMonitoring.service.RoleService;
 
 /**
  * The Class BankCompanyPropertyEditor.
@@ -29,7 +28,9 @@ public class BankCompanyPropertyEditor extends PropertyEditorSupport {
 	this.bankCompanyService = bankCompanyService;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.beans.PropertyEditorSupport#setAsText(java.lang.String)
      */
     @Override

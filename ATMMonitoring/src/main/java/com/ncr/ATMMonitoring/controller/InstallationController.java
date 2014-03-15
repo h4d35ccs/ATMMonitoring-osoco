@@ -34,12 +34,12 @@ import com.ncr.ATMMonitoring.service.LocationService;
  */
 
 @Controller
-public class InstallationController extends GenericController{
+public class InstallationController extends GenericController {
 
     /** The installations page size. */
     @Value("${config.installationsPageSize}")
     private int installationsPageSize;
-    
+
     /** The locations page size. */
     @Value("${config.locationsPageSize}")
     private int locationsPageSize;
@@ -47,14 +47,14 @@ public class InstallationController extends GenericController{
     /** The installation service. */
     @Autowired
     private InstallationService installationService;
-    
+
     /** The location service. */
     @Autowired
     private LocationService locationService;
-    
-//    /** The user service. */
-//    @Autowired
-//    private UserService userService;
+
+    // /** The user service. */
+    // @Autowired
+    // private UserService userService;
 
     /**
      * Binds custom editors.
@@ -96,12 +96,12 @@ public class InstallationController extends GenericController{
     public String listInstallations(Map<String, Object> map,
 	    Principal principal, String p, HttpServletRequest request) {
 	String userMsg = "";
-//	Locale locale = RequestContextUtils.getLocale(request);
+	// Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-//	    User loggedUser = userService
-//		    .getUserByUsername(principal.getName());
-//	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-		 userMsg = this.getUserGreeting(principal, request);
+	    // User loggedUser = userService
+	    // .getUserByUsername(principal.getName());
+	    // userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	PagedListHolder<Installation> pagedListHolder = new PagedListHolder<Installation>(
 		installationService.listInstallations());
@@ -152,12 +152,12 @@ public class InstallationController extends GenericController{
 
 	if (result.hasErrors()) {
 	    String userMsg = "";
-//	    Locale locale = RequestContextUtils.getLocale(request);
+	    // Locale locale = RequestContextUtils.getLocale(request);
 	    if (principal != null) {
-//		User loggedUser = userService.getUserByUsername(principal
-//			.getName());
-//		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    	 userMsg = this.getUserGreeting(principal, request);
+		// User loggedUser = userService.getUserByUsername(principal
+		// .getName());
+		// userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		userMsg = this.getUserGreeting(principal, request);
 	    }
 
 	    PagedListHolder<Installation> pagedListHolder = new PagedListHolder<Installation>(
@@ -217,12 +217,12 @@ public class InstallationController extends GenericController{
 	    return "redirect:/terminals/installations/list";
 	}
 	String userMsg = "";
-//	Locale locale = RequestContextUtils.getLocale(request);
+	// Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-//	    User loggedUser = userService
-//		    .getUserByUsername(principal.getName());
-//	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-		 userMsg = this.getUserGreeting(principal, request);
+	    // User loggedUser = userService
+	    // .getUserByUsername(principal.getName());
+	    // userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	map.put("userMsg", userMsg);
 	map.put("installation", installation);
@@ -258,12 +258,12 @@ public class InstallationController extends GenericController{
 
 	if (result.hasErrors()) {
 	    String userMsg = "";
-//	    Locale locale = RequestContextUtils.getLocale(request);
+	    // Locale locale = RequestContextUtils.getLocale(request);
 	    if (principal != null) {
-//		User loggedUser = userService.getUserByUsername(principal
-//			.getName());
-//		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    	 userMsg = this.getUserGreeting(principal, request);
+		// User loggedUser = userService.getUserByUsername(principal
+		// .getName());
+		// userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		userMsg = this.getUserGreeting(principal, request);
 	    }
 	    map.put("userMsg", userMsg);
 
@@ -331,12 +331,12 @@ public class InstallationController extends GenericController{
     public String listLocations(Map<String, Object> map, Principal principal,
 	    String p, HttpServletRequest request) {
 	String userMsg = "";
-//	Locale locale = RequestContextUtils.getLocale(request);
+	// Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-//	    User loggedUser = userService
-//		    .getUserByUsername(principal.getName());
-//	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-		 userMsg = this.getUserGreeting(principal, request);
+	    // User loggedUser = userService
+	    // .getUserByUsername(principal.getName());
+	    // userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	PagedListHolder<Location> pagedListHolder = new PagedListHolder<Location>(
 		locationService.listLocations());
@@ -382,12 +382,12 @@ public class InstallationController extends GenericController{
 
 	if (result.hasErrors()) {
 	    String userMsg = "";
-//	    Locale locale = RequestContextUtils.getLocale(request);
+	    // Locale locale = RequestContextUtils.getLocale(request);
 	    if (principal != null) {
-//		User loggedUser = userService.getUserByUsername(principal
-//			.getName());
-//		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    	 userMsg = this.getUserGreeting(principal, request);
+		// User loggedUser = userService.getUserByUsername(principal
+		// .getName());
+		// userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		userMsg = this.getUserGreeting(principal, request);
 	    }
 
 	    PagedListHolder<Location> pagedListHolder = new PagedListHolder<Location>(
@@ -445,12 +445,12 @@ public class InstallationController extends GenericController{
 	    return "redirect:/terminals/locations/list";
 	}
 	String userMsg = "";
-//	Locale locale = RequestContextUtils.getLocale(request);
+	// Locale locale = RequestContextUtils.getLocale(request);
 	if (principal != null) {
-//	    User loggedUser = userService
-//		    .getUserByUsername(principal.getName());
-//	    userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-		 userMsg = this.getUserGreeting(principal, request);
+	    // User loggedUser = userService
+	    // .getUserByUsername(principal.getName());
+	    // userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	    userMsg = this.getUserGreeting(principal, request);
 	}
 	map.put("userMsg", userMsg);
 	map.put("location", location);
@@ -481,12 +481,12 @@ public class InstallationController extends GenericController{
 
 	if (result.hasErrors()) {
 	    String userMsg = "";
-//	    Locale locale = RequestContextUtils.getLocale(request);
+	    // Locale locale = RequestContextUtils.getLocale(request);
 	    if (principal != null) {
-//		User loggedUser = userService.getUserByUsername(principal
-//			.getName());
-//		userMsg = loggedUser.getHtmlWelcomeMessage(locale);
-	    	 userMsg = this.getUserGreeting(principal, request);
+		// User loggedUser = userService.getUserByUsername(principal
+		// .getName());
+		// userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+		userMsg = this.getUserGreeting(principal, request);
 	    }
 	    map.put("userMsg", userMsg);
 	    return "locationDetails";

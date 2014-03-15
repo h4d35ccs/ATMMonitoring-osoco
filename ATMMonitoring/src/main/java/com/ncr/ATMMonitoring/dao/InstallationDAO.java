@@ -16,8 +16,9 @@ public interface InstallationDAO {
 
     /**
      * Adds the installation.
-     *
-     * @param installation the installation
+     * 
+     * @param installation
+     *            the installation
      */
     public void addInstallation(Installation installation);
 

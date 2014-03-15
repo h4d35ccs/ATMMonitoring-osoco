@@ -166,7 +166,7 @@ public class OperatingSystem {
 
     /**
      * Gets the comboboxes data for the query GUI.
-     *
+     * 
      * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
@@ -175,7 +175,7 @@ public class OperatingSystem {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -184,8 +184,9 @@ public class OperatingSystem {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -193,7 +194,7 @@ public class OperatingSystem {
 
     /**
      * Gets the name.
-     *
+     * 
      * @return the name
      */
     public String getName() {
@@ -202,8 +203,9 @@ public class OperatingSystem {
 
     /**
      * Sets the name.
-     *
-     * @param name the name to set
+     * 
+     * @param name
+     *            the name to set
      */
     public void setName(String name) {
 	this.name = name;
@@ -211,7 +213,7 @@ public class OperatingSystem {
 
     /**
      * Gets the version.
-     *
+     * 
      * @return the version complete
      */
     public String getVersion() {
@@ -240,8 +242,9 @@ public class OperatingSystem {
 
     /**
      * Sets the version.
-     *
-     * @param version the complete version to set
+     * 
+     * @param version
+     *            the complete version to set
      */
     public void setVersion(String version) {
 	String[] versions = version.split("\\.", 5);
@@ -269,7 +272,7 @@ public class OperatingSystem {
 
     /**
      * Gets the name version.
-     *
+     * 
      * @return the name and version concatenated
      */
     public String getNameVersion() {
@@ -278,7 +281,7 @@ public class OperatingSystem {
 
     /**
      * Gets the major version.
-     *
+     * 
      * @return the majorVersion
      */
     public Integer getMajorVersion() {
@@ -287,7 +290,7 @@ public class OperatingSystem {
 
     /**
      * Gets the minor version.
-     *
+     * 
      * @return the minorVersion
      */
     public Integer getMinorVersion() {
@@ -296,7 +299,7 @@ public class OperatingSystem {
 
     /**
      * Gets the builds the version.
-     *
+     * 
      * @return the buildVersion
      */
     public Integer getBuildVersion() {
@@ -305,7 +308,7 @@ public class OperatingSystem {
 
     /**
      * Gets the revision version.
-     *
+     * 
      * @return the revisionVersion
      */
     public Integer getRevisionVersion() {
@@ -314,8 +317,9 @@ public class OperatingSystem {
 
     /**
      * Sets the major version.
-     *
-     * @param majorVersion the majorVersion to set
+     * 
+     * @param majorVersion
+     *            the majorVersion to set
      */
     public void setMajorVersion(Integer majorVersion) {
 	this.majorVersion = majorVersion;
@@ -323,8 +327,9 @@ public class OperatingSystem {
 
     /**
      * Sets the minor version.
-     *
-     * @param minorVersion the minorVersion to set
+     * 
+     * @param minorVersion
+     *            the minorVersion to set
      */
     public void setMinorVersion(Integer minorVersion) {
 	this.minorVersion = minorVersion;
@@ -332,8 +337,9 @@ public class OperatingSystem {
 
     /**
      * Sets the builds the version.
-     *
-     * @param buildVersion the buildVersion to set
+     * 
+     * @param buildVersion
+     *            the buildVersion to set
      */
     public void setBuildVersion(Integer buildVersion) {
 	this.buildVersion = buildVersion;
@@ -341,8 +347,9 @@ public class OperatingSystem {
 
     /**
      * Sets the revision version.
-     *
-     * @param revisionVersion the revisionVersion to set
+     * 
+     * @param revisionVersion
+     *            the revisionVersion to set
      */
     public void setRevisionVersion(Integer revisionVersion) {
 	this.revisionVersion = revisionVersion;
@@ -350,7 +357,7 @@ public class OperatingSystem {
 
     /**
      * Gets the remaining version.
-     *
+     * 
      * @return the remainingVersion
      */
     public String getRemainingVersion() {
@@ -359,8 +366,9 @@ public class OperatingSystem {
 
     /**
      * Sets the remaining version.
-     *
-     * @param remainingVersion the remainingVersion to set
+     * 
+     * @param remainingVersion
+     *            the remainingVersion to set
      */
     public void setRemainingVersion(String remainingVersion) {
 	this.remainingVersion = remainingVersion;
@@ -368,7 +376,7 @@ public class OperatingSystem {
 
     /**
      * Gets the os type.
-     *
+     * 
      * @return the oSType
      */
     public String getOsType() {
@@ -377,8 +385,9 @@ public class OperatingSystem {
 
     /**
      * Sets the os type.
-     *
-     * @param oSType the oSType to set
+     * 
+     * @param oSType
+     *            the oSType to set
      */
     public void setOsType(String oSType) {
 	osType = oSType;
@@ -386,7 +395,7 @@ public class OperatingSystem {
 
     /**
      * Gets the serial number.
-     *
+     * 
      * @return the serialNumber
      */
     public String getSerialNumber() {
@@ -395,8 +404,9 @@ public class OperatingSystem {
 
     /**
      * Sets the serial number.
-     *
-     * @param serialNumber the serialNumber to set
+     * 
+     * @param serialNumber
+     *            the serialNumber to set
      */
     public void setSerialNumber(String serialNumber) {
 	this.serialNumber = serialNumber;
@@ -404,7 +414,7 @@ public class OperatingSystem {
 
     /**
      * Gets the manufacturer.
-     *
+     * 
      * @return the manufacturer
      */
     public String getManufacturer() {
@@ -413,8 +423,9 @@ public class OperatingSystem {
 
     /**
      * Sets the manufacturer.
-     *
-     * @param manufacturer the manufacturer to set
+     * 
+     * @param manufacturer
+     *            the manufacturer to set
      */
     public void setManufacturer(String manufacturer) {
 	this.manufacturer = manufacturer;
@@ -422,7 +433,7 @@ public class OperatingSystem {
 
     /**
      * Gets the service pack major version.
-     *
+     * 
      * @return the servicePackMajorVersion
      */
     public Integer getServicePackMajorVersion() {
@@ -431,8 +442,9 @@ public class OperatingSystem {
 
     /**
      * Sets the service pack major version.
-     *
-     * @param servicePackMajorVersion the servicePackMajorVersion to set
+     * 
+     * @param servicePackMajorVersion
+     *            the servicePackMajorVersion to set
      */
     public void setServicePackMajorVersion(Integer servicePackMajorVersion) {
 	this.servicePackMajorVersion = servicePackMajorVersion;
@@ -440,7 +452,7 @@ public class OperatingSystem {
 
     /**
      * Gets the service pack minor version.
-     *
+     * 
      * @return the servicePackMinorVersion
      */
     public Integer getServicePackMinorVersion() {
@@ -449,8 +461,9 @@ public class OperatingSystem {
 
     /**
      * Sets the service pack minor version.
-     *
-     * @param servicePackMinorVersion the servicePackMinorVersion to set
+     * 
+     * @param servicePackMinorVersion
+     *            the servicePackMinorVersion to set
      */
     public void setServicePackMinorVersion(Integer servicePackMinorVersion) {
 	this.servicePackMinorVersion = servicePackMinorVersion;
@@ -458,7 +471,7 @@ public class OperatingSystem {
 
     /**
      * Gets the service pack build version.
-     *
+     * 
      * @return the servicePackBuildVersion
      */
     public Integer getServicePackBuildVersion() {
@@ -467,8 +480,9 @@ public class OperatingSystem {
 
     /**
      * Sets the service pack build version.
-     *
-     * @param servicePackBuildVersion the servicePackBuildVersion to set
+     * 
+     * @param servicePackBuildVersion
+     *            the servicePackBuildVersion to set
      */
     public void setServicePackBuildVersion(Integer servicePackBuildVersion) {
 	this.servicePackBuildVersion = servicePackBuildVersion;
@@ -476,7 +490,7 @@ public class OperatingSystem {
 
     /**
      * Gets the service pack revision version.
-     *
+     * 
      * @return the servicePackRevisionVersion
      */
     public Integer getServicePackRevisionVersion() {
@@ -485,8 +499,9 @@ public class OperatingSystem {
 
     /**
      * Sets the service pack revision version.
-     *
-     * @param servicePackRevisionVersion the servicePackRevisionVersion to set
+     * 
+     * @param servicePackRevisionVersion
+     *            the servicePackRevisionVersion to set
      */
     public void setServicePackRevisionVersion(Integer servicePackRevisionVersion) {
 	this.servicePackRevisionVersion = servicePackRevisionVersion;
@@ -494,7 +509,7 @@ public class OperatingSystem {
 
     /**
      * Gets the service pack remaining version.
-     *
+     * 
      * @return the servicePackRemainingVersion
      */
     public String getServicePackRemainingVersion() {
@@ -503,8 +518,9 @@ public class OperatingSystem {
 
     /**
      * Sets the service pack remaining version.
-     *
-     * @param servicePackRemainingVersion the servicePackRemainingVersion to set
+     * 
+     * @param servicePackRemainingVersion
+     *            the servicePackRemainingVersion to set
      */
     public void setServicePackRemainingVersion(
 	    String servicePackRemainingVersion) {
@@ -513,7 +529,7 @@ public class OperatingSystem {
 
     /**
      * Gets the service pack version.
-     *
+     * 
      * @return the Service Pack version complete
      */
     public String getServicePackVersion() {
@@ -543,8 +559,9 @@ public class OperatingSystem {
 
     /**
      * Sets the service pack version.
-     *
-     * @param version the complete Service Pack version to set
+     * 
+     * @param version
+     *            the complete Service Pack version to set
      */
     public void setServicePackVersion(String version) {
 	String[] versions = version.split("\\.", 5);
@@ -572,7 +589,7 @@ public class OperatingSystem {
 
     /**
      * Gets the organization.
-     *
+     * 
      * @return the organization
      */
     public String getOrganization() {
@@ -581,8 +598,9 @@ public class OperatingSystem {
 
     /**
      * Sets the organization.
-     *
-     * @param organization the organization to set
+     * 
+     * @param organization
+     *            the organization to set
      */
     public void setOrganization(String organization) {
 	this.organization = organization;
@@ -590,7 +608,7 @@ public class OperatingSystem {
 
     /**
      * Gets the os language.
-     *
+     * 
      * @return the oSLanguage
      */
     public String getOsLanguage() {
@@ -599,155 +617,156 @@ public class OperatingSystem {
 
     /**
      * Sets the os language.
-     *
-     * @param oSLanguage the oSLanguage to set
+     * 
+     * @param oSLanguage
+     *            the oSLanguage to set
      */
     public void setOsLanguage(String oSLanguage) {
 	osLanguage = oSLanguage;
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((buildVersion == null) ? 0 : buildVersion.hashCode());
-		result = prime * result
-				+ ((majorVersion == null) ? 0 : majorVersion.hashCode());
-		result = prime * result
-				+ ((manufacturer == null) ? 0 : manufacturer.hashCode());
-		result = prime * result
-				+ ((minorVersion == null) ? 0 : minorVersion.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((organization == null) ? 0 : organization.hashCode());
-		result = prime * result
-				+ ((osLanguage == null) ? 0 : osLanguage.hashCode());
-		result = prime * result + ((osType == null) ? 0 : osType.hashCode());
-		result = prime
-				* result
-				+ ((remainingVersion == null) ? 0 : remainingVersion.hashCode());
-		result = prime * result
-				+ ((revisionVersion == null) ? 0 : revisionVersion.hashCode());
-		result = prime * result
-				+ ((serialNumber == null) ? 0 : serialNumber.hashCode());
-		result = prime
-				* result
-				+ ((servicePackBuildVersion == null) ? 0
-						: servicePackBuildVersion.hashCode());
-		result = prime
-				* result
-				+ ((servicePackMajorVersion == null) ? 0
-						: servicePackMajorVersion.hashCode());
-		result = prime
-				* result
-				+ ((servicePackMinorVersion == null) ? 0
-						: servicePackMinorVersion.hashCode());
-		result = prime
-				* result
-				+ ((servicePackRemainingVersion == null) ? 0
-						: servicePackRemainingVersion.hashCode());
-		result = prime
-				* result
-				+ ((servicePackRevisionVersion == null) ? 0
-						: servicePackRevisionVersion.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result
+		+ ((buildVersion == null) ? 0 : buildVersion.hashCode());
+	result = prime * result
+		+ ((majorVersion == null) ? 0 : majorVersion.hashCode());
+	result = prime * result
+		+ ((manufacturer == null) ? 0 : manufacturer.hashCode());
+	result = prime * result
+		+ ((minorVersion == null) ? 0 : minorVersion.hashCode());
+	result = prime * result + ((name == null) ? 0 : name.hashCode());
+	result = prime * result
+		+ ((organization == null) ? 0 : organization.hashCode());
+	result = prime * result
+		+ ((osLanguage == null) ? 0 : osLanguage.hashCode());
+	result = prime * result + ((osType == null) ? 0 : osType.hashCode());
+	result = prime
+		* result
+		+ ((remainingVersion == null) ? 0 : remainingVersion.hashCode());
+	result = prime * result
+		+ ((revisionVersion == null) ? 0 : revisionVersion.hashCode());
+	result = prime * result
+		+ ((serialNumber == null) ? 0 : serialNumber.hashCode());
+	result = prime
+		* result
+		+ ((servicePackBuildVersion == null) ? 0
+			: servicePackBuildVersion.hashCode());
+	result = prime
+		* result
+		+ ((servicePackMajorVersion == null) ? 0
+			: servicePackMajorVersion.hashCode());
+	result = prime
+		* result
+		+ ((servicePackMinorVersion == null) ? 0
+			: servicePackMinorVersion.hashCode());
+	result = prime
+		* result
+		+ ((servicePackRemainingVersion == null) ? 0
+			: servicePackRemainingVersion.hashCode());
+	result = prime
+		* result
+		+ ((servicePackRevisionVersion == null) ? 0
+			: servicePackRevisionVersion.hashCode());
+	return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		OperatingSystem other = (OperatingSystem) obj;
-		if (buildVersion == null) {
-			if (other.buildVersion != null)
-				return false;
-		} else if (!buildVersion.equals(other.buildVersion))
-			return false;
-		if (majorVersion == null) {
-			if (other.majorVersion != null)
-				return false;
-		} else if (!majorVersion.equals(other.majorVersion))
-			return false;
-		if (manufacturer == null) {
-			if (other.manufacturer != null)
-				return false;
-		} else if (!manufacturer.equals(other.manufacturer))
-			return false;
-		if (minorVersion == null) {
-			if (other.minorVersion != null)
-				return false;
-		} else if (!minorVersion.equals(other.minorVersion))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (organization == null) {
-			if (other.organization != null)
-				return false;
-		} else if (!organization.equals(other.organization))
-			return false;
-		if (osLanguage == null) {
-			if (other.osLanguage != null)
-				return false;
-		} else if (!osLanguage.equals(other.osLanguage))
-			return false;
-		if (osType == null) {
-			if (other.osType != null)
-				return false;
-		} else if (!osType.equals(other.osType))
-			return false;
-		if (remainingVersion == null) {
-			if (other.remainingVersion != null)
-				return false;
-		} else if (!remainingVersion.equals(other.remainingVersion))
-			return false;
-		if (revisionVersion == null) {
-			if (other.revisionVersion != null)
-				return false;
-		} else if (!revisionVersion.equals(other.revisionVersion))
-			return false;
-		if (serialNumber == null) {
-			if (other.serialNumber != null)
-				return false;
-		} else if (!serialNumber.equals(other.serialNumber))
-			return false;
-		if (servicePackBuildVersion == null) {
-			if (other.servicePackBuildVersion != null)
-				return false;
-		} else if (!servicePackBuildVersion
-				.equals(other.servicePackBuildVersion))
-			return false;
-		if (servicePackMajorVersion == null) {
-			if (other.servicePackMajorVersion != null)
-				return false;
-		} else if (!servicePackMajorVersion
-				.equals(other.servicePackMajorVersion))
-			return false;
-		if (servicePackMinorVersion == null) {
-			if (other.servicePackMinorVersion != null)
-				return false;
-		} else if (!servicePackMinorVersion
-				.equals(other.servicePackMinorVersion))
-			return false;
-		if (servicePackRemainingVersion == null) {
-			if (other.servicePackRemainingVersion != null)
-				return false;
-		} else if (!servicePackRemainingVersion
-				.equals(other.servicePackRemainingVersion))
-			return false;
-		if (servicePackRevisionVersion == null) {
-			if (other.servicePackRevisionVersion != null)
-				return false;
-		} else if (!servicePackRevisionVersion
-				.equals(other.servicePackRevisionVersion))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	OperatingSystem other = (OperatingSystem) obj;
+	if (buildVersion == null) {
+	    if (other.buildVersion != null)
+		return false;
+	} else if (!buildVersion.equals(other.buildVersion))
+	    return false;
+	if (majorVersion == null) {
+	    if (other.majorVersion != null)
+		return false;
+	} else if (!majorVersion.equals(other.majorVersion))
+	    return false;
+	if (manufacturer == null) {
+	    if (other.manufacturer != null)
+		return false;
+	} else if (!manufacturer.equals(other.manufacturer))
+	    return false;
+	if (minorVersion == null) {
+	    if (other.minorVersion != null)
+		return false;
+	} else if (!minorVersion.equals(other.minorVersion))
+	    return false;
+	if (name == null) {
+	    if (other.name != null)
+		return false;
+	} else if (!name.equals(other.name))
+	    return false;
+	if (organization == null) {
+	    if (other.organization != null)
+		return false;
+	} else if (!organization.equals(other.organization))
+	    return false;
+	if (osLanguage == null) {
+	    if (other.osLanguage != null)
+		return false;
+	} else if (!osLanguage.equals(other.osLanguage))
+	    return false;
+	if (osType == null) {
+	    if (other.osType != null)
+		return false;
+	} else if (!osType.equals(other.osType))
+	    return false;
+	if (remainingVersion == null) {
+	    if (other.remainingVersion != null)
+		return false;
+	} else if (!remainingVersion.equals(other.remainingVersion))
+	    return false;
+	if (revisionVersion == null) {
+	    if (other.revisionVersion != null)
+		return false;
+	} else if (!revisionVersion.equals(other.revisionVersion))
+	    return false;
+	if (serialNumber == null) {
+	    if (other.serialNumber != null)
+		return false;
+	} else if (!serialNumber.equals(other.serialNumber))
+	    return false;
+	if (servicePackBuildVersion == null) {
+	    if (other.servicePackBuildVersion != null)
+		return false;
+	} else if (!servicePackBuildVersion
+		.equals(other.servicePackBuildVersion))
+	    return false;
+	if (servicePackMajorVersion == null) {
+	    if (other.servicePackMajorVersion != null)
+		return false;
+	} else if (!servicePackMajorVersion
+		.equals(other.servicePackMajorVersion))
+	    return false;
+	if (servicePackMinorVersion == null) {
+	    if (other.servicePackMinorVersion != null)
+		return false;
+	} else if (!servicePackMinorVersion
+		.equals(other.servicePackMinorVersion))
+	    return false;
+	if (servicePackRemainingVersion == null) {
+	    if (other.servicePackRemainingVersion != null)
+		return false;
+	} else if (!servicePackRemainingVersion
+		.equals(other.servicePackRemainingVersion))
+	    return false;
+	if (servicePackRevisionVersion == null) {
+	    if (other.servicePackRevisionVersion != null)
+		return false;
+	} else if (!servicePackRevisionVersion
+		.equals(other.servicePackRevisionVersion))
+	    return false;
+	return true;
+    }
 }

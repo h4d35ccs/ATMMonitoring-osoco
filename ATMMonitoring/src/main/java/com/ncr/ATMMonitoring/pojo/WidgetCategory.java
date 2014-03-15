@@ -20,84 +20,94 @@ import org.hibernate.annotations.CascadeType;
 
 /**
  * The widget category POJO
+ * 
  * @author jmartin
- *
+ * 
  */
 @Entity
 @Table(name = "widget_category")
-public class WidgetCategory implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class WidgetCategory implements Serializable {
 
-	/** The id. */
-	@Id
+    private static final long serialVersionUID = 1L;
+
+    /** The id. */
+    @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "widget_categories_id_seq")
     @SequenceGenerator(name = "widget_categories_id_seq", sequenceName = "widget_categories_id_seq", allocationSize = 1)
     private Integer id;
-	
-	/** The widgets. */
+
+    /** The widgets. */
     @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
     @Cascade(CascadeType.ALL)
-	@OrderBy("title")
+    @OrderBy("title")
     private List<Widget> widgets;
-    
+
     /** The name */
     @Column(name = "name")
     private String name;
-    
+
     /**
      * Default constructor
      */
     public WidgetCategory() {
-		this.widgets =  new ArrayList<Widget>();
+	this.widgets = new ArrayList<Widget>();
     }
 
     /**
      * Get the id
+     * 
      * @return The id
      */
     public Integer getId() {
-		return id;
-	}
+	return id;
+    }
 
     /**
      * Set the id
-     * @param id The id
+     * 
+     * @param id
+     *            The id
      */
     public void setId(Integer id) {
-		this.id = id;
-	}
+	this.id = id;
+    }
 
     /**
      * Get widgets
+     * 
      * @return The widgets
      */
-	public List<Widget> getWidgets() {
-		return widgets;
-	}
+    public List<Widget> getWidgets() {
+	return widgets;
+    }
 
-	/**
-	 * Set the widgets
-	 * @param widgets The widgets
-	 */
-	public void setWidgets(List<Widget> widgets) {
-		this.widgets = widgets;
-	}
+    /**
+     * Set the widgets
+     * 
+     * @param widgets
+     *            The widgets
+     */
+    public void setWidgets(List<Widget> widgets) {
+	this.widgets = widgets;
+    }
 
-	/**
-	 * Get the name
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+    /**
+     * Get the name
+     * 
+     * @return the name
+     */
+    public String getName() {
+	return name;
+    }
 
-	/**
-	 * Set the name
-	 * @param name The name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+    /**
+     * Set the name
+     * 
+     * @param name
+     *            The name
+     */
+    public void setName(String name) {
+	this.name = name;
+    }
 }

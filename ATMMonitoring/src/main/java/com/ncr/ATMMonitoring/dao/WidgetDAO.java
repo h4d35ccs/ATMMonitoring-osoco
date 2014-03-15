@@ -30,21 +30,21 @@ public interface WidgetDAO {
      */
     public void update(Widget widget);
 
-	/**
-	 * Find default widgets.
-	 *
-	 * @return the list
-	 */
-	public List<Widget> findDefaultWidgets();
+    /**
+     * Find default widgets.
+     * 
+     * @return the list
+     */
+    public List<Widget> findDefaultWidgets();
 
-	    /**
+    /**
      * Find widget by id.
      * 
      * @param id
      *            the id
      * @return the widget, or null if it doesn't exist
      */
-	public Widget findById(int id);
+    public Widget findById(int id);
 
-	public void delete(Widget widget);
+    public void delete(Widget widget);
 }

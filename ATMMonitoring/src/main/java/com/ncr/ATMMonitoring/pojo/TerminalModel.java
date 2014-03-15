@@ -93,7 +93,7 @@ public class TerminalModel {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -102,8 +102,9 @@ public class TerminalModel {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -111,7 +112,7 @@ public class TerminalModel {
 
     /**
      * Gets the model.
-     *
+     * 
      * @return the model
      */
     public String getModel() {
@@ -120,8 +121,9 @@ public class TerminalModel {
 
     /**
      * Sets the model.
-     *
-     * @param model the new model
+     * 
+     * @param model
+     *            the new model
      */
     public void setModel(String model) {
 	this.model = model;
@@ -129,7 +131,7 @@ public class TerminalModel {
 
     /**
      * Gets the manufacturer.
-     *
+     * 
      * @return the manufacturer
      */
     public String getManufacturer() {
@@ -138,8 +140,9 @@ public class TerminalModel {
 
     /**
      * Sets the manufacturer.
-     *
-     * @param manufacturer the new manufacturer
+     * 
+     * @param manufacturer
+     *            the new manufacturer
      */
     public void setManufacturer(String manufacturer) {
 	this.manufacturer = manufacturer;
@@ -147,7 +150,7 @@ public class TerminalModel {
 
     /**
      * Gets the photo.
-     *
+     * 
      * @return the photo
      */
     public byte[] getPhoto() {
@@ -156,8 +159,9 @@ public class TerminalModel {
 
     /**
      * Sets the photo.
-     *
-     * @param photo the new photo
+     * 
+     * @param photo
+     *            the new photo
      */
     public void setPhoto(byte[] photo) {
 	this.photo = photo;
@@ -165,9 +169,11 @@ public class TerminalModel {
 
     /**
      * Gets the photo as image.
-     *
-     * @param width the width
-     * @param height the height
+     * 
+     * @param width
+     *            the width
+     * @param height
+     *            the height
      * @return the photo as image
      */
     public BufferedImage getPhotoAsImage(int width, int height) {
@@ -191,125 +197,130 @@ public class TerminalModel {
 	if ((width != 0) && (height != 0)) {
 	    Image scaledImage = img.getScaledInstance(width, height,
 		    Image.SCALE_SMOOTH);
-	    img = new BufferedImage(width, height,
-		    BufferedImage.TYPE_INT_RGB);
+	    img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	    img.getGraphics().drawImage(scaledImage, 0, 0, new Color(0, 0, 0),
 		    null);
 	}
 	return img;
     }
 
-	/**
-	 * Gets the nickname.
-	 *
-	 * @return the nickname
-	 */
-	public String getNickname() {
-		return nickname;
-	}
+    /**
+     * Gets the nickname.
+     * 
+     * @return the nickname
+     */
+    public String getNickname() {
+	return nickname;
+    }
 
-	/**
-	 * Sets the nickname.
-	 *
-	 * @param nickname the new nickname
-	 */
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
+    /**
+     * Sets the nickname.
+     * 
+     * @param nickname
+     *            the new nickname
+     */
+    public void setNickname(String nickname) {
+	this.nickname = nickname;
+    }
 
-	/**
-	 * Gets the height.
-	 *
-	 * @return the height
-	 */
-	public Integer getHeight() {
-		return height;
-	}
+    /**
+     * Gets the height.
+     * 
+     * @return the height
+     */
+    public Integer getHeight() {
+	return height;
+    }
 
-	/**
-	 * Sets the height.
-	 *
-	 * @param height the new height
-	 */
-	public void setHeight(Integer height) {
-		this.height = height;
-	}
+    /**
+     * Sets the height.
+     * 
+     * @param height
+     *            the new height
+     */
+    public void setHeight(Integer height) {
+	this.height = height;
+    }
 
-	/**
-	 * Gets the width.
-	 *
-	 * @return the width
-	 */
-	public Integer getWidth() {
-		return width;
-	}
+    /**
+     * Gets the width.
+     * 
+     * @return the width
+     */
+    public Integer getWidth() {
+	return width;
+    }
 
-	/**
-	 * Sets the width.
-	 *
-	 * @param width the new width
-	 */
-	public void setWidth(Integer width) {
-		this.width = width;
-	}
+    /**
+     * Sets the width.
+     * 
+     * @param width
+     *            the new width
+     */
+    public void setWidth(Integer width) {
+	this.width = width;
+    }
 
-	/**
-	 * Gets the depth.
-	 *
-	 * @return the depth
-	 */
-	public Integer getDepth() {
-		return depth;
-	}
+    /**
+     * Gets the depth.
+     * 
+     * @return the depth
+     */
+    public Integer getDepth() {
+	return depth;
+    }
 
-	/**
-	 * Sets the depth.
-	 *
-	 * @param depth the new depth
-	 */
-	public void setDepth(Integer depth) {
-		this.depth = depth;
-	}
+    /**
+     * Sets the depth.
+     * 
+     * @param depth
+     *            the new depth
+     */
+    public void setDepth(Integer depth) {
+	this.depth = depth;
+    }
 
-	/**
-	 * Gets the max weight.
-	 *
-	 * @return the max weight
-	 */
-	public Double getMaxWeight() {
-		return maxWeight;
-	}
+    /**
+     * Gets the max weight.
+     * 
+     * @return the max weight
+     */
+    public Double getMaxWeight() {
+	return maxWeight;
+    }
 
-	/**
-	 * Sets the max weight.
-	 *
-	 * @param maxWeight the new max weight
-	 */
-	public void setMaxWeight(Double maxWeight) {
-		this.maxWeight = maxWeight;
-	}
+    /**
+     * Sets the max weight.
+     * 
+     * @param maxWeight
+     *            the new max weight
+     */
+    public void setMaxWeight(Double maxWeight) {
+	this.maxWeight = maxWeight;
+    }
 
-	/**
-	 * Gets the min weight.
-	 *
-	 * @return the min weight
-	 */
-	public Double getMinWeight() {
-		return minWeight;
-	}
+    /**
+     * Gets the min weight.
+     * 
+     * @return the min weight
+     */
+    public Double getMinWeight() {
+	return minWeight;
+    }
 
-	/**
-	 * Sets the min weight.
-	 *
-	 * @param minWeight the new min weight
-	 */
-	public void setMinWeight(Double minWeight) {
-		this.minWeight = minWeight;
-	}
+    /**
+     * Sets the min weight.
+     * 
+     * @param minWeight
+     *            the new min weight
+     */
+    public void setMinWeight(Double minWeight) {
+	this.minWeight = minWeight;
+    }
 
     /**
      * Gets the product class.
-     *
+     * 
      * @return the product class
      */
     public String getProductClass() {
@@ -318,8 +329,9 @@ public class TerminalModel {
 
     /**
      * Sets the product class.
-     *
-     * @param productClass the new product class
+     * 
+     * @param productClass
+     *            the new product class
      */
     public void setProductClass(String productClass) {
 	this.productClass = productClass;

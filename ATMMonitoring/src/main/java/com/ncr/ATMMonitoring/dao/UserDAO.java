@@ -18,15 +18,17 @@ public interface UserDAO {
 
     /**
      * Adds the user.
-     *
-     * @param user the user
+     * 
+     * @param user
+     *            the user
      */
     public void addUser(User user);
 
     /**
      * Update user.
-     *
-     * @param user the user
+     * 
+     * @param user
+     *            the user
      */
     public void updateUser(User user);
 

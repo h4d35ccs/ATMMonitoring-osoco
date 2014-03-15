@@ -16,8 +16,9 @@ public interface ScheduledUpdateService {
 
     /**
      * Adds the scheduled update.
-     *
-     * @param scheduledUpdate the scheduled update
+     * 
+     * @param scheduledUpdate
+     *            the scheduled update
      */
     public void addScheduledUpdate(ScheduledUpdate scheduledUpdate);
 
@@ -50,8 +51,9 @@ public interface ScheduledUpdateService {
 
     /**
      * Exists scheduled update.
-     *
-     * @param scheduledUpdate the scheduled update
+     * 
+     * @param scheduledUpdate
+     *            the scheduled update
      * @return true, if successful
      */
     public boolean existsScheduledUpdate(ScheduledUpdate scheduledUpdate);

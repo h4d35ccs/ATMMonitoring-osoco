@@ -23,8 +23,11 @@ public class InstallationDAOImpl extends AbstractGenericDAO<Installation>
     static private Logger logger = Logger.getLogger(InstallationDAOImpl.class
 	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.InstallationDAO#addInstallation(com.ncr.ATMMonitoring.pojo.Installation)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.InstallationDAO#addInstallation(com.ncr.
+     * ATMMonitoring.pojo.Installation)
      */
     @Override
     public void addInstallation(Installation installation) {
@@ -32,15 +35,21 @@ public class InstallationDAOImpl extends AbstractGenericDAO<Installation>
 	logger.debug("Created new Installation with id " + installation.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.InstallationDAO#getInstallation(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.InstallationDAO#getInstallation(java.lang.Integer
+     * )
      */
     @Override
     public Installation getInstallation(Integer id) {
 	return get(id);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.InstallationDAO#listInstallations()
      */
     @Override
@@ -48,8 +57,12 @@ public class InstallationDAOImpl extends AbstractGenericDAO<Installation>
 	return list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.InstallationDAO#updateInstallation(com.ncr.ATMMonitoring.pojo.Installation)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.InstallationDAO#updateInstallation(com.ncr.
+     * ATMMonitoring.pojo.Installation)
      */
     @Override
     public void updateInstallation(Installation installation) {
@@ -57,8 +70,12 @@ public class InstallationDAOImpl extends AbstractGenericDAO<Installation>
 	logger.info("Updated Installation with id " + installation.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.InstallationDAO#removeInstallation(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.InstallationDAO#removeInstallation(java.lang
+     * .Integer)
      */
     @Override
     public void removeInstallation(Integer id) {

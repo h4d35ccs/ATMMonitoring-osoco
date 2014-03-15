@@ -17,8 +17,9 @@ public interface ScheduledUpdateDAO {
 
     /**
      * Adds the scheduled update.
-     *
-     * @param scheduledUpdate the scheduled update
+     * 
+     * @param scheduledUpdate
+     *            the scheduled update
      */
     public void addScheduledUpdate(ScheduledUpdate scheduledUpdate);
 

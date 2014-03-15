@@ -18,10 +18,15 @@ public class DashboardDAOImpl extends AbstractGenericDAO<Dashboard> implements
 	DashboardDAO {
 
     /** The logger. */
-    static private Logger logger = Logger.getLogger(DashboardDAOImpl.class.getName());
+    static private Logger logger = Logger.getLogger(DashboardDAOImpl.class
+	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.DashboardDAO#save(com.ncr.ATMMonitoring.pojo.Dashboard)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.DashboardDAO#save(com.ncr.ATMMonitoring.pojo
+     * .Dashboard)
      */
     @Override
     public void save(Dashboard dashboard) {

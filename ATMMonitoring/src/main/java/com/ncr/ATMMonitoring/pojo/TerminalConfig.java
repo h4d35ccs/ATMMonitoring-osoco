@@ -1,9 +1,6 @@
 package com.ncr.ATMMonitoring.pojo;
 
-import java.util.Arrays;
-import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -86,98 +83,103 @@ public class TerminalConfig extends Auditable {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
-		return id;
+	return id;
     }
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
-    	this.id = id;
+	this.id = id;
     }
 
     /**
      * Gets the terminal.
-     *
+     * 
      * @return the terminal
      */
     public Terminal getTerminal() {
-    	return terminal;
+	return terminal;
     }
 
     /**
      * Sets the terminal.
-     *
-     * @param terminal the terminal to set
+     * 
+     * @param terminal
+     *            the terminal to set
      */
     public void setTerminal(Terminal terminal) {
-    	this.terminal = terminal;
+	this.terminal = terminal;
     }
 
     /**
      * Gets the software.
-     *
+     * 
      * @return the software
      */
     public Set<Software> getSoftware() {
-    	return software;
+	return software;
     }
 
     /**
      * Sets the software.
-     *
-     * @param software the software to set
+     * 
+     * @param software
+     *            the software to set
      */
     public void setSoftware(Set<Software> software) {
-    	this.software = software;
+	this.software = software;
     }
 
     /**
      * Gets the operating systems.
-     *
+     * 
      * @return the operatingSystems
      */
     public Set<OperatingSystem> getOperatingSystems() {
-    	return operatingSystems;
+	return operatingSystems;
     }
 
     /**
      * Sets the operating systems.
-     *
-     * @param operatingSystems the operatingSystems to set
+     * 
+     * @param operatingSystems
+     *            the operatingSystems to set
      */
     public void setOperatingSystems(Set<OperatingSystem> operatingSystems) {
-    	this.operatingSystems = operatingSystems;
+	this.operatingSystems = operatingSystems;
     }
 
     @Override
     public boolean equals(Object o) {
-		if (!(o instanceof TerminalConfig)) {
-		    return false;
-		}
-		TerminalConfig tc = (TerminalConfig) o;
-		Set<Software> swAux = tc.getSoftware();
-		Set<OperatingSystem> osAux = tc.getOperatingSystems();
-		if (!((swAux.size() == software.size()) && (osAux.size() == operatingSystems.size()))) {
-		    return false;
-		}
-		for (Software sw : software) {
-		    if (!swAux.contains(sw)) {
-		    	return false;
-		    }
-		}
-		for (OperatingSystem os : operatingSystems) {
-		    if (!osAux.contains(os)) {
-		    	return false;
-		    }
-		}
-		return true;
+	if (!(o instanceof TerminalConfig)) {
+	    return false;
+	}
+	TerminalConfig tc = (TerminalConfig) o;
+	Set<Software> swAux = tc.getSoftware();
+	Set<OperatingSystem> osAux = tc.getOperatingSystems();
+	if (!((swAux.size() == software.size()) && (osAux.size() == operatingSystems
+		.size()))) {
+	    return false;
+	}
+	for (Software sw : software) {
+	    if (!swAux.contains(sw)) {
+		return false;
+	    }
+	}
+	for (OperatingSystem os : operatingSystems) {
+	    if (!osAux.contains(os)) {
+		return false;
+	    }
+	}
+	return true;
     }
-    
+
 }

@@ -1,6 +1,5 @@
 package com.ncr.ATMMonitoring.dao;
 
-
 import com.ncr.ATMMonitoring.pojo.Dashboard;
 
 /**

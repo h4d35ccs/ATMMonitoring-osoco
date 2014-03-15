@@ -20,18 +20,26 @@ public class TerminalConfigDAOImpl extends AbstractGenericDAO<TerminalConfig>
 	implements TerminalConfigDAO {
 
     /** The logger. */
-    static private Logger logger = Logger.getLogger(TerminalConfigDAOImpl.class.getName());
+    static private Logger logger = Logger.getLogger(TerminalConfigDAOImpl.class
+	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalConfigDAO#addTerminalConfig(com.ncr.ATMMonitoring.pojo.TerminalConfig)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalConfigDAO#addTerminalConfig(com.ncr
+     * .ATMMonitoring.pojo.TerminalConfig)
      */
     @Override
     public void addTerminalConfig(TerminalConfig terminalConfig) {
 	add(terminalConfig);
-		logger.debug("Created new Terminal Config with id " + terminalConfig.getId());
+	logger.debug("Created new Terminal Config with id "
+		+ terminalConfig.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.TerminalConfigDAO#listTerminalConfig()
      */
     @Override
@@ -39,8 +47,12 @@ public class TerminalConfigDAOImpl extends AbstractGenericDAO<TerminalConfig>
 	return list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalConfigDAO#getTerminalConfig(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalConfigDAO#getTerminalConfig(java.lang
+     * .Integer)
      */
     @Override
     public TerminalConfig getTerminalConfig(Integer id) {

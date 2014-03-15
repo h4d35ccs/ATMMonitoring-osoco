@@ -8,10 +8,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Role;
-import com.ncr.ATMMonitoring.pojo.Terminal;
-import com.ncr.ATMMonitoring.pojo.User;
 
 /**
  * The Class RoleDAOImpl.
@@ -28,8 +25,12 @@ public class RoleDAOImpl extends AbstractGenericDAO<Role> implements RoleDAO {
     static private Logger logger = Logger
 	    .getLogger(RoleDAOImpl.class.getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.RoleDAO#addRole(com.ncr.ATMMonitoring.pojo.Role)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.RoleDAO#addRole(com.ncr.ATMMonitoring.pojo.
+     * Role)
      */
     @Override
     public void addRole(Role role) {
@@ -97,7 +98,9 @@ public class RoleDAOImpl extends AbstractGenericDAO<Role> implements RoleDAO {
 	return list();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.RoleDAO#listManageableRoles()
      */
     @Override

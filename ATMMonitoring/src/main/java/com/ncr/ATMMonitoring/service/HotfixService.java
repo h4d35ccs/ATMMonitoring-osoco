@@ -16,8 +16,9 @@ public interface HotfixService {
 
     /**
      * Adds the hotfix.
-     *
-     * @param hotfix the hotfix
+     * 
+     * @param hotfix
+     *            the hotfix
      */
     public void addHotfix(Hotfix hotfix);
 

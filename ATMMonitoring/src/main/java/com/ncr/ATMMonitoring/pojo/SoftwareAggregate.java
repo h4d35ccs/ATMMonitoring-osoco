@@ -96,7 +96,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -105,8 +105,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -114,7 +115,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the profile.
-     *
+     * 
      * @return the profile
      */
     public String getProfile() {
@@ -123,8 +124,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the profile.
-     *
-     * @param profile the profile to set
+     * 
+     * @param profile
+     *            the profile to set
      */
     public void setProfile(String profile) {
 	this.profile = profile;
@@ -132,7 +134,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the name.
-     *
+     * 
      * @return the name
      */
     public String getName() {
@@ -141,8 +143,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the name.
-     *
-     * @param name the name to set
+     * 
+     * @param name
+     *            the name to set
      */
     public void setName(String name) {
 	this.name = name;
@@ -150,7 +153,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the description.
-     *
+     * 
      * @return the description
      */
     public String getDescription() {
@@ -159,8 +162,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the description.
-     *
-     * @param description the description to set
+     * 
+     * @param description
+     *            the description to set
      */
     public void setDescription(String description) {
 	this.description = description;
@@ -168,7 +172,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the number.
-     *
+     * 
      * @return the number
      */
     public Integer getNumber() {
@@ -177,8 +181,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the number.
-     *
-     * @param number the number to set
+     * 
+     * @param number
+     *            the number to set
      */
     public void setNumber(Integer number) {
 	this.number = number;
@@ -186,7 +191,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the major version.
-     *
+     * 
      * @return the majorVersion
      */
     public Integer getMajorVersion() {
@@ -195,7 +200,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the minor version.
-     *
+     * 
      * @return the minorVersion
      */
     public Integer getMinorVersion() {
@@ -204,7 +209,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the builds the version.
-     *
+     * 
      * @return the buildVersion
      */
     public Integer getBuildVersion() {
@@ -213,7 +218,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the revision version.
-     *
+     * 
      * @return the revisionVersion
      */
     public Integer getRevisionVersion() {
@@ -222,8 +227,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the major version.
-     *
-     * @param majorVersion the majorVersion to set
+     * 
+     * @param majorVersion
+     *            the majorVersion to set
      */
     public void setMajorVersion(Integer majorVersion) {
 	this.majorVersion = majorVersion;
@@ -231,8 +237,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the minor version.
-     *
-     * @param minorVersion the minorVersion to set
+     * 
+     * @param minorVersion
+     *            the minorVersion to set
      */
     public void setMinorVersion(Integer minorVersion) {
 	this.minorVersion = minorVersion;
@@ -240,8 +247,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the builds the version.
-     *
-     * @param buildVersion the buildVersion to set
+     * 
+     * @param buildVersion
+     *            the buildVersion to set
      */
     public void setBuildVersion(Integer buildVersion) {
 	this.buildVersion = buildVersion;
@@ -249,8 +257,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the revision version.
-     *
-     * @param revisionVersion the revisionVersion to set
+     * 
+     * @param revisionVersion
+     *            the revisionVersion to set
      */
     public void setRevisionVersion(Integer revisionVersion) {
 	this.revisionVersion = revisionVersion;
@@ -258,7 +267,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the remaining version.
-     *
+     * 
      * @return the remainingVersion
      */
     public String getRemainingVersion() {
@@ -267,8 +276,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the remaining version.
-     *
-     * @param remainingVersion the remainingVersion to set
+     * 
+     * @param remainingVersion
+     *            the remainingVersion to set
      */
     public void setRemainingVersion(String remainingVersion) {
 	this.remainingVersion = remainingVersion;
@@ -276,7 +286,7 @@ public class SoftwareAggregate {
 
     /**
      * Gets the version.
-     *
+     * 
      * @return the version complete
      */
     public String getVersion() {
@@ -305,8 +315,9 @@ public class SoftwareAggregate {
 
     /**
      * Sets the version.
-     *
-     * @param version the complete version to set
+     * 
+     * @param version
+     *            the complete version to set
      */
     public void setVersion(String version) {
 	String[] versions = version.split("\\.", 5);
@@ -334,92 +345,91 @@ public class SoftwareAggregate {
 
     /**
      * Gets the name version.
-     *
+     * 
      * @return the name and version concatenated
      */
     public String getNameVersion() {
 	return name + " (V. " + getVersion() + ")";
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((buildVersion == null) ? 0 : buildVersion.hashCode());
-		result = prime * result
-				+ ((description == null) ? 0 : description.hashCode());
-		result = prime * result
-				+ ((majorVersion == null) ? 0 : majorVersion.hashCode());
-		result = prime * result
-				+ ((minorVersion == null) ? 0 : minorVersion.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((number == null) ? 0 : number.hashCode());
-		result = prime * result + ((profile == null) ? 0 : profile.hashCode());
-		result = prime
-				* result
-				+ ((remainingVersion == null) ? 0 : remainingVersion.hashCode());
-		result = prime * result
-				+ ((revisionVersion == null) ? 0 : revisionVersion.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result
+		+ ((buildVersion == null) ? 0 : buildVersion.hashCode());
+	result = prime * result
+		+ ((description == null) ? 0 : description.hashCode());
+	result = prime * result
+		+ ((majorVersion == null) ? 0 : majorVersion.hashCode());
+	result = prime * result
+		+ ((minorVersion == null) ? 0 : minorVersion.hashCode());
+	result = prime * result + ((name == null) ? 0 : name.hashCode());
+	result = prime * result + ((number == null) ? 0 : number.hashCode());
+	result = prime * result + ((profile == null) ? 0 : profile.hashCode());
+	result = prime
+		* result
+		+ ((remainingVersion == null) ? 0 : remainingVersion.hashCode());
+	result = prime * result
+		+ ((revisionVersion == null) ? 0 : revisionVersion.hashCode());
+	return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		SoftwareAggregate other = (SoftwareAggregate) obj;
-		if (buildVersion == null) {
-			if (other.buildVersion != null)
-				return false;
-		} else if (!buildVersion.equals(other.buildVersion))
-			return false;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
-		if (majorVersion == null) {
-			if (other.majorVersion != null)
-				return false;
-		} else if (!majorVersion.equals(other.majorVersion))
-			return false;
-		if (minorVersion == null) {
-			if (other.minorVersion != null)
-				return false;
-		} else if (!minorVersion.equals(other.minorVersion))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (number == null) {
-			if (other.number != null)
-				return false;
-		} else if (!number.equals(other.number))
-			return false;
-		if (profile == null) {
-			if (other.profile != null)
-				return false;
-		} else if (!profile.equals(other.profile))
-			return false;
-		if (remainingVersion == null) {
-			if (other.remainingVersion != null)
-				return false;
-		} else if (!remainingVersion.equals(other.remainingVersion))
-			return false;
-		if (revisionVersion == null) {
-			if (other.revisionVersion != null)
-				return false;
-		} else if (!revisionVersion.equals(other.revisionVersion))
-			return false;
-		return true;
-	}
-    
-    
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	SoftwareAggregate other = (SoftwareAggregate) obj;
+	if (buildVersion == null) {
+	    if (other.buildVersion != null)
+		return false;
+	} else if (!buildVersion.equals(other.buildVersion))
+	    return false;
+	if (description == null) {
+	    if (other.description != null)
+		return false;
+	} else if (!description.equals(other.description))
+	    return false;
+	if (majorVersion == null) {
+	    if (other.majorVersion != null)
+		return false;
+	} else if (!majorVersion.equals(other.majorVersion))
+	    return false;
+	if (minorVersion == null) {
+	    if (other.minorVersion != null)
+		return false;
+	} else if (!minorVersion.equals(other.minorVersion))
+	    return false;
+	if (name == null) {
+	    if (other.name != null)
+		return false;
+	} else if (!name.equals(other.name))
+	    return false;
+	if (number == null) {
+	    if (other.number != null)
+		return false;
+	} else if (!number.equals(other.number))
+	    return false;
+	if (profile == null) {
+	    if (other.profile != null)
+		return false;
+	} else if (!profile.equals(other.profile))
+	    return false;
+	if (remainingVersion == null) {
+	    if (other.remainingVersion != null)
+		return false;
+	} else if (!remainingVersion.equals(other.remainingVersion))
+	    return false;
+	if (revisionVersion == null) {
+	    if (other.revisionVersion != null)
+		return false;
+	} else if (!revisionVersion.equals(other.revisionVersion))
+	    return false;
+	return true;
+    }
+
 }

@@ -16,8 +16,9 @@ public interface SoftwareAggregateService {
 
     /**
      * Adds the software aggregate.
-     *
-     * @param softwareAggregate the software aggregate
+     * 
+     * @param softwareAggregate
+     *            the software aggregate
      */
     public void addSoftwareAggregate(SoftwareAggregate softwareAggregate);
 
@@ -31,13 +32,19 @@ public interface SoftwareAggregateService {
 
     /**
      * Gets the software aggregate by version name.
-     *
-     * @param majorVersion the major version
-     * @param minorVersion the minor version
-     * @param buildVersion the build version
-     * @param revisionVersion the revision version
-     * @param remainingVersion the remaining version
-     * @param name the name
+     * 
+     * @param majorVersion
+     *            the major version
+     * @param minorVersion
+     *            the minor version
+     * @param buildVersion
+     *            the build version
+     * @param revisionVersion
+     *            the revision version
+     * @param remainingVersion
+     *            the remaining version
+     * @param name
+     *            the name
      * @return the software aggregate by version name
      */
     public SoftwareAggregate getSoftwareAggregateByVersionName(

@@ -58,7 +58,7 @@ public class Location {
 
     @Formula("address_city || ', ' || address_country || ', ' || address_postcode")
     public String addressCityAndCountry;
-    
+
     /** The coord x. */
     @Column(name = "coord_x")
     private Double coordX;
@@ -101,7 +101,7 @@ public class Location {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -110,8 +110,9 @@ public class Location {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -119,7 +120,7 @@ public class Location {
 
     /**
      * Gets the coord x.
-     *
+     * 
      * @return the coord x
      */
     public Double getCoordX() {
@@ -128,8 +129,9 @@ public class Location {
 
     /**
      * Sets the coord x.
-     *
-     * @param coordX the new coord x
+     * 
+     * @param coordX
+     *            the new coord x
      */
     public void setCoordX(Double coordX) {
 	this.coordX = coordX;
@@ -137,7 +139,7 @@ public class Location {
 
     /**
      * Gets the coord y.
-     *
+     * 
      * @return the coord y
      */
     public Double getCoordY() {
@@ -146,8 +148,9 @@ public class Location {
 
     /**
      * Sets the coord y.
-     *
-     * @param coordY the new coord y
+     * 
+     * @param coordY
+     *            the new coord y
      */
     public void setCoordY(Double coordY) {
 	this.coordY = coordY;
@@ -155,7 +158,7 @@ public class Location {
 
     /**
      * Gets the office.
-     *
+     * 
      * @return the office
      */
     public String getOffice() {
@@ -164,8 +167,9 @@ public class Location {
 
     /**
      * Sets the office.
-     *
-     * @param office the new office
+     * 
+     * @param office
+     *            the new office
      */
     public void setOffice(String office) {
 	this.office = office;
@@ -173,7 +177,7 @@ public class Location {
 
     /**
      * Gets the bank.
-     *
+     * 
      * @return the bank
      */
     public String getBank() {
@@ -182,8 +186,9 @@ public class Location {
 
     /**
      * Sets the bank.
-     *
-     * @param bank the new bank
+     * 
+     * @param bank
+     *            the new bank
      */
     public void setBank(String bank) {
 	this.bank = bank;
@@ -191,7 +196,7 @@ public class Location {
 
     /**
      * Gets the bank company.
-     *
+     * 
      * @return the bank company
      */
     public String getBankCompany() {
@@ -200,8 +205,9 @@ public class Location {
 
     /**
      * Sets the bank company.
-     *
-     * @param bankCompany the new bank company
+     * 
+     * @param bankCompany
+     *            the new bank company
      */
     public void setBankCompany(String bankCompany) {
 	this.bankCompany = bankCompany;
@@ -209,7 +215,7 @@ public class Location {
 
     /**
      * Gets the public access.
-     *
+     * 
      * @return the public access
      */
     public Boolean getPublicAccess() {
@@ -218,8 +224,9 @@ public class Location {
 
     /**
      * Sets the public access.
-     *
-     * @param publicAccess the new public access
+     * 
+     * @param publicAccess
+     *            the new public access
      */
     public void setPublicAccess(Boolean publicAccess) {
 	this.publicAccess = publicAccess;
@@ -227,7 +234,7 @@ public class Location {
 
     /**
      * Gets the address street.
-     *
+     * 
      * @return the address street
      */
     public String getAddressStreet() {
@@ -236,8 +243,9 @@ public class Location {
 
     /**
      * Sets the address street.
-     *
-     * @param addressStreet the new address street
+     * 
+     * @param addressStreet
+     *            the new address street
      */
     public void setAddressStreet(String addressStreet) {
 	this.addressStreet = addressStreet;
@@ -245,7 +253,7 @@ public class Location {
 
     /**
      * Gets the address number.
-     *
+     * 
      * @return the address number
      */
     public String getAddressNumber() {
@@ -254,8 +262,9 @@ public class Location {
 
     /**
      * Sets the address number.
-     *
-     * @param addressNumber the new address number
+     * 
+     * @param addressNumber
+     *            the new address number
      */
     public void setAddressNumber(String addressNumber) {
 	this.addressNumber = addressNumber;
@@ -263,7 +272,7 @@ public class Location {
 
     /**
      * Gets the address postcode.
-     *
+     * 
      * @return the address postcode
      */
     public String getAddressPostcode() {
@@ -272,8 +281,9 @@ public class Location {
 
     /**
      * Sets the address postcode.
-     *
-     * @param addressPostcode the new address postcode
+     * 
+     * @param addressPostcode
+     *            the new address postcode
      */
     public void setAddressPostcode(String addressPostcode) {
 	this.addressPostcode = addressPostcode;
@@ -281,7 +291,7 @@ public class Location {
 
     /**
      * Gets the address city.
-     *
+     * 
      * @return the address city
      */
     public String getAddressCity() {
@@ -290,8 +300,9 @@ public class Location {
 
     /**
      * Sets the address city.
-     *
-     * @param addressCity the new address city
+     * 
+     * @param addressCity
+     *            the new address city
      */
     public void setAddressCity(String addressCity) {
 	this.addressCity = addressCity;
@@ -299,7 +310,7 @@ public class Location {
 
     /**
      * Gets the address country.
-     *
+     * 
      * @return the address country
      */
     public String getAddressCountry() {
@@ -308,8 +319,9 @@ public class Location {
 
     /**
      * Sets the address country.
-     *
-     * @param addressCountry the new address country
+     * 
+     * @param addressCountry
+     *            the new address country
      */
     public void setAddressCountry(String addressCountry) {
 	this.addressCountry = addressCountry;
@@ -317,7 +329,7 @@ public class Location {
 
     /**
      * Gets the complete address.
-     *
+     * 
      * @return the complete address
      */
     public String getCompleteAddress() {
@@ -336,7 +348,7 @@ public class Location {
 
     /**
      * Gets the displaced.
-     *
+     * 
      * @return the displaced
      */
     public Boolean getDisplaced() {
@@ -345,46 +357,47 @@ public class Location {
 
     /**
      * Sets the displaced.
-     *
-     * @param displaced the new displaced
+     * 
+     * @param displaced
+     *            the new displaced
      */
     public void setDisplaced(Boolean displaced) {
 	this.displaced = displaced;
     }
-    
+
     public boolean hasCoordinates() {
-    	return coordX != null && coordY != null;
+	return coordX != null && coordY != null;
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((coordX == null) ? 0 : coordX.hashCode());
-		result = prime * result + ((coordY == null) ? 0 : coordY.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + ((coordX == null) ? 0 : coordX.hashCode());
+	result = prime * result + ((coordY == null) ? 0 : coordY.hashCode());
+	return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Location other = (Location) obj;
-		if (coordX == null) {
-			if (other.coordX != null)
-				return false;
-		} else if (!coordX.equals(other.coordX))
-			return false;
-		if (coordY == null) {
-			if (other.coordY != null)
-				return false;
-		} else if (!coordY.equals(other.coordY))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	Location other = (Location) obj;
+	if (coordX == null) {
+	    if (other.coordX != null)
+		return false;
+	} else if (!coordX.equals(other.coordX))
+	    return false;
+	if (coordY == null) {
+	    if (other.coordY != null)
+		return false;
+	} else if (!coordY.equals(other.coordY))
+	    return false;
+	return true;
+    }
 
 }

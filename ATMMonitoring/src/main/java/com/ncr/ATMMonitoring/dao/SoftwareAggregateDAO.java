@@ -16,8 +16,9 @@ public interface SoftwareAggregateDAO {
 
     /**
      * Adds the software aggregate.
-     *
-     * @param softwareAggregate the software aggregate
+     * 
+     * @param softwareAggregate
+     *            the software aggregate
      */
     public void addSoftwareAggregate(SoftwareAggregate softwareAggregate);
 

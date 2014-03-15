@@ -16,8 +16,9 @@ public interface LocationService {
 
     /**
      * Adds the location.
-     *
-     * @param location the location
+     * 
+     * @param location
+     *            the location
      */
     public void addLocation(Location location);
 
@@ -39,8 +40,9 @@ public interface LocationService {
 
     /**
      * Update location.
-     *
-     * @param location the location
+     * 
+     * @param location
+     *            the location
      */
     public void updateLocation(Location location);
 

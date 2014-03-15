@@ -16,15 +16,17 @@ public interface QueryDAO {
 
     /**
      * Adds the query.
-     *
-     * @param query the query
+     * 
+     * @param query
+     *            the query
      */
     public void addQuery(Query query);
 
     /**
      * Delete query.
-     *
-     * @param query the query
+     * 
+     * @param query
+     *            the query
      */
     public void deleteQuery(Query query);
 

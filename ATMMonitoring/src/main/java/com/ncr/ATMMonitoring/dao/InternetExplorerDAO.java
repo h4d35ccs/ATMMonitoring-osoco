@@ -16,8 +16,9 @@ public interface InternetExplorerDAO {
 
     /**
      * Adds the internet explorer.
-     *
-     * @param internetExplorer the internet explorer
+     * 
+     * @param internetExplorer
+     *            the internet explorer
      */
     public void addInternetExplorer(InternetExplorer internetExplorer);
 

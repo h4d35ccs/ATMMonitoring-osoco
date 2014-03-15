@@ -26,27 +26,37 @@ public class BankCompanyServiceImpl implements BankCompanyService {
     /** The bank dao. */
     @Autowired
     private BankCompanyDAO bankDAO;
-    
+
     @Autowired
     private UserService userService;
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.BankCompanyService#addBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.BankCompanyService#addBankCompany(com.ncr
+     * .ATMMonitoring.pojo.BankCompany)
      */
     @Override
     public void addBankCompany(BankCompany bank) {
 	bankDAO.addBankCompany(bank);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.BankCompanyService#getBankCompany(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.BankCompanyService#getBankCompany(java.
+     * lang.Integer)
      */
     @Override
     public BankCompany getBankCompany(Integer id) {
 	return bankDAO.getBankCompany(id);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.service.BankCompanyService#listBankCompanies()
      */
     @Override
@@ -54,28 +64,39 @@ public class BankCompanyServiceImpl implements BankCompanyService {
 	return bankDAO.listBankCompanies();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.BankCompanyService#removeBankCompany(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.BankCompanyService#removeBankCompany(java
+     * .lang.Integer)
      */
     @Override
     public void removeBankCompany(Integer id) {
 	bankDAO.removeBankCompany(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.BankCompanyService#updateBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.BankCompanyService#updateBankCompany(com
+     * .ncr.ATMMonitoring.pojo.BankCompany)
      */
     @Override
     public void updateBankCompany(BankCompany bank) {
 	bankDAO.updateBankCompany(bank);
     }
+
     /*
-     *(non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.BankCompanyService#getUserManageableBankCompanies(java.lang.String)
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.service.BankCompanyService#
+     * getUserManageableBankCompanies(java.lang.String)
      */
-	@Override
-	public Set<BankCompany> getUserManageableBankCompanies(String username) {
-		User user = this.userService.getUserByUsername(username);
-		return user.getManageableBankCompanies();
-	}
+    @Override
+    public Set<BankCompany> getUserManageableBankCompanies(String username) {
+	User user = this.userService.getUserByUsername(username);
+	return user.getManageableBankCompanies();
+    }
 }

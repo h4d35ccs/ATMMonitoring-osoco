@@ -34,18 +34,20 @@ public class Installation extends Auditable {
     /** The comboboxes data related to this entity for the query designer. */
     private static final Map<String, Map> comboboxes;
 
-    static { 
-		comboboxes = new TreeMap<String, Map>();
-		Map<String, Map> operations = Operation.getOperationsByType(Operation.DataType.STRING);
-		String[] fields = {"luCode","type","post","processed","locationClass","ip",
-				"location.addressStreet","location.addressNumber","location.addressPostcode",
-				"location.addressCity", "location.addressCountry","location.office",
-				"location.bank","location.bankCompany"};
-		
-		for (String field : fields) {
-			comboboxes.put(field, operations);
-		}
+    static {
+	comboboxes = new TreeMap<String, Map>();
+	Map<String, Map> operations = Operation
+		.getOperationsByType(Operation.DataType.STRING);
+	String[] fields = { "luCode", "type", "post", "processed",
+		"locationClass", "ip", "location.addressStreet",
+		"location.addressNumber", "location.addressPostcode",
+		"location.addressCity", "location.addressCountry",
+		"location.office", "location.bank", "location.bankCompany" };
+
+	for (String field : fields) {
+	    comboboxes.put(field, operations);
 	}
+    }
 
     /** The id. */
     @Id
@@ -99,7 +101,7 @@ public class Installation extends Auditable {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -108,8 +110,9 @@ public class Installation extends Auditable {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -117,7 +120,7 @@ public class Installation extends Auditable {
 
     /**
      * Gets the location.
-     *
+     * 
      * @return the location
      */
     public Location getLocation() {
@@ -126,8 +129,9 @@ public class Installation extends Auditable {
 
     /**
      * Sets the location.
-     *
-     * @param location the new location
+     * 
+     * @param location
+     *            the new location
      */
     public void setLocation(Location location) {
 	this.location = location;
@@ -135,7 +139,7 @@ public class Installation extends Auditable {
 
     /**
      * Gets the lu code.
-     *
+     * 
      * @return the lu code
      */
     public String getLuCode() {
@@ -144,8 +148,9 @@ public class Installation extends Auditable {
 
     /**
      * Sets the lu code.
-     *
-     * @param luCode the new lu code
+     * 
+     * @param luCode
+     *            the new lu code
      */
     public void setLuCode(String luCode) {
 	this.luCode = luCode;
@@ -153,7 +158,7 @@ public class Installation extends Auditable {
 
     /**
      * Gets the type.
-     *
+     * 
      * @return the type
      */
     public String getType() {
@@ -162,8 +167,9 @@ public class Installation extends Auditable {
 
     /**
      * Sets the type.
-     *
-     * @param type the new type
+     * 
+     * @param type
+     *            the new type
      */
     public void setType(String type) {
 	this.type = type;
@@ -171,7 +177,7 @@ public class Installation extends Auditable {
 
     /**
      * Gets the post.
-     *
+     * 
      * @return the post
      */
     public String getPost() {
@@ -180,8 +186,9 @@ public class Installation extends Auditable {
 
     /**
      * Sets the post.
-     *
-     * @param post the new post
+     * 
+     * @param post
+     *            the new post
      */
     public void setPost(String post) {
 	this.post = post;
@@ -189,7 +196,7 @@ public class Installation extends Auditable {
 
     /**
      * Gets the processed.
-     *
+     * 
      * @return the processed
      */
     public Boolean getProcessed() {
@@ -198,8 +205,9 @@ public class Installation extends Auditable {
 
     /**
      * Sets the processed.
-     *
-     * @param processed the new processed
+     * 
+     * @param processed
+     *            the new processed
      */
     public void setProcessed(Boolean processed) {
 	this.processed = processed;
@@ -207,7 +215,7 @@ public class Installation extends Auditable {
 
     /**
      * Gets the location class.
-     *
+     * 
      * @return the location class
      */
     public String getLocationClass() {
@@ -216,8 +224,9 @@ public class Installation extends Auditable {
 
     /**
      * Sets the location class.
-     *
-     * @param locationClass the new location class
+     * 
+     * @param locationClass
+     *            the new location class
      */
     public void setLocationClass(String locationClass) {
 	this.locationClass = locationClass;
@@ -225,7 +234,7 @@ public class Installation extends Auditable {
 
     /**
      * Gets the ip.
-     *
+     * 
      * @return the ip
      */
     public String getIp() {
@@ -234,8 +243,9 @@ public class Installation extends Auditable {
 
     /**
      * Sets the ip.
-     *
-     * @param ip the new ip
+     * 
+     * @param ip
+     *            the new ip
      */
     public void setIp(String ip) {
 	this.ip = ip;
@@ -249,13 +259,13 @@ public class Installation extends Auditable {
     public static String[] getLocationclasses() {
 	return locationClasses;
     }
-    
+
     /**
      * Gets the comboboxes data for the query GUI.
-     *
+     * 
      * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
-    	return comboboxes;
+	return comboboxes;
     }
 }

@@ -23,8 +23,12 @@ public class LocationDAOImpl extends AbstractGenericDAO<Location> implements
     static private Logger logger = Logger.getLogger(LocationDAOImpl.class
 	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.LocationDAO#addLocation(com.ncr.ATMMonitoring.pojo.Location)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.LocationDAO#addLocation(com.ncr.ATMMonitoring
+     * .pojo.Location)
      */
     @Override
     public void addLocation(Location location) {
@@ -32,7 +36,9 @@ public class LocationDAOImpl extends AbstractGenericDAO<Location> implements
 	logger.debug("Created new Location with id " + location.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.LocationDAO#getLocation(java.lang.Integer)
      */
     @Override
@@ -40,7 +46,9 @@ public class LocationDAOImpl extends AbstractGenericDAO<Location> implements
 	return get(id);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.LocationDAO#listLocations()
      */
     @Override
@@ -48,8 +56,12 @@ public class LocationDAOImpl extends AbstractGenericDAO<Location> implements
 	return list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.LocationDAO#updateLocation(com.ncr.ATMMonitoring.pojo.Location)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.LocationDAO#updateLocation(com.ncr.ATMMonitoring
+     * .pojo.Location)
      */
     @Override
     public void updateLocation(Location location) {
@@ -57,8 +69,11 @@ public class LocationDAOImpl extends AbstractGenericDAO<Location> implements
 	logger.info("Updated Location with id " + location.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.LocationDAO#removeLocation(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.LocationDAO#removeLocation(java.lang.Integer)
      */
     @Override
     public void removeLocation(Integer id) {

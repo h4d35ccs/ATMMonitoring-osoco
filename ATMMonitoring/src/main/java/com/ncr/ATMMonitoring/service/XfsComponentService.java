@@ -17,8 +17,9 @@ public interface XfsComponentService {
 
     /**
      * Adds the xfs component.
-     *
-     * @param xfsComponent the xfs component
+     * 
+     * @param xfsComponent
+     *            the xfs component
      */
     public void addXfsComponent(XfsComponent xfsComponent);
 
@@ -40,8 +41,9 @@ public interface XfsComponentService {
 
     /**
      * Adds the jxfs component.
-     *
-     * @param jxfsComponent the jxfs component
+     * 
+     * @param jxfsComponent
+     *            the jxfs component
      */
     public void addJxfsComponent(JxfsComponent jxfsComponent);
 

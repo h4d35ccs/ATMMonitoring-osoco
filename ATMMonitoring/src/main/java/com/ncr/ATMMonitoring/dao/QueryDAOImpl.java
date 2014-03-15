@@ -24,8 +24,12 @@ public class QueryDAOImpl extends AbstractGenericDAO<Query> implements QueryDAO 
     static private Logger logger = Logger.getLogger(QueryDAOImpl.class
 	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.QueryDAO#addQuery(com.ncr.ATMMonitoring.pojo.Query)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.QueryDAO#addQuery(com.ncr.ATMMonitoring.pojo
+     * .Query)
      */
     @Override
     public void addQuery(Query query) {
@@ -33,8 +37,12 @@ public class QueryDAOImpl extends AbstractGenericDAO<Query> implements QueryDAO 
 	logger.debug("Created new Query with id " + query.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.QueryDAO#deleteQuery(com.ncr.ATMMonitoring.pojo.Query)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.QueryDAO#deleteQuery(com.ncr.ATMMonitoring.
+     * pojo.Query)
      */
     @Override
     public void deleteQuery(Query query) {
@@ -42,8 +50,12 @@ public class QueryDAOImpl extends AbstractGenericDAO<Query> implements QueryDAO 
 	logger.debug("Deleted Query with id " + query.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.QueryDAO#updateQuery(com.ncr.ATMMonitoring.pojo.Query)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.QueryDAO#updateQuery(com.ncr.ATMMonitoring.
+     * pojo.Query)
      */
     @Override
     public void updateQuery(Query query) {
@@ -51,7 +63,9 @@ public class QueryDAOImpl extends AbstractGenericDAO<Query> implements QueryDAO 
 	logger.debug("Updated Query with id " + query.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.QueryDAO#listQueries()
      */
     @Override
@@ -61,7 +75,9 @@ public class QueryDAOImpl extends AbstractGenericDAO<Query> implements QueryDAO 
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.QueryDAO#getQuery(java.lang.Integer)
      */
     @Override

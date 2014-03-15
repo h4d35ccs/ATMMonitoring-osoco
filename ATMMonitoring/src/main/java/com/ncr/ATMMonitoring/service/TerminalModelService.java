@@ -17,8 +17,9 @@ public interface TerminalModelService {
 
     /**
      * Adds the terminal model.
-     *
-     * @param terminalModel the terminal model
+     * 
+     * @param terminalModel
+     *            the terminal model
      */
     public void addTerminalModel(TerminalModel terminalModel);
 
@@ -33,16 +34,18 @@ public interface TerminalModelService {
 
     /**
      * Gets the terminal model by model.
-     *
-     * @param model the model
+     * 
+     * @param model
+     *            the model
      * @return the terminal model by model
      */
     public TerminalModel getTerminalModelByModel(String model);
 
     /**
      * Gets the terminal model by product class.
-     *
-     * @param productClass the product class
+     * 
+     * @param productClass
+     *            the product class
      * @return the terminal model by product class
      */
     public TerminalModel getTerminalModelByProductClass(String productClass);
@@ -63,8 +66,9 @@ public interface TerminalModelService {
 
     /**
      * Update terminal model.
-     *
-     * @param terminalModel the terminal model
+     * 
+     * @param terminalModel
+     *            the terminal model
      */
     public void updateTerminalModel(TerminalModel terminalModel);
 

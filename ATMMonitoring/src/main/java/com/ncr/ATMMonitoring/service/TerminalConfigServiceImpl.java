@@ -25,24 +25,35 @@ public class TerminalConfigServiceImpl implements TerminalConfigService {
     @Autowired
     private TerminalConfigDAO terminalConfigDAO;
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.TerminalConfigService#addTerminalConfig(com.ncr.ATMMonitoring.pojo.TerminalConfig)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.TerminalConfigService#addTerminalConfig
+     * (com.ncr.ATMMonitoring.pojo.TerminalConfig)
      */
     @Override
     public void addTerminalConfig(TerminalConfig terminalConfig) {
 	terminalConfigDAO.addTerminalConfig(terminalConfig);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.TerminalConfigService#listTerminalConfig()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.TerminalConfigService#listTerminalConfig()
      */
     @Override
     public List<TerminalConfig> listTerminalConfig() {
 	return terminalConfigDAO.listTerminalConfig();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.TerminalConfigService#getTerminalConfig(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.TerminalConfigService#getTerminalConfig
+     * (java.lang.Integer)
      */
     @Override
     public TerminalConfig getTerminalConfig(Integer id) {

@@ -16,8 +16,9 @@ public interface OperatingSystemService {
 
     /**
      * Adds the operating system.
-     *
-     * @param operatingSystem the operating system
+     * 
+     * @param operatingSystem
+     *            the operating system
      */
     public void addOperatingSystem(OperatingSystem operatingSystem);
 

@@ -2,9 +2,7 @@ package com.ncr.ATMMonitoring.dao;
 
 import java.util.List;
 
-import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Role;
-import com.ncr.ATMMonitoring.pojo.User;
 
 /**
  * The Interface RoleDAO.
@@ -18,8 +16,9 @@ public interface RoleDAO {
 
     /**
      * Adds the role.
-     *
-     * @param role the role
+     * 
+     * @param role
+     *            the role
      */
     public void addRole(Role role);
 
@@ -66,7 +65,7 @@ public interface RoleDAO {
 
     /**
      * List manageable roles.
-     *
+     * 
      * @return the list
      */
     public List<Role> listManageableRoles();

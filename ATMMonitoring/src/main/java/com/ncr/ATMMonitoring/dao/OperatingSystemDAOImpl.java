@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.OperatingSystem;
@@ -26,8 +25,12 @@ public class OperatingSystemDAOImpl extends AbstractGenericDAO<OperatingSystem>
     static private Logger logger = Logger
 	    .getLogger(OperatingSystemDAOImpl.class.getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#addOperatingSystem(com.ncr.ATMMonitoring.pojo.OperatingSystem)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.OperatingSystemDAO#addOperatingSystem(com.ncr
+     * .ATMMonitoring.pojo.OperatingSystem)
      */
     @Override
     public void addOperatingSystem(OperatingSystem operatingSystem) {
@@ -36,7 +39,9 @@ public class OperatingSystemDAOImpl extends AbstractGenericDAO<OperatingSystem>
 		+ operatingSystem.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#listOperatingSystem()
      */
     @Override
@@ -52,8 +57,12 @@ public class OperatingSystemDAOImpl extends AbstractGenericDAO<OperatingSystem>
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.OperatingSystemDAO#getOperatingSystem(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.OperatingSystemDAO#getOperatingSystem(java.
+     * lang.Integer)
      */
     @Override
     public OperatingSystem getOperatingSystem(Integer id) {

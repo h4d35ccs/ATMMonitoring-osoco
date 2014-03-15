@@ -57,7 +57,7 @@ public class PhysicalCashUnit {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -66,8 +66,9 @@ public class PhysicalCashUnit {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -75,7 +76,7 @@ public class PhysicalCashUnit {
 
     /**
      * Gets the logical cash unit.
-     *
+     * 
      * @return the logicalCashUnit
      */
     public LogicalCashUnit getLogicalCashUnit() {
@@ -84,8 +85,9 @@ public class PhysicalCashUnit {
 
     /**
      * Sets the logical cash unit.
-     *
-     * @param logicalCashUnit the logicalCashUnit to set
+     * 
+     * @param logicalCashUnit
+     *            the logicalCashUnit to set
      */
     public void setLogicalCashUnit(LogicalCashUnit logicalCashUnit) {
 	this.logicalCashUnit = logicalCashUnit;
@@ -93,7 +95,7 @@ public class PhysicalCashUnit {
 
     /**
      * Gets the name.
-     *
+     * 
      * @return the name
      */
     public String getName() {
@@ -102,8 +104,9 @@ public class PhysicalCashUnit {
 
     /**
      * Sets the name.
-     *
-     * @param name the name to set
+     * 
+     * @param name
+     *            the name to set
      */
     public void setName(String name) {
 	this.name = name;
@@ -111,7 +114,7 @@ public class PhysicalCashUnit {
 
     /**
      * Gets the unit id.
-     *
+     * 
      * @return the unitId
      */
     public Integer getUnitId() {
@@ -120,8 +123,9 @@ public class PhysicalCashUnit {
 
     /**
      * Sets the unit id.
-     *
-     * @param unitId the unitId to set
+     * 
+     * @param unitId
+     *            the unitId to set
      */
     public void setUnitId(Integer unitId) {
 	this.unitId = unitId;
@@ -129,7 +133,7 @@ public class PhysicalCashUnit {
 
     /**
      * Gets the maximum.
-     *
+     * 
      * @return the maximum
      */
     public Integer getMaximum() {
@@ -138,8 +142,9 @@ public class PhysicalCashUnit {
 
     /**
      * Sets the maximum.
-     *
-     * @param maximum the maximum to set
+     * 
+     * @param maximum
+     *            the maximum to set
      */
     public void setMaximum(Integer maximum) {
 	this.maximum = maximum;
@@ -147,7 +152,7 @@ public class PhysicalCashUnit {
 
     /**
      * Gets the hardware sensor.
-     *
+     * 
      * @return the hardwareSensor
      */
     public Boolean getHardwareSensor() {
@@ -156,8 +161,9 @@ public class PhysicalCashUnit {
 
     /**
      * Sets the hardware sensor.
-     *
-     * @param hardwareSensor the hardwareSensor to set
+     * 
+     * @param hardwareSensor
+     *            the hardwareSensor to set
      */
     public void setHardwareSensor(Boolean hardwareSensor) {
 	this.hardwareSensor = hardwareSensor;

@@ -7,7 +7,6 @@ import org.hibernate.type.Type;
 
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Terminal;
-import com.ncr.ATMMonitoring.utils.TrialEndedException;
 import com.ncr.agent.baseData.ATMDataStorePojo;
 
 /**
@@ -22,8 +21,9 @@ public interface TerminalDAO {
 
     /**
      * Adds the terminal.
-     *
-     * @param terminal the terminal
+     * 
+     * @param terminal
+     *            the terminal
      */
     public void addTerminal(Terminal terminal);
 
@@ -36,7 +36,8 @@ public interface TerminalDAO {
      */
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank);
 
-    public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> ids, Set<BankCompany> bank);
+    public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> ids,
+	    Set<BankCompany> bank);
 
     /**
      * Lists all terminals for the given bank companies with a specific order
@@ -50,7 +51,8 @@ public interface TerminalDAO {
      *            the order
      * @return the list
      */
-    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank, String sort, String order, List<Integer> terminalIds);
+    public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank,
+	    String sort, String order, List<Integer> terminalIds);
 
     /**
      * List all terminals for the given bank company.
@@ -112,8 +114,9 @@ public interface TerminalDAO {
 
     /**
      * Update terminal.
-     *
-     * @param terminal the terminal
+     * 
+     * @param terminal
+     *            the terminal
      */
     public void updateTerminal(Terminal terminal);
 

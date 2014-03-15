@@ -57,7 +57,7 @@ public class BankCompany implements Serializable {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -66,8 +66,9 @@ public class BankCompany implements Serializable {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -75,7 +76,7 @@ public class BankCompany implements Serializable {
 
     /**
      * Gets the name.
-     *
+     * 
      * @return the name
      */
     public String getName() {
@@ -84,8 +85,9 @@ public class BankCompany implements Serializable {
 
     /**
      * Sets the name.
-     *
-     * @param name the name to set
+     * 
+     * @param name
+     *            the name to set
      */
     public void setName(String name) {
 	this.name = name;
@@ -93,7 +95,7 @@ public class BankCompany implements Serializable {
 
     /**
      * Gets the parent company.
-     *
+     * 
      * @return the parent company
      */
     public BankCompany getParentCompany() {
@@ -102,8 +104,9 @@ public class BankCompany implements Serializable {
 
     /**
      * Sets the parent company.
-     *
-     * @param parentCompany the new parent company
+     * 
+     * @param parentCompany
+     *            the new parent company
      */
     public void setParentCompany(BankCompany parentCompany) {
 	this.parentCompany = parentCompany;
@@ -120,8 +123,9 @@ public class BankCompany implements Serializable {
 
     /**
      * Sets the sub bank companies.
-     *
-     * @param subBankCompanies the new sub bank companies
+     * 
+     * @param subBankCompanies
+     *            the new sub bank companies
      */
     public void setSubBankCompanies(Set<BankCompany> subBankCompanies) {
 	this.subBankCompanies = subBankCompanies;
@@ -144,7 +148,7 @@ public class BankCompany implements Serializable {
 
     /**
      * Gets the vat in.
-     *
+     * 
      * @return the vat in
      */
     public String getVatIN() {
@@ -153,8 +157,9 @@ public class BankCompany implements Serializable {
 
     /**
      * Sets the vat in.
-     *
-     * @param vatIN the new vat in
+     * 
+     * @param vatIN
+     *            the new vat in
      */
     public void setVatIN(String vatIN) {
 	this.vatIN = vatIN;

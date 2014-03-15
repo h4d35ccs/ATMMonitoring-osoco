@@ -16,7 +16,7 @@ public class SocketTimeOutException extends Exception {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -2908900346083264402L;
-    
+
     /** The ips. */
     protected Set<String> ips = new HashSet<String>();
 
@@ -64,7 +64,9 @@ public class SocketTimeOutException extends Exception {
 	return ips;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Throwable#getMessage()
      */
     public String getMessage() {

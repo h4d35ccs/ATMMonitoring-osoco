@@ -16,8 +16,9 @@ public interface LocationDAO {
 
     /**
      * Adds the location.
-     *
-     * @param location the location
+     * 
+     * @param location
+     *            the location
      */
     public void addLocation(Location location);
 

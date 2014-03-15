@@ -25,23 +25,32 @@ public class LocationServiceImpl implements LocationService {
     @Autowired
     private LocationDAO locationDAO;
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.LocationService#addLocation(com.ncr.ATMMonitoring.pojo.Location)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.service.LocationService#addLocation(com.ncr.
+     * ATMMonitoring.pojo.Location)
      */
     @Override
     public void addLocation(Location role) {
 	locationDAO.addLocation(role);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.LocationService#getLocation(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.LocationService#getLocation(java.lang.Integer
+     * )
      */
     @Override
     public Location getLocation(Integer id) {
 	return locationDAO.getLocation(id);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.service.LocationService#listLocations()
      */
     @Override
@@ -49,16 +58,24 @@ public class LocationServiceImpl implements LocationService {
 	return locationDAO.listLocations();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.LocationService#updateLocation(com.ncr.ATMMonitoring.pojo.Location)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.LocationService#updateLocation(com.ncr.
+     * ATMMonitoring.pojo.Location)
      */
     @Override
     public void updateLocation(Location location) {
 	locationDAO.updateLocation(location);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.LocationService#removeLocation(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.LocationService#removeLocation(java.lang
+     * .Integer)
      */
     @Override
     public void removeLocation(Integer id) {

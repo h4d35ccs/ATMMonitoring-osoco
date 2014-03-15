@@ -54,7 +54,7 @@ public class JxfsComponent {
 
     /** The comboboxes data related to this entity for the query designer. */
     private static final Map<String, Map> comboboxes;
-    
+
     /** The Constant jxfsClasses. */
     private static final Set<String> jxfsClasses;
 
@@ -199,114 +199,120 @@ public class JxfsComponent {
 
     /**
      * Gets the barcode capabilities.
-     *
+     * 
      * @return the barcode capabilities
      */
     public String getBarcodeCapabilities() {
-		return barcodeCapabilities;
-	}
+	return barcodeCapabilities;
+    }
 
-	/**
-	 * Sets the barcode capabilities.
-	 *
-	 * @param barcodeCapabilities the new barcode capabilities
-	 */
-	public void setBarcodeCapabilities(String barcodeCapabilities) {
-		this.barcodeCapabilities = barcodeCapabilities;
-	}
+    /**
+     * Sets the barcode capabilities.
+     * 
+     * @param barcodeCapabilities
+     *            the new barcode capabilities
+     */
+    public void setBarcodeCapabilities(String barcodeCapabilities) {
+	this.barcodeCapabilities = barcodeCapabilities;
+    }
 
-	/**
-	 * Gets the cheque capabilities.
-	 *
-	 * @return the cheque capabilities
-	 */
-	public String getChequeCapabilities() {
-		return chequeCapabilities;
-	}
+    /**
+     * Gets the cheque capabilities.
+     * 
+     * @return the cheque capabilities
+     */
+    public String getChequeCapabilities() {
+	return chequeCapabilities;
+    }
 
-	/**
-	 * Sets the cheque capabilities.
-	 *
-	 * @param chequeCapabilities the new cheque capabilities
-	 */
-	public void setChequeCapabilities(String chequeCapabilities) {
-		this.chequeCapabilities = chequeCapabilities;
-	}
+    /**
+     * Sets the cheque capabilities.
+     * 
+     * @param chequeCapabilities
+     *            the new cheque capabilities
+     */
+    public void setChequeCapabilities(String chequeCapabilities) {
+	this.chequeCapabilities = chequeCapabilities;
+    }
 
-	/**
-	 * Gets the image capabilities.
-	 *
-	 * @return the image capabilities
-	 */
-	public String getImageCapabilities() {
-		return imageCapabilities;
-	}
+    /**
+     * Gets the image capabilities.
+     * 
+     * @return the image capabilities
+     */
+    public String getImageCapabilities() {
+	return imageCapabilities;
+    }
 
-	/**
-	 * Sets the image capabilities.
-	 *
-	 * @param imageCapabilities the new image capabilities
-	 */
-	public void setImageCapabilities(String imageCapabilities) {
-		this.imageCapabilities = imageCapabilities;
-	}
+    /**
+     * Sets the image capabilities.
+     * 
+     * @param imageCapabilities
+     *            the new image capabilities
+     */
+    public void setImageCapabilities(String imageCapabilities) {
+	this.imageCapabilities = imageCapabilities;
+    }
 
-	/**
-	 * Gets the positions.
-	 *
-	 * @return the positions
-	 */
-	public String getPositions() {
-		return positions;
-	}
+    /**
+     * Gets the positions.
+     * 
+     * @return the positions
+     */
+    public String getPositions() {
+	return positions;
+    }
 
-	/**
-	 * Sets the positions.
-	 *
-	 * @param positions the new positions
-	 */
-	public void setPositions(String positions) {
-		this.positions = positions;
-	}
+    /**
+     * Sets the positions.
+     * 
+     * @param positions
+     *            the new positions
+     */
+    public void setPositions(String positions) {
+	this.positions = positions;
+    }
 
-	/**
-	 * Gets the scn capabilities.
-	 *
-	 * @return the scn capabilities
-	 */
-	public String getScnCapabilities() {
-		return scnCapabilities;
-	}
+    /**
+     * Gets the scn capabilities.
+     * 
+     * @return the scn capabilities
+     */
+    public String getScnCapabilities() {
+	return scnCapabilities;
+    }
 
-	/**
-	 * Sets the scn capabilities.
-	 *
-	 * @param scnCapabilities the new scn capabilities
-	 */
-	public void setScnCapabilities(String scnCapabilities) {
-		this.scnCapabilities = scnCapabilities;
-	}
+    /**
+     * Sets the scn capabilities.
+     * 
+     * @param scnCapabilities
+     *            the new scn capabilities
+     */
+    public void setScnCapabilities(String scnCapabilities) {
+	this.scnCapabilities = scnCapabilities;
+    }
 
-	/**
-	 * Gets the secure key detail.
-	 *
-	 * @return the secure key detail
-	 */
-	public String getSecureKeyDetail() {
-		return secureKeyDetail;
-	}
+    /**
+     * Gets the secure key detail.
+     * 
+     * @return the secure key detail
+     */
+    public String getSecureKeyDetail() {
+	return secureKeyDetail;
+    }
 
-	/**
-	 * Sets the secure key detail.
-	 *
-	 * @param secureKeyDetail the new secure key detail
-	 */
-	public void setSecureKeyDetail(String secureKeyDetail) {
-		this.secureKeyDetail = secureKeyDetail;
-	}
+    /**
+     * Sets the secure key detail.
+     * 
+     * @param secureKeyDetail
+     *            the new secure key detail
+     */
+    public void setSecureKeyDetail(String secureKeyDetail) {
+	this.secureKeyDetail = secureKeyDetail;
+    }
 
-	/** The id. */
-	@Id
+    /** The id. */
+    @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "jxfs_components_id_seq")
     @SequenceGenerator(name = "jxfs_components_id_seq", sequenceName = "jxfs_components_id_seq", allocationSize = 1)
@@ -1229,7 +1235,7 @@ public class JxfsComponent {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -1238,8 +1244,9 @@ public class JxfsComponent {
 
     /**
      * Sets the id.
-     *
-     * @param id the new id
+     * 
+     * @param id
+     *            the new id
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -1247,7 +1254,7 @@ public class JxfsComponent {
 
     /**
      * Gets the financial devices.
-     *
+     * 
      * @return the financial devices
      */
     public Set<FinancialDevice> getFinancialDevices() {
@@ -1256,8 +1263,9 @@ public class JxfsComponent {
 
     /**
      * Sets the financial devices.
-     *
-     * @param financialDevices the new financial devices
+     * 
+     * @param financialDevices
+     *            the new financial devices
      */
     public void setFinancialDevices(Set<FinancialDevice> financialDevices) {
 	this.financialDevices = financialDevices;
@@ -1265,7 +1273,7 @@ public class JxfsComponent {
 
     /**
      * Gets the jxfs class.
-     *
+     * 
      * @return the jxfs class
      */
     public String getJxfsClass() {
@@ -1274,8 +1282,9 @@ public class JxfsComponent {
 
     /**
      * Sets the jxfs class.
-     *
-     * @param jxfsClass the new jxfs class
+     * 
+     * @param jxfsClass
+     *            the new jxfs class
      */
     public void setJxfsClass(String jxfsClass) {
 	this.jxfsClass = jxfsClass;
@@ -1283,7 +1292,7 @@ public class JxfsComponent {
 
     /**
      * Gets the accept limit.
-     *
+     * 
      * @return the accept limit
      */
     public String getAcceptLimit() {
@@ -1292,8 +1301,9 @@ public class JxfsComponent {
 
     /**
      * Sets the accept limit.
-     *
-     * @param acceptLimit the new accept limit
+     * 
+     * @param acceptLimit
+     *            the new accept limit
      */
     public void setAcceptLimit(String acceptLimit) {
 	this.acceptLimit = acceptLimit;
@@ -1301,7 +1311,7 @@ public class JxfsComponent {
 
     /**
      * Gets the autopresent.
-     *
+     * 
      * @return the autopresent
      */
     public String getAutopresent() {
@@ -1310,8 +1320,9 @@ public class JxfsComponent {
 
     /**
      * Sets the autopresent.
-     *
-     * @param autopresent the new autopresent
+     * 
+     * @param autopresent
+     *            the new autopresent
      */
     public void setAutopresent(String autopresent) {
 	this.autopresent = autopresent;
@@ -1319,7 +1330,7 @@ public class JxfsComponent {
 
     /**
      * Gets the auxiliaries.
-     *
+     * 
      * @return the auxiliaries
      */
     public String getAuxiliaries() {
@@ -1328,8 +1339,9 @@ public class JxfsComponent {
 
     /**
      * Sets the auxiliaries.
-     *
-     * @param auxiliaries the new auxiliaries
+     * 
+     * @param auxiliaries
+     *            the new auxiliaries
      */
     public void setAuxiliaries(String auxiliaries) {
 	this.auxiliaries = auxiliaries;
@@ -1337,7 +1349,7 @@ public class JxfsComponent {
 
     /**
      * Gets the available resolution.
-     *
+     * 
      * @return the available resolution
      */
     public String getAvailableResolution() {
@@ -1346,8 +1358,9 @@ public class JxfsComponent {
 
     /**
      * Sets the available resolution.
-     *
-     * @param availableResolution the new available resolution
+     * 
+     * @param availableResolution
+     *            the new available resolution
      */
     public void setAvailableResolution(String availableResolution) {
 	this.availableResolution = availableResolution;
@@ -1355,7 +1368,7 @@ public class JxfsComponent {
 
     /**
      * Gets the bait trap.
-     *
+     * 
      * @return the bait trap
      */
     public String getBaitTrap() {
@@ -1364,8 +1377,9 @@ public class JxfsComponent {
 
     /**
      * Sets the bait trap.
-     *
-     * @param baitTrap the new bait trap
+     * 
+     * @param baitTrap
+     *            the new bait trap
      */
     public void setBaitTrap(String baitTrap) {
 	this.baitTrap = baitTrap;
@@ -1373,7 +1387,7 @@ public class JxfsComponent {
 
     /**
      * Gets the beep on press supported.
-     *
+     * 
      * @return the beep on press supported
      */
     public String getBeepOnPressSupported() {
@@ -1382,8 +1396,9 @@ public class JxfsComponent {
 
     /**
      * Sets the beep on press supported.
-     *
-     * @param beepOnPressSupported the new beep on press supported
+     * 
+     * @param beepOnPressSupported
+     *            the new beep on press supported
      */
     public void setBeepOnPressSupported(String beepOnPressSupported) {
 	this.beepOnPressSupported = beepOnPressSupported;
@@ -1391,7 +1406,7 @@ public class JxfsComponent {
 
     /**
      * Gets the beep supported.
-     *
+     * 
      * @return the beep supported
      */
     public String getBeepSupported() {
@@ -1400,8 +1415,9 @@ public class JxfsComponent {
 
     /**
      * Sets the beep supported.
-     *
-     * @param beepSupported the new beep supported
+     * 
+     * @param beepSupported
+     *            the new beep supported
      */
     public void setBeepSupported(String beepSupported) {
 	this.beepSupported = beepSupported;
@@ -1409,7 +1425,7 @@ public class JxfsComponent {
 
     /**
      * Gets the bills taken sensor.
-     *
+     * 
      * @return the bills taken sensor
      */
     public String getBillsTakenSensor() {
@@ -1418,8 +1434,9 @@ public class JxfsComponent {
 
     /**
      * Sets the bills taken sensor.
-     *
-     * @param billsTakenSensor the new bills taken sensor
+     * 
+     * @param billsTakenSensor
+     *            the new bills taken sensor
      */
     public void setBillsTakenSensor(String billsTakenSensor) {
 	this.billsTakenSensor = billsTakenSensor;
@@ -1427,7 +1444,7 @@ public class JxfsComponent {
 
     /**
      * Gets the cashbox.
-     *
+     * 
      * @return the cashbox
      */
     public String getCashbox() {
@@ -1436,8 +1453,9 @@ public class JxfsComponent {
 
     /**
      * Sets the cashbox.
-     *
-     * @param cashbox the new cashbox
+     * 
+     * @param cashbox
+     *            the new cashbox
      */
     public void setCashbox(String cashbox) {
 	this.cashbox = cashbox;
@@ -1445,7 +1463,7 @@ public class JxfsComponent {
 
     /**
      * Gets the category2.
-     *
+     * 
      * @return the category2
      */
     public String getCategory2() {
@@ -1454,8 +1472,9 @@ public class JxfsComponent {
 
     /**
      * Sets the category2.
-     *
-     * @param category2 the new category2
+     * 
+     * @param category2
+     *            the new category2
      */
     public void setCategory2(String category2) {
 	this.category2 = category2;
@@ -1463,7 +1482,7 @@ public class JxfsComponent {
 
     /**
      * Gets the category3.
-     *
+     * 
      * @return the category3
      */
     public String getCategory3() {
@@ -1472,8 +1491,9 @@ public class JxfsComponent {
 
     /**
      * Sets the category3.
-     *
-     * @param category3 the new category3
+     * 
+     * @param category3
+     *            the new category3
      */
     public void setCategory3(String category3) {
 	this.category3 = category3;
@@ -1481,7 +1501,7 @@ public class JxfsComponent {
 
     /**
      * Gets the cd type.
-     *
+     * 
      * @return the cd type
      */
     public String getCdType() {
@@ -1490,8 +1510,9 @@ public class JxfsComponent {
 
     /**
      * Sets the cd type.
-     *
-     * @param cdType the new cd type
+     * 
+     * @param cdType
+     *            the new cd type
      */
     public void setCdType(String cdType) {
 	this.cdType = cdType;
@@ -1499,7 +1520,7 @@ public class JxfsComponent {
 
     /**
      * Gets the check vandalism.
-     *
+     * 
      * @return the check vandalism
      */
     public String getCheckVandalism() {
@@ -1508,8 +1529,9 @@ public class JxfsComponent {
 
     /**
      * Sets the check vandalism.
-     *
-     * @param checkVandalism the new check vandalism
+     * 
+     * @param checkVandalism
+     *            the new check vandalism
      */
     public void setCheckVandalism(String checkVandalism) {
 	this.checkVandalism = checkVandalism;
@@ -1517,7 +1539,7 @@ public class JxfsComponent {
 
     /**
      * Gets the coins.
-     *
+     * 
      * @return the coins
      */
     public String getCoins() {
@@ -1526,8 +1548,9 @@ public class JxfsComponent {
 
     /**
      * Sets the coins.
-     *
-     * @param coins the new coins
+     * 
+     * @param coins
+     *            the new coins
      */
     public void setCoins(String coins) {
 	this.coins = coins;
@@ -1535,7 +1558,7 @@ public class JxfsComponent {
 
     /**
      * Gets the complex.
-     *
+     * 
      * @return the complex
      */
     public String getComplex() {
@@ -1544,8 +1567,9 @@ public class JxfsComponent {
 
     /**
      * Sets the complex.
-     *
-     * @param complex the new complex
+     * 
+     * @param complex
+     *            the new complex
      */
     public void setComplex(String complex) {
 	this.complex = complex;
@@ -1553,7 +1577,7 @@ public class JxfsComponent {
 
     /**
      * Gets the compound.
-     *
+     * 
      * @return the compound
      */
     public String getCompound() {
@@ -1562,8 +1586,9 @@ public class JxfsComponent {
 
     /**
      * Sets the compound.
-     *
-     * @param compound the new compound
+     * 
+     * @param compound
+     *            the new compound
      */
     public void setCompound(String compound) {
 	this.compound = compound;
@@ -1571,7 +1596,7 @@ public class JxfsComponent {
 
     /**
      * Gets the creates the signature command supported.
-     *
+     * 
      * @return the creates the signature command supported
      */
     public String getCreateSignatureCommandSupported() {
@@ -1580,8 +1605,9 @@ public class JxfsComponent {
 
     /**
      * Sets the creates the signature command supported.
-     *
-     * @param createSignatureCommandSupported the new creates the signature command supported
+     * 
+     * @param createSignatureCommandSupported
+     *            the new creates the signature command supported
      */
     public void setCreateSignatureCommandSupported(
 	    String createSignatureCommandSupported) {
@@ -1590,7 +1616,7 @@ public class JxfsComponent {
 
     /**
      * Gets the ctrl turn.
-     *
+     * 
      * @return the ctrl turn
      */
     public String getCtrlTurn() {
@@ -1599,8 +1625,9 @@ public class JxfsComponent {
 
     /**
      * Sets the ctrl turn.
-     *
-     * @param ctrlTurn the new ctrl turn
+     * 
+     * @param ctrlTurn
+     *            the new ctrl turn
      */
     public void setCtrlTurn(String ctrlTurn) {
 	this.ctrlTurn = ctrlTurn;
@@ -1608,7 +1635,7 @@ public class JxfsComponent {
 
     /**
      * Gets the cursor supported.
-     *
+     * 
      * @return the cursor supported
      */
     public String getCursorSupported() {
@@ -1617,8 +1644,9 @@ public class JxfsComponent {
 
     /**
      * Sets the cursor supported.
-     *
-     * @param cursorSupported the new cursor supported
+     * 
+     * @param cursorSupported
+     *            the new cursor supported
      */
     public void setCursorSupported(String cursorSupported) {
 	this.cursorSupported = cursorSupported;
@@ -1626,7 +1654,7 @@ public class JxfsComponent {
 
     /**
      * Gets the cylinders.
-     *
+     * 
      * @return the cylinders
      */
     public String getCylinders() {
@@ -1635,8 +1663,9 @@ public class JxfsComponent {
 
     /**
      * Sets the cylinders.
-     *
-     * @param cylinders the new cylinders
+     * 
+     * @param cylinders
+     *            the new cylinders
      */
     public void setCylinders(String cylinders) {
 	this.cylinders = cylinders;
@@ -1644,7 +1673,7 @@ public class JxfsComponent {
 
     /**
      * Gets the default input position.
-     *
+     * 
      * @return the default input position
      */
     public String getDefaultInputPosition() {
@@ -1653,8 +1682,9 @@ public class JxfsComponent {
 
     /**
      * Sets the default input position.
-     *
-     * @param defaultInputPosition the new default input position
+     * 
+     * @param defaultInputPosition
+     *            the new default input position
      */
     public void setDefaultInputPosition(String defaultInputPosition) {
 	this.defaultInputPosition = defaultInputPosition;
@@ -1662,7 +1692,7 @@ public class JxfsComponent {
 
     /**
      * Gets the default output position.
-     *
+     * 
      * @return the default output position
      */
     public String getDefaultOutputPosition() {
@@ -1671,8 +1701,9 @@ public class JxfsComponent {
 
     /**
      * Sets the default output position.
-     *
-     * @param defaultOutputPosition the new default output position
+     * 
+     * @param defaultOutputPosition
+     *            the new default output position
      */
     public void setDefaultOutputPosition(String defaultOutputPosition) {
 	this.defaultOutputPosition = defaultOutputPosition;
@@ -1680,7 +1711,7 @@ public class JxfsComponent {
 
     /**
      * Gets the default rollback position.
-     *
+     * 
      * @return the default rollback position
      */
     public Integer getDefaultRollbackPosition() {
@@ -1689,8 +1720,9 @@ public class JxfsComponent {
 
     /**
      * Sets the default rollback position.
-     *
-     * @param defaultRollbackPosition the new default rollback position
+     * 
+     * @param defaultRollbackPosition
+     *            the new default rollback position
      */
     public void setDefaultRollbackPosition(Integer defaultRollbackPosition) {
 	this.defaultRollbackPosition = defaultRollbackPosition;
@@ -1698,7 +1730,7 @@ public class JxfsComponent {
 
     /**
      * Gets the deposit.
-     *
+     * 
      * @return the deposit
      */
     public String getDeposit() {
@@ -1707,8 +1739,9 @@ public class JxfsComponent {
 
     /**
      * Sets the deposit.
-     *
-     * @param deposit the new deposit
+     * 
+     * @param deposit
+     *            the new deposit
      */
     public void setDeposit(String deposit) {
 	this.deposit = deposit;
@@ -1716,7 +1749,7 @@ public class JxfsComponent {
 
     /**
      * Gets the detector.
-     *
+     * 
      * @return the detector
      */
     public String getDetector() {
@@ -1725,8 +1758,9 @@ public class JxfsComponent {
 
     /**
      * Sets the detector.
-     *
-     * @param detector the new detector
+     * 
+     * @param detector
+     *            the new detector
      */
     public void setDetector(String detector) {
 	this.detector = detector;
@@ -1734,7 +1768,7 @@ public class JxfsComponent {
 
     /**
      * Gets the device control name.
-     *
+     * 
      * @return the device control name
      */
     public String getDeviceControlName() {
@@ -1743,8 +1777,9 @@ public class JxfsComponent {
 
     /**
      * Sets the device control name.
-     *
-     * @param deviceControlName the new device control name
+     * 
+     * @param deviceControlName
+     *            the new device control name
      */
     public void setDeviceControlName(String deviceControlName) {
 	this.deviceControlName = deviceControlName;
@@ -1752,7 +1787,7 @@ public class JxfsComponent {
 
     /**
      * Gets the device id.
-     *
+     * 
      * @return the device id
      */
     public String getDeviceId() {
@@ -1761,8 +1796,9 @@ public class JxfsComponent {
 
     /**
      * Sets the device id.
-     *
-     * @param deviceId the new device id
+     * 
+     * @param deviceId
+     *            the new device id
      */
     public void setDeviceId(String deviceId) {
 	this.deviceId = deviceId;
@@ -1770,7 +1806,7 @@ public class JxfsComponent {
 
     /**
      * Gets the device orientation.
-     *
+     * 
      * @return the device orientation
      */
     public String getDeviceOrientation() {
@@ -1779,8 +1815,9 @@ public class JxfsComponent {
 
     /**
      * Sets the device orientation.
-     *
-     * @param deviceOrientation the new device orientation
+     * 
+     * @param deviceOrientation
+     *            the new device orientation
      */
     public void setDeviceOrientation(String deviceOrientation) {
 	this.deviceOrientation = deviceOrientation;
@@ -1788,7 +1825,7 @@ public class JxfsComponent {
 
     /**
      * Gets the device scanning both long side.
-     *
+     * 
      * @return the device scanning both long side
      */
     public String getDeviceScanningBothLongSide() {
@@ -1797,8 +1834,9 @@ public class JxfsComponent {
 
     /**
      * Sets the device scanning both long side.
-     *
-     * @param deviceScanningBothLongSide the new device scanning both long side
+     * 
+     * @param deviceScanningBothLongSide
+     *            the new device scanning both long side
      */
     public void setDeviceScanningBothLongSide(String deviceScanningBothLongSide) {
 	this.deviceScanningBothLongSide = deviceScanningBothLongSide;
@@ -1806,7 +1844,7 @@ public class JxfsComponent {
 
     /**
      * Gets the device scanning both short side.
-     *
+     * 
      * @return the device scanning both short side
      */
     public String getDeviceScanningBothShortSide() {
@@ -1815,8 +1853,9 @@ public class JxfsComponent {
 
     /**
      * Sets the device scanning both short side.
-     *
-     * @param deviceScanningBothShortSide the new device scanning both short side
+     * 
+     * @param deviceScanningBothShortSide
+     *            the new device scanning both short side
      */
     public void setDeviceScanningBothShortSide(
 	    String deviceScanningBothShortSide) {
@@ -1825,7 +1864,7 @@ public class JxfsComponent {
 
     /**
      * Gets the device service name.
-     *
+     * 
      * @return the device service name
      */
     public String getDeviceServiceName() {
@@ -1834,8 +1873,9 @@ public class JxfsComponent {
 
     /**
      * Sets the device service name.
-     *
-     * @param deviceServiceName the new device service name
+     * 
+     * @param deviceServiceName
+     *            the new device service name
      */
     public void setDeviceServiceName(String deviceServiceName) {
 	this.deviceServiceName = deviceServiceName;
@@ -1843,7 +1883,7 @@ public class JxfsComponent {
 
     /**
      * Gets the device type.
-     *
+     * 
      * @return the device type
      */
     public String getDeviceType() {
@@ -1852,8 +1892,9 @@ public class JxfsComponent {
 
     /**
      * Sets the device type.
-     *
-     * @param deviceType the new device type
+     * 
+     * @param deviceType
+     *            the new device type
      */
     public void setDeviceType(String deviceType) {
 	this.deviceType = deviceType;
@@ -1861,7 +1902,7 @@ public class JxfsComponent {
 
     /**
      * Gets the dispense.
-     *
+     * 
      * @return the dispense
      */
     public String getDispense() {
@@ -1870,8 +1911,9 @@ public class JxfsComponent {
 
     /**
      * Sets the dispense.
-     *
-     * @param dispense the new dispense
+     * 
+     * @param dispense
+     *            the new dispense
      */
     public void setDispense(String dispense) {
 	this.dispense = dispense;
@@ -1879,7 +1921,7 @@ public class JxfsComponent {
 
     /**
      * Gets the display light supported.
-     *
+     * 
      * @return the display light supported
      */
     public String getDisplayLightSupported() {
@@ -1888,8 +1930,9 @@ public class JxfsComponent {
 
     /**
      * Sets the display light supported.
-     *
-     * @param displayLightSupported the new display light supported
+     * 
+     * @param displayLightSupported
+     *            the new display light supported
      */
     public void setDisplayLightSupported(String displayLightSupported) {
 	this.displayLightSupported = displayLightSupported;
@@ -1897,7 +1940,7 @@ public class JxfsComponent {
 
     /**
      * Gets the keyboard lock supported.
-     *
+     * 
      * @return the keyboard lock supported
      */
     public String getKeyboardLockSupported() {
@@ -1906,8 +1949,9 @@ public class JxfsComponent {
 
     /**
      * Sets the keyboard lock supported.
-     *
-     * @param keyboardLockSupported the new keyboard lock supported
+     * 
+     * @param keyboardLockSupported
+     *            the new keyboard lock supported
      */
     public void setKeyboardLockSupported(String keyboardLockSupported) {
 	this.keyboardLockSupported = keyboardLockSupported;
@@ -1915,7 +1959,7 @@ public class JxfsComponent {
 
     /**
      * Gets the keyboard supported.
-     *
+     * 
      * @return the keyboard supported
      */
     public String getKeyboardSupported() {
@@ -1924,8 +1968,9 @@ public class JxfsComponent {
 
     /**
      * Sets the keyboard supported.
-     *
-     * @param keyboardSupported the new keyboard supported
+     * 
+     * @param keyboardSupported
+     *            the new keyboard supported
      */
     public void setKeyboardSupported(String keyboardSupported) {
 	this.keyboardSupported = keyboardSupported;
@@ -1933,7 +1978,7 @@ public class JxfsComponent {
 
     /**
      * Gets the keys supported.
-     *
+     * 
      * @return the keys supported
      */
     public String getKeysSupported() {
@@ -1942,8 +1987,9 @@ public class JxfsComponent {
 
     /**
      * Sets the keys supported.
-     *
-     * @param keysSupported the new keys supported
+     * 
+     * @param keysSupported
+     *            the new keys supported
      */
     public void setKeysSupported(String keysSupported) {
 	this.keysSupported = keysSupported;
@@ -1951,7 +1997,7 @@ public class JxfsComponent {
 
     /**
      * Gets the doors.
-     *
+     * 
      * @return the doors
      */
     public String getDoors() {
@@ -1960,8 +2006,9 @@ public class JxfsComponent {
 
     /**
      * Sets the doors.
-     *
-     * @param doors the new doors
+     * 
+     * @param doors
+     *            the new doors
      */
     public void setDoors(String doors) {
 	this.doors = doors;
@@ -1969,7 +2016,7 @@ public class JxfsComponent {
 
     /**
      * Gets the eject status.
-     *
+     * 
      * @return the eject status
      */
     public String getEjectStatus() {
@@ -1978,8 +2025,9 @@ public class JxfsComponent {
 
     /**
      * Sets the eject status.
-     *
-     * @param ejectStatus the new eject status
+     * 
+     * @param ejectStatus
+     *            the new eject status
      */
     public void setEjectStatus(String ejectStatus) {
 	this.ejectStatus = ejectStatus;
@@ -1987,7 +2035,7 @@ public class JxfsComponent {
 
     /**
      * Gets the entry.
-     *
+     * 
      * @return the entry
      */
     public String getEntry() {
@@ -1996,8 +2044,9 @@ public class JxfsComponent {
 
     /**
      * Sets the entry.
-     *
-     * @param entry the new entry
+     * 
+     * @param entry
+     *            the new entry
      */
     public void setEntry(String entry) {
 	this.entry = entry;
@@ -2005,7 +2054,7 @@ public class JxfsComponent {
 
     /**
      * Gets the env supply.
-     *
+     * 
      * @return the env supply
      */
     public String getEnvSupply() {
@@ -2014,8 +2063,9 @@ public class JxfsComponent {
 
     /**
      * Sets the env supply.
-     *
-     * @param envSupply the new env supply
+     * 
+     * @param envSupply
+     *            the new env supply
      */
     public void setEnvSupply(String envSupply) {
 	this.envSupply = envSupply;
@@ -2023,7 +2073,7 @@ public class JxfsComponent {
 
     /**
      * Gets the escrow.
-     *
+     * 
      * @return the escrow
      */
     public String getEscrow() {
@@ -2032,8 +2082,9 @@ public class JxfsComponent {
 
     /**
      * Sets the escrow.
-     *
-     * @param escrow the new escrow
+     * 
+     * @param escrow
+     *            the new escrow
      */
     public void setEscrow(String escrow) {
 	this.escrow = escrow;
@@ -2041,7 +2092,7 @@ public class JxfsComponent {
 
     /**
      * Gets the escrow size.
-     *
+     * 
      * @return the escrow size
      */
     public Integer getEscrowSize() {
@@ -2050,8 +2101,9 @@ public class JxfsComponent {
 
     /**
      * Sets the escrow size.
-     *
-     * @param escrowSize the new escrow size
+     * 
+     * @param escrowSize
+     *            the new escrow size
      */
     public void setEscrowSize(Integer escrowSize) {
 	this.escrowSize = escrowSize;
@@ -2059,7 +2111,7 @@ public class JxfsComponent {
 
     /**
      * Gets the event on start supported.
-     *
+     * 
      * @return the event on start supported
      */
     public String getEventOnStartSupported() {
@@ -2068,8 +2120,9 @@ public class JxfsComponent {
 
     /**
      * Sets the event on start supported.
-     *
-     * @param eventOnStartSupported the new event on start supported
+     * 
+     * @param eventOnStartSupported
+     *            the new event on start supported
      */
     public void setEventOnStartSupported(String eventOnStartSupported) {
 	this.eventOnStartSupported = eventOnStartSupported;
@@ -2077,7 +2130,7 @@ public class JxfsComponent {
 
     /**
      * Gets the extent.
-     *
+     * 
      * @return the extent
      */
     public String getExtent() {
@@ -2086,8 +2139,9 @@ public class JxfsComponent {
 
     /**
      * Sets the extent.
-     *
-     * @param extent the new extent
+     * 
+     * @param extent
+     *            the new extent
      */
     public void setExtent(String extent) {
 	this.extent = extent;
@@ -2095,7 +2149,7 @@ public class JxfsComponent {
 
     /**
      * Gets the guidlights.
-     *
+     * 
      * @return the guidlights
      */
     public String getGuidlights() {
@@ -2104,8 +2158,9 @@ public class JxfsComponent {
 
     /**
      * Sets the guidlights.
-     *
-     * @param guidlights the new guidlights
+     * 
+     * @param guidlights
+     *            the new guidlights
      */
     public void setGuidlights(String guidlights) {
 	this.guidlights = guidlights;
@@ -2113,7 +2168,7 @@ public class JxfsComponent {
 
     /**
      * Gets the id key.
-     *
+     * 
      * @return the id key
      */
     public String getIdKey() {
@@ -2122,8 +2177,9 @@ public class JxfsComponent {
 
     /**
      * Sets the id key.
-     *
-     * @param idKey the new id key
+     * 
+     * @param idKey
+     *            the new id key
      */
     public void setIdKey(String idKey) {
 	this.idKey = idKey;
@@ -2131,7 +2187,7 @@ public class JxfsComponent {
 
     /**
      * Gets the image capture.
-     *
+     * 
      * @return the image capture
      */
     public String getImageCapture() {
@@ -2140,8 +2196,9 @@ public class JxfsComponent {
 
     /**
      * Sets the image capture.
-     *
-     * @param imageCapture the new image capture
+     * 
+     * @param imageCapture
+     *            the new image capture
      */
     public void setImageCapture(String imageCapture) {
 	this.imageCapture = imageCapture;
@@ -2149,7 +2206,7 @@ public class JxfsComponent {
 
     /**
      * Gets the indicators.
-     *
+     * 
      * @return the indicators
      */
     public String getIndicators() {
@@ -2158,8 +2215,9 @@ public class JxfsComponent {
 
     /**
      * Sets the indicators.
-     *
-     * @param indicators the new indicators
+     * 
+     * @param indicators
+     *            the new indicators
      */
     public void setIndicators(String indicators) {
 	this.indicators = indicators;
@@ -2167,7 +2225,7 @@ public class JxfsComponent {
 
     /**
      * Gets the input cook supported.
-     *
+     * 
      * @return the input cook supported
      */
     public String getInputCookSupported() {
@@ -2176,8 +2234,9 @@ public class JxfsComponent {
 
     /**
      * Sets the input cook supported.
-     *
-     * @param inputCookSupported the new input cook supported
+     * 
+     * @param inputCookSupported
+     *            the new input cook supported
      */
     public void setInputCookSupported(String inputCookSupported) {
 	this.inputCookSupported = inputCookSupported;
@@ -2185,7 +2244,7 @@ public class JxfsComponent {
 
     /**
      * Gets the input positions.
-     *
+     * 
      * @return the input positions
      */
     public String getInputPositions() {
@@ -2194,8 +2253,9 @@ public class JxfsComponent {
 
     /**
      * Sets the input positions.
-     *
-     * @param inputPositions the new input positions
+     * 
+     * @param inputPositions
+     *            the new input positions
      */
     public void setInputPositions(String inputPositions) {
 	this.inputPositions = inputPositions;
@@ -2203,7 +2263,7 @@ public class JxfsComponent {
 
     /**
      * Gets the input raw supported.
-     *
+     * 
      * @return the input raw supported
      */
     public String getInputRawSupported() {
@@ -2212,8 +2272,9 @@ public class JxfsComponent {
 
     /**
      * Sets the input raw supported.
-     *
-     * @param inputRawSupported the new input raw supported
+     * 
+     * @param inputRawSupported
+     *            the new input raw supported
      */
     public void setInputRawSupported(String inputRawSupported) {
 	this.inputRawSupported = inputRawSupported;
@@ -2221,7 +2282,7 @@ public class JxfsComponent {
 
     /**
      * Gets the intermediate stacker.
-     *
+     * 
      * @return the intermediate stacker
      */
     public String getIntermediateStacker() {
@@ -2230,8 +2291,9 @@ public class JxfsComponent {
 
     /**
      * Sets the intermediate stacker.
-     *
-     * @param intermediateStacker the new intermediate stacker
+     * 
+     * @param intermediateStacker
+     *            the new intermediate stacker
      */
     public void setIntermediateStacker(String intermediateStacker) {
 	this.intermediateStacker = intermediateStacker;
@@ -2239,7 +2301,7 @@ public class JxfsComponent {
 
     /**
      * Gets the insert text supported.
-     *
+     * 
      * @return the insert text supported
      */
     public String getInsertTextSupported() {
@@ -2248,8 +2310,9 @@ public class JxfsComponent {
 
     /**
      * Sets the insert text supported.
-     *
-     * @param insertTextSupported the new insert text supported
+     * 
+     * @param insertTextSupported
+     *            the new insert text supported
      */
     public void setInsertTextSupported(String insertTextSupported) {
 	this.insertTextSupported = insertTextSupported;
@@ -2257,7 +2320,7 @@ public class JxfsComponent {
 
     /**
      * Gets the max data length.
-     *
+     * 
      * @return the max data length
      */
     public Integer getMaxDataLength() {
@@ -2266,8 +2329,9 @@ public class JxfsComponent {
 
     /**
      * Sets the max data length.
-     *
-     * @param maxDataLength the new max data length
+     * 
+     * @param maxDataLength
+     *            the new max data length
      */
     public void setMaxDataLength(Integer maxDataLength) {
 	this.maxDataLength = maxDataLength;
@@ -2275,7 +2339,7 @@ public class JxfsComponent {
 
     /**
      * Gets the max in bills.
-     *
+     * 
      * @return the max in bills
      */
     public Integer getMaxInBills() {
@@ -2284,8 +2348,9 @@ public class JxfsComponent {
 
     /**
      * Sets the max in bills.
-     *
-     * @param maxInBills the new max in bills
+     * 
+     * @param maxInBills
+     *            the new max in bills
      */
     public void setMaxInBills(Integer maxInBills) {
 	this.maxInBills = maxInBills;
@@ -2293,7 +2358,7 @@ public class JxfsComponent {
 
     /**
      * Gets the max in coins.
-     *
+     * 
      * @return the max in coins
      */
     public Integer getMaxInCoins() {
@@ -2302,8 +2367,9 @@ public class JxfsComponent {
 
     /**
      * Sets the max in coins.
-     *
-     * @param maxInCoins the new max in coins
+     * 
+     * @param maxInCoins
+     *            the new max in coins
      */
     public void setMaxInCoins(Integer maxInCoins) {
 	this.maxInCoins = maxInCoins;
@@ -2311,7 +2377,7 @@ public class JxfsComponent {
 
     /**
      * Gets the max led.
-     *
+     * 
      * @return the max led
      */
     public Integer getMaxLed() {
@@ -2320,8 +2386,9 @@ public class JxfsComponent {
 
     /**
      * Sets the max led.
-     *
-     * @param maxLed the new max led
+     * 
+     * @param maxLed
+     *            the new max led
      */
     public void setMaxLed(Integer maxLed) {
 	this.maxLed = maxLed;
@@ -2329,7 +2396,7 @@ public class JxfsComponent {
 
     /**
      * Gets the max num of chars.
-     *
+     * 
      * @return the max num of chars
      */
     public Integer getMaxNumOfChars() {
@@ -2338,8 +2405,9 @@ public class JxfsComponent {
 
     /**
      * Sets the max num of chars.
-     *
-     * @param maxNumOfChars the new max num of chars
+     * 
+     * @param maxNumOfChars
+     *            the new max num of chars
      */
     public void setMaxNumOfChars(Integer maxNumOfChars) {
 	this.maxNumOfChars = maxNumOfChars;
@@ -2347,7 +2415,7 @@ public class JxfsComponent {
 
     /**
      * Gets the max out bills.
-     *
+     * 
      * @return the max out bills
      */
     public Integer getMaxOutBills() {
@@ -2356,8 +2424,9 @@ public class JxfsComponent {
 
     /**
      * Sets the max out bills.
-     *
-     * @param maxOutBills the new max out bills
+     * 
+     * @param maxOutBills
+     *            the new max out bills
      */
     public void setMaxOutBills(Integer maxOutBills) {
 	this.maxOutBills = maxOutBills;
@@ -2365,7 +2434,7 @@ public class JxfsComponent {
 
     /**
      * Gets the max out coins.
-     *
+     * 
      * @return the max out coins
      */
     public Integer getMaxOutCoins() {
@@ -2374,8 +2443,9 @@ public class JxfsComponent {
 
     /**
      * Sets the max out coins.
-     *
-     * @param maxOutCoins the new max out coins
+     * 
+     * @param maxOutCoins
+     *            the new max out coins
      */
     public void setMaxOutCoins(Integer maxOutCoins) {
 	this.maxOutCoins = maxOutCoins;
@@ -2383,7 +2453,7 @@ public class JxfsComponent {
 
     /**
      * Gets the max pictures.
-     *
+     * 
      * @return the max pictures
      */
     public Integer getMaxPictures() {
@@ -2392,8 +2462,9 @@ public class JxfsComponent {
 
     /**
      * Sets the max pictures.
-     *
-     * @param maxPictures the new max pictures
+     * 
+     * @param maxPictures
+     *            the new max pictures
      */
     public void setMaxPictures(Integer maxPictures) {
 	this.maxPictures = maxPictures;
@@ -2401,7 +2472,7 @@ public class JxfsComponent {
 
     /**
      * Gets the max retract.
-     *
+     * 
      * @return the max retract
      */
     public Integer getMaxRetract() {
@@ -2410,8 +2481,9 @@ public class JxfsComponent {
 
     /**
      * Sets the max retract.
-     *
-     * @param maxRetract the new max retract
+     * 
+     * @param maxRetract
+     *            the new max retract
      */
     public void setMaxRetract(Integer maxRetract) {
 	this.maxRetract = maxRetract;
@@ -2419,7 +2491,7 @@ public class JxfsComponent {
 
     /**
      * Gets the max stacker.
-     *
+     * 
      * @return the max stacker
      */
     public Integer getMaxStacker() {
@@ -2428,8 +2500,9 @@ public class JxfsComponent {
 
     /**
      * Sets the max stacker.
-     *
-     * @param maxStacker the new max stacker
+     * 
+     * @param maxStacker
+     *            the new max stacker
      */
     public void setMaxStacker(Integer maxStacker) {
 	this.maxStacker = maxStacker;
@@ -2437,7 +2510,7 @@ public class JxfsComponent {
 
     /**
      * Gets the multiple currencies cash in supported.
-     *
+     * 
      * @return the multiple currencies cash in supported
      */
     public String getMultipleCurrenciesCashInSupported() {
@@ -2446,8 +2519,9 @@ public class JxfsComponent {
 
     /**
      * Sets the multiple currencies cash in supported.
-     *
-     * @param multipleCurrenciesCashInSupported the new multiple currencies cash in supported
+     * 
+     * @param multipleCurrenciesCashInSupported
+     *            the new multiple currencies cash in supported
      */
     public void setMultipleCurrenciesCashInSupported(
 	    String multipleCurrenciesCashInSupported) {
@@ -2456,7 +2530,7 @@ public class JxfsComponent {
 
     /**
      * Gets the number of keys.
-     *
+     * 
      * @return the number of keys
      */
     public Integer getNumberOfKeys() {
@@ -2465,8 +2539,9 @@ public class JxfsComponent {
 
     /**
      * Sets the number of keys.
-     *
-     * @param numberOfKeys the new number of keys
+     * 
+     * @param numberOfKeys
+     *            the new number of keys
      */
     public void setNumberOfKeys(Integer numberOfKeys) {
 	this.numberOfKeys = numberOfKeys;
@@ -2474,7 +2549,7 @@ public class JxfsComponent {
 
     /**
      * Gets the orientation to be scanned.
-     *
+     * 
      * @return the orientation to be scanned
      */
     public String getOrientationToBeScanned() {
@@ -2483,8 +2558,9 @@ public class JxfsComponent {
 
     /**
      * Sets the orientation to be scanned.
-     *
-     * @param orientationToBeScanned the new orientation to be scanned
+     * 
+     * @param orientationToBeScanned
+     *            the new orientation to be scanned
      */
     public void setOrientationToBeScanned(String orientationToBeScanned) {
 	this.orientationToBeScanned = orientationToBeScanned;
@@ -2492,7 +2568,7 @@ public class JxfsComponent {
 
     /**
      * Gets the output positions.
-     *
+     * 
      * @return the output positions
      */
     public String getOutputPositions() {
@@ -2501,8 +2577,9 @@ public class JxfsComponent {
 
     /**
      * Sets the output positions.
-     *
-     * @param outputPositions the new output positions
+     * 
+     * @param outputPositions
+     *            the new output positions
      */
     public void setOutputPositions(String outputPositions) {
 	this.outputPositions = outputPositions;
@@ -2510,7 +2587,7 @@ public class JxfsComponent {
 
     /**
      * Gets the prints the.
-     *
+     * 
      * @return the prints the
      */
     public String getPrint() {
@@ -2519,8 +2596,9 @@ public class JxfsComponent {
 
     /**
      * Sets the prints the.
-     *
-     * @param print the new prints the
+     * 
+     * @param print
+     *            the new prints the
      */
     public void setPrint(String print) {
 	this.print = print;
@@ -2528,7 +2606,7 @@ public class JxfsComponent {
 
     /**
      * Gets the power off.
-     *
+     * 
      * @return the power off
      */
     public String getPowerOff() {
@@ -2537,8 +2615,9 @@ public class JxfsComponent {
 
     /**
      * Sets the power off.
-     *
-     * @param powerOff the new power off
+     * 
+     * @param powerOff
+     *            the new power off
      */
     public void setPowerOff(String powerOff) {
 	this.powerOff = powerOff;
@@ -2546,7 +2625,7 @@ public class JxfsComponent {
 
     /**
      * Gets the power on.
-     *
+     * 
      * @return the power on
      */
     public String getPowerOn() {
@@ -2555,8 +2634,9 @@ public class JxfsComponent {
 
     /**
      * Sets the power on.
-     *
-     * @param powerOn the new power on
+     * 
+     * @param powerOn
+     *            the new power on
      */
     public void setPowerOn(String powerOn) {
 	this.powerOn = powerOn;
@@ -2564,7 +2644,7 @@ public class JxfsComponent {
 
     /**
      * Gets the ptr capabilities.
-     *
+     * 
      * @return the ptr capabilities
      */
     public String getPtrCapabilities() {
@@ -2573,8 +2653,9 @@ public class JxfsComponent {
 
     /**
      * Sets the ptr capabilities.
-     *
-     * @param ptrCapabilities the new ptr capabilities
+     * 
+     * @param ptrCapabilities
+     *            the new ptr capabilities
      */
     public void setPtrCapabilities(String ptrCapabilities) {
 	this.ptrCapabilities = ptrCapabilities;
@@ -2582,7 +2663,7 @@ public class JxfsComponent {
 
     /**
      * Gets the ptr control media.
-     *
+     * 
      * @return the ptr control media
      */
     public String getPtrControlMedia() {
@@ -2591,8 +2672,9 @@ public class JxfsComponent {
 
     /**
      * Sets the ptr control media.
-     *
-     * @param ptrControlMedia the new ptr control media
+     * 
+     * @param ptrControlMedia
+     *            the new ptr control media
      */
     public void setPtrControlMedia(String ptrControlMedia) {
 	this.ptrControlMedia = ptrControlMedia;
@@ -2600,7 +2682,7 @@ public class JxfsComponent {
 
     /**
      * Gets the read form.
-     *
+     * 
      * @return the read form
      */
     public String getReadForm() {
@@ -2609,8 +2691,9 @@ public class JxfsComponent {
 
     /**
      * Sets the read form.
-     *
-     * @param readForm the new read form
+     * 
+     * @param readForm
+     *            the new read form
      */
     public void setReadForm(String readForm) {
 	this.readForm = readForm;
@@ -2618,7 +2701,7 @@ public class JxfsComponent {
 
     /**
      * Gets the read fonts.
-     *
+     * 
      * @return the read fonts
      */
     public String getReadFonts() {
@@ -2627,8 +2710,9 @@ public class JxfsComponent {
 
     /**
      * Sets the read fonts.
-     *
-     * @param readFonts the new read fonts
+     * 
+     * @param readFonts
+     *            the new read fonts
      */
     public void setReadFonts(String readFonts) {
 	this.readFonts = readFonts;
@@ -2636,7 +2720,7 @@ public class JxfsComponent {
 
     /**
      * Gets the read image.
-     *
+     * 
      * @return the read image
      */
     public String getReadImage() {
@@ -2645,8 +2729,9 @@ public class JxfsComponent {
 
     /**
      * Sets the read image.
-     *
-     * @param readImage the new read image
+     * 
+     * @param readImage
+     *            the new read image
      */
     public void setReadImage(String readImage) {
 	this.readImage = readImage;
@@ -2654,7 +2739,7 @@ public class JxfsComponent {
 
     /**
      * Gets the read keyboard data with default.
-     *
+     * 
      * @return the read keyboard data with default
      */
     public String getReadKeyboardDataWithDefault() {
@@ -2663,8 +2748,9 @@ public class JxfsComponent {
 
     /**
      * Sets the read keyboard data with default.
-     *
-     * @param readKeyboardDataWithDefault the new read keyboard data with default
+     * 
+     * @param readKeyboardDataWithDefault
+     *            the new read keyboard data with default
      */
     public void setReadKeyboardDataWithDefault(
 	    String readKeyboardDataWithDefault) {
@@ -2673,7 +2759,7 @@ public class JxfsComponent {
 
     /**
      * Gets the read micr.
-     *
+     * 
      * @return the read micr
      */
     public String getReadMicr() {
@@ -2682,8 +2768,9 @@ public class JxfsComponent {
 
     /**
      * Sets the read micr.
-     *
-     * @param readMicr the new read micr
+     * 
+     * @param readMicr
+     *            the new read micr
      */
     public void setReadMicr(String readMicr) {
 	this.readMicr = readMicr;
@@ -2691,7 +2778,7 @@ public class JxfsComponent {
 
     /**
      * Gets the read ocr.
-     *
+     * 
      * @return the read ocr
      */
     public String getReadOcr() {
@@ -2700,8 +2787,9 @@ public class JxfsComponent {
 
     /**
      * Sets the read ocr.
-     *
-     * @param readOcr the new read ocr
+     * 
+     * @param readOcr
+     *            the new read ocr
      */
     public void setReadOcr(String readOcr) {
 	this.readOcr = readOcr;
@@ -2709,7 +2797,7 @@ public class JxfsComponent {
 
     /**
      * Gets the read status.
-     *
+     * 
      * @return the read status
      */
     public String getReadStatus() {
@@ -2718,8 +2806,9 @@ public class JxfsComponent {
 
     /**
      * Sets the read status.
-     *
-     * @param readStatus the new read status
+     * 
+     * @param readStatus
+     *            the new read status
      */
     public void setReadStatus(String readStatus) {
 	this.readStatus = readStatus;
@@ -2727,7 +2816,7 @@ public class JxfsComponent {
 
     /**
      * Gets the refill.
-     *
+     * 
      * @return the refill
      */
     public String getRefill() {
@@ -2736,8 +2825,9 @@ public class JxfsComponent {
 
     /**
      * Sets the refill.
-     *
-     * @param refill the new refill
+     * 
+     * @param refill
+     *            the new refill
      */
     public void setRefill(String refill) {
 	this.refill = refill;
@@ -2745,7 +2835,7 @@ public class JxfsComponent {
 
     /**
      * Gets the remote key load.
-     *
+     * 
      * @return the remote key load
      */
     public String getRemoteKeyLoad() {
@@ -2754,8 +2844,9 @@ public class JxfsComponent {
 
     /**
      * Sets the remote key load.
-     *
-     * @param remoteKeyLoad the new remote key load
+     * 
+     * @param remoteKeyLoad
+     *            the new remote key load
      */
     public void setRemoteKeyLoad(String remoteKeyLoad) {
 	this.remoteKeyLoad = remoteKeyLoad;
@@ -2763,7 +2854,7 @@ public class JxfsComponent {
 
     /**
      * Gets the retain.
-     *
+     * 
      * @return the retain
      */
     public String getRetain() {
@@ -2772,8 +2863,9 @@ public class JxfsComponent {
 
     /**
      * Sets the retain.
-     *
-     * @param retain the new retain
+     * 
+     * @param retain
+     *            the new retain
      */
     public void setRetain(String retain) {
 	this.retain = retain;
@@ -2781,7 +2873,7 @@ public class JxfsComponent {
 
     /**
      * Gets the retract.
-     *
+     * 
      * @return the retract
      */
     public String getRetract() {
@@ -2790,8 +2882,9 @@ public class JxfsComponent {
 
     /**
      * Sets the retract.
-     *
-     * @param retract the new retract
+     * 
+     * @param retract
+     *            the new retract
      */
     public void setRetract(String retract) {
 	this.retract = retract;
@@ -2799,7 +2892,7 @@ public class JxfsComponent {
 
     /**
      * Gets the safe door cmd.
-     *
+     * 
      * @return the safe door cmd
      */
     public String getSafeDoorCmd() {
@@ -2808,8 +2901,9 @@ public class JxfsComponent {
 
     /**
      * Sets the safe door cmd.
-     *
-     * @param safeDoorCmd the new safe door cmd
+     * 
+     * @param safeDoorCmd
+     *            the new safe door cmd
      */
     public void setSafeDoorCmd(String safeDoorCmd) {
 	this.safeDoorCmd = safeDoorCmd;
@@ -2817,7 +2911,7 @@ public class JxfsComponent {
 
     /**
      * Gets the safe door sequence.
-     *
+     * 
      * @return the safe door sequence
      */
     public String getSafeDoorSequence() {
@@ -2826,8 +2920,9 @@ public class JxfsComponent {
 
     /**
      * Sets the safe door sequence.
-     *
-     * @param safeDoorSequence the new safe door sequence
+     * 
+     * @param safeDoorSequence
+     *            the new safe door sequence
      */
     public void setSafeDoorSequence(String safeDoorSequence) {
 	this.safeDoorSequence = safeDoorSequence;
@@ -2835,7 +2930,7 @@ public class JxfsComponent {
 
     /**
      * Gets the secure key entry state.
-     *
+     * 
      * @return the secure key entry state
      */
     public String getSecureKeyEntryState() {
@@ -2844,8 +2939,9 @@ public class JxfsComponent {
 
     /**
      * Sets the secure key entry state.
-     *
-     * @param secureKeyEntryState the new secure key entry state
+     * 
+     * @param secureKeyEntryState
+     *            the new secure key entry state
      */
     public void setSecureKeyEntryState(String secureKeyEntryState) {
 	this.secureKeyEntryState = secureKeyEntryState;
@@ -2853,7 +2949,7 @@ public class JxfsComponent {
 
     /**
      * Gets the secure key entry supported.
-     *
+     * 
      * @return the secure key entry supported
      */
     public String getSecureKeyEntrySupported() {
@@ -2862,8 +2958,9 @@ public class JxfsComponent {
 
     /**
      * Sets the secure key entry supported.
-     *
-     * @param secureKeyEntrySupported the new secure key entry supported
+     * 
+     * @param secureKeyEntrySupported
+     *            the new secure key entry supported
      */
     public void setSecureKeyEntrySupported(String secureKeyEntrySupported) {
 	this.secureKeyEntrySupported = secureKeyEntrySupported;
@@ -2871,7 +2968,7 @@ public class JxfsComponent {
 
     /**
      * Gets the secure module type.
-     *
+     * 
      * @return the secure module type
      */
     public String getSecureModuleType() {
@@ -2880,8 +2977,9 @@ public class JxfsComponent {
 
     /**
      * Sets the secure module type.
-     *
-     * @param secureModuleType the new secure module type
+     * 
+     * @param secureModuleType
+     *            the new secure module type
      */
     public void setSecureModuleType(String secureModuleType) {
 	this.secureModuleType = secureModuleType;
@@ -2889,7 +2987,7 @@ public class JxfsComponent {
 
     /**
      * Gets the sensors.
-     *
+     * 
      * @return the sensors
      */
     public String getSensors() {
@@ -2898,8 +2996,9 @@ public class JxfsComponent {
 
     /**
      * Sets the sensors.
-     *
-     * @param sensors the new sensors
+     * 
+     * @param sensors
+     *            the new sensors
      */
     public void setSensors(String sensors) {
 	this.sensors = sensors;
@@ -2907,7 +3006,7 @@ public class JxfsComponent {
 
     /**
      * Gets the status.
-     *
+     * 
      * @return the status
      */
     public String getStatus() {
@@ -2916,8 +3015,9 @@ public class JxfsComponent {
 
     /**
      * Sets the status.
-     *
-     * @param status the new status
+     * 
+     * @param status
+     *            the new status
      */
     public void setStatus(String status) {
 	this.status = status;
@@ -2925,7 +3025,7 @@ public class JxfsComponent {
 
     /**
      * Gets the supported chip presentation modes.
-     *
+     * 
      * @return the supported chip presentation modes
      */
     public String getSupportedChipPresentationModes() {
@@ -2934,8 +3034,9 @@ public class JxfsComponent {
 
     /**
      * Sets the supported chip presentation modes.
-     *
-     * @param supportedChipPresentationModes the new supported chip presentation modes
+     * 
+     * @param supportedChipPresentationModes
+     *            the new supported chip presentation modes
      */
     public void setSupportedChipPresentationModes(
 	    String supportedChipPresentationModes) {
@@ -2944,7 +3045,7 @@ public class JxfsComponent {
 
     /**
      * Gets the supported chip protocols.
-     *
+     * 
      * @return the supported chip protocols
      */
     public String getSupportedChipProtocols() {
@@ -2953,8 +3054,9 @@ public class JxfsComponent {
 
     /**
      * Sets the supported chip protocols.
-     *
-     * @param supportedChipProtocols the new supported chip protocols
+     * 
+     * @param supportedChipProtocols
+     *            the new supported chip protocols
      */
     public void setSupportedChipProtocols(String supportedChipProtocols) {
 	this.supportedChipProtocols = supportedChipProtocols;
@@ -2962,7 +3064,7 @@ public class JxfsComponent {
 
     /**
      * Gets the supported crypto modes.
-     *
+     * 
      * @return the supported crypto modes
      */
     public String getSupportedCryptoModes() {
@@ -2971,8 +3073,9 @@ public class JxfsComponent {
 
     /**
      * Sets the supported crypto modes.
-     *
-     * @param supportedCryptoModes the new supported crypto modes
+     * 
+     * @param supportedCryptoModes
+     *            the new supported crypto modes
      */
     public void setSupportedCryptoModes(String supportedCryptoModes) {
 	this.supportedCryptoModes = supportedCryptoModes;
@@ -2980,7 +3083,7 @@ public class JxfsComponent {
 
     /**
      * Gets the supported fd keys.
-     *
+     * 
      * @return the supported fd keys
      */
     public String getSupportedFdKeys() {
@@ -2989,8 +3092,9 @@ public class JxfsComponent {
 
     /**
      * Sets the supported fd keys.
-     *
-     * @param supportedFdKeys the new supported fd keys
+     * 
+     * @param supportedFdKeys
+     *            the new supported fd keys
      */
     public void setSupportedFdKeys(String supportedFdKeys) {
 	this.supportedFdKeys = supportedFdKeys;
@@ -2998,7 +3102,7 @@ public class JxfsComponent {
 
     /**
      * Gets the supported pin formats.
-     *
+     * 
      * @return the supported pin formats
      */
     public String getSupportedPinFormats() {
@@ -3007,8 +3111,9 @@ public class JxfsComponent {
 
     /**
      * Sets the supported pin formats.
-     *
-     * @param supportedPinFormats the new supported pin formats
+     * 
+     * @param supportedPinFormats
+     *            the new supported pin formats
      */
     public void setSupportedPinFormats(String supportedPinFormats) {
 	this.supportedPinFormats = supportedPinFormats;
@@ -3016,7 +3121,7 @@ public class JxfsComponent {
 
     /**
      * Gets the supported read tracks.
-     *
+     * 
      * @return the supported read tracks
      */
     public String getSupportedReadTracks() {
@@ -3025,8 +3130,9 @@ public class JxfsComponent {
 
     /**
      * Sets the supported read tracks.
-     *
-     * @param supportedReadTracks the new supported read tracks
+     * 
+     * @param supportedReadTracks
+     *            the new supported read tracks
      */
     public void setSupportedReadTracks(String supportedReadTracks) {
 	this.supportedReadTracks = supportedReadTracks;
@@ -3034,7 +3140,7 @@ public class JxfsComponent {
 
     /**
      * Gets the supported text attributes.
-     *
+     * 
      * @return the supported text attributes
      */
     public String getSupportedTextAttributes() {
@@ -3043,8 +3149,9 @@ public class JxfsComponent {
 
     /**
      * Sets the supported text attributes.
-     *
-     * @param supportedTextAttributes the new supported text attributes
+     * 
+     * @param supportedTextAttributes
+     *            the new supported text attributes
      */
     public void setSupportedTextAttributes(String supportedTextAttributes) {
 	this.supportedTextAttributes = supportedTextAttributes;
@@ -3052,7 +3159,7 @@ public class JxfsComponent {
 
     /**
      * Gets the supported validation algorithms.
-     *
+     * 
      * @return the supported validation algorithms
      */
     public String getSupportedValidationAlgorithms() {
@@ -3061,8 +3168,9 @@ public class JxfsComponent {
 
     /**
      * Sets the supported validation algorithms.
-     *
-     * @param supportedValidationAlgorithms the new supported validation algorithms
+     * 
+     * @param supportedValidationAlgorithms
+     *            the new supported validation algorithms
      */
     public void setSupportedValidationAlgorithms(
 	    String supportedValidationAlgorithms) {
@@ -3071,7 +3179,7 @@ public class JxfsComponent {
 
     /**
      * Gets the supported write hico tracks.
-     *
+     * 
      * @return the supported write hico tracks
      */
     public String getSupportedWriteHicoTracks() {
@@ -3080,8 +3188,9 @@ public class JxfsComponent {
 
     /**
      * Sets the supported write hico tracks.
-     *
-     * @param supportedWriteHicoTracks the new supported write hico tracks
+     * 
+     * @param supportedWriteHicoTracks
+     *            the new supported write hico tracks
      */
     public void setSupportedWriteHicoTracks(String supportedWriteHicoTracks) {
 	this.supportedWriteHicoTracks = supportedWriteHicoTracks;
@@ -3089,7 +3198,7 @@ public class JxfsComponent {
 
     /**
      * Gets the supported write tracks.
-     *
+     * 
      * @return the supported write tracks
      */
     public String getSupportedWriteTracks() {
@@ -3098,8 +3207,9 @@ public class JxfsComponent {
 
     /**
      * Sets the supported write tracks.
-     *
-     * @param supportedWriteTracks the new supported write tracks
+     * 
+     * @param supportedWriteTracks
+     *            the new supported write tracks
      */
     public void setSupportedWriteTracks(String supportedWriteTracks) {
 	this.supportedWriteTracks = supportedWriteTracks;
@@ -3107,7 +3217,7 @@ public class JxfsComponent {
 
     /**
      * Gets the shutter cmd.
-     *
+     * 
      * @return the shutter cmd
      */
     public String getShutterCmd() {
@@ -3116,8 +3226,9 @@ public class JxfsComponent {
 
     /**
      * Sets the shutter cmd.
-     *
-     * @param shutterCmd the new shutter cmd
+     * 
+     * @param shutterCmd
+     *            the new shutter cmd
      */
     public void setShutterCmd(String shutterCmd) {
 	this.shutterCmd = shutterCmd;
@@ -3125,7 +3236,7 @@ public class JxfsComponent {
 
     /**
      * Gets the silent alarm.
-     *
+     * 
      * @return the silent alarm
      */
     public String getSilentAlarm() {
@@ -3134,8 +3245,9 @@ public class JxfsComponent {
 
     /**
      * Sets the silent alarm.
-     *
-     * @param silentAlarm the new silent alarm
+     * 
+     * @param silentAlarm
+     *            the new silent alarm
      */
     public void setSilentAlarm(String silentAlarm) {
 	this.silentAlarm = silentAlarm;
@@ -3143,7 +3255,7 @@ public class JxfsComponent {
 
     /**
      * Gets the test cash unit.
-     *
+     * 
      * @return the test cash unit
      */
     public String getTestCashUnit() {
@@ -3152,8 +3264,9 @@ public class JxfsComponent {
 
     /**
      * Sets the test cash unit.
-     *
-     * @param testCashUnit the new test cash unit
+     * 
+     * @param testCashUnit
+     *            the new test cash unit
      */
     public void setTestCashUnit(String testCashUnit) {
 	this.testCashUnit = testCashUnit;
@@ -3161,7 +3274,7 @@ public class JxfsComponent {
 
     /**
      * Gets the transport.
-     *
+     * 
      * @return the transport
      */
     public String getTransport() {
@@ -3170,8 +3283,9 @@ public class JxfsComponent {
 
     /**
      * Sets the transport.
-     *
-     * @param transport the new transport
+     * 
+     * @param transport
+     *            the new transport
      */
     public void setTransport(String transport) {
 	this.transport = transport;
@@ -3179,7 +3293,7 @@ public class JxfsComponent {
 
     /**
      * Gets the trusted user.
-     *
+     * 
      * @return the trusted user
      */
     public String getTrustedUser() {
@@ -3188,8 +3302,9 @@ public class JxfsComponent {
 
     /**
      * Sets the trusted user.
-     *
-     * @param trustedUser the new trusted user
+     * 
+     * @param trustedUser
+     *            the new trusted user
      */
     public void setTrustedUser(String trustedUser) {
 	this.trustedUser = trustedUser;
@@ -3197,7 +3312,7 @@ public class JxfsComponent {
 
     /**
      * Gets the unfit.
-     *
+     * 
      * @return the unfit
      */
     public String getUnfit() {
@@ -3206,8 +3321,9 @@ public class JxfsComponent {
 
     /**
      * Sets the unfit.
-     *
-     * @param unfit the new unfit
+     * 
+     * @param unfit
+     *            the new unfit
      */
     public void setUnfit(String unfit) {
 	this.unfit = unfit;
@@ -3215,7 +3331,7 @@ public class JxfsComponent {
 
     /**
      * Gets the vendor data.
-     *
+     * 
      * @return the vendor data
      */
     public String getVendorData() {
@@ -3224,8 +3340,9 @@ public class JxfsComponent {
 
     /**
      * Sets the vendor data.
-     *
-     * @param vendorData the new vendor data
+     * 
+     * @param vendorData
+     *            the new vendor data
      */
     public void setVendorData(String vendorData) {
 	this.vendorData = vendorData;
@@ -3241,7 +3358,7 @@ public class JxfsComponent {
 
     /**
      * Gets the write form.
-     *
+     * 
      * @return the write form
      */
     public String getWriteForm() {
@@ -3250,8 +3367,9 @@ public class JxfsComponent {
 
     /**
      * Sets the write form.
-     *
-     * @param writeForm the new write form
+     * 
+     * @param writeForm
+     *            the new write form
      */
     public void setWriteForm(String writeForm) {
 	this.writeForm = writeForm;
@@ -3259,7 +3377,7 @@ public class JxfsComponent {
 
     /**
      * Gets the write mode.
-     *
+     * 
      * @return the write mode
      */
     public String getWriteMode() {
@@ -3268,8 +3386,9 @@ public class JxfsComponent {
 
     /**
      * Sets the write mode.
-     *
-     * @param writeMode the new write mode
+     * 
+     * @param writeMode
+     *            the new write mode
      */
     public void setWriteMode(String writeMode) {
 	this.writeMode = writeMode;
@@ -3286,922 +3405,922 @@ public class JxfsComponent {
 
     /**
      * Gets the comboboxes data for the query GUI.
-     *
+     * 
      * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((acceptLimit == null) ? 0 : acceptLimit.hashCode());
-		result = prime * result
-				+ ((autopresent == null) ? 0 : autopresent.hashCode());
-		result = prime * result
-				+ ((auxiliaries == null) ? 0 : auxiliaries.hashCode());
-		result = prime
-				* result
-				+ ((availableResolution == null) ? 0 : availableResolution
-						.hashCode());
-		result = prime * result
-				+ ((baitTrap == null) ? 0 : baitTrap.hashCode());
-		result = prime
-				* result
-				+ ((barcodeCapabilities == null) ? 0 : barcodeCapabilities
-						.hashCode());
-		result = prime
-				* result
-				+ ((beepOnPressSupported == null) ? 0 : beepOnPressSupported
-						.hashCode());
-		result = prime * result
-				+ ((beepSupported == null) ? 0 : beepSupported.hashCode());
-		result = prime
-				* result
-				+ ((billsTakenSensor == null) ? 0 : billsTakenSensor.hashCode());
-		result = prime * result + ((cashbox == null) ? 0 : cashbox.hashCode());
-		result = prime * result
-				+ ((category2 == null) ? 0 : category2.hashCode());
-		result = prime * result
-				+ ((category3 == null) ? 0 : category3.hashCode());
-		result = prime * result + ((cdType == null) ? 0 : cdType.hashCode());
-		result = prime * result
-				+ ((checkVandalism == null) ? 0 : checkVandalism.hashCode());
-		result = prime
-				* result
-				+ ((chequeCapabilities == null) ? 0 : chequeCapabilities
-						.hashCode());
-		result = prime * result + ((coins == null) ? 0 : coins.hashCode());
-		result = prime * result + ((complex == null) ? 0 : complex.hashCode());
-		result = prime * result
-				+ ((compound == null) ? 0 : compound.hashCode());
-		result = prime
-				* result
-				+ ((createSignatureCommandSupported == null) ? 0
-						: createSignatureCommandSupported.hashCode());
-		result = prime * result
-				+ ((ctrlTurn == null) ? 0 : ctrlTurn.hashCode());
-		result = prime * result
-				+ ((cursorSupported == null) ? 0 : cursorSupported.hashCode());
-		result = prime * result
-				+ ((cylinders == null) ? 0 : cylinders.hashCode());
-		result = prime
-				* result
-				+ ((defaultInputPosition == null) ? 0 : defaultInputPosition
-						.hashCode());
-		result = prime
-				* result
-				+ ((defaultOutputPosition == null) ? 0 : defaultOutputPosition
-						.hashCode());
-		result = prime
-				* result
-				+ ((defaultRollbackPosition == null) ? 0
-						: defaultRollbackPosition.hashCode());
-		result = prime * result + ((deposit == null) ? 0 : deposit.hashCode());
-		result = prime * result
-				+ ((detector == null) ? 0 : detector.hashCode());
-		result = prime
-				* result
-				+ ((deviceControlName == null) ? 0 : deviceControlName
-						.hashCode());
-		result = prime * result
-				+ ((deviceId == null) ? 0 : deviceId.hashCode());
-		result = prime
-				* result
-				+ ((deviceOrientation == null) ? 0 : deviceOrientation
-						.hashCode());
-		result = prime
-				* result
-				+ ((deviceScanningBothLongSide == null) ? 0
-						: deviceScanningBothLongSide.hashCode());
-		result = prime
-				* result
-				+ ((deviceScanningBothShortSide == null) ? 0
-						: deviceScanningBothShortSide.hashCode());
-		result = prime
-				* result
-				+ ((deviceServiceName == null) ? 0 : deviceServiceName
-						.hashCode());
-		result = prime * result
-				+ ((deviceType == null) ? 0 : deviceType.hashCode());
-		result = prime * result
-				+ ((dispense == null) ? 0 : dispense.hashCode());
-		result = prime
-				* result
-				+ ((displayLightSupported == null) ? 0 : displayLightSupported
-						.hashCode());
-		result = prime * result + ((doors == null) ? 0 : doors.hashCode());
-		result = prime * result
-				+ ((ejectStatus == null) ? 0 : ejectStatus.hashCode());
-		result = prime * result + ((entry == null) ? 0 : entry.hashCode());
-		result = prime * result
-				+ ((envSupply == null) ? 0 : envSupply.hashCode());
-		result = prime * result + ((escrow == null) ? 0 : escrow.hashCode());
-		result = prime * result
-				+ ((escrowSize == null) ? 0 : escrowSize.hashCode());
-		result = prime
-				* result
-				+ ((eventOnStartSupported == null) ? 0 : eventOnStartSupported
-						.hashCode());
-		result = prime * result + ((extent == null) ? 0 : extent.hashCode());
-		result = prime
-				* result
-				+ ((financialDevices == null) ? 0 : financialDevices.hashCode());
-		result = prime * result
-				+ ((guidlights == null) ? 0 : guidlights.hashCode());
-		result = prime * result + ((idKey == null) ? 0 : idKey.hashCode());
-		result = prime
-				* result
-				+ ((imageCapabilities == null) ? 0 : imageCapabilities
-						.hashCode());
-		result = prime * result
-				+ ((imageCapture == null) ? 0 : imageCapture.hashCode());
-		result = prime * result
-				+ ((indicators == null) ? 0 : indicators.hashCode());
-		result = prime
-				* result
-				+ ((inputCookSupported == null) ? 0 : inputCookSupported
-						.hashCode());
-		result = prime * result
-				+ ((inputPositions == null) ? 0 : inputPositions.hashCode());
-		result = prime
-				* result
-				+ ((inputRawSupported == null) ? 0 : inputRawSupported
-						.hashCode());
-		result = prime
-				* result
-				+ ((insertTextSupported == null) ? 0 : insertTextSupported
-						.hashCode());
-		result = prime
-				* result
-				+ ((intermediateStacker == null) ? 0 : intermediateStacker
-						.hashCode());
-		result = prime * result
-				+ ((jxfsClass == null) ? 0 : jxfsClass.hashCode());
-		result = prime
-				* result
-				+ ((keyboardLockSupported == null) ? 0 : keyboardLockSupported
-						.hashCode());
-		result = prime
-				* result
-				+ ((keyboardSupported == null) ? 0 : keyboardSupported
-						.hashCode());
-		result = prime * result
-				+ ((keysSupported == null) ? 0 : keysSupported.hashCode());
-		result = prime * result
-				+ ((maxDataLength == null) ? 0 : maxDataLength.hashCode());
-		result = prime * result
-				+ ((maxInBills == null) ? 0 : maxInBills.hashCode());
-		result = prime * result
-				+ ((maxInCoins == null) ? 0 : maxInCoins.hashCode());
-		result = prime * result + ((maxLed == null) ? 0 : maxLed.hashCode());
-		result = prime * result
-				+ ((maxNumOfChars == null) ? 0 : maxNumOfChars.hashCode());
-		result = prime * result
-				+ ((maxOutBills == null) ? 0 : maxOutBills.hashCode());
-		result = prime * result
-				+ ((maxOutCoins == null) ? 0 : maxOutCoins.hashCode());
-		result = prime * result
-				+ ((maxPictures == null) ? 0 : maxPictures.hashCode());
-		result = prime * result
-				+ ((maxRetract == null) ? 0 : maxRetract.hashCode());
-		result = prime * result
-				+ ((maxStacker == null) ? 0 : maxStacker.hashCode());
-		result = prime
-				* result
-				+ ((multipleCurrenciesCashInSupported == null) ? 0
-						: multipleCurrenciesCashInSupported.hashCode());
-		result = prime * result
-				+ ((numberOfKeys == null) ? 0 : numberOfKeys.hashCode());
-		result = prime
-				* result
-				+ ((orientationToBeScanned == null) ? 0
-						: orientationToBeScanned.hashCode());
-		result = prime * result
-				+ ((outputPositions == null) ? 0 : outputPositions.hashCode());
-		result = prime * result
-				+ ((positions == null) ? 0 : positions.hashCode());
-		result = prime * result
-				+ ((powerOff == null) ? 0 : powerOff.hashCode());
-		result = prime * result + ((powerOn == null) ? 0 : powerOn.hashCode());
-		result = prime * result + ((print == null) ? 0 : print.hashCode());
-		result = prime * result
-				+ ((ptrCapabilities == null) ? 0 : ptrCapabilities.hashCode());
-		result = prime * result
-				+ ((ptrControlMedia == null) ? 0 : ptrControlMedia.hashCode());
-		result = prime * result
-				+ ((readFonts == null) ? 0 : readFonts.hashCode());
-		result = prime * result
-				+ ((readForm == null) ? 0 : readForm.hashCode());
-		result = prime * result
-				+ ((readImage == null) ? 0 : readImage.hashCode());
-		result = prime
-				* result
-				+ ((readKeyboardDataWithDefault == null) ? 0
-						: readKeyboardDataWithDefault.hashCode());
-		result = prime * result
-				+ ((readMicr == null) ? 0 : readMicr.hashCode());
-		result = prime * result + ((readOcr == null) ? 0 : readOcr.hashCode());
-		result = prime * result
-				+ ((readStatus == null) ? 0 : readStatus.hashCode());
-		result = prime * result + ((refill == null) ? 0 : refill.hashCode());
-		result = prime * result
-				+ ((remoteKeyLoad == null) ? 0 : remoteKeyLoad.hashCode());
-		result = prime * result + ((retain == null) ? 0 : retain.hashCode());
-		result = prime * result + ((retract == null) ? 0 : retract.hashCode());
-		result = prime * result
-				+ ((safeDoorCmd == null) ? 0 : safeDoorCmd.hashCode());
-		result = prime
-				* result
-				+ ((safeDoorSequence == null) ? 0 : safeDoorSequence.hashCode());
-		result = prime * result
-				+ ((scnCapabilities == null) ? 0 : scnCapabilities.hashCode());
-		result = prime * result
-				+ ((secureKeyDetail == null) ? 0 : secureKeyDetail.hashCode());
-		result = prime
-				* result
-				+ ((secureKeyEntryState == null) ? 0 : secureKeyEntryState
-						.hashCode());
-		result = prime
-				* result
-				+ ((secureKeyEntrySupported == null) ? 0
-						: secureKeyEntrySupported.hashCode());
-		result = prime
-				* result
-				+ ((secureModuleType == null) ? 0 : secureModuleType.hashCode());
-		result = prime * result + ((sensors == null) ? 0 : sensors.hashCode());
-		result = prime * result
-				+ ((shutterCmd == null) ? 0 : shutterCmd.hashCode());
-		result = prime * result
-				+ ((silentAlarm == null) ? 0 : silentAlarm.hashCode());
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime
-				* result
-				+ ((supportedChipPresentationModes == null) ? 0
-						: supportedChipPresentationModes.hashCode());
-		result = prime
-				* result
-				+ ((supportedChipProtocols == null) ? 0
-						: supportedChipProtocols.hashCode());
-		result = prime
-				* result
-				+ ((supportedCryptoModes == null) ? 0 : supportedCryptoModes
-						.hashCode());
-		result = prime * result
-				+ ((supportedFdKeys == null) ? 0 : supportedFdKeys.hashCode());
-		result = prime
-				* result
-				+ ((supportedPinFormats == null) ? 0 : supportedPinFormats
-						.hashCode());
-		result = prime
-				* result
-				+ ((supportedReadTracks == null) ? 0 : supportedReadTracks
-						.hashCode());
-		result = prime
-				* result
-				+ ((supportedTextAttributes == null) ? 0
-						: supportedTextAttributes.hashCode());
-		result = prime
-				* result
-				+ ((supportedValidationAlgorithms == null) ? 0
-						: supportedValidationAlgorithms.hashCode());
-		result = prime
-				* result
-				+ ((supportedWriteHicoTracks == null) ? 0
-						: supportedWriteHicoTracks.hashCode());
-		result = prime
-				* result
-				+ ((supportedWriteTracks == null) ? 0 : supportedWriteTracks
-						.hashCode());
-		result = prime * result
-				+ ((testCashUnit == null) ? 0 : testCashUnit.hashCode());
-		result = prime * result
-				+ ((transport == null) ? 0 : transport.hashCode());
-		result = prime * result
-				+ ((trustedUser == null) ? 0 : trustedUser.hashCode());
-		result = prime * result + ((unfit == null) ? 0 : unfit.hashCode());
-		result = prime * result
-				+ ((vendorData == null) ? 0 : vendorData.hashCode());
-		result = prime * result
-				+ ((writeForm == null) ? 0 : writeForm.hashCode());
-		result = prime * result
-				+ ((writeMode == null) ? 0 : writeMode.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result
+		+ ((acceptLimit == null) ? 0 : acceptLimit.hashCode());
+	result = prime * result
+		+ ((autopresent == null) ? 0 : autopresent.hashCode());
+	result = prime * result
+		+ ((auxiliaries == null) ? 0 : auxiliaries.hashCode());
+	result = prime
+		* result
+		+ ((availableResolution == null) ? 0 : availableResolution
+			.hashCode());
+	result = prime * result
+		+ ((baitTrap == null) ? 0 : baitTrap.hashCode());
+	result = prime
+		* result
+		+ ((barcodeCapabilities == null) ? 0 : barcodeCapabilities
+			.hashCode());
+	result = prime
+		* result
+		+ ((beepOnPressSupported == null) ? 0 : beepOnPressSupported
+			.hashCode());
+	result = prime * result
+		+ ((beepSupported == null) ? 0 : beepSupported.hashCode());
+	result = prime
+		* result
+		+ ((billsTakenSensor == null) ? 0 : billsTakenSensor.hashCode());
+	result = prime * result + ((cashbox == null) ? 0 : cashbox.hashCode());
+	result = prime * result
+		+ ((category2 == null) ? 0 : category2.hashCode());
+	result = prime * result
+		+ ((category3 == null) ? 0 : category3.hashCode());
+	result = prime * result + ((cdType == null) ? 0 : cdType.hashCode());
+	result = prime * result
+		+ ((checkVandalism == null) ? 0 : checkVandalism.hashCode());
+	result = prime
+		* result
+		+ ((chequeCapabilities == null) ? 0 : chequeCapabilities
+			.hashCode());
+	result = prime * result + ((coins == null) ? 0 : coins.hashCode());
+	result = prime * result + ((complex == null) ? 0 : complex.hashCode());
+	result = prime * result
+		+ ((compound == null) ? 0 : compound.hashCode());
+	result = prime
+		* result
+		+ ((createSignatureCommandSupported == null) ? 0
+			: createSignatureCommandSupported.hashCode());
+	result = prime * result
+		+ ((ctrlTurn == null) ? 0 : ctrlTurn.hashCode());
+	result = prime * result
+		+ ((cursorSupported == null) ? 0 : cursorSupported.hashCode());
+	result = prime * result
+		+ ((cylinders == null) ? 0 : cylinders.hashCode());
+	result = prime
+		* result
+		+ ((defaultInputPosition == null) ? 0 : defaultInputPosition
+			.hashCode());
+	result = prime
+		* result
+		+ ((defaultOutputPosition == null) ? 0 : defaultOutputPosition
+			.hashCode());
+	result = prime
+		* result
+		+ ((defaultRollbackPosition == null) ? 0
+			: defaultRollbackPosition.hashCode());
+	result = prime * result + ((deposit == null) ? 0 : deposit.hashCode());
+	result = prime * result
+		+ ((detector == null) ? 0 : detector.hashCode());
+	result = prime
+		* result
+		+ ((deviceControlName == null) ? 0 : deviceControlName
+			.hashCode());
+	result = prime * result
+		+ ((deviceId == null) ? 0 : deviceId.hashCode());
+	result = prime
+		* result
+		+ ((deviceOrientation == null) ? 0 : deviceOrientation
+			.hashCode());
+	result = prime
+		* result
+		+ ((deviceScanningBothLongSide == null) ? 0
+			: deviceScanningBothLongSide.hashCode());
+	result = prime
+		* result
+		+ ((deviceScanningBothShortSide == null) ? 0
+			: deviceScanningBothShortSide.hashCode());
+	result = prime
+		* result
+		+ ((deviceServiceName == null) ? 0 : deviceServiceName
+			.hashCode());
+	result = prime * result
+		+ ((deviceType == null) ? 0 : deviceType.hashCode());
+	result = prime * result
+		+ ((dispense == null) ? 0 : dispense.hashCode());
+	result = prime
+		* result
+		+ ((displayLightSupported == null) ? 0 : displayLightSupported
+			.hashCode());
+	result = prime * result + ((doors == null) ? 0 : doors.hashCode());
+	result = prime * result
+		+ ((ejectStatus == null) ? 0 : ejectStatus.hashCode());
+	result = prime * result + ((entry == null) ? 0 : entry.hashCode());
+	result = prime * result
+		+ ((envSupply == null) ? 0 : envSupply.hashCode());
+	result = prime * result + ((escrow == null) ? 0 : escrow.hashCode());
+	result = prime * result
+		+ ((escrowSize == null) ? 0 : escrowSize.hashCode());
+	result = prime
+		* result
+		+ ((eventOnStartSupported == null) ? 0 : eventOnStartSupported
+			.hashCode());
+	result = prime * result + ((extent == null) ? 0 : extent.hashCode());
+	result = prime
+		* result
+		+ ((financialDevices == null) ? 0 : financialDevices.hashCode());
+	result = prime * result
+		+ ((guidlights == null) ? 0 : guidlights.hashCode());
+	result = prime * result + ((idKey == null) ? 0 : idKey.hashCode());
+	result = prime
+		* result
+		+ ((imageCapabilities == null) ? 0 : imageCapabilities
+			.hashCode());
+	result = prime * result
+		+ ((imageCapture == null) ? 0 : imageCapture.hashCode());
+	result = prime * result
+		+ ((indicators == null) ? 0 : indicators.hashCode());
+	result = prime
+		* result
+		+ ((inputCookSupported == null) ? 0 : inputCookSupported
+			.hashCode());
+	result = prime * result
+		+ ((inputPositions == null) ? 0 : inputPositions.hashCode());
+	result = prime
+		* result
+		+ ((inputRawSupported == null) ? 0 : inputRawSupported
+			.hashCode());
+	result = prime
+		* result
+		+ ((insertTextSupported == null) ? 0 : insertTextSupported
+			.hashCode());
+	result = prime
+		* result
+		+ ((intermediateStacker == null) ? 0 : intermediateStacker
+			.hashCode());
+	result = prime * result
+		+ ((jxfsClass == null) ? 0 : jxfsClass.hashCode());
+	result = prime
+		* result
+		+ ((keyboardLockSupported == null) ? 0 : keyboardLockSupported
+			.hashCode());
+	result = prime
+		* result
+		+ ((keyboardSupported == null) ? 0 : keyboardSupported
+			.hashCode());
+	result = prime * result
+		+ ((keysSupported == null) ? 0 : keysSupported.hashCode());
+	result = prime * result
+		+ ((maxDataLength == null) ? 0 : maxDataLength.hashCode());
+	result = prime * result
+		+ ((maxInBills == null) ? 0 : maxInBills.hashCode());
+	result = prime * result
+		+ ((maxInCoins == null) ? 0 : maxInCoins.hashCode());
+	result = prime * result + ((maxLed == null) ? 0 : maxLed.hashCode());
+	result = prime * result
+		+ ((maxNumOfChars == null) ? 0 : maxNumOfChars.hashCode());
+	result = prime * result
+		+ ((maxOutBills == null) ? 0 : maxOutBills.hashCode());
+	result = prime * result
+		+ ((maxOutCoins == null) ? 0 : maxOutCoins.hashCode());
+	result = prime * result
+		+ ((maxPictures == null) ? 0 : maxPictures.hashCode());
+	result = prime * result
+		+ ((maxRetract == null) ? 0 : maxRetract.hashCode());
+	result = prime * result
+		+ ((maxStacker == null) ? 0 : maxStacker.hashCode());
+	result = prime
+		* result
+		+ ((multipleCurrenciesCashInSupported == null) ? 0
+			: multipleCurrenciesCashInSupported.hashCode());
+	result = prime * result
+		+ ((numberOfKeys == null) ? 0 : numberOfKeys.hashCode());
+	result = prime
+		* result
+		+ ((orientationToBeScanned == null) ? 0
+			: orientationToBeScanned.hashCode());
+	result = prime * result
+		+ ((outputPositions == null) ? 0 : outputPositions.hashCode());
+	result = prime * result
+		+ ((positions == null) ? 0 : positions.hashCode());
+	result = prime * result
+		+ ((powerOff == null) ? 0 : powerOff.hashCode());
+	result = prime * result + ((powerOn == null) ? 0 : powerOn.hashCode());
+	result = prime * result + ((print == null) ? 0 : print.hashCode());
+	result = prime * result
+		+ ((ptrCapabilities == null) ? 0 : ptrCapabilities.hashCode());
+	result = prime * result
+		+ ((ptrControlMedia == null) ? 0 : ptrControlMedia.hashCode());
+	result = prime * result
+		+ ((readFonts == null) ? 0 : readFonts.hashCode());
+	result = prime * result
+		+ ((readForm == null) ? 0 : readForm.hashCode());
+	result = prime * result
+		+ ((readImage == null) ? 0 : readImage.hashCode());
+	result = prime
+		* result
+		+ ((readKeyboardDataWithDefault == null) ? 0
+			: readKeyboardDataWithDefault.hashCode());
+	result = prime * result
+		+ ((readMicr == null) ? 0 : readMicr.hashCode());
+	result = prime * result + ((readOcr == null) ? 0 : readOcr.hashCode());
+	result = prime * result
+		+ ((readStatus == null) ? 0 : readStatus.hashCode());
+	result = prime * result + ((refill == null) ? 0 : refill.hashCode());
+	result = prime * result
+		+ ((remoteKeyLoad == null) ? 0 : remoteKeyLoad.hashCode());
+	result = prime * result + ((retain == null) ? 0 : retain.hashCode());
+	result = prime * result + ((retract == null) ? 0 : retract.hashCode());
+	result = prime * result
+		+ ((safeDoorCmd == null) ? 0 : safeDoorCmd.hashCode());
+	result = prime
+		* result
+		+ ((safeDoorSequence == null) ? 0 : safeDoorSequence.hashCode());
+	result = prime * result
+		+ ((scnCapabilities == null) ? 0 : scnCapabilities.hashCode());
+	result = prime * result
+		+ ((secureKeyDetail == null) ? 0 : secureKeyDetail.hashCode());
+	result = prime
+		* result
+		+ ((secureKeyEntryState == null) ? 0 : secureKeyEntryState
+			.hashCode());
+	result = prime
+		* result
+		+ ((secureKeyEntrySupported == null) ? 0
+			: secureKeyEntrySupported.hashCode());
+	result = prime
+		* result
+		+ ((secureModuleType == null) ? 0 : secureModuleType.hashCode());
+	result = prime * result + ((sensors == null) ? 0 : sensors.hashCode());
+	result = prime * result
+		+ ((shutterCmd == null) ? 0 : shutterCmd.hashCode());
+	result = prime * result
+		+ ((silentAlarm == null) ? 0 : silentAlarm.hashCode());
+	result = prime * result + ((status == null) ? 0 : status.hashCode());
+	result = prime
+		* result
+		+ ((supportedChipPresentationModes == null) ? 0
+			: supportedChipPresentationModes.hashCode());
+	result = prime
+		* result
+		+ ((supportedChipProtocols == null) ? 0
+			: supportedChipProtocols.hashCode());
+	result = prime
+		* result
+		+ ((supportedCryptoModes == null) ? 0 : supportedCryptoModes
+			.hashCode());
+	result = prime * result
+		+ ((supportedFdKeys == null) ? 0 : supportedFdKeys.hashCode());
+	result = prime
+		* result
+		+ ((supportedPinFormats == null) ? 0 : supportedPinFormats
+			.hashCode());
+	result = prime
+		* result
+		+ ((supportedReadTracks == null) ? 0 : supportedReadTracks
+			.hashCode());
+	result = prime
+		* result
+		+ ((supportedTextAttributes == null) ? 0
+			: supportedTextAttributes.hashCode());
+	result = prime
+		* result
+		+ ((supportedValidationAlgorithms == null) ? 0
+			: supportedValidationAlgorithms.hashCode());
+	result = prime
+		* result
+		+ ((supportedWriteHicoTracks == null) ? 0
+			: supportedWriteHicoTracks.hashCode());
+	result = prime
+		* result
+		+ ((supportedWriteTracks == null) ? 0 : supportedWriteTracks
+			.hashCode());
+	result = prime * result
+		+ ((testCashUnit == null) ? 0 : testCashUnit.hashCode());
+	result = prime * result
+		+ ((transport == null) ? 0 : transport.hashCode());
+	result = prime * result
+		+ ((trustedUser == null) ? 0 : trustedUser.hashCode());
+	result = prime * result + ((unfit == null) ? 0 : unfit.hashCode());
+	result = prime * result
+		+ ((vendorData == null) ? 0 : vendorData.hashCode());
+	result = prime * result
+		+ ((writeForm == null) ? 0 : writeForm.hashCode());
+	result = prime * result
+		+ ((writeMode == null) ? 0 : writeMode.hashCode());
+	return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		JxfsComponent other = (JxfsComponent) obj;
-		if (acceptLimit == null) {
-			if (other.acceptLimit != null)
-				return false;
-		} else if (!acceptLimit.equals(other.acceptLimit))
-			return false;
-		if (autopresent == null) {
-			if (other.autopresent != null)
-				return false;
-		} else if (!autopresent.equals(other.autopresent))
-			return false;
-		if (auxiliaries == null) {
-			if (other.auxiliaries != null)
-				return false;
-		} else if (!auxiliaries.equals(other.auxiliaries))
-			return false;
-		if (availableResolution == null) {
-			if (other.availableResolution != null)
-				return false;
-		} else if (!availableResolution.equals(other.availableResolution))
-			return false;
-		if (baitTrap == null) {
-			if (other.baitTrap != null)
-				return false;
-		} else if (!baitTrap.equals(other.baitTrap))
-			return false;
-		if (barcodeCapabilities == null) {
-			if (other.barcodeCapabilities != null)
-				return false;
-		} else if (!barcodeCapabilities.equals(other.barcodeCapabilities))
-			return false;
-		if (beepOnPressSupported == null) {
-			if (other.beepOnPressSupported != null)
-				return false;
-		} else if (!beepOnPressSupported.equals(other.beepOnPressSupported))
-			return false;
-		if (beepSupported == null) {
-			if (other.beepSupported != null)
-				return false;
-		} else if (!beepSupported.equals(other.beepSupported))
-			return false;
-		if (billsTakenSensor == null) {
-			if (other.billsTakenSensor != null)
-				return false;
-		} else if (!billsTakenSensor.equals(other.billsTakenSensor))
-			return false;
-		if (cashbox == null) {
-			if (other.cashbox != null)
-				return false;
-		} else if (!cashbox.equals(other.cashbox))
-			return false;
-		if (category2 == null) {
-			if (other.category2 != null)
-				return false;
-		} else if (!category2.equals(other.category2))
-			return false;
-		if (category3 == null) {
-			if (other.category3 != null)
-				return false;
-		} else if (!category3.equals(other.category3))
-			return false;
-		if (cdType == null) {
-			if (other.cdType != null)
-				return false;
-		} else if (!cdType.equals(other.cdType))
-			return false;
-		if (checkVandalism == null) {
-			if (other.checkVandalism != null)
-				return false;
-		} else if (!checkVandalism.equals(other.checkVandalism))
-			return false;
-		if (chequeCapabilities == null) {
-			if (other.chequeCapabilities != null)
-				return false;
-		} else if (!chequeCapabilities.equals(other.chequeCapabilities))
-			return false;
-		if (coins == null) {
-			if (other.coins != null)
-				return false;
-		} else if (!coins.equals(other.coins))
-			return false;
-		if (complex == null) {
-			if (other.complex != null)
-				return false;
-		} else if (!complex.equals(other.complex))
-			return false;
-		if (compound == null) {
-			if (other.compound != null)
-				return false;
-		} else if (!compound.equals(other.compound))
-			return false;
-		if (createSignatureCommandSupported == null) {
-			if (other.createSignatureCommandSupported != null)
-				return false;
-		} else if (!createSignatureCommandSupported
-				.equals(other.createSignatureCommandSupported))
-			return false;
-		if (ctrlTurn == null) {
-			if (other.ctrlTurn != null)
-				return false;
-		} else if (!ctrlTurn.equals(other.ctrlTurn))
-			return false;
-		if (cursorSupported == null) {
-			if (other.cursorSupported != null)
-				return false;
-		} else if (!cursorSupported.equals(other.cursorSupported))
-			return false;
-		if (cylinders == null) {
-			if (other.cylinders != null)
-				return false;
-		} else if (!cylinders.equals(other.cylinders))
-			return false;
-		if (defaultInputPosition == null) {
-			if (other.defaultInputPosition != null)
-				return false;
-		} else if (!defaultInputPosition.equals(other.defaultInputPosition))
-			return false;
-		if (defaultOutputPosition == null) {
-			if (other.defaultOutputPosition != null)
-				return false;
-		} else if (!defaultOutputPosition.equals(other.defaultOutputPosition))
-			return false;
-		if (defaultRollbackPosition == null) {
-			if (other.defaultRollbackPosition != null)
-				return false;
-		} else if (!defaultRollbackPosition
-				.equals(other.defaultRollbackPosition))
-			return false;
-		if (deposit == null) {
-			if (other.deposit != null)
-				return false;
-		} else if (!deposit.equals(other.deposit))
-			return false;
-		if (detector == null) {
-			if (other.detector != null)
-				return false;
-		} else if (!detector.equals(other.detector))
-			return false;
-		if (deviceControlName == null) {
-			if (other.deviceControlName != null)
-				return false;
-		} else if (!deviceControlName.equals(other.deviceControlName))
-			return false;
-		if (deviceId == null) {
-			if (other.deviceId != null)
-				return false;
-		} else if (!deviceId.equals(other.deviceId))
-			return false;
-		if (deviceOrientation == null) {
-			if (other.deviceOrientation != null)
-				return false;
-		} else if (!deviceOrientation.equals(other.deviceOrientation))
-			return false;
-		if (deviceScanningBothLongSide == null) {
-			if (other.deviceScanningBothLongSide != null)
-				return false;
-		} else if (!deviceScanningBothLongSide
-				.equals(other.deviceScanningBothLongSide))
-			return false;
-		if (deviceScanningBothShortSide == null) {
-			if (other.deviceScanningBothShortSide != null)
-				return false;
-		} else if (!deviceScanningBothShortSide
-				.equals(other.deviceScanningBothShortSide))
-			return false;
-		if (deviceServiceName == null) {
-			if (other.deviceServiceName != null)
-				return false;
-		} else if (!deviceServiceName.equals(other.deviceServiceName))
-			return false;
-		if (deviceType == null) {
-			if (other.deviceType != null)
-				return false;
-		} else if (!deviceType.equals(other.deviceType))
-			return false;
-		if (dispense == null) {
-			if (other.dispense != null)
-				return false;
-		} else if (!dispense.equals(other.dispense))
-			return false;
-		if (displayLightSupported == null) {
-			if (other.displayLightSupported != null)
-				return false;
-		} else if (!displayLightSupported.equals(other.displayLightSupported))
-			return false;
-		if (doors == null) {
-			if (other.doors != null)
-				return false;
-		} else if (!doors.equals(other.doors))
-			return false;
-		if (ejectStatus == null) {
-			if (other.ejectStatus != null)
-				return false;
-		} else if (!ejectStatus.equals(other.ejectStatus))
-			return false;
-		if (entry == null) {
-			if (other.entry != null)
-				return false;
-		} else if (!entry.equals(other.entry))
-			return false;
-		if (envSupply == null) {
-			if (other.envSupply != null)
-				return false;
-		} else if (!envSupply.equals(other.envSupply))
-			return false;
-		if (escrow == null) {
-			if (other.escrow != null)
-				return false;
-		} else if (!escrow.equals(other.escrow))
-			return false;
-		if (escrowSize == null) {
-			if (other.escrowSize != null)
-				return false;
-		} else if (!escrowSize.equals(other.escrowSize))
-			return false;
-		if (eventOnStartSupported == null) {
-			if (other.eventOnStartSupported != null)
-				return false;
-		} else if (!eventOnStartSupported.equals(other.eventOnStartSupported))
-			return false;
-		if (extent == null) {
-			if (other.extent != null)
-				return false;
-		} else if (!extent.equals(other.extent))
-			return false;
-		if (financialDevices == null) {
-			if (other.financialDevices != null)
-				return false;
-		} else if (!financialDevices.equals(other.financialDevices))
-			return false;
-		if (guidlights == null) {
-			if (other.guidlights != null)
-				return false;
-		} else if (!guidlights.equals(other.guidlights))
-			return false;
-		if (idKey == null) {
-			if (other.idKey != null)
-				return false;
-		} else if (!idKey.equals(other.idKey))
-			return false;
-		if (imageCapabilities == null) {
-			if (other.imageCapabilities != null)
-				return false;
-		} else if (!imageCapabilities.equals(other.imageCapabilities))
-			return false;
-		if (imageCapture == null) {
-			if (other.imageCapture != null)
-				return false;
-		} else if (!imageCapture.equals(other.imageCapture))
-			return false;
-		if (indicators == null) {
-			if (other.indicators != null)
-				return false;
-		} else if (!indicators.equals(other.indicators))
-			return false;
-		if (inputCookSupported == null) {
-			if (other.inputCookSupported != null)
-				return false;
-		} else if (!inputCookSupported.equals(other.inputCookSupported))
-			return false;
-		if (inputPositions == null) {
-			if (other.inputPositions != null)
-				return false;
-		} else if (!inputPositions.equals(other.inputPositions))
-			return false;
-		if (inputRawSupported == null) {
-			if (other.inputRawSupported != null)
-				return false;
-		} else if (!inputRawSupported.equals(other.inputRawSupported))
-			return false;
-		if (insertTextSupported == null) {
-			if (other.insertTextSupported != null)
-				return false;
-		} else if (!insertTextSupported.equals(other.insertTextSupported))
-			return false;
-		if (intermediateStacker == null) {
-			if (other.intermediateStacker != null)
-				return false;
-		} else if (!intermediateStacker.equals(other.intermediateStacker))
-			return false;
-		if (jxfsClass == null) {
-			if (other.jxfsClass != null)
-				return false;
-		} else if (!jxfsClass.equals(other.jxfsClass))
-			return false;
-		if (keyboardLockSupported == null) {
-			if (other.keyboardLockSupported != null)
-				return false;
-		} else if (!keyboardLockSupported.equals(other.keyboardLockSupported))
-			return false;
-		if (keyboardSupported == null) {
-			if (other.keyboardSupported != null)
-				return false;
-		} else if (!keyboardSupported.equals(other.keyboardSupported))
-			return false;
-		if (keysSupported == null) {
-			if (other.keysSupported != null)
-				return false;
-		} else if (!keysSupported.equals(other.keysSupported))
-			return false;
-		if (maxDataLength == null) {
-			if (other.maxDataLength != null)
-				return false;
-		} else if (!maxDataLength.equals(other.maxDataLength))
-			return false;
-		if (maxInBills == null) {
-			if (other.maxInBills != null)
-				return false;
-		} else if (!maxInBills.equals(other.maxInBills))
-			return false;
-		if (maxInCoins == null) {
-			if (other.maxInCoins != null)
-				return false;
-		} else if (!maxInCoins.equals(other.maxInCoins))
-			return false;
-		if (maxLed == null) {
-			if (other.maxLed != null)
-				return false;
-		} else if (!maxLed.equals(other.maxLed))
-			return false;
-		if (maxNumOfChars == null) {
-			if (other.maxNumOfChars != null)
-				return false;
-		} else if (!maxNumOfChars.equals(other.maxNumOfChars))
-			return false;
-		if (maxOutBills == null) {
-			if (other.maxOutBills != null)
-				return false;
-		} else if (!maxOutBills.equals(other.maxOutBills))
-			return false;
-		if (maxOutCoins == null) {
-			if (other.maxOutCoins != null)
-				return false;
-		} else if (!maxOutCoins.equals(other.maxOutCoins))
-			return false;
-		if (maxPictures == null) {
-			if (other.maxPictures != null)
-				return false;
-		} else if (!maxPictures.equals(other.maxPictures))
-			return false;
-		if (maxRetract == null) {
-			if (other.maxRetract != null)
-				return false;
-		} else if (!maxRetract.equals(other.maxRetract))
-			return false;
-		if (maxStacker == null) {
-			if (other.maxStacker != null)
-				return false;
-		} else if (!maxStacker.equals(other.maxStacker))
-			return false;
-		if (multipleCurrenciesCashInSupported == null) {
-			if (other.multipleCurrenciesCashInSupported != null)
-				return false;
-		} else if (!multipleCurrenciesCashInSupported
-				.equals(other.multipleCurrenciesCashInSupported))
-			return false;
-		if (numberOfKeys == null) {
-			if (other.numberOfKeys != null)
-				return false;
-		} else if (!numberOfKeys.equals(other.numberOfKeys))
-			return false;
-		if (orientationToBeScanned == null) {
-			if (other.orientationToBeScanned != null)
-				return false;
-		} else if (!orientationToBeScanned.equals(other.orientationToBeScanned))
-			return false;
-		if (outputPositions == null) {
-			if (other.outputPositions != null)
-				return false;
-		} else if (!outputPositions.equals(other.outputPositions))
-			return false;
-		if (positions == null) {
-			if (other.positions != null)
-				return false;
-		} else if (!positions.equals(other.positions))
-			return false;
-		if (powerOff == null) {
-			if (other.powerOff != null)
-				return false;
-		} else if (!powerOff.equals(other.powerOff))
-			return false;
-		if (powerOn == null) {
-			if (other.powerOn != null)
-				return false;
-		} else if (!powerOn.equals(other.powerOn))
-			return false;
-		if (print == null) {
-			if (other.print != null)
-				return false;
-		} else if (!print.equals(other.print))
-			return false;
-		if (ptrCapabilities == null) {
-			if (other.ptrCapabilities != null)
-				return false;
-		} else if (!ptrCapabilities.equals(other.ptrCapabilities))
-			return false;
-		if (ptrControlMedia == null) {
-			if (other.ptrControlMedia != null)
-				return false;
-		} else if (!ptrControlMedia.equals(other.ptrControlMedia))
-			return false;
-		if (readFonts == null) {
-			if (other.readFonts != null)
-				return false;
-		} else if (!readFonts.equals(other.readFonts))
-			return false;
-		if (readForm == null) {
-			if (other.readForm != null)
-				return false;
-		} else if (!readForm.equals(other.readForm))
-			return false;
-		if (readImage == null) {
-			if (other.readImage != null)
-				return false;
-		} else if (!readImage.equals(other.readImage))
-			return false;
-		if (readKeyboardDataWithDefault == null) {
-			if (other.readKeyboardDataWithDefault != null)
-				return false;
-		} else if (!readKeyboardDataWithDefault
-				.equals(other.readKeyboardDataWithDefault))
-			return false;
-		if (readMicr == null) {
-			if (other.readMicr != null)
-				return false;
-		} else if (!readMicr.equals(other.readMicr))
-			return false;
-		if (readOcr == null) {
-			if (other.readOcr != null)
-				return false;
-		} else if (!readOcr.equals(other.readOcr))
-			return false;
-		if (readStatus == null) {
-			if (other.readStatus != null)
-				return false;
-		} else if (!readStatus.equals(other.readStatus))
-			return false;
-		if (refill == null) {
-			if (other.refill != null)
-				return false;
-		} else if (!refill.equals(other.refill))
-			return false;
-		if (remoteKeyLoad == null) {
-			if (other.remoteKeyLoad != null)
-				return false;
-		} else if (!remoteKeyLoad.equals(other.remoteKeyLoad))
-			return false;
-		if (retain == null) {
-			if (other.retain != null)
-				return false;
-		} else if (!retain.equals(other.retain))
-			return false;
-		if (retract == null) {
-			if (other.retract != null)
-				return false;
-		} else if (!retract.equals(other.retract))
-			return false;
-		if (safeDoorCmd == null) {
-			if (other.safeDoorCmd != null)
-				return false;
-		} else if (!safeDoorCmd.equals(other.safeDoorCmd))
-			return false;
-		if (safeDoorSequence == null) {
-			if (other.safeDoorSequence != null)
-				return false;
-		} else if (!safeDoorSequence.equals(other.safeDoorSequence))
-			return false;
-		if (scnCapabilities == null) {
-			if (other.scnCapabilities != null)
-				return false;
-		} else if (!scnCapabilities.equals(other.scnCapabilities))
-			return false;
-		if (secureKeyDetail == null) {
-			if (other.secureKeyDetail != null)
-				return false;
-		} else if (!secureKeyDetail.equals(other.secureKeyDetail))
-			return false;
-		if (secureKeyEntryState == null) {
-			if (other.secureKeyEntryState != null)
-				return false;
-		} else if (!secureKeyEntryState.equals(other.secureKeyEntryState))
-			return false;
-		if (secureKeyEntrySupported == null) {
-			if (other.secureKeyEntrySupported != null)
-				return false;
-		} else if (!secureKeyEntrySupported
-				.equals(other.secureKeyEntrySupported))
-			return false;
-		if (secureModuleType == null) {
-			if (other.secureModuleType != null)
-				return false;
-		} else if (!secureModuleType.equals(other.secureModuleType))
-			return false;
-		if (sensors == null) {
-			if (other.sensors != null)
-				return false;
-		} else if (!sensors.equals(other.sensors))
-			return false;
-		if (shutterCmd == null) {
-			if (other.shutterCmd != null)
-				return false;
-		} else if (!shutterCmd.equals(other.shutterCmd))
-			return false;
-		if (silentAlarm == null) {
-			if (other.silentAlarm != null)
-				return false;
-		} else if (!silentAlarm.equals(other.silentAlarm))
-			return false;
-		if (status == null) {
-			if (other.status != null)
-				return false;
-		} else if (!status.equals(other.status))
-			return false;
-		if (supportedChipPresentationModes == null) {
-			if (other.supportedChipPresentationModes != null)
-				return false;
-		} else if (!supportedChipPresentationModes
-				.equals(other.supportedChipPresentationModes))
-			return false;
-		if (supportedChipProtocols == null) {
-			if (other.supportedChipProtocols != null)
-				return false;
-		} else if (!supportedChipProtocols.equals(other.supportedChipProtocols))
-			return false;
-		if (supportedCryptoModes == null) {
-			if (other.supportedCryptoModes != null)
-				return false;
-		} else if (!supportedCryptoModes.equals(other.supportedCryptoModes))
-			return false;
-		if (supportedFdKeys == null) {
-			if (other.supportedFdKeys != null)
-				return false;
-		} else if (!supportedFdKeys.equals(other.supportedFdKeys))
-			return false;
-		if (supportedPinFormats == null) {
-			if (other.supportedPinFormats != null)
-				return false;
-		} else if (!supportedPinFormats.equals(other.supportedPinFormats))
-			return false;
-		if (supportedReadTracks == null) {
-			if (other.supportedReadTracks != null)
-				return false;
-		} else if (!supportedReadTracks.equals(other.supportedReadTracks))
-			return false;
-		if (supportedTextAttributes == null) {
-			if (other.supportedTextAttributes != null)
-				return false;
-		} else if (!supportedTextAttributes
-				.equals(other.supportedTextAttributes))
-			return false;
-		if (supportedValidationAlgorithms == null) {
-			if (other.supportedValidationAlgorithms != null)
-				return false;
-		} else if (!supportedValidationAlgorithms
-				.equals(other.supportedValidationAlgorithms))
-			return false;
-		if (supportedWriteHicoTracks == null) {
-			if (other.supportedWriteHicoTracks != null)
-				return false;
-		} else if (!supportedWriteHicoTracks
-				.equals(other.supportedWriteHicoTracks))
-			return false;
-		if (supportedWriteTracks == null) {
-			if (other.supportedWriteTracks != null)
-				return false;
-		} else if (!supportedWriteTracks.equals(other.supportedWriteTracks))
-			return false;
-		if (testCashUnit == null) {
-			if (other.testCashUnit != null)
-				return false;
-		} else if (!testCashUnit.equals(other.testCashUnit))
-			return false;
-		if (transport == null) {
-			if (other.transport != null)
-				return false;
-		} else if (!transport.equals(other.transport))
-			return false;
-		if (trustedUser == null) {
-			if (other.trustedUser != null)
-				return false;
-		} else if (!trustedUser.equals(other.trustedUser))
-			return false;
-		if (unfit == null) {
-			if (other.unfit != null)
-				return false;
-		} else if (!unfit.equals(other.unfit))
-			return false;
-		if (vendorData == null) {
-			if (other.vendorData != null)
-				return false;
-		} else if (!vendorData.equals(other.vendorData))
-			return false;
-		if (writeForm == null) {
-			if (other.writeForm != null)
-				return false;
-		} else if (!writeForm.equals(other.writeForm))
-			return false;
-		if (writeMode == null) {
-			if (other.writeMode != null)
-				return false;
-		} else if (!writeMode.equals(other.writeMode))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	JxfsComponent other = (JxfsComponent) obj;
+	if (acceptLimit == null) {
+	    if (other.acceptLimit != null)
+		return false;
+	} else if (!acceptLimit.equals(other.acceptLimit))
+	    return false;
+	if (autopresent == null) {
+	    if (other.autopresent != null)
+		return false;
+	} else if (!autopresent.equals(other.autopresent))
+	    return false;
+	if (auxiliaries == null) {
+	    if (other.auxiliaries != null)
+		return false;
+	} else if (!auxiliaries.equals(other.auxiliaries))
+	    return false;
+	if (availableResolution == null) {
+	    if (other.availableResolution != null)
+		return false;
+	} else if (!availableResolution.equals(other.availableResolution))
+	    return false;
+	if (baitTrap == null) {
+	    if (other.baitTrap != null)
+		return false;
+	} else if (!baitTrap.equals(other.baitTrap))
+	    return false;
+	if (barcodeCapabilities == null) {
+	    if (other.barcodeCapabilities != null)
+		return false;
+	} else if (!barcodeCapabilities.equals(other.barcodeCapabilities))
+	    return false;
+	if (beepOnPressSupported == null) {
+	    if (other.beepOnPressSupported != null)
+		return false;
+	} else if (!beepOnPressSupported.equals(other.beepOnPressSupported))
+	    return false;
+	if (beepSupported == null) {
+	    if (other.beepSupported != null)
+		return false;
+	} else if (!beepSupported.equals(other.beepSupported))
+	    return false;
+	if (billsTakenSensor == null) {
+	    if (other.billsTakenSensor != null)
+		return false;
+	} else if (!billsTakenSensor.equals(other.billsTakenSensor))
+	    return false;
+	if (cashbox == null) {
+	    if (other.cashbox != null)
+		return false;
+	} else if (!cashbox.equals(other.cashbox))
+	    return false;
+	if (category2 == null) {
+	    if (other.category2 != null)
+		return false;
+	} else if (!category2.equals(other.category2))
+	    return false;
+	if (category3 == null) {
+	    if (other.category3 != null)
+		return false;
+	} else if (!category3.equals(other.category3))
+	    return false;
+	if (cdType == null) {
+	    if (other.cdType != null)
+		return false;
+	} else if (!cdType.equals(other.cdType))
+	    return false;
+	if (checkVandalism == null) {
+	    if (other.checkVandalism != null)
+		return false;
+	} else if (!checkVandalism.equals(other.checkVandalism))
+	    return false;
+	if (chequeCapabilities == null) {
+	    if (other.chequeCapabilities != null)
+		return false;
+	} else if (!chequeCapabilities.equals(other.chequeCapabilities))
+	    return false;
+	if (coins == null) {
+	    if (other.coins != null)
+		return false;
+	} else if (!coins.equals(other.coins))
+	    return false;
+	if (complex == null) {
+	    if (other.complex != null)
+		return false;
+	} else if (!complex.equals(other.complex))
+	    return false;
+	if (compound == null) {
+	    if (other.compound != null)
+		return false;
+	} else if (!compound.equals(other.compound))
+	    return false;
+	if (createSignatureCommandSupported == null) {
+	    if (other.createSignatureCommandSupported != null)
+		return false;
+	} else if (!createSignatureCommandSupported
+		.equals(other.createSignatureCommandSupported))
+	    return false;
+	if (ctrlTurn == null) {
+	    if (other.ctrlTurn != null)
+		return false;
+	} else if (!ctrlTurn.equals(other.ctrlTurn))
+	    return false;
+	if (cursorSupported == null) {
+	    if (other.cursorSupported != null)
+		return false;
+	} else if (!cursorSupported.equals(other.cursorSupported))
+	    return false;
+	if (cylinders == null) {
+	    if (other.cylinders != null)
+		return false;
+	} else if (!cylinders.equals(other.cylinders))
+	    return false;
+	if (defaultInputPosition == null) {
+	    if (other.defaultInputPosition != null)
+		return false;
+	} else if (!defaultInputPosition.equals(other.defaultInputPosition))
+	    return false;
+	if (defaultOutputPosition == null) {
+	    if (other.defaultOutputPosition != null)
+		return false;
+	} else if (!defaultOutputPosition.equals(other.defaultOutputPosition))
+	    return false;
+	if (defaultRollbackPosition == null) {
+	    if (other.defaultRollbackPosition != null)
+		return false;
+	} else if (!defaultRollbackPosition
+		.equals(other.defaultRollbackPosition))
+	    return false;
+	if (deposit == null) {
+	    if (other.deposit != null)
+		return false;
+	} else if (!deposit.equals(other.deposit))
+	    return false;
+	if (detector == null) {
+	    if (other.detector != null)
+		return false;
+	} else if (!detector.equals(other.detector))
+	    return false;
+	if (deviceControlName == null) {
+	    if (other.deviceControlName != null)
+		return false;
+	} else if (!deviceControlName.equals(other.deviceControlName))
+	    return false;
+	if (deviceId == null) {
+	    if (other.deviceId != null)
+		return false;
+	} else if (!deviceId.equals(other.deviceId))
+	    return false;
+	if (deviceOrientation == null) {
+	    if (other.deviceOrientation != null)
+		return false;
+	} else if (!deviceOrientation.equals(other.deviceOrientation))
+	    return false;
+	if (deviceScanningBothLongSide == null) {
+	    if (other.deviceScanningBothLongSide != null)
+		return false;
+	} else if (!deviceScanningBothLongSide
+		.equals(other.deviceScanningBothLongSide))
+	    return false;
+	if (deviceScanningBothShortSide == null) {
+	    if (other.deviceScanningBothShortSide != null)
+		return false;
+	} else if (!deviceScanningBothShortSide
+		.equals(other.deviceScanningBothShortSide))
+	    return false;
+	if (deviceServiceName == null) {
+	    if (other.deviceServiceName != null)
+		return false;
+	} else if (!deviceServiceName.equals(other.deviceServiceName))
+	    return false;
+	if (deviceType == null) {
+	    if (other.deviceType != null)
+		return false;
+	} else if (!deviceType.equals(other.deviceType))
+	    return false;
+	if (dispense == null) {
+	    if (other.dispense != null)
+		return false;
+	} else if (!dispense.equals(other.dispense))
+	    return false;
+	if (displayLightSupported == null) {
+	    if (other.displayLightSupported != null)
+		return false;
+	} else if (!displayLightSupported.equals(other.displayLightSupported))
+	    return false;
+	if (doors == null) {
+	    if (other.doors != null)
+		return false;
+	} else if (!doors.equals(other.doors))
+	    return false;
+	if (ejectStatus == null) {
+	    if (other.ejectStatus != null)
+		return false;
+	} else if (!ejectStatus.equals(other.ejectStatus))
+	    return false;
+	if (entry == null) {
+	    if (other.entry != null)
+		return false;
+	} else if (!entry.equals(other.entry))
+	    return false;
+	if (envSupply == null) {
+	    if (other.envSupply != null)
+		return false;
+	} else if (!envSupply.equals(other.envSupply))
+	    return false;
+	if (escrow == null) {
+	    if (other.escrow != null)
+		return false;
+	} else if (!escrow.equals(other.escrow))
+	    return false;
+	if (escrowSize == null) {
+	    if (other.escrowSize != null)
+		return false;
+	} else if (!escrowSize.equals(other.escrowSize))
+	    return false;
+	if (eventOnStartSupported == null) {
+	    if (other.eventOnStartSupported != null)
+		return false;
+	} else if (!eventOnStartSupported.equals(other.eventOnStartSupported))
+	    return false;
+	if (extent == null) {
+	    if (other.extent != null)
+		return false;
+	} else if (!extent.equals(other.extent))
+	    return false;
+	if (financialDevices == null) {
+	    if (other.financialDevices != null)
+		return false;
+	} else if (!financialDevices.equals(other.financialDevices))
+	    return false;
+	if (guidlights == null) {
+	    if (other.guidlights != null)
+		return false;
+	} else if (!guidlights.equals(other.guidlights))
+	    return false;
+	if (idKey == null) {
+	    if (other.idKey != null)
+		return false;
+	} else if (!idKey.equals(other.idKey))
+	    return false;
+	if (imageCapabilities == null) {
+	    if (other.imageCapabilities != null)
+		return false;
+	} else if (!imageCapabilities.equals(other.imageCapabilities))
+	    return false;
+	if (imageCapture == null) {
+	    if (other.imageCapture != null)
+		return false;
+	} else if (!imageCapture.equals(other.imageCapture))
+	    return false;
+	if (indicators == null) {
+	    if (other.indicators != null)
+		return false;
+	} else if (!indicators.equals(other.indicators))
+	    return false;
+	if (inputCookSupported == null) {
+	    if (other.inputCookSupported != null)
+		return false;
+	} else if (!inputCookSupported.equals(other.inputCookSupported))
+	    return false;
+	if (inputPositions == null) {
+	    if (other.inputPositions != null)
+		return false;
+	} else if (!inputPositions.equals(other.inputPositions))
+	    return false;
+	if (inputRawSupported == null) {
+	    if (other.inputRawSupported != null)
+		return false;
+	} else if (!inputRawSupported.equals(other.inputRawSupported))
+	    return false;
+	if (insertTextSupported == null) {
+	    if (other.insertTextSupported != null)
+		return false;
+	} else if (!insertTextSupported.equals(other.insertTextSupported))
+	    return false;
+	if (intermediateStacker == null) {
+	    if (other.intermediateStacker != null)
+		return false;
+	} else if (!intermediateStacker.equals(other.intermediateStacker))
+	    return false;
+	if (jxfsClass == null) {
+	    if (other.jxfsClass != null)
+		return false;
+	} else if (!jxfsClass.equals(other.jxfsClass))
+	    return false;
+	if (keyboardLockSupported == null) {
+	    if (other.keyboardLockSupported != null)
+		return false;
+	} else if (!keyboardLockSupported.equals(other.keyboardLockSupported))
+	    return false;
+	if (keyboardSupported == null) {
+	    if (other.keyboardSupported != null)
+		return false;
+	} else if (!keyboardSupported.equals(other.keyboardSupported))
+	    return false;
+	if (keysSupported == null) {
+	    if (other.keysSupported != null)
+		return false;
+	} else if (!keysSupported.equals(other.keysSupported))
+	    return false;
+	if (maxDataLength == null) {
+	    if (other.maxDataLength != null)
+		return false;
+	} else if (!maxDataLength.equals(other.maxDataLength))
+	    return false;
+	if (maxInBills == null) {
+	    if (other.maxInBills != null)
+		return false;
+	} else if (!maxInBills.equals(other.maxInBills))
+	    return false;
+	if (maxInCoins == null) {
+	    if (other.maxInCoins != null)
+		return false;
+	} else if (!maxInCoins.equals(other.maxInCoins))
+	    return false;
+	if (maxLed == null) {
+	    if (other.maxLed != null)
+		return false;
+	} else if (!maxLed.equals(other.maxLed))
+	    return false;
+	if (maxNumOfChars == null) {
+	    if (other.maxNumOfChars != null)
+		return false;
+	} else if (!maxNumOfChars.equals(other.maxNumOfChars))
+	    return false;
+	if (maxOutBills == null) {
+	    if (other.maxOutBills != null)
+		return false;
+	} else if (!maxOutBills.equals(other.maxOutBills))
+	    return false;
+	if (maxOutCoins == null) {
+	    if (other.maxOutCoins != null)
+		return false;
+	} else if (!maxOutCoins.equals(other.maxOutCoins))
+	    return false;
+	if (maxPictures == null) {
+	    if (other.maxPictures != null)
+		return false;
+	} else if (!maxPictures.equals(other.maxPictures))
+	    return false;
+	if (maxRetract == null) {
+	    if (other.maxRetract != null)
+		return false;
+	} else if (!maxRetract.equals(other.maxRetract))
+	    return false;
+	if (maxStacker == null) {
+	    if (other.maxStacker != null)
+		return false;
+	} else if (!maxStacker.equals(other.maxStacker))
+	    return false;
+	if (multipleCurrenciesCashInSupported == null) {
+	    if (other.multipleCurrenciesCashInSupported != null)
+		return false;
+	} else if (!multipleCurrenciesCashInSupported
+		.equals(other.multipleCurrenciesCashInSupported))
+	    return false;
+	if (numberOfKeys == null) {
+	    if (other.numberOfKeys != null)
+		return false;
+	} else if (!numberOfKeys.equals(other.numberOfKeys))
+	    return false;
+	if (orientationToBeScanned == null) {
+	    if (other.orientationToBeScanned != null)
+		return false;
+	} else if (!orientationToBeScanned.equals(other.orientationToBeScanned))
+	    return false;
+	if (outputPositions == null) {
+	    if (other.outputPositions != null)
+		return false;
+	} else if (!outputPositions.equals(other.outputPositions))
+	    return false;
+	if (positions == null) {
+	    if (other.positions != null)
+		return false;
+	} else if (!positions.equals(other.positions))
+	    return false;
+	if (powerOff == null) {
+	    if (other.powerOff != null)
+		return false;
+	} else if (!powerOff.equals(other.powerOff))
+	    return false;
+	if (powerOn == null) {
+	    if (other.powerOn != null)
+		return false;
+	} else if (!powerOn.equals(other.powerOn))
+	    return false;
+	if (print == null) {
+	    if (other.print != null)
+		return false;
+	} else if (!print.equals(other.print))
+	    return false;
+	if (ptrCapabilities == null) {
+	    if (other.ptrCapabilities != null)
+		return false;
+	} else if (!ptrCapabilities.equals(other.ptrCapabilities))
+	    return false;
+	if (ptrControlMedia == null) {
+	    if (other.ptrControlMedia != null)
+		return false;
+	} else if (!ptrControlMedia.equals(other.ptrControlMedia))
+	    return false;
+	if (readFonts == null) {
+	    if (other.readFonts != null)
+		return false;
+	} else if (!readFonts.equals(other.readFonts))
+	    return false;
+	if (readForm == null) {
+	    if (other.readForm != null)
+		return false;
+	} else if (!readForm.equals(other.readForm))
+	    return false;
+	if (readImage == null) {
+	    if (other.readImage != null)
+		return false;
+	} else if (!readImage.equals(other.readImage))
+	    return false;
+	if (readKeyboardDataWithDefault == null) {
+	    if (other.readKeyboardDataWithDefault != null)
+		return false;
+	} else if (!readKeyboardDataWithDefault
+		.equals(other.readKeyboardDataWithDefault))
+	    return false;
+	if (readMicr == null) {
+	    if (other.readMicr != null)
+		return false;
+	} else if (!readMicr.equals(other.readMicr))
+	    return false;
+	if (readOcr == null) {
+	    if (other.readOcr != null)
+		return false;
+	} else if (!readOcr.equals(other.readOcr))
+	    return false;
+	if (readStatus == null) {
+	    if (other.readStatus != null)
+		return false;
+	} else if (!readStatus.equals(other.readStatus))
+	    return false;
+	if (refill == null) {
+	    if (other.refill != null)
+		return false;
+	} else if (!refill.equals(other.refill))
+	    return false;
+	if (remoteKeyLoad == null) {
+	    if (other.remoteKeyLoad != null)
+		return false;
+	} else if (!remoteKeyLoad.equals(other.remoteKeyLoad))
+	    return false;
+	if (retain == null) {
+	    if (other.retain != null)
+		return false;
+	} else if (!retain.equals(other.retain))
+	    return false;
+	if (retract == null) {
+	    if (other.retract != null)
+		return false;
+	} else if (!retract.equals(other.retract))
+	    return false;
+	if (safeDoorCmd == null) {
+	    if (other.safeDoorCmd != null)
+		return false;
+	} else if (!safeDoorCmd.equals(other.safeDoorCmd))
+	    return false;
+	if (safeDoorSequence == null) {
+	    if (other.safeDoorSequence != null)
+		return false;
+	} else if (!safeDoorSequence.equals(other.safeDoorSequence))
+	    return false;
+	if (scnCapabilities == null) {
+	    if (other.scnCapabilities != null)
+		return false;
+	} else if (!scnCapabilities.equals(other.scnCapabilities))
+	    return false;
+	if (secureKeyDetail == null) {
+	    if (other.secureKeyDetail != null)
+		return false;
+	} else if (!secureKeyDetail.equals(other.secureKeyDetail))
+	    return false;
+	if (secureKeyEntryState == null) {
+	    if (other.secureKeyEntryState != null)
+		return false;
+	} else if (!secureKeyEntryState.equals(other.secureKeyEntryState))
+	    return false;
+	if (secureKeyEntrySupported == null) {
+	    if (other.secureKeyEntrySupported != null)
+		return false;
+	} else if (!secureKeyEntrySupported
+		.equals(other.secureKeyEntrySupported))
+	    return false;
+	if (secureModuleType == null) {
+	    if (other.secureModuleType != null)
+		return false;
+	} else if (!secureModuleType.equals(other.secureModuleType))
+	    return false;
+	if (sensors == null) {
+	    if (other.sensors != null)
+		return false;
+	} else if (!sensors.equals(other.sensors))
+	    return false;
+	if (shutterCmd == null) {
+	    if (other.shutterCmd != null)
+		return false;
+	} else if (!shutterCmd.equals(other.shutterCmd))
+	    return false;
+	if (silentAlarm == null) {
+	    if (other.silentAlarm != null)
+		return false;
+	} else if (!silentAlarm.equals(other.silentAlarm))
+	    return false;
+	if (status == null) {
+	    if (other.status != null)
+		return false;
+	} else if (!status.equals(other.status))
+	    return false;
+	if (supportedChipPresentationModes == null) {
+	    if (other.supportedChipPresentationModes != null)
+		return false;
+	} else if (!supportedChipPresentationModes
+		.equals(other.supportedChipPresentationModes))
+	    return false;
+	if (supportedChipProtocols == null) {
+	    if (other.supportedChipProtocols != null)
+		return false;
+	} else if (!supportedChipProtocols.equals(other.supportedChipProtocols))
+	    return false;
+	if (supportedCryptoModes == null) {
+	    if (other.supportedCryptoModes != null)
+		return false;
+	} else if (!supportedCryptoModes.equals(other.supportedCryptoModes))
+	    return false;
+	if (supportedFdKeys == null) {
+	    if (other.supportedFdKeys != null)
+		return false;
+	} else if (!supportedFdKeys.equals(other.supportedFdKeys))
+	    return false;
+	if (supportedPinFormats == null) {
+	    if (other.supportedPinFormats != null)
+		return false;
+	} else if (!supportedPinFormats.equals(other.supportedPinFormats))
+	    return false;
+	if (supportedReadTracks == null) {
+	    if (other.supportedReadTracks != null)
+		return false;
+	} else if (!supportedReadTracks.equals(other.supportedReadTracks))
+	    return false;
+	if (supportedTextAttributes == null) {
+	    if (other.supportedTextAttributes != null)
+		return false;
+	} else if (!supportedTextAttributes
+		.equals(other.supportedTextAttributes))
+	    return false;
+	if (supportedValidationAlgorithms == null) {
+	    if (other.supportedValidationAlgorithms != null)
+		return false;
+	} else if (!supportedValidationAlgorithms
+		.equals(other.supportedValidationAlgorithms))
+	    return false;
+	if (supportedWriteHicoTracks == null) {
+	    if (other.supportedWriteHicoTracks != null)
+		return false;
+	} else if (!supportedWriteHicoTracks
+		.equals(other.supportedWriteHicoTracks))
+	    return false;
+	if (supportedWriteTracks == null) {
+	    if (other.supportedWriteTracks != null)
+		return false;
+	} else if (!supportedWriteTracks.equals(other.supportedWriteTracks))
+	    return false;
+	if (testCashUnit == null) {
+	    if (other.testCashUnit != null)
+		return false;
+	} else if (!testCashUnit.equals(other.testCashUnit))
+	    return false;
+	if (transport == null) {
+	    if (other.transport != null)
+		return false;
+	} else if (!transport.equals(other.transport))
+	    return false;
+	if (trustedUser == null) {
+	    if (other.trustedUser != null)
+		return false;
+	} else if (!trustedUser.equals(other.trustedUser))
+	    return false;
+	if (unfit == null) {
+	    if (other.unfit != null)
+		return false;
+	} else if (!unfit.equals(other.unfit))
+	    return false;
+	if (vendorData == null) {
+	    if (other.vendorData != null)
+		return false;
+	} else if (!vendorData.equals(other.vendorData))
+	    return false;
+	if (writeForm == null) {
+	    if (other.writeForm != null)
+		return false;
+	} else if (!writeForm.equals(other.writeForm))
+	    return false;
+	if (writeMode == null) {
+	    if (other.writeMode != null)
+		return false;
+	} else if (!writeMode.equals(other.writeMode))
+	    return false;
+	return true;
+    }
 }

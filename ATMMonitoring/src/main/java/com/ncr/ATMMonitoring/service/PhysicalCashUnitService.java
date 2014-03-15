@@ -16,8 +16,9 @@ public interface PhysicalCashUnitService {
 
     /**
      * Adds the physical cash unit.
-     *
-     * @param physicalCashUnit the physical cash unit
+     * 
+     * @param physicalCashUnit
+     *            the physical cash unit
      */
     public void addPhysicalCashUnit(PhysicalCashUnit physicalCashUnit);
 

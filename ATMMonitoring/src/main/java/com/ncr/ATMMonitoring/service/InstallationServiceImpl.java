@@ -25,40 +25,59 @@ public class InstallationServiceImpl implements InstallationService {
     @Autowired
     private InstallationDAO installationDAO;
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.InstallationService#addInstallation(com.ncr.ATMMonitoring.pojo.Installation)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.InstallationService#addInstallation(com
+     * .ncr.ATMMonitoring.pojo.Installation)
      */
     @Override
     public void addInstallation(Installation role) {
 	installationDAO.addInstallation(role);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.InstallationService#getInstallation(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.InstallationService#getInstallation(java
+     * .lang.Integer)
      */
     @Override
     public Installation getInstallation(Integer id) {
 	return installationDAO.getInstallation(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.InstallationService#listInstallations()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.InstallationService#listInstallations()
      */
     @Override
     public List<Installation> listInstallations() {
 	return installationDAO.listInstallations();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.InstallationService#updateInstallation(com.ncr.ATMMonitoring.pojo.Installation)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.InstallationService#updateInstallation(
+     * com.ncr.ATMMonitoring.pojo.Installation)
      */
     @Override
     public void updateInstallation(Installation installation) {
 	installationDAO.updateInstallation(installation);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.InstallationService#removeInstallation(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.InstallationService#removeInstallation(
+     * java.lang.Integer)
      */
     @Override
     public void removeInstallation(Integer id) {

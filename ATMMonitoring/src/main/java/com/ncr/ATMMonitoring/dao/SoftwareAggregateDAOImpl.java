@@ -26,17 +26,25 @@ public class SoftwareAggregateDAOImpl extends
     static private Logger logger = Logger
 	    .getLogger(SoftwareAggregateDAOImpl.class.getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#addSoftwareAggregate(com.ncr.ATMMonitoring.pojo.SoftwareAggregate)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#addSoftwareAggregate(com
+     * .ncr.ATMMonitoring.pojo.SoftwareAggregate)
      */
     @Override
     public void addSoftwareAggregate(SoftwareAggregate softwareAggregate) {
 	add(softwareAggregate);
-    	logger.debug("Created new Software Aggregate with id " + softwareAggregate.getId());
+	logger.debug("Created new Software Aggregate with id "
+		+ softwareAggregate.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#listSoftwareAggregate()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#listSoftwareAggregate()
      */
     @Override
     public List<SoftwareAggregate> listSoftwareAggregate() {
@@ -51,57 +59,72 @@ public class SoftwareAggregateDAOImpl extends
 		.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#getSoftwareAggregate(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#getSoftwareAggregate(java
+     * .lang.Integer)
      */
     @Override
     public SoftwareAggregate getSoftwareAggregate(Integer id) {
 	return get(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#getSoftwareAggregateByVersionName(java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#
+     * getSoftwareAggregateByVersionName(java.lang.Integer, java.lang.Integer,
+     * java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String)
      */
     @Override
     public SoftwareAggregate getSoftwareAggregateByVersionName(
 	    Integer majorVersion, Integer minorVersion, Integer buildVersion,
 	    Integer revisionVersion, String remainingVersion, String name) {
-	
-    	Criteria criteria = sessionFactory.getCurrentSession().createCriteria(SoftwareAggregate.class);
-		if (majorVersion == null) {
-		    criteria.add(Restrictions.isNull("majorVersion"));
-		} else {
-		    criteria.add(Restrictions.eq("majorVersion", majorVersion));
-		}
-		if (minorVersion == null) {
-		    criteria.add(Restrictions.isNull("minorVersion"));
-		} else {
-		    criteria.add(Restrictions.eq("minorVersion", minorVersion));
-		}
-		if (buildVersion == null) {
-		    criteria.add(Restrictions.isNull("buildVersion"));
-		} else {
-		    criteria.add(Restrictions.eq("buildVersion", buildVersion));
-		}
-		if (revisionVersion == null) {
-		    criteria.add(Restrictions.isNull("revisionVersion"));
-		} else {
-		    criteria.add(Restrictions.eq("revisionVersion", revisionVersion));
-		}
-		if (remainingVersion == null) {
-		    criteria.add(Restrictions.isNull("remainingVersion"));
-		} else {
-		    criteria.add(Restrictions.eq("remainingVersion", remainingVersion));
-		}
-		if (name == null) {
-		    return (SoftwareAggregate) criteria.add(Restrictions.isNull("name")).uniqueResult();
-		} else {
-		    return (SoftwareAggregate) criteria.add(Restrictions.eq("name", name)).uniqueResult();
-		}
+
+	Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+		SoftwareAggregate.class);
+	if (majorVersion == null) {
+	    criteria.add(Restrictions.isNull("majorVersion"));
+	} else {
+	    criteria.add(Restrictions.eq("majorVersion", majorVersion));
+	}
+	if (minorVersion == null) {
+	    criteria.add(Restrictions.isNull("minorVersion"));
+	} else {
+	    criteria.add(Restrictions.eq("minorVersion", minorVersion));
+	}
+	if (buildVersion == null) {
+	    criteria.add(Restrictions.isNull("buildVersion"));
+	} else {
+	    criteria.add(Restrictions.eq("buildVersion", buildVersion));
+	}
+	if (revisionVersion == null) {
+	    criteria.add(Restrictions.isNull("revisionVersion"));
+	} else {
+	    criteria.add(Restrictions.eq("revisionVersion", revisionVersion));
+	}
+	if (remainingVersion == null) {
+	    criteria.add(Restrictions.isNull("remainingVersion"));
+	} else {
+	    criteria.add(Restrictions.eq("remainingVersion", remainingVersion));
+	}
+	if (name == null) {
+	    return (SoftwareAggregate) criteria
+		    .add(Restrictions.isNull("name")).uniqueResult();
+	} else {
+	    return (SoftwareAggregate) criteria.add(
+		    Restrictions.eq("name", name)).uniqueResult();
+	}
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#removeSoftwareAggregate(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.SoftwareAggregateDAO#removeSoftwareAggregate
+     * (java.lang.Integer)
      */
     @Override
     public void removeSoftwareAggregate(Integer id) {

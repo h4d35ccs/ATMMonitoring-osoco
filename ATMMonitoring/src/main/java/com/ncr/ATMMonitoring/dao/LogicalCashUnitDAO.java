@@ -16,8 +16,9 @@ public interface LogicalCashUnitDAO {
 
     /**
      * Adds the logical cash unit.
-     *
-     * @param logicalCashUnit the logical cash unit
+     * 
+     * @param logicalCashUnit
+     *            the logical cash unit
      */
     public void addLogicalCashUnit(LogicalCashUnit logicalCashUnit);
 

@@ -16,8 +16,9 @@ public interface TerminalConfigDAO {
 
     /**
      * Adds the terminal config.
-     *
-     * @param terminalConfig the terminal config
+     * 
+     * @param terminalConfig
+     *            the terminal config
      */
     public void addTerminalConfig(TerminalConfig terminalConfig);
 

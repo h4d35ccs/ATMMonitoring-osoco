@@ -25,24 +25,36 @@ public class LogicalCashUnitServiceImpl implements LogicalCashUnitService {
     @Autowired
     private LogicalCashUnitDAO logicalCashUnitDAO;
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.LogicalCashUnitService#addLogicalCashUnit(com.ncr.ATMMonitoring.pojo.LogicalCashUnit)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.LogicalCashUnitService#addLogicalCashUnit
+     * (com.ncr.ATMMonitoring.pojo.LogicalCashUnit)
      */
     @Override
     public void addLogicalCashUnit(LogicalCashUnit logicalCashUnit) {
 	logicalCashUnitDAO.addLogicalCashUnit(logicalCashUnit);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.LogicalCashUnitService#listLogicalCashUnits()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.LogicalCashUnitService#listLogicalCashUnits
+     * ()
      */
     @Override
     public List<LogicalCashUnit> listLogicalCashUnits() {
 	return logicalCashUnitDAO.listLogicalCashUnits();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.LogicalCashUnitService#getLogicalCashUnit(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.LogicalCashUnitService#getLogicalCashUnit
+     * (java.lang.Integer)
      */
     @Override
     public LogicalCashUnit getLogicalCashUnit(Integer id) {

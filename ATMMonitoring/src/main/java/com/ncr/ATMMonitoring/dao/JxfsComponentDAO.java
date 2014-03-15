@@ -3,7 +3,6 @@ package com.ncr.ATMMonitoring.dao;
 import java.util.List;
 
 import com.ncr.ATMMonitoring.pojo.JxfsComponent;
-import com.ncr.ATMMonitoring.pojo.XfsComponent;
 
 /**
  * The Interface JxfsComponentDAO.
@@ -17,8 +16,9 @@ public interface JxfsComponentDAO {
 
     /**
      * Adds the jxfs component.
-     *
-     * @param jxfsComponent the jxfs component
+     * 
+     * @param jxfsComponent
+     *            the jxfs component
      */
     public void addJxfsComponent(JxfsComponent jxfsComponent);
 

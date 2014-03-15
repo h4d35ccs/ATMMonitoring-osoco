@@ -109,7 +109,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -118,8 +118,9 @@ public class ScheduledUpdate {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -127,7 +128,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the week day.
-     *
+     * 
      * @return the weekDay
      */
     public Short getWeekDay() {
@@ -136,8 +137,9 @@ public class ScheduledUpdate {
 
     /**
      * Sets the week day.
-     *
-     * @param weekDay the weekDay to set
+     * 
+     * @param weekDay
+     *            the weekDay to set
      */
     public void setWeekDay(Short weekDay) {
 	this.weekDay = weekDay;
@@ -145,7 +147,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the month day.
-     *
+     * 
      * @return the monthDay
      */
     public Short getMonthDay() {
@@ -154,8 +156,9 @@ public class ScheduledUpdate {
 
     /**
      * Sets the month day.
-     *
-     * @param monthDay the monthDay to set
+     * 
+     * @param monthDay
+     *            the monthDay to set
      */
     public void setMonthDay(Short monthDay) {
 	this.monthDay = monthDay;
@@ -163,7 +166,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the hour.
-     *
+     * 
      * @return the hour
      */
     public Short getHour() {
@@ -172,8 +175,9 @@ public class ScheduledUpdate {
 
     /**
      * Sets the hour.
-     *
-     * @param hour the hour to set
+     * 
+     * @param hour
+     *            the hour to set
      */
     public void setHour(Short hour) {
 	this.hour = hour;
@@ -181,7 +185,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the minute.
-     *
+     * 
      * @return the minute
      */
     public Short getMinute() {
@@ -190,8 +194,9 @@ public class ScheduledUpdate {
 
     /**
      * Sets the minute.
-     *
-     * @param minute the minute to set
+     * 
+     * @param minute
+     *            the minute to set
      */
     public void setMinute(Short minute) {
 	this.minute = minute;
@@ -199,7 +204,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the query.
-     *
+     * 
      * @return the query
      */
     public Query getQuery() {
@@ -208,8 +213,9 @@ public class ScheduledUpdate {
 
     /**
      * Sets the query.
-     *
-     * @param query the new query
+     * 
+     * @param query
+     *            the new query
      */
     public void setQuery(Query query) {
 	this.query = query;
@@ -217,7 +223,7 @@ public class ScheduledUpdate {
 
     /**
      * Checks if is weekly.
-     *
+     * 
      * @return true, if is weekly
      */
     public boolean isWeekly() {
@@ -226,9 +232,11 @@ public class ScheduledUpdate {
 
     /**
      * Gets the event dates.
-     *
-     * @param fromUnixTime the from unix time
-     * @param toUnixTime the to unix time
+     * 
+     * @param fromUnixTime
+     *            the from unix time
+     * @param toUnixTime
+     *            the to unix time
      * @return the event dates
      */
     public List<Date> getEventDates(long fromUnixTime, long toUnixTime) {
@@ -266,7 +274,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the complete hour.
-     *
+     * 
      * @return the complete hour
      */
     public String getCompleteHour() {
@@ -284,7 +292,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the time zone.
-     *
+     * 
      * @return the time zone
      */
     public Short getTimeZone() {
@@ -293,7 +301,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the time zone name.
-     *
+     * 
      * @return the time zone name
      */
     public String getTimeZoneName() {
@@ -306,8 +314,9 @@ public class ScheduledUpdate {
 
     /**
      * Sets the time zone.
-     *
-     * @param timeZone the new time zone
+     * 
+     * @param timeZone
+     *            the new time zone
      */
     public void setTimeZone(Short timeZone) {
 	this.timeZone = timeZone;
@@ -334,7 +343,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the name.
-     *
+     * 
      * @return the name
      */
     public String getName() {
@@ -343,8 +352,9 @@ public class ScheduledUpdate {
 
     /**
      * Sets the name.
-     *
-     * @param name the new name
+     * 
+     * @param name
+     *            the new name
      */
     public void setName(String name) {
 	this.name = name;
@@ -352,7 +362,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the description.
-     *
+     * 
      * @return the description
      */
     public String getDescription() {
@@ -361,8 +371,9 @@ public class ScheduledUpdate {
 
     /**
      * Sets the description.
-     *
-     * @param description the new description
+     * 
+     * @param description
+     *            the new description
      */
     public void setDescription(String description) {
 	this.description = description;
@@ -370,7 +381,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the start date.
-     *
+     * 
      * @return the start date
      */
     public Date getStartDate() {
@@ -379,7 +390,7 @@ public class ScheduledUpdate {
 
     /**
      * Gets the start date short.
-     *
+     * 
      * @return the start date short
      */
     public String getStartDateShort() {
@@ -389,8 +400,9 @@ public class ScheduledUpdate {
 
     /**
      * Sets the start date.
-     *
-     * @param startDate the new start date
+     * 
+     * @param startDate
+     *            the new start date
      */
     public void setStartDate(Date startDate) {
 	this.startDate = startDate;

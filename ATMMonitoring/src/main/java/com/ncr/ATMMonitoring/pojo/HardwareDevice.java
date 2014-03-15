@@ -353,53 +353,53 @@ public class HardwareDevice extends Auditable {
      * The Enum DeviceClassId.
      */
     public static enum DeviceClassId {
-	
+
 	/** The computer system. */
-	COMPUTER_SYSTEM, 
- /** The processor. */
- PROCESSOR, 
- /** The physical memory. */
- PHYSICAL_MEMORY, 
- /** The disk drive. */
- DISK_DRIVE, 
- /** The logical disk. */
- LOGICAL_DISK, 
- /** The base board. */
- BASE_BOARD, 
- /** The network adapter. */
- NETWORK_ADAPTER, 
- /** The floppy drive. */
- FLOPPY_DRIVE, 
- /** The cdrom drive. */
- CDROM_DRIVE, 
- /** The sound device. */
- SOUND_DEVICE, 
- /** The display configuration. */
- DISPLAY_CONFIGURATION, 
- /** The usb controller. */
- USB_CONTROLLER, 
- /** The usb hub. */
- USB_HUB, 
- /** The serial port. */
- SERIAL_PORT, 
- /** The parallel port. */
- PARALLEL_PORT, 
- /** The _1394_ controller. */
- _1394_CONTROLLER, 
- /** The scsi controller. */
- SCSI_CONTROLLER, 
- /** The desktop monitor. */
- DESKTOP_MONITOR, 
- /** The keyboard. */
- KEYBOARD, 
- /** The pointing device. */
- POINTING_DEVICE, 
- /** The system slot. */
- SYSTEM_SLOT, 
- /** The bios. */
- BIOS, 
- /** The video controller. */
- VIDEO_CONTROLLER
+	COMPUTER_SYSTEM,
+	/** The processor. */
+	PROCESSOR,
+	/** The physical memory. */
+	PHYSICAL_MEMORY,
+	/** The disk drive. */
+	DISK_DRIVE,
+	/** The logical disk. */
+	LOGICAL_DISK,
+	/** The base board. */
+	BASE_BOARD,
+	/** The network adapter. */
+	NETWORK_ADAPTER,
+	/** The floppy drive. */
+	FLOPPY_DRIVE,
+	/** The cdrom drive. */
+	CDROM_DRIVE,
+	/** The sound device. */
+	SOUND_DEVICE,
+	/** The display configuration. */
+	DISPLAY_CONFIGURATION,
+	/** The usb controller. */
+	USB_CONTROLLER,
+	/** The usb hub. */
+	USB_HUB,
+	/** The serial port. */
+	SERIAL_PORT,
+	/** The parallel port. */
+	PARALLEL_PORT,
+	/** The _1394_ controller. */
+	_1394_CONTROLLER,
+	/** The scsi controller. */
+	SCSI_CONTROLLER,
+	/** The desktop monitor. */
+	DESKTOP_MONITOR,
+	/** The keyboard. */
+	KEYBOARD,
+	/** The pointing device. */
+	POINTING_DEVICE,
+	/** The system slot. */
+	SYSTEM_SLOT,
+	/** The bios. */
+	BIOS,
+	/** The video controller. */
+	VIDEO_CONTROLLER
     }
 
     static {
@@ -438,7 +438,6 @@ public class HardwareDevice extends Auditable {
 		"Win32_VideoController");
     }
 
-    
     /**
      * Filter a collecion of hardware devices by device type.
      * 
@@ -1869,24 +1868,25 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the comboboxes data for the query GUI.
-     *
+     * 
      * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
 	return comboboxes;
     }
 
-    public static Map<String, Map> getComboboxesByDeviceClassId(DeviceClassId deviceClassId) {
-    	return comboboxes.get(deviceClasses.get(deviceClassId));
+    public static Map<String, Map> getComboboxesByDeviceClassId(
+	    DeviceClassId deviceClassId) {
+	return comboboxes.get(deviceClasses.get(deviceClassId));
     }
-    
+
     public static Map<DeviceClassId, String> getDeviceClasses() {
-    	return deviceClasses;
+	return deviceClasses;
     }
-    
+
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -1895,8 +1895,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -1904,7 +1905,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the hardware class.
-     *
+     * 
      * @return the hardwareClass
      */
     public String getHardwareClass() {
@@ -1913,8 +1914,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the hardware class.
-     *
-     * @param hardwareClass the hardwareClass to set
+     * 
+     * @param hardwareClass
+     *            the hardwareClass to set
      */
     public void setHardwareClass(String hardwareClass) {
 	this.hardwareClass = hardwareClass;
@@ -1922,7 +1924,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the name.
-     *
+     * 
      * @return the name
      */
     public String getName() {
@@ -1931,8 +1933,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the name.
-     *
-     * @param name the name to set
+     * 
+     * @param name
+     *            the name to set
      */
     public void setName(String name) {
 	this.name = name;
@@ -1940,7 +1943,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the terminal.
-     *
+     * 
      * @return the terminal
      */
     public Terminal getTerminal() {
@@ -1949,8 +1952,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the terminal.
-     *
-     * @param terminal the terminal to set
+     * 
+     * @param terminal
+     *            the terminal to set
      */
     public void setTerminal(Terminal terminal) {
 	this.terminal = terminal;
@@ -1958,7 +1962,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the manufacturer.
-     *
+     * 
      * @return the manufacturer
      */
     public String getManufacturer() {
@@ -1967,8 +1971,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the manufacturer.
-     *
-     * @param manufacturer the manufacturer to set
+     * 
+     * @param manufacturer
+     *            the manufacturer to set
      */
     public void setManufacturer(String manufacturer) {
 	this.manufacturer = manufacturer;
@@ -1976,7 +1981,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the model.
-     *
+     * 
      * @return the model
      */
     public String getModel() {
@@ -1985,8 +1990,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the model.
-     *
-     * @param model the model to set
+     * 
+     * @param model
+     *            the model to set
      */
     public void setModel(String model) {
 	this.model = model;
@@ -1994,7 +2000,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the number of processors.
-     *
+     * 
      * @return the numberOfProcessors
      */
     public Integer getNumberOfProcessors() {
@@ -2003,8 +2009,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the number of processors.
-     *
-     * @param numberOfProcessors the numberOfProcessors to set
+     * 
+     * @param numberOfProcessors
+     *            the numberOfProcessors to set
      */
     public void setNumberOfProcessors(Integer numberOfProcessors) {
 	this.numberOfProcessors = numberOfProcessors;
@@ -2012,7 +2019,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the caption.
-     *
+     * 
      * @return the caption
      */
     public String getCaption() {
@@ -2021,8 +2028,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the caption.
-     *
-     * @param caption the caption to set
+     * 
+     * @param caption
+     *            the caption to set
      */
     public void setCaption(String caption) {
 	this.caption = caption;
@@ -2030,7 +2038,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the total physical memory.
-     *
+     * 
      * @return the totalPhysicalMemory
      */
     public Long getTotalPhysicalMemory() {
@@ -2039,8 +2047,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the total physical memory.
-     *
-     * @param totalPhysicalMemory the totalPhysicalMemory to set
+     * 
+     * @param totalPhysicalMemory
+     *            the totalPhysicalMemory to set
      */
     public void setTotalPhysicalMemory(Long totalPhysicalMemory) {
 	this.totalPhysicalMemory = totalPhysicalMemory;
@@ -2048,7 +2057,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the description.
-     *
+     * 
      * @return the description
      */
     public String getDescription() {
@@ -2057,8 +2066,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the description.
-     *
-     * @param description the description to set
+     * 
+     * @param description
+     *            the description to set
      */
     public void setDescription(String description) {
 	this.description = description;
@@ -2066,7 +2076,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the current time zone.
-     *
+     * 
      * @return the currentTimeZone
      */
     public Integer getCurrentTimeZone() {
@@ -2075,8 +2085,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the current time zone.
-     *
-     * @param currentTimeZone the currentTimeZone to set
+     * 
+     * @param currentTimeZone
+     *            the currentTimeZone to set
      */
     public void setCurrentTimeZone(Integer currentTimeZone) {
 	this.currentTimeZone = currentTimeZone;
@@ -2084,7 +2095,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the daylight in effect.
-     *
+     * 
      * @return the daylightInEffect
      */
     public Boolean getDaylightInEffect() {
@@ -2093,8 +2104,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the daylight in effect.
-     *
-     * @param daylightInEffect the daylightInEffect to set
+     * 
+     * @param daylightInEffect
+     *            the daylightInEffect to set
      */
     public void setDaylightInEffect(Boolean daylightInEffect) {
 	this.daylightInEffect = daylightInEffect;
@@ -2102,7 +2114,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the domain.
-     *
+     * 
      * @return the domain
      */
     public String getDomain() {
@@ -2111,8 +2123,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the domain.
-     *
-     * @param domain the domain to set
+     * 
+     * @param domain
+     *            the domain to set
      */
     public void setDomain(String domain) {
 	this.domain = domain;
@@ -2120,7 +2133,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the workgroup.
-     *
+     * 
      * @return the workgroup
      */
     public String getWorkgroup() {
@@ -2129,8 +2142,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the workgroup.
-     *
-     * @param workgroup the workgroup to set
+     * 
+     * @param workgroup
+     *            the workgroup to set
      */
     public void setWorkgroup(String workgroup) {
 	this.workgroup = workgroup;
@@ -2138,7 +2152,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the status.
-     *
+     * 
      * @return the status
      */
     public String getStatus() {
@@ -2147,8 +2161,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the status.
-     *
-     * @param status the status to set
+     * 
+     * @param status
+     *            the status to set
      */
     public void setStatus(String status) {
 	this.status = status;
@@ -2156,7 +2171,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the architecture.
-     *
+     * 
      * @return the architecture
      */
     public String getArchitecture() {
@@ -2165,8 +2180,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the architecture.
-     *
-     * @param architecture the architecture to set
+     * 
+     * @param architecture
+     *            the architecture to set
      */
     public void setArchitecture(String architecture) {
 	this.architecture = architecture;
@@ -2174,7 +2190,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the address width.
-     *
+     * 
      * @return the addressWidth
      */
     public Integer getAddressWidth() {
@@ -2183,8 +2199,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the address width.
-     *
-     * @param addressWidth the addressWidth to set
+     * 
+     * @param addressWidth
+     *            the addressWidth to set
      */
     public void setAddressWidth(Integer addressWidth) {
 	this.addressWidth = addressWidth;
@@ -2192,7 +2209,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the current clock speed.
-     *
+     * 
      * @return the currentClockSpeed
      */
     public Integer getCurrentClockSpeed() {
@@ -2201,8 +2218,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the current clock speed.
-     *
-     * @param currentClockSpeed the currentClockSpeed to set
+     * 
+     * @param currentClockSpeed
+     *            the currentClockSpeed to set
      */
     public void setCurrentClockSpeed(Integer currentClockSpeed) {
 	this.currentClockSpeed = currentClockSpeed;
@@ -2210,7 +2228,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the ext clock.
-     *
+     * 
      * @return the extClock
      */
     public Integer getExtClock() {
@@ -2219,8 +2237,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the ext clock.
-     *
-     * @param extClock the extClock to set
+     * 
+     * @param extClock
+     *            the extClock to set
      */
     public void setExtClock(Integer extClock) {
 	this.extClock = extClock;
@@ -2228,7 +2247,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the stepping.
-     *
+     * 
      * @return the stepping
      */
     public Integer getStepping() {
@@ -2237,8 +2256,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the stepping.
-     *
-     * @param stepping the stepping to set
+     * 
+     * @param stepping
+     *            the stepping to set
      */
     public void setStepping(Integer stepping) {
 	this.stepping = stepping;
@@ -2246,7 +2266,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the capacity.
-     *
+     * 
      * @return the capacity
      */
     public Long getCapacity() {
@@ -2255,8 +2275,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the capacity.
-     *
-     * @param capacity the capacity to set
+     * 
+     * @param capacity
+     *            the capacity to set
      */
     public void setCapacity(Long capacity) {
 	this.capacity = capacity;
@@ -2264,7 +2285,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the speed.
-     *
+     * 
      * @return the speed
      */
     public Long getSpeed() {
@@ -2273,8 +2294,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the speed.
-     *
-     * @param speed the speed to set
+     * 
+     * @param speed
+     *            the speed to set
      */
     public void setSpeed(Long speed) {
 	this.speed = speed;
@@ -2282,7 +2304,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the partitions.
-     *
+     * 
      * @return the partitions
      */
     public Integer getPartitions() {
@@ -2291,8 +2313,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the partitions.
-     *
-     * @param partitions the partitions to set
+     * 
+     * @param partitions
+     *            the partitions to set
      */
     public void setPartitions(Integer partitions) {
 	this.partitions = partitions;
@@ -2300,7 +2323,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the size.
-     *
+     * 
      * @return the size
      */
     public Long getSize() {
@@ -2309,8 +2332,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the size.
-     *
-     * @param size the size to set
+     * 
+     * @param size
+     *            the size to set
      */
     public void setSize(Long size) {
 	this.size = size;
@@ -2318,7 +2342,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the free space.
-     *
+     * 
      * @return the freeSpace
      */
     public Long getFreeSpace() {
@@ -2327,8 +2351,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the free space.
-     *
-     * @param freeSpace the freeSpace to set
+     * 
+     * @param freeSpace
+     *            the freeSpace to set
      */
     public void setFreeSpace(Long freeSpace) {
 	this.freeSpace = freeSpace;
@@ -2336,7 +2361,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the file system.
-     *
+     * 
      * @return the fileSystem
      */
     public String getFileSystem() {
@@ -2345,8 +2370,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the file system.
-     *
-     * @param fileSystem the fileSystem to set
+     * 
+     * @param fileSystem
+     *            the fileSystem to set
      */
     public void setFileSystem(String fileSystem) {
 	this.fileSystem = fileSystem;
@@ -2354,7 +2380,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the version.
-     *
+     * 
      * @return the version
      */
     public String getVersion() {
@@ -2363,8 +2389,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the version.
-     *
-     * @param version the version to set
+     * 
+     * @param version
+     *            the version to set
      */
     public void setVersion(String version) {
 	this.version = version;
@@ -2372,7 +2399,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the name version.
-     *
+     * 
      * @return the name and version concatenated
      */
     public String getNameVersion() {
@@ -2381,7 +2408,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the adapter type.
-     *
+     * 
      * @return the adapterType
      */
     public String getAdapterType() {
@@ -2390,8 +2417,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the adapter type.
-     *
-     * @param adapterType the adapterType to set
+     * 
+     * @param adapterType
+     *            the adapterType to set
      */
     public void setAdapterType(String adapterType) {
 	this.adapterType = adapterType;
@@ -2399,7 +2427,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the dhcp enabled.
-     *
+     * 
      * @return the dhcpEnabled
      */
     public Boolean getDhcpEnabled() {
@@ -2408,8 +2436,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the dhcp enabled.
-     *
-     * @param dhcpEnabled the dhcpEnabled to set
+     * 
+     * @param dhcpEnabled
+     *            the dhcpEnabled to set
      */
     public void setDhcpEnabled(Boolean dhcpEnabled) {
 	this.dhcpEnabled = dhcpEnabled;
@@ -2417,7 +2446,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the dhcp server.
-     *
+     * 
      * @return the dhcpServer
      */
     public String getDhcpServer() {
@@ -2426,8 +2455,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the dhcp server.
-     *
-     * @param dhcpServer the dhcpServer to set
+     * 
+     * @param dhcpServer
+     *            the dhcpServer to set
      */
     public void setDhcpServer(String dhcpServer) {
 	this.dhcpServer = dhcpServer;
@@ -2435,7 +2465,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the ip address.
-     *
+     * 
      * @return the ipAddress
      */
     public String getIpAddress() {
@@ -2444,8 +2474,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the ip address.
-     *
-     * @param ipAddress the ipAddress to set
+     * 
+     * @param ipAddress
+     *            the ipAddress to set
      */
     public void setIpAddress(String ipAddress) {
 	this.ipAddress = ipAddress;
@@ -2453,7 +2484,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the ip subnet.
-     *
+     * 
      * @return the ipSubnet
      */
     public String getIpSubnet() {
@@ -2462,8 +2493,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the ip subnet.
-     *
-     * @param ipSubnet the ipSubnet to set
+     * 
+     * @param ipSubnet
+     *            the ipSubnet to set
      */
     public void setIpSubnet(String ipSubnet) {
 	this.ipSubnet = ipSubnet;
@@ -2471,7 +2503,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the default ip gateway.
-     *
+     * 
      * @return the defaultIpGateway
      */
     public String getDefaultIpGateway() {
@@ -2480,8 +2512,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the default ip gateway.
-     *
-     * @param defaultIpGateway the defaultIpGateway to set
+     * 
+     * @param defaultIpGateway
+     *            the defaultIpGateway to set
      */
     public void setDefaultIpGateway(String defaultIpGateway) {
 	this.defaultIpGateway = defaultIpGateway;
@@ -2489,7 +2522,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the mac address.
-     *
+     * 
      * @return the macAddress
      */
     public String getMacAddress() {
@@ -2498,8 +2531,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the mac address.
-     *
-     * @param macAddress the macAddress to set
+     * 
+     * @param macAddress
+     *            the macAddress to set
      */
     public void setMacAddress(String macAddress) {
 	this.macAddress = macAddress;
@@ -2507,7 +2541,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the net connection id.
-     *
+     * 
      * @return the netConnectionId
      */
     public String getNetConnectionId() {
@@ -2516,8 +2550,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the net connection id.
-     *
-     * @param netConnectionId the netConnectionId to set
+     * 
+     * @param netConnectionId
+     *            the netConnectionId to set
      */
     public void setNetConnectionId(String netConnectionId) {
 	this.netConnectionId = netConnectionId;
@@ -2525,7 +2560,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the net connection status.
-     *
+     * 
      * @return the netConnectionStatus
      */
     public String getNetConnectionStatus() {
@@ -2534,8 +2569,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the net connection status.
-     *
-     * @param netConnectionStatus the netConnectionStatus to set
+     * 
+     * @param netConnectionStatus
+     *            the netConnectionStatus to set
      */
     public void setNetConnectionStatus(String netConnectionStatus) {
 	this.netConnectionStatus = netConnectionStatus;
@@ -2543,7 +2579,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the device id.
-     *
+     * 
      * @return the deviceId
      */
     public String getDeviceId() {
@@ -2552,8 +2588,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the device id.
-     *
-     * @param deviceId the deviceId to set
+     * 
+     * @param deviceId
+     *            the deviceId to set
      */
     public void setDeviceId(String deviceId) {
 	this.deviceId = deviceId;
@@ -2561,7 +2598,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the max baud rate.
-     *
+     * 
      * @return the maxBaudRate
      */
     public Integer getMaxBaudRate() {
@@ -2570,8 +2607,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the max baud rate.
-     *
-     * @param maxBaudRate the maxBaudRate to set
+     * 
+     * @param maxBaudRate
+     *            the maxBaudRate to set
      */
     public void setMaxBaudRate(Integer maxBaudRate) {
 	this.maxBaudRate = maxBaudRate;
@@ -2579,7 +2617,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the display type.
-     *
+     * 
      * @return the displayType
      */
     public Boolean getDisplayType() {
@@ -2588,8 +2626,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the display type.
-     *
-     * @param displayType the displayType to set
+     * 
+     * @param displayType
+     *            the displayType to set
      */
     public void setDisplayType(Boolean displayType) {
 	this.displayType = displayType;
@@ -2597,7 +2636,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the monitor manufacturer.
-     *
+     * 
      * @return the monitorManufacturer
      */
     public String getMonitorManufacturer() {
@@ -2606,8 +2645,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the monitor manufacturer.
-     *
-     * @param monitorManufacturer the monitorManufacturer to set
+     * 
+     * @param monitorManufacturer
+     *            the monitorManufacturer to set
      */
     public void setMonitorManufacturer(String monitorManufacturer) {
 	this.monitorManufacturer = monitorManufacturer;
@@ -2615,7 +2655,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the monitor type.
-     *
+     * 
      * @return the monitorType
      */
     public String getMonitorType() {
@@ -2624,8 +2664,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the monitor type.
-     *
-     * @param monitorType the monitorType to set
+     * 
+     * @param monitorType
+     *            the monitorType to set
      */
     public void setMonitorType(String monitorType) {
 	this.monitorType = monitorType;
@@ -2633,7 +2674,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the pixels per x logical inch.
-     *
+     * 
      * @return the pixelsPerXLogicalInch
      */
     public Integer getPixelsPerXLogicalInch() {
@@ -2642,8 +2683,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the pixels per x logical inch.
-     *
-     * @param pixelsPerXLogicalInch the pixelsPerXLogicalInch to set
+     * 
+     * @param pixelsPerXLogicalInch
+     *            the pixelsPerXLogicalInch to set
      */
     public void setPixelsPerXLogicalInch(Integer pixelsPerXLogicalInch) {
 	this.pixelsPerXLogicalInch = pixelsPerXLogicalInch;
@@ -2651,7 +2693,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the pixels per y logical inch.
-     *
+     * 
      * @return the pixelsPerYLogicalInch
      */
     public Integer getPixelsPerYLogicalInch() {
@@ -2660,8 +2702,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the pixels per y logical inch.
-     *
-     * @param pixelsPerYLogicalInch the pixelsPerYLogicalInch to set
+     * 
+     * @param pixelsPerYLogicalInch
+     *            the pixelsPerYLogicalInch to set
      */
     public void setPixelsPerYLogicalInch(Integer pixelsPerYLogicalInch) {
 	this.pixelsPerYLogicalInch = pixelsPerYLogicalInch;
@@ -2669,7 +2712,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the layout.
-     *
+     * 
      * @return the layout
      */
     public String getLayout() {
@@ -2678,8 +2721,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the layout.
-     *
-     * @param layout the layout to set
+     * 
+     * @param layout
+     *            the layout to set
      */
     public void setLayout(String layout) {
 	this.layout = layout;
@@ -2687,7 +2731,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the hardware type.
-     *
+     * 
      * @return the hardwareType
      */
     public String getHardwareType() {
@@ -2696,8 +2740,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the hardware type.
-     *
-     * @param hardwareType the hardwareType to set
+     * 
+     * @param hardwareType
+     *            the hardwareType to set
      */
     public void setHardwareType(String hardwareType) {
 	this.hardwareType = hardwareType;
@@ -2705,7 +2750,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the pointing type.
-     *
+     * 
      * @return the pointingType
      */
     public Integer getPointingType() {
@@ -2714,8 +2759,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the pointing type.
-     *
-     * @param pointingType the pointingType to set
+     * 
+     * @param pointingType
+     *            the pointingType to set
      */
     public void setPointingType(Integer pointingType) {
 	this.pointingType = pointingType;
@@ -2723,7 +2769,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the current usage.
-     *
+     * 
      * @return the currentUsage
      */
     public Integer getCurrentUsage() {
@@ -2732,8 +2778,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the current usage.
-     *
-     * @param currentUsage the currentUsage to set
+     * 
+     * @param currentUsage
+     *            the currentUsage to set
      */
     public void setCurrentUsage(Integer currentUsage) {
 	this.currentUsage = currentUsage;
@@ -2741,7 +2788,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the serial number.
-     *
+     * 
      * @return the serialNumber
      */
     public String getSerialNumber() {
@@ -2750,8 +2797,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the serial number.
-     *
-     * @param serialNumber the serialNumber to set
+     * 
+     * @param serialNumber
+     *            the serialNumber to set
      */
     public void setSerialNumber(String serialNumber) {
 	this.serialNumber = serialNumber;
@@ -2759,7 +2807,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the slot designation.
-     *
+     * 
      * @return the slotDesignation
      */
     public String getSlotDesignation() {
@@ -2768,8 +2816,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the slot designation.
-     *
-     * @param slotDesignation the slotDesignation to set
+     * 
+     * @param slotDesignation
+     *            the slotDesignation to set
      */
     public void setSlotDesignation(String slotDesignation) {
 	this.slotDesignation = slotDesignation;
@@ -2777,7 +2826,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the tag.
-     *
+     * 
      * @return the tag
      */
     public String getTag() {
@@ -2786,8 +2835,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the tag.
-     *
-     * @param tag the tag to set
+     * 
+     * @param tag
+     *            the tag to set
      */
     public void setTag(String tag) {
 	this.tag = tag;
@@ -2795,7 +2845,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the smbios version.
-     *
+     * 
      * @return the smbiosVersion
      */
     public String getSmbiosVersion() {
@@ -2804,8 +2854,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the smbios version.
-     *
-     * @param smbiosVersion the smbiosVersion to set
+     * 
+     * @param smbiosVersion
+     *            the smbiosVersion to set
      */
     public void setSmbiosVersion(String smbiosVersion) {
 	this.smbiosVersion = smbiosVersion;
@@ -2813,7 +2864,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the smbios major version.
-     *
+     * 
      * @return the smbiosMajorVersion
      */
     public Integer getSmbiosMajorVersion() {
@@ -2822,8 +2873,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the smbios major version.
-     *
-     * @param smbiosMajorVersion the smbiosMajorVersion to set
+     * 
+     * @param smbiosMajorVersion
+     *            the smbiosMajorVersion to set
      */
     public void setSmbiosMajorVersion(Integer smbiosMajorVersion) {
 	this.smbiosMajorVersion = smbiosMajorVersion;
@@ -2831,7 +2883,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the smbios minor version.
-     *
+     * 
      * @return the smbiosMinorVersion
      */
     public Integer getSmbiosMinorVersion() {
@@ -2840,8 +2892,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the smbios minor version.
-     *
-     * @param smbiosMinorVersion the smbiosMinorVersion to set
+     * 
+     * @param smbiosMinorVersion
+     *            the smbiosMinorVersion to set
      */
     public void setSmbiosMinorVersion(Integer smbiosMinorVersion) {
 	this.smbiosMinorVersion = smbiosMinorVersion;
@@ -2849,7 +2902,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the current language.
-     *
+     * 
      * @return the currentLanguage
      */
     public String getCurrentLanguage() {
@@ -2858,8 +2911,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the current language.
-     *
-     * @param currentLanguage the currentLanguage to set
+     * 
+     * @param currentLanguage
+     *            the currentLanguage to set
      */
     public void setCurrentLanguage(String currentLanguage) {
 	this.currentLanguage = currentLanguage;
@@ -2867,7 +2921,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the primary bios.
-     *
+     * 
      * @return the primaryBios
      */
     public Boolean getPrimaryBios() {
@@ -2876,8 +2930,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the primary bios.
-     *
-     * @param primaryBios the primaryBios to set
+     * 
+     * @param primaryBios
+     *            the primaryBios to set
      */
     public void setPrimaryBios(Boolean primaryBios) {
 	this.primaryBios = primaryBios;
@@ -2885,7 +2940,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the release date.
-     *
+     * 
      * @return the releaseDate
      */
     public Date getReleaseDate() {
@@ -2894,8 +2949,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the release date.
-     *
-     * @param releaseDate the releaseDate to set
+     * 
+     * @param releaseDate
+     *            the releaseDate to set
      */
     public void setReleaseDate(Date releaseDate) {
 	this.releaseDate = releaseDate;
@@ -2903,7 +2959,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the smbios present.
-     *
+     * 
      * @return the smbiosPresent
      */
     public Boolean getSmbiosPresent() {
@@ -2912,8 +2968,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the smbios present.
-     *
-     * @param smbiosPresent the smbiosPresent to set
+     * 
+     * @param smbiosPresent
+     *            the smbiosPresent to set
      */
     public void setSmbiosPresent(Boolean smbiosPresent) {
 	this.smbiosPresent = smbiosPresent;
@@ -2921,7 +2978,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the bits per pixel.
-     *
+     * 
      * @return the bitsPerPixel
      */
     public Integer getBitsPerPixel() {
@@ -2930,8 +2987,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the bits per pixel.
-     *
-     * @param bitsPerPixel the bitsPerPixel to set
+     * 
+     * @param bitsPerPixel
+     *            the bitsPerPixel to set
      */
     public void setBitsPerPixel(Integer bitsPerPixel) {
 	BitsPerPixel = bitsPerPixel;
@@ -2949,7 +3007,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the current bits per pixel.
-     *
+     * 
      * @return the currentBitsPerPixel
      */
     public Integer getCurrentBitsPerPixel() {
@@ -2958,8 +3016,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the current bits per pixel.
-     *
-     * @param currentBitsPerPixel the currentBitsPerPixel to set
+     * 
+     * @param currentBitsPerPixel
+     *            the currentBitsPerPixel to set
      */
     public void setCurrentBitsPerPixel(Integer currentBitsPerPixel) {
 	this.currentBitsPerPixel = currentBitsPerPixel;
@@ -2967,7 +3026,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the current number of colors.
-     *
+     * 
      * @return the currentNumberOfColors
      */
     public Long getCurrentNumberOfColors() {
@@ -2976,8 +3035,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the current number of colors.
-     *
-     * @param currentNumberOfColors the currentNumberOfColors to set
+     * 
+     * @param currentNumberOfColors
+     *            the currentNumberOfColors to set
      */
     public void setCurrentNumberOfColors(Long currentNumberOfColors) {
 	this.currentNumberOfColors = currentNumberOfColors;
@@ -2985,7 +3045,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the current refresh rate.
-     *
+     * 
      * @return the currentRefreshRate
      */
     public Integer getCurrentRefreshRate() {
@@ -2994,8 +3054,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the current refresh rate.
-     *
-     * @param currentRefreshRate the currentRefreshRate to set
+     * 
+     * @param currentRefreshRate
+     *            the currentRefreshRate to set
      */
     public void setCurrentRefreshRate(Integer currentRefreshRate) {
 	this.currentRefreshRate = currentRefreshRate;
@@ -3003,7 +3064,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the current horizontal resolution.
-     *
+     * 
      * @return the currentHorizontalResolution
      */
     public Integer getCurrentHorizontalResolution() {
@@ -3012,8 +3073,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the current horizontal resolution.
-     *
-     * @param currentHorizontalResolution the currentHorizontalResolution to set
+     * 
+     * @param currentHorizontalResolution
+     *            the currentHorizontalResolution to set
      */
     public void setCurrentHorizontalResolution(
 	    Integer currentHorizontalResolution) {
@@ -3022,7 +3084,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the current vertical resolution.
-     *
+     * 
      * @return the currentVerticalResolution
      */
     public Integer getCurrentVerticalResolution() {
@@ -3031,8 +3093,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the current vertical resolution.
-     *
-     * @param currentVerticalResolution the currentVerticalResolution to set
+     * 
+     * @param currentVerticalResolution
+     *            the currentVerticalResolution to set
      */
     public void setCurrentVerticalResolution(Integer currentVerticalResolution) {
 	this.currentVerticalResolution = currentVerticalResolution;
@@ -3040,7 +3103,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the adapter ram.
-     *
+     * 
      * @return the adapterRam
      */
     public Integer getAdapterRam() {
@@ -3049,8 +3112,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the adapter ram.
-     *
-     * @param adapterRam the adapterRam to set
+     * 
+     * @param adapterRam
+     *            the adapterRam to set
      */
     public void setAdapterRam(Integer adapterRam) {
 	this.adapterRam = adapterRam;
@@ -3058,7 +3122,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the firmware revision.
-     *
+     * 
      * @return the firmwareRevision
      */
     public String getFirmwareRevision() {
@@ -3067,8 +3131,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the firmware revision.
-     *
-     * @param firmwareRevision the firmwareRevision to set
+     * 
+     * @param firmwareRevision
+     *            the firmwareRevision to set
      */
     public void setFirmwareRevision(String firmwareRevision) {
 	this.firmwareRevision = firmwareRevision;
@@ -3076,7 +3141,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the max clock speed.
-     *
+     * 
      * @return the maxClockSpeed
      */
     public Integer getMaxClockSpeed() {
@@ -3085,8 +3150,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the max clock speed.
-     *
-     * @param maxClockSpeed the maxClockSpeed to set
+     * 
+     * @param maxClockSpeed
+     *            the maxClockSpeed to set
      */
     public void setMaxClockSpeed(Integer maxClockSpeed) {
 	this.maxClockSpeed = maxClockSpeed;
@@ -3094,7 +3160,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the max media size.
-     *
+     * 
      * @return the maxMediaSize
      */
     public Integer getMaxMediaSize() {
@@ -3103,8 +3169,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the max media size.
-     *
-     * @param maxMediaSize the maxMediaSize to set
+     * 
+     * @param maxMediaSize
+     *            the maxMediaSize to set
      */
     public void setMaxMediaSize(Integer maxMediaSize) {
 	this.maxMediaSize = maxMediaSize;
@@ -3112,7 +3179,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the media type.
-     *
+     * 
      * @return the mediaType
      */
     public String getMediaType() {
@@ -3121,8 +3188,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the media type.
-     *
-     * @param mediaType the mediaType to set
+     * 
+     * @param mediaType
+     *            the mediaType to set
      */
     public void setMediaType(String mediaType) {
 	this.mediaType = mediaType;
@@ -3130,7 +3198,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the hardware version.
-     *
+     * 
      * @return the hardwareVersion
      */
     public String getHardwareVersion() {
@@ -3139,8 +3207,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the hardware version.
-     *
-     * @param hardwareVersion the hardwareVersion to set
+     * 
+     * @param hardwareVersion
+     *            the hardwareVersion to set
      */
     public void setHardwareVersion(String hardwareVersion) {
 	this.hardwareVersion = hardwareVersion;
@@ -3148,7 +3217,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the hardware name version.
-     *
+     * 
      * @return the hardware name and version concatenated
      */
     public String getHardwareNameVersion() {
@@ -3157,7 +3226,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the status info.
-     *
+     * 
      * @return the statusInfo
      */
     public String getStatusInfo() {
@@ -3166,8 +3235,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the status info.
-     *
-     * @param statusInfo the statusInfo to set
+     * 
+     * @param statusInfo
+     *            the statusInfo to set
      */
     public void setStatusInfo(String statusInfo) {
 	this.statusInfo = statusInfo;
@@ -3175,7 +3245,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the total cylinders.
-     *
+     * 
      * @return the totalCylinders
      */
     public Integer getTotalCylinders() {
@@ -3184,8 +3254,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the total cylinders.
-     *
-     * @param totalCylinders the totalCylinders to set
+     * 
+     * @param totalCylinders
+     *            the totalCylinders to set
      */
     public void setTotalCylinders(Integer totalCylinders) {
 	this.totalCylinders = totalCylinders;
@@ -3193,7 +3264,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the tracks per cylinder.
-     *
+     * 
      * @return the tracksPerCylinder
      */
     public Integer getTracksPerCylinder() {
@@ -3202,8 +3273,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the tracks per cylinder.
-     *
-     * @param tracksPerCylinder the tracksPerCylinder to set
+     * 
+     * @param tracksPerCylinder
+     *            the tracksPerCylinder to set
      */
     public void setTracksPerCylinder(Integer tracksPerCylinder) {
 	this.tracksPerCylinder = tracksPerCylinder;
@@ -3211,7 +3283,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the sectors per track.
-     *
+     * 
      * @return the sectorsPerTrack
      */
     public Integer getSectorsPerTrack() {
@@ -3220,8 +3292,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the sectors per track.
-     *
-     * @param sectorsPerTrack the sectorsPerTrack to set
+     * 
+     * @param sectorsPerTrack
+     *            the sectorsPerTrack to set
      */
     public void setSectorsPerTrack(Integer sectorsPerTrack) {
 	this.sectorsPerTrack = sectorsPerTrack;
@@ -3229,7 +3302,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the video processor.
-     *
+     * 
      * @return the videoProcessor
      */
     public String getVideoProcessor() {
@@ -3238,8 +3311,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the video processor.
-     *
-     * @param videoProcessor the videoProcessor to set
+     * 
+     * @param videoProcessor
+     *            the videoProcessor to set
      */
     public void setVideoProcessor(String videoProcessor) {
 	this.videoProcessor = videoProcessor;
@@ -3247,7 +3321,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the volume serial number.
-     *
+     * 
      * @return the volumeSerialNumber
      */
     public String getVolumeSerialNumber() {
@@ -3256,8 +3330,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the volume serial number.
-     *
-     * @param volumeSerialNumber the volumeSerialNumber to set
+     * 
+     * @param volumeSerialNumber
+     *            the volumeSerialNumber to set
      */
     public void setVolumeSerialNumber(String volumeSerialNumber) {
 	this.volumeSerialNumber = volumeSerialNumber;
@@ -3265,7 +3340,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the driver name.
-     *
+     * 
      * @return the driverName
      */
     public String getDriverName() {
@@ -3274,8 +3349,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the driver name.
-     *
-     * @param driverName the driverName to set
+     * 
+     * @param driverName
+     *            the driverName to set
      */
     public void setDriverName(String driverName) {
 	this.driverName = driverName;
@@ -3283,7 +3359,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the interface index.
-     *
+     * 
      * @return the interfaceIndex
      */
     public Integer getInterfaceIndex() {
@@ -3292,8 +3368,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the interface index.
-     *
-     * @param interfaceIndex the interfaceIndex to set
+     * 
+     * @param interfaceIndex
+     *            the interfaceIndex to set
      */
     public void setInterfaceIndex(Integer interfaceIndex) {
 	this.interfaceIndex = interfaceIndex;
@@ -3301,7 +3378,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the protocol supported.
-     *
+     * 
      * @return the protocolSupported
      */
     public Integer getProtocolSupported() {
@@ -3310,8 +3387,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the protocol supported.
-     *
-     * @param protocolSupported the protocolSupported to set
+     * 
+     * @param protocolSupported
+     *            the protocolSupported to set
      */
     public void setProtocolSupported(Integer protocolSupported) {
 	this.protocolSupported = protocolSupported;
@@ -3319,7 +3397,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the volume name.
-     *
+     * 
      * @return the volumeName
      */
     public String getVolumeName() {
@@ -3328,8 +3406,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the volume name.
-     *
-     * @param volumeName the volumeName to set
+     * 
+     * @param volumeName
+     *            the volumeName to set
      */
     public void setVolumeName(String volumeName) {
 	this.volumeName = volumeName;
@@ -3337,7 +3416,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the bytes per sector.
-     *
+     * 
      * @return the bytesPerSector
      */
     public Integer getBytesPerSector() {
@@ -3346,8 +3425,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the bytes per sector.
-     *
-     * @param bytesPerSector the bytesPerSector to set
+     * 
+     * @param bytesPerSector
+     *            the bytesPerSector to set
      */
     public void setBytesPerSector(Integer bytesPerSector) {
 	this.bytesPerSector = bytesPerSector;
@@ -3355,7 +3435,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the data width.
-     *
+     * 
      * @return the dataWidth
      */
     public Integer getDataWidth() {
@@ -3364,8 +3444,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the data width.
-     *
-     * @param dataWidth the dataWidth to set
+     * 
+     * @param dataWidth
+     *            the dataWidth to set
      */
     public void setDataWidth(Integer dataWidth) {
 	this.dataWidth = dataWidth;
@@ -3373,7 +3454,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the product.
-     *
+     * 
      * @return the product
      */
     public String getProduct() {
@@ -3382,8 +3463,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the product.
-     *
-     * @param product the product to set
+     * 
+     * @param product
+     *            the product to set
      */
     public void setProduct(String product) {
 	this.product = product;
@@ -3391,7 +3473,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the colors.
-     *
+     * 
      * @return the colors
      */
     public Integer getColors() {
@@ -3400,8 +3482,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the colors.
-     *
-     * @param colors the colors to set
+     * 
+     * @param colors
+     *            the colors to set
      */
     public void setColors(Integer colors) {
 	this.colors = colors;
@@ -3409,7 +3492,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the refresh rate.
-     *
+     * 
      * @return the refreshRate
      */
     public Integer getRefreshRate() {
@@ -3418,8 +3501,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the refresh rate.
-     *
-     * @param refreshRate the refreshRate to set
+     * 
+     * @param refreshRate
+     *            the refreshRate to set
      */
     public void setRefreshRate(Integer refreshRate) {
 	this.refreshRate = refreshRate;
@@ -3427,7 +3511,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the horizontal res.
-     *
+     * 
      * @return the horizontalRes
      */
     public Integer getHorizontalRes() {
@@ -3436,8 +3520,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the horizontal res.
-     *
-     * @param horizontalRes the horizontalRes to set
+     * 
+     * @param horizontalRes
+     *            the horizontalRes to set
      */
     public void setHorizontalRes(Integer horizontalRes) {
 	this.horizontalRes = horizontalRes;
@@ -3445,7 +3530,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the vertical res.
-     *
+     * 
      * @return the verticalRes
      */
     public Integer getVerticalRes() {
@@ -3454,8 +3539,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the vertical res.
-     *
-     * @param verticalRes the verticalRes to set
+     * 
+     * @param verticalRes
+     *            the verticalRes to set
      */
     public void setVerticalRes(Integer verticalRes) {
 	this.verticalRes = verticalRes;
@@ -3463,7 +3549,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the video memory.
-     *
+     * 
      * @return the videoMemory
      */
     public Integer getVideoMemory() {
@@ -3472,8 +3558,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the video memory.
-     *
-     * @param videoMemory the videoMemory to set
+     * 
+     * @param videoMemory
+     *            the videoMemory to set
      */
     public void setVideoMemory(Integer videoMemory) {
 	this.videoMemory = videoMemory;
@@ -3481,7 +3568,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the protocol code.
-     *
+     * 
      * @return the protocolCode
      */
     public String getProtocolCode() {
@@ -3490,8 +3577,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the protocol code.
-     *
-     * @param protocolCode the protocolCode to set
+     * 
+     * @param protocolCode
+     *            the protocolCode to set
      */
     public void setProtocolCode(String protocolCode) {
 	this.protocolCode = protocolCode;
@@ -3499,7 +3587,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the number of ports.
-     *
+     * 
      * @return the numberOfPorts
      */
     public Integer getNumberOfPorts() {
@@ -3508,8 +3596,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the number of ports.
-     *
-     * @param numberOfPorts the numberOfPorts to set
+     * 
+     * @param numberOfPorts
+     *            the numberOfPorts to set
      */
     public void setNumberOfPorts(Integer numberOfPorts) {
 	this.numberOfPorts = numberOfPorts;
@@ -3517,7 +3606,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the usb version.
-     *
+     * 
      * @return the usbRemainingVersion
      */
     public String getUsbVersion() {
@@ -3526,8 +3615,9 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the usb version.
-     *
-     * @param usbVersion the usbVersion to set
+     * 
+     * @param usbVersion
+     *            the usbVersion to set
      */
     public void setUsbVersion(String usbVersion) {
 	this.usbVersion = usbVersion;
@@ -3535,7 +3625,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the separator.
-     *
+     * 
      * @return the separator
      */
     public static char getSeparator() {
@@ -3544,7 +3634,7 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Gets the signature.
-     *
+     * 
      * @return the signature
      */
     public String getSignature() {
@@ -3553,684 +3643,685 @@ public class HardwareDevice extends Auditable {
 
     /**
      * Sets the signature.
-     *
-     * @param signature the signature to set
+     * 
+     * @param signature
+     *            the signature to set
      */
     public void setSignature(String signature) {
 	this.signature = signature;
     }
-    
-    @Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((BitsPerPixel == null) ? 0 : BitsPerPixel.hashCode());
-		result = prime * result
-				+ ((adapterRam == null) ? 0 : adapterRam.hashCode());
-		result = prime * result
-				+ ((adapterType == null) ? 0 : adapterType.hashCode());
-		result = prime * result
-				+ ((addressWidth == null) ? 0 : addressWidth.hashCode());
-		result = prime * result
-				+ ((architecture == null) ? 0 : architecture.hashCode());
-		result = prime * result
-				+ ((bytesPerSector == null) ? 0 : bytesPerSector.hashCode());
-		result = prime * result
-				+ ((capacity == null) ? 0 : capacity.hashCode());
-		result = prime * result + ((caption == null) ? 0 : caption.hashCode());
-		result = prime * result + ((colors == null) ? 0 : colors.hashCode());
-		result = prime
-				* result
-				+ ((currentBitsPerPixel == null) ? 0 : currentBitsPerPixel
-						.hashCode());
-		result = prime
-				* result
-				+ ((currentClockSpeed == null) ? 0 : currentClockSpeed
-						.hashCode());
-		result = prime
-				* result
-				+ ((currentHorizontalResolution == null) ? 0
-						: currentHorizontalResolution.hashCode());
-		result = prime * result
-				+ ((currentLanguage == null) ? 0 : currentLanguage.hashCode());
-		result = prime
-				* result
-				+ ((currentNumberOfColors == null) ? 0 : currentNumberOfColors
-						.hashCode());
-		result = prime
-				* result
-				+ ((currentRefreshRate == null) ? 0 : currentRefreshRate
-						.hashCode());
-		result = prime * result
-				+ ((currentTimeZone == null) ? 0 : currentTimeZone.hashCode());
-		result = prime * result
-				+ ((currentUsage == null) ? 0 : currentUsage.hashCode());
-		result = prime
-				* result
-				+ ((currentVerticalResolution == null) ? 0
-						: currentVerticalResolution.hashCode());
-		result = prime * result
-				+ ((dataWidth == null) ? 0 : dataWidth.hashCode());
-		result = prime
-				* result
-				+ ((daylightInEffect == null) ? 0 : daylightInEffect.hashCode());
-		result = prime
-				* result
-				+ ((defaultIpGateway == null) ? 0 : defaultIpGateway.hashCode());
-		result = prime * result
-				+ ((description == null) ? 0 : description.hashCode());
-		result = prime * result
-				+ ((deviceId == null) ? 0 : deviceId.hashCode());
-		result = prime * result
-				+ ((dhcpEnabled == null) ? 0 : dhcpEnabled.hashCode());
-		result = prime * result
-				+ ((dhcpServer == null) ? 0 : dhcpServer.hashCode());
-		result = prime * result
-				+ ((displayType == null) ? 0 : displayType.hashCode());
-		result = prime * result + ((domain == null) ? 0 : domain.hashCode());
-		result = prime * result
-				+ ((driverName == null) ? 0 : driverName.hashCode());
-		result = prime * result
-				+ ((extClock == null) ? 0 : extClock.hashCode());
-		result = prime * result
-				+ ((fileSystem == null) ? 0 : fileSystem.hashCode());
-		result = prime
-				* result
-				+ ((firmwareRevision == null) ? 0 : firmwareRevision.hashCode());
-		result = prime * result
-				+ ((freeSpace == null) ? 0 : freeSpace.hashCode());
-		result = prime * result
-				+ ((hardwareClass == null) ? 0 : hardwareClass.hashCode());
-		result = prime * result
-				+ ((hardwareType == null) ? 0 : hardwareType.hashCode());
-		result = prime * result
-				+ ((hardwareVersion == null) ? 0 : hardwareVersion.hashCode());
-		result = prime * result
-				+ ((horizontalRes == null) ? 0 : horizontalRes.hashCode());
-		result = prime * result
-				+ ((interfaceIndex == null) ? 0 : interfaceIndex.hashCode());
-		result = prime * result
-				+ ((ipAddress == null) ? 0 : ipAddress.hashCode());
-		result = prime * result
-				+ ((ipSubnet == null) ? 0 : ipSubnet.hashCode());
-		result = prime * result + ((layout == null) ? 0 : layout.hashCode());
-		result = prime * result
-				+ ((macAddress == null) ? 0 : macAddress.hashCode());
-		result = prime * result
-				+ ((manufacturer == null) ? 0 : manufacturer.hashCode());
-		result = prime * result
-				+ ((maxBaudRate == null) ? 0 : maxBaudRate.hashCode());
-		result = prime * result
-				+ ((maxClockSpeed == null) ? 0 : maxClockSpeed.hashCode());
-		result = prime * result
-				+ ((maxMediaSize == null) ? 0 : maxMediaSize.hashCode());
-		result = prime * result
-				+ ((mediaType == null) ? 0 : mediaType.hashCode());
-		result = prime * result + ((model == null) ? 0 : model.hashCode());
-		result = prime
-				* result
-				+ ((monitorManufacturer == null) ? 0 : monitorManufacturer
-						.hashCode());
-		result = prime * result
-				+ ((monitorType == null) ? 0 : monitorType.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((netConnectionId == null) ? 0 : netConnectionId.hashCode());
-		result = prime
-				* result
-				+ ((netConnectionStatus == null) ? 0 : netConnectionStatus
-						.hashCode());
-		result = prime * result
-				+ ((numberOfPorts == null) ? 0 : numberOfPorts.hashCode());
-		result = prime
-				* result
-				+ ((numberOfProcessors == null) ? 0 : numberOfProcessors
-						.hashCode());
-		result = prime * result
-				+ ((partitions == null) ? 0 : partitions.hashCode());
-		result = prime
-				* result
-				+ ((pixelsPerXLogicalInch == null) ? 0 : pixelsPerXLogicalInch
-						.hashCode());
-		result = prime
-				* result
-				+ ((pixelsPerYLogicalInch == null) ? 0 : pixelsPerYLogicalInch
-						.hashCode());
-		result = prime * result
-				+ ((pointingType == null) ? 0 : pointingType.hashCode());
-		result = prime * result
-				+ ((primaryBios == null) ? 0 : primaryBios.hashCode());
-		result = prime * result + ((product == null) ? 0 : product.hashCode());
-		result = prime * result
-				+ ((protocolCode == null) ? 0 : protocolCode.hashCode());
-		result = prime
-				* result
-				+ ((protocolSupported == null) ? 0 : protocolSupported
-						.hashCode());
-		result = prime * result
-				+ ((refreshRate == null) ? 0 : refreshRate.hashCode());
-		result = prime * result
-				+ ((sectorsPerTrack == null) ? 0 : sectorsPerTrack.hashCode());
-		result = prime * result
-				+ ((serialNumber == null) ? 0 : serialNumber.hashCode());
-		result = prime * result
-				+ ((signature == null) ? 0 : signature.hashCode());
-		result = prime * result + ((size == null) ? 0 : size.hashCode());
-		result = prime * result
-				+ ((slotDesignation == null) ? 0 : slotDesignation.hashCode());
-		result = prime
-				* result
-				+ ((smbiosMajorVersion == null) ? 0 : smbiosMajorVersion
-						.hashCode());
-		result = prime
-				* result
-				+ ((smbiosMinorVersion == null) ? 0 : smbiosMinorVersion
-						.hashCode());
-		result = prime * result
-				+ ((smbiosPresent == null) ? 0 : smbiosPresent.hashCode());
-		result = prime * result
-				+ ((smbiosVersion == null) ? 0 : smbiosVersion.hashCode());
-		result = prime * result + ((speed == null) ? 0 : speed.hashCode());
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime * result
-				+ ((statusInfo == null) ? 0 : statusInfo.hashCode());
-		result = prime * result
-				+ ((stepping == null) ? 0 : stepping.hashCode());
-		result = prime * result + ((tag == null) ? 0 : tag.hashCode());
-		result = prime * result
-				+ ((terminal == null) ? 0 : terminal.hashCode());
-		result = prime * result
-				+ ((totalCylinders == null) ? 0 : totalCylinders.hashCode());
-		result = prime
-				* result
-				+ ((totalPhysicalMemory == null) ? 0 : totalPhysicalMemory
-						.hashCode());
-		result = prime
-				* result
-				+ ((tracksPerCylinder == null) ? 0 : tracksPerCylinder
-						.hashCode());
-		result = prime * result
-				+ ((usbVersion == null) ? 0 : usbVersion.hashCode());
-		result = prime * result + ((version == null) ? 0 : version.hashCode());
-		result = prime * result
-				+ ((verticalRes == null) ? 0 : verticalRes.hashCode());
-		result = prime * result
-				+ ((videoMemory == null) ? 0 : videoMemory.hashCode());
-		result = prime * result
-				+ ((videoProcessor == null) ? 0 : videoProcessor.hashCode());
-		result = prime * result
-				+ ((volumeName == null) ? 0 : volumeName.hashCode());
-		result = prime
-				* result
-				+ ((volumeSerialNumber == null) ? 0 : volumeSerialNumber
-						.hashCode());
-		result = prime * result
-				+ ((workgroup == null) ? 0 : workgroup.hashCode());
-		return result;
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		HardwareDevice other = (HardwareDevice) obj;
-		if (hardwareClass == null) {
-			if (other.hardwareClass != null)
-				return false;
-		} else if (!hardwareClass.equals(other.hardwareClass))
-			return false;
-		if (BitsPerPixel == null) {
-			if (other.BitsPerPixel != null)
-				return false;
-		} else if (!BitsPerPixel.equals(other.BitsPerPixel))
-			return false;
-		if (adapterRam == null) {
-			if (other.adapterRam != null)
-				return false;
-		} else if (!adapterRam.equals(other.adapterRam))
-			return false;
-		if (adapterType == null) {
-			if (other.adapterType != null)
-				return false;
-		} else if (!adapterType.equals(other.adapterType))
-			return false;
-		if (addressWidth == null) {
-			if (other.addressWidth != null)
-				return false;
-		} else if (!addressWidth.equals(other.addressWidth))
-			return false;
-		if (architecture == null) {
-			if (other.architecture != null)
-				return false;
-		} else if (!architecture.equals(other.architecture))
-			return false;
-		if (bytesPerSector == null) {
-			if (other.bytesPerSector != null)
-				return false;
-		} else if (!bytesPerSector.equals(other.bytesPerSector))
-			return false;
-		if (capacity == null) {
-			if (other.capacity != null)
-				return false;
-		} else if (!capacity.equals(other.capacity))
-			return false;
-		if (caption == null) {
-			if (other.caption != null)
-				return false;
-		} else if (!caption.equals(other.caption))
-			return false;
-		if (colors == null) {
-			if (other.colors != null)
-				return false;
-		} else if (!colors.equals(other.colors))
-			return false;
-		if (currentBitsPerPixel == null) {
-			if (other.currentBitsPerPixel != null)
-				return false;
-		} else if (!currentBitsPerPixel.equals(other.currentBitsPerPixel))
-			return false;
-		if (currentClockSpeed == null) {
-			if (other.currentClockSpeed != null)
-				return false;
-		} else if (!currentClockSpeed.equals(other.currentClockSpeed))
-			return false;
-		if (currentHorizontalResolution == null) {
-			if (other.currentHorizontalResolution != null)
-				return false;
-		} else if (!currentHorizontalResolution
-				.equals(other.currentHorizontalResolution))
-			return false;
-		if (currentLanguage == null) {
-			if (other.currentLanguage != null)
-				return false;
-		} else if (!currentLanguage.equals(other.currentLanguage))
-			return false;
-		if (currentNumberOfColors == null) {
-			if (other.currentNumberOfColors != null)
-				return false;
-		} else if (!currentNumberOfColors.equals(other.currentNumberOfColors))
-			return false;
-		if (currentRefreshRate == null) {
-			if (other.currentRefreshRate != null)
-				return false;
-		} else if (!currentRefreshRate.equals(other.currentRefreshRate))
-			return false;
-		if (currentTimeZone == null) {
-			if (other.currentTimeZone != null)
-				return false;
-		} else if (!currentTimeZone.equals(other.currentTimeZone))
-			return false;
-		if (currentUsage == null) {
-			if (other.currentUsage != null)
-				return false;
-		} else if (!currentUsage.equals(other.currentUsage))
-			return false;
-		if (currentVerticalResolution == null) {
-			if (other.currentVerticalResolution != null)
-				return false;
-		} else if (!currentVerticalResolution
-				.equals(other.currentVerticalResolution))
-			return false;
-		if (dataWidth == null) {
-			if (other.dataWidth != null)
-				return false;
-		} else if (!dataWidth.equals(other.dataWidth))
-			return false;
-		if (daylightInEffect == null) {
-			if (other.daylightInEffect != null)
-				return false;
-		} else if (!daylightInEffect.equals(other.daylightInEffect))
-			return false;
-		if (defaultIpGateway == null) {
-			if (other.defaultIpGateway != null)
-				return false;
-		} else if (!defaultIpGateway.equals(other.defaultIpGateway))
-			return false;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
-		if (deviceId == null) {
-			if (other.deviceId != null)
-				return false;
-		} else if (!deviceId.equals(other.deviceId))
-			return false;
-		if (dhcpEnabled == null) {
-			if (other.dhcpEnabled != null)
-				return false;
-		} else if (!dhcpEnabled.equals(other.dhcpEnabled))
-			return false;
-		if (dhcpServer == null) {
-			if (other.dhcpServer != null)
-				return false;
-		} else if (!dhcpServer.equals(other.dhcpServer))
-			return false;
-		if (displayType == null) {
-			if (other.displayType != null)
-				return false;
-		} else if (!displayType.equals(other.displayType))
-			return false;
-		if (domain == null) {
-			if (other.domain != null)
-				return false;
-		} else if (!domain.equals(other.domain))
-			return false;
-		if (driverName == null) {
-			if (other.driverName != null)
-				return false;
-		} else if (!driverName.equals(other.driverName))
-			return false;
-		if (extClock == null) {
-			if (other.extClock != null)
-				return false;
-		} else if (!extClock.equals(other.extClock))
-			return false;
-		if (fileSystem == null) {
-			if (other.fileSystem != null)
-				return false;
-		} else if (!fileSystem.equals(other.fileSystem))
-			return false;
-		if (firmwareRevision == null) {
-			if (other.firmwareRevision != null)
-				return false;
-		} else if (!firmwareRevision.equals(other.firmwareRevision))
-			return false;
-		if (freeSpace == null) {
-			if (other.freeSpace != null)
-				return false;
-		} else if (!freeSpace.equals(other.freeSpace))
-			return false;
-		if (hardwareType == null) {
-			if (other.hardwareType != null)
-				return false;
-		} else if (!hardwareType.equals(other.hardwareType))
-			return false;
-		if (hardwareVersion == null) {
-			if (other.hardwareVersion != null)
-				return false;
-		} else if (!hardwareVersion.equals(other.hardwareVersion))
-			return false;
-		if (horizontalRes == null) {
-			if (other.horizontalRes != null)
-				return false;
-		} else if (!horizontalRes.equals(other.horizontalRes))
-			return false;
-		if (interfaceIndex == null) {
-			if (other.interfaceIndex != null)
-				return false;
-		} else if (!interfaceIndex.equals(other.interfaceIndex))
-			return false;
-		if (ipAddress == null) {
-			if (other.ipAddress != null)
-				return false;
-		} else if (!ipAddress.equals(other.ipAddress))
-			return false;
-		if (ipSubnet == null) {
-			if (other.ipSubnet != null)
-				return false;
-		} else if (!ipSubnet.equals(other.ipSubnet))
-			return false;
-		if (layout == null) {
-			if (other.layout != null)
-				return false;
-		} else if (!layout.equals(other.layout))
-			return false;
-		if (macAddress == null) {
-			if (other.macAddress != null)
-				return false;
-		} else if (!macAddress.equals(other.macAddress))
-			return false;
-		if (manufacturer == null) {
-			if (other.manufacturer != null)
-				return false;
-		} else if (!manufacturer.equals(other.manufacturer))
-			return false;
-		if (maxBaudRate == null) {
-			if (other.maxBaudRate != null)
-				return false;
-		} else if (!maxBaudRate.equals(other.maxBaudRate))
-			return false;
-		if (maxClockSpeed == null) {
-			if (other.maxClockSpeed != null)
-				return false;
-		} else if (!maxClockSpeed.equals(other.maxClockSpeed))
-			return false;
-		if (maxMediaSize == null) {
-			if (other.maxMediaSize != null)
-				return false;
-		} else if (!maxMediaSize.equals(other.maxMediaSize))
-			return false;
-		if (mediaType == null) {
-			if (other.mediaType != null)
-				return false;
-		} else if (!mediaType.equals(other.mediaType))
-			return false;
-		if (model == null) {
-			if (other.model != null)
-				return false;
-		} else if (!model.equals(other.model))
-			return false;
-		if (monitorManufacturer == null) {
-			if (other.monitorManufacturer != null)
-				return false;
-		} else if (!monitorManufacturer.equals(other.monitorManufacturer))
-			return false;
-		if (monitorType == null) {
-			if (other.monitorType != null)
-				return false;
-		} else if (!monitorType.equals(other.monitorType))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (netConnectionId == null) {
-			if (other.netConnectionId != null)
-				return false;
-		} else if (!netConnectionId.equals(other.netConnectionId))
-			return false;
-		if (netConnectionStatus == null) {
-			if (other.netConnectionStatus != null)
-				return false;
-		} else if (!netConnectionStatus.equals(other.netConnectionStatus))
-			return false;
-		if (numberOfPorts == null) {
-			if (other.numberOfPorts != null)
-				return false;
-		} else if (!numberOfPorts.equals(other.numberOfPorts))
-			return false;
-		if (numberOfProcessors == null) {
-			if (other.numberOfProcessors != null)
-				return false;
-		} else if (!numberOfProcessors.equals(other.numberOfProcessors))
-			return false;
-		if (partitions == null) {
-			if (other.partitions != null)
-				return false;
-		} else if (!partitions.equals(other.partitions))
-			return false;
-		if (pixelsPerXLogicalInch == null) {
-			if (other.pixelsPerXLogicalInch != null)
-				return false;
-		} else if (!pixelsPerXLogicalInch.equals(other.pixelsPerXLogicalInch))
-			return false;
-		if (pixelsPerYLogicalInch == null) {
-			if (other.pixelsPerYLogicalInch != null)
-				return false;
-		} else if (!pixelsPerYLogicalInch.equals(other.pixelsPerYLogicalInch))
-			return false;
-		if (pointingType == null) {
-			if (other.pointingType != null)
-				return false;
-		} else if (!pointingType.equals(other.pointingType))
-			return false;
-		if (primaryBios == null) {
-			if (other.primaryBios != null)
-				return false;
-		} else if (!primaryBios.equals(other.primaryBios))
-			return false;
-		if (product == null) {
-			if (other.product != null)
-				return false;
-		} else if (!product.equals(other.product))
-			return false;
-		if (protocolCode == null) {
-			if (other.protocolCode != null)
-				return false;
-		} else if (!protocolCode.equals(other.protocolCode))
-			return false;
-		if (protocolSupported == null) {
-			if (other.protocolSupported != null)
-				return false;
-		} else if (!protocolSupported.equals(other.protocolSupported))
-			return false;
-		if (refreshRate == null) {
-			if (other.refreshRate != null)
-				return false;
-		} else if (!refreshRate.equals(other.refreshRate))
-			return false;
-		if (releaseDate == null) {
-			if (other.releaseDate != null)
-				return false;
-		} else if (! (releaseDate.getTime() == other.releaseDate.getTime()))
-			return false;
-		if (sectorsPerTrack == null) {
-			if (other.sectorsPerTrack != null)
-				return false;
-		} else if (!sectorsPerTrack.equals(other.sectorsPerTrack))
-			return false;
-		if (serialNumber == null) {
-			if (other.serialNumber != null)
-				return false;
-		} else if (!serialNumber.equals(other.serialNumber))
-			return false;
-		if (signature == null) {
-			if (other.signature != null)
-				return false;
-		} else if (!signature.equals(other.signature))
-			return false;
-		if (size == null) {
-			if (other.size != null)
-				return false;
-		} else if (!size.equals(other.size))
-			return false;
-		if (slotDesignation == null) {
-			if (other.slotDesignation != null)
-				return false;
-		} else if (!slotDesignation.equals(other.slotDesignation))
-			return false;
-		if (smbiosMajorVersion == null) {
-			if (other.smbiosMajorVersion != null)
-				return false;
-		} else if (!smbiosMajorVersion.equals(other.smbiosMajorVersion))
-			return false;
-		if (smbiosMinorVersion == null) {
-			if (other.smbiosMinorVersion != null)
-				return false;
-		} else if (!smbiosMinorVersion.equals(other.smbiosMinorVersion))
-			return false;
-		if (smbiosPresent == null) {
-			if (other.smbiosPresent != null)
-				return false;
-		} else if (!smbiosPresent.equals(other.smbiosPresent))
-			return false;
-		if (smbiosVersion == null) {
-			if (other.smbiosVersion != null)
-				return false;
-		} else if (!smbiosVersion.equals(other.smbiosVersion))
-			return false;
-		if (speed == null) {
-			if (other.speed != null)
-				return false;
-		} else if (!speed.equals(other.speed))
-			return false;
-		if (status == null) {
-			if (other.status != null)
-				return false;
-		} else if (!status.equals(other.status))
-			return false;
-		if (statusInfo == null) {
-			if (other.statusInfo != null)
-				return false;
-		} else if (!statusInfo.equals(other.statusInfo))
-			return false;
-		if (stepping == null) {
-			if (other.stepping != null)
-				return false;
-		} else if (!stepping.equals(other.stepping))
-			return false;
-		if (tag == null) {
-			if (other.tag != null)
-				return false;
-		} else if (!tag.equals(other.tag))
-			return false;
-		if (terminal == null) {
-			if (other.terminal != null)
-				return false;
-		} else if (!terminal.equals(other.terminal))
-			return false;
-		if (totalCylinders == null) {
-			if (other.totalCylinders != null)
-				return false;
-		} else if (!totalCylinders.equals(other.totalCylinders))
-			return false;
-		if (totalPhysicalMemory == null) {
-			if (other.totalPhysicalMemory != null)
-				return false;
-		} else if (!totalPhysicalMemory.equals(other.totalPhysicalMemory))
-			return false;
-		if (tracksPerCylinder == null) {
-			if (other.tracksPerCylinder != null)
-				return false;
-		} else if (!tracksPerCylinder.equals(other.tracksPerCylinder))
-			return false;
-		if (usbVersion == null) {
-			if (other.usbVersion != null)
-				return false;
-		} else if (!usbVersion.equals(other.usbVersion))
-			return false;
-		if (version == null) {
-			if (other.version != null)
-				return false;
-		} else if (!version.equals(other.version))
-			return false;
-		if (verticalRes == null) {
-			if (other.verticalRes != null)
-				return false;
-		} else if (!verticalRes.equals(other.verticalRes))
-			return false;
-		if (videoMemory == null) {
-			if (other.videoMemory != null)
-				return false;
-		} else if (!videoMemory.equals(other.videoMemory))
-			return false;
-		if (videoProcessor == null) {
-			if (other.videoProcessor != null)
-				return false;
-		} else if (!videoProcessor.equals(other.videoProcessor))
-			return false;
-		if (volumeName == null) {
-			if (other.volumeName != null)
-				return false;
-		} else if (!volumeName.equals(other.volumeName))
-			return false;
-		if (volumeSerialNumber == null) {
-			if (other.volumeSerialNumber != null)
-				return false;
-		} else if (!volumeSerialNumber.equals(other.volumeSerialNumber))
-			return false;
-		if (workgroup == null) {
-			if (other.workgroup != null)
-				return false;
-		} else if (!workgroup.equals(other.workgroup))
-			return false;
-		return true;
-	}
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result
+		+ ((BitsPerPixel == null) ? 0 : BitsPerPixel.hashCode());
+	result = prime * result
+		+ ((adapterRam == null) ? 0 : adapterRam.hashCode());
+	result = prime * result
+		+ ((adapterType == null) ? 0 : adapterType.hashCode());
+	result = prime * result
+		+ ((addressWidth == null) ? 0 : addressWidth.hashCode());
+	result = prime * result
+		+ ((architecture == null) ? 0 : architecture.hashCode());
+	result = prime * result
+		+ ((bytesPerSector == null) ? 0 : bytesPerSector.hashCode());
+	result = prime * result
+		+ ((capacity == null) ? 0 : capacity.hashCode());
+	result = prime * result + ((caption == null) ? 0 : caption.hashCode());
+	result = prime * result + ((colors == null) ? 0 : colors.hashCode());
+	result = prime
+		* result
+		+ ((currentBitsPerPixel == null) ? 0 : currentBitsPerPixel
+			.hashCode());
+	result = prime
+		* result
+		+ ((currentClockSpeed == null) ? 0 : currentClockSpeed
+			.hashCode());
+	result = prime
+		* result
+		+ ((currentHorizontalResolution == null) ? 0
+			: currentHorizontalResolution.hashCode());
+	result = prime * result
+		+ ((currentLanguage == null) ? 0 : currentLanguage.hashCode());
+	result = prime
+		* result
+		+ ((currentNumberOfColors == null) ? 0 : currentNumberOfColors
+			.hashCode());
+	result = prime
+		* result
+		+ ((currentRefreshRate == null) ? 0 : currentRefreshRate
+			.hashCode());
+	result = prime * result
+		+ ((currentTimeZone == null) ? 0 : currentTimeZone.hashCode());
+	result = prime * result
+		+ ((currentUsage == null) ? 0 : currentUsage.hashCode());
+	result = prime
+		* result
+		+ ((currentVerticalResolution == null) ? 0
+			: currentVerticalResolution.hashCode());
+	result = prime * result
+		+ ((dataWidth == null) ? 0 : dataWidth.hashCode());
+	result = prime
+		* result
+		+ ((daylightInEffect == null) ? 0 : daylightInEffect.hashCode());
+	result = prime
+		* result
+		+ ((defaultIpGateway == null) ? 0 : defaultIpGateway.hashCode());
+	result = prime * result
+		+ ((description == null) ? 0 : description.hashCode());
+	result = prime * result
+		+ ((deviceId == null) ? 0 : deviceId.hashCode());
+	result = prime * result
+		+ ((dhcpEnabled == null) ? 0 : dhcpEnabled.hashCode());
+	result = prime * result
+		+ ((dhcpServer == null) ? 0 : dhcpServer.hashCode());
+	result = prime * result
+		+ ((displayType == null) ? 0 : displayType.hashCode());
+	result = prime * result + ((domain == null) ? 0 : domain.hashCode());
+	result = prime * result
+		+ ((driverName == null) ? 0 : driverName.hashCode());
+	result = prime * result
+		+ ((extClock == null) ? 0 : extClock.hashCode());
+	result = prime * result
+		+ ((fileSystem == null) ? 0 : fileSystem.hashCode());
+	result = prime
+		* result
+		+ ((firmwareRevision == null) ? 0 : firmwareRevision.hashCode());
+	result = prime * result
+		+ ((freeSpace == null) ? 0 : freeSpace.hashCode());
+	result = prime * result
+		+ ((hardwareClass == null) ? 0 : hardwareClass.hashCode());
+	result = prime * result
+		+ ((hardwareType == null) ? 0 : hardwareType.hashCode());
+	result = prime * result
+		+ ((hardwareVersion == null) ? 0 : hardwareVersion.hashCode());
+	result = prime * result
+		+ ((horizontalRes == null) ? 0 : horizontalRes.hashCode());
+	result = prime * result
+		+ ((interfaceIndex == null) ? 0 : interfaceIndex.hashCode());
+	result = prime * result
+		+ ((ipAddress == null) ? 0 : ipAddress.hashCode());
+	result = prime * result
+		+ ((ipSubnet == null) ? 0 : ipSubnet.hashCode());
+	result = prime * result + ((layout == null) ? 0 : layout.hashCode());
+	result = prime * result
+		+ ((macAddress == null) ? 0 : macAddress.hashCode());
+	result = prime * result
+		+ ((manufacturer == null) ? 0 : manufacturer.hashCode());
+	result = prime * result
+		+ ((maxBaudRate == null) ? 0 : maxBaudRate.hashCode());
+	result = prime * result
+		+ ((maxClockSpeed == null) ? 0 : maxClockSpeed.hashCode());
+	result = prime * result
+		+ ((maxMediaSize == null) ? 0 : maxMediaSize.hashCode());
+	result = prime * result
+		+ ((mediaType == null) ? 0 : mediaType.hashCode());
+	result = prime * result + ((model == null) ? 0 : model.hashCode());
+	result = prime
+		* result
+		+ ((monitorManufacturer == null) ? 0 : monitorManufacturer
+			.hashCode());
+	result = prime * result
+		+ ((monitorType == null) ? 0 : monitorType.hashCode());
+	result = prime * result + ((name == null) ? 0 : name.hashCode());
+	result = prime * result
+		+ ((netConnectionId == null) ? 0 : netConnectionId.hashCode());
+	result = prime
+		* result
+		+ ((netConnectionStatus == null) ? 0 : netConnectionStatus
+			.hashCode());
+	result = prime * result
+		+ ((numberOfPorts == null) ? 0 : numberOfPorts.hashCode());
+	result = prime
+		* result
+		+ ((numberOfProcessors == null) ? 0 : numberOfProcessors
+			.hashCode());
+	result = prime * result
+		+ ((partitions == null) ? 0 : partitions.hashCode());
+	result = prime
+		* result
+		+ ((pixelsPerXLogicalInch == null) ? 0 : pixelsPerXLogicalInch
+			.hashCode());
+	result = prime
+		* result
+		+ ((pixelsPerYLogicalInch == null) ? 0 : pixelsPerYLogicalInch
+			.hashCode());
+	result = prime * result
+		+ ((pointingType == null) ? 0 : pointingType.hashCode());
+	result = prime * result
+		+ ((primaryBios == null) ? 0 : primaryBios.hashCode());
+	result = prime * result + ((product == null) ? 0 : product.hashCode());
+	result = prime * result
+		+ ((protocolCode == null) ? 0 : protocolCode.hashCode());
+	result = prime
+		* result
+		+ ((protocolSupported == null) ? 0 : protocolSupported
+			.hashCode());
+	result = prime * result
+		+ ((refreshRate == null) ? 0 : refreshRate.hashCode());
+	result = prime * result
+		+ ((sectorsPerTrack == null) ? 0 : sectorsPerTrack.hashCode());
+	result = prime * result
+		+ ((serialNumber == null) ? 0 : serialNumber.hashCode());
+	result = prime * result
+		+ ((signature == null) ? 0 : signature.hashCode());
+	result = prime * result + ((size == null) ? 0 : size.hashCode());
+	result = prime * result
+		+ ((slotDesignation == null) ? 0 : slotDesignation.hashCode());
+	result = prime
+		* result
+		+ ((smbiosMajorVersion == null) ? 0 : smbiosMajorVersion
+			.hashCode());
+	result = prime
+		* result
+		+ ((smbiosMinorVersion == null) ? 0 : smbiosMinorVersion
+			.hashCode());
+	result = prime * result
+		+ ((smbiosPresent == null) ? 0 : smbiosPresent.hashCode());
+	result = prime * result
+		+ ((smbiosVersion == null) ? 0 : smbiosVersion.hashCode());
+	result = prime * result + ((speed == null) ? 0 : speed.hashCode());
+	result = prime * result + ((status == null) ? 0 : status.hashCode());
+	result = prime * result
+		+ ((statusInfo == null) ? 0 : statusInfo.hashCode());
+	result = prime * result
+		+ ((stepping == null) ? 0 : stepping.hashCode());
+	result = prime * result + ((tag == null) ? 0 : tag.hashCode());
+	result = prime * result
+		+ ((terminal == null) ? 0 : terminal.hashCode());
+	result = prime * result
+		+ ((totalCylinders == null) ? 0 : totalCylinders.hashCode());
+	result = prime
+		* result
+		+ ((totalPhysicalMemory == null) ? 0 : totalPhysicalMemory
+			.hashCode());
+	result = prime
+		* result
+		+ ((tracksPerCylinder == null) ? 0 : tracksPerCylinder
+			.hashCode());
+	result = prime * result
+		+ ((usbVersion == null) ? 0 : usbVersion.hashCode());
+	result = prime * result + ((version == null) ? 0 : version.hashCode());
+	result = prime * result
+		+ ((verticalRes == null) ? 0 : verticalRes.hashCode());
+	result = prime * result
+		+ ((videoMemory == null) ? 0 : videoMemory.hashCode());
+	result = prime * result
+		+ ((videoProcessor == null) ? 0 : videoProcessor.hashCode());
+	result = prime * result
+		+ ((volumeName == null) ? 0 : volumeName.hashCode());
+	result = prime
+		* result
+		+ ((volumeSerialNumber == null) ? 0 : volumeSerialNumber
+			.hashCode());
+	result = prime * result
+		+ ((workgroup == null) ? 0 : workgroup.hashCode());
+	return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	HardwareDevice other = (HardwareDevice) obj;
+	if (hardwareClass == null) {
+	    if (other.hardwareClass != null)
+		return false;
+	} else if (!hardwareClass.equals(other.hardwareClass))
+	    return false;
+	if (BitsPerPixel == null) {
+	    if (other.BitsPerPixel != null)
+		return false;
+	} else if (!BitsPerPixel.equals(other.BitsPerPixel))
+	    return false;
+	if (adapterRam == null) {
+	    if (other.adapterRam != null)
+		return false;
+	} else if (!adapterRam.equals(other.adapterRam))
+	    return false;
+	if (adapterType == null) {
+	    if (other.adapterType != null)
+		return false;
+	} else if (!adapterType.equals(other.adapterType))
+	    return false;
+	if (addressWidth == null) {
+	    if (other.addressWidth != null)
+		return false;
+	} else if (!addressWidth.equals(other.addressWidth))
+	    return false;
+	if (architecture == null) {
+	    if (other.architecture != null)
+		return false;
+	} else if (!architecture.equals(other.architecture))
+	    return false;
+	if (bytesPerSector == null) {
+	    if (other.bytesPerSector != null)
+		return false;
+	} else if (!bytesPerSector.equals(other.bytesPerSector))
+	    return false;
+	if (capacity == null) {
+	    if (other.capacity != null)
+		return false;
+	} else if (!capacity.equals(other.capacity))
+	    return false;
+	if (caption == null) {
+	    if (other.caption != null)
+		return false;
+	} else if (!caption.equals(other.caption))
+	    return false;
+	if (colors == null) {
+	    if (other.colors != null)
+		return false;
+	} else if (!colors.equals(other.colors))
+	    return false;
+	if (currentBitsPerPixel == null) {
+	    if (other.currentBitsPerPixel != null)
+		return false;
+	} else if (!currentBitsPerPixel.equals(other.currentBitsPerPixel))
+	    return false;
+	if (currentClockSpeed == null) {
+	    if (other.currentClockSpeed != null)
+		return false;
+	} else if (!currentClockSpeed.equals(other.currentClockSpeed))
+	    return false;
+	if (currentHorizontalResolution == null) {
+	    if (other.currentHorizontalResolution != null)
+		return false;
+	} else if (!currentHorizontalResolution
+		.equals(other.currentHorizontalResolution))
+	    return false;
+	if (currentLanguage == null) {
+	    if (other.currentLanguage != null)
+		return false;
+	} else if (!currentLanguage.equals(other.currentLanguage))
+	    return false;
+	if (currentNumberOfColors == null) {
+	    if (other.currentNumberOfColors != null)
+		return false;
+	} else if (!currentNumberOfColors.equals(other.currentNumberOfColors))
+	    return false;
+	if (currentRefreshRate == null) {
+	    if (other.currentRefreshRate != null)
+		return false;
+	} else if (!currentRefreshRate.equals(other.currentRefreshRate))
+	    return false;
+	if (currentTimeZone == null) {
+	    if (other.currentTimeZone != null)
+		return false;
+	} else if (!currentTimeZone.equals(other.currentTimeZone))
+	    return false;
+	if (currentUsage == null) {
+	    if (other.currentUsage != null)
+		return false;
+	} else if (!currentUsage.equals(other.currentUsage))
+	    return false;
+	if (currentVerticalResolution == null) {
+	    if (other.currentVerticalResolution != null)
+		return false;
+	} else if (!currentVerticalResolution
+		.equals(other.currentVerticalResolution))
+	    return false;
+	if (dataWidth == null) {
+	    if (other.dataWidth != null)
+		return false;
+	} else if (!dataWidth.equals(other.dataWidth))
+	    return false;
+	if (daylightInEffect == null) {
+	    if (other.daylightInEffect != null)
+		return false;
+	} else if (!daylightInEffect.equals(other.daylightInEffect))
+	    return false;
+	if (defaultIpGateway == null) {
+	    if (other.defaultIpGateway != null)
+		return false;
+	} else if (!defaultIpGateway.equals(other.defaultIpGateway))
+	    return false;
+	if (description == null) {
+	    if (other.description != null)
+		return false;
+	} else if (!description.equals(other.description))
+	    return false;
+	if (deviceId == null) {
+	    if (other.deviceId != null)
+		return false;
+	} else if (!deviceId.equals(other.deviceId))
+	    return false;
+	if (dhcpEnabled == null) {
+	    if (other.dhcpEnabled != null)
+		return false;
+	} else if (!dhcpEnabled.equals(other.dhcpEnabled))
+	    return false;
+	if (dhcpServer == null) {
+	    if (other.dhcpServer != null)
+		return false;
+	} else if (!dhcpServer.equals(other.dhcpServer))
+	    return false;
+	if (displayType == null) {
+	    if (other.displayType != null)
+		return false;
+	} else if (!displayType.equals(other.displayType))
+	    return false;
+	if (domain == null) {
+	    if (other.domain != null)
+		return false;
+	} else if (!domain.equals(other.domain))
+	    return false;
+	if (driverName == null) {
+	    if (other.driverName != null)
+		return false;
+	} else if (!driverName.equals(other.driverName))
+	    return false;
+	if (extClock == null) {
+	    if (other.extClock != null)
+		return false;
+	} else if (!extClock.equals(other.extClock))
+	    return false;
+	if (fileSystem == null) {
+	    if (other.fileSystem != null)
+		return false;
+	} else if (!fileSystem.equals(other.fileSystem))
+	    return false;
+	if (firmwareRevision == null) {
+	    if (other.firmwareRevision != null)
+		return false;
+	} else if (!firmwareRevision.equals(other.firmwareRevision))
+	    return false;
+	if (freeSpace == null) {
+	    if (other.freeSpace != null)
+		return false;
+	} else if (!freeSpace.equals(other.freeSpace))
+	    return false;
+	if (hardwareType == null) {
+	    if (other.hardwareType != null)
+		return false;
+	} else if (!hardwareType.equals(other.hardwareType))
+	    return false;
+	if (hardwareVersion == null) {
+	    if (other.hardwareVersion != null)
+		return false;
+	} else if (!hardwareVersion.equals(other.hardwareVersion))
+	    return false;
+	if (horizontalRes == null) {
+	    if (other.horizontalRes != null)
+		return false;
+	} else if (!horizontalRes.equals(other.horizontalRes))
+	    return false;
+	if (interfaceIndex == null) {
+	    if (other.interfaceIndex != null)
+		return false;
+	} else if (!interfaceIndex.equals(other.interfaceIndex))
+	    return false;
+	if (ipAddress == null) {
+	    if (other.ipAddress != null)
+		return false;
+	} else if (!ipAddress.equals(other.ipAddress))
+	    return false;
+	if (ipSubnet == null) {
+	    if (other.ipSubnet != null)
+		return false;
+	} else if (!ipSubnet.equals(other.ipSubnet))
+	    return false;
+	if (layout == null) {
+	    if (other.layout != null)
+		return false;
+	} else if (!layout.equals(other.layout))
+	    return false;
+	if (macAddress == null) {
+	    if (other.macAddress != null)
+		return false;
+	} else if (!macAddress.equals(other.macAddress))
+	    return false;
+	if (manufacturer == null) {
+	    if (other.manufacturer != null)
+		return false;
+	} else if (!manufacturer.equals(other.manufacturer))
+	    return false;
+	if (maxBaudRate == null) {
+	    if (other.maxBaudRate != null)
+		return false;
+	} else if (!maxBaudRate.equals(other.maxBaudRate))
+	    return false;
+	if (maxClockSpeed == null) {
+	    if (other.maxClockSpeed != null)
+		return false;
+	} else if (!maxClockSpeed.equals(other.maxClockSpeed))
+	    return false;
+	if (maxMediaSize == null) {
+	    if (other.maxMediaSize != null)
+		return false;
+	} else if (!maxMediaSize.equals(other.maxMediaSize))
+	    return false;
+	if (mediaType == null) {
+	    if (other.mediaType != null)
+		return false;
+	} else if (!mediaType.equals(other.mediaType))
+	    return false;
+	if (model == null) {
+	    if (other.model != null)
+		return false;
+	} else if (!model.equals(other.model))
+	    return false;
+	if (monitorManufacturer == null) {
+	    if (other.monitorManufacturer != null)
+		return false;
+	} else if (!monitorManufacturer.equals(other.monitorManufacturer))
+	    return false;
+	if (monitorType == null) {
+	    if (other.monitorType != null)
+		return false;
+	} else if (!monitorType.equals(other.monitorType))
+	    return false;
+	if (name == null) {
+	    if (other.name != null)
+		return false;
+	} else if (!name.equals(other.name))
+	    return false;
+	if (netConnectionId == null) {
+	    if (other.netConnectionId != null)
+		return false;
+	} else if (!netConnectionId.equals(other.netConnectionId))
+	    return false;
+	if (netConnectionStatus == null) {
+	    if (other.netConnectionStatus != null)
+		return false;
+	} else if (!netConnectionStatus.equals(other.netConnectionStatus))
+	    return false;
+	if (numberOfPorts == null) {
+	    if (other.numberOfPorts != null)
+		return false;
+	} else if (!numberOfPorts.equals(other.numberOfPorts))
+	    return false;
+	if (numberOfProcessors == null) {
+	    if (other.numberOfProcessors != null)
+		return false;
+	} else if (!numberOfProcessors.equals(other.numberOfProcessors))
+	    return false;
+	if (partitions == null) {
+	    if (other.partitions != null)
+		return false;
+	} else if (!partitions.equals(other.partitions))
+	    return false;
+	if (pixelsPerXLogicalInch == null) {
+	    if (other.pixelsPerXLogicalInch != null)
+		return false;
+	} else if (!pixelsPerXLogicalInch.equals(other.pixelsPerXLogicalInch))
+	    return false;
+	if (pixelsPerYLogicalInch == null) {
+	    if (other.pixelsPerYLogicalInch != null)
+		return false;
+	} else if (!pixelsPerYLogicalInch.equals(other.pixelsPerYLogicalInch))
+	    return false;
+	if (pointingType == null) {
+	    if (other.pointingType != null)
+		return false;
+	} else if (!pointingType.equals(other.pointingType))
+	    return false;
+	if (primaryBios == null) {
+	    if (other.primaryBios != null)
+		return false;
+	} else if (!primaryBios.equals(other.primaryBios))
+	    return false;
+	if (product == null) {
+	    if (other.product != null)
+		return false;
+	} else if (!product.equals(other.product))
+	    return false;
+	if (protocolCode == null) {
+	    if (other.protocolCode != null)
+		return false;
+	} else if (!protocolCode.equals(other.protocolCode))
+	    return false;
+	if (protocolSupported == null) {
+	    if (other.protocolSupported != null)
+		return false;
+	} else if (!protocolSupported.equals(other.protocolSupported))
+	    return false;
+	if (refreshRate == null) {
+	    if (other.refreshRate != null)
+		return false;
+	} else if (!refreshRate.equals(other.refreshRate))
+	    return false;
+	if (releaseDate == null) {
+	    if (other.releaseDate != null)
+		return false;
+	} else if (!(releaseDate.getTime() == other.releaseDate.getTime()))
+	    return false;
+	if (sectorsPerTrack == null) {
+	    if (other.sectorsPerTrack != null)
+		return false;
+	} else if (!sectorsPerTrack.equals(other.sectorsPerTrack))
+	    return false;
+	if (serialNumber == null) {
+	    if (other.serialNumber != null)
+		return false;
+	} else if (!serialNumber.equals(other.serialNumber))
+	    return false;
+	if (signature == null) {
+	    if (other.signature != null)
+		return false;
+	} else if (!signature.equals(other.signature))
+	    return false;
+	if (size == null) {
+	    if (other.size != null)
+		return false;
+	} else if (!size.equals(other.size))
+	    return false;
+	if (slotDesignation == null) {
+	    if (other.slotDesignation != null)
+		return false;
+	} else if (!slotDesignation.equals(other.slotDesignation))
+	    return false;
+	if (smbiosMajorVersion == null) {
+	    if (other.smbiosMajorVersion != null)
+		return false;
+	} else if (!smbiosMajorVersion.equals(other.smbiosMajorVersion))
+	    return false;
+	if (smbiosMinorVersion == null) {
+	    if (other.smbiosMinorVersion != null)
+		return false;
+	} else if (!smbiosMinorVersion.equals(other.smbiosMinorVersion))
+	    return false;
+	if (smbiosPresent == null) {
+	    if (other.smbiosPresent != null)
+		return false;
+	} else if (!smbiosPresent.equals(other.smbiosPresent))
+	    return false;
+	if (smbiosVersion == null) {
+	    if (other.smbiosVersion != null)
+		return false;
+	} else if (!smbiosVersion.equals(other.smbiosVersion))
+	    return false;
+	if (speed == null) {
+	    if (other.speed != null)
+		return false;
+	} else if (!speed.equals(other.speed))
+	    return false;
+	if (status == null) {
+	    if (other.status != null)
+		return false;
+	} else if (!status.equals(other.status))
+	    return false;
+	if (statusInfo == null) {
+	    if (other.statusInfo != null)
+		return false;
+	} else if (!statusInfo.equals(other.statusInfo))
+	    return false;
+	if (stepping == null) {
+	    if (other.stepping != null)
+		return false;
+	} else if (!stepping.equals(other.stepping))
+	    return false;
+	if (tag == null) {
+	    if (other.tag != null)
+		return false;
+	} else if (!tag.equals(other.tag))
+	    return false;
+	if (terminal == null) {
+	    if (other.terminal != null)
+		return false;
+	} else if (!terminal.equals(other.terminal))
+	    return false;
+	if (totalCylinders == null) {
+	    if (other.totalCylinders != null)
+		return false;
+	} else if (!totalCylinders.equals(other.totalCylinders))
+	    return false;
+	if (totalPhysicalMemory == null) {
+	    if (other.totalPhysicalMemory != null)
+		return false;
+	} else if (!totalPhysicalMemory.equals(other.totalPhysicalMemory))
+	    return false;
+	if (tracksPerCylinder == null) {
+	    if (other.tracksPerCylinder != null)
+		return false;
+	} else if (!tracksPerCylinder.equals(other.tracksPerCylinder))
+	    return false;
+	if (usbVersion == null) {
+	    if (other.usbVersion != null)
+		return false;
+	} else if (!usbVersion.equals(other.usbVersion))
+	    return false;
+	if (version == null) {
+	    if (other.version != null)
+		return false;
+	} else if (!version.equals(other.version))
+	    return false;
+	if (verticalRes == null) {
+	    if (other.verticalRes != null)
+		return false;
+	} else if (!verticalRes.equals(other.verticalRes))
+	    return false;
+	if (videoMemory == null) {
+	    if (other.videoMemory != null)
+		return false;
+	} else if (!videoMemory.equals(other.videoMemory))
+	    return false;
+	if (videoProcessor == null) {
+	    if (other.videoProcessor != null)
+		return false;
+	} else if (!videoProcessor.equals(other.videoProcessor))
+	    return false;
+	if (volumeName == null) {
+	    if (other.volumeName != null)
+		return false;
+	} else if (!volumeName.equals(other.volumeName))
+	    return false;
+	if (volumeSerialNumber == null) {
+	    if (other.volumeSerialNumber != null)
+		return false;
+	} else if (!volumeSerialNumber.equals(other.volumeSerialNumber))
+	    return false;
+	if (workgroup == null) {
+	    if (other.workgroup != null)
+		return false;
+	} else if (!workgroup.equals(other.workgroup))
+	    return false;
+	return true;
+    }
 }

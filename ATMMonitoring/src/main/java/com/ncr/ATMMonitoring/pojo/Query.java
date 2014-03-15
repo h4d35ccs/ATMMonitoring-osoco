@@ -43,7 +43,7 @@ public class Query implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-	/** The comboboxes data for the query designer. */
+    /** The comboboxes data for the query designer. */
     private static final Map<String, Map> comboboxes;
 
     static {
@@ -951,7 +951,7 @@ public class Query implements Serializable {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -960,8 +960,9 @@ public class Query implements Serializable {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -969,7 +970,7 @@ public class Query implements Serializable {
 
     /**
      * Gets the name.
-     *
+     * 
      * @return the name
      */
     public String getName() {
@@ -978,8 +979,9 @@ public class Query implements Serializable {
 
     /**
      * Sets the name.
-     *
-     * @param name the name to set
+     * 
+     * @param name
+     *            the name to set
      */
     public void setName(String name) {
 	this.name = name;
@@ -987,7 +989,7 @@ public class Query implements Serializable {
 
     /**
      * Gets the user.
-     *
+     * 
      * @return the user
      */
     public User getUser() {
@@ -996,8 +998,9 @@ public class Query implements Serializable {
 
     /**
      * Sets the user.
-     *
-     * @param user the user to set
+     * 
+     * @param user
+     *            the user to set
      */
     public void setUser(User user) {
 	this.user = user;
@@ -1005,7 +1008,7 @@ public class Query implements Serializable {
 
     /**
      * Gets the comboboxes data for the query GUI.
-     *
+     * 
      * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
@@ -1862,10 +1865,10 @@ public class Query implements Serializable {
 		+ financialDeviceCombo51, financialDeviceCombo52,
 		financialDeviceField5, financialDeviceCB5, values, types,
 		locale);
-	
-	constraints += storeIsElementActiveByDate("financialDevice.",
-			values, types, locale, constraints, queryDate);
-	
+
+	constraints += storeIsElementActiveByDate("financialDevice.", values,
+		types, locale, constraints, queryDate);
+
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -1901,10 +1904,10 @@ public class Query implements Serializable {
 	constraints += getConstraint("xfsComponent." + xfsComponentCombo51,
 		xfsComponentCombo52, xfsComponentField5, xfsComponentCB5,
 		values, types, locale);
-	
-	constraints += storeIsElementActiveByDate("financialDevice.",
-			values, types, locale, constraints, queryDate);
-	
+
+	constraints += storeIsElementActiveByDate("financialDevice.", values,
+		types, locale, constraints, queryDate);
+
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -1940,10 +1943,10 @@ public class Query implements Serializable {
 	constraints += getConstraint("jxfsComponent." + jxfsComponentCombo51,
 		jxfsComponentCombo52, jxfsComponentField5, jxfsComponentCB5,
 		values, types, locale);
-	
-	constraints += storeIsElementActiveByDate("financialDevice.",
-			values, types, locale, constraints, queryDate);
-	
+
+	constraints += storeIsElementActiveByDate("financialDevice.", values,
+		types, locale, constraints, queryDate);
+
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -2354,9 +2357,9 @@ public class Query implements Serializable {
 		hotfixField4, hotfixCB4, values, types, locale);
 	constraints += getConstraint("hotfix." + hotfixCombo51, hotfixCombo52,
 		hotfixField5, hotfixCB5, values, types, locale);
-	constraints += storeIsElementActiveByDate("hotfix.",
-			values, types, locale, constraints, queryDate);
-	
+	constraints += storeIsElementActiveByDate("hotfix.", values, types,
+		locale, constraints, queryDate);
+
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -2537,10 +2540,10 @@ public class Query implements Serializable {
 		+ internetExplorerCombo21, internetExplorerCombo22,
 		internetExplorerField2, internetExplorerCB2, values, types,
 		locale);
-	
+
 	constraints += storeIsElementActiveByDate("auditableInternetExplorer.",
-			values, types, locale, constraints, queryDate);
-	
+		values, types, locale, constraints, queryDate);
+
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
@@ -2941,34 +2944,29 @@ public class Query implements Serializable {
     private String getOperatingSystemConstraints(List<Object> values,
 	    List<Type> types, Locale locale, Date queryDate) {
 	String constraints = "";
-	constraints += getConstraint("os."
-		+ operatingSystemCombo11, operatingSystemCombo12,
-		operatingSystemField1, operatingSystemCB1, values, types,
-		locale);
-	constraints += getConstraint("os."
-		+ operatingSystemCombo21, operatingSystemCombo22,
-		operatingSystemField2, operatingSystemCB2, values, types,
-		locale);
-	constraints += getConstraint("os."
-		+ operatingSystemCombo31, operatingSystemCombo32,
-		operatingSystemField3, operatingSystemCB3, values, types,
-		locale);
-	constraints += getConstraint("os."
-		+ operatingSystemCombo41, operatingSystemCombo42,
-		operatingSystemField4, operatingSystemCB4, values, types,
-		locale);
-	constraints += getConstraint("os."
-		+ operatingSystemCombo51, operatingSystemCombo52,
-		operatingSystemField5, operatingSystemCB5, values, types,
-		locale);
-	
+	constraints += getConstraint("os." + operatingSystemCombo11,
+		operatingSystemCombo12, operatingSystemField1,
+		operatingSystemCB1, values, types, locale);
+	constraints += getConstraint("os." + operatingSystemCombo21,
+		operatingSystemCombo22, operatingSystemField2,
+		operatingSystemCB2, values, types, locale);
+	constraints += getConstraint("os." + operatingSystemCombo31,
+		operatingSystemCombo32, operatingSystemField3,
+		operatingSystemCB3, values, types, locale);
+	constraints += getConstraint("os." + operatingSystemCombo41,
+		operatingSystemCombo42, operatingSystemField4,
+		operatingSystemCB4, values, types, locale);
+	constraints += getConstraint("os." + operatingSystemCombo51,
+		operatingSystemCombo52, operatingSystemField5,
+		operatingSystemCB5, values, types, locale);
+
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
-	
+
 	return buildOperatingSystemConstratins(values, types, locale,
-			queryDate, constraints);
-	}
+		queryDate, constraints);
+    }
 
     /**
      * Gets the software combo11 value.
@@ -3377,10 +3375,10 @@ public class Query implements Serializable {
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
-	
+
 	return buildSoftwareConstraintsBySwType(values, types, locale,
-			queryDate, constraints, "Gen");
-	}
+		queryDate, constraints, "Gen");
+    }
 
     /**
      * Gets the xfs sw combo11 value.
@@ -3789,10 +3787,10 @@ public class Query implements Serializable {
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
-	
+
 	return buildSoftwareConstraintsBySwType(values, types, locale,
-			queryDate, constraints, "XFS");
-	}
+		queryDate, constraints, "XFS");
+    }
 
     /**
      * Gets the feat sw combo11 value.
@@ -4174,54 +4172,54 @@ public class Query implements Serializable {
 	this.featSwField5 = featSwField5;
     }
 
-    
     private String buildOperatingSystemConstratins(List<Object> values,
-			List<Type> types, Locale locale, Date queryDate, String constraints) {
-    	if (constraints.length() > 0) {
-			String isActiveByDateConstraint = storeIsElementActiveByDate("osConfig.",
-					values, types, locale, constraints, queryDate);
-			
-			if(isActiveByDateConstraint.length() > 0) {
-				isActiveByDateConstraint = " and " + isActiveByDateConstraint; 
-			}
-			
-			String constraintForNotDateQueries = "osConfig.startDate = (select max(startDate)"
-					+ " from TerminalConfig tc where tc.terminal.id = terminal.id) and ";
-			
-			constraints = "terminal.id in (select distinct osConfig.terminal.id"
-			    + " from TerminalConfig osConfig join osConfig.operatingSystems os "
-			    + "where " 
-			    + (queryDate == null ? constraintForNotDateQueries : "") 
-			    + constraints + isActiveByDateConstraint + ")";
-		}
-		return constraints;
-	}
-    
-    private String buildSoftwareConstraintsBySwType(List<Object> values,
-			List<Type> types, Locale locale, Date queryDate, String constraints, 
-			String swType) {
-		
-		if (constraints.length() > 0) {
-			String isActiveByDateConstraint = storeIsElementActiveByDate("swConfig.",
-					values, types, locale, constraints, queryDate);
-			
-			if(isActiveByDateConstraint.length() > 0) {
-				isActiveByDateConstraint = " and " + isActiveByDateConstraint; 
-			}
-			
-			String constraintForNotDateQueries = "swConfig.startDate = (select max(startDate)"
-					+ " from TerminalConfig tc where tc.terminal.id = terminal.id) and ";
-			
-			constraints = "terminal.id in (select distinct swConfig.terminal.id"
-			    + " from TerminalConfig swConfig join swConfig.software sw "
-			    + "where sw.swType = '" + swType + "' and "
-			    + (queryDate == null ? constraintForNotDateQueries : "") 
-			    + constraints + isActiveByDateConstraint + ")";
-		}
-		return constraints;
-	}
+	    List<Type> types, Locale locale, Date queryDate, String constraints) {
+	if (constraints.length() > 0) {
+	    String isActiveByDateConstraint = storeIsElementActiveByDate(
+		    "osConfig.", values, types, locale, constraints, queryDate);
 
-	
+	    if (isActiveByDateConstraint.length() > 0) {
+		isActiveByDateConstraint = " and " + isActiveByDateConstraint;
+	    }
+
+	    String constraintForNotDateQueries = "osConfig.startDate = (select max(startDate)"
+		    + " from TerminalConfig tc where tc.terminal.id = terminal.id) and ";
+
+	    constraints = "terminal.id in (select distinct osConfig.terminal.id"
+		    + " from TerminalConfig osConfig join osConfig.operatingSystems os "
+		    + "where "
+		    + (queryDate == null ? constraintForNotDateQueries : "")
+		    + constraints + isActiveByDateConstraint + ")";
+	}
+	return constraints;
+    }
+
+    private String buildSoftwareConstraintsBySwType(List<Object> values,
+	    List<Type> types, Locale locale, Date queryDate,
+	    String constraints, String swType) {
+
+	if (constraints.length() > 0) {
+	    String isActiveByDateConstraint = storeIsElementActiveByDate(
+		    "swConfig.", values, types, locale, constraints, queryDate);
+
+	    if (isActiveByDateConstraint.length() > 0) {
+		isActiveByDateConstraint = " and " + isActiveByDateConstraint;
+	    }
+
+	    String constraintForNotDateQueries = "swConfig.startDate = (select max(startDate)"
+		    + " from TerminalConfig tc where tc.terminal.id = terminal.id) and ";
+
+	    constraints = "terminal.id in (select distinct swConfig.terminal.id"
+		    + " from TerminalConfig swConfig join swConfig.software sw "
+		    + "where sw.swType = '"
+		    + swType
+		    + "' and "
+		    + (queryDate == null ? constraintForNotDateQueries : "")
+		    + constraints + isActiveByDateConstraint + ")";
+	}
+	return constraints;
+    }
+
     /**
      * Gets the feat sw HQL constraints.
      * 
@@ -4249,10 +4247,10 @@ public class Query implements Serializable {
 	if (constraints.endsWith(" and ")) {
 	    constraints = constraints.substring(0, constraints.length() - 5);
 	}
-	
+
 	return buildSoftwareConstraintsBySwType(values, types, locale,
-			queryDate, constraints, "Feat");
-	}
+		queryDate, constraints, "Feat");
+    }
 
     /**
      * Gets the hardware device combo11 value.
@@ -4805,10 +4803,11 @@ public class Query implements Serializable {
 		hardwareDeviceCombo52, hardwareDeviceCombo53,
 		hardwareDeviceField5, hardwareDeviceCB5, constraints, values,
 		types, locale);
-	
-	String isActiveByDateConstraint = storeIsElementActiveByDate("hardwareDevice.",
-				values, types, locale,constraints, queryDate);
-	
+
+	String isActiveByDateConstraint = storeIsElementActiveByDate(
+		"hardwareDevice.", values, types, locale, constraints,
+		queryDate);
+
 	for (String hwClass : constraints.keySet()) {
 	    String classConstraints = constraints.get(hwClass);
 	    if (classConstraints.endsWith(" and ")) {
@@ -4819,64 +4818,73 @@ public class Query implements Serializable {
 		    + " from HardwareDevice hardwareDevice where hardwareDevice.hardwareClass = '"
 		    + hwClass + "' and " + classConstraints + ") and ";
 	}
-	if(isActiveByDateConstraint.length() > 0) {
-		globalConstraint += "terminal.id in (select distinct hardwareDevice.terminal.id"
-			    + " from HardwareDevice hardwareDevice where" + isActiveByDateConstraint + ")";
+	if (isActiveByDateConstraint.length() > 0) {
+	    globalConstraint += "terminal.id in (select distinct hardwareDevice.terminal.id"
+		    + " from HardwareDevice hardwareDevice where"
+		    + isActiveByDateConstraint + ")";
 	}
-	
+
 	if (globalConstraint.endsWith(" and ")) {
 	    globalConstraint = globalConstraint.substring(0,
 		    globalConstraint.length() - 5);
 	}
 	return globalConstraint;
     }
-    
-    public String buildIsAuditableElementActiveByDateWhere(String fieldNamePrefix, List<Object> values,
-    	    List<Type> types, Locale locale, Date queryDate) {
-    	return storeIsElementActiveByDate(fieldNamePrefix,values, types, locale, queryDate);
+
+    public String buildIsAuditableElementActiveByDateWhere(
+	    String fieldNamePrefix, List<Object> values, List<Type> types,
+	    Locale locale, Date queryDate) {
+	return storeIsElementActiveByDate(fieldNamePrefix, values, types,
+		locale, queryDate);
     }
-    
-    private String storeIsElementActiveByDate(String fieldNamePrefix, List<Object> values,
-    	    List<Type> types, Locale locale, Map<String,String> constraints, Date queryDate) {
-    	return constraints.keySet().size() > 0 ? 
-    			storeIsElementActiveByDate(fieldNamePrefix,values, types, locale, queryDate) : "";
+
+    private String storeIsElementActiveByDate(String fieldNamePrefix,
+	    List<Object> values, List<Type> types, Locale locale,
+	    Map<String, String> constraints, Date queryDate) {
+	return constraints.keySet().size() > 0 ? storeIsElementActiveByDate(
+		fieldNamePrefix, values, types, locale, queryDate) : "";
     }
-    	
-    private String storeIsElementActiveByDate(String fieldNamePrefix, List<Object> values,
-    	    List<Type> types, Locale locale, String constraints, Date queryDate) {
-    	return constraints.length() > 0 ? 
-    			storeIsElementActiveByDate(fieldNamePrefix,values, types, locale, queryDate) : "";
+
+    private String storeIsElementActiveByDate(String fieldNamePrefix,
+	    List<Object> values, List<Type> types, Locale locale,
+	    String constraints, Date queryDate) {
+	return constraints.length() > 0 ? storeIsElementActiveByDate(
+		fieldNamePrefix, values, types, locale, queryDate) : "";
     }
-    
-    private String storeIsElementActiveByDate(String fieldNamePrefix, List<Object> values,
-    	    List<Type> types, Locale locale, Date queryDate) {
-    	String constraint = "";
-    	if( queryDate != null) {
-    		String queryDateValue = DateFormat.getDateInstance(
-    				DateFormat.SHORT,locale).format(queryDate);
-    		String startDateField = fieldNamePrefix + "startDate";
-        	String endDateField = fieldNamePrefix + "endDate";
-        	
-        	String startDateIsNullConstraint = Operation.getConstraintHQL(
-        			startDateField, "is_null", queryDateValue , values, types, locale); 
-        	String startDateLeqQueryDate = Operation.getConstraintHQL(
-        			startDateField, "date_leq", queryDateValue , values, types, locale);
-        	String startDateConstraint = "(" + startDateIsNullConstraint + " or " + 
-        			startDateLeqQueryDate + ")";
-        	
-        	String endDateIsNullConstraint = Operation.getConstraintHQL(
-        			endDateField, "is_null", queryDateValue , values, types, locale); 
-        	String endDateGeqQueryDate = Operation.getConstraintHQL(
-        			endDateField, "date_geq", queryDateValue , values, types, locale);
-        	String endDateConstraint = "(" + endDateIsNullConstraint + " or " + 
-        			endDateGeqQueryDate + ")";
-        	
-			constraint += "(" + startDateConstraint + " and " + endDateConstraint  +")";
-        }
-    	
-    	return constraint;
+
+    private String storeIsElementActiveByDate(String fieldNamePrefix,
+	    List<Object> values, List<Type> types, Locale locale, Date queryDate) {
+	String constraint = "";
+	if (queryDate != null) {
+	    String queryDateValue = DateFormat.getDateInstance(
+		    DateFormat.SHORT, locale).format(queryDate);
+	    String startDateField = fieldNamePrefix + "startDate";
+	    String endDateField = fieldNamePrefix + "endDate";
+
+	    String startDateIsNullConstraint = Operation.getConstraintHQL(
+		    startDateField, "is_null", queryDateValue, values, types,
+		    locale);
+	    String startDateLeqQueryDate = Operation.getConstraintHQL(
+		    startDateField, "date_leq", queryDateValue, values, types,
+		    locale);
+	    String startDateConstraint = "(" + startDateIsNullConstraint
+		    + " or " + startDateLeqQueryDate + ")";
+
+	    String endDateIsNullConstraint = Operation.getConstraintHQL(
+		    endDateField, "is_null", queryDateValue, values, types,
+		    locale);
+	    String endDateGeqQueryDate = Operation.getConstraintHQL(
+		    endDateField, "date_geq", queryDateValue, values, types,
+		    locale);
+	    String endDateConstraint = "(" + endDateIsNullConstraint + " or "
+		    + endDateGeqQueryDate + ")";
+
+	    constraint += "(" + startDateConstraint + " and "
+		    + endDateConstraint + ")";
+	}
+
+	return constraint;
     }
-    
 
     /**
      * Gets the HQL constraint for the specified data.
@@ -4931,25 +4939,28 @@ public class Query implements Serializable {
      * @return the hQL grouping by
      */
     public String getHQLGroupingBy(List<Object> values, List<Type> types,
-	    Locale locale, WidgetQueryAssociationType queryAssociationType, String groupByField,
-	    Date queryDate) {
-		
-    	String rootTableAlias = "terminals";    
-    	
-    	StringBuffer hql = new StringBuffer("");
-    	String groupName = queryAssociationType.buildGroupName(rootTableAlias, groupByField);
-    	String queryJoin = queryAssociationType.buildJoin(rootTableAlias);
-    	
-    	hql.append("select new map(" + groupName + " as groupName, count(*) as count) from Terminal terminals");
-		hql.append(queryJoin);
-		
-		hql.append(" where terminals in (");
-		hql.append(getHQL(values, types, locale, false, false, queryDate));
-		hql.append(") ");
-		hql.append(queryAssociationType.buildWhere(queryDate,this, values, types, locale));
-		hql.append("group by ");
-		hql.append(groupName);
-		return hql.toString();
+	    Locale locale, WidgetQueryAssociationType queryAssociationType,
+	    String groupByField, Date queryDate) {
+
+	String rootTableAlias = "terminals";
+
+	StringBuffer hql = new StringBuffer("");
+	String groupName = queryAssociationType.buildGroupName(rootTableAlias,
+		groupByField);
+	String queryJoin = queryAssociationType.buildJoin(rootTableAlias);
+
+	hql.append("select new map(" + groupName
+		+ " as groupName, count(*) as count) from Terminal terminals");
+	hql.append(queryJoin);
+
+	hql.append(" where terminals in (");
+	hql.append(getHQL(values, types, locale, false, false, queryDate));
+	hql.append(") ");
+	hql.append(queryAssociationType.buildWhere(queryDate, this, values,
+		types, locale));
+	hql.append("group by ");
+	hql.append(groupName);
+	return hql.toString();
     }
 
     /**
@@ -4966,13 +4977,14 @@ public class Query implements Serializable {
      * @return the resulting HQL
      */
     public String getHQL(List<Object> values, List<Type> types, Locale locale) {
-		return getHQL(values, types, locale, true, true, null);
+	return getHQL(values, types, locale, true, true, null);
     }
 
-    public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean order, Date queryDate) {
-		return getHQL(values, types, locale, true, order, queryDate);
+    public String getHQL(List<Object> values, List<Type> types, Locale locale,
+	    boolean order, Date queryDate) {
+	return getHQL(values, types, locale, true, order, queryDate);
     }
-    
+
     /**
      * Gets the HQL for the stored data, and stores values and types in the
      * passed variables. No duplicated data is shown.
@@ -4987,8 +4999,9 @@ public class Query implements Serializable {
      *            whether we want the terminals ordered by serial number and id
      * @return the resulting HQL
      */
-    public String getHQL(List<Object> values, List<Type> types, Locale locale, boolean order) {
-		return getHQL(values, types, locale, true, order,null);
+    public String getHQL(List<Object> values, List<Type> types, Locale locale,
+	    boolean order) {
+	return getHQL(values, types, locale, true, order, null);
     }
 
     /**
@@ -5025,10 +5038,10 @@ public class Query implements Serializable {
 		values, types, locale, queryDate);
 	String softwareConstraints = getSoftwareConstraints(values, types,
 		locale, queryDate);
-	String xfsSwConstraints = getXfsSwConstraints(values, types, locale, 
-			queryDate);
-	String featSwConstraints = getFeatSwConstraints(values, types, locale, 
-			queryDate);
+	String xfsSwConstraints = getXfsSwConstraints(values, types, locale,
+		queryDate);
+	String featSwConstraints = getFeatSwConstraints(values, types, locale,
+		queryDate);
 	String operatingSystemConstraints = getOperatingSystemConstraints(
 		values, types, locale, queryDate);
 	String hardwareDeviceConstraints = getHardwareDeviceConstraints(values,
@@ -5053,7 +5066,7 @@ public class Query implements Serializable {
 	}
 	if (internetExplorerConstraints.length() > 0) {
 	    hql += " join terminal.auditableInternetExplorers auditableInternetExplorer "
-	    		+ "join auditableInternetExplorer.internetExplorer internetExplorer";
+		    + "join auditableInternetExplorer.internetExplorer internetExplorer";
 	}
 	if (operatingSystemConstraints.length() > 0) {
 	    hql += " join terminal.configs softwareConfig join softwareConfig.operatingSystems operatingSystem";
@@ -5111,7 +5124,7 @@ public class Query implements Serializable {
 
     /**
      * Gets the locale.
-     *
+     * 
      * @return the locale
      */
     public String getLocale() {
@@ -5120,8 +5133,9 @@ public class Query implements Serializable {
 
     /**
      * Sets the locale.
-     *
-     * @param locale the new locale
+     * 
+     * @param locale
+     *            the new locale
      */
     public void setLocale(String locale) {
 	this.locale = locale;
@@ -5129,27 +5143,28 @@ public class Query implements Serializable {
 
     /**
      * Gets the true locale.
-     *
+     * 
      * @return the true locale
      */
     public Locale getTrueLocale() {
 	if (locale != null) {
-		String[] localeSplit = locale.split("-");
-		if (localeSplit.length >= 2) {
-		    return new Locale(localeSplit[0], localeSplit[1]);
-		} else {
-			if (localeSplit.length == 1) {
-				return new Locale(localeSplit[0]);
-			}
+	    String[] localeSplit = locale.split("-");
+	    if (localeSplit.length >= 2) {
+		return new Locale(localeSplit[0], localeSplit[1]);
+	    } else {
+		if (localeSplit.length == 1) {
+		    return new Locale(localeSplit[0]);
 		}
-    }
+	    }
+	}
 	return null;
     }
 
     /**
      * Sets the true locale.
-     *
-     * @param locale the new true locale
+     * 
+     * @param locale
+     *            the new true locale
      */
     public void setTrueLocale(Locale locale) {
 	this.locale = locale.getLanguage() + "-" + locale.getCountry();
@@ -5157,7 +5172,7 @@ public class Query implements Serializable {
 
     /**
      * Gets the scheduled updates.
-     *
+     * 
      * @return the scheduled updates
      */
     public Set<ScheduledUpdate> getScheduledUpdates() {
@@ -5166,14 +5181,17 @@ public class Query implements Serializable {
 
     /**
      * Sets the scheduled updates.
-     *
-     * @param scheduledUpdates the new scheduled updates
+     * 
+     * @param scheduledUpdates
+     *            the new scheduled updates
      */
     public void setScheduledUpdates(Set<ScheduledUpdate> scheduledUpdates) {
 	this.scheduledUpdates = scheduledUpdates;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
@@ -5191,7 +5209,9 @@ public class Query implements Serializable {
 
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#hashCode()
      */
     @Override
@@ -5201,7 +5221,7 @@ public class Query implements Serializable {
 
     /**
      * Gets the description.
-     *
+     * 
      * @return the description
      */
     public String getDescription() {
@@ -5210,8 +5230,9 @@ public class Query implements Serializable {
 
     /**
      * Sets the description.
-     *
-     * @param description the new description
+     * 
+     * @param description
+     *            the new description
      */
     public void setDescription(String description) {
 	this.description = description;
@@ -5219,7 +5240,7 @@ public class Query implements Serializable {
 
     /**
      * Gets the creation date.
-     *
+     * 
      * @return the creation date
      */
     public Date getCreationDate() {
@@ -5228,8 +5249,9 @@ public class Query implements Serializable {
 
     /**
      * Sets the creation date.
-     *
-     * @param creationDate the new creation date
+     * 
+     * @param creationDate
+     *            the new creation date
      */
     public void setCreationDate(Date creationDate) {
 	this.creationDate = creationDate;
@@ -5237,12 +5259,13 @@ public class Query implements Serializable {
 
     /**
      * Gets the creation date short.
-     *
+     * 
      * @return the creation date short
      */
     public String getCreationDateShort() {
 	return (creationDate != null) ? DateFormat.getDateInstance(
-		DateFormat.SHORT, Locale.getDefault()).format(creationDate) : "";
+		DateFormat.SHORT, Locale.getDefault()).format(creationDate)
+		: "";
     }
 
     /**

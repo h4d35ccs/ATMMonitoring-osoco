@@ -23,8 +23,12 @@ public class HardwareDeviceDAOImpl extends AbstractGenericDAO<HardwareDevice>
     static private Logger logger = Logger.getLogger(HardwareDeviceDAOImpl.class
 	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.HardwareDeviceDAO#addHardwareDevice(com.ncr.ATMMonitoring.pojo.HardwareDevice)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.HardwareDeviceDAO#addHardwareDevice(com.ncr
+     * .ATMMonitoring.pojo.HardwareDevice)
      */
     @Override
     public void addHardwareDevice(HardwareDevice hardwareDevice) {
@@ -33,7 +37,9 @@ public class HardwareDeviceDAOImpl extends AbstractGenericDAO<HardwareDevice>
 		+ hardwareDevice.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.HardwareDeviceDAO#listHardwareDevices()
      */
     @Override
@@ -41,16 +47,24 @@ public class HardwareDeviceDAOImpl extends AbstractGenericDAO<HardwareDevice>
 	return list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.HardwareDeviceDAO#getHardwareDevice(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.HardwareDeviceDAO#getHardwareDevice(java.lang
+     * .Integer)
      */
     @Override
     public HardwareDevice getHardwareDevice(Integer id) {
 	return get(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.HardwareDeviceDAO#removeHardwareDevice(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.HardwareDeviceDAO#removeHardwareDevice(java
+     * .lang.Integer)
      */
     @Override
     public void removeHardwareDevice(Integer id) {

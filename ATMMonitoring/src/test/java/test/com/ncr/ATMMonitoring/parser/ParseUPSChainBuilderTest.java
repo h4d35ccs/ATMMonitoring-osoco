@@ -16,102 +16,102 @@ import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
 import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 
 public class ParseUPSChainBuilderTest {
-	
-	static private Logger logger = Logger.getLogger(ParseUPSChainBuilderTest.class);
-	
-	private static final String XMLUPS = "<PK-C1-UPS>"
-			+ "<NUMPUESTO>C1</NUMPUESTO>"
-			+ "<IP_UPS>32.20.205.103</IP_UPS> "
-			+ "<FIRMWARE_UPS>2.70.030702</FIRMWARE_UPS> "
-			+ "<ESTADO_UPS>Normal</ESTADO_UPS> "
-			+ "<PORCENTAJE_CARGA_UPS>100</PORCENTAJE_CARGA_UPS> "
-			+ "<PORCENTAJE_GASTO_UPS>14</PORCENTAJE_GASTO_UPS> "
-			+ "<ALARMAS_UPS>Las baterías necesitan ser sustituidas</ALARMAS_UPS> "
-			+ "<NOMBRE_UPS>POWER LAN+ 1500</NOMBRE_UPS> "
-			+ "<MODELO_UPS>POWER LAN+ 1500</MODELO_UPS> "
-			+ "<NUM_SERIE_UPS>C63R0259</NUM_SERIE_UPS> "
-			+ "<TIEMPO_ENCENDIDO_UPS>1389 Días 11 Hor. 20 Min.</TIEMPO_ENCENDIDO_UPS> "
-			+ "<AUTONOMIA_UPS>6 Min. (1</AUTONOMIA_UPS> "
-			+ "<AUD_FMO_UPS>21/11/2013</AUD_FMO_UPS> "
-			+ "<STATUS>Las baterías necesitan ser sustituidas</STATUS>"
-			+ "<FECHA_ULTIMA_EJECUCION>21/11/13</FECHA_ULTIMA_EJECUCION>"
-			+ "</PK-C1-UPS>";
 
-	private static final String LINK2XML = "<link1></link1>";
+    static private Logger logger = Logger
+	    .getLogger(ParseUPSChainBuilderTest.class);
 
-	private static final String LINK3XML = "<link2></link2>";
+    private static final String XMLUPS = "<PK-C1-UPS>"
+	    + "<NUMPUESTO>C1</NUMPUESTO>"
+	    + "<IP_UPS>32.20.205.103</IP_UPS> "
+	    + "<FIRMWARE_UPS>2.70.030702</FIRMWARE_UPS> "
+	    + "<ESTADO_UPS>Normal</ESTADO_UPS> "
+	    + "<PORCENTAJE_CARGA_UPS>100</PORCENTAJE_CARGA_UPS> "
+	    + "<PORCENTAJE_GASTO_UPS>14</PORCENTAJE_GASTO_UPS> "
+	    + "<ALARMAS_UPS>Las baterías necesitan ser sustituidas</ALARMAS_UPS> "
+	    + "<NOMBRE_UPS>POWER LAN+ 1500</NOMBRE_UPS> "
+	    + "<MODELO_UPS>POWER LAN+ 1500</MODELO_UPS> "
+	    + "<NUM_SERIE_UPS>C63R0259</NUM_SERIE_UPS> "
+	    + "<TIEMPO_ENCENDIDO_UPS>1389 Días 11 Hor. 20 Min.</TIEMPO_ENCENDIDO_UPS> "
+	    + "<AUTONOMIA_UPS>6 Min. (1</AUTONOMIA_UPS> "
+	    + "<AUD_FMO_UPS>21/11/2013</AUD_FMO_UPS> "
+	    + "<STATUS>Las baterías necesitan ser sustituidas</STATUS>"
+	    + "<FECHA_ULTIMA_EJECUCION>21/11/13</FECHA_ULTIMA_EJECUCION>"
+	    + "</PK-C1-UPS>";
 
-	private static final String LINKXML_NO_PARSER = "<link50></link50>";
-	
-	private static final String XMLUPS_SAX = "<PK-C2-UPS>"
-			+ "<NUMPUESTO>C1</NUMPUESTO>"
-			+ "<IP_UPS>32.20.205.103</IP_UPS> "
-			+ "<FIRMWARE_UPS>2.70.030702</FIRMWARE_UPS> "
-			+"</PK-C2-UPS>";
+    private static final String LINK2XML = "<link1></link1>";
 
-	private InputStream upsInputStream;
+    private static final String LINK3XML = "<link2></link2>";
 
-	private InputStream link2InputStream;
+    private static final String LINKXML_NO_PARSER = "<link50></link50>";
 
-	private InputStream link3InputStream;
+    private static final String XMLUPS_SAX = "<PK-C2-UPS>"
+	    + "<NUMPUESTO>C1</NUMPUESTO>" + "<IP_UPS>32.20.205.103</IP_UPS> "
+	    + "<FIRMWARE_UPS>2.70.030702</FIRMWARE_UPS> " + "</PK-C2-UPS>";
 
-	private InputStream link4InputStream;
-	
-	private InputStream saxParserInputStream;
+    private InputStream upsInputStream;
 
-	@Before
-	public void setUp() throws Exception {
+    private InputStream link2InputStream;
 
-		this.upsInputStream = new ByteArrayInputStream(XMLUPS.getBytes());
-		this.link2InputStream = new ByteArrayInputStream(LINK2XML.getBytes());
-		this.link3InputStream = new ByteArrayInputStream(LINK3XML.getBytes());
-		this.link4InputStream = new ByteArrayInputStream(
-				LINKXML_NO_PARSER.getBytes());
-		this.saxParserInputStream = new ByteArrayInputStream(XMLUPS_SAX.getBytes());
+    private InputStream link3InputStream;
+
+    private InputStream link4InputStream;
+
+    private InputStream saxParserInputStream;
+
+    @Before
+    public void setUp() throws Exception {
+
+	this.upsInputStream = new ByteArrayInputStream(XMLUPS.getBytes());
+	this.link2InputStream = new ByteArrayInputStream(LINK2XML.getBytes());
+	this.link3InputStream = new ByteArrayInputStream(LINK3XML.getBytes());
+	this.link4InputStream = new ByteArrayInputStream(
+		LINKXML_NO_PARSER.getBytes());
+	this.saxParserInputStream = new ByteArrayInputStream(
+		XMLUPS_SAX.getBytes());
+    }
+
+    @After
+    public void tearDown() throws Exception {
+
+	this.upsInputStream = null;
+	this.link2InputStream = null;
+	this.link3InputStream = null;
+	this.link4InputStream = null;
+	this.saxParserInputStream = null;
+	logger.debug("----------Test ends------------------");
+
+    }
+
+    @Test
+    public void testParse() {
+	try {
+	    this.testParser(link2InputStream);
+	    this.testParser(link3InputStream);
+	    this.testParser(upsInputStream);
+	    this.testParser(saxParserInputStream);
+
+	} catch (Exception e) {
+	    // TODO Auto-generated catch block
+	    logger.error(e.getMessage(), e);
+
+	    fail(e.getMessage());
 	}
 
-	@After
-	public void tearDown() throws Exception {
+    }
 
-		this.upsInputStream = null;
-		this.link2InputStream = null;
-		this.link3InputStream = null;
-		this.link4InputStream = null;
-		this.saxParserInputStream = null;
-		logger.debug("----------Test ends------------------");
+    @Test(expected = com.ncr.ATMMonitoring.parser.ups.exception.NoParserFoundException.class)
+    public void testNoParser() throws ParserException, XMLNotReadableException,
+	    NoParserFoundException {
 
-	}
+	this.testParser(link4InputStream);
 
-	@Test
-	public void testParse() {
-		try {
-			this.testParser(link2InputStream);
-			this.testParser(link3InputStream);
-			this.testParser(upsInputStream);
-			this.testParser(saxParserInputStream);
+    }
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			logger.error(e.getMessage(),e);
-			
-			fail(e.getMessage());
-		}
+    private void testParser(InputStream is) throws ParserException,
+	    XMLNotReadableException, NoParserFoundException {
 
-	}
+	ParseUPSChainBuilder.parse(is);
 
-	@Test(expected = com.ncr.ATMMonitoring.parser.ups.exception.NoParserFoundException.class)
-	public void testNoParser() throws ParserException, XMLNotReadableException,
-			NoParserFoundException {
-
-		this.testParser(link4InputStream);
-
-	}
-
-	private void testParser(InputStream is) throws ParserException,
-			XMLNotReadableException, NoParserFoundException {
-
-		ParseUPSChainBuilder.parse(is);
-
-	}
+    }
 
 }

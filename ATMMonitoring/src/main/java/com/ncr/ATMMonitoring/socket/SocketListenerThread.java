@@ -20,13 +20,13 @@ public class SocketListenerThread extends Thread {
     /** The logger. */
     static private Logger logger = Logger.getLogger(SocketListenerThread.class
 	    .getName());
-    
+
     /** The ok message to send to the agent. */
     private String okMessage;
-    
+
     /** The socket. */
     private Socket socket;
-    
+
     /** The socket listener parent. */
     private SocketListener parent;
 
@@ -47,7 +47,9 @@ public class SocketListenerThread extends Thread {
 	this.parent = parent;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Thread#run()
      */
     public void run() {

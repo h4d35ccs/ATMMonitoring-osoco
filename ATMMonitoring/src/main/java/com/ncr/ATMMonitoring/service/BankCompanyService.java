@@ -54,11 +54,13 @@ public interface BankCompanyService {
      *            the bank company id
      */
     public void removeBankCompany(Integer id);
-    
+
     /**
      * Returns the BankCompanies associated to a user
-     * @param username String
-     * @return   Set<BankCompany>
+     * 
+     * @param username
+     *            String
+     * @return Set<BankCompany>
      */
     Set<BankCompany> getUserManageableBankCompanies(String username);
 }

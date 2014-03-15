@@ -16,8 +16,9 @@ public interface HardwareDeviceService {
 
     /**
      * Adds the hardware device.
-     *
-     * @param hardwareDevice the hardware device
+     * 
+     * @param hardwareDevice
+     *            the hardware device
      */
     public void addHardwareDevice(HardwareDevice hardwareDevice);
 

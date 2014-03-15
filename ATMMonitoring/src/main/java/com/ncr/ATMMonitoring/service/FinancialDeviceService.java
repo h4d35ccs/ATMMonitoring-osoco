@@ -16,8 +16,9 @@ public interface FinancialDeviceService {
 
     /**
      * Adds the financial device.
-     *
-     * @param financialDevice the financial device
+     * 
+     * @param financialDevice
+     *            the financial device
      */
     public void addFinancialDevice(FinancialDevice financialDevice);
 

@@ -23,8 +23,12 @@ public class LogicalCashUnitDAOImpl extends AbstractGenericDAO<LogicalCashUnit>
     static private Logger logger = Logger
 	    .getLogger(LogicalCashUnitDAOImpl.class.getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.LogicalCashUnitDAO#addLogicalCashUnit(com.ncr.ATMMonitoring.pojo.LogicalCashUnit)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.LogicalCashUnitDAO#addLogicalCashUnit(com.ncr
+     * .ATMMonitoring.pojo.LogicalCashUnit)
      */
     @Override
     public void addLogicalCashUnit(LogicalCashUnit logicalCashUnit) {
@@ -33,7 +37,9 @@ public class LogicalCashUnitDAOImpl extends AbstractGenericDAO<LogicalCashUnit>
 		+ logicalCashUnit.getId());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.LogicalCashUnitDAO#listLogicalCashUnits()
      */
     @Override
@@ -41,8 +47,12 @@ public class LogicalCashUnitDAOImpl extends AbstractGenericDAO<LogicalCashUnit>
 	return list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.LogicalCashUnitDAO#getLogicalCashUnit(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.LogicalCashUnitDAO#getLogicalCashUnit(java.
+     * lang.Integer)
      */
     @Override
     public LogicalCashUnit getLogicalCashUnit(Integer id) {

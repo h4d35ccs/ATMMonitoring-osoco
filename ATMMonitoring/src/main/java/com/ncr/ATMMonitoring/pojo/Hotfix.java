@@ -2,7 +2,6 @@ package com.ncr.ATMMonitoring.pojo;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -150,7 +149,7 @@ public class Hotfix extends Auditable {
 
     /**
      * Gets the comboboxes data for the query GUI.
-     *
+     * 
      * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
@@ -159,7 +158,7 @@ public class Hotfix extends Auditable {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -168,8 +167,9 @@ public class Hotfix extends Auditable {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -177,7 +177,7 @@ public class Hotfix extends Auditable {
 
     /**
      * Gets the number.
-     *
+     * 
      * @return the number
      */
     public Integer getNumber() {
@@ -186,8 +186,9 @@ public class Hotfix extends Auditable {
 
     /**
      * Sets the number.
-     *
-     * @param number the number to set
+     * 
+     * @param number
+     *            the number to set
      */
     public void setNumber(Integer number) {
 	this.number = number;
@@ -195,7 +196,7 @@ public class Hotfix extends Auditable {
 
     /**
      * Gets the fix comments.
-     *
+     * 
      * @return the fixComments
      */
     public String getFixComments() {
@@ -204,8 +205,9 @@ public class Hotfix extends Auditable {
 
     /**
      * Sets the fix comments.
-     *
-     * @param fixComments the fixComments to set
+     * 
+     * @param fixComments
+     *            the fixComments to set
      */
     public void setFixComments(String fixComments) {
 	this.fixComments = fixComments;
@@ -213,7 +215,7 @@ public class Hotfix extends Auditable {
 
     /**
      * Gets the hotfix id.
-     *
+     * 
      * @return the hotfixId
      */
     public String getHotfixId() {
@@ -222,8 +224,9 @@ public class Hotfix extends Auditable {
 
     /**
      * Sets the hotfix id.
-     *
-     * @param hotfixId the hotfixId to set
+     * 
+     * @param hotfixId
+     *            the hotfixId to set
      */
     public void setHotfixId(String hotfixId) {
 	this.hotfixId = hotfixId;
@@ -231,7 +234,7 @@ public class Hotfix extends Auditable {
 
     /**
      * Gets the description.
-     *
+     * 
      * @return the description
      */
     public String getDescription() {
@@ -240,8 +243,9 @@ public class Hotfix extends Auditable {
 
     /**
      * Sets the description.
-     *
-     * @param description the description to set
+     * 
+     * @param description
+     *            the description to set
      */
     public void setDescription(String description) {
 	this.description = description;
@@ -249,7 +253,7 @@ public class Hotfix extends Auditable {
 
     /**
      * Gets the terminal.
-     *
+     * 
      * @return the terminal
      */
     public Terminal getTerminal() {
@@ -258,65 +262,65 @@ public class Hotfix extends Auditable {
 
     /**
      * Sets the terminal.
-     *
-     * @param terminal the terminal to set
+     * 
+     * @param terminal
+     *            the terminal to set
      */
     public void setTerminal(Terminal terminal) {
 	this.terminal = terminal;
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((description == null) ? 0 : description.hashCode());
-		result = prime * result
-				+ ((fixComments == null) ? 0 : fixComments.hashCode());
-		result = prime * result
-				+ ((hotfixId == null) ? 0 : hotfixId.hashCode());
-		result = prime * result + ((number == null) ? 0 : number.hashCode());
-		result = prime * result
-				+ ((terminal == null) ? 0 : terminal.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result
+		+ ((description == null) ? 0 : description.hashCode());
+	result = prime * result
+		+ ((fixComments == null) ? 0 : fixComments.hashCode());
+	result = prime * result
+		+ ((hotfixId == null) ? 0 : hotfixId.hashCode());
+	result = prime * result + ((number == null) ? 0 : number.hashCode());
+	result = prime * result
+		+ ((terminal == null) ? 0 : terminal.hashCode());
+	return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Hotfix other = (Hotfix) obj;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
-		if (fixComments == null) {
-			if (other.fixComments != null)
-				return false;
-		} else if (!fixComments.equals(other.fixComments))
-			return false;
-		if (hotfixId == null) {
-			if (other.hotfixId != null)
-				return false;
-		} else if (!hotfixId.equals(other.hotfixId))
-			return false;
-		if (number == null) {
-			if (other.number != null)
-				return false;
-		} else if (!number.equals(other.number))
-			return false;
-		if (terminal == null) {
-			if (other.terminal != null)
-				return false;
-		} else if (!terminal.equals(other.terminal))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	Hotfix other = (Hotfix) obj;
+	if (description == null) {
+	    if (other.description != null)
+		return false;
+	} else if (!description.equals(other.description))
+	    return false;
+	if (fixComments == null) {
+	    if (other.fixComments != null)
+		return false;
+	} else if (!fixComments.equals(other.fixComments))
+	    return false;
+	if (hotfixId == null) {
+	    if (other.hotfixId != null)
+		return false;
+	} else if (!hotfixId.equals(other.hotfixId))
+	    return false;
+	if (number == null) {
+	    if (other.number != null)
+		return false;
+	} else if (!number.equals(other.number))
+	    return false;
+	if (terminal == null) {
+	    if (other.terminal != null)
+		return false;
+	} else if (!terminal.equals(other.terminal))
+	    return false;
+	return true;
+    }
 
-    
 }

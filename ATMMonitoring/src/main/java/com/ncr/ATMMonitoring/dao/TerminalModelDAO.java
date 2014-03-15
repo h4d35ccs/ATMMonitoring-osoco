@@ -16,8 +16,9 @@ public interface TerminalModelDAO {
 
     /**
      * Adds the terminal model.
-     *
-     * @param terminalModel the terminal model
+     * 
+     * @param terminalModel
+     *            the terminal model
      */
     public void addTerminalModel(TerminalModel terminalModel);
 
@@ -50,15 +51,16 @@ public interface TerminalModelDAO {
 
     /**
      * List terminal models.
-     *
+     * 
      * @return the list
      */
     public List<TerminalModel> listTerminalModels();
 
     /**
      * Update terminal model.
-     *
-     * @param terminalModel the terminal model
+     * 
+     * @param terminalModel
+     *            the terminal model
      */
     public void updateTerminalModel(TerminalModel terminalModel);
 

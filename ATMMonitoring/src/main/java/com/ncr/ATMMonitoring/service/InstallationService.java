@@ -16,8 +16,9 @@ public interface InstallationService {
 
     /**
      * Adds the installation.
-     *
-     * @param installation the installation
+     * 
+     * @param installation
+     *            the installation
      */
     public void addInstallation(Installation installation);
 
@@ -39,8 +40,9 @@ public interface InstallationService {
 
     /**
      * Update installation.
-     *
-     * @param installation the installation
+     * 
+     * @param installation
+     *            the installation
      */
     public void updateInstallation(Installation installation);
 

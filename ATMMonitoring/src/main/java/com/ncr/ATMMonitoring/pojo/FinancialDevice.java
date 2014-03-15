@@ -206,7 +206,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the comboboxes data for the query GUI.
-     *
+     * 
      * @return the comboboxes data
      */
     public static Map<String, Map> getComboboxes() {
@@ -215,7 +215,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -224,8 +224,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the id.
-     *
-     * @param id the id to set
+     * 
+     * @param id
+     *            the id to set
      */
     public void setId(Integer id) {
 	this.id = id;
@@ -233,7 +234,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the model.
-     *
+     * 
      * @return the model
      */
     public String getModel() {
@@ -242,8 +243,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the model.
-     *
-     * @param model the model to set
+     * 
+     * @param model
+     *            the model to set
      */
     public void setModel(String model) {
 	this.model = model;
@@ -251,7 +253,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the variant.
-     *
+     * 
      * @return the variant
      */
     public String getVariant() {
@@ -260,8 +262,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the variant.
-     *
-     * @param variant the variant to set
+     * 
+     * @param variant
+     *            the variant to set
      */
     public void setVariant(String variant) {
 	this.variant = variant;
@@ -269,7 +272,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the serial number.
-     *
+     * 
      * @return the serialNumber
      */
     public String getSerialNumber() {
@@ -278,8 +281,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the serial number.
-     *
-     * @param serialNumber the serialNumber to set
+     * 
+     * @param serialNumber
+     *            the serialNumber to set
      */
     public void setSerialNumber(String serialNumber) {
 	this.serialNumber = serialNumber;
@@ -287,7 +291,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the name.
-     *
+     * 
      * @return the name
      */
     public String getName() {
@@ -296,8 +300,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the name.
-     *
-     * @param name the name to set
+     * 
+     * @param name
+     *            the name to set
      */
     public void setName(String name) {
 	this.name = name;
@@ -305,7 +310,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the terminal.
-     *
+     * 
      * @return the terminal
      */
     public Terminal getTerminal() {
@@ -314,8 +319,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the terminal.
-     *
-     * @param terminal the terminal to set
+     * 
+     * @param terminal
+     *            the terminal to set
      */
     public void setTerminal(Terminal terminal) {
 	this.terminal = terminal;
@@ -323,7 +329,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the xfs components.
-     *
+     * 
      * @return the xfsComponents
      */
     public Set<XfsComponent> getXfsComponents() {
@@ -332,8 +338,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the xfs components.
-     *
-     * @param xfsComponents the xfsComponents to set
+     * 
+     * @param xfsComponents
+     *            the xfsComponents to set
      */
     public void setXfsComponents(Set<XfsComponent> xfsComponents) {
 	this.xfsComponents = xfsComponents;
@@ -341,7 +348,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the firmware version.
-     *
+     * 
      * @return the firmwareVersion
      */
     public String getFirmwareVersion() {
@@ -350,7 +357,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the version.
-     *
+     * 
      * @return the version
      */
     public String getVersion() {
@@ -359,8 +366,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the firmware version.
-     *
-     * @param firmwareVersion the firmwareVersion to set
+     * 
+     * @param firmwareVersion
+     *            the firmwareVersion to set
      */
     public void setFirmwareVersion(String firmwareVersion) {
 	this.firmwareVersion = firmwareVersion;
@@ -377,8 +385,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the version.
-     *
-     * @param version the version to set
+     * 
+     * @param version
+     *            the version to set
      */
     public void setVersion(String version) {
 	this.version = version;
@@ -386,7 +395,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the name version.
-     *
+     * 
      * @return the name and version concatenated
      */
     public String getNameVersion() {
@@ -395,7 +404,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the device instance.
-     *
+     * 
      * @return the deviceInstance
      */
     public String getDeviceInstance() {
@@ -404,8 +413,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the device instance.
-     *
-     * @param deviceInstance the deviceInstance to set
+     * 
+     * @param deviceInstance
+     *            the deviceInstance to set
      */
     public void setDeviceInstance(String deviceInstance) {
 	this.deviceInstance = deviceInstance;
@@ -413,7 +423,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the device status.
-     *
+     * 
      * @return the deviceStatus
      */
     public String getDeviceStatus() {
@@ -422,8 +432,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the device status.
-     *
-     * @param deviceStatus the deviceStatus to set
+     * 
+     * @param deviceStatus
+     *            the deviceStatus to set
      */
     public void setDeviceStatus(String deviceStatus) {
 	this.deviceStatus = deviceStatus;
@@ -431,7 +442,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the hot swappable.
-     *
+     * 
      * @return the hotSwappable
      */
     public Boolean getHotSwappable() {
@@ -440,8 +451,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the hot swappable.
-     *
-     * @param hotSwappable the hotSwappable to set
+     * 
+     * @param hotSwappable
+     *            the hotSwappable to set
      */
     public void setHotSwappable(Boolean hotSwappable) {
 	this.hotSwappable = hotSwappable;
@@ -449,7 +461,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the removable.
-     *
+     * 
      * @return the removable
      */
     public Boolean getRemovable() {
@@ -458,8 +470,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the removable.
-     *
-     * @param removable the removable to set
+     * 
+     * @param removable
+     *            the removable to set
      */
     public void setRemovable(Boolean removable) {
 	this.removable = removable;
@@ -467,7 +480,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the replaceable.
-     *
+     * 
      * @return the replaceable
      */
     public Boolean getReplaceable() {
@@ -476,8 +489,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the replaceable.
-     *
-     * @param replaceable the replaceable to set
+     * 
+     * @param replaceable
+     *            the replaceable to set
      */
     public void setReplaceable(Boolean replaceable) {
 	this.replaceable = replaceable;
@@ -485,7 +499,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the pm status.
-     *
+     * 
      * @return the pmStatus
      */
     public String getPmStatus() {
@@ -494,8 +508,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the pm status.
-     *
-     * @param pmStatus the pmStatus to set
+     * 
+     * @param pmStatus
+     *            the pmStatus to set
      */
     public void setPmStatus(String pmStatus) {
 	this.pmStatus = pmStatus;
@@ -503,7 +518,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the universal id.
-     *
+     * 
      * @return the universalId
      */
     public String getUniversalId() {
@@ -512,8 +527,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the universal id.
-     *
-     * @param universalId the universalId to set
+     * 
+     * @param universalId
+     *            the universalId to set
      */
     public void setUniversalId(String universalId) {
 	this.universalId = universalId;
@@ -521,7 +537,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the caption.
-     *
+     * 
      * @return the caption
      */
     public String getCaption() {
@@ -530,8 +546,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the caption.
-     *
-     * @param caption the caption to set
+     * 
+     * @param caption
+     *            the caption to set
      */
     public void setCaption(String caption) {
 	this.caption = caption;
@@ -539,7 +556,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the description.
-     *
+     * 
      * @return the description
      */
     public String getDescription() {
@@ -548,8 +565,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the description.
-     *
-     * @param description the description to set
+     * 
+     * @param description
+     *            the description to set
      */
     public void setDescription(String description) {
 	this.description = description;
@@ -557,7 +575,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the manufacturer.
-     *
+     * 
      * @return the manufacturer
      */
     public String getManufacturer() {
@@ -566,8 +584,9 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the manufacturer.
-     *
-     * @param manufacturer the manufacturer to set
+     * 
+     * @param manufacturer
+     *            the manufacturer to set
      */
     public void setManufacturer(String manufacturer) {
 	this.manufacturer = manufacturer;
@@ -575,7 +594,7 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Gets the jxfs components.
-     *
+     * 
      * @return the jxfs components
      */
     public Set<JxfsComponent> getJxfsComponents() {
@@ -584,147 +603,148 @@ public class FinancialDevice extends Auditable {
 
     /**
      * Sets the jxfs components.
-     *
-     * @param jxfsComponents the new jxfs components
+     * 
+     * @param jxfsComponents
+     *            the new jxfs components
      */
     public void setJxfsComponents(Set<JxfsComponent> jxfsComponents) {
 	this.jxfsComponents = jxfsComponents;
     }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((caption == null) ? 0 : caption.hashCode());
-		result = prime * result
-				+ ((description == null) ? 0 : description.hashCode());
-		result = prime * result
-				+ ((deviceInstance == null) ? 0 : deviceInstance.hashCode());
-		result = prime * result
-				+ ((deviceStatus == null) ? 0 : deviceStatus.hashCode());
-		result = prime * result
-				+ ((firmwareVersion == null) ? 0 : firmwareVersion.hashCode());
-		result = prime * result
-				+ ((hotSwappable == null) ? 0 : hotSwappable.hashCode());
-		result = prime * result
-				+ ((manufacturer == null) ? 0 : manufacturer.hashCode());
-		result = prime * result + ((model == null) ? 0 : model.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((pmStatus == null) ? 0 : pmStatus.hashCode());
-		result = prime * result
-				+ ((removable == null) ? 0 : removable.hashCode());
-		result = prime * result
-				+ ((replaceable == null) ? 0 : replaceable.hashCode());
-		result = prime * result
-				+ ((serialNumber == null) ? 0 : serialNumber.hashCode());
-		result = prime * result
-				+ ((universalId == null) ? 0 : universalId.hashCode());
-		result = prime * result + ((variant == null) ? 0 : variant.hashCode());
-		result = prime * result + ((version == null) ? 0 : version.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + ((caption == null) ? 0 : caption.hashCode());
+	result = prime * result
+		+ ((description == null) ? 0 : description.hashCode());
+	result = prime * result
+		+ ((deviceInstance == null) ? 0 : deviceInstance.hashCode());
+	result = prime * result
+		+ ((deviceStatus == null) ? 0 : deviceStatus.hashCode());
+	result = prime * result
+		+ ((firmwareVersion == null) ? 0 : firmwareVersion.hashCode());
+	result = prime * result
+		+ ((hotSwappable == null) ? 0 : hotSwappable.hashCode());
+	result = prime * result
+		+ ((manufacturer == null) ? 0 : manufacturer.hashCode());
+	result = prime * result + ((model == null) ? 0 : model.hashCode());
+	result = prime * result + ((name == null) ? 0 : name.hashCode());
+	result = prime * result
+		+ ((pmStatus == null) ? 0 : pmStatus.hashCode());
+	result = prime * result
+		+ ((removable == null) ? 0 : removable.hashCode());
+	result = prime * result
+		+ ((replaceable == null) ? 0 : replaceable.hashCode());
+	result = prime * result
+		+ ((serialNumber == null) ? 0 : serialNumber.hashCode());
+	result = prime * result
+		+ ((universalId == null) ? 0 : universalId.hashCode());
+	result = prime * result + ((variant == null) ? 0 : variant.hashCode());
+	result = prime * result + ((version == null) ? 0 : version.hashCode());
+	return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		FinancialDevice other = (FinancialDevice) obj;
-		if (caption == null) {
-			if (other.caption != null)
-				return false;
-		} else if (!caption.equals(other.caption))
-			return false;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
-		if (deviceInstance == null) {
-			if (other.deviceInstance != null)
-				return false;
-		} else if (!deviceInstance.equals(other.deviceInstance))
-			return false;
-		if (deviceStatus == null) {
-			if (other.deviceStatus != null)
-				return false;
-		} else if (!deviceStatus.equals(other.deviceStatus))
-			return false;
-		if (firmwareVersion == null) {
-			if (other.firmwareVersion != null)
-				return false;
-		} else if (!firmwareVersion.equals(other.firmwareVersion))
-			return false;
-		if (hotSwappable == null) {
-			if (other.hotSwappable != null)
-				return false;
-		} else if (!hotSwappable.equals(other.hotSwappable))
-			return false;
-		if (jxfsComponents == null) {
-			if (other.jxfsComponents != null)
-				return false;
-		} else if (!jxfsComponents.equals(other.jxfsComponents))
-			return false;
-		if (manufacturer == null) {
-			if (other.manufacturer != null)
-				return false;
-		} else if (!manufacturer.equals(other.manufacturer))
-			return false;
-		if (model == null) {
-			if (other.model != null)
-				return false;
-		} else if (!model.equals(other.model))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (pmStatus == null) {
-			if (other.pmStatus != null)
-				return false;
-		} else if (!pmStatus.equals(other.pmStatus))
-			return false;
-		if (removable == null) {
-			if (other.removable != null)
-				return false;
-		} else if (!removable.equals(other.removable))
-			return false;
-		if (replaceable == null) {
-			if (other.replaceable != null)
-				return false;
-		} else if (!replaceable.equals(other.replaceable))
-			return false;
-		if (serialNumber == null) {
-			if (other.serialNumber != null)
-				return false;
-		} else if (!serialNumber.equals(other.serialNumber))
-			return false;
-		if (universalId == null) {
-			if (other.universalId != null)
-				return false;
-		} else if (!universalId.equals(other.universalId))
-			return false;
-		if (variant == null) {
-			if (other.variant != null)
-				return false;
-		} else if (!variant.equals(other.variant))
-			return false;
-		if (version == null) {
-			if (other.version != null)
-				return false;
-		} else if (!version.equals(other.version))
-			return false;
-		if (xfsComponents == null) {
-			if (other.xfsComponents != null)
-				return false;
-		} else if (!xfsComponents.equals(other.xfsComponents)) {
-			return false;
-		}
-		return true;
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	FinancialDevice other = (FinancialDevice) obj;
+	if (caption == null) {
+	    if (other.caption != null)
+		return false;
+	} else if (!caption.equals(other.caption))
+	    return false;
+	if (description == null) {
+	    if (other.description != null)
+		return false;
+	} else if (!description.equals(other.description))
+	    return false;
+	if (deviceInstance == null) {
+	    if (other.deviceInstance != null)
+		return false;
+	} else if (!deviceInstance.equals(other.deviceInstance))
+	    return false;
+	if (deviceStatus == null) {
+	    if (other.deviceStatus != null)
+		return false;
+	} else if (!deviceStatus.equals(other.deviceStatus))
+	    return false;
+	if (firmwareVersion == null) {
+	    if (other.firmwareVersion != null)
+		return false;
+	} else if (!firmwareVersion.equals(other.firmwareVersion))
+	    return false;
+	if (hotSwappable == null) {
+	    if (other.hotSwappable != null)
+		return false;
+	} else if (!hotSwappable.equals(other.hotSwappable))
+	    return false;
+	if (jxfsComponents == null) {
+	    if (other.jxfsComponents != null)
+		return false;
+	} else if (!jxfsComponents.equals(other.jxfsComponents))
+	    return false;
+	if (manufacturer == null) {
+	    if (other.manufacturer != null)
+		return false;
+	} else if (!manufacturer.equals(other.manufacturer))
+	    return false;
+	if (model == null) {
+	    if (other.model != null)
+		return false;
+	} else if (!model.equals(other.model))
+	    return false;
+	if (name == null) {
+	    if (other.name != null)
+		return false;
+	} else if (!name.equals(other.name))
+	    return false;
+	if (pmStatus == null) {
+	    if (other.pmStatus != null)
+		return false;
+	} else if (!pmStatus.equals(other.pmStatus))
+	    return false;
+	if (removable == null) {
+	    if (other.removable != null)
+		return false;
+	} else if (!removable.equals(other.removable))
+	    return false;
+	if (replaceable == null) {
+	    if (other.replaceable != null)
+		return false;
+	} else if (!replaceable.equals(other.replaceable))
+	    return false;
+	if (serialNumber == null) {
+	    if (other.serialNumber != null)
+		return false;
+	} else if (!serialNumber.equals(other.serialNumber))
+	    return false;
+	if (universalId == null) {
+	    if (other.universalId != null)
+		return false;
+	} else if (!universalId.equals(other.universalId))
+	    return false;
+	if (variant == null) {
+	    if (other.variant != null)
+		return false;
+	} else if (!variant.equals(other.variant))
+	    return false;
+	if (version == null) {
+	    if (other.version != null)
+		return false;
+	} else if (!version.equals(other.version))
+	    return false;
+	if (xfsComponents == null) {
+	    if (other.xfsComponents != null)
+		return false;
+	} else if (!xfsComponents.equals(other.xfsComponents)) {
+	    return false;
 	}
+	return true;
+    }
 }

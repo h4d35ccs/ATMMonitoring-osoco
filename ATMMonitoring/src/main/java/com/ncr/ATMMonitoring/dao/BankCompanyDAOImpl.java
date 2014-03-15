@@ -23,8 +23,12 @@ public class BankCompanyDAOImpl extends AbstractGenericDAO<BankCompany>
     static private Logger logger = Logger.getLogger(BankCompanyDAOImpl.class
 	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.BankCompanyDAO#addBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.BankCompanyDAO#addBankCompany(com.ncr.ATMMonitoring
+     * .pojo.BankCompany)
      */
     @Override
     public void addBankCompany(BankCompany bank) {
@@ -32,15 +36,21 @@ public class BankCompanyDAOImpl extends AbstractGenericDAO<BankCompany>
 	logger.debug("Created new Bank Company with id " + bank.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.BankCompanyDAO#getBankCompany(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.BankCompanyDAO#getBankCompany(java.lang.Integer
+     * )
      */
     @Override
     public BankCompany getBankCompany(Integer id) {
 	return get(id);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.BankCompanyDAO#listBankCompanies()
      */
     @Override
@@ -48,8 +58,11 @@ public class BankCompanyDAOImpl extends AbstractGenericDAO<BankCompany>
 	return list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.BankCompanyDAO#updateBankCompany(com.ncr.ATMMonitoring.pojo.BankCompany)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.BankCompanyDAO#updateBankCompany(com.ncr.
+     * ATMMonitoring.pojo.BankCompany)
      */
     @Override
     public void updateBankCompany(BankCompany bankCompany) {
@@ -57,8 +70,12 @@ public class BankCompanyDAOImpl extends AbstractGenericDAO<BankCompany>
 	logger.info("Updated Bank Company with id " + bankCompany.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.BankCompanyDAO#removeBankCompany(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.BankCompanyDAO#removeBankCompany(java.lang.
+     * Integer)
      */
     @Override
     public void removeBankCompany(Integer id) {

@@ -24,8 +24,11 @@ public class TerminalModelDAOImpl extends AbstractGenericDAO<TerminalModel>
     static private Logger logger = Logger.getLogger(TerminalModelDAOImpl.class
 	    .getName());
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#addTerminalModel(com.ncr.ATMMonitoring.pojo.TerminalModel)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#addTerminalModel(com.ncr.
+     * ATMMonitoring.pojo.TerminalModel)
      */
     @Override
     public void addTerminalModel(TerminalModel terminalModel) {
@@ -34,15 +37,21 @@ public class TerminalModelDAOImpl extends AbstractGenericDAO<TerminalModel>
 		+ terminalModel.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#getTerminalModel(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalModelDAO#getTerminalModel(java.lang
+     * .Integer)
      */
     @Override
     public TerminalModel getTerminalModel(Integer id) {
 	return get(id);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#listTerminalModels()
      */
     @Override
@@ -50,8 +59,12 @@ public class TerminalModelDAOImpl extends AbstractGenericDAO<TerminalModel>
 	return list();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#updateTerminalModel(com.ncr.ATMMonitoring.pojo.TerminalModel)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalModelDAO#updateTerminalModel(com.ncr
+     * .ATMMonitoring.pojo.TerminalModel)
      */
     @Override
     public void updateTerminalModel(TerminalModel terminalModel) {
@@ -59,16 +72,24 @@ public class TerminalModelDAOImpl extends AbstractGenericDAO<TerminalModel>
 	logger.info("Updated Terminal Model with id " + terminalModel.getId());
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#removeTerminalModel(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalModelDAO#removeTerminalModel(java.lang
+     * .Integer)
      */
     @Override
     public void removeTerminalModel(Integer id) {
 	delete(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#getTerminalModelByModel(java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalModelDAO#getTerminalModelByModel(java
+     * .lang.String)
      */
     @Override
     public TerminalModel getTerminalModelByModel(String model) {
@@ -77,8 +98,12 @@ public class TerminalModelDAOImpl extends AbstractGenericDAO<TerminalModel>
 		.add(Restrictions.eq("model", model)).uniqueResult();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.dao.TerminalModelDAO#getTerminalModelByProductClass(java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalModelDAO#getTerminalModelByProductClass
+     * (java.lang.String)
      */
     @Override
     public TerminalModel getTerminalModelByProductClass(String productClass) {

@@ -6,21 +6,19 @@ import java.net.SocketException;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.net.ServerSocketFactory;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * The listener interface for receiving socket events.
- * The class that is interested in processing a socket
- * event implements this interface, and the object created
- * with that class is registered with a component using the
+ * The listener interface for receiving socket events. The class that is
+ * interested in processing a socket event implements this interface, and the
+ * object created with that class is registered with a component using the
  * component's <code>addSocketListener<code> method. When
  * the socket event occurs, that object's appropriate
  * method is invoked.
- *
+ * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
 
@@ -30,21 +28,21 @@ public class SocketListener extends Thread {
     /** The logger. */
     static private Logger logger = Logger.getLogger(SocketListener.class
 	    .getName());
-    
+
     /** The server socket. */
     static private volatile ServerSocket serverSocket;
-    
+
     /** The listener. */
     static private volatile Thread listener = null;
-    
+
     /** The server port. */
     @Value("${config.serverSocketPort}")
     private int serverPort;
-    
+
     /** The listener state. */
     @Value("${config.backgroundListener}")
     private String listenerState;
-    
+
     /** The ok message to send to the agent. */
     @Value("${config.agentOkMessage}")
     private String okMessage;
@@ -64,8 +62,9 @@ public class SocketListener extends Thread {
 
     /**
      * Sets the socket service.
-     *
-     * @param socketService the new socket service
+     * 
+     * @param socketService
+     *            the new socket service
      */
     public void setSocketService(SocketService socketService) {
 	this.socketService = socketService;
@@ -73,8 +72,9 @@ public class SocketListener extends Thread {
 
     /**
      * Instantiates a new socket listener.
-     *
-     * @param okMessage the ok message
+     * 
+     * @param okMessage
+     *            the ok message
      */
     public SocketListener(String okMessage) {
 	this.okMessage = okMessage;
@@ -90,7 +90,9 @@ public class SocketListener extends Thread {
 	socketService.updateTerminalSocket(ip);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Thread#run()
      */
     public void run() {

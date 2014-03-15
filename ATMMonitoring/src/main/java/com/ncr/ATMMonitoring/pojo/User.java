@@ -29,7 +29,6 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -91,9 +90,9 @@ public class User implements UserDetails {
     @OrderBy("query_name")
     private Set<Query> queries = new HashSet<Query>();
 
-	/** The dashboard. */
-	@OneToOne
-	private Dashboard dashboard;
+    /** The dashboard. */
+    @OneToOne
+    private Dashboard dashboard;
 
     // Code with support for Terminal Config AUTHORS
     //
@@ -125,7 +124,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public Integer getId() {
@@ -134,15 +133,19 @@ public class User implements UserDetails {
 
     /**
      * Sets the id.
-     *
-     * @param id the new id
+     * 
+     * @param id
+     *            the new id
      */
     public void setId(Integer id) {
 	this.id = id;
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.security.core.userdetails.UserDetails#getUsername()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.springframework.security.core.userdetails.UserDetails#getUsername()
      */
     @Override
     public String getUsername() {
@@ -151,15 +154,19 @@ public class User implements UserDetails {
 
     /**
      * Sets the username.
-     *
-     * @param username the new username
+     * 
+     * @param username
+     *            the new username
      */
     public void setUsername(String username) {
 	this.username = username;
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.security.core.userdetails.UserDetails#getPassword()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.springframework.security.core.userdetails.UserDetails#getPassword()
      */
     @Override
     public String getPassword() {
@@ -168,8 +175,9 @@ public class User implements UserDetails {
 
     /**
      * Sets the password.
-     *
-     * @param password the new password
+     * 
+     * @param password
+     *            the new password
      */
     public void setPassword(String password) {
 	this.password = password;
@@ -177,7 +185,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the firstname.
-     *
+     * 
      * @return the firstname
      */
     public String getFirstname() {
@@ -186,8 +194,9 @@ public class User implements UserDetails {
 
     /**
      * Sets the firstname.
-     *
-     * @param firstname the new firstname
+     * 
+     * @param firstname
+     *            the new firstname
      */
     public void setFirstname(String firstname) {
 	this.firstname = firstname;
@@ -195,7 +204,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the lastname.
-     *
+     * 
      * @return the lastname
      */
     public String getLastname() {
@@ -204,8 +213,9 @@ public class User implements UserDetails {
 
     /**
      * Sets the lastname.
-     *
-     * @param lastname the new lastname
+     * 
+     * @param lastname
+     *            the new lastname
      */
     public void setLastname(String lastname) {
 	this.lastname = lastname;
@@ -213,7 +223,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the role.
-     *
+     * 
      * @return the role
      */
     public Role getRole() {
@@ -222,8 +232,9 @@ public class User implements UserDetails {
 
     /**
      * Sets the role.
-     *
-     * @param role the new role
+     * 
+     * @param role
+     *            the new role
      */
     public void setRole(Role role) {
 	this.role = role;
@@ -231,7 +242,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the bank company.
-     *
+     * 
      * @return the bankCompany
      */
     public BankCompany getBankCompany() {
@@ -240,15 +251,20 @@ public class User implements UserDetails {
 
     /**
      * Sets the bank company.
-     *
-     * @param bankCompany the bankCompany to set
+     * 
+     * @param bankCompany
+     *            the bankCompany to set
      */
     public void setBankCompany(BankCompany bankCompany) {
 	this.bankCompany = bankCompany;
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.security.core.userdetails.UserDetails#getAuthorities()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.springframework.security.core.userdetails.UserDetails#getAuthorities
+     * ()
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -259,32 +275,46 @@ public class User implements UserDetails {
 	}
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.security.core.userdetails.UserDetails#isAccountNonExpired()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.springframework.security.core.userdetails.UserDetails#isAccountNonExpired
+     * ()
      */
     @Override
     public boolean isAccountNonExpired() {
 	return true;
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.security.core.userdetails.UserDetails#isAccountNonLocked()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.springframework.security.core.userdetails.UserDetails#isAccountNonLocked
+     * ()
      */
     @Override
     public boolean isAccountNonLocked() {
 	return true;
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.security.core.userdetails.UserDetails#isCredentialsNonExpired()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.springframework.security.core.userdetails.UserDetails#
+     * isCredentialsNonExpired()
      */
     @Override
     public boolean isCredentialsNonExpired() {
 	return true;
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.security.core.userdetails.UserDetails#isEnabled()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.springframework.security.core.userdetails.UserDetails#isEnabled()
      */
     @Override
     public boolean isEnabled() {
@@ -293,7 +323,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the queries.
-     *
+     * 
      * @return the queries
      */
     public Set<Query> getQueries() {
@@ -302,8 +332,9 @@ public class User implements UserDetails {
 
     /**
      * Sets the queries.
-     *
-     * @param queries the queries to set
+     * 
+     * @param queries
+     *            the queries to set
      */
     public void setQueries(Set<Query> queries) {
 	this.queries = queries;
@@ -330,20 +361,21 @@ public class User implements UserDetails {
 
     /**
      * Gets the dashboard.
-     *
+     * 
      * @return the dashboard
      */
     public Dashboard getDashboard() {
-		return dashboard;
+	return dashboard;
     }
 
     /**
      * Sets the dashboard.
-     *
-     * @param dashboard the new dashboard
+     * 
+     * @param dashboard
+     *            the new dashboard
      */
     public void setDashboard(Dashboard dashboard) {
-		this.dashboard = dashboard;
+	this.dashboard = dashboard;
     }
 
     /**
@@ -354,23 +386,23 @@ public class User implements UserDetails {
      * @return the html welcome message
      */
     public String getHtmlWelcomeMessage(Locale locale) {
-      	DateFormat timeFormatter = new SimpleDateFormat("H:mm");
-        String lastLoginFormatted = "";
-        lastLoginFormatted  = DateFormat.getDateInstance(DateFormat.SHORT, locale).format(lastLogin) +
-	    " - " + timeFormatter.format(lastLogin);
+	DateFormat timeFormatter = new SimpleDateFormat("H:mm");
+	String lastLoginFormatted = "";
+	lastLoginFormatted = DateFormat.getDateInstance(DateFormat.SHORT,
+		locale).format(lastLogin)
+		+ " - " + timeFormatter.format(lastLogin);
 
 	return "<div class=\"welcome\"><spring:message code=\"label.welcomeMessage\"/> "
 		+ firstname
 		+ " "
 		+ lastname
 		+ "</div>"
-		+
-	       "<div class=\"date\">" + lastLoginFormatted + "</div>";
+		+ "<div class=\"date\">" + lastLoginFormatted + "</div>";
     }
 
     /**
      * Gets the manageable bank companies.
-     *
+     * 
      * @return the manageable bank companies
      */
     public Set<BankCompany> getManageableBankCompanies() {

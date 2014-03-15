@@ -25,35 +25,50 @@ public class HardwareDeviceServiceImpl implements HardwareDeviceService {
     @Autowired
     private HardwareDeviceDAO hardwareDeviceDAO;
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.HardwareDeviceService#addHardwareDevice(com.ncr.ATMMonitoring.pojo.HardwareDevice)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.HardwareDeviceService#addHardwareDevice
+     * (com.ncr.ATMMonitoring.pojo.HardwareDevice)
      */
     @Override
     public void addHardwareDevice(HardwareDevice hardwareDevice) {
-    	hardwareDeviceDAO.addHardwareDevice(hardwareDevice);
+	hardwareDeviceDAO.addHardwareDevice(hardwareDevice);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.HardwareDeviceService#listHardwareDevices()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.HardwareDeviceService#listHardwareDevices()
      */
     @Override
     public List<HardwareDevice> listHardwareDevices() {
-    	return hardwareDeviceDAO.listHardwareDevices();
+	return hardwareDeviceDAO.listHardwareDevices();
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.HardwareDeviceService#getHardwareDevice(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.HardwareDeviceService#getHardwareDevice
+     * (java.lang.Integer)
      */
     @Override
     public HardwareDevice getHardwareDevice(Integer id) {
-    	return hardwareDeviceDAO.getHardwareDevice(id);
+	return hardwareDeviceDAO.getHardwareDevice(id);
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.service.HardwareDeviceService#removeHardwareDevice(java.lang.Integer)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.HardwareDeviceService#removeHardwareDevice
+     * (java.lang.Integer)
      */
     @Override
     public void removeHardwareDevice(Integer id) {
-    	hardwareDeviceDAO.removeHardwareDevice(id);
+	hardwareDeviceDAO.removeHardwareDevice(id);
     }
 }
