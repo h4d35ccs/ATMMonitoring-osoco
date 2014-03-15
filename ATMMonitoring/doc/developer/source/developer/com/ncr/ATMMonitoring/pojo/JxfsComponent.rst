@@ -218,12 +218,6 @@ JxfsComponent
 
 Methods
 -------
-equals
-^^^^^^
-
-.. java:method:: @Override public boolean equals(Object obj)
-   :outertype: JxfsComponent
-
 getAcceptLimit
 ^^^^^^^^^^^^^^
 
@@ -1433,12 +1427,6 @@ getWriteMode
    Gets the write mode.
 
    :return: the write mode
-
-hashCode
-^^^^^^^^
-
-.. java:method:: @Override public int hashCode()
-   :outertype: JxfsComponent
 
 setAcceptLimit
 ^^^^^^^^^^^^^^

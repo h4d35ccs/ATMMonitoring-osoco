@@ -26,21 +26,13 @@ externalreportsController
 .. java:package:: com.ncr.ATMMonitoring.controller
    :noindex:
 
-.. java:type:: @Controller public class externalreportsController
-
-   The Class externalreportsController.
+.. java:type:: public class externalreportsController
 
 Methods
 -------
 requestTerminalsUpdate
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public void requestTerminalsUpdate(Map<String, Object> map, HttpServletRequest request, Principal principal)
+.. java:method:: public void requestTerminalsUpdate(Map<String, Object> map, HttpServletRequest request, Principal principal)
    :outertype: externalreportsController
-
-   Request terminals update.
-
-   :param map: the map
-   :param request: the request
-   :param principal: the principal
 

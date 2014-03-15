@@ -46,6 +46,8 @@ com.ncr.ATMMonitoring.service
    TerminalModelServiceImpl
    TerminalService
    TerminalServiceImpl
+   UPSService
+   UPSServiceImp
    UserService
    UserServiceImpl
    WidgetCategoryService

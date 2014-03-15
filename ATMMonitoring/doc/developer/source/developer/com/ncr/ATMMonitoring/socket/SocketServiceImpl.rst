@@ -1,10 +1,4 @@
-.. java:import:: java.text DateFormat
-
 .. java:import:: java.util Collection
-
-.. java:import:: java.util Collections
-
-.. java:import:: java.util Date
 
 .. java:import:: java.util HashSet
 
@@ -20,11 +14,9 @@
 
 .. java:import:: org.springframework.beans.factory.annotation Value
 
-.. java:import:: org.springframework.scheduling.annotation Async
-
-.. java:import:: org.springframework.scheduling.annotation Scheduled
-
 .. java:import:: org.springframework.stereotype Service
+
+.. java:import:: com.ncr ATMMonitoring.handler.QueueHandler
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Query
 
@@ -56,6 +48,12 @@ getHashSeed
 .. java:method:: public String getHashSeed()
    :outertype: SocketServiceImpl
 
+getIpToProcess
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public String getIpToProcess()
+   :outertype: SocketServiceImpl
+
 getOldHashSeed
 ^^^^^^^^^^^^^^
 
@@ -73,7 +71,7 @@ init
 processAwaitingIps
 ^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override @Scheduled public void processAwaitingIps()
+.. java:method:: @Override public void processAwaitingIps()
    :outertype: SocketServiceImpl
 
 processTerminalJson

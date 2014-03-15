@@ -47,6 +47,8 @@ com.ncr.ATMMonitoring.dao
    TerminalDAOImpl
    TerminalModelDAO
    TerminalModelDAOImpl
+   UpsDAO
+   UpsDAOImp
    UserDAO
    UserDAOImpl
    WidgetCategoryDAO

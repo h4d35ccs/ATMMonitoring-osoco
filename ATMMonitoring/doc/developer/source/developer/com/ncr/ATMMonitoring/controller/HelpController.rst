@@ -10,8 +10,6 @@
 
 .. java:import:: org.springframework.stereotype Controller
 
-.. java:import:: org.springframework.web.bind.annotation PathVariable
-
 .. java:import:: org.springframework.web.bind.annotation RequestMethod
 
 .. java:import:: org.springframework.web.bind.annotation RequestMapping
@@ -39,10 +37,10 @@ Methods
 showDashboardHelp
 ^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String showDashboardHelp(String section, Map<String, Object> map, Principal principal, HttpServletRequest request)
+.. java:method:: @RequestMapping public String showDashboardHelp(Map<String, Object> map, Principal principal, HttpServletRequest request)
    :outertype: HelpController
 
-   Show section help URL.
+   Show dashboard help URL.
 
    :param map: the map
    :param principal: the principal
@@ -56,6 +54,19 @@ showHelp
    :outertype: HelpController
 
    Show default help URL.
+
+   :param map: the map
+   :param principal: the principal
+   :param request: the request
+   :return: the petition response
+
+showTerminalsHelp
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: @RequestMapping public String showTerminalsHelp(Map<String, Object> map, Principal principal, HttpServletRequest request)
+   :outertype: HelpController
+
+   Show terminals help URL.
 
    :param map: the map
    :param principal: the principal

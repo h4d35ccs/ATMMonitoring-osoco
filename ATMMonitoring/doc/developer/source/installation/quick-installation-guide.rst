@@ -30,7 +30,7 @@ The minimum requirements for running the NCR HSAM Agent are:
 	* (*) Extra requirements only for Windows NT
 		* *Windows Management Instrumentation (WMI) Core 1.5* (**wmint4.exe**)
 		* For NCR ATMs – Apply the following XFS Manager Error
-			* Workaround:
+			.. note:: Workaround:
 				* *HKEY_CLASSES_ROOT\WOSA/XFS_ROOT\XFS_MANAGER ShareMapAddr(REG_SZ)=”67000000*
 				* 256 MB RAM
 
@@ -55,7 +55,7 @@ NCR HSAM Agent Configuration
 
 
 #. HSAMAgent.cfg (only for J/XFS ATMs)
-	*  *workstation_name* key ­ Computer name.
+	* *workstation name* key Computer name.
 	* *config_key* key – Application name according to the *read.repository* application name (INVENTORYAGENT).
 	* *sdm_addparm_1* key – Path where J/XFS is installed.
 
@@ -99,19 +99,15 @@ Server Side
 
 Apache Tomcat
 -------------
-­­­­­­­­­­­­­­
-Install the product (please verify the *Host Manager* is also selected during the process). `<http://tomcat.apache.org/download­70.cgi>`_.
+Install the product (plaese verify the *Host Manager* is also selected during the process) from:`<http://tomcat.apache.org/download70.cgi>`_.
 The Tomcat service can be automatically started by changing the “Startup type” property to *Automatic*.
-
+.. warning:: The Tomcat version must be 7
 
 PostgreSQL
 ----------
-
-­­­­­­­­­­­­­­­Install the product. Please use the following data during PostgreSQL installation:
-   
-   * User: postgres (default)
-   * Password: qwerty
-
+Install the product. Please set the following data during PostgreSQL installation :):
+	* User: postgres (default)
+	* Password: qwerty
 
 Download postgres from `<http://www.postgresql.org/download/>`_.
 
@@ -124,22 +120,60 @@ To run sql scripts in PostgreSQL, execute the following sentence from the *bin* 
 
 (where username is the PostgreSQL user, usually *postgres*)
 
+Server Side Deployment
+----------------------
+#. Make sure that the Tomcat is running
+#. Put the *.war* file inside the webbaps folder ( in a Windows environment with a default Tomcat installation will be in  C:\\Program Files\\Apache Software Foundation\\Tomcat x.x\\webapps)
+	* This will initiate the Tomcat  autodeploy process.
+#. After the autodeploy process have ended, a new folder will be created inside the webapps folder, with the same name as the *.war* file
+	* Example:
+		* War file name: **atm.war**
+		* New Folder created inside webapps: **C:\Program Files\Apache Software Foundation\Tomcat x.x\webapps\atm**
+#. Make sure that the recently created folder have the following structure basic structure:
+ atm
+	*WEB-INF
+		* classes
+		* lib
+		* jsp
+		* tags
+	* resources
+	* META-INF
+
+.. warning:: It is not necessary to create any folder, is an automatic process made by Tomcat, do not create the folder structure by yourself
+
 Configuration Files
 -------------------
+Once the war file is deployed ( the application folder is created inside the webapps folder) go to the \\webapps\\atm\\WEB-INF\\classes folder inside the appliaction folder and edit the property file called **jdbc.properties** this file contains the parameters to allow the connection with the database such as user, password, etc.  edit  or confirm the values as follows:
+	#. **jdbc.databaseurl** =jdbc\:postgresql\://{server}\:{port}/inventory
+		* Replace {server} with the name or ip where the postgres instance is running, the same with the {port}
+			* if Tomcat and Postgres resides in the same machine, can be used *localhost*
+		
+		.. note:: to know the port where the postgres instance is listening execute the following SQL sentence: 
+			
+			.. code-block:: sql
 
-  	*  **jdbc.properties (Tomcat Installation Path\webapps\atm\WEB­INF\classes)** This file contains the parameters to allow the connection with the database such as user, password, etc. Confirm both the jdbc.username and jdbc.userpassword are properly configured based on the PostgreSQL installation settings (this file is available to be edited once the NCR HSAM Server has been deployed).
-	
-	*  **Config.properties (Tomcat Installation Path\webapps\atm\WEB­INF\classes)** This file contains the NCR HSAM Server settings. Be aware that some of the settings must be exactly the same configured in the HSAM Agent side such as *config.serverSocketPort*, *config.agentSocketPort* and *config.agentOkMessage*.
+				select * from pg_settings where name = 'port'
 
-NCR Inventory Deployment
-------------------------
+	#. **jdbc.username** = postgres
+	#. **jdbc.password** = qwerty
+		* If the password for the postgres user is not qwerty, change the value for the one used during the postgres installation.
+	#. Restart the Tomcat server
 
-In order to proceed with the deployment the “atm.war” file must be copied inside the “webapps” folder in the Tomcat installation path. If the Tomcat service is running, a folder called “atm” should be automatically created. If the Tomcat service is not running the “atm” folder will be created once the service is started up and everything has been properly configured.
+The **Config.properties** (available in \\WEB-INF\\classes) This file contains the NCR HSAM Server settings. Be aware that some of the settings must be exactly the same configured in the HSAM Agent side such as *config.serverSocketPort*, *config.agentSocketPort* and *config.agentOkMessage*.
 
-Once the solution has been successfully deployed, it can be tested by using any of the most common browsers ­ Chrome, Firefox, Opera, Internet Explorer (7 and above), Safari ­ by clicking:
-	
-	* `<http://localhost:8080/atm/login>`_ (if the port has been changed during Tomcat installation, please use the correct one) – Local Access
-	* `<http://IPServer:8080/atm/login>`_ (if the port has been changed during Tomcat installation, please use the correct one) ­ External Access 
+Test the Installation
+---------------------
+Once all the configuration is done, go, using any of the most common browsers Chrome, Firefox, Opera, Internet Explorer (7 and above), Safari, to:
+	* `<http://localhost:8080/folderName>`_ (Local Access)
+	* `<http://IPserver:8080/folderName>`_ (External Access)
 
+where folderName matches the name of the folder created during the deployment process, using the example in `Server Side Deployment` the URL will be  http://localhost:8080/atm from there will be possible to see the login page of the application.
+
+	* `<http://localhost:8080/atm>`_ (Local Access)
+	* `<http://IPserver:8080/atm>`_ (External Access)
+
+.. note:: The port 8080 is the default port used by Tomcat, if the listening port was changed during the installation, replace this value for the one set in the installation.
+
+.. warning:: If after going to the URL where the application should be, and you get an *Error 404 page not found* even though the application seems to be deployed ( the folder was created during the deployment), it is necessary to see the server logs *catalina.log*  and *localhost.log* available in {TOMCAT_INSTALLATION_PATH} /log in order to find the root of the error.
 
 The default user and password (SUPERADMIN rol) for accessing the application are ‘admin’ for both fields. All ATMs will enroll automatically in the NCR HSAM the first time the HSAM Agent starts up. After a while, the ATM should be listed in the Terminal List.

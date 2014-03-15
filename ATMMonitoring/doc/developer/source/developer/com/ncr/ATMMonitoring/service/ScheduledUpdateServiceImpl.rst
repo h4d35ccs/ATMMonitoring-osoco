@@ -49,7 +49,7 @@ addScheduledUpdate
 checkCurrentUpdates
 ^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @Override @Scheduled public void checkCurrentUpdates()
+.. java:method:: public void checkCurrentUpdates()
    :outertype: ScheduledUpdateServiceImpl
 
 existsScheduledUpdate

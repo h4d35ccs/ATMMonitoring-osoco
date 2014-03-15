@@ -74,12 +74,6 @@ Hotfix
 
 Methods
 -------
-equals
-^^^^^^
-
-.. java:method:: @Override public boolean equals(Object obj)
-   :outertype: Hotfix
-
 getComboboxes
 ^^^^^^^^^^^^^
 
@@ -149,12 +143,6 @@ getTerminal
    Gets the terminal.
 
    :return: the terminal
-
-hashCode
-^^^^^^^^
-
-.. java:method:: @Override public int hashCode()
-   :outertype: Hotfix
 
 setDescription
 ^^^^^^^^^^^^^^

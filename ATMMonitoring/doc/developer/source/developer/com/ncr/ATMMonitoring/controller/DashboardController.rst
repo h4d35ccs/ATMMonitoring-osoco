@@ -2,8 +2,6 @@
 
 .. java:import:: java.util ArrayList
 
-.. java:import:: java.util Collections
-
 .. java:import:: java.util HashMap
 
 .. java:import:: java.util List
@@ -22,9 +20,9 @@
 
 .. java:import:: org.springframework.stereotype Controller
 
-.. java:import:: org.springframework.web.bind.annotation RequestMethod
-
 .. java:import:: org.springframework.web.bind.annotation RequestMapping
+
+.. java:import:: org.springframework.web.bind.annotation RequestMethod
 
 .. java:import:: org.springframework.web.bind.annotation RequestParam
 
@@ -36,17 +34,9 @@
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Dashboard
 
-.. java:import:: com.ncr ATMMonitoring.pojo.User
-
 .. java:import:: com.ncr ATMMonitoring.pojo.Widget
 
-.. java:import:: com.ncr ATMMonitoring.service.DashboardService
-
-.. java:import:: com.ncr ATMMonitoring.service.QueryService
-
-.. java:import:: com.ncr ATMMonitoring.service.UserService
-
-.. java:import:: com.ncr ATMMonitoring.service.WidgetService
+.. java:import:: com.ncr ATMMonitoring.serviceFacade.DashboardWidgetFacade
 
 DashboardController
 ===================
@@ -54,11 +44,25 @@ DashboardController
 .. java:package:: com.ncr.ATMMonitoring.controller
    :noindex:
 
-.. java:type:: @Controller public class DashboardController
+.. java:type:: @Controller public class DashboardController extends GenericController
 
    Controller for Dashboard related actions.
 
    :author: Rafael Luque (rafael.luque@osoco.es)
+
+Fields
+------
+SESSION_KEY_DASHBOARD
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final String SESSION_KEY_DASHBOARD
+   :outertype: DashboardController
+
+SESSION_KEY_WIDGET_LIST
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final String SESSION_KEY_WIDGET_LIST
+   :outertype: DashboardController
 
 Methods
 -------
@@ -85,6 +89,16 @@ hideChart
    :param widgetId: the widget id
    :param request: the request
    :param principal: the principal
+
+newWidget
+^^^^^^^^^
+
+.. java:method:: @RequestMapping public String newWidget(HttpServletRequest request)
+   :outertype: DashboardController
+
+   Show new widget form
+
+   :return: the petition response
 
 showChart
 ^^^^^^^^^

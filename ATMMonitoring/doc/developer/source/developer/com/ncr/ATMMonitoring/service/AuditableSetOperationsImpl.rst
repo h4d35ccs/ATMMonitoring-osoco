@@ -63,12 +63,6 @@ getCurrentAuditableElementByDate
 setCurrentAuditableElement
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public <T extends Auditable> void setCurrentAuditableElement(Set<T> auditableElements, T newAuditableElement)
-   :outertype: AuditableSetOperationsImpl
-
-updateAuditableElements
-^^^^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public <T extends Auditable> void updateAuditableElements(Set<T> auditableElements, Set<T> newAuditableElements)
+.. java:method:: public <T extends Auditable> void setCurrentAuditableElement(Set<T> auditableElements, T newauditableElement)
    :outertype: AuditableSetOperationsImpl
 

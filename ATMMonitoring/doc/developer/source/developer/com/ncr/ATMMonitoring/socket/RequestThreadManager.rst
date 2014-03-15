@@ -12,9 +12,13 @@
 
 .. java:import:: java.util Iterator
 
+.. java:import:: java.util LinkedHashSet
+
 .. java:import:: java.util List
 
 .. java:import:: java.util Properties
+
+.. java:import:: java.util Queue
 
 .. java:import:: java.util Set
 
@@ -36,6 +40,8 @@
 
 .. java:import:: org.springframework.core.io.support PropertiesLoaderUtils
 
+.. java:import:: com.ncr ATMMonitoring.handler.QueueHandler
+
 RequestThreadManager
 ====================
 
@@ -53,7 +59,7 @@ Constructors
 RequestThreadManager
 ^^^^^^^^^^^^^^^^^^^^
 
-.. java:constructor:: public RequestThreadManager(double maxThreads, double maxTerminals, int timeOut, int agentPort, int sleepTime, int maxTime, SocketService socketService, Set<String> ips)
+.. java:constructor:: public RequestThreadManager(double maxThreads, double maxTerminals, int timeOut, int agentPort, int sleepTime, int maxTime, SocketService socketService, Queue<String> actualQueue)
    :outertype: RequestThreadManager
 
    Instantiates a new request thread manager.
@@ -88,6 +94,14 @@ getHashSeed
    Gets the hash seed.
 
    :return: the hash seed
+
+getIpToProcess
+^^^^^^^^^^^^^^
+
+.. java:method:: public String getIpToProcess()
+   :outertype: RequestThreadManager
+
+   Returns the first ip to process in the queue
 
 getOldHashSeed
 ^^^^^^^^^^^^^^

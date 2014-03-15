@@ -38,6 +38,12 @@ getOperatingSystem
 .. java:method:: @Override public OperatingSystem getOperatingSystem(Integer id)
    :outertype: OperatingSystemDAOImpl
 
+getOperatingSystemBySerialNumber
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public OperatingSystem getOperatingSystemBySerialNumber(String number)
+   :outertype: OperatingSystemDAOImpl
+
 listOperatingSystem
 ^^^^^^^^^^^^^^^^^^^
 

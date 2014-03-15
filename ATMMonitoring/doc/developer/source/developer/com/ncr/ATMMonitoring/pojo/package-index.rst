@@ -8,7 +8,6 @@ com.ncr.ATMMonitoring.pojo
 
    Auditable
    AuditableInternetExplorer
-   AuditableSoftwareAggregate
    BankCompany
    Dashboard
    Dashboard-ColumnOptions
@@ -31,6 +30,7 @@ com.ncr.ATMMonitoring.pojo
    Terminal
    TerminalConfig
    TerminalModel
+   Ups
    User
    Widget
    Widget-ChartType

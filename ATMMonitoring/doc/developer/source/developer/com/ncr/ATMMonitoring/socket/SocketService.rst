@@ -28,6 +28,16 @@ getHashSeed
 
    :return: the configurable hash seed
 
+getIpToProcess
+^^^^^^^^^^^^^^
+
+.. java:method:: public String getIpToProcess()
+   :outertype: SocketService
+
+   Load the actual queue and extract one ip from the queue and saves the status
+
+   :return: String
+
 getOldHashSeed
 ^^^^^^^^^^^^^^
 

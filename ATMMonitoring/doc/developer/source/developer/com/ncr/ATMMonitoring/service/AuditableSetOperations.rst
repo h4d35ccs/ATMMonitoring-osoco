@@ -89,14 +89,3 @@ setCurrentAuditableElement
    :param auditableElements: The collection of auditable elements
    :param newauditableElement: The new auditableElement
 
-updateAuditableElements
-^^^^^^^^^^^^^^^^^^^^^^^
-
-.. java:method:: public <T extends Auditable> void updateAuditableElements(Set<T> auditableElements, Set<T> newAuditableElements)
-   :outertype: AuditableSetOperations
-
-   Updates a collection of auditable elements. Adds new elements to first collection and set end date to elements that are not present on second collection.
-
-   :param auditableElements: The current collection of auditable elements
-   :param newAuditableElements: The new collection of auditables elements
-

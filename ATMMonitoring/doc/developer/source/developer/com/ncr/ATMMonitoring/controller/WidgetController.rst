@@ -4,6 +4,8 @@
 
 .. java:import:: java.util Date
 
+.. java:import:: java.util List
+
 .. java:import:: java.util Map
 
 .. java:import:: java.util Set
@@ -46,17 +48,15 @@
 
 .. java:import:: com.ncr ATMMonitoring.pojo.Widget
 
-.. java:import:: com.ncr ATMMonitoring.service.QueryService
+.. java:import:: com.ncr ATMMonitoring.pojo.WidgetCategory
 
 .. java:import:: com.ncr ATMMonitoring.service.UserService
 
-.. java:import:: com.ncr ATMMonitoring.service.WidgetCategoryService
-
-.. java:import:: com.ncr ATMMonitoring.service.WidgetService
-
-.. java:import:: com.ncr ATMMonitoring.utils.WidgetQueryAssociationType
+.. java:import:: com.ncr ATMMonitoring.serviceFacade.DashboardWidgetFacade
 
 .. java:import:: com.ncr ATMMonitoring.utils.RegionType
+
+.. java:import:: com.ncr ATMMonitoring.utils.WidgetQueryAssociationType
 
 WidgetController
 ================
@@ -64,7 +64,7 @@ WidgetController
 .. java:package:: com.ncr.ATMMonitoring.controller
    :noindex:
 
-.. java:type:: @Controller public class WidgetController
+.. java:type:: @Controller public class WidgetController extends GenericController
 
    Controller for Widget related actions.
 
@@ -75,7 +75,7 @@ Methods
 addFromLibrary
 ^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String addFromLibrary(ArrayList<Integer> widgetIds, Principal principal)
+.. java:method:: @RequestMapping public String addFromLibrary(ArrayList<Integer> widgetIds, Principal principal, HttpServletRequest request)
    :outertype: WidgetController
 
    Add a widget to user dashboard from library
@@ -87,7 +87,7 @@ addFromLibrary
 addToLibrary
 ^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String addToLibrary(Integer widgetId, Integer categoryId, Principal principal)
+.. java:method:: @RequestMapping public String addToLibrary(Integer widgetId, Integer categoryId, Principal principal, HttpServletRequest request)
    :outertype: WidgetController
 
    Add a widget to library
@@ -110,7 +110,7 @@ binder
 createWidget
 ^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String createWidget(Map<String, Object> model, Principal principal)
+.. java:method:: @RequestMapping public String createWidget(Map<String, Object> model, Principal principal, HttpServletRequest request)
    :outertype: WidgetController
 
    Show creates new widget form
@@ -122,7 +122,7 @@ createWidget
 createWidgetFromLibrary
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String createWidgetFromLibrary(Map<String, Object> model, Principal principal)
+.. java:method:: @RequestMapping public String createWidgetFromLibrary(Map<String, Object> model, Principal principal, HttpServletRequest request)
    :outertype: WidgetController
 
    Creates a new widget from library
@@ -134,7 +134,7 @@ createWidgetFromLibrary
 deleteWidget
 ^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping @ResponseStatus public void deleteWidget(Integer widgetId, Principal principal)
+.. java:method:: @RequestMapping @ResponseStatus public void deleteWidget(Integer widgetId, Principal principal, HttpServletRequest request)
    :outertype: WidgetController
 
    Delete a widget
@@ -145,7 +145,7 @@ deleteWidget
 editWidget
 ^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String editWidget(Map<String, Object> model, Integer widgetId, Principal principal)
+.. java:method:: @RequestMapping public String editWidget(Map<String, Object> model, Integer widgetId, Principal principal, HttpServletRequest request)
    :outertype: WidgetController
 
    Edit a widget
@@ -155,20 +155,10 @@ editWidget
    :param principal: The principal user
    :return: The request response
 
-newWidget
-^^^^^^^^^
-
-.. java:method:: @RequestMapping public String newWidget()
-   :outertype: WidgetController
-
-   Show new widget form
-
-   :return: the petition response
-
 removeFromLibrary
 ^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping @ResponseStatus public void removeFromLibrary(Integer widgetId, Principal principal)
+.. java:method:: @RequestMapping @ResponseStatus public void removeFromLibrary(Integer widgetId, Principal principal, HttpServletRequest request)
    :outertype: WidgetController
 
    Remove a widget from library
@@ -179,7 +169,7 @@ removeFromLibrary
 setAsDefault
 ^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping @ResponseStatus public void setAsDefault(Integer widgetId, Principal principal)
+.. java:method:: @RequestMapping @ResponseStatus public void setAsDefault(Integer widgetId, Principal principal, HttpServletRequest request)
    :outertype: WidgetController
 
    Set a widget as default
@@ -190,7 +180,7 @@ setAsDefault
 showAddToLibraryForm
 ^^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping public String showAddToLibraryForm(Map<String, Object> model, Integer widgetId, Principal principal)
+.. java:method:: @RequestMapping public String showAddToLibraryForm(Map<String, Object> model, Integer widgetId, Principal principal, HttpServletRequest request)
    :outertype: WidgetController
 
    Show add widget to library form
@@ -203,7 +193,7 @@ showAddToLibraryForm
 unsetAsDefault
 ^^^^^^^^^^^^^^
 
-.. java:method:: @RequestMapping @ResponseStatus public void unsetAsDefault(Integer widgetId, Principal principal)
+.. java:method:: @RequestMapping @ResponseStatus public void unsetAsDefault(Integer widgetId, Principal principal, HttpServletRequest request)
    :outertype: WidgetController
 
    Unset a widget as default

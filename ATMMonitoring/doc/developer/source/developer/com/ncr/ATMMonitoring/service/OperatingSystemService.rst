@@ -37,6 +37,17 @@ getOperatingSystem
    :param id: the operating system id
    :return: the operating system
 
+getOperatingSystemBySerialNumber
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public OperatingSystem getOperatingSystemBySerialNumber(String number)
+   :outertype: OperatingSystemService
+
+   Gets the operating system by serial number.
+
+   :param number: the number
+   :return: the operating system by serial number
+
 listOperatingSystem
 ^^^^^^^^^^^^^^^^^^^
 

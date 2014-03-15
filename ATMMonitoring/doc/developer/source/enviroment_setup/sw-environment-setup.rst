@@ -205,8 +205,10 @@ Production Environment
 ======================
 *Apache Tomcat*
 ***************
-#. Download the binary files from the `Eclipse official site <http://tomcat.apache.org/download-70.cgi>`_.
+#. Download the binary files from the `Tomcat official site <http://tomcat.apache.org/download-70.cgi>`_.
 #. Unzip the file wherever you want (we recommend doing it in **/var/lib/**, and that's what we'll assume from now on).
+
+.. warning:: The Tomcat version must be 7
 
 Configuration For Deploying With Maven
 --------------------------------------

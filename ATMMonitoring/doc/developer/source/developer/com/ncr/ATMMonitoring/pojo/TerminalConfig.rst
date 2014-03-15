@@ -57,7 +57,7 @@ Methods
 equals
 ^^^^^^
 
-.. java:method:: @Override public boolean equals(Object o)
+.. java:method:: public boolean equals(Object o)
    :outertype: TerminalConfig
 
 getId

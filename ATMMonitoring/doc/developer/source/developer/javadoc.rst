@@ -15,3 +15,6 @@ Below is possible to find the code documentation of ATMMonitoring
    com/ncr/ATMMonitoring/controller/propertyEditor/package-index
    com/ncr/ATMMonitoring/tag/package-index
    com/ncr/ATMMonitoring/utils/package-index
+ 
+ 
+.. include:: developer-notes.rst

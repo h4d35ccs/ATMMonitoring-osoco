@@ -28,8 +28,6 @@
 
 .. java:import:: com.ncr ATMMonitoring.pojo.AuditableInternetExplorer
 
-.. java:import:: com.ncr ATMMonitoring.pojo.AuditableSoftwareAggregate
-
 .. java:import:: com.ncr ATMMonitoring.pojo.BankCompany
 
 .. java:import:: com.ncr ATMMonitoring.pojo.FinancialDevice

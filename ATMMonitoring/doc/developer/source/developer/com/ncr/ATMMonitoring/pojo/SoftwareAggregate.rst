@@ -24,7 +24,7 @@ SoftwareAggregate
 .. java:package:: com.ncr.ATMMonitoring.pojo
    :noindex:
 
-.. java:type:: @Entity @Table public class SoftwareAggregate
+.. java:type:: @Entity @Table public class SoftwareAggregate extends Auditable
 
    The SoftwareAggregate Pojo.
 
@@ -52,12 +52,6 @@ SoftwareAggregate
 
 Methods
 -------
-equals
-^^^^^^
-
-.. java:method:: @Override public boolean equals(Object obj)
-   :outertype: SoftwareAggregate
-
 getBuildVersion
 ^^^^^^^^^^^^^^^
 
@@ -177,12 +171,6 @@ getVersion
    Gets the version.
 
    :return: the version complete
-
-hashCode
-^^^^^^^^
-
-.. java:method:: @Override public int hashCode()
-   :outertype: SoftwareAggregate
 
 setBuildVersion
 ^^^^^^^^^^^^^^^

@@ -37,7 +37,7 @@ Constructors
 RequestThread
 ^^^^^^^^^^^^^
 
-.. java:constructor:: public RequestThread(Set<String> ips, int agentPort, int timeOut, RequestThreadManager parent)
+.. java:constructor:: public RequestThread(int requestNumber, int agentPort, int timeOut, RequestThreadManager parent)
    :outertype: RequestThread
 
    Instantiates a new request thread.
@@ -49,16 +49,6 @@ RequestThread
 
 Methods
 -------
-getIps
-^^^^^^
-
-.. java:method:: public Set<String> getIps()
-   :outertype: RequestThread
-
-   Gets the ips.
-
-   :return: the ips
-
 run
 ^^^
 

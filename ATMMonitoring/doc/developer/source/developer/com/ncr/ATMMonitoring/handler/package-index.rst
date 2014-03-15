@@ -6,5 +6,7 @@ com.ncr.ATMMonitoring.handler
 .. toctree::
    :maxdepth: 1
 
+   FileInDiskHandler
    LoginSuccessHandler
+   QueueHandler
 
