@@ -18,10 +18,10 @@ public class NoParserFoundException extends Exception {
 
     /**
      * NO_PARSERS_FOUND =
-     * "The builder can not find parsers in the classpath, imposible to begin the process"
+     * "The builder can not find parsers in the classpath, impossible to begin the process"
      * ;
      */
-    public static final String NO_PARSERS_FOUND = "The builder can not find parsers in the classpath, imposible to begin the process";
+    public static final String NO_PARSERS_FOUND = "The builder can not find parsers in the classpath, impossible to begin the process";
 
     /**
      * The serial field

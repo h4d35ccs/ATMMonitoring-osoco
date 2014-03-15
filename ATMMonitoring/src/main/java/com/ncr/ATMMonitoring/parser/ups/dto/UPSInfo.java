@@ -2,8 +2,6 @@ package com.ncr.ATMMonitoring.parser.ups.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-
 /**
  * DTO that holds the basic information retrieved from an UPS XML
  * 

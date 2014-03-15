@@ -24,11 +24,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ncr.ATMMonitoring.controller.propertyEditor.DatePropertyEditor;
+import com.ncr.ATMMonitoring.controller.propertyeditor.DatePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 import com.ncr.ATMMonitoring.service.QueryService;
-import com.ncr.ATMMonitoring.serviceFacade.ATMFacade;
+import com.ncr.ATMMonitoring.servicefacade.AtmFacade;
 
 /**
  * The Class ScheduledUpdateController.
@@ -62,7 +62,7 @@ public class ScheduledUpdateController extends GenericController {
 
     /** The atm service facade. */
     @Autowired
-    private ATMFacade atmService;
+    private AtmFacade atmService;
 
     /** The query service */
     @Autowired
@@ -100,9 +100,9 @@ public class ScheduledUpdateController extends GenericController {
 	    userMsg = this.getUserGreeting(principal, request);
 	    map.put("userMsg", userMsg);
 	    map.put("weeklyScheduledUpdates",
-		    this.atmService.listScheduledUpdates(ATMFacade.WEEKLY));
+		    this.atmService.listScheduledUpdates(AtmFacade.WEEKLY));
 	    map.put("monthlyScheduledUpdates",
-		    this.atmService.listScheduledUpdates(ATMFacade.MONTHLY));
+		    this.atmService.listScheduledUpdates(AtmFacade.MONTHLY));
 	}
 	return "scheduledUpdates";
     }
@@ -161,10 +161,10 @@ public class ScheduledUpdateController extends GenericController {
 	if (principal != null) {
 	    updates = new ArrayList<ScheduledUpdate>();
 	    List<ScheduledUpdate> weeklyUpdates = this.atmService
-		    .listScheduledUpdates(principal.getName(), ATMFacade.WEEKLY);
+		    .listScheduledUpdates(principal.getName(), AtmFacade.WEEKLY);
 	    List<ScheduledUpdate> monthlyUpdates = this.atmService
 		    .listScheduledUpdates(principal.getName(),
-			    ATMFacade.MONTHLY);
+			    AtmFacade.MONTHLY);
 	    updates = new ArrayList<ScheduledUpdate>();
 	    updates.addAll(weeklyUpdates);
 	    updates.addAll(monthlyUpdates);

@@ -1,4 +1,4 @@
-package com.ncr.ATMMonitoring.controller.propertyEditor;
+package com.ncr.ATMMonitoring.controller.propertyeditor;
 
 import java.beans.PropertyEditorSupport;
 import java.text.DateFormat;

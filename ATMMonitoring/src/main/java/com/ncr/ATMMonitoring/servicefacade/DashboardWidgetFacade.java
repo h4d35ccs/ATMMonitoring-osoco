@@ -1,4 +1,4 @@
-package com.ncr.ATMMonitoring.serviceFacade;
+package com.ncr.ATMMonitoring.servicefacade;
 
 import java.util.List;
 import java.util.Locale;

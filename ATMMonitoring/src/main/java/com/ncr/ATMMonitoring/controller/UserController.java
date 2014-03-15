@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ncr.ATMMonitoring.controller.propertyEditor.BankCompanyPropertyEditor;
-import com.ncr.ATMMonitoring.controller.propertyEditor.RolePropertyEditor;
+import com.ncr.ATMMonitoring.controller.propertyeditor.BankCompanyPropertyEditor;
+import com.ncr.ATMMonitoring.controller.propertyeditor.RolePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Role;
 import com.ncr.ATMMonitoring.pojo.User;

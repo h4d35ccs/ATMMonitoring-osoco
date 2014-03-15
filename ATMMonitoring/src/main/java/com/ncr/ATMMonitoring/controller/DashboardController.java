@@ -22,7 +22,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ncr.ATMMonitoring.pojo.Dashboard;
 import com.ncr.ATMMonitoring.pojo.Widget;
-import com.ncr.ATMMonitoring.serviceFacade.DashboardWidgetFacade;
+import com.ncr.ATMMonitoring.servicefacade.DashboardWidgetFacade;
 
 /**
  * Controller for Dashboard related actions.

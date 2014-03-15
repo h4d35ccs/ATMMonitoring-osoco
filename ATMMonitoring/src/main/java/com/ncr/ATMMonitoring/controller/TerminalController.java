@@ -37,7 +37,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import com.ncr.ATMMonitoring.controller.propertyEditor.DatePropertyEditor;
+import com.ncr.ATMMonitoring.controller.propertyeditor.DatePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.Auditable;
 import com.ncr.ATMMonitoring.pojo.BankCompany;
 import com.ncr.ATMMonitoring.pojo.Installation;
@@ -48,7 +48,7 @@ import com.ncr.ATMMonitoring.pojo.TerminalModel;
 import com.ncr.ATMMonitoring.service.BankCompanyService;
 import com.ncr.ATMMonitoring.service.LocationService;
 import com.ncr.ATMMonitoring.service.QueryService;
-import com.ncr.ATMMonitoring.serviceFacade.ATMFacade;
+import com.ncr.ATMMonitoring.servicefacade.AtmFacade;
 
 /**
  * The Class TerminalController.
@@ -69,7 +69,7 @@ public class TerminalController extends GenericController {
     public static final String DEFAULT_SORT = "serialNumber";
 
     /** The Constant DEFAULT_ORDER. */
-    public static final String DEFAULT_ORDER = ATMFacade.ORDER_ASC;
+    public static final String DEFAULT_ORDER = AtmFacade.ORDER_ASC;
 
     /** The can alter terminals roles. */
     @Value("${security.terminalsManagementAllowedRoles}")
@@ -85,7 +85,7 @@ public class TerminalController extends GenericController {
 
     /** The atm service facade. */
     @Autowired
-    private ATMFacade atmservice;
+    private AtmFacade atmservice;
 
     /** The query service. */
     @Autowired
@@ -476,7 +476,7 @@ public class TerminalController extends GenericController {
 	    return "terminals";
 	}
 
-	this.atmservice.addUpdateATM(terminal, ATMFacade.ADD);
+	this.atmservice.addUpdateATM(terminal, AtmFacade.ADD);
 
 	try {
 	    // We wait to avoid not loading the recently added DB data
@@ -542,7 +542,7 @@ public class TerminalController extends GenericController {
 
 	Terminal auxTerminal = this.atmservice.getATMById(terminal.getId());
 	auxTerminal.replaceTerminalData(terminal);
-	this.atmservice.addUpdateATM(auxTerminal, ATMFacade.UPDATE);
+	this.atmservice.addUpdateATM(auxTerminal, AtmFacade.UPDATE);
 	redirectAttributes.addFlashAttribute("success",
 		"success.updatingTerminal");
 	try {
@@ -733,7 +733,7 @@ public class TerminalController extends GenericController {
 	    return "terminalModels";
 	}
 
-	this.atmservice.addUpdateATMModel(terminalModel, ATMFacade.ADD);
+	this.atmservice.addUpdateATMModel(terminalModel, AtmFacade.ADD);
 
 	try {
 	    // We wait to avoid not loading the recently added DB data
@@ -816,7 +816,7 @@ public class TerminalController extends GenericController {
 	    return "terminalModelDetails";
 	}
 
-	this.atmservice.addUpdateATMModel(terminalModel, ATMFacade.UPDATE);
+	this.atmservice.addUpdateATMModel(terminalModel, AtmFacade.UPDATE);
 
 	try {
 	    // We wait to avoid not loading the recently added DB data
@@ -1054,9 +1054,9 @@ public class TerminalController extends GenericController {
 	    installation.setLocation(locationService.getLocation(installation
 		    .getLocation().getId()));
 	}
-	this.atmservice.addUpdateATMInstallation(installation, ATMFacade.ADD);
+	this.atmservice.addUpdateATMInstallation(installation, AtmFacade.ADD);
 	terminal.setCurrentInstallation(installation);
-	this.atmservice.addUpdateATM(terminal, ATMFacade.UPDATE);
+	this.atmservice.addUpdateATM(terminal, AtmFacade.UPDATE);
 	map.put("installation", new Installation());
 	map.put("locations", locationService.listLocations());
 	return "closeIframeUpdateParent";

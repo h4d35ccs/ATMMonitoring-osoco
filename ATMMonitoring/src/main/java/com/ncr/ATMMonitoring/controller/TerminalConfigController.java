@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ncr.ATMMonitoring.controller.propertyEditor.SoftwarePropertyEditor;
+import com.ncr.ATMMonitoring.controller.propertyeditor.SoftwarePropertyEditor;
 import com.ncr.ATMMonitoring.pojo.Software;
 import com.ncr.ATMMonitoring.pojo.TerminalConfig;
 import com.ncr.ATMMonitoring.service.SoftwareService;
-import com.ncr.ATMMonitoring.serviceFacade.ATMFacade;
+import com.ncr.ATMMonitoring.servicefacade.AtmFacade;
 
 /**
  * The Class TerminalConfigController.
@@ -31,7 +31,7 @@ public class TerminalConfigController extends GenericController {
 
     /** The atm service facade. */
     @Autowired
-    private ATMFacade atmService;
+    private AtmFacade atmService;
 
     /** The software service. */
     @Autowired

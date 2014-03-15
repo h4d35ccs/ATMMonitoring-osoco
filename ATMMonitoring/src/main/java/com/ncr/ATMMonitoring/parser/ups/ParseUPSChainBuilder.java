@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.ncr.ATMMonitoring.parser.ups;
 
 import java.io.IOException;

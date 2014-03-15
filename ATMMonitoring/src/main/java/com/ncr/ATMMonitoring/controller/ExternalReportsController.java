@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * The Class externalreportsController.
+ * The Class ExternalReportsController.
  */
 @Controller
 public class ExternalReportsController extends GenericController{  

@@ -1,4 +1,4 @@
-package com.ncr.ATMMonitoring.serviceFacade;
+package com.ncr.ATMMonitoring.servicefacade;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ import com.ncr.ATMMonitoring.service.DashboardService;
 import com.ncr.ATMMonitoring.service.UserService;
 import com.ncr.ATMMonitoring.service.WidgetCategoryService;
 import com.ncr.ATMMonitoring.service.WidgetService;
-import com.ncr.ATMMonitoring.serviceFacade.DashboardWidgetFacade;
+import com.ncr.ATMMonitoring.servicefacade.DashboardWidgetFacade;
 
 /**
  * @author Otto Abreu
