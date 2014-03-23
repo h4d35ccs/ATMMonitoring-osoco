@@ -2,6 +2,7 @@ package com.ncr.ATMMonitoring.scheduledtask;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +24,10 @@ public class ProcessIpsTask {
     @Autowired
     private SocketService socketService;
 
+    /** The agent push comm model state. */
+    @Value("${config.agentPushState}")
+    private String agentPushState;
+
     /** Runs at every minute 30 seconds. */
     private static final String CRON_CONF = "30 * * * * *";
 
@@ -31,8 +36,10 @@ public class ProcessIpsTask {
      */
     @Scheduled(cron = CRON_CONF)
     public void processIps() {
-	logger.info("Calling service for checking the IPs waiting for update...");
-	this.socketService.processAwaitingIps();
+	if (!agentPushState.equalsIgnoreCase("on")) {
+	    logger.info("Calling service for checking the IPs waiting for update...");
+	    this.socketService.processAwaitingIps();
+	}
     }
 
 }

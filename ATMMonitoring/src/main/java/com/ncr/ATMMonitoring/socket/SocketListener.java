@@ -43,6 +43,10 @@ public class SocketListener extends Thread {
     @Value("${config.backgroundListener}")
     private String listenerState;
 
+    /** The agent push comm model state. */
+    @Value("${config.agentPushState}")
+    private String agentPushState;
+
     /** The ok message to send to the agent. */
     @Value("${config.agentOkMessage}")
     private String okMessage;
@@ -98,21 +102,41 @@ public class SocketListener extends Thread {
     public void run() {
 	// Cada vez que nos llegue una petici�n de conexi�n, la desviamos a un
 	// hilo nuevo
-	while (true) {
-	    try {
-		new SocketListenerThread(serverSocket.accept(), okMessage, this)
-			.start();
-	    } catch (SocketException e) {
-		// Si el listener est� a nulo, eso quiere decir que se est�n
-		// liberando los recursos y no es un error
-		if (listener == null) {
-		    return;
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    while (true) {
+		try {
+		    new SocketListenerPushThread(serverSocket.accept(), this)
+			    .start();
+		} catch (SocketException e) {
+		    // Si el listener est� a nulo, eso quiere decir que se est�n
+		    // liberando los recursos y no es un error
+		    if (listener == null) {
+			return;
+		    }
+		    logger.error("An exception was thrown while processing "
+			    + "a socket connection.", e);
+		} catch (Exception e) {
+		    logger.error("An exception was thrown while processing "
+			    + "a socket connection.", e);
 		}
-		logger.error("An exception was thrown while processing "
-			+ "a socket connection.", e);
-	    } catch (Exception e) {
-		logger.error("An exception was thrown while processing "
-			+ "a socket connection.", e);
+	    }
+	} else {
+	    while (true) {
+		try {
+		    new SocketListenerThread(serverSocket.accept(), okMessage,
+			    this).start();
+		} catch (SocketException e) {
+		    // Si el listener est� a nulo, eso quiere decir que se est�n
+		    // liberando los recursos y no es un error
+		    if (listener == null) {
+			return;
+		    }
+		    logger.error("An exception was thrown while processing "
+			    + "a socket connection.", e);
+		} catch (Exception e) {
+		    logger.error("An exception was thrown while processing "
+			    + "a socket connection.", e);
+		}
 	    }
 	}
     }
@@ -177,5 +201,34 @@ public class SocketListener extends Thread {
 			+ "the listener socket.", e);
 	    }
 	}
+    }
+
+    /**
+     * Gets the hash seed.
+     * 
+     * @return the hash seed
+     */
+    public String getHashSeed() {
+	return socketService.getHashSeed();
+    }
+
+    /**
+     * Gets the old hash seed.
+     * 
+     * @return the old hash seed
+     */
+    public String getOldHashSeed() {
+	return socketService.getOldHashSeed();
+    }
+
+    /**
+     * Handle ip success.
+     * 
+     * @param json
+     *            the json
+     * @return the long
+     */
+    public Long handleIpSuccess(String json) {
+	return socketService.processTerminalJson(json);
     }
 }

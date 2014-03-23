@@ -24,19 +24,19 @@ import com.ncr.ATMMonitoring.utils.Utils;
 public class RequestThread extends Thread {
 
     /** The Constant hashSeed. */
-    private static final String hashSeed = "V3zVFyxn9DnToZJ8067i";
+    public static final String hashSeed = "V3zVFyxn9DnToZJ8067i";
 
     /** The Constant authOkMsg. */
-    private static final String authOkMsg = "OK";
+    public static final String authOkMsg = "OK";
 
     /** The Constant authErrorMsg. */
-    private static final String authErrorMsg = "ERROR";
+    public static final String authErrorMsg = "ERROR";
 
     /** The Constant authUpdateMsg. */
-    private static final String authUpdateMsg = "UPDATE";
+    public static final String authUpdateMsg = "UPDATE";
 
     /** The Constant endCommMsg. */
-    private static final String endCommMsg = "END";
+    public static final String endCommMsg = "END";
 
     /** The logger. */
     private static Logger logger = Logger.getLogger(SocketListenerThread.class
@@ -120,7 +120,8 @@ public class RequestThread extends Thread {
 		    + "] from IP: " + socket.getInetAddress().getHostAddress());
 	    String parentSeed = parent.getHashSeed();
 	    String hash = Utils.getMD5Hex(Utils.getMD5Hex(parentSeed)
-		    + Utils.getMD5Hex(hashSeed) + Utils.getMD5Hex(randomSeed));
+		    + Utils.getMD5Hex(hashSeed)
+		    + Utils.getMD5Hex(randomSeed));
 	    if (response.equals(hash)) {
 		// Confirmamos al agente que la autenticaci�n fue correcta
 		out.println(authOkMsg);

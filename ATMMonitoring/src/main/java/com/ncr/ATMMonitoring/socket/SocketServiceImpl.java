@@ -66,6 +66,10 @@ public class SocketServiceImpl implements SocketService {
     @Value("${security.oldHashSeed}")
     private String oldHashSeed;
 
+    /** The agent push comm model state. */
+    @Value("${config.agentPushState}")
+    private String agentPushState;
+
     /** The socket listener. */
     @Autowired
     private SocketListener socketListener;
@@ -171,6 +175,11 @@ public class SocketServiceImpl implements SocketService {
      */
     @Override
     public void processAwaitingIps() {
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    logger.error("Ips won't be processed."
+		    + "Comms are set to push model, so updates cannot be requested from the server.");
+	    return;
+	}
 	logger.info("Checking the IPs waiting for update...");
 	this.queueHandler.loadQueue();
 	if (this.queueHandler.isEmpty()) {
@@ -250,6 +259,11 @@ public class SocketServiceImpl implements SocketService {
      *            a collection of ips to add
      */
     private void addToQueue(String ip, Collection<String> ips) {
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    logger.error("Ips won't be added to the Queue."
+		    + "Comms are set to push model, so updates cannot be requested from the server.");
+	    return;
+	}
 	this.queueHandler.loadQueue();
 	boolean added = false;
 

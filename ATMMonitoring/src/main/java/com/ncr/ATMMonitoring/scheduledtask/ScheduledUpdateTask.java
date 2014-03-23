@@ -2,6 +2,7 @@ package com.ncr.ATMMonitoring.scheduledtask;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,10 @@ public class ScheduledUpdateTask {
     static final private Logger logger = Logger
 	    .getLogger(ScheduledUpdateTask.class);
 
+    /** The agent push comm model state. */
+    @Value("${config.agentPushState}")
+    private String agentPushState;
+
     /** Runs at every minute start. */
     private static final String CRON_CONF = "0 * * * * *";
 
@@ -35,7 +40,9 @@ public class ScheduledUpdateTask {
     @Scheduled(cron = CRON_CONF)
     @Transactional
     public void callToCheckCurrentUpdates() {
-	logger.info("Calling service for checking Current Updates ");
-	this.scheduledUpdateService.checkCurrentUpdates();
+	if (!agentPushState.equalsIgnoreCase("on")) {
+	    logger.info("Calling service for checking Current Updates ");
+	    this.scheduledUpdateService.checkCurrentUpdates();
+	}
     }
 }
