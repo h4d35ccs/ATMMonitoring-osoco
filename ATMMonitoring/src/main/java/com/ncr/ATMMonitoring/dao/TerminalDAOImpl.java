@@ -45,6 +45,10 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
     @Value("${license.licenseKey}")
     private String licenseKey;
 
+    /** The offset which will be added to the matricula value retrieved from DB. */
+    @Value("${config.matriculaOffset}")
+    private int matriculaOffset;
+
     /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalDAOImpl.class
 	    .getName());
@@ -343,7 +347,7 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	BigInteger seq = (BigInteger) sessionFactory.getCurrentSession()
 		.createSQLQuery("select nextval('terminals_matricula_seq')")
 		.uniqueResult();
-	return seq.longValue();
+	return matriculaOffset + seq.longValue();
     }
 
     /*
