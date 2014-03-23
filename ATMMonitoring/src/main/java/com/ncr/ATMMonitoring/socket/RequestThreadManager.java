@@ -21,6 +21,8 @@ import org.apache.log4j.Logger;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
+import com.ncr.ATMMonitoring.utils.Utils;
+
 /**
  * The Class RequestThreadManager.
  * 
@@ -66,9 +68,14 @@ public class RequestThreadManager extends Thread {
 		    .getInstance(KeyManagerFactory.getDefaultAlgorithm());
 	    InputStream in = new ClassPathResource("keystore").getInputStream();
 	    KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-	    ks.load(in, props.getProperty("security.keystorePass")
+	    ks.load(in,
+		    Utils.simpleDecrypt(Utils.KEYSTORE_KEY,
+			    props.getProperty("security.keystorePass"))
 		    .toCharArray());
-	    kmf.init(ks, props.getProperty("security.privatekeyPass")
+	    kmf.init(
+		    ks,
+		    Utils.simpleDecrypt(Utils.PRIVATEKEY_KEY,
+			    props.getProperty("security.privatekeyPass"))
 		    .toCharArray());
 	    // Install the all-trusting trust manager
 	    SSLContext sc = SSLContext.getInstance("SSL");
