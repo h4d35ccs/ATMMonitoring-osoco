@@ -14,6 +14,7 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -44,6 +45,10 @@ public class ScheduledUpdateController extends GenericController {
     /** The logger. */
     private static Logger logger = Logger
 	    .getLogger(ScheduledUpdateController.class.getName());
+
+    /** The agent push comm model state. */
+    @Value("${config.agentPushState}")
+    private String agentPushState;
 
     /** The event date formatter. */
     private static SimpleDateFormat eventDateFormat = new SimpleDateFormat(
@@ -95,6 +100,9 @@ public class ScheduledUpdateController extends GenericController {
     @RequestMapping(value = "/terminals/schedules/list", method = RequestMethod.GET)
     public String listSchedules(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    return "redirect:/dashboard";
+	}
 	String userMsg = "";
 	if (principal != null) {
 	    userMsg = this.getUserGreeting(principal, request);
@@ -123,6 +131,9 @@ public class ScheduledUpdateController extends GenericController {
     @RequestMapping(value = "/terminals/schedules/new", method = RequestMethod.GET)
     public String newScheduledUpdate(Map<String, Object> map, String queryId,
 	    HttpServletRequest request, Principal principal) {
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    return "redirect:/dashboard";
+	}
 	String userMsg = "";
 	if (principal != null) {
 	    userMsg = this.getUserGreeting(principal, request);
@@ -156,6 +167,9 @@ public class ScheduledUpdateController extends GenericController {
     @RequestMapping(value = "/terminals/schedules/updates", method = RequestMethod.GET)
     @ResponseBody
     public List<Map> listUpdateEvents(long start, long end, Principal principal) {
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    return new ArrayList<Map>();
+	}
 	logger.debug("update events from " + start + " to " + end);
 	List<ScheduledUpdate> updates = null;
 	if (principal != null) {
@@ -194,6 +208,9 @@ public class ScheduledUpdateController extends GenericController {
 	    @Valid @ModelAttribute("scheduledUpdate") ScheduledUpdate scheduledUpdate,
 	    Map<String, Object> map, HttpServletRequest request,
 	    Principal principal, RedirectAttributes redirectAttributes) {
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    return "redirect:/dashboard";
+	}
 	String userMsg = "";
 	if (principal != null) {
 	    userMsg = this.getUserGreeting(principal, request);
@@ -251,6 +268,9 @@ public class ScheduledUpdateController extends GenericController {
     public String deleteScheduledUpdate(
 	    @PathVariable("scheduledUpdateId") Integer scheduledUpdateId,
 	    RedirectAttributes redirectAttributes) {
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    return "redirect:/dashboard";
+	}
 	this.atmService.removeScheduledUpdate(scheduledUpdateId);
 	redirectAttributes.addFlashAttribute("success",
 		"label.new.scheduledUpdate.deleted");

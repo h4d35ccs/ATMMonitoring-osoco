@@ -33,6 +33,9 @@
         <spring:eval expression="@settings.getProperty('security.queriesAccessAllowedRoles')" var="queriesAccessAllowedRoles" scope="request"/>
         <spring:eval expression="@settings.getProperty('security.reportsAccessAllowedRoles')" var="reportsAccessAllowedRoles" scope="request"/>
 		<spring:eval expression="@settings.getProperty('security.editWidgetsLibraryAllowedRoles')" var="editWidgetsLibraryAllowedRoles" scope="request"/>
+		
+		<!-- Push comm only -->
+        <spring:eval expression="@settings.getProperty('config.agentPushState').equalsIgnoreCase('on')" var="agentPushState" scope="request"/>
 
         <base href="${base}"/>
         <script src="resources/js/jquery-1.8.3.min.js"></script>
@@ -103,11 +106,13 @@
 	                    <a href="externalreports"><span><spring:message code="label.menu.externalreports"/></span></a>
 	                </li>
                 </sec:authorize>
-                <sec:authorize access="hasAnyRole(${schedulesAccessAllowedRoles})">
-                <li class="schedule">
-                    <a href="terminals/schedules/list"><span><spring:message code="label.menu.scheduler"/></span></a>
-                </li>
-                </sec:authorize>
+                <c:if test="${!agentPushState}">
+	                <sec:authorize access="hasAnyRole(${schedulesAccessAllowedRoles})">
+		                <li class="schedule">
+		                    <a href="terminals/schedules/list"><span><spring:message code="label.menu.scheduler"/></span></a>
+		                </li>
+	                </sec:authorize>
+                </c:if>
                 <sec:authorize access="hasAnyRole(${usersAccessAllowedRoles})">
 	                <li class="users">
 	                    <a href="users"><span><spring:message code="label.menu.users"/></span></a>

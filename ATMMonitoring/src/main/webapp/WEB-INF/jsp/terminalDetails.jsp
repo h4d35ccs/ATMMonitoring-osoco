@@ -271,10 +271,10 @@
 												</li>
 											</ul>
 										<div class="botonera">
-
 											<input type="submit" class="btn" value="<spring:message code="label.terminal.updateTerminal"/>"/>
-											<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>
-
+											<c:if test="${!agentPushState}">
+												<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>
+											</c:if>
 		                                    <input id="cancelEdit" type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
 										</div>
 
@@ -289,9 +289,11 @@
 										<sec:authorize access="hasAnyRole(${terminalsManagementAllowedRoles})">
 											<button id="editTerminalButton" class="btn">Editar Terminal</button>
 										</sec:authorize>
-										<sec:authorize access="hasAnyRole(${terminalsUpdateRequestAllowedRoles})">
-											<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>
-										</sec:authorize>
+										<c:if test="${!agentPushState}">
+											<sec:authorize access="hasAnyRole(${terminalsUpdateRequestAllowedRoles})">
+												<a class="btn update" href="terminals/request/${terminal.id}"><spring:message code="label.terminal.requestSingleSnmpUpdate"/></a>
+											</sec:authorize>
+										</c:if>
 									</div>
 
 								  </div>
@@ -1193,10 +1195,6 @@
 		      $('.photo img').attr("src", photoUrl);
 	    }
 	};
-
-	function requestSnmpUpdate() {
-	   window.location.assignWithBase("terminals/request/${terminal.id}");
-	}
 	
 	$(document).ready(function(){
 		$("#TestChromatable").chromatable({

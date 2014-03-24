@@ -65,6 +65,10 @@ public class TerminalController extends GenericController {
     static private Logger logger = Logger.getLogger(TerminalController.class
 	    .getName());
 
+    /** The agent push comm model state. */
+    @Value("${config.agentPushState}")
+    private String agentPushState;
+
     /** The Constant DEFAULT_SORT. */
     public static final String DEFAULT_SORT = "serialNumber";
 
@@ -126,6 +130,9 @@ public class TerminalController extends GenericController {
     @RequestMapping(value = "/terminals/request", method = RequestMethod.GET)
     public String requestTerminalsUpdateByQuery(String queryId,
 	    Principal principal, RedirectAttributes redirectAttributes) {
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    return "redirect:/dashboard";
+	}
 	if ((queryId != null) && (principal != null)) {
 	    Query query = queryService.getQuery(Integer.parseInt(queryId));
 	    if (this.queryService.queryBelongToUser(query, principal.getName())) {
@@ -162,6 +169,9 @@ public class TerminalController extends GenericController {
     public String requestTerminalUpdateById(
 	    @PathVariable("terminalId") Integer terminalId,
 	    RedirectAttributes redirectAttributes, Principal principal) {
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    return "redirect:/dashboard";
+	}
 	Terminal terminal = this.atmservice.atmSnmpUpdate(terminalId);
 
 	if (terminal == null) {
