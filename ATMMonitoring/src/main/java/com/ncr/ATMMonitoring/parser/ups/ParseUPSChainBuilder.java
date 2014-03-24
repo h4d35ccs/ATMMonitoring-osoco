@@ -3,9 +3,7 @@ package com.ncr.ATMMonitoring.parser.ups;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Modifier;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -13,8 +11,6 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Predicate;
 import org.apache.log4j.Logger;
 import org.reflections.Reflections;
-import org.reflections.util.ClasspathHelper;
-import org.reflections.util.ConfigurationBuilder;
 
 import com.ncr.ATMMonitoring.parser.ups.annotation.UPSParser;
 import com.ncr.ATMMonitoring.parser.ups.dto.UPSInfo;
@@ -106,17 +102,7 @@ public class ParseUPSChainBuilder {
      */
     private static List<Class<? extends ParseUPSXML>> findParsersClasses() {
 
-	// gets the classpath
-	Collection<URL> classpathUrls = ClasspathHelper
-		.forClassLoader(ParseUPSChainBuilder.class.getClassLoader());
-	classpathUrls.addAll(ClasspathHelper
-		.forClassLoader(ParseUPSChainBuilder.class.getClassLoader()
-			.getParent()));
-
-	logger.debug("all the classpath: " + classpathUrls);
-
-	Reflections reflections = new Reflections(
-		new ConfigurationBuilder().setUrls(classpathUrls));
+	Reflections reflections = new Reflections("");
 
 	Set<Class<? extends Object>> subTypes = reflections
 		.getTypesAnnotatedWith(UPSParser.class);
