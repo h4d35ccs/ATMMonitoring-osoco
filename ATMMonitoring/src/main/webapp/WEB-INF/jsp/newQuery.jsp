@@ -22,6 +22,9 @@
 
 				<div class="content">
 	<h1><spring:message code="label.query.new"/></h1>
+	<c:if test="${error != null}">
+       <div class="alert"><p><spring:message code="${error}"/></p></div>
+    </c:if>
 	<div class="botonera"><a href="queries" class="btn back left"><spring:message code="label.query.return"/></a></div>
 	<!-- Pegado de querie.jsp -->
 	<div class="action_box desplegable">

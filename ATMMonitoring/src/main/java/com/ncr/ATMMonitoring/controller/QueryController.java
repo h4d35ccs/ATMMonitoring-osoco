@@ -31,7 +31,9 @@ import org.springframework.web.util.WebUtils;
 
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
+import com.ncr.ATMMonitoring.pojo.User;
 import com.ncr.ATMMonitoring.service.QueryService;
+import com.ncr.ATMMonitoring.service.UserService;
 
 /**
  * The Class QueryController.
@@ -60,6 +62,10 @@ public class QueryController extends GenericController {
     /** The query service. */
     @Autowired
     private QueryService queryService;
+
+    /** The user service. */
+    @Autowired
+    private UserService userService;
 
     /**
      * Create query URL.
@@ -320,6 +326,47 @@ public class QueryController extends GenericController {
 	Locale locale = RequestContextUtils.getLocale(request);
 
 	if (WebUtils.hasSubmitParameter(request, "save")) {
+	    if (principal != null) {
+		User loggedUser = userService.getUserByUsername(principal
+			.getName());
+		query.setUser(loggedUser);
+		if (query.getName() != null
+			&& !query.getName().trim().isEmpty()) {
+		    if (query.getId() != null) {
+			try {
+			    logger.debug("Updating query - " + query.getName());
+			    queryService.updateQuery(query);
+			    redirectAttributes.addFlashAttribute("success",
+				    "success.updatingQuery");
+			} catch (Exception e) {
+			    redirectAttributes.addFlashAttribute("error",
+				    "error.updatingQuery");
+			}
+		    } else {
+			query.setCreationDate(new Date());
+			query.setTrueLocale(locale);
+			try {
+			    logger.debug("Guardando nueva query- "
+				    + query.getName());
+			    queryService.addQuery(query);
+			    redirectAttributes.addFlashAttribute("success",
+				    "success.savingNewQuery");
+			} catch (Exception e) {
+			    redirectAttributes.addFlashAttribute("error",
+				    "error.savingNewQuery");
+			}
+		    }
+		} else {
+		    map.put("error", "query.name.blank");
+		    map.put("userMsg", loggedUser.getHtmlWelcomeMessage(locale));
+		    map.put("query", query);
+		    map.put("values", Query.getComboboxes());
+
+		    return "newQuery";
+		}
+	    }
+	    return "redirect:/queries/list";
+	} else if (WebUtils.hasSubmitParameter(request, "execute")) {
 	    if (principal != null) {
 		if (query.getId() != null) {
 		    try {
