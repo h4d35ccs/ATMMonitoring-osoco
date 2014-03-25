@@ -37,6 +37,9 @@ import com.ncr.agent.baseData.os.module.BaseBoardPojo;
 public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	TerminalDAO {
 
+    /** Base offset to multiply to the country code for computing the offset. */
+    private final static int baseOffset = 1000000;
+
     /** The encrypted max number of terminals this version can handle. */
     @Value("${license.terminalsLimit}")
     private String terminalsLimit;
@@ -45,9 +48,12 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
     @Value("${license.licenseKey}")
     private String licenseKey;
 
-    /** The offset which will be added to the matricula value retrieved from DB. */
-    @Value("${config.matriculaOffset}")
-    private int matriculaOffset;
+    /**
+     * The ISO country numeric code, which will be used for computing an offset
+     * to add to the matricula value retrieved from DB.
+     */
+    @Value("${config.countryIsoNumericCode}")
+    private int countryIsoNumericCode;
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(TerminalDAOImpl.class
@@ -347,7 +353,7 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	BigInteger seq = (BigInteger) sessionFactory.getCurrentSession()
 		.createSQLQuery("select nextval('terminals_matricula_seq')")
 		.uniqueResult();
-	return matriculaOffset + seq.longValue();
+	return (countryIsoNumericCode * baseOffset) + seq.longValue();
     }
 
     /*
