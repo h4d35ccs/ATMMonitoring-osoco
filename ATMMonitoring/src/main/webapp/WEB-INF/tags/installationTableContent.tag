@@ -19,5 +19,4 @@
   </c:choose>
   <td>${installation.processed}</td>
   <td>${installation.location.publicAccess}</td>
-    <td></td>
 </tr>
