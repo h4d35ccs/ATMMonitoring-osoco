@@ -366,7 +366,7 @@ public class QueryController extends GenericController {
 		}
 	    }
 	    return "redirect:/queries/list";
-	} else if (WebUtils.hasSubmitParameter(request, "execute")) {
+	} else if (WebUtils.hasSubmitParameter(request, "update")) {
 	    if (principal != null) {
 		if (query.getId() != null) {
 		    try {
