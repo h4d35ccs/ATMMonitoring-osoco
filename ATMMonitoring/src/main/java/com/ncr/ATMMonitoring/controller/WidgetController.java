@@ -166,7 +166,7 @@ public class WidgetController extends GenericController {
      * @return The request response
      */
     @RequestMapping(value = "/dashboard/save", method = RequestMethod.POST)
-    public String updateWidget(@Valid @ModelAttribute("widget") Widget widget,
+    public void updateWidget(@Valid @ModelAttribute("widget") Widget widget,
 	    BindingResult result, Map<String, Object> model,
 	    HttpServletRequest request, Principal principal) {
 
@@ -176,7 +176,7 @@ public class WidgetController extends GenericController {
 
 	}
 	this.clearSession(request, DashboardController.SESSION_KEY_WIDGET_LIST);
-	return "closeIframeUpdateParent";
+	// return "closeIframeUpdateParent";
     }
 
     /**

@@ -1,13 +1,6 @@
+<%@include file="../includes/JspImports.jsp"%>
 <%@taglib tagdir="/WEB-INF/tags/widget/" prefix="widget" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<%@page contentType="text/html;charset=UTF-8" %>
-<%@page pageEncoding="UTF-8"%>
-
-<t:osoco-wrapperWoMenu titleCode="label.terminalsManager" section="iframe">
-<div id="main">
-	<div id="primary">
+	<div id="addWidgetPrimary">
 		<article>
 			<h1><spring:message code="widget.${operationType}.title" /></h1>
 			<div class="content graph_content fixed">
@@ -17,5 +10,8 @@
 			</div><!-- /content -->
 		</article>
 	</div>
-</div>
-</t:osoco-wrapperWoMenu>
+<script type="text/javascript">
+function initPageJS() {
+
+}
+</script>

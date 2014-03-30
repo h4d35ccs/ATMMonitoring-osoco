@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Type;
 
+import com.ncr.ATMMonitoring.pojo.annotation.ComboQueryOption;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.ProductPojo;
 
@@ -63,35 +64,42 @@ public class Software {
     private Integer id;
 
     /** The caption. */
+    @ComboQueryOption
     @Column(name = "caption")
     @Type(type = "text")
     private String caption;
 
     /** The name. */
+    @ComboQueryOption
     @Column(name = "name")
     @Type(type = "text")
     private String name;
 
     /** The description. */
+    @ComboQueryOption
     @Column(name = "description")
     @Type(type = "text")
     private String description;
 
     /** The identifying number. */
+    @ComboQueryOption
     @Column(name = "identifying_number")
     @Type(type = "text")
     private String identifyingNumber;
 
     /** The install date. */
+    @ComboQueryOption
     @Column(name = "install_date")
     private Date installDate = new Date();
 
     /** The vendor. */
+    @ComboQueryOption
     @Column(name = "vendor")
     @Type(type = "text")
     private String vendor;
 
     /** The major version. */
+    @ComboQueryOption(versionComparison = ComboQueryOption.USE_VERSION_COMPARISON)
     @Column(name = "major_version")
     private Integer majorVersion;
 
@@ -113,26 +121,31 @@ public class Software {
     private String remainingVersion;
 
     /** The language. */
+    @ComboQueryOption
     @Column(name = "language")
     @Type(type = "text")
     private String language;
 
     /** The local package. */
+    @ComboQueryOption
     @Column(name = "local_package")
     @Type(type = "text")
     private String localPackage;
 
     /** The package name. */
+    @ComboQueryOption
     @Column(name = "package_name")
     @Type(type = "text")
     private String packageName;
 
     /** The product id. */
+    @ComboQueryOption
     @Column(name = "product_id")
     @Type(type = "text")
     private String productId;
 
     /** The sw type. */
+    @ComboQueryOption
     @Column(name = "sw_type")
     @Type(type = "text")
     private String swType;

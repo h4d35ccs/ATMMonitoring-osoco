@@ -1,0 +1,33 @@
+.box_list{
+	margin: 1% 0 0 1%;
+	a{
+		display: block;
+		padding: 1em;
+		border:1px solid $colorK3;
+		background:$colorW;
+		overflow: hidden;
+		min-height: 5em;
+		color: $colorK;
+		@include border-radius(4px);
+
+		img{
+			width: 150px;
+			float: left;
+			margin: 0 1em 1em 0;
+			border: 1px solid $colorK3;
+		}
+		&:hover{
+			background:$colorG5;
+			text-decoration: none;
+			@include shadow();
+		}
+	}
+}
+.column3 .box_list{
+	float: left;
+	width: 32%;
+	a{
+		height: 17em;
+		overflow-y:auto;
+	}
+}

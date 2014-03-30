@@ -98,7 +98,7 @@
                 </sec:authorize>
                 <sec:authorize access="hasAnyRole(${terminalsAccessAllowedRoles})">
 	                <li class="terminals">
-	                    <a href="terminals"><span><spring:message code="label.menu.terminals"/></span></a>
+	                    <a id="terminalsLink" href="terminals"><span><spring:message code="label.menu.terminals"/></span></a>
 	                </li>
                 </sec:authorize>
                 <sec:authorize access="hasAnyRole(${reportsAccessAllowedRoles})">

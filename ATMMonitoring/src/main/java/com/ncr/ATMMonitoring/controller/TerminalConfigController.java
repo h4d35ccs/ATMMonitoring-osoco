@@ -74,11 +74,11 @@ public class TerminalConfigController extends GenericController {
 	if (terminalConfig == null) {
 	    return "redirect:/terminals/list";
 	}
-	String userMsg = "";
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	}
-	map.put("userMsg", userMsg);
+	// String userMsg = "";
+	// if (principal != null) {
+	// userMsg = this.getUserGreeting(principal, request);
+	// }
+	// map.put("userMsg", userMsg);
 	map.put("config", terminalConfig);
 
 	return "terminalConfigDetails";

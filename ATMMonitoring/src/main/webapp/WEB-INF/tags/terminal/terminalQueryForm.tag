@@ -16,7 +16,7 @@
 	</h2>
 
 	<div class="row">
-		<a href="queries" class="btn right"> <spring:message code="label.queries.mine"/> </a>
+		<button type="button" onclick="loadInnerSection('#primary', 'queries')" class="btn right"> <spring:message code="label.queries.mine"/> </button>
 		<c:if test="${empty userQueries}">
 			<div class="message no_queries">
 				<p>
@@ -25,9 +25,8 @@
 				<div class="flecha"></div>
 			</div>
 		</c:if>
-		
 		<c:if test="${!empty userQueries}">
-			<form method="post" name="userQueriesForm" action="terminals/byQuery">
+			<form method="post" name="userQueriesForm" action="terminals/byQuery" id="userQueriesForm">
 				<label>
 					<spring:message code="label.choose.query"/>:
 				</label>
@@ -45,7 +44,7 @@
 						<spring:message code="label.calendar.open"/>
 					</span>
 				</a>
-				<input type="submit" value="<spring:message code="label.apply"/>" class="btn">
+				<input type="button" value="<spring:message code="label.apply"/>" class="btn" onclick="loadInnerSectionFromForm('#userQueriesForm','#primary');">
 			</form>
 		</c:if>
 	</div>

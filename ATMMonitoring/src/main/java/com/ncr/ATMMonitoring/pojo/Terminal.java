@@ -26,6 +26,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Type;
 
+import com.ncr.ATMMonitoring.pojo.annotation.ComboQueryOption;
 import com.ncr.ATMMonitoring.service.AuditableSetOperations;
 import com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl;
 import com.ncr.ATMMonitoring.socket.ATMWrongDataException;
@@ -96,50 +97,60 @@ public class Terminal {
     /** The terminal type. */
     @Column(name = "terminal_type")
     @Type(type = "text")
+    @ComboQueryOption
     private String terminalType;
 
     /** The terminal vendor. */
     @Column(name = "terminal_vendor")
     @Type(type = "text")
+    @ComboQueryOption
     private String terminalVendor;
 
     /** The front replenish. */
     @Column(name = "front_replenish")
+    @ComboQueryOption
     private Boolean frontReplenish;
 
     /** The geographic address. */
     @Column(name = "geographic_address")
     @Type(type = "text")
+    @ComboQueryOption
     private String geographicAddress;
 
     /** The branch. */
     @Column(name = "branch")
     @Type(type = "text")
+    @ComboQueryOption
     private String branch;
 
     /** The bank. */
     @Column(name = "bank")
     @Type(type = "text")
+    @ComboQueryOption
     private String bank;
 
     /** The manufacturing site. */
     @Column(name = "manufacturing_site")
     @Type(type = "text")
+    @ComboQueryOption
     private String manufacturingSite;
 
     /** The product class description. */
     @Column(name = "product_class_description")
     @Type(type = "text")
+    @ComboQueryOption
     private String productClassDescription;
 
     /** The serial number. */
     @Column(name = "serial_number")
     @Type(type = "text")
+    @ComboQueryOption
     private String serialNumber;
 
     /** The tracer number. */
     @Column(name = "tracer_number")
     @Type(type = "text")
+    @ComboQueryOption
     private String tracerNumber;
 
     /** The generated id. */
@@ -184,10 +195,12 @@ public class Terminal {
 
     /** The ip. */
     @Column(name = "ip", length = 23)
+    @ComboQueryOption
     private String ip;
 
     /** The mac. */
     @Column(name = "mac", length = 17)
+    @ComboQueryOption
     private String mac;
 
     /**

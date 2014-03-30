@@ -1,0 +1,218 @@
+.margin-box {
+  overflow: auto;
+}
+.table_buttons{
+	overflow: hidden;
+	@include border-radius(4px);
+	background:$colorK6;
+	border:1px solid $colorK5;
+	table{
+		border-right:none;
+		border-left: none;
+		td:first-child{
+			border-left: none;
+		}
+	}
+	.botonera{
+		padding: 0;
+		margin: .5em 1em;
+		label{
+			padding:.5em 1em 0
+		}
+	}
+}
+table{
+	width: 100%;
+	margin: .5em 0;
+	border: 1px solid $colorK4;
+	th{
+		background:$colorG;
+		color:$colorW;
+		&.order{
+			background:url("../images/icons/colunm_order.png") $colorG no-repeat right top;
+			padding-right: 2em;
+			border-top: 1px solid $colorW;
+			border-bottom: 1px solid $colorW;
+			&.bottom{
+				background:url("../images/icons/colunm_order.png") $colorK1 no-repeat right -40px;
+			}
+			&.top{
+				background:url("../images/icons/colunm_order.png") $colorK1 no-repeat right -80px;
+			}
+		}
+		a{
+			color: $colorW;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+	}
+	th:last-child, td:last-child{
+		border-right: none;
+	}
+	th,td{
+		padding: .8em;
+		border: 1px solid $colorK4;
+		border-collapse: collapse;
+		vertical-align: top;
+		&.note_detail{
+			&:hover{
+				color: $colorK1;
+			}
+			border-bottom: 2px solid $colorY3;
+			border-left:  2px solid $colorY3;
+			border-right:  2px solid $colorY3;
+			background:$colorY3;
+			float: none;
+			padding: 1em;
+			div{
+				position: relative;
+				background:$colorW;
+				padding: 1em;
+				@include border-radius(4px);
+				&:after {
+				    content: "";
+				    position: absolute;
+				    top: -20px;
+				    left: 105px;
+				    border-width: 0 15px 25px;
+				    border-style: solid;
+				    border-color: $colorW transparent;
+				    display: block;
+				    width: 0;
+				  }	
+				@include shadow;
+				li{
+					border-bottom: 2px dotted $colorK4;
+					margin-bottom: 1em;
+				}
+				li:last-child{
+					border: none;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	tr{
+		background: $colorW;
+		&:nth-child(2n+1) {
+			background: $colorK5;
+		}
+		&.active{
+			background:$colorY3;
+			border-top: 2px solid $colorY3;
+			border-left:  2px solid $colorY3;
+			border-right:  2px solid $colorY3;
+		}
+	}
+	&.query-form{
+		border:1px solid $colorW;
+		margin-bottom: 2em;
+		tr{
+			border:1px solid $colorW;
+			border-bottom: 2px dotted $colorK5;
+			background: $colorW;
+			&:hover{
+				cursor: inherit;
+				border:1px solid $colorW;
+				border-bottom: 2px dotted $colorK5;
+			}
+			&:nth-child(2n+1) {
+				background: $colorW;
+			}
+		}
+		td:first-child{
+			width:30%;
+		}
+		td:nth-child(2){
+			width: 3em;
+		}
+		th{
+			border:1px solid $colorW;
+			border-bottom: 2px solid $colorK5;
+			color: $colorG;
+			background:$colorG5;
+			&:hover{
+				cursor: inherit;
+				border:1px solid $colorW;
+				border-bottom: 2px solid $colorK5;
+			}
+		}
+		td{
+			background:$colorW;
+			border:1px solid $colorW;
+			&:hover{
+				background:$colorW;
+				border:1px solid $colorW;
+			}
+			&.btn_add{
+				border:1px solid $colorW;
+				div{
+					position: relative;
+					overflow: hidden;
+				}
+			}
+			&.btn_add .btn{
+				float: right;
+			}
+		}
+	}
+	&.link{
+		tr{
+			cursor: pointer;
+			&:hover{
+				background:$colorG5;
+				color: $colorG;
+			}
+		}
+		label{
+			cursor: pointer;
+		}
+		// show detail
+		tr.showdetail.open, tr.showdetail.open:hover{
+			background:$colorG4;
+			color: $colorW;
+		}
+		tr.detail, tr.detail:hover{
+			background:$colorG4;
+			color: $colorK;
+			div{
+				position: relative;
+			}
+			ul{
+				padding: 1%;
+				background:$colorW;
+				@include shadow();
+				overflow: hidden;
+				cursor: inherit;
+				li{
+					float: left;
+					width: 32%;
+					margin-right: 1%;
+					padding: .5em 0;
+					border-bottom: 1px solid $colorK3;
+					strong{
+						width: 30%;
+						display: block;
+						float: left;
+						text-align: right;
+						margin-right: 1em;
+					}
+				}
+				&:before {
+				    content: "";
+				    font-size: 20em;
+				    color: #ff0000;
+				    position: absolute;
+				    top: -20px;
+				    left: 45px;
+				    border-width: 0 15px 25px;
+				    border-style: solid;
+				    border-color: $colorW transparent;
+				    display: block;
+				    width: 0;
+			  	}
+			}
+		}
+	}
+}

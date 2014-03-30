@@ -1,0 +1,382 @@
+.icons_bg{
+	display: none;
+	background: $colorW;
+	background:rgba(255, 255, 255, .75);
+	border:1px solid $colorK5;
+	@include shadow();
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 73px;
+	height: 32px;
+	z-index: 1;
+	@include border-radius(4px);
+}
+.close{
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	background:url("../images/icons/close.png") no-repeat;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	display: block;
+	z-index: 2;
+	cursor: pointer;
+	span{
+		position: absolute;
+		top: 2em;
+	}
+	.fc-event &{
+		background:url("../images/icons/close_w.png") no-repeat;
+		top: 1px;
+		right: 1px;
+	}
+}
+.icons_menu{
+	position: absolute;
+	top: 8px;
+	right: 30px;
+	width: 35px;
+	height: 20px;
+	z-index: 2;
+	ul{
+		//display: none;
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+		top: 0;
+		padding-top: 2em;
+		a{
+			display: block;
+			color: $colorW;
+			padding: .5em 1em;
+			border-bottom: 1px solid $colorK4;
+			background:$colorG;
+			@include shadow;
+			&:hover{
+				text-decoration: none;
+				background:$colorK3;
+			}
+		}
+		li:last-child a{
+				border:none;
+			}
+	}
+}
+.icon16{
+	width: 100%;
+	height: 100%;
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	z-index: 100;
+	span{
+		position: absolute;
+		top: -40px;
+	}
+	&.config{
+		background:url("../images/icons/icons.png") no-repeat 0 -20px;
+		cursor: pointer;
+	}
+	&.config.content_hide{
+		background:url("../images/icons/icons.png") no-repeat 0 0;
+		&:hover{
+			background:url("../images/icons/icons.png") no-repeat 0 0;
+		}
+	}
+}
+.add{
+	background:url("../images/icons/icon_add.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
+	position: relative;
+	&:hover, .link tr:hover &{
+		@include transitionAll;
+		background:url("../images/icons/icon_add.png") no-repeat left top $colorW;
+	}
+	td &, th &{
+		@include transitionAll;
+		background-color: $colorG;
+		width: 30px;
+		height: 30px;
+		padding: 0;
+		float: right;
+		@include border-radius(4px);
+		span{
+			display: none;
+		}
+	}
+	th, th &:hover, .link tr:hover th &{
+		background:url("../images/icons/icon_add.png") no-repeat left bottom;
+	}
+	.link .open td &{
+		background:url("../images/icons/icon_less.png") no-repeat left bottom;
+		&:hover{
+			background:url("../images/icons/icon_less.png") no-repeat left top $colorW;
+		}
+	}
+}
+.less{
+	background-image: url("../images/icons/icon_next.png");
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	padding-left: 35px;
+	&:hover{
+		background-position: left top;
+		background-color: $colorW;
+	}
+	
+}
+.clock{
+	background:url("../images/icons/icon_clock.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
+	&:hover{
+		background:url("../images/icons/icon_clock.png") no-repeat left top $colorW;
+	}
+}
+.next{
+	background:url("../images/icons/icon_next.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
+	&:hover{
+		background:url("../images/icons/icon_next.png") no-repeat left top $colorW;
+	}
+	
+}
+.import{
+	background:url("../images/icons/icon_import.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
+	&:hover{
+		background:url("../images/icons/icon_import.png") no-repeat left top $colorW;
+	}
+	
+}
+.back{
+	background:url("../images/icons/icon_back.png") no-repeat left top transparent;
+	padding-left: 35px;
+	border: none;
+	color:$colorG;
+	&:hover{
+		background:url("../images/icons/icon_back.png") no-repeat left top $colorK6;
+	}
+}
+.calendar{
+	background:url("../images/icons/icon_date.png") no-repeat bottom $colorG;
+	width: 55px;
+	height: 30px;
+	overflow: hidden;
+	&:hover{
+		background:url("../images/icons/icon_date.png") no-repeat top $colorW;
+	}
+	span{
+		position: absolute;
+		top: -3em;
+	}
+}
+.save, 
+#main .action_box .save{
+	@extend .btn;
+	background:url("../images/icons/icon_save.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
+	&:hover{
+		background:url("../images/icons/icon_save.png") no-repeat left top $colorW;
+	}
+	
+}
+.play, input.play{
+	background:url("../images/icons/icon_play.png") no-repeat left bottom $colorG;
+	padding-left: 35px;
+	&:hover{
+		background:url("../images/icons/icon_play.png") no-repeat left top $colorW;
+	}
+	
+}
+.info{
+	width: 25px;
+	height: 25px;
+	background:url("../images/icons/icon_info.png") no-repeat top left;
+	padding-left: 2em;
+	overflow: hidden;
+	position: relative;
+	display: inline;
+	cursor: pointer;
+	cursor: help;
+	&:hover{
+		background:url("../images/icons/icon_info.png") no-repeat bottom left;
+	}
+	span{
+		display: block;
+		overflow: hidden;
+		position: absolute;
+		height: 0;
+		width: 0;
+	}
+}
+.icons_action{
+	position: absolute;
+	top: 0;
+	right: 0;
+	white-space: nowrap;
+	.note{
+		background:url("../images/icons/icon_note.png") no-repeat;
+		width: 20px;
+		height: 20px;
+		overflow: hidden;
+		display: block;
+		cursor: help;
+		margin-left: 2px;
+		float: left;
+		span{
+			display: block;
+			overflow: hidden;
+			position: absolute;
+			height: 0;
+			width: 0;
+		}
+		&:hover{
+			background-position-y: -20px;  
+		}
+	}
+	.edit{
+		@extend .note;
+		background-position: -40px 0;
+		cursor: pointer;
+	}
+	.delete{
+		@extend .note;
+		background-position: -20px 0;
+		cursor: pointer;
+	}
+}
+.download{
+	background:url("../images/icons/icon_download.png") no-repeat top left transparent;
+	border: none;
+	color:$colorG;
+	padding-left: 35px;
+	&:hover{
+		background:url("../images/icons/icon_download.png") no-repeat top left transparent;
+		background-color: transparent;
+		text-decoration: underline;
+	}
+}
+.update, .btn.update{
+	background:url("../images/icons/icon_update.png") no-repeat bottom left $colorG;
+	padding-left: 35px;
+	&:hover{
+		background:url("../images/icons/icon_update.png") no-repeat top left $colorW;
+	}
+}
+.edit{
+	display: inline;
+	width: 22px;
+	height: 22px;
+	background:url("../images/icons/icon_edit.png") no-repeat transparent;
+	overflow: hidden;
+	font-size: 20px;
+	span{
+		visibility: hidden;
+	}
+}
+.zoom{
+	position: absolute;
+	bottom: .5em;
+	right: .5em;
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	display: block;
+	background:url("../images/icons/zoom.png") no-repeat;
+}
+.graph_01{
+	background:url("../images/icons/icon_graph_01.png") no-repeat top;
+}
+.graph_02{
+	background:url("../images/icons/icon_graph_02.png") no-repeat top;
+}
+.graph_03{
+	background:url("../images/icons/icon_graph_03.png") no-repeat top;
+}
+.graph_04{
+	background:url("../images/icons/icon_graph_04.png") no-repeat top;
+}
+.graph_05{
+	background:url("../images/icons/icon_graph_05.png") no-repeat top;
+}
+.graph_component label.current{
+	background-color: $colorG;
+}
+.columns_botonera{
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 28px;
+		overflow: hidden;
+		border: 1px solid $colorK4;
+		@include border-radius(4px);
+		ul{
+			li{
+				float: left;
+				padding: 4px;
+			}
+			a{
+				display: block;
+				width: 20px;
+				height: 20px;
+			}
+			.column1{
+				a{
+					background:url("../images/icons/icons_column.png") no-repeat 0 0 ;
+				}
+				&.current a{
+						background-position: 0 -20px;
+						
+					}
+				}
+			.column2{ 
+				a{
+					background:url("../images/icons/icons_column.png") no-repeat -20px 0;
+				}
+				&.current a{
+						background-position: -20px -20px;
+						
+					}
+				}
+			.column3{ 
+				a{
+					background:url("../images/icons/icons_column.png") no-repeat -40px 0;
+				}
+				&.current a{
+					background-position: -40px -20px;
+				}
+			}
+			.column4{ 
+				a{
+					background:url("../images/icons/icons_column.png") no-repeat -60px 0;
+				}
+				&.current a{
+					background-position: -60px -20px;
+				}
+			}
+			.lista{
+				a{
+					background:url("../images/icons/icons_column.png") no-repeat -80px 0;
+				}
+				&.current a{
+					background-position: -80px -20px;
+				}
+			}
+			.calendario{
+				a{
+					background:url("../images/icons/icons_column.png") no-repeat -100px 0;
+				}
+				&.current a{
+					background-position: -100px -20px;
+				}
+
+			}
+
+		}
+		span{
+			position: absolute;
+			top: 5em;
+		}
+	}

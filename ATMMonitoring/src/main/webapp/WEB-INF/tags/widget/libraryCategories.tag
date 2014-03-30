@@ -6,10 +6,7 @@
 <%@attribute name="widgetId" required="false" type="Integer"%>
 <%@attribute name="selectCategory" required="true" type="Boolean"%>
 <%@attribute name="messageKey" required="false" type="String"%>
-
-
-<div id="main">
-	<div id="primary">
+	<div id="ibraryprimary">
 		<article>
 			<h1><spring:message code="widget.${messageKey}.library.title" /></h1>
 			<c:choose>
@@ -55,10 +52,10 @@
 			</c:choose>
 		</article>
 	</div>
-</div>
+
 
 <script type="text/javascript">
-$(function() {
+function initPageJS() {
 	var categoryListElement = $("ul.category_library > li.category > label");
 	var widgetsByCategory = $("ul.category_library li.category ul");
 	
@@ -70,5 +67,5 @@ $(function() {
 		clickedElement.addClass('selected');
 		clickedElement.siblings("ul.widgets").show();
 	});
-});	
+}
 </script>

@@ -1,7 +1,7 @@
-$(document).ready(function() {
+function initScheduler() {
     initSchedulerCalendar();
     initSchedulerToggle();
-});
+};
 
 function initSchedulerCalendar() {
     $("#schedulerCalendar").fullCalendar({
@@ -44,7 +44,7 @@ function initSchedulerCalendar() {
             day:      'día'
         },
         eventRender: function(event, element) {
-            element.find(".fc-event-inner").append("<a class='close' onclick='deleteScheduledUpdate(" + event.id + "); return false;' href='#'><span>delete</span></a>");
+            element.find(".fc-event-inner").append("<a style='cursor:pointer;' class='close' onclick=\"deleteConfirmation('terminals/schedules/delete/" + event.id+"',schUpDeleteConfirmation,'#primary','#notification','notification')\"; return false;'><span>delete</span></button>");
         }
     });
 }

@@ -4,9 +4,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-<h2><spring:message code="label.terminal.history"/></h2>
-
 <div class="botonera">
 	<a href="#" class="timelineZoom on" data-zoom-in="true"  >  </a>
 	<a href="#" class="timelineZoom off" data-zoom-in="false" >  </a>
@@ -16,32 +13,22 @@
 	<div id="timeline" style="height:120px"> </div>
 	<ul class="legend">
 		<c:forEach items="${historicalChanges}" var="changesByType">
-		    <li><c:set var="changeName" value="${changesByType.key.simpleName}"> </c:set>
+		    <li class="showVertical"><c:set var="changeName" value="${changesByType.key.simpleName}"> </c:set>
 		    <img src="<c:url value="/resources/timeline/api/images/${changeName}.png" />" />
 		    <spring:message code="label.historical.${changeName}"/></li>
 		</c:forEach>	
-		<li>
+		<li class="showVertical">
 		    <img src="<c:url value="/resources/timeline/api/images/Current.png" />" />
 		    <spring:message code="label.historical.Current"/>
 		</li>
-		<li>
+		<li class="showVertical">
 		    <img src="<c:url value="/resources/timeline/api/images/Cluster.png" />" />
 		    <spring:message code="label.historical.Cluster"/>
 		</li>
 	</ul>
 </div>
-
 <script>
-    var Timeline_urlPrefix = 'resources/timeline/api/';
-    var Timeline_ajax_url= 'resources/timeline/ajax/simile-ajax-api.js';       
-</script>
-<script src="resources/timeline/api/timeline-api.js" type="text/javascript"></script>
-<script src="resources/js/elementClusterer.js" type="text/javascript"></script>
-
-<script>
-
-    window.onload = function() { executeOnTimelineLoaded(loadTimeline) };
-    
+  
     var tl;
     
     function loadTimeline() {
@@ -136,19 +123,15 @@
 			
 			tl.zoom(zoomIn, tl.getCenterPixel(0) ,1,target);
 		});
-		
-		
-		
+
 	}
-    
     function addOnEventPaintFinished(elementsSize) {
 		tl._bands[0].addOnEventPaintFinished(function(event,op) { 
 			if (op == 'paintEnded') {
 				clusterizeTimeline(elementsSize)
 			} 
 		});
-	}
-		
+	}	
 	function clusterizeTimeline(elementsSize) {
 		var elements = $("div#timeline .timeline-event-icon")
 		var parent = elements.parent(); 
@@ -175,8 +158,6 @@
 				)
 			}
 		}
-		
-		
 		function onClusterCreaterdListener(event) {
 		    var clusteredElements = event.clusteredElements,
 		   	elementSpace = elementsSize,
@@ -227,7 +208,6 @@
 			}
 		}
 	}
-	
     function buildEventsJSONData() {
     	var eventData = {
     	   events : [
@@ -252,6 +232,5 @@
     	   ] 
         }
         return eventData;
-    }
-    
+    }  
 </script>

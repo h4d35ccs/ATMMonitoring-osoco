@@ -46,6 +46,10 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     /** The users access allowed roles. */
     @Value("${security.usersAccessAllowedRoles}")
     private String usersAccessAllowedRoles;
+    /**
+     * The URL to redirect and load the main page
+     */
+    private static final String MAIN_PAG_URL = "/main";
 
     /*
      * (non-Javadoc)
@@ -76,19 +80,19 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 		    .authorityListToSet(authentication.getAuthorities());
 	    for (String role : usersAccessAllowedRoles.split(",")) {
 		if (roles.contains(role.replace("'", ""))) {
-		    getRedirectStrategy().sendRedirect(request, response,
-			    "/users");
-		    return;
+		    // getRedirectStrategy().sendRedirect(request, response,
+		    // "/main);
+		    // return;
 		}
 	    }
-	    getRedirectStrategy().sendRedirect(request, response, "/dashboard");
+	    getRedirectStrategy().sendRedirect(request, response, MAIN_PAG_URL);
 	    return;
 	}
 
 	clearAuthenticationAttributes(request);
 
 	// Use the DefaultSavedRequest URL
-	getRedirectStrategy().sendRedirect(request, response, targetUrl);
+	getRedirectStrategy().sendRedirect(request, response, MAIN_PAG_URL);
     }
 
     public void setRequestCache(RequestCache requestCache) {

@@ -1,38 +1,16 @@
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<%@page contentType="text/html;charset=UTF-8" %>
-<%@page pageEncoding="UTF-8"%>
-
-<t:osoco-wrapper titleCode="label.scheduledUpdatesManager" userMsg="${userMsg}" section="schedule">
-
-<jsp:attribute name="header">
-<script type="text/javascript">
-	$(document).ready(function(){
-        $("#periodicity").change(function(event) {
-            var periodicity = $(this).val();
-            $(".periodicity").hide();
-            $("#" + periodicity).show();
-            $('#month-selector').val('');
-            $('.radioweek').attr('checked',false);
-        });
-	});
-</script>
-</jsp:attribute>
-
-<jsp:body>
-
+<%@include file="includes/JspImports.jsp"%>
 <div id="header_g">
-  <nav id="breadcrumb">
+  <%-- <nav id="breadcrumb">
     <ul>
       <li><a href="#"><spring:message code="breadcrumb.home"/></a></li>
       <li><a href="terminals/schedules/list"><spring:message code="label.scheduler"/></a></li>
       <li><spring:message code="label.schedule.new"/></li>
     </ul>
-  </nav>
+  </nav> --%>
+  	<c:set var="navigationBackMain" scope="request" >home,schedulers</c:set>
+	<c:set var="navigationActual" value="label.schedule.new" scope="request" />
+	<jsp:include page="includes/navigation.jsp" />
 </div>
-
 <h1><spring:message code="label.schedule.new"/></h1>
 <div class="content">
 <div class="form w33">
@@ -40,9 +18,11 @@
     <div class="alert">
       <p><spring:message code="label.${error}"/></p>
     </div>
+    <script type="text/javascript">
+    	fadeNotification(msgDivId,notificationClass);
+    </script>
 </c:if>
-
-<form:form method="post" action="terminals/schedules/list" commandName="scheduledUpdate">
+<form:form method="post" action="terminals/schedules/list" commandName="scheduledUpdate" id="newScheduled" onSubmit="false">
 
 <div class="row"><label for="query"><strong><spring:message code="label.choose.query"/>:</strong></label>
 <form:select name="query.id" size="1" path="query.id" >
@@ -70,10 +50,7 @@
     <option value="monthly"><spring:message code="label.monthly"/></option>
   </select>
 </div>
-
-
 <div id="weekly" class="periodicity hide row">
-
 <form:label path="weekDay"><strong><spring:message code="label.choose.days"/>:</strong></form:label>
 <ul class="weekDay">
   <li><form:radiobutton class="radioweek" id="monday" path="weekDay" value="2"/><label for="monday"><spring:message code="label.scheduledUpdate.weekDay.monday"/></label></li>
@@ -85,22 +62,16 @@
   <li><form:radiobutton class="radioweek" id="sunday" path="weekDay" value="1"/><label for="sunday"><spring:message code="label.scheduledUpdate.weekDay.sunday"/></label></li>
 </ul>
 </div>
-
 <div id="monthly" class="periodicity hide row">
-
 <form:label path="monthDay"><spring:message code="label.dayOfMonth"/>:</form:label>
-
 <form:select path="monthDay" id="month-selector">
   <form:option value=""/>
   <c:forEach begin="1" end="31" var="day">
     <form:option value="${day}"/>
   </c:forEach>
 </form:select>
-
 </div>
-
 <form:label path="hour"><spring:message code="label.scheduledUpdate.time"/></form:label>
-
 <form:select path="hour" class="number-selector">
   <c:forEach begin="0" end="23" var="hour">
     <form:option value="${hour}">${hour < 10 ? '0' : ''}${hour}</form:option>
@@ -117,11 +88,18 @@
   </c:forEach>
  </form:select>
 <div class="botonera">
-  <input type="submit" id="form-submit" class="form-submit" value="<spring:message code="label.scheduledUpdate.addScheduledUpdate"/>"/>
-  <a href="terminals/schedules/list" class="btn cancel"><spring:message code="label.cancel"/></a>
+  <button id="form-submit" class="form-submit" onClick="loadInnerSectionFromForm('#newScheduled', '#primary'); return false;" ><spring:message code="label.scheduledUpdate.addScheduledUpdate"/></button> 
+  <input type="reset" class="btn cancel" value="<spring:message code="label.cancel"/>"/>
 </div>
 </form:form></div></div>
-
-</jsp:body>
-
-</t:osoco-wrapper>
+<script type="text/javascript">
+function initPageJS() {
+        $("#periodicity").change(function(event) {
+            var periodicity = $(this).val();
+            $(".periodicity").hide();
+            $("#" + periodicity).show();
+            $('#month-selector').val('');
+            $('.radioweek').attr('checked',false);
+        });
+	};
+</script>

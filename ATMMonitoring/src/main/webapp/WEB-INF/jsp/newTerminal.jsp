@@ -1,18 +1,6 @@
-<%@taglib uri="http://www.ncr.com/tags" prefix="ncr"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
-<%@page contentType="text/html;charset=UTF-8" %>
-<%@page pageEncoding="UTF-8"%>
-
-<t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}" section="terminals">
+<%@include file="includes/JspImports.jsp"%>
 				<div id="header_g">
-					<nav id="breadcrumb">
+					<%-- nav id="breadcrumb">
 						<ul>
 							<li>
 								<a href="dashboard"><spring:message code="breadcrumb.home"/></a>
@@ -22,7 +10,10 @@
 							</li>
 							<li><spring:message code="label.terminal.new"/></li>
 						</ul>
-					</nav>
+					</nav> --%>
+					<c:set var="navigationBackMain" scope="request" >home,terminals</c:set>
+					<c:set var="navigationActual" value="label.terminal.new" scope="request" />
+					<jsp:include page="includes/navigation.jsp" />
 				</div>
 				<div class="content">
 					<h1><spring:message code="label.terminal.new"/></h1>
@@ -43,11 +34,12 @@
 						  <div class="collapsible last">
 						  	<div class="model">
 							<div class="photo">
-								<a href="<ncr:terminalModelPhotoUrl/>" class="colorbox">
-									<img src="<ncr:terminalModelPhotoUrl/>"/>
-									<div class="zoom"></div>
-								</a>
-							</div>
+					    <a id="clickeablePhoto" href="" class="colorbox"> 
+							<img id="atmPicture" src="resources/images/ejemplo/no_photo.png" width="300">
+							<img id="imgLoader" src="resources/images/icons/icon_loader.gif" style="display:none"  />
+							<div class="zoom"></div>
+						</a>
+				</div>
 							<div class="desplegable">
 									<div class="txt content_hide"><span><spring:message code="label.moreInfo"/></span></div>
 									<dl class="collapsible hide">
@@ -112,7 +104,8 @@
 
 														</form:label>
 													</strong>
-													<form:select id="ManufacturerCombo" path="terminalVendor" onchange="ChangeManufacturer()">
+													<form:select id="ManufacturerCombo" path="terminalVendor" onchange="ChangeManufacturer();
+													getManufacturerPic('#atmPicture','#'+this.id,'#imgLoader','#clickeablePhoto','resources/images/logo/','resources/images/ejemplo/')">
 														<option value=""><spring:message code="label.select.default"/></option>
 														<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
 														  <c:if test="${key != 'allManufacturers'}">
@@ -133,7 +126,10 @@
 
 														</form:label>
 													</strong>
-													<form:select id="ModelsCombo" path="terminalModel.id" onchange="ChangeModel()">
+													<form:select id="ModelsCombo" path="terminalModel.id" 
+															onchange="ChangeModel('#atmPicture',
+																		'GET','resources/images/logo/','resources/images/ejemplo/',
+																		'#imgLoader','#clickeablePhoto')">
 													  <option value="" ></option>
 													  <c:forEach items="${values.get('allManufacturers')}" var="model">
 														  	<option value="${model.id}"
@@ -253,7 +249,7 @@
 															<div class="message">
 																La Caixa
 																Oficina Avenida de los Andes, 24, 28042
-																Madrid - EspaÃ±a - TelÃ©fono: 91 440 38 90
+																Madrid - España - Teléfono: 91 440 38 90
 																X 40.454932, Y -3.620907
 															</div>
 															<div class="error-td"></div>
@@ -283,8 +279,8 @@
 
 										</div>
 										<div class="botonera">
-											<input type="submit" class="btn save" value="<spring:message code="label.terminal.save"/>"/>
-											<a href="terminals" class="btn cancel"><spring:message code="label.cancel"/></a>
+											<button class="btn save" onclick="loadInnerSectionFromForm('#terminal','#primary'); return false;"><spring:message code="label.terminal.save"/></button>
+											<button onclick="loadInnerSection('#primary', 'terminals')" class="btn cancel"><spring:message code="label.cancel"/></button>
 										</div>
 									</form:form>
 						</div>
@@ -295,9 +291,7 @@
 
 	</div>
 	<script type="text/javascript">
-	    $(function() {
-	        onLoadModelCB();
-	    });
+	  
 	    var valuesTree = {
 	        	<c:forEach items="${values.keySet()}" var="key" varStatus="status1">
 	        		<c:set var="value" value="${values.get(key)}"/>
@@ -314,100 +308,13 @@
 							'min_weight' : '${model.minWeight}',
 							'max_weight' : '${model.maxWeight}'
 						},
-					</c:forEach>
-                        'photoUrl': '<ncr:terminalModelPhotoUrl manufacturer="${key}"/>'
+						 </c:forEach>
+						  'photoUrl': ' <%--<ncr:terminalModelPhotoUrl manufacturer="${key}"/>--%>'
 	       	 			}${not status1.last ? ',' : ''}
 	       		</c:forEach>
 	    };
-	    function onLoadModelCB(){
-		    	var value = $('#ManufacturerCombo').val();
-		    	var $cb = $('#ModelsCombo');
-		    	if (value == '') {
-		    		$cb.empty();
-					$cb.append($('<option selected="selected"></option>'));
-		    	} else {
-		    		var values = valuesTree[value];
-		    		$('#ModelsCombo > option').each(function()
-							{
-								if (!(($(this).val() in values) || ($(this).val() == ''))) {
-									$(this).remove();
-								}
-							}
-		    		);
-		    	}
-	            if (!$cb.val()) {
-					var photoUrl = valuesTree[value]['photoUrl'];
-					$('.photo a').attr("href", photoUrl);
-					$('.photo img').attr("src", photoUrl);
-	          	};
-	    };
-	    function ChangeManufacturer(){
-			var $cb1 = $('#ModelsCombo');
-			var $cb2 = $('#ManufacturerCombo');
-			$cb1.empty();
-			$cb1.append($('<option selected="selected"></option>'));
-			if ($cb2.val() != '') {
-				var values = valuesTree[$cb2.val()];
-				var keys = $.map(values, function(v, i){
-					  return i;
-					});
-				keys.sort(function(a,b){
-				    var compA = values[a].label;
-				    var compB = values[b].label;
-				    return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
-				  });
-				$.each(keys, function(index, key) {
-                      if (key != 'photoUrl') {
-				          $cb1.append($('<option/>')
-					         .attr("value", key).text(values[key]['product_class']));
-                      }
-				});
-				$cb1.prop('disabled', false);
-			} else {
-				$cb1.prop('disabled', true);
-			};
-			$('#field_model').text('');
-			$('#field_product_class').text('');
-			$('#field_manufacturer').text('');
-			$('#field_nickname').text('');
-			$('#field_width').text('');
-			$('#field_height').text('');
-			$('#field_depth').text('');
-			$('#field_min_weight').text('');
-			$('#field_max_weight').text('');
-            var photoUrl;
-            if ($cb2.val()) {
-              photoUrl = valuesTree[$cb2.val()]['photoUrl'];
-            } else {
-              photoUrl = '<ncr:terminalModelPhotoUrl />'
-            }
-			$('.photo a').attr("href", photoUrl);
-			$('.photo img').attr("src", photoUrl);
-	    };
 
-	    function ChangeModel(){
-			var $cb1 = $('#ModelsCombo');
-			var $cb2 = $('#ManufacturerCombo');
-			if (($cb1.val() != '') && ($cb2.val() != '')) {
-				var values = valuesTree[$cb2.val()][$cb1.val()];
-				$('#field_model').text(values.model);
-				$('#field_product_class').text(values.product_class);
-				$('#field_manufacturer').text(values.manufacturer);
-				$('#field_nickname').text(values.nickname);
-				$('#field_width').text(values.width);
-				$('#field_height').text(values.height);
-				$('#field_depth').text(values.depth);
-				$('#field_min_weight').text(values.min_weight);
-				$('#field_max_weight').text(values.max_weight);
-				$('.photo a').attr("href", 'terminals/models/image/' + $cb1.val());
-				$('.photo img').attr("src", 'terminals/models/image/' + $cb1.val() + '?width=200');
-			}
-            if (!$cb1.val()) {
-                  var photoUrl = valuesTree[$cb2.val()]['photoUrl'];
-			      $('.photo a').attr("href", photoUrl);
-			      $('.photo img').attr("src", photoUrl);
-            }
-	    };
+	   function initPageJS() {
+	        onLoadModelCB();
+	 	 }
     </script>
-
-</t:osoco-wrapper>

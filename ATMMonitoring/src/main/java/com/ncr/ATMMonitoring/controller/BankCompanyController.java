@@ -64,13 +64,13 @@ public class BankCompanyController extends GenericController {
     @RequestMapping(value = "/banks/list", method = RequestMethod.GET)
     public String listBankCompanies(Map<String, Object> map,
 	    Principal principal, String p, HttpServletRequest request) {
-	String userMsg = "";
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	}
+	// String userMsg = "";
+	// if (principal != null) {
+	// //userMsg = this.getUserGreeting(principal, request);
+	// }
 	PagedListHolder<BankCompany> pagedListHolder = new PagedListHolder<BankCompany>(
 		bankCompanyService.listBankCompanies());
-	map.put("userMsg", userMsg);
+	// map.put("userMsg", userMsg);
 	map.put("bankCompany", new BankCompany());
 	int page = 0;
 	if (p != null) {
@@ -116,11 +116,11 @@ public class BankCompanyController extends GenericController {
 	}
 
 	if (result.hasErrors()) {
-	    String userMsg = "";
-	    if (principal != null) {
-		userMsg = this.getUserGreeting(principal, request);
-	    }
-	    map.put("userMsg", userMsg);
+	    // String userMsg = "";
+	    // if (principal != null) {
+	    // userMsg = this.getUserGreeting(principal, request);
+	    // }
+	    // map.put("userMsg", userMsg);
 
 	    PagedListHolder<BankCompany> pagedListHolder = new PagedListHolder<BankCompany>(
 		    bankCompanyService.listBankCompanies());
@@ -135,7 +135,7 @@ public class BankCompanyController extends GenericController {
 	    pagedListHolder.setPage(page);
 	    pagedListHolder.setPageSize(bankCompaniesPageSize);
 	    map.put("pagedListHolder", pagedListHolder);
-	    map.put("userMsg", userMsg);
+	    // map.put("userMsg", userMsg);
 	    map.put("bankCompaniesList", bankCompanyService.listBankCompanies());
 	    return "bankCompanies";
 	}
@@ -177,11 +177,11 @@ public class BankCompanyController extends GenericController {
 	    map.clear();
 	    return "redirect:/banks/list";
 	}
-	String userMsg = "";
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	}
-	map.put("userMsg", userMsg);
+	// String userMsg = "";
+	// if (principal != null) {
+	// //userMsg = this.getUserGreeting(principal, request);
+	// }
+	// map.put("userMsg", userMsg);
 	map.put("bankCompany", bankCompany);
 	map.put("bankCompaniesList", bankCompanyService.listBankCompanies());
 
@@ -217,11 +217,11 @@ public class BankCompanyController extends GenericController {
 	bankCompany.setSubBankCompanies(aux.getSubBankCompanies());
 
 	if (result.hasErrors()) {
-	    String userMsg = "";
-	    if (principal != null) {
-		userMsg = this.getUserGreeting(principal, request);
-	    }
-	    map.put("userMsg", userMsg);
+	    // String userMsg = "";
+	    // if (principal != null) {
+	    // userMsg = this.getUserGreeting(principal, request);
+	    // }
+	    // map.put("userMsg", userMsg);
 	    map.put("bankCompaniesList", bankCompanyService.listBankCompanies());
 	    return "bankCompanyDetails";
 	}

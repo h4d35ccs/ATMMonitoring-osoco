@@ -26,14 +26,13 @@ Array.prototype.move = function (old_index, new_index) {
     this.splice(new_index, 0, this.splice(old_index, 1)[0]);
 };
 
-google.load('visualization', '1', {'packages': ['corechart', 'geochart', 'table']});
+//google.load('visualization', '1', {'packages': ['corechart', 'geochart', 'table']});
 
-$(function() {
+function initDashboard() {
     initDashboardModel();
     initColumnsControl();
-    
     window.onresize = onLoadDashboard;
-});
+}
 
 // Model ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -376,7 +375,7 @@ var transforms = {
                                                   children: [ { tag: 'span', html: strings['label.widget.options'] } ] },
                                                 { tag: 'ul', class: 'collapsible',
                                                   children: [ 
-                                                  			  { tag: 'li', children: [ { tag: 'a', class: 'editWidget iframe_medium chart_iframe', href: (editChartUrl + '${id}'), html: strings['label.widget.edit'] } ] },
+                                                  			  { tag: 'li', children: [ { tag: 'a', class: 'cboxElement iframe_medium', href: (editChartUrl + '${id}'), html: strings['label.widget.edit'] } ] },
                                                               { tag: 'li', class: 'privilegedOption' , children: 
                                                               		[ 
                                                               			{ tag: 'label', children: 

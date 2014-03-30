@@ -1,13 +1,10 @@
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<%@page contentType="text/html;charset=UTF-8" %>
-<%@page pageEncoding="UTF-8"%>
-
-<t:osoco-wrapper titleCode="label.queryEngine" userMsg="${userMsg}"  section="reports">
+<%@include file="includes/JspImports.jsp"%>
 <script type="text/javascript">
-	$(document).ready(function(){
+
+function loadInFrame(url) {
+    $("#reportFrame").attr("src", url);
+}
+function initPageJS() {; 
         $("#reportFrameContainer").hide();
         $("#toggleReportView").find("li").click(function(event) {
         	event.preventDefault();
@@ -31,14 +28,10 @@
             $("#reportFrameContainer").hide();
             $(".content.reportView").show("slow");
         });
-	});
-
-    function loadInFrame(url) {
-        $("#reportFrame").attr("src", url);
-    }
+    };
 </script>
 <div id="header_g">
-	<nav id="breadcrumb">
+	<%-- <nav id="breadcrumb">
 		<ul>
 			<li>
 				<a href="dashboard"><spring:message code="breadcrumb.home"/></a>
@@ -46,24 +39,23 @@
 
 			<li><spring:message code="breadcrumb.reports"/></li>
 		</ul>
-	</nav>
+	</nav> --%>
+	<c:set var="navigationBackMain" scope="request" >home</c:set>
+	<c:set var="navigationActual" value="breadcrumb.reports" scope="request" />
+	<jsp:include page="includes/navigation.jsp" />
 </div>
-
 <h1>
   <spring:message code="label.externalreportsMan"/>
 </h1>
-
 <h2>
   <spring:message code="label.externalreports"/>
 </h2>
-
 <div id="reportFrameContainer">
     <div class="botonera">
         <a class="btn back left" href="externalreports">Return to reports</a>
     </div>
     <iframe id="reportFrame" width="100%" height="900"></iframe>
 </div>
-
 <div class="content reportView column3">
 	<div id="header_g">
 		<div id="toggleReportView" class="columns_botonera">
@@ -153,5 +145,3 @@
 		</a>
 	</div>
 </div>
-
-</t:osoco-wrapper>

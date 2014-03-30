@@ -1,32 +1,4 @@
-<%@taglib uri="http://www.ncr.com/tags" prefix="ncr"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-<%@page contentType="text/html;charset=UTF-8" %>
-<%@page pageEncoding="UTF-8"%>
-
-<t:osoco-wrapper titleCode="label.usersManager" userMsg="${userMsg}" section="users">
-
-<jsp:attribute name="header">
-    <script type="text/javascript">
-        $(function() {
-            $("#editUserButton").click(function(event) {
-                $("#showUser").hide();
-                $("#editForm").show();
-	        });
-            $("#cancelEdit").click(function(event) {
-                $("#showUser").show();
-                $("#editForm").hide();
-	        });
-	    });
-    </script>
-</jsp:attribute>
-
-<jsp:body>
+<%@include file="includes/JspImports.jsp"%>
 			<div id="header_g">
 					<nav id="breadcrumb">
 						<ul>
@@ -42,7 +14,16 @@
 				</div>
 			<div class="content">
 				<h1><spring:message code="label.user.username"/> ${user.username}</h1>
-
+				<c:if test="${success != null}">
+					<div id ="updateUserNotification" class="notification">
+						<p>
+							<spring:message code="${success}" />
+						</p>
+					</div>
+					<script type="text/javascript">
+						fadeNotification("#updateUserNotification", "notification");
+					</script>
+				</c:if>
 				<div class="action_box data desplegable">
 					<h2 class="txt last"><spring:message code="label.userDetails"/></h2>
 					<div class="collapsible last">
@@ -90,7 +71,7 @@
 										</ul>
 									<div class="botonera">
 
-										<input type="submit" class="btn" value="<spring:message code="label.user.updateUser"/>"/>
+										<button  class="btn" onClick="loadInnerSectionFromForm('#user','#primary'); return false;"><spring:message code="label.user.updateUser"/></button>
 	                                    <input id="cancelEdit" type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
 									</div>
 
@@ -98,7 +79,6 @@
 								</form:form>
 						            </div>
 							</c:if>
-
 								<div id="showUser"  class="ul_data ul_data_wide ${errors  != null ? 'hide': ''}">
 									<ul>
 										<li>
@@ -141,12 +121,19 @@
 
 								</div>
 								<!-- //ul-data -->
-
 					</div>
 					<!-- // collapsible -->
 				</div>
 			</div>
-
-</jsp:body>
-
-</t:osoco-wrapper>
+<script type="text/javascript">
+function initPageJS() { 
+            $("#editUserButton").click(function(event) {
+                $("#showUser").hide();
+                $("#editForm").show();
+	        });
+            $("#cancelEdit").click(function(event) {
+                $("#showUser").show();
+                $("#editForm").hide();
+	        });
+	    }
+    </script>

@@ -1,6 +1,7 @@
 package com.ncr.ATMMonitoring.controller;
 
 import java.security.Principal;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ncr.ATMMonitoring.controller.propertyeditor.BankCompanyPropertyEditor;
 import com.ncr.ATMMonitoring.controller.propertyeditor.RolePropertyEditor;
@@ -130,15 +133,15 @@ public class UserController extends GenericController {
     public String listUsersAndRoles(Map<String, Object> map,
 	    Principal principal, String p1, String sort1, String order1,
 	    String p2, String sort2, String order2, HttpServletRequest request) {
-	String userMsg = "";
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	}
+	// String userMsg = "";
+	// if (principal != null) {
+	// userMsg = this.getUserGreeting(principal, request);
+	// }
 	String sortValue1 = (sort1 == null) ? DEFAULT_USER_SORT : sort1;
 	String orderValue1 = (order1 == null) ? DEFAULT_USER_ORDER : order1;
 	PagedListHolder<User> pagedListHolder1 = new PagedListHolder<User>(
 		userService.listUsers(sortValue1, orderValue1));
-	map.put("userMsg", userMsg);
+	// map.put("userMsg", userMsg);
 	map.put("sort1", sortValue1);
 	map.put("order1", orderValue1);
 	int page1 = 0;
@@ -196,24 +199,24 @@ public class UserController extends GenericController {
 	if (user == null) {
 	    return "redirect:/users/list";
 	}
-	String userMsg = "";
+	// String userMsg = "";
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	// TODO
 	// Actualizar los permisos
 	boolean canEdit = true;
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	    // TODO
-	    // Revisar la gestión de permisos mediante bancos
-	    // bankCompanies = loggedUser.getManageableBankCompanies();
-	    // if ((user.getBankCompany() != null)
-	    // && (!bankCompanies.contains(user.getBankCompany()))) {
-	    // return "redirect:/users/list";
-	    // }
-	}
+	// if (principal != null) {
+	// userMsg = this.getUserGreeting(principal, request);
+	// // TODO
+	// // Revisar la gestión de permisos mediante bancos
+	// // bankCompanies = loggedUser.getManageableBankCompanies();
+	// // if ((user.getBankCompany() != null)
+	// // && (!bankCompanies.contains(user.getBankCompany()))) {
+	// // return "redirect:/users/list";
+	// // }
+	// }
 	map.put("canEdit", canEdit);
 	map.put("banksList", bankCompanies);
-	map.put("userMsg", userMsg);
+	// map.put("userMsg", userMsg);
 	map.put("manageableRolesList", roleService.listManageableRoles());
 	map.put("user", user);
 
@@ -238,17 +241,18 @@ public class UserController extends GenericController {
     @RequestMapping(value = "/users/update", method = RequestMethod.POST)
     public String updateUser(@Valid @ModelAttribute("user") User user,
 	    BindingResult result, Map<String, Object> map,
-	    HttpServletRequest request, Principal principal) {
-	String userMsg = "";
+	    HttpServletRequest request, Principal principal,
+	    RedirectAttributes redirectAttributes) {
+	// String userMsg = "";
 	// TODO
 	// Revisar la gestión de permisos mediante bancos
 	// Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	    // bankCompanies = loggedUser.getManageableBankCompanies();
-	}
+	// if (principal != null) {
+	// userMsg = this.getUserGreeting(principal, request);
+	// // bankCompanies = loggedUser.getManageableBankCompanies();
+	// }
 	// map.put("banksList", bankCompanies);
-	map.put("userMsg", userMsg);
+	// map.put("userMsg", userMsg);
 
 	// The role is the only currently editable field
 	if ((user.getId() != null) && (user.getRole() != null)) {
@@ -257,6 +261,8 @@ public class UserController extends GenericController {
 	    if (user.getRole().getManageable()) {
 		user.setRole(role);
 		userService.updateUser(user);
+		redirectAttributes.addFlashAttribute("success",
+			"success.updatingUser");
 	    }
 	}
 
@@ -295,11 +301,11 @@ public class UserController extends GenericController {
 	if ((role == null) || (!role.getManageable())) {
 	    return "redirect:/users/list";
 	}
-	String userMsg = "";
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	}
-	map.put("userMsg", userMsg);
+	// //String userMsg = "";
+	// if (principal != null) {
+	// userMsg = this.getUserGreeting(principal, request);
+	// }
+	// map.put("userMsg", userMsg);
 	map.put("role", role);
 
 	return "roleDetails";
@@ -323,7 +329,7 @@ public class UserController extends GenericController {
     @RequestMapping(value = "/users/roles/update", method = RequestMethod.POST)
     public String updateRole(@Valid @ModelAttribute("role") Role role,
 	    Map<String, Object> map, HttpServletRequest request,
-	    Principal principal) {
+	    Principal principal, RedirectAttributes redirectAttributes) {
 
 	if (role != null) {
 	    Role roleAux = roleService.getRole(role.getId());
@@ -332,25 +338,28 @@ public class UserController extends GenericController {
 		roleAux = roleService.getRoleByName(role.getName());
 		if ((roleAux != null)
 			&& (!roleAux.getId().equals(role.getId()))) {
-		    String userMsg = "";
+		    // String userMsg = "";
 		    // TODO
 		    // Actualizar los permisos
 		    boolean canEdit = true;
-		    if (principal != null) {
-			userMsg = this.getUserGreeting(principal, request);
-		    }
+		    // if (principal != null) {
+		    // userMsg = this.getUserGreeting(principal, request);
+		    // }
 		    map.put("canEdit", canEdit);
-		    map.put("userMsg", userMsg);
+		    // map.put("userMsg", userMsg);
 		    map.put("role", role);
 		    map.put("duplicatedName", true);
 
 		    return "roleDetails";
 		}
 		roleService.updateRole(role);
+		redirectAttributes.addFlashAttribute("success",
+			"success.updatingRole");
+
 	    }
 	}
 
-	map.clear();
+	// map.clear();
 	return "redirect:/users/roles/details/" + role.getId().intValue();
     }
 
@@ -370,49 +379,57 @@ public class UserController extends GenericController {
      * @return the petition response
      */
     @RequestMapping(value = "/users/roles/add", method = RequestMethod.POST)
-    public String addRole(@Valid @ModelAttribute("role") Role role,
-	    Map<String, Object> map, HttpServletRequest request,
-	    Principal principal) {
+    @ResponseBody
+    public String addRole(@Valid @ModelAttribute("role") Role role) {
 
+	final Map<String, String> response = new HashMap<String, String>();
+	boolean isError = false;
 	if (role != null) {
 	    role.setManageable(true);
 	    Role roleAux = roleService.getRoleByName(role.getName());
 	    if ((roleAux != null) && (!roleAux.getId().equals(role.getId()))) {
 
-		String userMsg = "";
-		if (principal != null) {
-		    userMsg = this.getUserGreeting(principal, request);
-		}
-		String sortValue1 = DEFAULT_USER_SORT;
-		String orderValue1 = DEFAULT_USER_ORDER;
-		PagedListHolder<User> pagedListHolder1 = new PagedListHolder<User>(
-			userService.listUsers(sortValue1, orderValue1));
-		map.put("userMsg", userMsg);
-		map.put("sort1", sortValue1);
-		map.put("order1", orderValue1);
-		pagedListHolder1.setPage(0);
-		pagedListHolder1.setPageSize(userPageSize);
-		map.put("pagedListHolder1", pagedListHolder1);
-
-		String sortValue2 = DEFAULT_ROLE_SORT;
-		String orderValue2 = DEFAULT_ROLE_ORDER;
-		PagedListHolder<Role> pagedListHolder2 = new PagedListHolder<Role>(
-			roleService
-				.listManageableRoles(sortValue2, orderValue2));
-		map.put("sort2", sortValue2);
-		map.put("order2", orderValue2);
-		pagedListHolder2.setPage(0);
-		pagedListHolder2.setPageSize(rolePageSize);
-		map.put("pagedListHolder2", pagedListHolder2);
-		map.put("duplicatedName", true);
-
-		return "users";
+		// //String userMsg = "";
+		// if (principal != null) {
+		// //userMsg = this.getUserGreeting(principal, request);
+		// }
+		// String sortValue1 = DEFAULT_USER_SORT;
+		// String orderValue1 = DEFAULT_USER_ORDER;
+		// PagedListHolder<User> pagedListHolder1 = new
+		// PagedListHolder<User>(
+		// userService.listUsers(sortValue1, orderValue1));
+		// //map.put("userMsg", userMsg);
+		// map.put("sort1", sortValue1);
+		// map.put("order1", orderValue1);
+		// pagedListHolder1.setPage(0);
+		// pagedListHolder1.setPageSize(userPageSize);
+		// map.put("pagedListHolder1", pagedListHolder1);
+		//
+		// String sortValue2 = DEFAULT_ROLE_SORT;
+		// String orderValue2 = DEFAULT_ROLE_ORDER;
+		// PagedListHolder<Role> pagedListHolder2 = new
+		// PagedListHolder<Role>(
+		// roleService
+		// .listManageableRoles(sortValue2, orderValue2));
+		// map.put("sort2", sortValue2);
+		// map.put("order2", orderValue2);
+		// pagedListHolder2.setPage(0);
+		// pagedListHolder2.setPageSize(rolePageSize);
+		// map.put("pagedListHolder2", pagedListHolder2);
+		// map.put("duplicatedName", true);
+		// return "users";
+		response.put("duplicatedname", "true");
+		isError = true;
+	    } else {
+		roleService.addRole(role);
+		response.put("redirect", "users/roles/details/"
+			+ role.getId().intValue());
 	    }
-	    roleService.addRole(role);
-	}
 
-	map.clear();
-	return "redirect:/users/roles/details/" + role.getId().intValue();
+	}
+	// map.clear();
+	// return "redirect:/users/roles/details/" + role.getId().intValue();
+	return this.generateJsonResponse(isError, response);
     }
 
     /**
@@ -455,11 +472,11 @@ public class UserController extends GenericController {
     @RequestMapping(method = RequestMethod.GET, value = "/users/newGroup")
     public String newGroup(Map<String, Object> map, Principal principal,
 	    HttpServletRequest request) {
-	String userMsg = "";
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	}
-	map.put("userMsg", userMsg);
+	// String userMsg = "";
+	// if (principal != null) {
+	// userMsg = this.getUserGreeting(principal, request);
+	// }
+	// map.put("userMsg", userMsg);
 	return "newGroup";
     }
 

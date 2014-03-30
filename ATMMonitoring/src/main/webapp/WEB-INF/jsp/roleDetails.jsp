@@ -1,58 +1,4 @@
-<%@taglib uri="http://www.ncr.com/tags" prefix="ncr"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-<%@page contentType="text/html;charset=UTF-8" %>
-<%@page pageEncoding="UTF-8"%>
-
-<t:osoco-wrapper titleCode="label.rolesManager" userMsg="${userMsg}" section="roles">
-
-<jsp:attribute name="header">
-    <script type="text/javascript">
-        $(function() {
-            $("#editRoleButton").click(function(event) {
-                $("#showRole").hide();
-                $("#editForm").show();
-	        });
-            $("#cancelEdit").click(function(event) {
-                $("#showRole").show();
-                $("#editForm").hide();
-	        });
-            $("#canViewTerminals").click(function(event) {
-            	if (!$("#canViewTerminals").is(':checked')) {
-                	$("#canEditTerminals").attr('checked', false);
-                	$("#canRequestUpdate").attr('checked', false);
-                   	$("#canUseQueries").attr('checked', false);
-                	$("#canEditTerminals").prop('readonly', 'readonly');
-                	$("#canRequestUpdate").prop('readonly', 'readonly');
-                   	$("#canUseQueries").prop('readonly', 'readonly');
-            	} else {
-                	$("#canEditTerminals").prop('readonly', '');
-                	$("#canRequestUpdate").prop('readonly', '');
-                	$("#canUseQueries").prop('readonly', '');
-            	}
-	        });
-            <c:if test="${role.canViewTerminals != true}">
-           	$("#canEditTerminals").attr('checked', false);
-           	$("#canRequestUpdate").attr('checked', false);
-           	$("#canUseQueries").attr('checked', false);
-           	$("#canEditTerminals").prop('readonly', 'readonly');
-           	$("#canRequestUpdate").prop('readonly', 'readonly');
-           	$("#canUseQueries").prop('readonly', 'readonly');
-           	</c:if>
-            <c:if test="${duplicatedName == true}">
-           	$("#showRole").hide();
-           	$("#editForm").show();
-			</c:if>
-	    });
-    </script>
-</jsp:attribute>
-
-<jsp:body>
+<%@include file="includes/JspImports.jsp"%>
 			<div id="header_g">
 					<nav id="breadcrumb">
 						<ul>
@@ -68,7 +14,16 @@
 				</div>
 			<div class="content">
 				<h1><spring:message code="label.role.name"/> ${role.name}</h1>
-
+				<c:if test="${success != null}">
+					<div id ="updateRoleNotification" class="notification">
+						<p>
+							<spring:message code="${success}" />
+						</p>
+					</div>
+					<script type="text/javascript">
+						fadeNotification("#updateRoleNotification", "notification");
+					</script>
+				</c:if>
 				<div class="action_box data desplegable">
 					<h2 class="txt last"><spring:message code="label.roleDetails"/></h2>
 					<div class="collapsible last">
@@ -156,14 +111,12 @@
 									</ul>
 								<div class="botonera">
 
-									<input type="submit" class="btn" value="<spring:message code="label.role.updateRole"/>"/>
+									<button class="btn" onclick="loadInnerSectionFromForm('#role','#primary'); return false;" ><spring:message code="label.role.updateRole"/></button>
                                     <input id="cancelEdit" type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
 								</div>
-
 								</div>
 							</form:form>
 					            </div>
-
 								<div id="showRole"  class="ul_data ul_data_wide ${errors  != null ? 'hide': ''}">
 									<ul>
 										<li>
@@ -248,7 +201,41 @@
 					<!-- // collapsible -->
 				</div>
 			</div>
-
-</jsp:body>
-
-</t:osoco-wrapper>
+<script type="text/javascript">
+function initPageJS() { 
+            $("#editRoleButton").click(function(event) {
+                $("#showRole").hide();
+                $("#editForm").show();
+	        });
+            $("#cancelEdit").click(function(event) {
+                $("#showRole").show();
+                $("#editForm").hide();
+	        });
+            $("#canViewTerminals").click(function(event) {
+            	if (!$("#canViewTerminals").is(':checked')) {
+                	$("#canEditTerminals").attr('checked', false);
+                	$("#canRequestUpdate").attr('checked', false);
+                   	$("#canUseQueries").attr('checked', false);
+                	$("#canEditTerminals").prop('readonly', 'readonly');
+                	$("#canRequestUpdate").prop('readonly', 'readonly');
+                   	$("#canUseQueries").prop('readonly', 'readonly');
+            	} else {
+                	$("#canEditTerminals").prop('readonly', '');
+                	$("#canRequestUpdate").prop('readonly', '');
+                	$("#canUseQueries").prop('readonly', '');
+            	}
+	        });
+            <c:if test="${role.canViewTerminals != true}">
+           	$("#canEditTerminals").attr('checked', false);
+           	$("#canRequestUpdate").attr('checked', false);
+           	$("#canUseQueries").attr('checked', false);
+           	$("#canEditTerminals").prop('readonly', 'readonly');
+           	$("#canRequestUpdate").prop('readonly', 'readonly');
+           	$("#canUseQueries").prop('readonly', 'readonly');
+           	</c:if>
+            <c:if test="${duplicatedName == true}">
+           	$("#showRole").hide();
+           	$("#editForm").show();
+			</c:if>
+	    }
+    </script>

@@ -1,0 +1,1351 @@
+/* line 17, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1,
+.colorbox_box h2, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../sass/_forms.scss */
+.form {
+  padding-right: 4%;
+}
+/* line 3, ../sass/_forms.scss */
+.form .row {
+  padding: 0.5em 3em 0.5em 0;
+  margin: 0;
+}
+/* line 7, ../sass/_forms.scss */
+.form label {
+  clear: right;
+  font-size: 1.2em;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 14, ../sass/_forms.scss */
+.form input[type="text"], .form textarea {
+  width: 100%;
+}
+
+/* line 19, ../sass/_forms.scss */
+.botonera {
+  overflow: hidden;
+  clear: both;
+  margin: 1em 0;
+}
+/* line 23, ../sass/_forms.scss */
+.botonera .btn, .botonera .save,
+.botonera #main .action_box .save,
+#main .action_box .botonera .save, .botonera input[type="submit"], .botonera button {
+  float: right;
+  margin-right: 0;
+  margin-left: 1em;
+  overflow: hidden;
+}
+/* line 28, ../sass/_forms.scss */
+.botonera .btn span, .botonera .save span,
+.botonera #main .action_box .save span,
+#main .action_box .botonera .save span, .botonera input[type="submit"] span, .botonera button span {
+  position: absolute;
+  top: -3em;
+}
+/* line 33, ../sass/_forms.scss */
+.botonera input.btn, .botonera input.save,
+.botonera #main .action_box input.save,
+#main .action_box .botonera input.save {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 37, ../sass/_forms.scss */
+.botonera .request {
+  float: left;
+}
+
+/* line 41, ../sass/_forms.scss */
+.desplegable.button {
+  float: right;
+  margin-left: 1em;
+}
+/* line 44, ../sass/_forms.scss */
+.desplegable.button .txt {
+  width: auto;
+  min-width: 100px;
+  padding: 0.5em 1em;
+  padding-left: 2.5em;
+  background: url("../images/icons/icon_collapsible.png") no-repeat #b3b3b3 left bottom;
+  border: 2px solid #cccccc;
+  margin-left: 0;
+}
+/* line 52, ../sass/_forms.scss */
+.desplegable.button .txt:hover {
+  color: white;
+}
+/* line 55, ../sass/_forms.scss */
+.desplegable.button .txt.content_hide {
+  background: url("../images/icons/icon_collapsible.png") no-repeat gray left top;
+}
+/* line 59, ../sass/_forms.scss */
+.desplegable.button .txt.content_hide {
+  width: auto;
+}
+/* line 62, ../sass/_forms.scss */
+.desplegable.button .collapsible {
+  padding: 1em;
+  float: right;
+  clear: both;
+  margin-top: .5em;
+  background: white;
+  border: 1px solid #b3b3b3;
+}
+/* line 70, ../sass/_forms.scss */
+.desplegable.button .collapsible input[type="text"],
+.desplegable.button .collapsible textarea {
+  padding: 1%;
+  width: 98%;
+  font-size: 1em;
+}
+/* line 75, ../sass/_forms.scss */
+.desplegable.button .collapsible label {
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: bold;
+}
+
+/* line 83, ../sass/_forms.scss */
+.btn, .save,
+#main .action_box .save, input[type="submit"], input[type="reset"], button {
+  border: 2px solid #cccccc;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  color: white;
+  font-weight: normal;
+  font-size: 1em;
+  background: #6ca932;
+  float: left;
+  margin-right: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0.5em 1em;
+  display: block;
+  cursor: pointer;
+  width: auto;
+}
+/* line 99, ../sass/_forms.scss */
+.btn:hover, .save:hover,
+#main .action_box .save:hover, input[type="submit"]:hover, input[type="reset"]:hover, button:hover {
+  text-decoration: none;
+  background: white;
+  color: #6ca932;
+}
+/* line 104, ../sass/_forms.scss */
+.row .btn, .row .save,
+.row #main .action_box .save,
+#main .action_box .row .save, .row input[type="submit"], .row input[type="reset"], .row button {
+  float: none;
+  display: inline;
+  margin: 0;
+  margin-left: 1em;
+}
+/* line 110, ../sass/_forms.scss */
+.btn.cancel, .cancel.save,
+#main .action_box .cancel.save, input[type="submit"].cancel, input[type="reset"].cancel, button.cancel {
+  background: transparent;
+  color: #6ca932;
+  text-decoration: underline;
+  border: none;
+}
+/* line 115, ../sass/_forms.scss */
+.btn.cancel:hover, .cancel.save:hover,
+#main .action_box .cancel.save:hover, input[type="submit"].cancel:hover, input[type="reset"].cancel:hover, button.cancel:hover {
+  text-decoration: none;
+}
+/* line 119, ../sass/_forms.scss */
+.btn.delete, .delete.save,
+#main .action_box .delete.save, input[type="submit"].delete, input[type="reset"].delete, button.delete {
+  background: #e14f3c;
+  color: white;
+}
+/* line 122, ../sass/_forms.scss */
+.btn.delete:hover, .delete.save:hover,
+#main .action_box .delete.save:hover, input[type="submit"].delete:hover, input[type="reset"].delete:hover, button.delete:hover {
+  background: white;
+  color: #e14f3c;
+}
+/* line 127, ../sass/_forms.scss */
+.btn.left, .left.save,
+#main .action_box .left.save, input[type="submit"].left, input[type="reset"].left, button.left {
+  float: left;
+  margin-left: 0;
+  margin-right: 1em;
+}
+/* line 132, ../sass/_forms.scss */
+.btn.right, .right.save,
+#main .action_box .right.save, input[type="submit"].right, input[type="reset"].right, button.right {
+  float: right;
+  margin-left: 1em;
+  margin-right: 0;
+}
+
+/* line 138, ../sass/_forms.scss */
+a.btn, a.save,
+#main .action_box a.save {
+  padding-bottom: .6em;
+  padding-top: .6em;
+}
+
+/* line 142, ../sass/_forms.scss */
+.txt_btn {
+  margin-right: 0;
+  right: 1em;
+  top: 1em;
+}
+
+/* line 147, ../sass/_forms.scss */
+input, select, textarea, label {
+  font-size: 1em;
+  padding: 0.5em 1em;
+  vertical-align: middle;
+}
+
+/* line 152, ../sass/_forms.scss */
+textarea {
+  height: 5em;
+}
+
+/* line 155, ../sass/_forms.scss */
+input.num {
+  width: 2em;
+}
+
+/* line 158, ../sass/_forms.scss */
+select {
+  margin: 0.5em 1em;
+  padding: 0.5em 1em;
+  border: 1px solid #b3b3b3;
+}
+
+/* line 163, ../sass/_forms.scss */
+label {
+  display: block;
+  float: left;
+  text-align: right;
+  padding: .8em;
+}
+/* line 168, ../sass/_forms.scss */
+.colorbox_box label {
+  width: 25%;
+}
+
+/* line 172, ../sass/_forms.scss */
+input[type="checkbox"] {
+  margin: 0.8em 0;
+}
+
+/* line 175, ../sass/_forms.scss */
+.label {
+  margin: .8em;
+}
+
+/* line 178, ../sass/_forms.scss */
+.row {
+  margin: 1em 0;
+  padding: 1em 0;
+  overflow: hidden;
+}
+/* line 182, ../sass/_forms.scss */
+.row .left {
+  float: left;
+}
+/* line 185, ../sass/_forms.scss */
+.row .right {
+  float: right;
+}
+/* line 188, ../sass/_forms.scss */
+.colorbox_box .row input[type="text"], .row area {
+  width: 70%;
+}
+/* line 191, ../sass/_forms.scss */
+.row li {
+  float: left;
+  width: auto;
+  white-space: nowrap;
+}
+/* line 195, ../sass/_forms.scss */
+.row li label {
+  width: auto;
+}
+
+/* line 200, ../sass/_forms.scss */
+input:disabled {
+  background: #cccccc;
+  color: white;
+  border: 1px solid #b3b3b3;
+}
+/* line 204, ../sass/_forms.scss */
+input:disabled:hover {
+  background: #cccccc;
+  color: white;
+  border: 1px solid #b3b3b3;
+  cursor: inherit;
+}
+
+/* line 211, ../sass/_forms.scss */
+.graph_component {
+  overflow: hidden;
+}
+/* line 213, ../sass/_forms.scss */
+.graph_component label {
+  padding-top: 3em;
+  background-color: #e6e6e6;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  text-align: center;
+  margin: 1%;
+  width: 10%;
+  overflow: hidden;
+}
+/* line 222, ../sass/_forms.scss */
+.graph_component span {
+  display: none;
+  font-size: .8em;
+}
+
+/* line 227, ../sass/_forms.scss */
+.users_list {
+  margin: 1em 0;
+  overflow: hidden;
+}
+/* line 230, ../sass/_forms.scss */
+.users_list li {
+  float: left;
+  width: 33%;
+}
+
+/* line 235, ../sass/_forms.scss */
+.weekDay {
+  overflow: hidden;
+  display: block;
+  clear: both;
+}
+/* line 236, ../sass/_forms.scss */
+.weekDay li {
+  width: 33%;
+  margin: 0;
+  padding: 0;
+}
+/* line 244, ../sass/_forms.scss */
+.weekDay label {
+  float: none;
+}
+/* line 247, ../sass/_forms.scss */
+.weekDay input[type="radio"] {
+  float: left;
+  margin: 1em 0.5em;
+}
+
+/* line 253, ../sass/_forms.scss */
+#queryDate {
+  width: 6em;
+}
+
+/* line 1, ../sass/_icons.scss */
+.icons_bg {
+  display: none;
+  background: white;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #e6e6e6;
+  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
+  -moz-box-shadow: 0px 0px 8px #b3b3b3;
+  box-shadow: 0px 0px 8px #b3b3b3;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 73px;
+  height: 32px;
+  z-index: 1;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 15, ../sass/_icons.scss */
+.close {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  background: url("../images/icons/close.png") no-repeat;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: block;
+  z-index: 2;
+  cursor: pointer;
+}
+/* line 26, ../sass/_icons.scss */
+.close span {
+  position: absolute;
+  top: 2em;
+}
+/* line 30, ../sass/_icons.scss */
+.fc-event .close {
+  background: url("../images/icons/close_w.png") no-repeat;
+  top: 1px;
+  right: 1px;
+}
+
+/* line 36, ../sass/_icons.scss */
+.icons_menu {
+  position: absolute;
+  top: 8px;
+  right: 30px;
+  width: 35px;
+  height: 20px;
+  z-index: 2;
+}
+/* line 43, ../sass/_icons.scss */
+.icons_menu ul {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-top: 2em;
+}
+/* line 50, ../sass/_icons.scss */
+.icons_menu ul a {
+  display: block;
+  color: white;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #cccccc;
+  background: #6ca932;
+  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
+  -moz-box-shadow: 0px 0px 8px #b3b3b3;
+  box-shadow: 0px 0px 8px #b3b3b3;
+}
+/* line 57, ../sass/_icons.scss */
+.icons_menu ul a:hover {
+  text-decoration: none;
+  background: #b3b3b3;
+}
+/* line 62, ../sass/_icons.scss */
+.icons_menu ul li:last-child a {
+  border: none;
+}
+
+/* line 67, ../sass/_icons.scss */
+.icon16 {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+}
+/* line 74, ../sass/_icons.scss */
+.icon16 span {
+  position: absolute;
+  top: -40px;
+}
+/* line 78, ../sass/_icons.scss */
+.icon16.config {
+  background: url("../images/icons/icons.png") no-repeat 0 -20px;
+  cursor: pointer;
+}
+/* line 82, ../sass/_icons.scss */
+.icon16.config.content_hide {
+  background: url("../images/icons/icons.png") no-repeat 0 0;
+}
+/* line 84, ../sass/_icons.scss */
+.icon16.config.content_hide:hover {
+  background: url("../images/icons/icons.png") no-repeat 0 0;
+}
+
+/* line 89, ../sass/_icons.scss */
+.add {
+  background: url("../images/icons/icon_add.png") no-repeat left bottom #6ca932;
+  padding-left: 35px;
+  position: relative;
+}
+/* line 93, ../sass/_icons.scss */
+.add:hover, .link tr:hover .add {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  background: url("../images/icons/icon_add.png") no-repeat left top white;
+}
+/* line 97, ../sass/_icons.scss */
+td .add, th .add {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  background-color: #6ca932;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  float: right;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 105, ../sass/_icons.scss */
+td .add span, th .add span {
+  display: none;
+}
+/* line 109, ../sass/_icons.scss */
+.add th, th .add:hover, .link tr:hover th .add {
+  background: url("../images/icons/icon_add.png") no-repeat left bottom;
+}
+/* line 112, ../sass/_icons.scss */
+.link .open td .add {
+  background: url("../images/icons/icon_less.png") no-repeat left bottom;
+}
+/* line 114, ../sass/_icons.scss */
+.link .open td .add:hover {
+  background: url("../images/icons/icon_less.png") no-repeat left top white;
+}
+
+/* line 119, ../sass/_icons.scss */
+.less {
+  background-image: url("../images/icons/icon_next.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  padding-left: 35px;
+}
+/* line 124, ../sass/_icons.scss */
+.less:hover {
+  background-position: left top;
+  background-color: white;
+}
+
+/* line 130, ../sass/_icons.scss */
+.clock {
+  background: url("../images/icons/icon_clock.png") no-repeat left bottom #6ca932;
+  padding-left: 35px;
+}
+/* line 133, ../sass/_icons.scss */
+.clock:hover {
+  background: url("../images/icons/icon_clock.png") no-repeat left top white;
+}
+
+/* line 137, ../sass/_icons.scss */
+.next {
+  background: url("../images/icons/icon_next.png") no-repeat left bottom #6ca932;
+  padding-left: 35px;
+}
+/* line 140, ../sass/_icons.scss */
+.next:hover {
+  background: url("../images/icons/icon_next.png") no-repeat left top white;
+}
+
+/* line 145, ../sass/_icons.scss */
+.import {
+  background: url("../images/icons/icon_import.png") no-repeat left bottom #6ca932;
+  padding-left: 35px;
+}
+/* line 148, ../sass/_icons.scss */
+.import:hover {
+  background: url("../images/icons/icon_import.png") no-repeat left top white;
+}
+
+/* line 153, ../sass/_icons.scss */
+.back {
+  background: url("../images/icons/icon_back.png") no-repeat left top transparent;
+  padding-left: 35px;
+  border: none;
+  color: #6ca932;
+}
+/* line 158, ../sass/_icons.scss */
+.back:hover {
+  background: url("../images/icons/icon_back.png") no-repeat left top #f3f3f3;
+}
+
+/* line 162, ../sass/_icons.scss */
+.calendar {
+  background: url("../images/icons/icon_date.png") no-repeat bottom #6ca932;
+  width: 55px;
+  height: 30px;
+  overflow: hidden;
+}
+/* line 167, ../sass/_icons.scss */
+.calendar:hover {
+  background: url("../images/icons/icon_date.png") no-repeat top white;
+}
+/* line 170, ../sass/_icons.scss */
+.calendar span {
+  position: absolute;
+  top: -3em;
+}
+
+/* line 176, ../sass/_icons.scss */
+.save,
+#main .action_box .save {
+  background: url("../images/icons/icon_save.png") no-repeat left bottom #6ca932;
+  padding-left: 35px;
+}
+/* line 180, ../sass/_icons.scss */
+.save:hover,
+#main .action_box .save:hover {
+  background: url("../images/icons/icon_save.png") no-repeat left top white;
+}
+
+/* line 185, ../sass/_icons.scss */
+.play, input.play {
+  background: url("../images/icons/icon_play.png") no-repeat left bottom #6ca932;
+  padding-left: 35px;
+}
+/* line 188, ../sass/_icons.scss */
+.play:hover, input.play:hover {
+  background: url("../images/icons/icon_play.png") no-repeat left top white;
+}
+
+/* line 193, ../sass/_icons.scss */
+.info {
+  width: 25px;
+  height: 25px;
+  background: url("../images/icons/icon_info.png") no-repeat top left;
+  padding-left: 2em;
+  overflow: hidden;
+  position: relative;
+  display: inline;
+  cursor: pointer;
+  cursor: help;
+}
+/* line 203, ../sass/_icons.scss */
+.info:hover {
+  background: url("../images/icons/icon_info.png") no-repeat bottom left;
+}
+/* line 206, ../sass/_icons.scss */
+.info span {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+
+/* line 214, ../sass/_icons.scss */
+.icons_action {
+  position: absolute;
+  top: 0;
+  right: 0;
+  white-space: nowrap;
+}
+/* line 219, ../sass/_icons.scss */
+.icons_action .note, .icons_action .edit, .icons_action .delete {
+  background: url("../images/icons/icon_note.png") no-repeat;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  cursor: help;
+  margin-left: 2px;
+  float: left;
+}
+/* line 228, ../sass/_icons.scss */
+.icons_action .note span, .icons_action .edit span, .icons_action .delete span {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+/* line 235, ../sass/_icons.scss */
+.icons_action .note:hover, .icons_action .edit:hover, .icons_action .delete:hover {
+  background-position-y: -20px;
+}
+/* line 239, ../sass/_icons.scss */
+.icons_action .edit {
+  background-position: -40px 0;
+  cursor: pointer;
+}
+/* line 244, ../sass/_icons.scss */
+.icons_action .delete {
+  background-position: -20px 0;
+  cursor: pointer;
+}
+
+/* line 250, ../sass/_icons.scss */
+.download {
+  background: url("../images/icons/icon_download.png") no-repeat top left transparent;
+  border: none;
+  color: #6ca932;
+  padding-left: 35px;
+}
+/* line 255, ../sass/_icons.scss */
+.download:hover {
+  background: url("../images/icons/icon_download.png") no-repeat top left transparent;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* line 261, ../sass/_icons.scss */
+.update, .btn.update, .update.save,
+#main .action_box .update.save {
+  background: url("../images/icons/icon_update.png") no-repeat bottom left #6ca932;
+  padding-left: 35px;
+}
+/* line 264, ../sass/_icons.scss */
+.update:hover, .btn.update:hover, .update.save:hover,
+#main .action_box .update.save:hover {
+  background: url("../images/icons/icon_update.png") no-repeat top left white;
+}
+
+/* line 268, ../sass/_icons.scss */
+.edit {
+  display: inline;
+  width: 22px;
+  height: 22px;
+  background: url("../images/icons/icon_edit.png") no-repeat transparent;
+  overflow: hidden;
+  font-size: 20px;
+}
+/* line 275, ../sass/_icons.scss */
+.edit span {
+  visibility: hidden;
+}
+
+/* line 279, ../sass/_icons.scss */
+.zoom {
+  position: absolute;
+  bottom: .5em;
+  right: .5em;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  background: url("../images/icons/zoom.png") no-repeat;
+}
+
+/* line 289, ../sass/_icons.scss */
+.graph_01 {
+  background: url("../images/icons/icon_graph_01.png") no-repeat top;
+}
+
+/* line 292, ../sass/_icons.scss */
+.graph_02 {
+  background: url("../images/icons/icon_graph_02.png") no-repeat top;
+}
+
+/* line 295, ../sass/_icons.scss */
+.graph_03 {
+  background: url("../images/icons/icon_graph_03.png") no-repeat top;
+}
+
+/* line 298, ../sass/_icons.scss */
+.graph_04 {
+  background: url("../images/icons/icon_graph_04.png") no-repeat top;
+}
+
+/* line 301, ../sass/_icons.scss */
+.graph_05 {
+  background: url("../images/icons/icon_graph_05.png") no-repeat top;
+}
+
+/* line 304, ../sass/_icons.scss */
+.graph_component label.current {
+  background-color: #6ca932;
+}
+
+/* line 307, ../sass/_icons.scss */
+.columns_botonera {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 28px;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 316, ../sass/_icons.scss */
+.columns_botonera ul li {
+  float: left;
+  padding: 4px;
+}
+/* line 320, ../sass/_icons.scss */
+.columns_botonera ul a {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+/* line 326, ../sass/_icons.scss */
+.columns_botonera ul .column1 a {
+  background: url("../images/icons/icons_column.png") no-repeat 0 0;
+}
+/* line 329, ../sass/_icons.scss */
+.columns_botonera ul .column1.current a {
+  background-position: 0 -20px;
+}
+/* line 335, ../sass/_icons.scss */
+.columns_botonera ul .column2 a {
+  background: url("../images/icons/icons_column.png") no-repeat -20px 0;
+}
+/* line 338, ../sass/_icons.scss */
+.columns_botonera ul .column2.current a {
+  background-position: -20px -20px;
+}
+/* line 344, ../sass/_icons.scss */
+.columns_botonera ul .column3 a {
+  background: url("../images/icons/icons_column.png") no-repeat -40px 0;
+}
+/* line 347, ../sass/_icons.scss */
+.columns_botonera ul .column3.current a {
+  background-position: -40px -20px;
+}
+/* line 352, ../sass/_icons.scss */
+.columns_botonera ul .column4 a {
+  background: url("../images/icons/icons_column.png") no-repeat -60px 0;
+}
+/* line 355, ../sass/_icons.scss */
+.columns_botonera ul .column4.current a {
+  background-position: -60px -20px;
+}
+/* line 360, ../sass/_icons.scss */
+.columns_botonera ul .lista a {
+  background: url("../images/icons/icons_column.png") no-repeat -80px 0;
+}
+/* line 363, ../sass/_icons.scss */
+.columns_botonera ul .lista.current a {
+  background-position: -80px -20px;
+}
+/* line 368, ../sass/_icons.scss */
+.columns_botonera ul .calendario a {
+  background: url("../images/icons/icons_column.png") no-repeat -100px 0;
+}
+/* line 371, ../sass/_icons.scss */
+.columns_botonera ul .calendario.current a {
+  background-position: -100px -20px;
+}
+/* line 378, ../sass/_icons.scss */
+.columns_botonera span {
+  position: absolute;
+  top: 5em;
+}
+
+/* line 1, ../sass/_messages.scss */
+.notification {
+  background: #f0f6ea url("../images/icons/notification.png") no-repeat 1em;
+  border: 2px dotted #89ba5b;
+  padding: 1em 2em 1em 6em;
+  margin: 1em 0;
+  min-height: 2em;
+}
+/* line 2, ../sass/_messages.scss */
+.td .notification {
+  display: block;
+}
+/* line 10, ../sass/_messages.scss */
+.notification strong {
+  color: #6ca932;
+}
+
+/* line 14, ../sass/_messages.scss */
+.alert {
+  background: #fcedeb url("../images/icons/alert.png") no-repeat 1em;
+  border: 2px dotted #f3b9b1;
+  padding: 1em 2em 1em 6em;
+  margin: 1em 0;
+  min-height: 2em;
+}
+/* line 15, ../sass/_messages.scss */
+.td .alert {
+  display: block;
+}
+/* line 23, ../sass/_messages.scss */
+.alert strong {
+  color: #e14f3c;
+}
+
+/* line 27, ../sass/_messages.scss */
+.message, .no_queries {
+  background: #fbfad6 url("../images/icons/message.png") no-repeat 1em;
+  border: 2px dotted #ccbf9e;
+  padding: 1em 2em 1em 6em;
+  position: relative;
+  min-height: 2em;
+  margin: 1em 0;
+}
+/* line 34, ../sass/_messages.scss */
+.td .message, .td .no_queries {
+  display: block;
+}
+/* line 37, ../sass/_messages.scss */
+.message strong, .no_queries strong {
+  color: #f4a725;
+}
+/* line 40, ../sass/_messages.scss */
+.message.left:after, .left.no_queries:after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -32px;
+  border-width: 15px 30px 15px 0;
+  border-style: solid;
+  border-color: transparent #ccbf9e;
+  display: block;
+  width: 0;
+}
+
+/* line 52, ../sass/_messages.scss */
+.no_queries {
+  background: transparent url("../images/icons/message_24.png") no-repeat 1em;
+  border: none;
+  position: absolute;
+  margin: 0 180px 0 0;
+  padding: 1em;
+  padding-left: 3em;
+  font-size: 1.2em;
+  right: 0;
+  top: 40px;
+  text-align: right;
+}
+/* line 64, ../sass/_messages.scss */
+.no_queries .flecha {
+  background: url("../images/general/flecha.png") no-repeat;
+  width: 200px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -80px;
+}
+
+/* line 74, ../sass/_messages.scss */
+.error {
+  background: #e14f3c;
+  border: 1px dotted white;
+  color: white;
+  padding: 1em 2em;
+  margin: 1em 0;
+  position: relative;
+}
+/* line 75, ../sass/_messages.scss */
+.td .error {
+  display: block;
+}
+/* line 85, ../sass/_messages.scss */
+.error.top:after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 45%;
+  border-width: 0 15px 25px;
+  border-style: solid;
+  border-color: #e14f3c transparent;
+  display: block;
+  width: 0;
+}
+/* line 98, ../sass/_messages.scss */
+.error.bottom:after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 45%;
+  border-width: 25px 15px 0 15px;
+  border-style: solid;
+  border-color: #e14f3c transparent;
+  display: block;
+  width: 0;
+}
+
+/* line 1, ../sass/_table.scss */
+.margin-box {
+  overflow: auto;
+}
+
+/* line 4, ../sass/_table.scss */
+.table_buttons {
+  overflow: hidden;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: #f3f3f3;
+  border: 1px solid #e6e6e6;
+}
+/* line 9, ../sass/_table.scss */
+.table_buttons table {
+  border-right: none;
+  border-left: none;
+}
+/* line 12, ../sass/_table.scss */
+.table_buttons table td:first-child {
+  border-left: none;
+}
+/* line 16, ../sass/_table.scss */
+.table_buttons .botonera {
+  padding: 0;
+  margin: 0.5em 1em;
+}
+/* line 19, ../sass/_table.scss */
+.table_buttons .botonera label {
+  padding: 0.5em 1em 0;
+}
+
+/* line 24, ../sass/_table.scss */
+table {
+  width: 100%;
+  margin: 0.5em 0;
+  border: 1px solid #cccccc;
+}
+/* line 28, ../sass/_table.scss */
+table th {
+  background: #6ca932;
+  color: white;
+}
+/* line 31, ../sass/_table.scss */
+table th.order {
+  background: url("../images/icons/colunm_order.png") #6ca932 no-repeat right top;
+  padding-right: 2em;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+/* line 36, ../sass/_table.scss */
+table th.order.bottom {
+  background: url("../images/icons/colunm_order.png") #333333 no-repeat right -40px;
+}
+/* line 39, ../sass/_table.scss */
+table th.order.top {
+  background: url("../images/icons/colunm_order.png") #333333 no-repeat right -80px;
+}
+/* line 43, ../sass/_table.scss */
+table th a {
+  color: white;
+}
+/* line 45, ../sass/_table.scss */
+table th a:hover {
+  text-decoration: none;
+}
+/* line 50, ../sass/_table.scss */
+table th:last-child, table td:last-child {
+  border-right: none;
+}
+/* line 53, ../sass/_table.scss */
+table th, table td {
+  padding: .8em;
+  border: 1px solid #cccccc;
+  border-collapse: collapse;
+  vertical-align: top;
+}
+/* line 58, ../sass/_table.scss */
+table th.note_detail, table td.note_detail {
+  border-bottom: 2px solid #f4a725;
+  border-left: 2px solid #f4a725;
+  border-right: 2px solid #f4a725;
+  background: #f4a725;
+  float: none;
+  padding: 1em;
+}
+/* line 59, ../sass/_table.scss */
+table th.note_detail:hover, table td.note_detail:hover {
+  color: #333333;
+}
+/* line 68, ../sass/_table.scss */
+table th.note_detail div, table td.note_detail div {
+  position: relative;
+  background: white;
+  padding: 1em;
+  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
+  -moz-box-shadow: 0px 0px 8px #b3b3b3;
+  box-shadow: 0px 0px 8px #b3b3b3;
+}
+/* line 73, ../sass/_table.scss */
+table th.note_detail div:after, table td.note_detail div:after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 105px;
+  border-width: 0 15px 25px;
+  border-style: solid;
+  border-color: white transparent;
+  display: block;
+  width: 0;
+}
+/* line 85, ../sass/_table.scss */
+table th.note_detail div li, table td.note_detail div li {
+  border-bottom: 2px dotted #cccccc;
+  margin-bottom: 1em;
+}
+/* line 89, ../sass/_table.scss */
+table th.note_detail div li:last-child, table td.note_detail div li:last-child {
+  border: none;
+  margin-bottom: 0;
+}
+/* line 96, ../sass/_table.scss */
+table tr {
+  background: white;
+}
+/* line 98, ../sass/_table.scss */
+table tr:nth-child(2n+1) {
+  background: #e6e6e6;
+}
+/* line 101, ../sass/_table.scss */
+table tr.active {
+  background: #f4a725;
+  border-top: 2px solid #f4a725;
+  border-left: 2px solid #f4a725;
+  border-right: 2px solid #f4a725;
+}
+/* line 108, ../sass/_table.scss */
+table.query-form {
+  border: 1px solid white;
+  margin-bottom: 2em;
+}
+/* line 111, ../sass/_table.scss */
+table.query-form tr {
+  border: 1px solid white;
+  border-bottom: 2px dotted #e6e6e6;
+  background: white;
+}
+/* line 115, ../sass/_table.scss */
+table.query-form tr:hover {
+  cursor: inherit;
+  border: 1px solid white;
+  border-bottom: 2px dotted #e6e6e6;
+}
+/* line 120, ../sass/_table.scss */
+table.query-form tr:nth-child(2n+1) {
+  background: white;
+}
+/* line 124, ../sass/_table.scss */
+table.query-form td:first-child {
+  width: 30%;
+}
+/* line 127, ../sass/_table.scss */
+table.query-form td:nth-child(2) {
+  width: 3em;
+}
+/* line 130, ../sass/_table.scss */
+table.query-form th {
+  border: 1px solid white;
+  border-bottom: 2px solid #e6e6e6;
+  color: #6ca932;
+  background: #f0f6ea;
+}
+/* line 135, ../sass/_table.scss */
+table.query-form th:hover {
+  cursor: inherit;
+  border: 1px solid white;
+  border-bottom: 2px solid #e6e6e6;
+}
+/* line 141, ../sass/_table.scss */
+table.query-form td {
+  background: white;
+  border: 1px solid white;
+}
+/* line 144, ../sass/_table.scss */
+table.query-form td:hover {
+  background: white;
+  border: 1px solid white;
+}
+/* line 148, ../sass/_table.scss */
+table.query-form td.btn_add {
+  border: 1px solid white;
+}
+/* line 150, ../sass/_table.scss */
+table.query-form td.btn_add div {
+  position: relative;
+  overflow: hidden;
+}
+/* line 155, ../sass/_table.scss */
+table.query-form td.btn_add .btn, table.query-form td.btn_add .save,
+table.query-form td.btn_add #main .action_box .save,
+#main .action_box table.query-form td.btn_add .save {
+  float: right;
+}
+/* line 161, ../sass/_table.scss */
+table.link tr {
+  cursor: pointer;
+}
+/* line 163, ../sass/_table.scss */
+table.link tr:hover {
+  background: #f0f6ea;
+  color: #6ca932;
+}
+/* line 168, ../sass/_table.scss */
+table.link label {
+  cursor: pointer;
+}
+/* line 172, ../sass/_table.scss */
+table.link tr.showdetail.open, table.link tr.showdetail.open:hover {
+  background: #89ba5b;
+  color: white;
+}
+/* line 176, ../sass/_table.scss */
+table.link tr.detail, table.link tr.detail:hover {
+  background: #89ba5b;
+  color: black;
+}
+/* line 179, ../sass/_table.scss */
+table.link tr.detail div, table.link tr.detail:hover div {
+  position: relative;
+}
+/* line 182, ../sass/_table.scss */
+table.link tr.detail ul, table.link tr.detail:hover ul {
+  padding: 1%;
+  background: white;
+  -webkit-box-shadow: 0px 0px 8px #b3b3b3;
+  -moz-box-shadow: 0px 0px 8px #b3b3b3;
+  box-shadow: 0px 0px 8px #b3b3b3;
+  overflow: hidden;
+  cursor: inherit;
+}
+/* line 188, ../sass/_table.scss */
+table.link tr.detail ul li, table.link tr.detail:hover ul li {
+  float: left;
+  width: 32%;
+  margin-right: 1%;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #b3b3b3;
+}
+/* line 194, ../sass/_table.scss */
+table.link tr.detail ul li strong, table.link tr.detail:hover ul li strong {
+  width: 30%;
+  display: block;
+  float: left;
+  text-align: right;
+  margin-right: 1em;
+}
+/* line 202, ../sass/_table.scss */
+table.link tr.detail ul:before, table.link tr.detail:hover ul:before {
+  content: "";
+  font-size: 20em;
+  color: #ff0000;
+  position: absolute;
+  top: -20px;
+  left: 45px;
+  border-width: 0 15px 25px;
+  border-style: solid;
+  border-color: white transparent;
+  display: block;
+  width: 0;
+}
+
+/* line 9, ../sass/colorbox.scss */
+.colorbox_box {
+  background: white;
+  color: #333333;
+  font-family: Arial, Sans-Serif;
+  font-size: .8em;
+  padding: 2em;
+}
+/* line 15, ../sass/colorbox.scss */
+.colorbox_box h1, .colorbox_box h2 {
+  font-size: 2.2em;
+  color: #6ca932;
+  margin-bottom: 1em;
+  font-weight: normal;
+}
+/* line 21, ../sass/colorbox.scss */
+.colorbox_box h2 {
+  font-size: 2em;
+}
+/* line 25, ../sass/colorbox.scss */
+.colorbox_box p {
+  margin: 0.5em 0;
+  line-height: 1.5em;
+}
+/* line 29, ../sass/colorbox.scss */
+.colorbox_box a {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  color: #6ca932;
+  text-decoration: none;
+}
+/* line 34, ../sass/colorbox.scss */
+.colorbox_box .botonera {
+  border-top: 1px solid #b3b3b3;
+  padding: 1em 0 0 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+}
+/* line 42, ../sass/colorbox.scss */
+.colorbox_box .botonera ul {
+  margin-right: 2em;
+}
+/* line 45, ../sass/colorbox.scss */
+.colorbox_box .botonera li {
+  float: right;
+  margin-left: .5em;
+}
+/* line 48, ../sass/colorbox.scss */
+.colorbox_box .botonera li a {
+  margin: 0;
+}

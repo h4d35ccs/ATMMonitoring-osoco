@@ -33,38 +33,37 @@ public class HelpController extends GenericController {
      * @return the petition response
      */
     @RequestMapping(value = "/help", method = RequestMethod.GET)
-    public String showHelp(Map<String, Object> map, Principal principal,
-	    HttpServletRequest request) {
-	String userMsg = "";
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	}
-	map.put("userMsg", userMsg);
-	return "redirect:/help/user-main";
-    }
-
-    /**
-     * Show section help URL.
-     * 
-     * @param map
-     *            the map
-     * @param principal
-     *            the principal
-     * @param request
-     *            the request
-     * @return the petition response
-     */
-    @RequestMapping(value = "/help/{section}", method = RequestMethod.GET)
-    public String showDashboardHelp(@PathVariable("section") String section,
-	    Map<String, Object> map, Principal principal,
-	    HttpServletRequest request) {
-	String userMsg = "";
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	}
-	map.put("userMsg", userMsg);
-	map.put("section", section);
+    public String showHelp() {
+	// //String userMsg = "";
+	// if (principal != null) {
+	// //userMsg = this.getUserGreeting(principal, request);
+	// }
+	// //map.put("userMsg", userMsg);
 	return "helpTemplate";
     }
+
+    // /**
+    // * Show section help URL.
+    // *
+    // * @param map
+    // * the map
+    // * @param principal
+    // * the principal
+    // * @param request
+    // * the request
+    // * @return the petition response
+    // */
+    // @RequestMapping(value = "/help/{section}", method = RequestMethod.GET)
+    // public String showDashboardHelp(@PathVariable("section") String section,
+    // Map<String, Object> map, Principal principal,
+    // HttpServletRequest request) {
+    // //String userMsg = "";
+    // if (principal != null) {
+    // //userMsg = this.getUserGreeting(principal, request);
+    // }
+    // //map.put("userMsg", userMsg);
+    // map.put("section", section);
+    // return "helpTemplate";
+    // }
 
 }

@@ -2,13 +2,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ attribute name="pagedListHolder" required="true" type="org.springframework.beans.support.PagedListHolder" %>
 <%@ attribute name="pagedLink" required="true" type="java.lang.String" %>
+<%@ attribute name="tableSection" type="java.lang.String" %>
+
+<c:if test="${ empty tableSection}">
+	<c:set var="tableSection" value="#pagTable"/>
+</c:if>
 <c:if test="${pagedListHolder.pageCount > 1}">
 <c:if test="${!pagedListHolder.firstPage}">
-<span class="pagingItem"><a href="<%= StringUtils.replace(pagedLink, 
-   "~", String.valueOf(pagedListHolder.getPage()-1)) %>"><</a></span>
+<span class="pagingItem"><a onclick="loadInnerSection('${tableSection}','<%= StringUtils.replace(pagedLink, 
+   "~", String.valueOf(pagedListHolder.getPage()-1)) %> ${tableSection}')">&lt;</a></span>
 </c:if>
 <c:if test="${pagedListHolder.firstLinkedPage > 0}">
-<span class="pagingItem"><a href="<%= StringUtils.replace(pagedLink, "~", "0") %>">1</a></span>
+<span class="pagingItem"><a onclick="loadInnerSection('${tableSection}','<%= StringUtils.replace(pagedLink, "~", "0") %> ${tableSection}')">1</a></span>
 </c:if>
 <c:if test="${pagedListHolder.firstLinkedPage > 1}">
 <span class="pagingDots">...</span>
@@ -19,8 +24,8 @@
 <span class="pagingItemCurrent">${i+1}</span>
 </c:when>
 <c:otherwise>
-<span class="pagingItem"><a href="<%= StringUtils.replace(pagedLink, 
-   "~", String.valueOf(jspContext.getAttribute("i"))) %>">${i+1}</a></span>
+<span class="pagingItem"><a onclick="loadInnerSection('${tableSection}','<%= StringUtils.replace(pagedLink, 
+   "~", String.valueOf(jspContext.getAttribute("i"))) %> ${tableSection}')">${i+1}</a></span>
 </c:otherwise>
 </c:choose>
 </c:forEach>
@@ -28,11 +33,11 @@
 <span class="pagingDots">...</span>
 </c:if>
 <c:if test="${pagedListHolder.lastLinkedPage < pagedListHolder.pageCount - 1}">
-<span class="pagingItem"><a href="<%= StringUtils.replace(pagedLink, 
-   "~", String.valueOf(pagedListHolder.getPageCount()-1)) %>">${pagedListHolder.pageCount}</a></span>
+<span class="pagingItem"><a onclick="loadInnerSection('${tableSection}','<%= StringUtils.replace(pagedLink, 
+   "~", String.valueOf(pagedListHolder.getPageCount()-1)) %> ${tableSection}')">${pagedListHolder.pageCount}</a></span>
 </c:if>
 <c:if test="${!pagedListHolder.lastPage}">
-<span class="pagingItem"><a href="<%= StringUtils.replace(pagedLink, 
-   "~", String.valueOf(pagedListHolder.getPage()+1)) %>">></a></span>
+<span class="pagingItem"><a onclick="loadInnerSection('${tableSection}','<%= StringUtils.replace(pagedLink, 
+   "~", String.valueOf(pagedListHolder.getPage()+1)) %> ${tableSection}')">&gt;</a></span>
 </c:if>
 </c:if>

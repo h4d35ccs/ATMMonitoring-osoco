@@ -23,6 +23,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Type;
 
+import com.ncr.ATMMonitoring.pojo.annotation.ComboQueryOption;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.vendor.utils.FinancialDevicePojo;
@@ -92,78 +93,94 @@ public class FinancialDevice extends Auditable {
     private Set<JxfsComponent> jxfsComponents = new HashSet<JxfsComponent>();
 
     /** The device instance. */
+    @ComboQueryOption
     @Column(name = "device_instance")
     @Type(type = "text")
     private String deviceInstance;
 
     /** The device status. */
+    @ComboQueryOption
     @Column(name = "device_status")
     @Type(type = "text")
     private String deviceStatus;
 
     /** The hot swappable. */
+    @ComboQueryOption
     @Column(name = "hot_swappable")
     private Boolean hotSwappable;
 
     /** The removable. */
+    @ComboQueryOption
     @Column(name = "removable")
     private Boolean removable;
 
     /** The replaceable. */
+    @ComboQueryOption
     @Column(name = "replaceable")
     private Boolean replaceable;
 
     /** The pm status. */
+    @ComboQueryOption
     @Column(name = "pm_status")
     @Type(type = "text")
     private String pmStatus;
 
     /** The universal id. */
+    @ComboQueryOption
     @Column(name = "universal_id")
     @Type(type = "text")
     private String universalId;
 
     /** The model. */
+    @ComboQueryOption
     @Column(name = "model")
     @Type(type = "text")
     private String model;
 
     /** The variant. */
+    @ComboQueryOption
     @Column(name = "variant")
     @Type(type = "text")
     private String variant;
 
     /** The serial number. */
+    @ComboQueryOption
     @Column(name = "serial_number")
     @Type(type = "text")
     private String serialNumber;
 
     /** The name. */
+    @ComboQueryOption
     @Column(name = "name")
     @Type(type = "text")
     private String name;
 
     /** The caption. */
+    @ComboQueryOption
     @Column(name = "caption")
     @Type(type = "text")
     private String caption;
 
     /** The description. */
+    @ComboQueryOption
     @Column(name = "description")
     @Type(type = "text")
     private String description;
 
     /** The manufacturer. */
+    @ComboQueryOption
     @Column(name = "manufacturer")
     @Type(type = "text")
     private String manufacturer;
 
     /** The firmware version. */
+    @ComboQueryOption
     @Column(name = "firmware_version")
     @Type(type = "text")
     private String firmwareVersion;
 
     /** The version. */
+    @ComboQueryOption
     @Column(name = "version")
     @Type(type = "text")
     private String version;

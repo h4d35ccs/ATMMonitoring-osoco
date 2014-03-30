@@ -1,12 +1,5 @@
-<%@page contentType="text/html;charset=UTF-8" %>
-<%@page pageEncoding="UTF-8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
+<%@include file="../includes/JspImports.jsp"%>
 <%@taglib tagdir="/WEB-INF/tags/widget/" prefix="widget" %>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
-<t:osoco-wrapperWoMenu titleCode="label.terminalsManager" section="iframe">
-
 <div id="helpLayout">
 	<div class="contentFrame">
  		<span class="goHelp">
@@ -30,9 +23,7 @@
 			</p>
 		</div>
     </div>
-</div>	
-
-</t:osoco-wrapperWoMenu>
+</div>
 
    	      
       	  
