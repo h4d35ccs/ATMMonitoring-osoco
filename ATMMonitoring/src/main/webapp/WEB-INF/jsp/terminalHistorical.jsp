@@ -96,7 +96,7 @@
 								<a class="SoftwareAggregate" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',700,jQuery.browser.mobile)"><spring:message code="label.softwareAggregates"/></a>
 							</li>
 							<li>
-								<a class="Hotfix" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',700,jQuery.browser.mobile)"><spring:message code="label.hotfixes"/></a>
+								<a class="Hotfix" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',800,jQuery.browser.mobile)"><spring:message code="label.hotfixes"/></a>
 							</li>
 							<li>
 								<a class="AuditableInternetExplorer" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',700,jQuery.browser.mobile)"><spring:message code="label.browsers"/></a>
