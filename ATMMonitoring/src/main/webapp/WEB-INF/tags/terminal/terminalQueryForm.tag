@@ -8,7 +8,7 @@
 <div class="action_box">
 	<h2>
 		<spring:message code="label.queries"/>
-		<a href="#help_pop" class="info inline">
+		<a id="queryHelp" class="info inline cboxElement">
 			<span>
 				<spring:message code="label.moreInfo"/>
 			</span>

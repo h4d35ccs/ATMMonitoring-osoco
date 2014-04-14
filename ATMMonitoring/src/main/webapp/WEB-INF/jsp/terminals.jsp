@@ -83,8 +83,8 @@
 					</div>
 				</c:if>
 				<div class="hide">
-					<div id="help_pop" class="inline">
-						<c:import url="/resources/help/${localeCode}/terminals.html" />
+					<div id="help_pop" class="inline" style="width:800px;height: 500px">
+						
 					</div>
 				</div>
 			</div>
@@ -93,6 +93,10 @@
 		 function initPageJS() { 
 			defaultInitTabs();
 			terminalMap = new TerminalsMap();
-			terminalMap.initialize();   
+			terminalMap.initialize();
+			loadHelpHTML('terminals',"#help_pop",'#queries'); 
+			$("#queryHelp").click(function() {
+				$("#queryHelp").colorbox({inline:true, href:"#help_pop"});
+			});
 		 }
 </script>

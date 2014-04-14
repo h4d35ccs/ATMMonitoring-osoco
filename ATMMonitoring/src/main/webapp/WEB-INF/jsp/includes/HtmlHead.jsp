@@ -1,12 +1,9 @@
-        <meta charset="UTF-8" />
+<meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta http-equiv="Cache-Control" Content="public,max-age=31536000" />
         <base href="${base}"/>
-        <link rel="stylesheet" type="text/css" href="resources/css/ncr_screen.css">
-        <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.css"/>
-    	<link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.print.css" media="print"/>
-    	<link rel="stylesheet" type="text/css" href="resources/css/ncr_fullcalendar.css"/>
-         <script src="resources/js/jquery-1.8.3.min.js"></script>
+         <%@include file="cssImports.jsp" %>
+         <%@include file="jqueryImports.jsp" %>
 		<c:if test="${empty error}">
 			<script type="text/javascript">
 					$(window).load(function() {
@@ -21,22 +18,10 @@
 			}); 
 			</script>
 		</c:if>
-	    <script type='text/javascript' src="resources/js/jquery-ui.min.js"></script>
-	    <script type='text/javascript' src="resources/js/jquery.ui.touch-punch.min.js"></script>
-	    <script type='text/javascript' src='resources/js/jquery.colorbox-min.js'></script>
-	    <script type='text/javascript' src='resources/js/jquery.chromatable.js'></script>
-	    <script type='text/javascript' src='resources/js/jquery.collapsible.min.js'></script>
-	    <script type='text/javascript' src='resources/js/jquery.spin.js'></script>
-	    <script type='text/javascript' src='resources/js/jquery.blockUI.js'></script>
-	    <script type="text/javascript" src="resources/js/json2html.js"></script>
-		<script type="text/javascript" src="resources/js/jquery.json2html.js"></script>
         <script type='text/javascript' src="resources/js/windowLocationHenhancer.js"></script>
-        <script type='text/javascript' src="resources/js/menu.js"></script>
-        <script type='text/javascript' src='resources/js/jsapi.js'></script> 
         <script type="text/javascript" src="resources/js/fullcalendar.min.js"></script>
     	<script type="text/javascript" src="resources/js/scheduled.js"></script>
     	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-		<script src="resources/js/markerClusterer.js"></script>
 	 	<script type="text/javascript">
 	 	 	google.load('visualization', '1', {'packages': ['corechart', 'geochart', 'table']});   
 	 	 	var Timeline_urlPrefix = 'resources/timeline/api/';

@@ -1098,13 +1098,19 @@ public class TerminalController extends GenericController {
      * @return
      */
     @RequestMapping("/terminals/details/historical/{terminalId}")
-    public String showTerminalHistorical(
+    public String showTerminalHistoricaAndCharacteristics(
 	    @PathVariable("terminalId") Integer terminalId,
-	    Map<String, Object> map) {
+	    Map<String, Object> map, Long dateTime, String preselectedTab) {
+
 	Terminal terminal = this.atmservice.getATMById(terminalId);
 	Map<Class<? extends Auditable>, Map<Date, Integer>> historicalChanges = terminal
 		.buildHistoricalChanges();
+	Date date = dateTime == null ? null : new Date(dateTime);
+
 	map.put("historicalChanges", historicalChanges);
+	map.put("terminal", terminal);
+	map.put("date", date);
+	map.put("preselectedTab", preselectedTab);
 	return "terminalHistorical";
     }
 
@@ -1144,10 +1150,7 @@ public class TerminalController extends GenericController {
     @ResponseBody
     public String getTerminalImage(
 	    @PathVariable("terminalId") Integer terminalId) {
-	// final Map<String, String> response = new HashMap<String, String>();
-	// // final String imageNameKey = "imagename";
-	// // final String imageTypeKey = "imagetype";
-	// // final String imagekey = "imagebinary";
+	
 	String imagename = null;
 	String imageType = "nophoto";
 	byte[] imageBytes = null;
@@ -1162,7 +1165,7 @@ public class TerminalController extends GenericController {
 		    imagename = atm.getTerminalModel().getProductClass()
 			    + ".png";
 		    imageBytes = atm.getTerminalModel().getPhoto();
-		    // imageBase64 = Base64.encodeBase64String(ImageBytes);
+	
 
 		} else if (atm.getTerminalModel().getManufacturer() != null) {
 		    imageType = "manufacturer";

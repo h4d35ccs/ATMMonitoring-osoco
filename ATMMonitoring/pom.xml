@@ -53,12 +53,9 @@
     	</dependency>
         
         <dependency>
-                <groupId>ncr.ATMMonitoring.agent</groupId>
-                <artifactId>ATMAgent</artifactId>
-                <version>1.0</version>
-                <!-- Delete scope and system path when packaging app. Need to have jar installed on local maven repository -->
-                <scope>system</scope>
-                <systemPath>${project.basedir}/lib/InventoryAgentData.jar</systemPath>
+            <groupId>ncr.ATMMonitoring.agent</groupId>
+            <artifactId>ATMAgent</artifactId>
+            <version>1.0</version>
         </dependency>
 
 		<!-- Gson: Java to Json conversion -->
@@ -169,14 +166,13 @@
 		<!-- Support for testing Spring applications with tools such as JUnit and TestNG
     		This artifact is generally always defined with a 'test' scope for the
     		integration testing framework and unit testing stubs-->
-		<!--
+
 		<dependency>
     		<groupId>org.springframework</groupId>
     		<artifactId>spring-test</artifactId>
     		<version>${org.springframework.version}</version>
     		<scope>test</scope>
 		</dependency>
-		-->
 
 
 		<dependency>

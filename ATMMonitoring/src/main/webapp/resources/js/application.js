@@ -75,7 +75,10 @@ function loadInnerSection(elementID, url) {
 function loadInnerSectionMenu(link, elementID, url, segmentId) {
 
 	loadInnerSection(elementID, url);
-	changeURLmenu($(link).id);
+//	changeURLmenu($(link).attr('id'));
+	if($("#rButton").is(":visible")){
+		$("#rButton").click();
+	}
 
 }
 /**
@@ -177,14 +180,14 @@ function clock() {
 	if(loggedTimeMilisec != 0){
 		
 		loggedTime = new Date(loggedTimeMilisec);
-		console.log(loggedTime);
+		
 	}else{
 		
 		loggedTime = new Date();
 	}
 	 var now = new Date();
 	 var diff = now.getTime() - loggedTime.getTime(); 
-	 console.log(diff);
+	
 	 if(diff > 0){
 		diff = (diff/1000);
 	 }
@@ -305,9 +308,18 @@ function getParameterByName(name) {
 }
 
 function changeURLmenu(sectionName) {
-	// var params = { "section": sectionName};
-	// var str = $.param(params);
-	// alert(str);
+	var pageTitle ="";
+	var pageUrl ="";
+	var stateObject = {};
+	switch(sectionName){
+	 default:
+		 
+		pageUrl =sectionName.split("Menu")[0];
+	
+	
+	}
+	
+	history.pushState(stateObject, pageTitle, pageUrl);
 }
 
 function showLoad(loadClass) {
@@ -1086,16 +1098,29 @@ function deleteConfirmation(url, msg, elementID, msgDivId, notificationClass) {
  * Loads the inner content for the help section
  */
 function loadHelpContent(linkId, linkClass, section, elementID) {
-	var baseHelpUrl = "resources/help/";
-	var lang = getLangFromUrl();
 
-	baseHelpUrl += lang + "/";
 	$(linkId).closest('ul').find('.' + linkClass).removeClass(linkClass);
 	$(linkId).addClass(linkClass);
-	$(elementID).load(baseHelpUrl + section + ".html");
-
+	loadHelpHTML(section,elementID, '');
 }
-
+/**
+ * Gets the help html 
+ * @param section
+ * @param elementID
+ * @param anchor
+ */
+function loadHelpHTML(section,elementID, anchor){
+	var baseHelpUrl = "resources/help/";
+	var lang = getLangFromUrl();
+	baseHelpUrl += lang + "/";
+	
+	if(anchor!= ""){
+		anchor = " "+anchor;
+	}
+	
+	var urlToLoad = baseHelpUrl + section + ".html"+anchor;
+	$(elementID).load(urlToLoad);
+}
 /** ********************* my queries ************************** */
 /**
  * Submit the query form and adds a param to execute an especific action such as
