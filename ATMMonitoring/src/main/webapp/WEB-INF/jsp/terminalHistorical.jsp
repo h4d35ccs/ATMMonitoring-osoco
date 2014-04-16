@@ -36,9 +36,11 @@
     width:100%;
 }
 
-.myTable thead {
-    width:100%;
+.overflowy{
+	height: 400px;
+	overflow-y:auto;
 }
+
 
 </style>
 </head>
@@ -84,22 +86,22 @@
 							  <a class="Installation" href="${currentUrl}#features" onclick="parentResize(555);"><spring:message code="label.installations"/></a>
 							</li>
 							<li>
-								<a class="FinancialDevice" href="${currentUrl}#features" onclick="parentResize(1000)"><spring:message code="label.financialDevices"/></a>
+								<a class="FinancialDevice" href="${currentUrl}#features" onclick="parentResize(750)"><spring:message code="label.financialDevices"/></a>
 							</li>
 							<li>
-								<a class="HardwareDevice" href="${currentUrl}#features" onclick="parentResize(8000)"><spring:message code="label.hardwareDevices"/></a>
+								<a class="HardwareDevice" href="${currentUrl}#features" onclick="parentResize(750)"><spring:message code="label.hardwareDevices"/></a>
 							</li>
 							<li>
-								<a class="TerminalConfig" href="${currentUrl}#features" onclick="parentResize(555)"><spring:message code="label.software"/></a>
+								<a class="TerminalConfig" href="${currentUrl}#features" onclick="parentResize(750)"><spring:message code="label.software"/></a>
 							</li>
 							<li>
-								<a class="SoftwareAggregate" href="${currentUrl}#features" onclick="parentResize(700)"><spring:message code="label.softwareAggregates"/></a>
+								<a class="SoftwareAggregate" href="${currentUrl}#features" onclick="parentResize(750)"><spring:message code="label.softwareAggregates"/></a>
 							</li>
 							<li>
-								<a class="Hotfix" href="${currentUrl}#features" onclick="parentResize(800)"><spring:message code="label.hotfixes"/></a>
+								<a class="Hotfix" href="${currentUrl}#features" onclick="parentResize(750)"><spring:message code="label.hotfixes"/></a>
 							</li>
 							<li>
-								<a class="AuditableInternetExplorer" href="${currentUrl}#features" onclick="pparentResize(700)"><spring:message code="label.browsers"/></a>
+								<a class="AuditableInternetExplorer" href="${currentUrl}#features" onclick="pparentResize(750)"><spring:message code="label.browsers"/></a>
 							</li>
 						</ul>
 					</nav>
@@ -474,7 +476,7 @@
 							</div>
 						</c:if>
 						<c:if test="${!empty terminal.getActiveHardwareDevicesByDate(date)}">
-
+						 <div class="overflowy">
                           <div class="action_box data desplegable">
 
 							<div class="margin-box">
@@ -606,6 +608,7 @@
 						</div>
 
                         </div>
+                        </div>
 						</c:if>
 					</div>
 
@@ -617,9 +620,11 @@
 							</div>
 						</c:if>
 						<c:if  test="${!empty currentTerminalConfigActiveByDate}">
+                         <div class="overflowy">
                           <div class="action_box data desplegable">
 							<t:listSoftware config="${currentTerminalConfigActiveByDate}"/>
-                           </div> 
+                           </div>
+                           </div>
 						</c:if>
 
 					</div>
@@ -844,7 +849,7 @@ var Timeline_ajax_url= 'resources/timeline/ajax/simile-ajax-api.js';
 <script>
 
 	window.onload = function() { executeOnTimelineLoaded(loadTimeline); initTabs();  };
-
+	var tableTheadFloat = $('.floatThead');
 	var tl;
    
     function loadTimeline() {
@@ -1054,9 +1059,8 @@ var Timeline_ajax_url= 'resources/timeline/ajax/simile-ajax-api.js';
 
      $(document).ready(function(){
 
-    	 var $table = $('.floatThead');
-    	 $table.floatThead({
-    	     //debounceResizeMs: 300,
+    	/*  var $table = $('.floatThead'); */
+    	 tableTheadFloat.floatThead({
     	     scrollContainer: function ($table) {
     	         return $table.closest('.wrapperFloatThead');
     	     }
@@ -1087,7 +1091,7 @@ var Timeline_ajax_url= 'resources/timeline/ajax/simile-ajax-api.js';
 
   		var parentId ="historicalDetails"
   		parent.autoResize(parentId,iframeSize,jQuery.browser.mobile);
-  		/* tableTheadFloat.floatThead('reflow'); */
+  		tableTheadFloat.floatThead('reflow');
     	 
   	 }
 </script>
