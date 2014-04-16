@@ -479,131 +479,131 @@
 						 <div class="overflowy">
                           <div class="action_box data desplegable">
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveComputerSystemsByDate(date)}">
+							<c:if test="${!empty terminal.getActiveComputerSystemsByDate(date)}">
+								<div class="margin-box">
 									<t:computerSystemTable hardwareDevices="${terminal.getActiveComputerSystemsByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveProcessorsByDate(date)}">
+							<c:if test="${!empty terminal.getActiveProcessorsByDate(date)}">
+								<div class="margin-box">
 									<t:processorTable hardwareDevices="${terminal.getActiveProcessorsByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActivePhysicalMemoriesByDate(date)}">
+							<c:if test="${!empty terminal.getActivePhysicalMemoriesByDate(date)}">
+								<div class="margin-box">
 									<t:physicalMemoryTable hardwareDevices="${terminal.getActivePhysicalMemoriesByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveDiskDrivesByDate(date)}">
+							<c:if test="${!empty terminal.getActiveDiskDrivesByDate(date)}">
+								<div class="margin-box">
 									<t:diskDriveTable hardwareDevices="${terminal.getActiveDiskDrivesByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveLogicalDisksByDate(date)}">
+							<c:if test="${!empty terminal.getActiveLogicalDisksByDate(date)}">
+								<div class="margin-box">
 									<t:logicalDiskTable hardwareDevices="${terminal.getActiveLogicalDisksByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveBaseBoardsByDate(date)}">
+							<c:if test="${!empty terminal.getActiveBaseBoardsByDate(date)}">
+								<div class="margin-box">
 									<t:baseBoardTable hardwareDevices="${terminal.getActiveBaseBoardsByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveNetworkAdaptersByDate(date)}">
+							<c:if test="${!empty terminal.getActiveNetworkAdaptersByDate(date)}">
+								<div class="margin-box">
 									<t:networkAdapterTable hardwareDevices="${terminal.getActiveNetworkAdaptersByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveFloppyDrivesByDate(date)}">
+							<c:if test="${!empty terminal.getActiveFloppyDrivesByDate(date)}">
+								<div class="margin-box">
 									<t:floppyDriveTable hardwareDevices="${terminal.getActiveFloppyDrivesByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveCdromDrivesByDate(date)}">
+							<c:if test="${!empty terminal.getActiveCdromDrivesByDate(date)}">
+								<div class="margin-box">
 									<t:cdromDriveTable hardwareDevices="${terminal.getActiveCdromDrivesByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveSoundDevicesByDate(date)}">
+							<c:if test="${!empty terminal.getActiveSoundDevicesByDate(date)}">
+								<div class="margin-box">
 									<t:soundDeviceTable hardwareDevices="${terminal.getActiveSoundDevicesByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveUsbControllersByDate(date)}">
+							<c:if test="${!empty terminal.getActiveUsbControllersByDate(date)}">
+								<div class="margin-box">
 									<t:usbControllerTable hardwareDevices="${terminal.getActiveUsbControllersByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveSerialPortsByDate(date)}">
+							<c:if test="${!empty terminal.getActiveSerialPortsByDate(date)}">
+								<div class="margin-box">
 									<t:serialPortTable hardwareDevices="${terminal.getActiveSerialPortsByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveParallelPortsByDate(date)}">
+							<c:if test="${!empty terminal.getActiveParallelPortsByDate(date)}">
+								<div class="margin-box">
 									<t:parallelPortTable hardwareDevices="${terminal.getActiveParallelPortsByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveControllers1394ByDate(date)}">
+							<c:if test="${!empty terminal.getActiveControllers1394ByDate(date)}">
+								<div class="margin-box">
 									<t:1394ControllerTable hardwareDevices="${terminal.getActiveControllers1394ByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveScsiControllersByDate(date)}">
+							<c:if test="${!empty terminal.getActiveScsiControllersByDate(date)}">
+								<div class="margin-box">
 									<t:scsiControllerTable hardwareDevices="${terminal.getActiveScsiControllersByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveDesktopMonitorsByDate(date)}">
+							<c:if test="${!empty terminal.getActiveDesktopMonitorsByDate(date)}">
+								<div class="margin-box">
 									<t:desktopMonitorTable hardwareDevices="${terminal.getActiveDesktopMonitorsByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveKeyboardsByDate(date)}">
+							<c:if test="${!empty terminal.getActiveKeyboardsByDate(date)}">
+								<div class="margin-box">
 									<t:keyboardTable hardwareDevices="${terminal.getActiveKeyboardsByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActivePointingDevicesByDate(date)}">
+							<c:if test="${!empty terminal.getActivePointingDevicesByDate(date)}">
+								<div class="margin-box">
 									<t:pointingDeviceTable hardwareDevices="${terminal.getActivePointingDevicesByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveSystemSlotsByDate(date)}">
+							<c:if test="${!empty terminal.getActiveSystemSlotsByDate(date)}">
+								<div class="margin-box">
 									<t:systemSlotTable hardwareDevices="${terminal.getActiveSystemSlotsByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveBiosByDate(date)}">
+							<c:if test="${!empty terminal.getActiveBiosByDate(date)}">
+								<div class="margin-box">
 									<t:biosTable hardwareDevices="${terminal.getActiveBiosByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
-							<div class="margin-box">
-								<c:if test="${!empty terminal.getActiveVideoControllersByDate(date)}">
+							<c:if test="${!empty terminal.getActiveVideoControllersByDate(date)}">
+								<div class="margin-box">
 									<t:videoControllerTable hardwareDevices="${terminal.getActiveVideoControllersByDate(date)}"/>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
 
 						</div>
 

@@ -92,11 +92,13 @@
 <script type="text/javascript">
 		 function initPageJS() { 
 			defaultInitTabs();
+			<c:if test="${!empty terminalIdsByLocation }">
 			terminalMap = new TerminalsMap();
 			terminalMap.initialize();
+			</c:if>
 			loadHelpHTML('terminals',"#help_pop",'#queries'); 
 			$("#queryHelp").click(function() {
-				$("#queryHelp").colorbox({inline:true, href:"#help_pop"});
+				$("#queryHelp").colorbox({inline:true, href: "#help_pop"});
 			});
 		 }
 </script>
