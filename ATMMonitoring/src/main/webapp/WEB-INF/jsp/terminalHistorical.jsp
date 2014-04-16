@@ -81,25 +81,25 @@
 					<nav class="sub_nav">
 						<ul>
 							<li class="current">
-							  <a class="Installation" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',555,jQuery.browser.mobile);"><spring:message code="label.installations"/></a>
+							  <a class="Installation" href="${currentUrl}#features" onclick="parentResize(555);"><spring:message code="label.installations"/></a>
 							</li>
 							<li>
-								<a class="FinancialDevice" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',1000,jQuery.browser.mobile)"><spring:message code="label.financialDevices"/></a>
+								<a class="FinancialDevice" href="${currentUrl}#features" onclick="parentResize(1000)"><spring:message code="label.financialDevices"/></a>
 							</li>
 							<li>
-								<a class="HardwareDevice" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',8000,jQuery.browser.mobile)"><spring:message code="label.hardwareDevices"/></a>
+								<a class="HardwareDevice" href="${currentUrl}#features" onclick="parentResize(8000)"><spring:message code="label.hardwareDevices"/></a>
 							</li>
 							<li>
-								<a class="TerminalConfig" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',555,jQuery.browser.mobile)"><spring:message code="label.software"/></a>
+								<a class="TerminalConfig" href="${currentUrl}#features" onclick="parentResize(555)"><spring:message code="label.software"/></a>
 							</li>
 							<li>
-								<a class="SoftwareAggregate" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',700,jQuery.browser.mobile)"><spring:message code="label.softwareAggregates"/></a>
+								<a class="SoftwareAggregate" href="${currentUrl}#features" onclick="parentResize(700)"><spring:message code="label.softwareAggregates"/></a>
 							</li>
 							<li>
-								<a class="Hotfix" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',800,jQuery.browser.mobile)"><spring:message code="label.hotfixes"/></a>
+								<a class="Hotfix" href="${currentUrl}#features" onclick="parentResize(800)"><spring:message code="label.hotfixes"/></a>
 							</li>
 							<li>
-								<a class="AuditableInternetExplorer" href="${currentUrl}#features" onclick="parent.autoResize('historicalDetails',700,jQuery.browser.mobile)"><spring:message code="label.browsers"/></a>
+								<a class="AuditableInternetExplorer" href="${currentUrl}#features" onclick="pparentResize(700)"><spring:message code="label.browsers"/></a>
 							</li>
 						</ul>
 					</nav>
@@ -1082,6 +1082,14 @@ var Timeline_ajax_url= 'resources/timeline/ajax/simile-ajax-api.js';
 		  		$('li > a[href*=#].${preselectedTab}').click()	
 		   </c:if>
 		}
+
+	function parentResize(iframeSize){
+
+  		var parentId ="historicalDetails"
+  		parent.autoResize(parentId,iframeSize,jQuery.browser.mobile);
+  		/* tableTheadFloat.floatThead('reflow'); */
+    	 
+  	 }
 </script>
 </body>
 </html>
