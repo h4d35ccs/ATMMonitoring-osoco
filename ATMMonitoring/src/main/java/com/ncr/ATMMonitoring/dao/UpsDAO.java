@@ -39,7 +39,7 @@ public interface UpsDAO {
     public void updateUps(Ups ups);
 
     /**
-     * Returns all the ups from the DB
+     * Returns all the ups from the DB with the default ordering and sorting
      * 
      * @return a list with all the UPS stored
      */
@@ -76,5 +76,16 @@ public interface UpsDAO {
      *         found
      */
     public Ups getUpsBySerialNumberAndModel(String seriesNumber, String model);
+
+    /**
+     * Lists all UPS with a specific order and sorting.
+     * 
+     * @param sort
+     *            the sort
+     * @param order
+     *            the order
+     * @return the list
+     */
+    public List<Ups> listUps(String sort, String order);
 
 }

@@ -1150,7 +1150,10 @@ public class TerminalController extends GenericController {
     @ResponseBody
     public String getTerminalImage(
 	    @PathVariable("terminalId") Integer terminalId) {
-	
+	// final Map<String, String> response = new HashMap<String, String>();
+	// // final String imageNameKey = "imagename";
+	// // final String imageTypeKey = "imagetype";
+	// // final String imagekey = "imagebinary";
 	String imagename = null;
 	String imageType = "nophoto";
 	byte[] imageBytes = null;
@@ -1165,7 +1168,7 @@ public class TerminalController extends GenericController {
 		    imagename = atm.getTerminalModel().getProductClass()
 			    + ".png";
 		    imageBytes = atm.getTerminalModel().getPhoto();
-	
+		    // imageBase64 = Base64.encodeBase64String(ImageBytes);
 
 		} else if (atm.getTerminalModel().getManufacturer() != null) {
 		    imageType = "manufacturer";

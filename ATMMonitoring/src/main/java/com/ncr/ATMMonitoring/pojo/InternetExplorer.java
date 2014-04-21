@@ -94,6 +94,18 @@ public class InternetExplorer {
     }
 
     /**
+     * Instantiates a new agent internet explorer data with the current
+     * attributes.
+     * 
+     * @return the agent internet explorer data
+     */
+    public IExplorerPojo getInventoryPojo() {
+	IExplorerPojo pojo = new IExplorerPojo();
+	pojo.setVersion(getVersion());
+	return pojo;
+    }
+
+    /**
      * Gets the comboboxes data for the query GUI.
      * 
      * @return the comboboxes data

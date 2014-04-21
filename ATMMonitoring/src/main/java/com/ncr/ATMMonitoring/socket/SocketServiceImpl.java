@@ -70,6 +70,14 @@ public class SocketServiceImpl implements SocketService {
     @Value("${config.agentPushState}")
     private String agentPushState;
 
+    /** The push server IP. */
+    @Value("${config.pushServerIp}")
+    private String pushServerIp;
+
+    /** The push server port. */
+    @Value("${config.pushServerPort}")
+    private String pushServerPort;
+
     /** The socket listener. */
     @Autowired
     private SocketListener socketListener;
@@ -211,12 +219,15 @@ public class SocketServiceImpl implements SocketService {
 	logger.debug("ATMDataStore received: " + data.toString());
 	// logger.debug("Resulting Json: " + data.toJson());
 	Terminal terminal = terminalService.persistDataStoreTerminal(data);
+	Long newMatricula = null;
 	if ((data.getMatricula() == null)
 		|| (data.getMatricula().length() == 0)) {
 	    // La matrícula es nueva, la devolvemos
-	    return terminal.getMatricula();
+	    newMatricula = terminal.getMatricula();
+	    data.setMatricula(newMatricula.toString());
 	}
-	return null;
+	sendDataToPushServer(data);
+	return newMatricula;
     }
 
     /*
@@ -276,6 +287,32 @@ public class SocketServiceImpl implements SocketService {
 	}
 	if (added) {
 	    this.queueHandler.save();
+	}
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.socket.SocketService#sendDataToPushServer(com.ncr
+     * .agent.baseData.ATMDataStorePojo)
+     */
+    @Override
+    public void sendDataToPushServer(ATMDataStorePojo data) {
+	if ((pushServerIp != null) && (pushServerIp != "")
+		&& (pushServerPort != null) && (pushServerPort != "")) {
+	    int port;
+	    try {
+		port = Integer.parseInt(pushServerPort);
+	    } catch (NumberFormatException e) {
+		logger.error("Invalid push server port number '"
+			+ pushServerPort + "'");
+		return;
+	    }
+	    PushThread thread = new PushThread(pushServerIp, port, timeOut,
+		    hashSeed, data);
+	    thread.start();
+	    logger.debug("Starting thread for pushing data to push server...");
 	}
     }
 }

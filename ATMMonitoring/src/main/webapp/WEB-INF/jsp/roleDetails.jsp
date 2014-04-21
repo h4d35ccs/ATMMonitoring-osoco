@@ -91,6 +91,31 @@
 											<form:checkbox id="canUseQueries" class='form-tf-grey' path="canUseQueries" style="margin: 0;"/><br>
 										</li>
 										<li style="width: 100%;">
+											<h4>
+								 				<form:label path="canViewUps" style="padding: 0.1em 1em 0.1em 0.1em;">
+													<spring:message code="label.role.canViewUps"/>
+												</form:label>
+											</h4>
+
+											<form:checkbox id="canViewUps" class='form-tf-grey' path="canViewUps" style="margin: 0;"/><br>
+				
+								 			<h5>
+								 				<form:label path="canEditUps" style="padding: 0.1em 1em 0.1em 3.0em;">
+													<spring:message code="label.role.canEditUps"/>
+												</form:label>
+											</h5>
+
+											<form:checkbox id="canEditUps" class='form-tf-grey' path="canEditUps" style="margin: 0;"/><br>
+				
+								 			<h5>
+								 				<form:label path="canUseUpsQueries" style="padding: 0.1em 1em 0.1em 3.0em;">
+													<spring:message code="label.role.canUseUpsQueries"/>
+												</form:label>
+											</h5>
+
+											<form:checkbox id="canUseUpsQueries" class='form-tf-grey' path="canUseUpsQueries" style="margin: 0;"/><br>
+										</li>
+										<li style="width: 100%;">
 								 			<h4>
 								 				<form:label path="canSchedule" style="padding: 0.1em 1em 0.1em 0.1em;">
 													<spring:message code="label.role.canSchedule"/>
@@ -107,6 +132,15 @@
 											</h4>
 
 											<form:checkbox id="canAccessReports" class='form-tf-grey' path="canAccessReports" style="margin: 0;"/><br>
+										</li>
+										<li style="width: 100%;">
+								 			<h4>
+								 				<form:label path="canEditWidgetsLibrary" style="padding: 0.1em 1em 0.1em 0.1em;">
+													<spring:message code="label.role.canEditWidgetsLibrary"/>
+												</form:label>
+											</h4>
+
+											<form:checkbox id="canEditWidgetsLibrary" class='form-tf-grey' path="canEditWidgetsLibrary" style="margin: 0;"/><br>
 										</li>
 									</ul>
 								<div class="botonera">
@@ -171,6 +205,31 @@
 											</c:if>
 										</li>
 										<li style="width: 100%;">
+											<c:if test="${role.canViewUps == true}">
+								 				<h4>
+													<label style="padding: 0.1em 1em 0.1em 0.1em;">
+														<spring:message code="label.role.canViewUps"/>
+													</label>
+												</h4><br>
+											</c:if>
+
+											<c:if test="${role.canEditUps == true}">
+												<h5>
+													<label style="padding: 0.1em 1em 0.1em 3em;">
+														<spring:message code="label.role.canEditUps"/>
+													</label>
+												</h5><br>
+											</c:if>
+
+											<c:if test="${role.canUseUpsQueries == true}">
+												<h5>
+													<label style="padding: 0.1em 1em 0.1em 3em;">
+														<spring:message code="label.role.canUseUpsQueries"/>
+													</label>
+												</h5><br>
+											</c:if>
+										</li>
+										<li style="width: 100%;">
 								 			<c:if test="${role.canSchedule == true}">
 								 				<h4>
 													<label style="padding: 0.1em 1em 0.1em 0.1em;">
@@ -225,6 +284,17 @@ function initPageJS() {
                 	$("#canUseQueries").prop('readonly', '');
             	}
 	        });
+            $("#canViewUps").click(function(event) {
+            	if (!$("#canViewUps").is(':checked')) {
+                   	$("#canEditUps").attr('checked', false);
+                   	$("#canUseUpsQueries").attr('checked', false);
+                   	$("#canEditUps").prop('readonly', 'readonly');
+                   	$("#canUseUpsQueries").prop('readonly', 'readonly');
+            	} else {
+                	$("#canEditUps").prop('readonly', '');
+                	$("#canUseUpsQueries").prop('readonly', '');
+            	}
+	        });
             <c:if test="${role.canViewTerminals != true}">
            	$("#canEditTerminals").attr('checked', false);
            	$("#canRequestUpdate").attr('checked', false);
@@ -232,6 +302,12 @@ function initPageJS() {
            	$("#canEditTerminals").prop('readonly', 'readonly');
            	$("#canRequestUpdate").prop('readonly', 'readonly');
            	$("#canUseQueries").prop('readonly', 'readonly');
+           	</c:if>
+            <c:if test="${role.canViewUps != true}">
+           	$("#canEditUps").attr('checked', false);
+           	$("#canUseUpsQueries").attr('checked', false);
+           	$("#canEditUps").prop('readonly', 'readonly');
+           	$("#canUseUpsQueries").prop('readonly', 'readonly');
            	</c:if>
             <c:if test="${duplicatedName == true}">
            	$("#showRole").hide();

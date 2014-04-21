@@ -95,6 +95,21 @@ public class SoftwareAggregate {
     }
 
     /**
+     * Instantiates a new agent software aggregate data with the current
+     * attributes.
+     * 
+     * @return the agent software aggregate data
+     */
+    public FinancialPackagePojo getInventoryPojo() {
+	FinancialPackagePojo pojo = new FinancialPackagePojo();
+	pojo.setVersion(getVersion());
+	pojo.setProfile(profile);
+	pojo.setDescription(description);
+	pojo.setName(name);
+	return pojo;
+    }
+
+    /**
      * Gets the id.
      * 
      * @return the id

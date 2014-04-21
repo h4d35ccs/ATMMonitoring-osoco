@@ -1646,6 +1646,12 @@ div.loading {
   float: right;
   width: 75%;
 }
+
+#main .action_box.data .ul_data.only_data {
+  width: 100%;
+  float: left;
+}
+
 /* line 113, ../sass/_action_box.scss */
 #main .action_box.data .ul_data > ul, #cboxContent .action_box.data .ul_data > ul, #main .data.pagination .ul_data > ul, #cboxContent .data.pagination .ul_data > ul {
   overflow: hidden;
@@ -1682,6 +1688,7 @@ div.loading {
 #main .action_box.data .ul_data.editable input[type="text"].num, #cboxContent .action_box.data .ul_data.editable input[type="text"].num, #main .data.pagination .ul_data.editable input[type="text"].num, #cboxContent .data.pagination .ul_data.editable input[type="text"].num {
   width: 2em;
 }
+
 /* line 144, ../sass/_action_box.scss */
 #main .action_box.data .ul_data .ul_data, #cboxContent .action_box.data .ul_data .ul_data, #main .data.pagination .ul_data .ul_data, #cboxContent .data.pagination .ul_data .ul_data {
   width: auto;
@@ -2397,6 +2404,10 @@ nav#main_nav .dashboard a {
 }
 /* line 18, ../sass/_nav.scss */
 nav#main_nav .terminals a {
+  background: url("../images/icons/icons_main_left.png") no-repeat -90px 0 transparent;
+}
+/* line 18, ../sass/_nav.scss */
+nav#main_nav .ups a {
   background: url("../images/icons/icons_main_left.png") no-repeat -90px 0 transparent;
 }
 /* line 21, ../sass/_nav.scss */

@@ -154,6 +154,23 @@ public class Hotfix extends Auditable {
     }
 
     /**
+     * Instantiates a new agent hotfix data with the current attributes.
+     * 
+     * @return the agent hotfix data
+     */
+    public HotfixPojo getInventoryPojo() {
+	HotfixPojo pojo = new HotfixPojo();
+	pojo.setDescription(description);
+	pojo.setFixComments(fixComments);
+	pojo.setHotfixID(hotfixId);
+	if (startDate != null) {
+	    pojo.setInstalledOn(new SimpleDateFormat("dd/MM/yyyy")
+		    .format(startDate));
+	}
+	return pojo;
+    }
+
+    /**
      * Gets the comboboxes data for the query GUI.
      * 
      * @return the comboboxes data

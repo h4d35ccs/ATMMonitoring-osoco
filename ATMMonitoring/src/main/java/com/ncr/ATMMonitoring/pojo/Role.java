@@ -15,7 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -75,6 +74,18 @@ public class Role implements Serializable {
     @Column(name = "can_access_reports", columnDefinition = "boolean default false")
     private Boolean canAccessReports = false;
 
+    /** The flag that tells us whether the users can edit UPS data. */
+    @Column(name = "can_edit_ups", columnDefinition = "boolean default false")
+    private Boolean canEditUps = false;
+
+    /** The flag that tells us whether the users can view UPS data. */
+    @Column(name = "can_view_ups", columnDefinition = "boolean default false")
+    private Boolean canViewUps = false;
+
+    /** The flag that tells us whether the users can use UPS queries. */
+    @Column(name = "can_use_ups_queries", columnDefinition = "boolean default false")
+    private Boolean canUseUpsQueries = false;
+
     /** The flag that tells us whether the users are user managers. */
     @Column(name = "user_manager", columnDefinition = "boolean default false")
     private Boolean userManager = false;
@@ -86,13 +97,25 @@ public class Role implements Serializable {
     @Column(name = "can_edit_widgets_library", columnDefinition = "boolean default false")
     private Boolean canEditWidgetsLibrary = false;
 
+    /** The users assigned to this role. */
     @OneToMany(mappedBy = "role")
     private Set<User> users;
 
+    /**
+     * Gets all the users who currently have this role.
+     * 
+     * @return the users
+     */
     public Set<User> getUsers() {
 	return users;
     }
 
+    /**
+     * Sets the users who currently have this role.
+     * 
+     * @param users
+     *            the set of users to set
+     */
     public void setUsers(Set<User> users) {
 	this.users = users;
     }
@@ -307,6 +330,82 @@ public class Role implements Serializable {
     }
 
     /**
+     * Gets the UPS edition flag.
+     * 
+     * @return the UPS edition flag
+     */
+    public Boolean getCanEditUps() {
+	return canEditUps;
+    }
+
+    /**
+     * Sets the UPS edition flag.
+     * 
+     * @param canEditUps
+     *            the UPS edition flag
+     */
+    public void setCanEditUps(Boolean canEditUps) {
+	this.canEditUps = canEditUps;
+    }
+
+    /**
+     * Gets the UPS data access flag.
+     * 
+     * @return the UPS data access flag
+     */
+    public Boolean getCanViewUps() {
+	return canViewUps;
+    }
+
+    /**
+     * Sets the UPS data access flag.
+     * 
+     * @param canViewUps
+     *            the UPS data access flag
+     */
+    public void setCanViewUps(Boolean canViewUps) {
+	this.canViewUps = canViewUps;
+    }
+
+    /**
+     * Gets the UPS queries usage flag.
+     * 
+     * @return the UPS queries usage flag
+     */
+    public Boolean getCanUseUpsQueries() {
+	return canUseUpsQueries;
+    }
+
+    /**
+     * Sets the UPS queries usage flag.
+     * 
+     * @param canUseUpsQueries
+     *            the UPS queries usage flag to set
+     */
+    public void setCanUseUpsQueries(Boolean canUseUpsQueries) {
+	this.canUseUpsQueries = canUseUpsQueries;
+    }
+
+    /**
+     * Gets the widget library edition flag.
+     * 
+     * @return the widget library edition flag
+     */
+    public Boolean getCanEditWidgetsLibrary() {
+	return canEditWidgetsLibrary;
+    }
+
+    /**
+     * Sets the widget library edition flag.
+     * 
+     * @param canEditWidgetsLibrary
+     *            the widget library edition flag to set
+     */
+    public void setCanEditWidgetsLibrary(Boolean canEditWidgetsLibrary) {
+	this.canEditWidgetsLibrary = canEditWidgetsLibrary;
+    }
+
+    /**
      * Returns the granted authorities for this role.
      * 
      * @return the list of granted authorities
@@ -342,6 +441,15 @@ public class Role implements Serializable {
 	}
 	if ((canEditWidgetsLibrary != null) && canEditWidgetsLibrary) {
 	    authList.add(new SimpleGrantedAuthority("CAN_EDIT_WIDGETS_LIBRARY"));
+	}
+	if ((canViewUps != null) && canViewUps) {
+	    authList.add(new SimpleGrantedAuthority("CAN_VIEW_UPS"));
+	}
+	if ((canEditUps != null) && canEditUps) {
+	    authList.add(new SimpleGrantedAuthority("CAN_EDIT_UPS"));
+	}
+	if ((canUseUpsQueries != null) && canUseUpsQueries) {
+	    authList.add(new SimpleGrantedAuthority("CAN_USE_UPS_QUERIES"));
 	}
 
 	return authList;

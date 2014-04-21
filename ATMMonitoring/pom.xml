@@ -25,6 +25,10 @@
             <name>SpringSource Milestone Releases</name>
             <url>http://maven.springframework.org/milestone</url>
         </repository>
+        <repository>
+			<id>local-repo</id>
+			<url>file://${project.basedir}/lib</url>
+		</repository>
 	</repositories>
 
  	<properties>
@@ -53,9 +57,12 @@
     	</dependency>
         
         <dependency>
-            <groupId>ncr.ATMMonitoring.agent</groupId>
-            <artifactId>ATMAgent</artifactId>
-            <version>1.0</version>
+                <groupId>ncr.ATMMonitoring.agent</groupId>
+                <artifactId>ATMAgent</artifactId>
+                <version>1.0</version>
+                <!-- Delete scope and system path when packaging app. Need to have jar installed on local maven repository -->
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/InventoryAgentData.jar</systemPath>
         </dependency>
 
 		<!-- Gson: Java to Json conversion -->
@@ -166,13 +173,14 @@
 		<!-- Support for testing Spring applications with tools such as JUnit and TestNG
     		This artifact is generally always defined with a 'test' scope for the
     		integration testing framework and unit testing stubs-->
-
+		<!--
 		<dependency>
     		<groupId>org.springframework</groupId>
     		<artifactId>spring-test</artifactId>
     		<version>${org.springframework.version}</version>
     		<scope>test</scope>
 		</dependency>
+		-->
 
 
 		<dependency>

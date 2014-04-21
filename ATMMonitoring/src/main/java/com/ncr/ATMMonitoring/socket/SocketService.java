@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
+import com.ncr.agent.baseData.ATMDataStorePojo;
 
 /**
  * The Interface SocketService.
@@ -90,4 +91,14 @@ public interface SocketService {
      * @return String
      */
     public String getIpToProcess();
+
+    /**
+     * Send terminal data as json to another server by push method. Destination
+     * server must be configured as push and its IP and port must be properly
+     * configured in local config file.
+     * 
+     * @param data
+     *            the inventory pojo to convert to json and send
+     */
+    public void sendDataToPushServer(ATMDataStorePojo data);
 }

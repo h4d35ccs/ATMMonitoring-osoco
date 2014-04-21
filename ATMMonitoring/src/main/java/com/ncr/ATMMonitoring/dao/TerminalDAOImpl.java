@@ -117,6 +117,13 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
 	return listTerminalsByBankCompanies(banks, "serialNumber", "asc", null);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.TerminalDAO#listTerminalsByIdsAndBankCompanies
+     * (java .util.List, java.util.Set)
+     */
     public List<Terminal> listTerminalsByIdsAndBankCompanies(
 	    List<Integer> terminalIds, Set<BankCompany> banks) {
 	return listTerminalsByBankCompanies(banks, "serialNumber", "asc",
@@ -128,7 +135,7 @@ public class TerminalDAOImpl extends AbstractGenericDAO<Terminal> implements
      * 
      * @see
      * com.ncr.ATMMonitoring.dao.TerminalDAO#listTerminalsByBankCompanies(java
-     * .util.Set, java.lang.String, java.lang.String)
+     * .util.Set, java.lang.String, java.lang.String, java.util.List)
      */
     @Override
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> banks,

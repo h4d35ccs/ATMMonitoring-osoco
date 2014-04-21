@@ -98,6 +98,7 @@ public class XfsComponent {
 	comboboxes.put("defaultFrontscanColor", stringOperations);
 	comboboxes.put("deptransport", boolOperations);
 	comboboxes.put("derivationAlgorithms", stringOperations);
+	comboboxes.put("deviceName", stringOperations);
 	comboboxes.put("isPrepareDispense", stringOperations);
 	comboboxes.put("dipMode", stringOperations);
 	comboboxes.put("dispenseTo", stringOperations);
@@ -264,6 +265,10 @@ public class XfsComponent {
     @ComboQueryOption
     @Column(name = "xfs_class", length = 50, nullable = false)
     private String xfsClass;
+
+    /** The device name. */
+    @Column(name = "device_name")
+    private String deviceName;
 
     /** The accept media. */
     @ComboQueryOption
@@ -1118,6 +1123,7 @@ public class XfsComponent {
 	logical = xfs.getLogical();
 	provider = xfs.getProvider();
 	programaticallyDeactivate = xfs.isProgramaticallydeactivate();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1136,6 +1142,7 @@ public class XfsComponent {
 	symbologies = xfs.getSymbologies();
 	canFilterSymbologies = xfs.isCanfiltersymbologies();
 	powerSaveControl = xfs.isPowersavecontrol();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1155,6 +1162,7 @@ public class XfsComponent {
 	maxPictures = xfs.getMaxpictures();
 	provider = xfs.getProvider();
 	type = xfs.getType();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1180,6 +1188,7 @@ public class XfsComponent {
 	outputPositions = xfs.getOutputpositions();
 	positions = xfs.getPositions();
 	provider = xfs.getProvider();
+	retract = xfs.isRetract();
 	retractAreas = xfs.getRetractareas();
 	retractStackerActions = xfs.getRetractstackeractions();
 	retractTransportActions = xfs.getRetracttransportactions();
@@ -1198,6 +1207,7 @@ public class XfsComponent {
 	hasShutter = xfs.isShutter();
 	shutterControl = xfs.isShuttercontrol();
 	vandalCheck = xfs.isVandalcheck();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1218,6 +1228,7 @@ public class XfsComponent {
 	magneticstriperead = xfs.isMagneticstriperead();
 	magneticstripewrite = xfs.isMagneticstripewrite();
 	powerSaveControl = xfs.isPowersavecontrol();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1246,6 +1257,7 @@ public class XfsComponent {
 	micr = xfs.isMicr();
 	ocr = xfs.isOcr();
 	powerSaveControl = xfs.isPowersavecontrol();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1279,6 +1291,7 @@ public class XfsComponent {
 	isItemsTakenSensor = xfs.isItemstakensensor();
 	hasShutter = xfs.isShutter();
 	shutterControl = xfs.isShuttercontrol();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1299,6 +1312,7 @@ public class XfsComponent {
 	isCardTakenSensor = xfs.isCardtakensensor();
 	compound = xfs.isCompound();
 	powerSaveControl = xfs.isPowersavecontrol();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1325,6 +1339,7 @@ public class XfsComponent {
 	retractToDeposit = xfs.isRetracttodeposit();
 	hasShutter = xfs.isShutter();
 	toner = xfs.isToner();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1352,6 +1367,8 @@ public class XfsComponent {
 	type = xfs.getType();
 	writeMode = xfs.getWritemode();
 	writeTracks = xfs.getWritetracks();
+	deviceName = xfs.getDevicename();
+	powerSaveControl = xfs.isPowersavecontrol();
     }
 
     /**
@@ -1389,6 +1406,7 @@ public class XfsComponent {
 	isRescan = xfs.isRescan();
 	isRetractCountsItems = xfs.isRetractcountsitems();
 	isStamp = xfs.isStamp();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1432,6 +1450,7 @@ public class XfsComponent {
 	isPinCanPersistAfterUse = xfs.isPincanpersistafteruse();
 	isSetPinBlockDataRequired = xfs.isSetpinblockdatarequired();
 	isTypeCombined = xfs.isTypecombined();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1473,6 +1492,7 @@ public class XfsComponent {
 	windowsPrinter = xfs.getWindowsprinter();
 	isMediaPresented = xfs.isMediapresented();
 	isRetractToTransport = xfs.isRetracttotransport();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1493,6 +1513,7 @@ public class XfsComponent {
 	sensors = xfs.getSensors();
 	type = xfs.getType();
 	powerSaveControl = xfs.isPowersavecontrol();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1516,6 +1537,7 @@ public class XfsComponent {
 	forms = xfs.isForms();
 	keyLock = xfs.isKeylock();
 	powerSaveControl = xfs.isPowersavecontrol();
+	deviceName = xfs.getDevicename();
     }
 
     /**
@@ -1529,6 +1551,577 @@ public class XfsComponent {
 	extra = Utils.unescapeJsonChain(xfs.getExtra());
 	logical = xfs.getLogical();
 	provider = xfs.getProvider();
+	deviceName = xfs.getDevicename();
+    }
+
+    /**
+     * Instantiates a new agent specific xfs component data with the current
+     * attributes.
+     * 
+     * @return the agent xfs component data
+     */
+    public Object getInventoryPojo() {
+	if (xfsClass == null) {
+	    return null;
+	}
+
+	if (xfsClass.equals("ALM")) {
+	    ALM pojo = new ALM();
+	    pojo.setExtra(extra);
+	    pojo.setLogical(logical);
+	    pojo.setProvider(provider);
+	    if (programaticallyDeactivate != null) {
+		pojo.setProgramaticallydeactivate(programaticallyDeactivate);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("BCR")) {
+	    BCR pojo = new BCR();
+	    pojo.setExtra(extra);
+	    pojo.setGuidlights(guidlights);
+	    pojo.setLogical(logical);
+	    pojo.setProvider(provider);
+	    if (compound != null) {
+		pojo.setCompound(compound);
+	    }
+	    pojo.setSymbologies(symbologies);
+	    if (canFilterSymbologies != null) {
+		pojo.setCanfiltersymbologies(canFilterSymbologies);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("CAM")) {
+	    CAM pojo = new CAM();
+	    pojo.setCamdata(camdata);
+	    pojo.setCameras(cameras);
+	    pojo.setCharsupport(charSupport);
+	    pojo.setExtra(extra);
+	    pojo.setLogical(logical);
+	    if (maxDataLength != null) {
+		pojo.setMaxdatalength(maxDataLength);
+	    }
+	    if (maxPictures != null) {
+		pojo.setMaxpictures(maxPictures);
+	    }
+	    pojo.setProvider(provider);
+	    pojo.setType(type);
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("CDM")) {
+	    CDM pojo = new CDM();
+	    pojo.setExchangetype(exchangeTypes);
+	    pojo.setExtra(extra);
+	    pojo.setGuidlights(guidlights);
+	    pojo.setLogical(logical);
+	    if (maxBills != null) {
+		pojo.setMaxbills(maxBills);
+	    }
+	    if (maxBills != null) {
+		pojo.setMaxcoins(maxCoins);
+	    }
+	    if (maxDispenseItems != null) {
+		pojo.setMaxdispenseitems(maxDispenseItems);
+	    }
+	    pojo.setMoveitems(moveItems);
+	    pojo.setOutputpositions(outputPositions);
+	    pojo.setPositions(positions);
+	    pojo.setProvider(provider);
+	    pojo.setRetractareas(retractAreas);
+	    pojo.setRetractstackeractions(retractStackerActions);
+	    pojo.setRetracttransportactions(retractTransportActions);
+	    pojo.setType(type);
+	    if (autodeposit != null) {
+		pojo.setAutodeposit(autodeposit);
+	    }
+	    if (hasCashBox != null) {
+		pojo.setCashbox(hasCashBox);
+	    }
+	    if (coins != null) {
+		pojo.setCoins(coins);
+	    }
+	    if (compound != null) {
+		pojo.setCompound(compound);
+	    }
+	    if (cylinders != null) {
+		pojo.setCylinders(cylinders);
+	    }
+	    if (isIntermediateStacker != null) {
+		pojo.setIntermediatestacker(isIntermediateStacker);
+	    }
+	    if (hasTakenSensor != null) {
+		pojo.setItemstakensensor(hasTakenSensor);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    if (isPrepareDispense != null) {
+		pojo.setPreparedispense(isPrepareDispense);
+	    }
+	    if (refill != null) {
+		pojo.setRefill(refill);
+	    }
+	    if (isSafeDoor != null) {
+		pojo.setSafedoor(isSafeDoor);
+	    }
+	    if (hasShutter != null) {
+		pojo.setShutter(hasShutter);
+	    }
+	    if (shutterControl != null) {
+		pojo.setShuttercontrol(shutterControl);
+	    }
+	    if (vandalCheck != null) {
+		pojo.setVandalcheck(vandalCheck);
+	    }
+	    if (retract != null) {
+		pojo.setRetract(retract);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("CEU")) {
+	    CEU pojo = new CEU();
+	    pojo.setChipprotocol(chipProtocol);
+	    pojo.setExtra(extra);
+	    pojo.setLogical(logical);
+	    pojo.setProvider(provider);
+	    if (chipio != null) {
+		pojo.setChipio(chipio);
+	    }
+	    if (comparemagneticstripe != null) {
+		pojo.setComparemagneticstripe(comparemagneticstripe);
+	    }
+	    if (compound != null) {
+		pojo.setCompound(compound);
+	    }
+	    if (magneticstriperead != null) {
+		pojo.setMagneticstriperead(magneticstriperead);
+	    }
+	    if (magneticstripewrite != null) {
+		pojo.setMagneticstripewrite(magneticstripewrite);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("CHK")) {
+	    CHK pojo = new CHK();
+	    pojo.setCharsupport(charSupport);
+	    pojo.setEncodenames(encodenames);
+	    pojo.setExtra(extra);
+	    pojo.setFontnames(fontnames);
+	    pojo.setGuidlights(guidlights);
+	    pojo.setImagecapture(imagecapture);
+	    pojo.setLogical(logical);
+	    if (pockets != null) {
+		pojo.setPockets(pockets);
+	    }
+	    pojo.setProvider(provider);
+	    pojo.setStamp(stamp);
+	    pojo.setType(type);
+	    if (isAutofeed != null) {
+		pojo.setAutofeed(isAutofeed);
+	    }
+	    if (compound != null) {
+		pojo.setCompound(compound);
+	    }
+	    if (encoder != null) {
+		pojo.setEncoder(encoder);
+	    }
+	    if (endorser != null) {
+		pojo.setEndorser(endorser);
+	    }
+	    if (micr != null) {
+		pojo.setMicr(micr);
+	    }
+	    if (ocr != null) {
+		pojo.setOcr(ocr);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("CIM")) {
+	    CIM pojo = new CIM();
+	    pojo.setExchangetype(exchangeTypes);
+	    pojo.setExtra(extra);
+	    pojo.setGuidlights(guidlights);
+	    if (intermediateStacker != null) {
+		pojo.setIntermediatestacker(intermediateStacker);
+	    }
+	    pojo.setLogical(logical);
+	    if (maxCashInItems != null) {
+		pojo.setMaxCashInItems(maxCashInItems);
+	    }
+	    pojo.setPositions(positions);
+	    pojo.setProvider(provider);
+	    pojo.setRetractareas(retractAreas);
+	    pojo.setRetractstackeractions(retractStackerActions);
+	    pojo.setRetracttransportactions(retractTransportActions);
+	    pojo.setType(type);
+	    if (hasCashBox != null) {
+		pojo.setCashbox(hasCashBox);
+	    }
+	    if (compound != null) {
+		pojo.setCompound(compound);
+	    }
+	    if (hasInsertedSensor != null) {
+		pojo.setItemsinsertedsensor(hasInsertedSensor);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    if (refill != null) {
+		pojo.setRefill(refill);
+	    }
+	    if (isSafeDoor != null) {
+		pojo.setSafedoor(isSafeDoor);
+	    }
+	    pojo.setIteminfotypes(itemInfoTypes);
+	    if (isCompareSignatures != null) {
+		pojo.setComparesignatures(isCompareSignatures);
+	    }
+	    if (hasTakenSensor != null) {
+		pojo.setItemstakensensor(hasTakenSensor);
+	    }
+	    if (hasShutter != null) {
+		pojo.setShutter(hasShutter);
+	    }
+	    if (shutterControl != null) {
+		pojo.setShuttercontrol(shutterControl);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("CRD")) {
+	    CRD pojo = new CRD();
+	    pojo.setExtra(extra);
+	    pojo.setGuidlights(guidlights);
+	    pojo.setLogical(logical);
+	    pojo.setPoweroffoption(powerOff);
+	    pojo.setPoweronoption(powerOn);
+	    pojo.setProvider(provider);
+	    pojo.setDispenseto(dispenseTo);
+	    if (isCardTakenSensor != null) {
+		pojo.setCardtakensensor(isCardTakenSensor);
+	    }
+	    if (compound != null) {
+		pojo.setCompound(compound);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("DEP")) {
+	    DEP pojo = new DEP();
+	    pojo.setCharsupport(charSupport);
+	    pojo.setEnvsupply(envelopesupply);
+	    pojo.setExtra(extra);
+	    pojo.setGuidlights(guidlights);
+	    pojo.setLogical(logical);
+	    if (maxNumChars != null) {
+		pojo.setMaxnumchars(maxNumChars);
+	    }
+	    pojo.setProvider(provider);
+	    pojo.setRetractenvelope(retractenvelope);
+	    pojo.setType(type);
+	    if (deptransport != null) {
+		pojo.setDeptransport(deptransport);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    if (printer != null) {
+		pojo.setPrinter(printer);
+	    }
+	    if (printOnRetracts != null) {
+		pojo.setPrintonretracts(printOnRetracts);
+	    }
+	    if (retractToDeposit != null) {
+		pojo.setRetracttodeposit(retractToDeposit);
+	    }
+	    if (hasShutter != null) {
+		pojo.setShutter(hasShutter);
+	    }
+	    if (toner != null) {
+		pojo.setToner(toner);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("IDC")) {
+	    IDC pojo = new IDC();
+	    if (cards != null) {
+		pojo.setCards(cards);
+	    }
+	    pojo.setChippower(chipPower);
+	    pojo.setChipprotocols(chipProtocol);
+	    pojo.setExtra(extra);
+	    pojo.setGuidlights(guidlights);
+	    pojo.setLogical(logical);
+	    pojo.setDipmode(dipMode);
+	    pojo.setEjectposition(ejectPosition);
+	    pojo.setMemorychipprotocols(memoryChipProtocols);
+	    pojo.setPoweroffoption(powerOff);
+	    pojo.setPoweronoption(powerOn);
+	    pojo.setProvider(provider);
+	    pojo.setReadtracks(readTracks);
+	    pojo.setSectype(securityType);
+	    pojo.setType(type);
+	    pojo.setWritemode(writeMode);
+	    pojo.setWritetracks(writeTracks);
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("IPM")) {
+	    IPM pojo = new IPM();
+	    pojo.setBackimagecolorformat(backImageColorFormat);
+	    pojo.setCodelineformat(codeLineFormat);
+	    pojo.setDatasource(imageSource);
+	    pojo.setExtra(extra);
+	    pojo.setFrontimagecolorformat(frontImageColorFormat);
+	    pojo.setGuidlights(guidlights);
+	    pojo.setImagetype(imageType);
+	    pojo.setLogical(logical);
+	    if (maxMediaOnStacker != null) {
+		pojo.setMaxmediaonstacker(maxMediaOnStacker);
+	    }
+	    pojo.setPositions(positions);
+	    pojo.setProvider(provider);
+	    pojo.setRetractlocation(retractAreas);
+	    pojo.setType(type);
+	    if (compound != null) {
+		pojo.setCompound(compound);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    pojo.setBackscancolor(backscanColor);
+	    pojo.setDefaultbackscancolor(defaultBackscanColor);
+	    pojo.setDefaultfrontscancolor(defaultFrontscanColor);
+	    pojo.setFrontscancolor(frontscanColor);
+	    pojo.setInsertorientation(insertOrientation);
+	    pojo.setPrintsize(printSize);
+	    pojo.setResetcontrol(resetControl);
+	    if (isApplicationRefuse != null) {
+		pojo.setApplicationrefuse(isApplicationRefuse);
+	    }
+	    if (isPresentControl != null) {
+		pojo.setPresentcontrol(isPresentControl);
+	    }
+	    if (isRescan != null) {
+		pojo.setRescan(isRescan);
+	    }
+	    if (isRetractCountsItems != null) {
+		pojo.setRetractcountsitems(isRetractCountsItems);
+	    }
+	    if (isStamp != null) {
+		pojo.setStamp(isStamp);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("PIN")) {
+	    PIN pojo = new PIN();
+	    pojo.setAlgorithms(algorithms);
+	    pojo.setDerivationalgorithms(derivationAlgorithms);
+	    pojo.setDisplay(display);
+	    pojo.setExtra(extra);
+	    pojo.setGuidlights(guidlights);
+	    pojo.setKeycheckmodes(keyCheckModes);
+	    if (keyNum != null) {
+		pojo.setKeynum(keyNum);
+	    }
+	    pojo.setLogical(logical);
+	    pojo.setPinformats(pinFormats);
+	    pojo.setPresentationalgorithms(presentationAlgorithms);
+	    pojo.setProvider(provider);
+	    pojo.setType(type);
+	    pojo.setValidationalgorithms(validationAlgorithms);
+	    if (compound != null) {
+		pojo.setCompound(compound);
+	    }
+	    if (idConnect != null) {
+		pojo.setIdconnect(idConnect);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    pojo.setAutobeep(autobeep);
+	    pojo.setEmvhashalgorithm(emvHashAlgorithm);
+	    pojo.setEmvimportschemes(emvImportSchemes);
+	    pojo.setEncioprotocols(encioProtocols);
+	    pojo.setHsmvendor(hsmVendor);
+	    pojo.setKeyblockimportformats(keyBlockImportFormats);
+	    pojo.setRsaauthenticationscheme(rsaAuthenticationScheme);
+	    pojo.setRsacryptalgorithm(rsaCryptAlgorithm);
+	    pojo.setRsakeycheckmode(rsaKeycheckMode);
+	    pojo.setRsasignaturealgorithm(rsaSignatureAlgorithm);
+	    pojo.setSignaturescheme(signatureScheme);
+	    if (isHsmJournaling != null) {
+		pojo.setHsmjournaling(isHsmJournaling);
+	    }
+	    if (isKeyImportThroughParts != null) {
+		pojo.setKeyimportthroughparts(isKeyImportThroughParts);
+	    }
+	    if (isPinCanPersistAfterUse != null) {
+		pojo.setPincanpersistafteruse(isPinCanPersistAfterUse);
+	    }
+	    if (isSetPinBlockDataRequired != null) {
+		pojo.setSetpinblockdatarequired(isSetPinBlockDataRequired);
+	    }
+	    if (isTypeCombined != null) {
+		pojo.setTypecombined(isTypeCombined);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("PTR")) {
+	    PTR pojo = new PTR();
+	    pojo.setBackimagecolorformat(backImageColorFormat);
+	    pojo.setCharsupport(charSupport);
+	    pojo.setCodelineformat(codeLineFormat);
+	    pojo.setControl(control);
+	    pojo.setExtents(extents);
+	    pojo.setExtra(extra);
+	    pojo.setFrontimagecolorformat(frontImageColorFormat);
+	    pojo.setGuidlights(guidlights);
+	    pojo.setImagesource(imageSource);
+	    pojo.setImagetype(imageType);
+	    pojo.setLogical(logical);
+	    if (maxMediaOnStacker != null) {
+		pojo.setMaxmediaonstacker(maxMediaOnStacker);
+	    }
+	    if (max2Retract != null) {
+		pojo.setMax2retract(max2Retract);
+	    }
+	    pojo.setPapersources(paperSources);
+	    pojo.setProvider(provider);
+	    pojo.setReadform(readForm);
+	    pojo.setResolution(resolutions);
+	    if (retractBins != null) {
+		pojo.setRetractbins(Integer.valueOf(retractBins));
+	    }
+	    pojo.setType(type);
+	    pojo.setWriteform(writeForm);
+	    if (acceptMedia != null) {
+		pojo.setAcceptmedia(acceptMedia);
+	    }
+	    if (compound != null) {
+		pojo.setCompound(compound);
+	    }
+	    if (isPrepareDispense != null) {
+		pojo.setDispensepaper(isPrepareDispense);
+	    }
+	    if (mediaTaken != null) {
+		pojo.setMediataken(mediaTaken);
+	    }
+	    if (multiPage != null) {
+		pojo.setMultipage(multiPage);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    if (autoretractPeriod != null) {
+		pojo.setAutoretractperiod(autoretractPeriod);
+	    }
+	    pojo.setMaxretract(maxRetract);
+	    pojo.setWindowsprinter(windowsPrinter);
+	    if (isMediaPresented != null) {
+		pojo.setMediapresented(isMediaPresented);
+	    }
+	    if (isRetractToTransport != null) {
+		pojo.setRetracttotransport(isRetractToTransport);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("SIU")) {
+	    SIU pojo = new SIU();
+	    pojo.setAuxiliaries(auxiliaries);
+	    pojo.setDoors(doors);
+	    pojo.setExtra(extra);
+	    pojo.setGuidlights(guidlights);
+	    pojo.setIndicators(indicators);
+	    pojo.setLogical(logical);
+	    pojo.setProvider(provider);
+	    pojo.setSensors(sensors);
+	    pojo.setType(type);
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("TTU")) {
+	    TTU pojo = new TTU();
+	    pojo.setCharsupport(charSupport);
+	    pojo.setExtra(extra);
+	    pojo.setKeys(keys);
+	    pojo.setLogical(logical);
+	    if (numLeds != null) {
+		pojo.setNumofleds(numLeds);
+	    }
+	    pojo.setProvider(provider);
+	    pojo.setResolutions(resolutions);
+	    pojo.setType(type);
+	    if (cursor != null) {
+		pojo.setCursor(cursor);
+	    }
+	    if (displayLight != null) {
+		pojo.setDisplaylight(displayLight);
+	    }
+	    if (forms != null) {
+		pojo.setForms(forms);
+	    }
+	    if (keyLock != null) {
+		pojo.setKeylock(keyLock);
+	    }
+	    if (powerSaveControl != null) {
+		pojo.setPowersavecontrol(powerSaveControl);
+	    }
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	if (xfsClass.equals("VDM")) {
+	    VDM pojo = new VDM();
+	    pojo.setExtra(extra);
+	    pojo.setLogical(logical);
+	    pojo.setProvider(provider);
+	    pojo.setDevicename(deviceName);
+	    return pojo;
+	}
+
+	return null;
     }
 
     /**
@@ -1548,6 +2141,25 @@ public class XfsComponent {
      */
     public void setId(Integer id) {
 	this.id = id;
+    }
+
+    /**
+     * Gets the device name.
+     * 
+     * @return the device name
+     */
+    public String getDeviceName() {
+	return deviceName;
+    }
+
+    /**
+     * Sets the device name.
+     * 
+     * @param deviceName
+     *            the new device name
+     */
+    public void setDeviceName(String deviceName) {
+	this.deviceName = deviceName;
     }
 
     /**

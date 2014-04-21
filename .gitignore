@@ -1,6 +1,4 @@
 target
 cleanTags.sh
 .DS_Store
-/bin
 .settings
-.project

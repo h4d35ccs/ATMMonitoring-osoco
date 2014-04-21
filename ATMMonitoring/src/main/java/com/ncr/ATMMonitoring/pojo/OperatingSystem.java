@@ -174,6 +174,25 @@ public class OperatingSystem {
     }
 
     /**
+     * Instantiates a new agent operating system data with the current
+     * attributes.
+     * 
+     * @return the agent operating system data
+     */
+    public OperatingSystemPojo getInventoryPojo() {
+	OperatingSystemPojo pojo = new OperatingSystemPojo();
+	pojo.setVersion(getVersion());
+	pojo.setSPVersion(getServicePackVersion());
+	pojo.setManufacturer(manufacturer);
+	pojo.setName(name);
+	pojo.setOrganization(organization);
+	pojo.setOSLanguage(osLanguage);
+	pojo.setOSType(osType);
+	pojo.setSerialNumber(serialNumber);
+	return pojo;
+    }
+
+    /**
      * Gets the comboboxes data for the query GUI.
      * 
      * @return the comboboxes data

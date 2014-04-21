@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -82,7 +83,7 @@ public class UpsDAOImpl extends AbstractGenericDAO<Ups> implements UpsDAO {
      */
     @Override
     public List<Ups> listAllUps() {
-	return this.list();
+	return listUps("seriesNumber", "asc");
     }
 
     /*
@@ -95,6 +96,46 @@ public class UpsDAOImpl extends AbstractGenericDAO<Ups> implements UpsDAO {
     public void addUps(Ups ups) {
 	this.add(ups);
 
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.UpsDAO#getUpsBySerialNumberAndModel(java.lang
+     * .String, java.lang.String)
+     */
+    @Override
+    public Ups getUpsBySerialNumberAndModel(String seriesNumber, String model) {
+
+	logger.debug("Get UPS by series number: " + seriesNumber + " model: "
+		+ model);
+	Ups ups = this.getOnlyOneResultFromList(Restrictions.and(
+		Restrictions.eq("seriesNumber", seriesNumber),
+		Restrictions.eq("model", model)));
+	return ups;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.UpsDAO#listUps(java.lang.String,
+     * java.lang.String)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Ups> listUps(String sort, String order) {
+	Criteria criteria = sessionFactory.getCurrentSession().createCriteria(
+		Ups.class);
+	if ((sort != null) && (order != null)) {
+	    if ("asc".equals(order)) {
+		criteria.addOrder(Order.asc(sort));
+	    } else {
+		criteria.addOrder(Order.desc(sort));
+	    }
+	}
+	return criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+		.list();
     }
 
     /**
@@ -114,24 +155,6 @@ public class UpsDAOImpl extends AbstractGenericDAO<Ups> implements UpsDAO {
 	    crit.add(rest);
 	}
 	return (List<Ups>) crit.list();
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.ncr.ATMMonitoring.dao.UpsDAO#getUpsBySerialNumberAndModel(java.lang
-     * .String, java.lang.String)
-     */
-    @Override
-    public Ups getUpsBySerialNumberAndModel(String seriesNumber, String model) {
-
-	logger.debug("Get UPS by series number: " + seriesNumber + " model: "
-		+ model);
-	Ups ups = this.getOnlyOneResultFromList(Restrictions.and(
-		Restrictions.eq("seriesNumber", seriesNumber),
-		Restrictions.eq("model", model)));
-	return ups;
     }
 
     /**

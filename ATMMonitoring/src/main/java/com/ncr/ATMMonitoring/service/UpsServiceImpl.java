@@ -28,6 +28,10 @@ import com.ncr.ATMMonitoring.pojo.Ups;
  * @author Otto Abreu
  * 
  */
+/**
+ * @author george
+ * 
+ */
 @Service
 @Transactional
 public class UpsServiceImpl implements UpsService {
@@ -150,6 +154,73 @@ public class UpsServiceImpl implements UpsService {
 	logger.info("removed ups with id: " + id);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.UpsService#addUps(com.ncr.ATMMonitoring
+     * .pojo.Ups)
+     */
+    @Override
+    public void addUps(Ups ups) {
+	upsDao.addUps(ups);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.service.UpsService#getUps(java.lang.Integer)
+     */
+    @Override
+    public Ups getUps(Integer id) {
+	return upsDao.getUps(id);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.UpsService#getUpsBySeriesNumber(java.lang
+     * .String)
+     */
+    @Override
+    public Ups getUpsBySeriesNumber(String seriesNumber) {
+	return upsDao.getUpsBySerialNumber(seriesNumber);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.service.UpsService#updateUps(com.ncr.ATMMonitoring
+     * .pojo.Ups)
+     */
+    @Override
+    public void updateUps(Ups ups) {
+	upsDao.updateUps(ups);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.service.UpsService#listUps(java.lang.String,
+     * java.lang.String)
+     */
+    @Override
+    public List<Ups> listUps(String sort, String order) {
+	return upsDao.listUps(sort, order);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.service.UpsService#listUps()
+     */
+    @Override
+    public List<Ups> listUps() {
+	return upsDao.listAllUps();
+    }
+
     /**
      * Saves the ups info in the Database
      * 
@@ -220,8 +291,8 @@ public class UpsServiceImpl implements UpsService {
 	ups.setType(info.getType());
 	ups.setModel(info.getModel());
 	ups.setSeriesNumber(info.getSeriesNumber());
-	ups.setRunningTimeMilisec(info.getRunningTimeMillisec());
-	ups.setAutonomyMilisec(info.getAutonomyMillisec());
+	ups.setRunningTimeMillisec(info.getRunningTimeMillisec());
+	ups.setAutonomyMillisec(info.getAutonomyMillisec());
 	ups.setNumPosition(info.getNumPosition());
 	ups.setAudFmo(info.getAudFmo());
 	ups.setGeneralStatusMsg(info.getGeneralStatusMsg());

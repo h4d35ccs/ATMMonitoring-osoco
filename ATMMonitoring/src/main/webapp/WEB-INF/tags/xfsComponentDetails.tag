@@ -15,6 +15,12 @@
 <td>${xfsComponent.xfsClass}</td>
 </tr>
 </c:if>
+<c:if test="${xfsComponent.deviceName != null}">
+<tr>
+<td class="header"><spring:message code="label.xfsComponent.deviceName"/></td>
+<td>${xfsComponent.deviceName}</td>
+</tr>
+</c:if>
 <c:if test="${xfsComponent.acceptMedia != null}">
 <tr>
 <td class="header"><spring:message code="label.xfsComponent.acceptMedia"/></td>

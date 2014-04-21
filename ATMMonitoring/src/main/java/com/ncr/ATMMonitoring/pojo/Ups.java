@@ -289,7 +289,7 @@ public class Ups implements Serializable {
      * 
      * @return the running time milisec
      */
-    public long getRunningTimeMilisec() {
+    public long getRunningTimeMillisec() {
 	return runningTimeMillisec;
     }
 
@@ -299,26 +299,26 @@ public class Ups implements Serializable {
      * @param runningTimeMilisec
      *            the new running time milisec
      */
-    public void setRunningTimeMilisec(Long runningTimeMilisec) {
+    public void setRunningTimeMillisec(Long runningTimeMilisec) {
 	this.runningTimeMillisec = runningTimeMilisec;
     }
 
     /**
-     * Gets the autonomy milisec.
+     * Gets the autonomy millisec.
      * 
-     * @return the autonomy milisec
+     * @return the autonomy millisec
      */
-    public long getAutonomyMilisec() {
+    public Long getAutonomyMillisec() {
 	return autonomyMillisec;
     }
 
     /**
-     * Sets the autonomy milisec.
+     * Sets the autonomy millisec.
      * 
      * @param autonomyMilisec
-     *            the new autonomy milisec
+     *            the new autonomy millisec
      */
-    public void setAutonomyMilisec(Long autonomyMilisec) {
+    public void setAutonomyMillisec(Long autonomyMilisec) {
 	this.autonomyMillisec = autonomyMilisec;
     }
 
@@ -415,5 +415,55 @@ public class Ups implements Serializable {
      */
     public void setOriginalXML(String originalXML) {
 	this.originalXML = originalXML;
+    }
+
+    /**
+     * Gets the csv header for exporting UPS' data.
+     * 
+     * @return the csv header
+     */
+    public static String getCsvHeader() {
+	return "Serial Number;Model;IP;Alarm Msg;Aud Fmo;Autonomy (ms);Charge %;"
+		+ "Expense %;Firmware;General Status Msg;"
+		+ "Last Execution Date;Num Position;Running Status;Running Time (ms);"
+		+ "Type";
+    }
+
+    /**
+     * Gets a recap of the UPS data in csv format.
+     * 
+     * @returna a recap of the data in csv format.
+     */
+    public String getCsvDescription() {
+	return (seriesNumber != null ? seriesNumber.toString() : "")
+		+ ";"
+		+ (model != null ? model.toString() : "")
+		+ ";"
+		+ (ip != null ? ip.toString() : "")
+		+ ";"
+		+ (alarmMsg != null ? alarmMsg.toString() : "")
+		+ ";"
+		+ (audFmo != null ? audFmo.toString() : "")
+		+ ";"
+		+ (autonomyMillisec != null ? autonomyMillisec.toString() : "")
+		+ ";"
+		+ (chargePercentage != null ? chargePercentage.toString() : "")
+		+ ";"
+		+ (expensePercentage != null ? expensePercentage.toString()
+			: "")
+		+ ";"
+		+ (firmware != null ? firmware.toString() : "")
+		+ ";"
+		+ (generalStatusMsg != null ? generalStatusMsg.toString() : "")
+		+ ";"
+		+ (lastExecutionDate != null ? lastExecutionDate.toString()
+			: "")
+		+ ";"
+		+ (numPosition != null ? numPosition.toString() : "")
+		+ ";"
+		+ (runningStatus != null ? runningStatus.toString() : "")
+		+ ";"
+		+ (runningTimeMillisec != null ? runningTimeMillisec.toString()
+			: "") + ";" + (type != null ? type.toString() : "");
     }
 }

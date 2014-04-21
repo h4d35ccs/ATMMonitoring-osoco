@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.Vector;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,6 +33,62 @@ import com.ncr.ATMMonitoring.service.AuditableSetOperationsImpl;
 import com.ncr.ATMMonitoring.socket.ATMWrongDataException;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.ATMDataStorePojo;
+import com.ncr.agent.baseData.os.module.BaseBoardPojo;
+import com.ncr.agent.baseData.os.module.BiosPojo;
+import com.ncr.agent.baseData.os.module.CDROMDrivePojo;
+import com.ncr.agent.baseData.os.module.ComputerSystemPojo;
+import com.ncr.agent.baseData.os.module.DesktopMonitorPojo;
+import com.ncr.agent.baseData.os.module.DiskDrivePojo;
+import com.ncr.agent.baseData.os.module.FloppyDrivePojo;
+import com.ncr.agent.baseData.os.module.HotfixPojo;
+import com.ncr.agent.baseData.os.module.IExplorerPojo;
+import com.ncr.agent.baseData.os.module.KeyboardPojo;
+import com.ncr.agent.baseData.os.module.LogicalDiskPojo;
+import com.ncr.agent.baseData.os.module.NetworkAdapterSettingPojo;
+import com.ncr.agent.baseData.os.module.OperatingSystemPojo;
+import com.ncr.agent.baseData.os.module.ParallelPortPojo;
+import com.ncr.agent.baseData.os.module.PhysicalMemoryPojo;
+import com.ncr.agent.baseData.os.module.PointingDevicePojo;
+import com.ncr.agent.baseData.os.module.ProcessorPojo;
+import com.ncr.agent.baseData.os.module.ProductPojo;
+import com.ncr.agent.baseData.os.module.SCSIControllerPojo;
+import com.ncr.agent.baseData.os.module.SerialPortPojo;
+import com.ncr.agent.baseData.os.module.SoundDevicePojo;
+import com.ncr.agent.baseData.os.module.SystemSlotPojo;
+import com.ncr.agent.baseData.os.module.USBControllerPojo;
+import com.ncr.agent.baseData.os.module.UsbHubPojo;
+import com.ncr.agent.baseData.os.module.VideoControllerPojo;
+import com.ncr.agent.baseData.os.module._1394ControllerPojo;
+import com.ncr.agent.baseData.standard.jxfs.alm.CapabilitiesJxfsALMCollector;
+import com.ncr.agent.baseData.standard.jxfs.cam.CapabilitiesJxfsCAMCollector;
+import com.ncr.agent.baseData.standard.jxfs.cdr.CapabilitiesJxfsCDRCollector;
+import com.ncr.agent.baseData.standard.jxfs.chk.CapabilitiesJxfsCHKCollector;
+import com.ncr.agent.baseData.standard.jxfs.dep.CapabilitiesJxfsDEPCollector;
+import com.ncr.agent.baseData.standard.jxfs.msd.CapabilitiesJxfsMSDCollector;
+import com.ncr.agent.baseData.standard.jxfs.pin.CapabilitiesJxfsPINCollector;
+import com.ncr.agent.baseData.standard.jxfs.ptr.CapabilitiesJxfsPTRCollector;
+import com.ncr.agent.baseData.standard.jxfs.scn.CapabilitiesJxfsSCNCollector;
+import com.ncr.agent.baseData.standard.jxfs.siu.CapabilitiesJxfsSIUCollector;
+import com.ncr.agent.baseData.standard.jxfs.tio.CapabilitiesJxfsTIOCollector;
+import com.ncr.agent.baseData.standard.jxfs.vdm.CapabilitiesJxfsVDMCollector;
+import com.ncr.agent.baseData.standard.xfs.module.ALM;
+import com.ncr.agent.baseData.standard.xfs.module.BCR;
+import com.ncr.agent.baseData.standard.xfs.module.CAM;
+import com.ncr.agent.baseData.standard.xfs.module.CDM;
+import com.ncr.agent.baseData.standard.xfs.module.CEU;
+import com.ncr.agent.baseData.standard.xfs.module.CHK;
+import com.ncr.agent.baseData.standard.xfs.module.CIM;
+import com.ncr.agent.baseData.standard.xfs.module.CRD;
+import com.ncr.agent.baseData.standard.xfs.module.DEP;
+import com.ncr.agent.baseData.standard.xfs.module.IDC;
+import com.ncr.agent.baseData.standard.xfs.module.IPM;
+import com.ncr.agent.baseData.standard.xfs.module.PIN;
+import com.ncr.agent.baseData.standard.xfs.module.PTR;
+import com.ncr.agent.baseData.standard.xfs.module.SIU;
+import com.ncr.agent.baseData.standard.xfs.module.TTU;
+import com.ncr.agent.baseData.standard.xfs.module.VDM;
+import com.ncr.agent.baseData.vendor.utils.FinancialDevicePojo;
+import com.ncr.agent.baseData.vendor.utils.FinancialPackagePojo;
 import com.ncr.agent.baseData.vendor.utils.FinancialTerminalPojo;
 
 /**
@@ -266,6 +323,455 @@ public class Terminal {
 	if ((matricula != null) && (matricula.length() > 0)) {
 	    this.matricula = Long.parseLong(terminal.getMatricula());
 	}
+    }
+
+    /**
+     * Instantiates a new agent terminal data with the active attributes and
+     * related components for a specified instant.
+     * 
+     * @param date
+     *            the instant we want to retrieve the data for
+     * 
+     * @return the agent terminal data
+     */
+    public ATMDataStorePojo getInventoryPojo(Date date) {
+	// First of all we recreate the terminal and its own data
+	ATMDataStorePojo terminal = new ATMDataStorePojo();
+	FinancialTerminalPojo financialTerminal = new FinancialTerminalPojo();
+	financialTerminal.setGeographicaddress(geographicAddress);
+	if (frontReplenish != null) {
+	    financialTerminal.setFrontreplenish(Boolean.valueOf(frontReplenish)
+		    .toString());
+	}
+	financialTerminal.setManufacturingsite(manufacturingSite);
+	financialTerminal.setProductclassdescription(productClassDescription);
+	financialTerminal.setSerialnumber(serialNumber);
+	financialTerminal.setTerminaltype(terminalType);
+	financialTerminal.setVendor(terminalVendor);
+	financialTerminal.setTracernumber(tracerNumber);
+	terminal.setFinancialTerminal(financialTerminal);
+
+	// We recreate the hotfixes
+	Vector<HotfixPojo> hotfixes = new Vector<HotfixPojo>();
+	for (Hotfix hotfix : this.getActiveHotfixesByDate(date)) {
+	    hotfixes.add(hotfix.getInventoryPojo());
+	}
+	terminal.setvHotfix(hotfixes);
+
+	// We recreate the financial devices and their xfs/jxfs components
+	Vector<ALM> xfsAlm = new Vector<ALM>();
+	Vector<BCR> xfsBcr = new Vector<BCR>();
+	Vector<CAM> xfsCam = new Vector<CAM>();
+	Vector<CDM> xfsCdm = new Vector<CDM>();
+	Vector<CEU> xfsCeu = new Vector<CEU>();
+	Vector<CHK> xfsChk = new Vector<CHK>();
+	Vector<CIM> xfsCim = new Vector<CIM>();
+	Vector<CRD> xfsCrd = new Vector<CRD>();
+	Vector<DEP> xfsDep = new Vector<DEP>();
+	Vector<IDC> xfsIdc = new Vector<IDC>();
+	Vector<IPM> xfsIpm = new Vector<IPM>();
+	Vector<PIN> xfsPin = new Vector<PIN>();
+	Vector<PTR> xfsPtr = new Vector<PTR>();
+	Vector<SIU> xfsSiu = new Vector<SIU>();
+	Vector<TTU> xfsTtu = new Vector<TTU>();
+	Vector<VDM> xfsVdm = new Vector<VDM>();
+
+	Vector<CapabilitiesJxfsALMCollector> jxfsAlm = new Vector<CapabilitiesJxfsALMCollector>();
+	Vector<CapabilitiesJxfsCAMCollector> jxfsCam = new Vector<CapabilitiesJxfsCAMCollector>();
+	Vector<CapabilitiesJxfsCDRCollector> jxfsCdr = new Vector<CapabilitiesJxfsCDRCollector>();
+	Vector<CapabilitiesJxfsCHKCollector> jxfsChk = new Vector<CapabilitiesJxfsCHKCollector>();
+	Vector<CapabilitiesJxfsDEPCollector> jxfsDep = new Vector<CapabilitiesJxfsDEPCollector>();
+	Vector<CapabilitiesJxfsMSDCollector> jxfsMsd = new Vector<CapabilitiesJxfsMSDCollector>();
+	Vector<CapabilitiesJxfsPINCollector> jxfsPin = new Vector<CapabilitiesJxfsPINCollector>();
+	Vector<CapabilitiesJxfsPTRCollector> jxfsPtr = new Vector<CapabilitiesJxfsPTRCollector>();
+	Vector<CapabilitiesJxfsSCNCollector> jxfsScn = new Vector<CapabilitiesJxfsSCNCollector>();
+	Vector<CapabilitiesJxfsSIUCollector> jxfsSiu = new Vector<CapabilitiesJxfsSIUCollector>();
+	Vector<CapabilitiesJxfsTIOCollector> jxfsTio = new Vector<CapabilitiesJxfsTIOCollector>();
+	Vector<CapabilitiesJxfsVDMCollector> jxfsVdm = new Vector<CapabilitiesJxfsVDMCollector>();
+
+	Vector<FinancialDevicePojo> financialDevices = new Vector<FinancialDevicePojo>();
+	for (FinancialDevice financialDevice : this
+		.getActiveFinancialDevicesByDate(date)) {
+	    for (XfsComponent xfs : financialDevice.getXfsComponents()) {
+		Object xfsPojo = xfs.getInventoryPojo();
+
+		if (xfsPojo instanceof ALM) {
+		    xfsAlm.add((ALM) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof BCR) {
+		    xfsBcr.add((BCR) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof CAM) {
+		    xfsCam.add((CAM) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof CDM) {
+		    xfsCdm.add((CDM) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof CEU) {
+		    xfsCeu.add((CEU) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof CHK) {
+		    xfsChk.add((CHK) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof CIM) {
+		    xfsCim.add((CIM) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof CRD) {
+		    xfsCrd.add((CRD) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof DEP) {
+		    xfsDep.add((DEP) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof IDC) {
+		    xfsIdc.add((IDC) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof IPM) {
+		    xfsIpm.add((IPM) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof PIN) {
+		    xfsPin.add((PIN) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof PTR) {
+		    xfsPtr.add((PTR) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof SIU) {
+		    xfsSiu.add((SIU) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof TTU) {
+		    xfsTtu.add((TTU) xfsPojo);
+		    continue;
+		}
+
+		if (xfsPojo instanceof VDM) {
+		    xfsVdm.add((VDM) xfsPojo);
+		    continue;
+		}
+	    }
+
+	    for (JxfsComponent jxfs : financialDevice.getJxfsComponents()) {
+		Object jxfsPojo = jxfs.getInventoryPojo();
+
+		if (jxfsPojo instanceof CapabilitiesJxfsALMCollector) {
+		    jxfsAlm.add((CapabilitiesJxfsALMCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsCAMCollector) {
+		    jxfsCam.add((CapabilitiesJxfsCAMCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsCDRCollector) {
+		    jxfsCdr.add((CapabilitiesJxfsCDRCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsCHKCollector) {
+		    jxfsChk.add((CapabilitiesJxfsCHKCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsDEPCollector) {
+		    jxfsDep.add((CapabilitiesJxfsDEPCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsMSDCollector) {
+		    jxfsMsd.add((CapabilitiesJxfsMSDCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsPINCollector) {
+		    jxfsPin.add((CapabilitiesJxfsPINCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsPTRCollector) {
+		    jxfsPtr.add((CapabilitiesJxfsPTRCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsSCNCollector) {
+		    jxfsScn.add((CapabilitiesJxfsSCNCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsSIUCollector) {
+		    jxfsSiu.add((CapabilitiesJxfsSIUCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsTIOCollector) {
+		    jxfsTio.add((CapabilitiesJxfsTIOCollector) jxfsPojo);
+		    continue;
+		}
+
+		if (jxfsPojo instanceof CapabilitiesJxfsVDMCollector) {
+		    jxfsVdm.add((CapabilitiesJxfsVDMCollector) jxfsPojo);
+		    continue;
+		}
+	    }
+
+	    financialDevices.add(financialDevice.getInventoryPojo());
+	}
+	terminal.setvFinancialDevice(financialDevices);
+
+	terminal.setVjAlm(jxfsAlm);
+	terminal.setVjCam(jxfsCam);
+	terminal.setVjCdr(jxfsCdr);
+	terminal.setVjChk(jxfsChk);
+	terminal.setVjDep(jxfsDep);
+	terminal.setVjMsd(jxfsMsd);
+	terminal.setVjPin(jxfsPin);
+	terminal.setVjPtr(jxfsPtr);
+	terminal.setVjScn(jxfsScn);
+	terminal.setVjSiu(jxfsSiu);
+	terminal.setVjTio(jxfsTio);
+	terminal.setVjVdm(jxfsVdm);
+
+	terminal.setvAlm(xfsAlm.toArray(new ALM[0]));
+	terminal.setvBcr(xfsBcr.toArray(new BCR[0]));
+	terminal.setvCam(xfsCam.toArray(new CAM[0]));
+	terminal.setvCdm(xfsCdm.toArray(new CDM[0]));
+	terminal.setvCeu(xfsCeu.toArray(new CEU[0]));
+	terminal.setvChk(xfsChk.toArray(new CHK[0]));
+	terminal.setvCim(xfsCim.toArray(new CIM[0]));
+	terminal.setvCrd(xfsCrd.toArray(new CRD[0]));
+	terminal.setvDep(xfsDep.toArray(new DEP[0]));
+	terminal.setvIdc(xfsIdc.toArray(new IDC[0]));
+	terminal.setvIpm(xfsIpm.toArray(new IPM[0]));
+	terminal.setvPin(xfsPin.toArray(new PIN[0]));
+	terminal.setvPtr(xfsPtr.toArray(new PTR[0]));
+	terminal.setvSiu(xfsSiu.toArray(new SIU[0]));
+	terminal.setvTtu(xfsTtu.toArray(new TTU[0]));
+	terminal.setvVdm(xfsVdm.toArray(new VDM[0]));
+
+	// We recreate the IExplorers
+	Vector<IExplorerPojo> internetExplorers = new Vector<IExplorerPojo>();
+	for (AuditableInternetExplorer internetExplorer : this
+		.getActiveAuditableInternetExplorersByDate(date)) {
+	    internetExplorers.add(internetExplorer.getInternetExplorer()
+		    .getInventoryPojo());
+	}
+	terminal.setvIExplorer(internetExplorers);
+
+	// We recreate the operating systems
+	TerminalConfig config = getCurrentTerminalConfigActiveByDate(date);
+	Vector<OperatingSystemPojo> operatingSystems = new Vector<OperatingSystemPojo>();
+	for (OperatingSystem operatingSystem : config.getOperatingSystems()) {
+	    operatingSystems.add(operatingSystem.getInventoryPojo());
+	}
+	terminal.setvOperatingSystem(operatingSystems);
+
+	// We recreate the software entries
+	Vector<ProductPojo> software = new Vector<ProductPojo>();
+	for (Software sw : config.getSoftware()) {
+	    software.add(sw.getInventoryPojo());
+	}
+	terminal.setvProduct(software);
+
+	// We recreate the software aggregates
+	Vector<FinancialPackagePojo> softwareAggregates = new Vector<FinancialPackagePojo>();
+	for (AuditableSoftwareAggregate sw : this
+		.getActiveAuditableSoftwareAggregatesByDate(date)) {
+	    softwareAggregates
+		    .add(sw.getSoftwareAggregate().getInventoryPojo());
+	}
+	terminal.setvFinancialPackage(softwareAggregates);
+
+	// We recreate the hardware devices
+	Vector<_1394ControllerPojo> _1394Controllers = new Vector<_1394ControllerPojo>();
+	Vector<BaseBoardPojo> baseBoards = new Vector<BaseBoardPojo>();
+	Vector<BiosPojo> bios = new Vector<BiosPojo>();
+	Vector<CDROMDrivePojo> cdroms = new Vector<CDROMDrivePojo>();
+	Vector<ComputerSystemPojo> computerSystems = new Vector<ComputerSystemPojo>();
+	Vector<DesktopMonitorPojo> desktopMonitors = new Vector<DesktopMonitorPojo>();
+	Vector<DiskDrivePojo> diskDrives = new Vector<DiskDrivePojo>();
+	Vector<FloppyDrivePojo> floppyDrives = new Vector<FloppyDrivePojo>();
+	Vector<KeyboardPojo> keyboards = new Vector<KeyboardPojo>();
+	Vector<LogicalDiskPojo> logicalDisks = new Vector<LogicalDiskPojo>();
+	Vector<NetworkAdapterSettingPojo> networkAdapters = new Vector<NetworkAdapterSettingPojo>();
+	Vector<ParallelPortPojo> parallelPorts = new Vector<ParallelPortPojo>();
+	Vector<PhysicalMemoryPojo> physicalMemories = new Vector<PhysicalMemoryPojo>();
+	Vector<PointingDevicePojo> pointingDevices = new Vector<PointingDevicePojo>();
+	Vector<ProcessorPojo> processors = new Vector<ProcessorPojo>();
+	Vector<SCSIControllerPojo> scsiControllers = new Vector<SCSIControllerPojo>();
+	Vector<SerialPortPojo> serialPorts = new Vector<SerialPortPojo>();
+	Vector<SoundDevicePojo> soundDevices = new Vector<SoundDevicePojo>();
+	Vector<SystemSlotPojo> systemSlots = new Vector<SystemSlotPojo>();
+	Vector<USBControllerPojo> usbControllers = new Vector<USBControllerPojo>();
+	Vector<UsbHubPojo> usbHubs = new Vector<UsbHubPojo>();
+	Vector<VideoControllerPojo> videoControllers = new Vector<VideoControllerPojo>();
+	for (HardwareDevice hw : this.getActiveHardwareDevicesByDate(date)) {
+	    Object hwPojo = hw.getInventoryPojo();
+
+	    if (hwPojo instanceof _1394ControllerPojo) {
+		_1394Controllers.add((_1394ControllerPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof BaseBoardPojo) {
+		baseBoards.add((BaseBoardPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof BiosPojo) {
+		bios.add((BiosPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof CDROMDrivePojo) {
+		cdroms.add((CDROMDrivePojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof ComputerSystemPojo) {
+		computerSystems.add((ComputerSystemPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof DesktopMonitorPojo) {
+		desktopMonitors.add((DesktopMonitorPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof DiskDrivePojo) {
+		diskDrives.add((DiskDrivePojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof FloppyDrivePojo) {
+		floppyDrives.add((FloppyDrivePojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof KeyboardPojo) {
+		keyboards.add((KeyboardPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof LogicalDiskPojo) {
+		logicalDisks.add((LogicalDiskPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof NetworkAdapterSettingPojo) {
+		networkAdapters.add((NetworkAdapterSettingPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof ParallelPortPojo) {
+		parallelPorts.add((ParallelPortPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof PhysicalMemoryPojo) {
+		physicalMemories.add((PhysicalMemoryPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof PointingDevicePojo) {
+		pointingDevices.add((PointingDevicePojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof ProcessorPojo) {
+		processors.add((ProcessorPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof SCSIControllerPojo) {
+		scsiControllers.add((SCSIControllerPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof SerialPortPojo) {
+		serialPorts.add((SerialPortPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof SoundDevicePojo) {
+		soundDevices.add((SoundDevicePojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof SystemSlotPojo) {
+		systemSlots.add((SystemSlotPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof USBControllerPojo) {
+		usbControllers.add((USBControllerPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof UsbHubPojo) {
+		usbHubs.add((UsbHubPojo) hwPojo);
+		continue;
+	    }
+
+	    if (hwPojo instanceof VideoControllerPojo) {
+		videoControllers.add((VideoControllerPojo) hwPojo);
+		continue;
+	    }
+	}
+	terminal.setV1394Controller(_1394Controllers);
+	terminal.setvBaseBoard(baseBoards);
+	terminal.setvBios(bios);
+	terminal.setvCDROMDrive(cdroms);
+	terminal.setvComputerSystem(computerSystems);
+	terminal.setvDesktopMonitor(desktopMonitors);
+	terminal.setvDiskDrive(diskDrives);
+	terminal.setvFloppyDrive(floppyDrives);
+	terminal.setvKeyboard(keyboards);
+	terminal.setvLogicalDisk(logicalDisks);
+	terminal.setvNetworkAdapterSetting(networkAdapters);
+	terminal.setvParallelPort(parallelPorts);
+	terminal.setvPhysicalMemory(physicalMemories);
+	terminal.setvPointingDevice(pointingDevices);
+	terminal.setvProcessor(processors);
+	terminal.setvSCSIController(scsiControllers);
+	terminal.setvSerialPort(serialPorts);
+	terminal.setvSoundDevice(soundDevices);
+	terminal.setvSystemSlot(systemSlots);
+	terminal.setvUSBController(usbControllers);
+	terminal.setvUSBHub(usbHubs);
+	terminal.setvVideoController(videoControllers);
+
+	terminal.setCurrentip(ip);
+	terminal.setCurrentmac(mac);
+	if (matricula != null) {
+	    terminal.setMatricula(Long.valueOf(matricula).toString());
+	}
+	return terminal;
     }
 
     /**

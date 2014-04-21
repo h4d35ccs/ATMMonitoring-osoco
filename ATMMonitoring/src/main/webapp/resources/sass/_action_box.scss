@@ -146,6 +146,10 @@
 				float: none;
 				margin-top: 1em;
 			}
+			&.only_data{
+				width: 100%;
+				float: left;
+			}
 		}
 	}
 }

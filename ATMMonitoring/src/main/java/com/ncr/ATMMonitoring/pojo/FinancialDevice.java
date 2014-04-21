@@ -222,6 +222,38 @@ public class FinancialDevice extends Auditable {
     }
 
     /**
+     * Instantiates a new agent financial device data with the current
+     * attributes.
+     * 
+     * @return the agent financial device data
+     */
+    public FinancialDevicePojo getInventoryPojo() {
+	FinancialDevicePojo pojo = new FinancialDevicePojo();
+	pojo.setFirmwareversion(getFirmwareVersion());
+	pojo.setVersion(getVersion());
+	pojo.setCaption(caption);
+	pojo.setDescription(description);
+	pojo.setDeviceinstance(deviceInstance);
+	pojo.setDevicestatus(deviceStatus);
+	if (hotSwappable != null) {
+	    pojo.setHotswappable(Boolean.valueOf(hotSwappable).toString());
+	}
+	pojo.setModel(model);
+	pojo.setName(name);
+	pojo.setPmstatus(pmStatus);
+	if (removable != null) {
+	    pojo.setRemovable(Boolean.valueOf(removable).toString());
+	}
+	if (replaceable != null) {
+	    pojo.setReplaceable(Boolean.valueOf(replaceable).toString());
+	}
+	pojo.setSerialnumber(serialNumber);
+	pojo.setUniversalid(universalId);
+	pojo.setVariant(variant);
+	return pojo;
+    }
+
+    /**
      * Gets the comboboxes data for the query GUI.
      * 
      * @return the comboboxes data

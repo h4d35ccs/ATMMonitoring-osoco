@@ -9,6 +9,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib tagdir="/WEB-INF/tags/utils/" prefix="utils"%>
 <%@taglib tagdir="/WEB-INF/tags/terminal/" prefix="terminal" %>
+<%@taglib tagdir="/WEB-INF/tags/ups/" prefix="ups" %>
  <c:set var="req" value="${pageContext.request}" />
  <c:set var="url">${req.requestURL}</c:set>
  <c:set var="base" value="${fn:substring(url, 0, fn:length(url) - fn:length(req.requestURI))}${req.contextPath}/" />
@@ -21,7 +22,10 @@
 <spring:eval expression="@settings.getProperty('security.terminalsAccessAllowedRoles')" var="terminalsAccessAllowedRoles" scope="request"/>
 <spring:eval expression="@settings.getProperty('security.terminalsManagementAllowedRoles')" var="terminalsManagementAllowedRoles" scope="request"/>
 <spring:eval expression="@settings.getProperty('security.terminalsUpdateRequestAllowedRoles')" var="terminalsUpdateRequestAllowedRoles" scope="request"/>
+<spring:eval expression="@settings.getProperty('security.upsAccessAllowedRoles')" var="upsAccessAllowedRoles" scope="request"/>
+<spring:eval expression="@settings.getProperty('security.upsManagementAllowedRoles')" var="upsManagementAllowedRoles" scope="request"/>
 <spring:eval expression="@settings.getProperty('security.queriesAccessAllowedRoles')" var="queriesAccessAllowedRoles" scope="request"/>
+<spring:eval expression="@settings.getProperty('security.upsQueriesAccessAllowedRoles')" var="upsQueriesAccessAllowedRoles" scope="request"/>
 <spring:eval expression="@settings.getProperty('security.reportsAccessAllowedRoles')" var="reportsAccessAllowedRoles" scope="request"/>
 <spring:eval expression="@settings.getProperty('security.editWidgetsLibraryAllowedRoles')" var="editWidgetsLibraryAllowedRoles" scope="request"/>
 

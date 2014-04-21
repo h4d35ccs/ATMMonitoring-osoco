@@ -187,6 +187,27 @@ public class Software {
     }
 
     /**
+     * Instantiates a new agent software data with the current attributes.
+     * 
+     * @return the agent software data
+     */
+    public ProductPojo getInventoryPojo() {
+	ProductPojo pojo = new ProductPojo();
+	pojo.setVersion(getVersion());
+	pojo.setCaption(caption);
+	pojo.setDescription(description);
+	pojo.setIdentifyingNumber(identifyingNumber);
+	if (installDate != null) {
+	    pojo.setInstallDate(new SimpleDateFormat("yyyyMMdd")
+		    .format(installDate));
+	}
+	pojo.setName(name);
+	pojo.setSWType(swType);
+	pojo.setVendor(vendor);
+	return pojo;
+    }
+
+    /**
      * Gets the comboboxes data for the query GUI.
      * 
      * @return the comboboxes data

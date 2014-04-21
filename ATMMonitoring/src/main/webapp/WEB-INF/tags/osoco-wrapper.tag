@@ -101,6 +101,11 @@
 	                    <a id="terminalsLink" href="terminals"><span><spring:message code="label.menu.terminals"/></span></a>
 	                </li>
                 </sec:authorize>
+                <sec:authorize access="hasAnyRole(${upsAccessAllowedRoles})">
+	                <li class="ups">
+	                    <a id="upsLink" href="ups"><span><spring:message code="label.menu.ups"/></span></a>
+	                </li>
+                </sec:authorize>
                 <sec:authorize access="hasAnyRole(${reportsAccessAllowedRoles})">
 	                <li class="reports">
 	                    <a href="externalreports"><span><spring:message code="label.menu.externalreports"/></span></a>

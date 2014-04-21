@@ -281,14 +281,13 @@
 				<div class="botonera">
 					<sec:authorize
 						access="hasAnyRole(${terminalsManagementAllowedRoles})">
-						<button id="editTerminalButton" class="btn">Editar
-							Terminal</button>
+						<button id="editTerminalButton" class="btn"><spring:message code="label.terminal.editTerminal"/></button>
 					</sec:authorize>
 					<sec:authorize
 						access="hasAnyRole(${terminalsUpdateRequestAllowedRoles})">
 						<c:if test="${!agentPushState}">
 							<button class="btn update" onclick="callTask('terminals/request/${terminal.id}',{},'POST', '#ajaxMsg','notification','alert', terminalsUpdate,terminalsUpdateError)"><spring:message
-								code="label.terminal.requestSingleSnmpUpdate" /></button>
+								code="label.terminal.requestSingleSnmpUpdate"/></button>
 						</c:if>
 					</sec:authorize>
 				</div>

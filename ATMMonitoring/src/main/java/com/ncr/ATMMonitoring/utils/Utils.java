@@ -120,6 +120,19 @@ public abstract class Utils {
     }
 
     /**
+     * Tranforms a Gson json representation to its original object.
+     * 
+     * @param the
+     *            json string
+     * @param the
+     *            destination class
+     * @return the original object
+     */
+    public static <T> T fromJson(String json, Class<T> classOfT) {
+	return gson.fromJson(json, classOfT);
+    }
+
+    /**
      * Concats strings with the given separator.
      * 
      * @param strings

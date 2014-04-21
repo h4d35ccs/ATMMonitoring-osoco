@@ -64,7 +64,12 @@
 	                </sec:authorize>
 	                <sec:authorize access="hasAnyRole(${terminalsAccessAllowedRoles})">
 		                <li class="terminals">
-		                    <a id="terminalMenu" onclick="loadInnerSectionMenu('#'+this.id, '#primary', 'terminals')"><span><spring:message code="label.menu.terminals"/></span></a>
+		                    <a id="terminalMenu" onClick="loadInnerSectionMenu('#'+this.id, '#primary', 'terminals')"><span><spring:message code="label.menu.terminals"/></span></a>
+		                </li>
+	                </sec:authorize>
+	                <sec:authorize access="hasAnyRole(${upsAccessAllowedRoles})">
+		                <li class="ups">
+		                    <a id="upsMenu" onClick="loadInnerSectionMenu('#'+this.id, '#primary', 'ups')"><span><spring:message code="label.menu.ups"/></span></a>
 		                </li>
 	                </sec:authorize>
 	                <sec:authorize access="hasAnyRole(${reportsAccessAllowedRoles})">
@@ -72,20 +77,21 @@
 		                    <a id="externalReportsMenu" onClick="loadInnerSectionMenu('#'+this.id, '#primary', 'externalreports')"><span><spring:message code="label.menu.externalreports"/></span></a>
 		                </li>
 	                </sec:authorize>
-	                <sec:authorize access="hasAnyRole(${schedulesAccessAllowedRoles})">
-	                <li class="schedule">
-	                    <a id="scheduleMenu" onClick="loadInnerSectionMenu('#'+this.id, '#primary', 'terminals/schedules/list')"><span><spring:message code="label.menu.scheduler"/></span></a>
-	                </li>
-	                </sec:authorize>
+	                <c:if test="${!agentPushState}">
+		                <sec:authorize access="hasAnyRole(${schedulesAccessAllowedRoles})">
+			                <li class="schedule">
+			                    <a id="scheduleMenu" onClick="loadInnerSectionMenu('#'+this.id, '#primary', 'terminals/schedules/list')"><span><spring:message code="label.menu.scheduler"/></span></a>
+			                </li>
+		                </sec:authorize>
+	                </c:if>
 	                <sec:authorize access="hasAnyRole(${usersAccessAllowedRoles})">
 		                <li class="users">
-		                    <a id ="userMenu" onClick="loadInnerSectionMenu('#'+this.id, '#primary', 'users')"><span><spring:message code="label.menu.users"/></span></a>
+		                    <a id="userMenu" onClick="loadInnerSectionMenu('#'+this.id, '#primary', 'users')"><span><spring:message code="label.menu.users"/></span></a>
 		                </li>
-		                <script>mainContent ="#userMenu";</script>
 	                </sec:authorize>
 	                <sec:authorize access="hasAnyRole(${helpAccessAllowedRoles})">
 		                <li class="help">
-		                    <a id ="helpMenu" onClick="loadInnerSectionMenu('#'+this.id, '#primary', 'help')"><span><spring:message code="label.menu.help"/></span></a>
+		                    <a id="helpMenu" onClick="loadInnerSectionMenu('#'+this.id, '#primary', 'help')"><span><spring:message code="label.menu.help"/></span></a>
 		                </li>
 	                </sec:authorize>
 	            </ul>

@@ -4,6 +4,8 @@ import java.io.InputStream;
 import java.util.Collection;
 import java.util.List;
 
+import com.ncr.ATMMonitoring.pojo.Ups;
+
 /**
  * The Interface UpsService.
  * 
@@ -64,5 +66,57 @@ public interface UpsService {
      *            the id of the UPS we want to delete
      */
     public void deleteUPS(int id);
+
+    /**
+     * Adds the UPS.
+     * 
+     * @param ups
+     *            the ups
+     */
+    public void addUps(Ups ups);
+
+    /**
+     * Gets the UPS by its id.
+     * 
+     * @param id
+     *            the ups id
+     * @return the ups
+     */
+    public Ups getUps(Integer id);
+
+    /**
+     * Gets the UPS by its series number.
+     * 
+     * @param seriesNumber
+     *            the ups series number
+     * @return the ups
+     */
+    public Ups getUpsBySeriesNumber(String seriesNumber);
+
+    /**
+     * Update UPS.
+     * 
+     * @param ups
+     *            the ups
+     */
+    public void updateUps(Ups ups);
+
+    /**
+     * List UPS.
+     * 
+     * @param sort
+     *            the fields for sorting ups
+     * @param order
+     *            the order for sorting ups
+     * @return the ups list
+     */
+    public List<Ups> listUps(String sort, String order);
+
+    /**
+     * List UPS.
+     * 
+     * @return the ups list
+     */
+    public List<Ups> listUps();
 
 }

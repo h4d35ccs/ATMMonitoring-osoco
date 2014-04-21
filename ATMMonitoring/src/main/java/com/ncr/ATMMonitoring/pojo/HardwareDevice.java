@@ -2001,6 +2001,413 @@ public class HardwareDevice extends Auditable {
     }
 
     /**
+     * Instantiates a new agent specific hardware device data with the current
+     * attributes.
+     * 
+     * @return the agent hardware device data
+     */
+    public Object getInventoryPojo() {
+	if (hardwareClass == null) {
+	    return null;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId._1394_CONTROLLER))) {
+	    _1394ControllerPojo pojo = new _1394ControllerPojo();
+	    pojo.setCaption(caption);
+	    pojo.setDescription(description);
+	    pojo.setDeviceID(deviceId);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.BASE_BOARD))) {
+	    BaseBoardPojo pojo = new BaseBoardPojo();
+	    pojo.setModel(model);
+	    pojo.setProduct(product);
+	    pojo.setSerialNumber(serialNumber);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.BIOS))) {
+	    BiosPojo pojo = new BiosPojo();
+	    pojo.setCurrentLanguage(currentLanguage);
+	    if (primaryBios != null) {
+		pojo.setPrimaryBIOS(Boolean.valueOf(primaryBios).toString());
+	    }
+	    if (releaseDate != null) {
+		pojo.setReleaseDate(new SimpleDateFormat("yyyyMMdd")
+			.format(releaseDate));
+	    }
+	    pojo.setSmBIOSVersion(getSmbiosVersion());
+	    pojo.setVersion(getVersion());
+	    pojo.setSerialNumber(serialNumber);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.CDROM_DRIVE))) {
+	    CDROMDrivePojo pojo = new CDROMDrivePojo();
+	    pojo.setCaption(caption);
+	    pojo.setDeviceID(deviceId);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setMediaType(mediaType);
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.COMPUTER_SYSTEM))) {
+	    ComputerSystemPojo pojo = new ComputerSystemPojo();
+	    pojo.setCaption(caption);
+	    if (currentTimeZone != null) {
+		pojo.setCurrentTimeZone(Integer.valueOf(currentTimeZone)
+			.toString());
+	    }
+	    if (daylightInEffect != null) {
+		pojo.setDaylightInEffect(Boolean.valueOf(daylightInEffect)
+			.toString());
+	    }
+	    pojo.setDescription(description);
+	    pojo.setDomain(domain);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setModel(model);
+	    pojo.setName(name);
+	    if (numberOfProcessors != null) {
+		pojo.setNumberOfProcessors(new Integer(numberOfProcessors)
+			.toString());
+	    }
+	    pojo.setStatus(status);
+	    if (totalPhysicalMemory != null) {
+		pojo.setTotalPhysicalMemory(new Long(totalPhysicalMemory)
+			.toString());
+	    }
+	    pojo.setWorkgroup(workgroup);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.DESKTOP_MONITOR))) {
+	    DesktopMonitorPojo pojo = new DesktopMonitorPojo();
+	    pojo.setCaption(caption);
+	    pojo.setDeviceID(deviceId);
+	    if (displayType != null) {
+		pojo.setDisplayType(Boolean.valueOf(displayType).toString());
+	    }
+	    pojo.setMonitorManufacturer(monitorManufacturer);
+	    pojo.setMonitorType(monitorType);
+	    pojo.setName(name);
+	    if (pixelsPerXLogicalInch != null) {
+		pojo.setPixelsPerXLogicalInch(new Integer(pixelsPerXLogicalInch)
+			.toString());
+	    }
+	    if (pixelsPerYLogicalInch != null) {
+		pojo.setPixelsPerYLogicalInch(new Integer(pixelsPerYLogicalInch)
+			.toString());
+	    }
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.DISK_DRIVE))) {
+	    DiskDrivePojo pojo = new DiskDrivePojo();
+	    if (bytesPerSector != null) {
+		pojo.setBytesPerSector(new Integer(bytesPerSector).toString());
+	    }
+	    pojo.setCaption(caption);
+	    pojo.setDescription(description);
+	    pojo.setDeviceID(deviceId);
+	    pojo.setManufacturer(manufacturer);
+	    if (maxMediaSize != null) {
+		pojo.setMaxMediaSize(new Integer(maxMediaSize).toString());
+	    }
+	    pojo.setMediaType(mediaType);
+	    pojo.setModel(model);
+	    pojo.setName(name);
+	    if (partitions != null) {
+		pojo.setPartitions(new Integer(partitions).toString());
+	    }
+	    if (sectorsPerTrack != null) {
+		pojo.setSectorsPerTrack(new Integer(sectorsPerTrack).toString());
+	    }
+	    pojo.setSignature(signature);
+	    if (size != null) {
+		pojo.setSize(new Long(size).toString());
+	    }
+	    pojo.setStatus(status);
+	    if (totalCylinders != null) {
+		pojo.setTotalCylinders(new Integer(totalCylinders).toString());
+	    }
+	    if (tracksPerCylinder != null) {
+		pojo.setTracksPerCylinder(new Integer(tracksPerCylinder)
+			.toString());
+	    }
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.FLOPPY_DRIVE))) {
+	    FloppyDrivePojo pojo = new FloppyDrivePojo();
+	    pojo.setCaption(caption);
+	    pojo.setDescription(description);
+	    pojo.setDeviceID(deviceId);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.KEYBOARD))) {
+	    KeyboardPojo pojo = new KeyboardPojo();
+	    pojo.setCaption(caption);
+	    pojo.setDescription(description);
+	    pojo.setLayout(layout);
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.LOGICAL_DISK))) {
+	    LogicalDiskPojo pojo = new LogicalDiskPojo();
+	    pojo.setCaption(caption);
+	    pojo.setDescription(description);
+	    pojo.setDeviceID(deviceId);
+	    pojo.setFileSystem(fileSystem);
+	    if (freeSpace != null) {
+		pojo.setFreeSpace(new Long(freeSpace).toString());
+	    }
+	    pojo.setName(name);
+	    if (size != null) {
+		pojo.setSize(new Long(size).toString());
+	    }
+	    pojo.setVolumeName(volumeName);
+	    pojo.setVolumeSerialNumber(volumeSerialNumber);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.NETWORK_ADAPTER))) {
+	    NetworkAdapterSettingPojo pojo = new NetworkAdapterSettingPojo();
+	    pojo.setAdapterType(adapterType);
+	    pojo.setCaption(caption);
+	    pojo.setDefaultIPGateway(defaultIpGateway);
+	    pojo.setDescription(description);
+	    if (dhcpEnabled != null) {
+		pojo.setDhcpEnabled(Boolean.valueOf(dhcpEnabled).toString());
+	    }
+	    pojo.setDhcpServer(dhcpServer);
+	    if (interfaceIndex != null) {
+		pojo.setInterfaceIndex(new Integer(interfaceIndex).toString());
+	    }
+	    pojo.setIpAddress(ipAddress);
+	    pojo.setIpSubnet(ipSubnet);
+	    pojo.setMacAddress(macAddress);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    pojo.setNetConnectionID(netConnectionId);
+	    pojo.setNetConnectionStatus(netConnectionStatus);
+	    if (speed != null) {
+		pojo.setSpeed(new Long(speed).toString());
+	    }
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.PARALLEL_PORT))) {
+	    ParallelPortPojo pojo = new ParallelPortPojo();
+	    pojo.setCaption(caption);
+	    pojo.setDeviceID(deviceId);
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.PHYSICAL_MEMORY))) {
+	    PhysicalMemoryPojo pojo = new PhysicalMemoryPojo();
+	    if (capacity != null) {
+		pojo.setCapacity(new Long(capacity).toString());
+	    }
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.POINTING_DEVICE))) {
+	    PointingDevicePojo pojo = new PointingDevicePojo();
+	    pojo.setCaption(caption);
+	    pojo.setDescription(description);
+	    pojo.setHardwareType(hardwareType);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    if (pointingType != null) {
+		pojo.setPointingType(new Integer(pointingType).toString());
+	    }
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.PROCESSOR))) {
+	    ProcessorPojo pojo = new ProcessorPojo();
+	    if (addressWidth != null) {
+		pojo.setAddressWidth(new Integer(addressWidth).toString());
+	    }
+	    pojo.setArchitecture(architecture);
+	    pojo.setCaption(caption);
+	    if (currentClockSpeed != null) {
+		pojo.setCurrentClockSpeed(new Integer(currentClockSpeed)
+			.toString());
+	    }
+	    if (dataWidth != null) {
+		pojo.setDataWidth(new Integer(dataWidth).toString());
+	    }
+	    if (extClock != null) {
+		pojo.setExtClock(new Integer(extClock).toString());
+	    }
+	    pojo.setManufacturer(manufacturer);
+	    if (maxClockSpeed != null) {
+		pojo.setMaxClockSpeed(new Integer(maxClockSpeed).toString());
+	    }
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.SCSI_CONTROLLER))) {
+	    SCSIControllerPojo pojo = new SCSIControllerPojo();
+	    pojo.setCaption(caption);
+	    pojo.setDescription(description);
+	    pojo.setDriverName(driverName);
+	    pojo.setHardwareVersion(hardwareVersion);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    pojo.setStatusInfo(statusInfo);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.SERIAL_PORT))) {
+	    SerialPortPojo pojo = new SerialPortPojo();
+	    pojo.setCaption(caption);
+	    pojo.setDeviceID(deviceId);
+	    if (maxBaudRate != null) {
+		pojo.setMaxBaudRate(new Integer(maxBaudRate).toString());
+	    }
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.SOUND_DEVICE))) {
+	    SoundDevicePojo pojo = new SoundDevicePojo();
+	    pojo.setCaption(caption);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.SYSTEM_SLOT))) {
+	    SystemSlotPojo pojo = new SystemSlotPojo();
+	    pojo.setCaption(caption);
+	    if (currentUsage != null) {
+		pojo.setCurrentUsage(new Integer(currentUsage).toString());
+	    }
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    pojo.setSerialNumber(serialNumber);
+	    pojo.setSlotDesignation(slotDesignation);
+	    pojo.setTag(tag);
+	    pojo.setVersion(getVersion());
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.USB_CONTROLLER))) {
+	    USBControllerPojo pojo = new USBControllerPojo();
+	    pojo.setCaption(caption);
+	    pojo.setDeviceID(deviceId);
+	    pojo.setManufacturer(manufacturer);
+	    pojo.setName(name);
+	    if (protocolSupported != null) {
+		pojo.setProtocolSupported(new Integer(protocolSupported)
+			.toString());
+	    }
+	    pojo.setStatus(status);
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.USB_HUB))) {
+	    UsbHubPojo pojo = new UsbHubPojo();
+	    pojo.setDescription(description);
+	    pojo.setName(name);
+	    if (numberOfPorts != null) {
+		pojo.setNumberOfPorts(new Integer(numberOfPorts).toString());
+	    }
+	    pojo.setProtocolCode(protocolCode);
+	    pojo.setStatus(status);
+	    pojo.setUsbVersion(getUsbVersion());
+	    return pojo;
+	}
+
+	if (hardwareClass.equals(HardwareDevice.deviceClasses
+		.get(HardwareDevice.DeviceClassId.VIDEO_CONTROLLER))) {
+	    VideoControllerPojo pojo = new VideoControllerPojo();
+	    if (adapterRam != null) {
+		pojo.setAdapterRAM(new Integer(adapterRam).toString());
+	    }
+	    if (currentBitsPerPixel != null) {
+		pojo.setCurrentBitsPerPixel(new Integer(currentBitsPerPixel)
+			.toString());
+	    }
+	    if (currentHorizontalResolution != null) {
+		pojo.setCurrentHorizontalResolution(new Integer(
+			currentHorizontalResolution).toString());
+	    }
+	    if (currentNumberOfColors != null) {
+		pojo.setCurrentNumberOfColors(new Long(currentNumberOfColors)
+			.toString());
+	    }
+	    if (currentRefreshRate != null) {
+		pojo.setCurrentRefreshRate(new Integer(currentRefreshRate)
+			.toString());
+	    }
+	    if (currentVerticalResolution != null) {
+		pojo.setCurrentVerticalResolution(new Integer(
+			currentVerticalResolution).toString());
+	    }
+	    pojo.setDescription(description);
+	    pojo.setName(name);
+	    pojo.setVideoProcessor(videoProcessor);
+	    return pojo;
+	}
+
+	return null;
+    }
+
+    /**
      * Gets the comboboxes data for the query GUI.
      * 
      * @return the comboboxes data

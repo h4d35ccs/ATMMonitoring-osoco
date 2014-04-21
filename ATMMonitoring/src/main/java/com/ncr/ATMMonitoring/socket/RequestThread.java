@@ -16,7 +16,7 @@ import com.ncr.ATMMonitoring.utils.Utils;
 /**
  * The Class RequestThread.
  * 
- * This class retrieves the data from a series of ATM's by their ip's.
+ * This class retrieves the data from a series of ATM's by their ips.
  * 
  * @author Jorge López Fernández (lopez.fernandez.jorge@gmail.com)
  */
@@ -42,9 +42,6 @@ public class RequestThread extends Thread {
     private static Logger logger = Logger.getLogger(SocketListenerThread.class
 	    .getName());
 
-    // /** The ips to request. */
-    // private Set<String> ips;
-
     /** The agent port. */
     private int agentPort;
 
@@ -54,13 +51,14 @@ public class RequestThread extends Thread {
     /** The parent manager. */
     private RequestThreadManager parent;
 
+    /** The number of ips to notify. */
     private int requestNumber;
 
     /**
      * Instantiates a new request thread.
      * 
-     * @param ips
-     *            the ips
+     * @param requestNumber
+     *            the number of ips to notify
      * @param agentPort
      *            the agent port
      * @param timeOut
@@ -75,17 +73,7 @@ public class RequestThread extends Thread {
 	this.timeOut = timeOut;
 	this.parent = parent;
 	this.requestNumber = requestNumber;
-
     }
-
-    /**
-     * Gets the ips.
-     * 
-     * @return the ips
-     */
-    // public Set<String> getIps() {
-    // return ips;
-    // }
 
     /**
      * Code executed before requesting data from an ATM for confirming it is
@@ -120,8 +108,7 @@ public class RequestThread extends Thread {
 		    + "] from IP: " + socket.getInetAddress().getHostAddress());
 	    String parentSeed = parent.getHashSeed();
 	    String hash = Utils.getMD5Hex(Utils.getMD5Hex(parentSeed)
-		    + Utils.getMD5Hex(hashSeed)
-		    + Utils.getMD5Hex(randomSeed));
+		    + Utils.getMD5Hex(hashSeed) + Utils.getMD5Hex(randomSeed));
 	    if (response.equals(hash)) {
 		// Confirmamos al agente que la autenticaci�n fue correcta
 		out.println(authOkMsg);

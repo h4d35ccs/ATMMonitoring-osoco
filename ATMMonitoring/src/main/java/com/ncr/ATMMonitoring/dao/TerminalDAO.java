@@ -32,16 +32,28 @@ public interface TerminalDAO {
      * 
      * @param bank
      *            the bank companies
-     * @return the list
+     * @return the list of terminals
      */
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank);
 
+    /**
+     * Lists all terminals for the given bank companies with the default order
+     * and sorting, optionally filtering by a set of ids (including only those
+     * terminals if present).
+     * 
+     * @param terminalIds
+     *            the optional set of ids to filter by
+     * @param bank
+     *            the bank companies
+     * @return the list of terminals
+     */
     public List<Terminal> listTerminalsByIdsAndBankCompanies(List<Integer> ids,
 	    Set<BankCompany> bank);
 
     /**
      * Lists all terminals for the given bank companies with a specific order
-     * and sorting.
+     * and sorting, optionally filtering by a set of ids (including only those
+     * terminals if present).
      * 
      * @param bank
      *            the bank companies
@@ -49,7 +61,9 @@ public interface TerminalDAO {
      *            the sort
      * @param order
      *            the order
-     * @return the list
+     * @param terminalIds
+     *            the optional set of ids to filter by
+     * @return the list of terminals
      */
     public List<Terminal> listTerminalsByBankCompanies(Set<BankCompany> bank,
 	    String sort, String order, List<Integer> terminalIds);
@@ -59,14 +73,14 @@ public interface TerminalDAO {
      * 
      * @param bank
      *            the bank company
-     * @return the list
+     * @return the list of terminals
      */
     public List<Terminal> listTerminalsByBankCompany(BankCompany bank);
 
     /**
      * Lists all terminals.
      * 
-     * @return the list
+     * @return the list of terminals
      */
     public List<Terminal> listTerminals();
 
