@@ -26,7 +26,7 @@
 		      <c:set var="isColumnSorted" value="${column.equals(sort)}"/>
 		      <c:set var="orderValue" value="${(isColumnSorted && 'asc'.equals(order)) ? 'desc' : 'asc'}"/>
 		      <c:if test="${isColumnSorted}">
-		        <c:set var="sortClass" value="${('asc'.equals(order)) ? 'top' : 'bottom'}"/>
+		        <c:set var="sortClass" value="${('asc'.equals(order)) ? 'bottom' : 'top'}"/>
 		      </c:if>
 		      <c:if test="${!isColumnSorted}">
 		        <c:set var="sortClass" value=""/>
