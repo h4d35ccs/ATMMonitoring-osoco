@@ -19,7 +19,7 @@
 					<terminal:terminalSummary terminal="${terminal}"/>
 					
 					<div class="botonera">
-						<a class="btn" href="terminals/details/${terminal.id}?dateTime=${queryDate.time}">
+						<a class="btn" onclick="loadInnerSection('#primary','terminals/details/${terminal.id}?dateTime=${queryDate.time}')">
 							<spring:message code="label.terminal.map.summary.show" />
 				 		</a>
 					</div>
