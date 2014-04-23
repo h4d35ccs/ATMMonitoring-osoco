@@ -220,8 +220,8 @@ public class UPSServiceImpl implements UPSService {
 	ups.setType(info.getType());
 	ups.setModel(info.getModel());
 	ups.setSeriesNumber(info.getSeriesNumber());
-	ups.setRunningTimeMilisec(info.getRunningTimeMillisec());
-	ups.setAutonomyMilisec(info.getAutonomyMillisec());
+	ups.setRunningTimeMillisec(info.getRunningTimeMillisec());
+	ups.setAutonomyMillisec(info.getAutonomyMillisec());
 	ups.setNumPosition(info.getNumPosition());
 	ups.setAudFmo(info.getAudFmo());
 	ups.setGeneralStatusMsg(info.getGeneralStatusMsg());
