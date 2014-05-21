@@ -9,7 +9,7 @@
 			var mainContent ="#dashboardMenu";
 				$( document ).ready(function() {
 					 $(mainContent).click();
-					 loggedTimeUser(${loginTime});
+					 clock();
 				}); 
 		</script> 
 	</c:if>
@@ -18,7 +18,7 @@
 			<%-- an 404 or 403 has occur so i load the content--%>
 				$( document ).ready(function() {
 					loadInnerSection("#primary","show${error}");
-					loggedTimeUser(${loginTime});
+					clock();
 				});
 			</script>
 	</c:if>
