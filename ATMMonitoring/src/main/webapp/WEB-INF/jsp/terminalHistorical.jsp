@@ -26,10 +26,10 @@
 }
 
 .wrapperFloatThead {
-    width:100%;
-    height: 400px;
-    overflow-x:auto;
-    overflow-y:auto;
+     width:100%;
+    height: 1000px; 
+   overflow-x:auto;
+
 }
 
 .floatThead {
@@ -38,7 +38,7 @@
 
 .overflowy{
 	height: 400px;
-	overflow-y:auto;
+	/* overflow-y:auto; */
 }
 
 
@@ -72,7 +72,7 @@
 </div>
 <div>
 </div>
-<h2 id="features">Características 
+<h2 id="features">Características
 				<c:if test="${date != null}">
                 	 <spring:message code="label.terminal.forDate" />    
                      <fmt:formatDate value="${date}" pattern="dd/MM/yyyy HH:mm:ss" />   
@@ -83,25 +83,25 @@
 					<nav class="sub_nav">
 						<ul>
 							<li class="current">
-							  <a class="Installation" href="${currentUrl}#features" onclick="parentResize(555);"><spring:message code="label.installations"/></a>
+							  <a class="Installation" href="${currentUrl}#features" onclick="parentResize((document.body.scrollHeight+2000));"><spring:message code="label.installations"/></a>
 							</li>
 							<li>
-								<a class="FinancialDevice" href="${currentUrl}#features" onclick="parentResize(750)"><spring:message code="label.financialDevices"/></a>
+								<a class="FinancialDevice" href="${currentUrl}#features" onclick="parentResize((document.body.scrollHeight+2000))"><spring:message code="label.financialDevices"/></a>
 							</li>
 							<li>
-								<a class="HardwareDevice" href="${currentUrl}#features" onclick="parentResize(750)"><spring:message code="label.hardwareDevices"/></a>
+								<a class="HardwareDevice" href="${currentUrl}#features" onclick="parentResize((document.body.scrollHeight+2000))"><spring:message code="label.hardwareDevices"/></a>
 							</li>
 							<li>
-								<a class="TerminalConfig" href="${currentUrl}#features" onclick="parentResize(750)"><spring:message code="label.software"/></a>
+								<a class="TerminalConfig" href="${currentUrl}#features" onclick="parentResize((document.body.scrollHeight+2000))"><spring:message code="label.software"/></a>
 							</li>
 							<li>
-								<a class="SoftwareAggregate" href="${currentUrl}#features" onclick="parentResize(750)"><spring:message code="label.softwareAggregates"/></a>
+								<a class="SoftwareAggregate" href="${currentUrl}#features" onclick="parentResize((document.body.scrollHeight+2000))"><spring:message code="label.softwareAggregates"/></a>
 							</li>
 							<li>
-								<a class="Hotfix" href="${currentUrl}#features" onclick="parentResize(750)"><spring:message code="label.hotfixes"/></a>
+								<a class="Hotfix" href="${currentUrl}#features" onclick="parentResize((document.body.scrollHeight+2000))"><spring:message code="label.hotfixes"/></a>
 							</li>
 							<li>
-								<a class="AuditableInternetExplorer" href="${currentUrl}#features" onclick="pparentResize(750)"><spring:message code="label.browsers"/></a>
+								<a class="AuditableInternetExplorer" href="${currentUrl}#features" onclick="pparentResize((document.body.scrollHeight+2000))"><spring:message code="label.browsers"/></a>
 							</li>
 						</ul>
 					</nav>
@@ -133,9 +133,10 @@
 							</c:if>
 							<c:if test="${!empty activeFinancialDevicesByDate}">
 							<div class="margin-box">
-							<div class="wrapperFloatThead">
+						
 								<c:choose>
 									<c:when  test="${activeFinancialDevicesByDate.size() > 5}">
+										<div>
 										 <table id="TestChromatable" class="data subform link floatThead">
 											<thead>
 												<tr>
@@ -185,7 +186,7 @@
 														<spring:message code="label.financialDevice.pmStatus"/>
 
 													</th>
-													<th>
+													<%-- <th>
 
 														<spring:message code="label.financialDevice.model"/>
 
@@ -225,7 +226,7 @@
 														<spring:message code="label.financialDevice.xfsComponents"/>
 
 													</th>
-
+ --%>
 
 													<th><div class="add"><span>Ver más información</span></div></th>
 												</tr>
@@ -280,7 +281,7 @@
 															<spring:message code="label.financialDevice.pmStatus"/>
 
 														</th>
-
+<%-- 
 														<th width="45px">
 
 															<spring:message code="label.financialDevice.model"/>
@@ -320,7 +321,7 @@
 
 															<spring:message code="label.financialDevice.xfsComponents"/>
 
-														</th>
+														</th> --%>
 
 														<th><div class="add"><span>Ver más información</span></div></th>
 													</tr>
@@ -359,7 +360,7 @@
 												<td>
 													<label>${financialDevice.pmStatus}</label>
 												</td>
-												<td>
+												<%-- <td>
 													<label>${financialDevice.model}</label>
 												</td>
 												<td>
@@ -382,9 +383,9 @@
 												</td>
 												<td>
 													<c:forEach items="${financialDevice.xfsComponents}" var="xfsComponent">
-														<a class="iframe" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.xfsClass}</a>
+														<a class="iframe_m cboxElement" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.xfsClass}</a>
 														</c:forEach>
-												</td>
+												</td> --%>
 
 												<td><div class="add"><span>Ver más información</span></div></td>
 											</tr>
@@ -443,7 +444,7 @@
 													<li>
 														<strong><spring:message code="label.financialDevice.xfsComponents"/>:</strong>
 														<c:forEach items="${financialDevice.xfsComponents}" var="xfsComponent">
-															<a class="iframe" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.xfsClass}</a>
+															<a class="iframe_m cboxElement" href="terminals/xfsComponents/details/${xfsComponent.id}">${xfsComponent.xfsClass}</a>
 														</c:forEach>
 													</li>
 												</c:if>
@@ -451,7 +452,7 @@
 													<li>
 														<strong><spring:message code="label.financialDevice.jxfsComponents"/>:</strong>
 														<c:forEach items="${financialDevice.jxfsComponents}" var="jxfsComponent">
-															<a class="iframe" href="terminals/jxfsComponents/details/${jxfsComponent.id}">${jxfsComponent.jxfsClass}</a>
+															<a class="iframe_m cboxElement" href="terminals/jxfsComponents/details/${jxfsComponent.id}">${jxfsComponent.jxfsClass}</a>
 														</c:forEach>
 													</li>
 												</c:if>
@@ -636,7 +637,7 @@
 					</c:if>
 					<c:if test="${!empty terminal.getActiveAuditableSoftwareAggregatesByDate(date)}">
 					<div class="margin-box">
-					<div class="wrapperFloatThead">
+					
 						<c:choose>
 							<c:when  test="${terminal.getActiveAuditableSoftwareAggregatesByDate(date).size() >
 								5}">
@@ -708,7 +709,7 @@
 								<c:set var="alt" value="${!alt}"/>
 							</c:forEach>
 						</table>
-						</div>
+					
 					</div><!-- / margin-box -->
 					</c:if>
 
@@ -716,7 +717,7 @@
 
 			<div class="content_tab">
 				<div class="margin-box">
-				<div class="wrapperFloatThead">
+				
 					<c:if  test="${empty terminal.getActiveHotfixesByDate(date)}">
 						<div class="empty-list message">
 							<spring:message code="label.terminal.noHotfixes"/>
@@ -804,7 +805,7 @@
 							</c:forEach>
 						</table>
 					</c:if>
-					</div>
+				
 				</div>
 			</div>
 			<div class="content_tab">
@@ -1057,15 +1058,22 @@ var Timeline_ajax_url= 'resources/timeline/ajax/simile-ajax-api.js';
         return eventData;
     } 
 
-     $(document).ready(function(){
+    /*  $(document).ready(function(){
 
-    	/*  var $table = $('.floatThead'); */
+    	  var $table = $('.floatThead'); 
     	 tableTheadFloat.floatThead({
-    	     scrollContainer: function ($table) {
+    	   /*   scrollContainer: function ($table) {
     	         return $table.closest('.wrapperFloatThead');
-    	     }
-    	 });
-	 }); 
+    	     } *
+    		 scrollingTop: pageTop,
+             getSizingRow: function($table){ // this is only called when using IE8
+                 return $table.find('tbody tr:not(.grouping):visible:first>td');
+             },
+             useAbsolutePositioning: false
+         });
+    	 });  
+  
+	 });  */
 	function initTabs() {
 		   defaultInitTabs();
 		    
@@ -1091,7 +1099,7 @@ var Timeline_ajax_url= 'resources/timeline/ajax/simile-ajax-api.js';
 
   		var parentId ="historicalDetails"
   		parent.autoResize(parentId,iframeSize,jQuery.browser.mobile);
-  		tableTheadFloat.floatThead('reflow');
+  		/* tableTheadFloat.floatThead('reflow'); */
     	 
   	 }
 </script>
