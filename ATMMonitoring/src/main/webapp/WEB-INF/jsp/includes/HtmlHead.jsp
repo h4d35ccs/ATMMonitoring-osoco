@@ -2,6 +2,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta http-equiv="Cache-Control" Content="public,max-age=31536000" />
         <base href="${base}"/>
+        <link href="resources/images/general/favicon.ico" rel="shortcut icon" type="image/x-icon">
          <%@include file="cssImports.jsp" %>
          <%@include file="jqueryImports.jsp" %>
 		<c:if test="${empty error}">
@@ -33,7 +34,7 @@
     	</script>
     	<script type='text/javascript' src="resources/js/application.js"></script>
     	<script type="text/javascript" src="resources/js/purl.js"></script>
-        <title><spring:message code="label.baseTitle"/></title>   
+        <title><spring	message code="label.baseTitle"/></title>   
         <!--[if lt IE 9]>
         <script type="text/javascript">
             document.createElement("nav");
