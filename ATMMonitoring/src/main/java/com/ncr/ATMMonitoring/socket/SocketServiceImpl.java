@@ -17,6 +17,7 @@ import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.service.QueryService;
 import com.ncr.ATMMonitoring.service.TerminalService;
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 import com.ncr.agent.baseData.ATMDataStorePojo;
 
 /**
@@ -129,7 +130,8 @@ public class SocketServiceImpl implements SocketService {
     @Override
     public void updateTerminalSocket(Terminal terminal) {
 	logger.debug("adding ip: " + terminal.getIp());
-	this.addToQueue(terminal.getIp(), null);
+	ATMUpdateInfo updateInfo = new ATMUpdateInfo(terminal.getIp(),terminal.getMatricula());
+	this.addToQueue(updateInfo, null);
     }
 
     /*
@@ -140,7 +142,7 @@ public class SocketServiceImpl implements SocketService {
      * lang.String)
      */
     @Override
-    public void updateTerminalSocket(String ip) {
+    public void updateTerminalSocket(ATMUpdateInfo ip) {
 	this.addToQueue(ip, null);
     }
 
@@ -152,7 +154,7 @@ public class SocketServiceImpl implements SocketService {
      * .util.Collection)
      */
     @Override
-    public void updateTerminalsSocket(Collection<String> ips) {
+    public void updateTerminalsSocket(Collection<ATMUpdateInfo> ips) {
 	logger.debug("adding collection: " + ips);
 	this.addToQueue(null, ips);
     }
@@ -167,12 +169,15 @@ public class SocketServiceImpl implements SocketService {
     @Override
     public void updateTerminalsSocket(Query query) {
 	if (query != null) {
-	    Set<String> ips = new HashSet<String>();
+	    Set<ATMUpdateInfo> updates = new HashSet<ATMUpdateInfo>();
 	    List<Terminal> terminals = queryService.executeQuery(query);
 	    for (Terminal terminal : terminals) {
-		ips.add(terminal.getIp());
+//		ips.add(terminal.getIp());
+		ATMUpdateInfo updateInfo = new ATMUpdateInfo(terminal.getIp(),terminal.getMatricula());
+		updates.add(updateInfo);
+		
 	    }
-	    updateTerminalsSocket(ips);
+	    updateTerminalsSocket(updates);
 	}
     }
 
@@ -189,7 +194,7 @@ public class SocketServiceImpl implements SocketService {
 	    return;
 	}
 	logger.info("Checking the IPs waiting for update...");
-	this.queueHandler.loadQueue();
+//	this.queueHandler.loadQueue();
 	if (this.queueHandler.isEmpty()) {
 	    logger.info("Nothing in the queue, no ip to process");
 	    return;
@@ -199,7 +204,7 @@ public class SocketServiceImpl implements SocketService {
 	    return;
 	}
 	logger.info("Processing the IPs waiting for update...");
-	logger.debug("the queue collection: " + this.queueHandler.viewQueue());
+	logger.debug("the ATM queue waiting for update : " + this.queueHandler.viewQueue());
 	requestThreadManager = new RequestThreadManager(maxThreads,
 		maxTerminals, timeOut, agentPort, sleepTime, maxTime, this,
 		this.queueHandler.viewQueue());
@@ -254,40 +259,40 @@ public class SocketServiceImpl implements SocketService {
      * @see com.ncr.ATMMonitoring.socket.SocketService#getIpToProcess()
      */
     @Override
-    public String getIpToProcess() {
-	this.queueHandler.loadQueue();
-	String ip = this.queueHandler.poll();
-	this.queueHandler.save();
-	return ip;
+    public ATMUpdateInfo getIpToProcess() {
+//	this.queueHandler.loadQueue();
+	ATMUpdateInfo updateInfo = this.queueHandler.poll();
+//	this.queueHandler.save();
+	return updateInfo;
     }
 
     /**
      * Adds elements to the queue
      * 
-     * @param ip
+     * @param updateInfo
      *            an individual ip to add
      * @param ips
      *            a collection of ips to add
      */
-    private void addToQueue(String ip, Collection<String> ips) {
+    private void addToQueue(ATMUpdateInfo updateInfo, Collection<ATMUpdateInfo> ips) {
 	if (agentPushState.equalsIgnoreCase("on")) {
 	    logger.error("Ips won't be added to the Queue."
 		    + "Comms are set to push model, so updates cannot be requested from the server.");
 	    return;
 	}
-	this.queueHandler.loadQueue();
-	boolean added = false;
+//	this.queueHandler.loadQueue();
+//	boolean added = false;
 
 	if (ips != null && !ips.isEmpty()) {
 	    this.queueHandler.addAll(ips);
-	    added = true;
-	} else if (ip != null) {
-	    this.queueHandler.add(ip);
-	    added = true;
+//	    added = true;
+	} else if (updateInfo != null) {
+	    this.queueHandler.add(updateInfo);
+//	    added = true;
 	}
-	if (added) {
-	    this.queueHandler.save();
-	}
+//	if (added) {
+//	    this.queueHandler.save();
+//	}
     }
 
     /*
@@ -314,5 +319,12 @@ public class SocketServiceImpl implements SocketService {
 	    thread.start();
 	    logger.debug("Starting thread for pushing data to push server...");
 	}
+    }
+
+    @Override
+    public void updateTerminalSocket(String ip, Long matricula) {
+	ATMUpdateInfo updateInfo = new ATMUpdateInfo(ip,matricula);
+	this.updateTerminalSocket(updateInfo);
+	
     }
 }

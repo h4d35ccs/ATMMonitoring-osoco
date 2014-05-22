@@ -1,26 +1,21 @@
 package com.ncr.ATMMonitoring.handler;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
+import javax.jms.JMSException;
+
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ncr.ATMMonitoring.handler.exception.FileHandlerException;
 import com.ncr.ATMMonitoring.handler.exception.QueueHandlerException;
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateQueueBrowser;
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateQueueConsumer;
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateQueueProducer;
 
 /**
  * Class that encapsulate the ATM ip to be updated queue <br>
@@ -46,249 +41,347 @@ public class QueueHandler {
 
     /** The logger */
     private final static Logger logger = Logger.getLogger(QueueHandler.class);
+    //
+    // /** The queue of ips */
+    // private Queue<String> terminalsIpQueue;
+    //
+    // /** Path where the queue is stored */
+    // @Value("${config.queue.filestore}")
+    // private String filestorePath;
+    //
+    // /** Name of the file which will store the queue */
+    // @Value("${config.queue.name}")
+    // private String queueName;
 
-    /** The queue of ips */
-    private Queue<String> terminalsIpQueue;
+    @Autowired
+    private ATMUpdateQueueProducer messageProducer;
 
-    /** Path where the queue is stored */
-    @Value("${config.queue.filestore}")
-    private String filestorePath;
+    @Autowired
+    private ATMUpdateQueueConsumer messageConsumer;
 
-    /** Name of the file which will store the queue */
-    @Value("${config.queue.name}")
-    private String queueName;
+    @Autowired
+    private ATMUpdateQueueBrowser queueBrowser;
+
+    // /**
+    // * Loads the queue Object, this method performs the deserialization
+    // process
+    // *
+    // * @throws QueueHandlerException
+    // * if can 't execute the operation
+    // */
+    // @SuppressWarnings("unchecked")
+    // public synchronized void loadQueue() throws QueueHandlerException {
+    //
+    // FileInputStream fis = null;
+    // ObjectInputStream in = null;
+    //
+    // try {
+    // fis = new FileInputStream(returnQueuePath());
+    // in = new ObjectInputStream(fis);
+    // this.terminalsIpQueue = (Queue<String>) in.readObject();
+    // logger.info("Queue Loaded: " + this.terminalsIpQueue);
+    //
+    // } catch (ClassNotFoundException e) {
+    // logger.error(QueueHandlerException.GENERAL_ERROR, e);
+    // throw new QueueHandlerException(
+    // QueueHandlerException.GENERAL_ERROR, e);
+    //
+    // } catch (FileNotFoundException e) {
+    // // if can not find the file assumes that the queue must be created
+    // logger.info("Creating new Queue, no queue file found in: "
+    // + returnQueuePath());
+    // this.terminalsIpQueue = new ConcurrentLinkedQueue<String>();
+    // } catch (IOException e) {
+    // logger.error(QueueHandlerException.READ_IO_ERROR, e);
+    // throw new QueueHandlerException(
+    // QueueHandlerException.READ_IO_ERROR, e);
+    // } catch (Exception e) {
+    // logger.error(QueueHandlerException.GENERAL_ERROR + e.getMessage(),
+    // e);
+    // throw new QueueHandlerException(QueueHandlerException.GENERAL_ERROR
+    // + e.getMessage(), e);
+    //
+    // } finally {
+    // try {
+    // if (in != null) {
+    // in.close();
+    // }
+    // } catch (IOException e) {
+    // logger.warn("can not close the resouce", e);
+    // }
+    // }
+    //
+    // }
+    //
+    // /**
+    // * Saves the queue in filesystem. This method perform the serialization
+    // * process
+    // *
+    // * @param terminalsIpQueue
+    // * @throws QueueHandlerException
+    // * if can not save the current status of the queue
+    // */
+    // public synchronized void save() throws QueueHandlerException {
+    //
+    // FileOutputStream fos = null;
+    // ObjectOutputStream out = null;
+    // try {
+    // if (this.terminalsIpQueue != null) {
+    // fos = new FileOutputStream(this.returnQueuePath());
+    // out = new ObjectOutputStream(fos);
+    // out.writeObject(this.terminalsIpQueue);
+    // logger.info("Queue status was written in disk "
+    // + this.terminalsIpQueue);
+    // }
+    //
+    // } catch (FileNotFoundException e) {
+    // logger.error(QueueHandlerException.FILE_PATH_NOT_FOUND, e);
+    // throw new QueueHandlerException(
+    // QueueHandlerException.FILE_PATH_NOT_FOUND, e);
+    // } catch (IOException e) {
+    // logger.error(QueueHandlerException.SAVE_IO_ERROR, e);
+    // throw new QueueHandlerException(
+    // QueueHandlerException.SAVE_IO_ERROR, e);
+    // } catch (Exception e) {
+    // logger.error(QueueHandlerException.GENERAL_ERROR, e);
+    // throw new QueueHandlerException(
+    // QueueHandlerException.GENERAL_ERROR, e);
+    // } finally {
+    // try {
+    // out.close();
+    // } catch (IOException e) {
+    // logger.warn("can not close the resouce", e);
+    // }
+    // }
+    //
+    // }
+    //
+    // /***
+    // * Clean the queue and then delete the file from the filesystem<Br>
+    // * It is not necessary to call {@link QueueHandler#save()} after calling
+    // * this method
+    // *
+    // * @throws QueueHandlerException
+    // * if can not delete the file or remove all the elements
+    // */
+    // public synchronized void destroy() throws QueueHandlerException {
+    // String path = this.returnQueuePath();
+    // try {
+    // this.terminalsIpQueue = null;
+    //
+    // File queue = new File(path);
+    // // only deletes the file if exists
+    // if (queue.exists()) {
+    // FileInDiskHandler.delete(path);
+    // }
+    // } catch (FileHandlerException e) {
+    // logger.error(QueueHandlerException.DESTROY_ERROR, e);
+    // throw new QueueHandlerException(
+    // QueueHandlerException.DESTROY_ERROR, e);
+    // }
+    //
+    // }
 
     /**
-     * Loads the queue Object, this method performs the deserialization process
+     * Adds an Update info to the queue<br>
      * 
-     * @throws QueueHandlerException
-     *             if can 't execute the operation
-     */
-    @SuppressWarnings("unchecked")
-    public synchronized void loadQueue() throws QueueHandlerException {
-
-	FileInputStream fis = null;
-	ObjectInputStream in = null;
-
-	try {
-	    fis = new FileInputStream(returnQueuePath());
-	    in = new ObjectInputStream(fis);
-	    this.terminalsIpQueue = (Queue<String>) in.readObject();
-	    logger.info("Queue Loaded: " + this.terminalsIpQueue);
-
-	} catch (ClassNotFoundException e) {
-	    logger.error(QueueHandlerException.GENERAL_ERROR, e);
-	    throw new QueueHandlerException(
-		    QueueHandlerException.GENERAL_ERROR, e);
-
-	} catch (FileNotFoundException e) {
-	    // if can not find the file assumes that the queue must be created
-	    logger.info("Creating new Queue, no queue file found in: "
-		    + returnQueuePath());
-	    this.terminalsIpQueue = new ConcurrentLinkedQueue<String>();
-	} catch (IOException e) {
-	    logger.error(QueueHandlerException.READ_IO_ERROR, e);
-	    throw new QueueHandlerException(
-		    QueueHandlerException.READ_IO_ERROR, e);
-	} catch (Exception e) {
-	    logger.error(QueueHandlerException.GENERAL_ERROR + e.getMessage(),
-		    e);
-	    throw new QueueHandlerException(QueueHandlerException.GENERAL_ERROR
-		    + e.getMessage(), e);
-
-	} finally {
-	    try {
-		if (in != null) {
-		    in.close();
-		}
-	    } catch (IOException e) {
-		logger.warn("can not close the resouce", e);
-	    }
-	}
-
-    }
-
-    /**
-     * Saves the queue in filesystem. This method perform the serialization
-     * process
-     * 
-     * @param terminalsIpQueue
-     * @throws QueueHandlerException
-     *             if can not save the current status of the queue
-     */
-    public synchronized void save() throws QueueHandlerException {
-
-	FileOutputStream fos = null;
-	ObjectOutputStream out = null;
-	try {
-	    if (this.terminalsIpQueue != null) {
-		fos = new FileOutputStream(this.returnQueuePath());
-		out = new ObjectOutputStream(fos);
-		out.writeObject(this.terminalsIpQueue);
-		logger.info("Queue status was written in disk "
-			+ this.terminalsIpQueue);
-	    }
-
-	} catch (FileNotFoundException e) {
-	    logger.error(QueueHandlerException.FILE_PATH_NOT_FOUND, e);
-	    throw new QueueHandlerException(
-		    QueueHandlerException.FILE_PATH_NOT_FOUND, e);
-	} catch (IOException e) {
-	    logger.error(QueueHandlerException.SAVE_IO_ERROR, e);
-	    throw new QueueHandlerException(
-		    QueueHandlerException.SAVE_IO_ERROR, e);
-	} catch (Exception e) {
-	    logger.error(QueueHandlerException.GENERAL_ERROR, e);
-	    throw new QueueHandlerException(
-		    QueueHandlerException.GENERAL_ERROR, e);
-	} finally {
-	    try {
-		out.close();
-	    } catch (IOException e) {
-		logger.warn("can not close the resouce", e);
-	    }
-	}
-
-    }
-
-    /***
-     * Clean the queue and then delete the file from the filesystem<Br>
-     * It is not necessary to call {@link QueueHandler#save()} after calling
-     * this method
-     * 
-     * @throws QueueHandlerException
-     *             if can not delete the file or remove all the elements
-     */
-    public synchronized void destroy() throws QueueHandlerException {
-	String path = this.returnQueuePath();
-	try {
-	    this.terminalsIpQueue = null;
-
-	    File queue = new File(path);
-	    // only deletes the file if exists
-	    if (queue.exists()) {
-		FileInDiskHandler.delete(path);
-	    }
-	} catch (FileHandlerException e) {
-	    logger.error(QueueHandlerException.DESTROY_ERROR, e);
-	    throw new QueueHandlerException(
-		    QueueHandlerException.DESTROY_ERROR, e);
-	}
-
-    }
-
-    /**
-     * Adds an ip to the queue<br>
-     * this will <B>NOT</b> save the queue state in filesystem
      * 
      * @param ip
-     * @throws QueueHandlerException
-     *             if the queue is null
+     * @param matricula
      */
-    public synchronized void add(String ip) throws QueueHandlerException {
+    public synchronized void add(String ip, long matricula) {
+	//
+	// this.checkNullQueue();
+	// if (!StringUtils.isEmpty(ip)) {
+	// ip = ip.trim();
+	// this.validateipString(ip);
+	// if (!this.terminalsIpQueue.contains(ip)) {
+	// this.terminalsIpQueue.offer(ip);
+	// logger.debug("added:" + ip);
+	//
+	// }
+	// }
+	try {
 
-	this.checkNullQueue();
-	if (!StringUtils.isEmpty(ip)) {
-	    ip = ip.trim();
 	    this.validateipString(ip);
-	    if (!this.terminalsIpQueue.contains(ip)) {
-		this.terminalsIpQueue.offer(ip);
-		logger.debug("added:" + ip);
+	    ATMUpdateInfo updateInfo = instanciateUpdateInfoObject(ip,
+		    matricula);
+	    addOnlyIfIsNotOnTheQueue(updateInfo);
 
-	    }
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    throw new QueueHandlerException(
+		    QueueHandlerException.ADD_VALUE_TO_QUEUE + e.getMessage(),
+		    e);
 	}
 
     }
+    
+    public synchronized void add(ATMUpdateInfo updateInfo) {
+	logger.debug("validating ip: "+updateInfo.getAtmIp());
+	this.validateipString(updateInfo.getAtmIp());
+	addOnlyIfIsNotOnTheQueue(updateInfo);
+    }
+
+    private ATMUpdateInfo instanciateUpdateInfoObject(String ip, long matricula) {
+
+	ATMUpdateInfo updateInfo = new ATMUpdateInfo(ip, matricula);
+	return updateInfo;
+    }
+
+    private void addOnlyIfIsNotOnTheQueue(ATMUpdateInfo updateInfo) {
+
+	Queue<ATMUpdateInfo> snapshot = this.getQueueSnapshot();
+
+	if (snapshot.isEmpty() || !snapshot.contains(updateInfo)) {
+	    
+	    this.validateipString(updateInfo.getAtmIp());
+	    logger.debug("added to the queue:"+updateInfo);
+	    this.addToQueue(updateInfo);
+	
+	}else{
+	    
+	    logger.warn("repeated value: "+updateInfo+" won't be added to the queue ");
+	}
+    }
+
+    private void addToQueue(ATMUpdateInfo updateInfo) {
+
+	this.messageProducer.sendUpdateToQueue(updateInfo);
+    }
 
     /**
-     * Adds all the ips from the given collection. <br>
-     * This will <B>NOT</b> save the queue state in filesystem
+     * Adds all the updates from the given collection. <br>
      * 
-     * @param ips
-     *            Collection
-     * @throws QueueHandlerException
-     *             if the queue is null
+     * @param updates
+     *            Collection <ATMUpdateInfo>
      */
-    public synchronized void addAll(Collection<String> ips)
-	    throws QueueHandlerException {
-	this.checkNullQueue();
-	// make sure that a valid ip is being added
-	for (String ip : ips) {
-	    try {
-		if (!StringUtils.isEmpty(ip)) {
-		    ip = ip.trim();
-		    this.validateipString(ip);
-		    if (!this.terminalsIpQueue.contains(ip)) {
-			this.terminalsIpQueue.offer(ip);
-		    }
-		}
+    public synchronized void addAll(Collection<ATMUpdateInfo> updates) {
 
-	    } catch (QueueHandlerException e) {
-		// will try to add all and only exclude those who are not ips
-		logger.warn(e.getMessage());
+	try {
+
+	    for (ATMUpdateInfo update : updates) {
+
+		this.addOnlyIfIsNotOnTheQueue(update);
 	    }
 
-	}
+	} catch (Exception e) {
 
-	logger.debug("added:" + ips);
+	    throw new QueueHandlerException(
+		    QueueHandlerException.ADD_VALUES_TO_QUEUE + e.getMessage(),
+		    e);
+	}
+	// this.checkNullQueue();
+	// // make sure that a valid ip is being added
+	// for (String ip : ips) {
+	// try {
+	// if (!StringUtils.isEmpty(ip)) {
+	// ip = ip.trim();
+	// this.validateipString(ip);
+	// if (!this.terminalsIpQueue.contains(ip)) {
+	// this.terminalsIpQueue.offer(ip);
+	// }
+	// }
+	//
+	// } catch (QueueHandlerException e) {
+	// // will try to add all and only exclude those who are not ips
+	// logger.warn(e.getMessage());
+	// }
+	//
+	// }
+	//
+	// logger.debug("added:" + ips);
     }
 
     /**
-     * Tells if the queue is empty e<br>
-     * this will <B>NOT</b> save the queue state in filesystem
+     * Tells if the queue is empty
      * 
      * @return boolean
-     * @throws QueueHandlerException
-     *             if the queue is null
      */
-    public boolean isEmpty() throws QueueHandlerException {
-	this.checkNullQueue();
-	return this.terminalsIpQueue.isEmpty();
+    public boolean isEmpty() {
+	boolean isEmpty = false;
+	try {
+
+	    isEmpty = queueIsEmpty();
+
+	} catch (Exception e) {
+	    logger.warn(QueueHandlerException.GENERAL_ERROR + e.getMessage(), e);
+	    throw new QueueHandlerException(QueueHandlerException.GENERAL_ERROR
+		    + e.getMessage(), e);
+	}
+
+	return isEmpty;
+    }
+
+    private boolean queueIsEmpty() {
+
+	if (this.queueBrowser.queueSize() == 0) {
+
+	    return true;
+
+	} else {
+
+	    return false;
+	}
     }
 
     /**
-     * removes all the elements of the queue, this will not execute the save
-     * process <br>
-     * this will <B>NOT</b> save the queue state in filesystem
-     * 
-     * @throws QueueHandlerException
-     *             if the queue is null
+     * removes all the elements of the queue
      */
-    public synchronized void removeAll() throws QueueHandlerException {
-	this.checkNullQueue();
-	this.terminalsIpQueue.clear();
-	logger.debug("queue clean: " + this.terminalsIpQueue.isEmpty());
+    public synchronized void removeAll() {
+
+	try {
+	    this.messageConsumer.cleanQueue();
+	} catch (JMSException e) {
+	    throw new QueueHandlerException(QueueHandlerException.REMOVE_ALL
+		    + e.getMessage(), e);
+	}
+
     }
 
-    /**
-     * Removes the given IP from the queue <br>
-     * this will <B>NOT</b> save the queue state in filesystem
-     * 
-     * @param ip
-     *            String
-     * @throws QueueHandlerException
-     *             if the queue is null
-     */
-    public synchronized void removeElement(String ip)
-	    throws QueueHandlerException {
-	this.checkNullQueue();
-	this.terminalsIpQueue.remove(ip);
-    }
+    // /**
+    // * removes all the elements of the queue, this will not execute the save
+    // * process <br>
+    // * this will <B>NOT</b> save the queue state in filesystem
+    // *
+    // * @throws QueueHandlerException
+    // * if the queue is null
+    // */
+    // public synchronized void removeAll() throws QueueHandlerException {
+    // this.checkNullQueue();
+    // this.terminalsIpQueue.clear();
+    // logger.debug("queue clean: " + this.terminalsIpQueue.isEmpty());
+    // }
 
-    /**
-     * Removes all the given IP from the queue <br>
-     * this will <B>NOT</b> save the queue state in filesystem
-     * 
-     * @param ip
-     *            String
-     * @throws QueueHandlerException
-     *             if the queue is null
-     */
-    public synchronized void removeElements(Collection<String> ips)
-	    throws QueueHandlerException {
-	this.checkNullQueue();
-	this.terminalsIpQueue.removeAll(ips);
-    }
+    // /**
+    // * Removes the given IP from the queue <br>
+    // * this will <B>NOT</b> save the queue state in filesystem
+    // *
+    // * @param ip
+    // * String
+    // * @throws QueueHandlerException
+    // * if the queue is null
+    // */
+    // public synchronized void removeElement(String ip)
+    // throws QueueHandlerException {
+    // this.checkNullQueue();
+    // this.terminalsIpQueue.remove(ip);
+    // }
+
+    // /**
+    // * Removes all the given IP from the queue <br>
+    // * this will <B>NOT</b> save the queue state in filesystem
+    // *
+    // * @param ip
+    // * String
+    // * @throws QueueHandlerException
+    // * if the queue is null
+    // */
+    // public synchronized void removeElements(Collection<String> ips)
+    // throws QueueHandlerException {
+    // this.checkNullQueue();
+    // this.terminalsIpQueue.removeAll(ips);
+    // }
 
     /**
      * Retrieves and removes the head of this queue, or returns null if this
@@ -296,10 +389,32 @@ public class QueueHandler {
      * 
      * @return String
      */
-    public synchronized String poll() {
-	String firstIp = this.terminalsIpQueue.poll();
+    public synchronized ATMUpdateInfo poll() {
 
-	return firstIp;
+	ATMUpdateInfo updateInfo = null;
+	try {
+	    updateInfo = getUpdateInfoFromQueue();
+
+	} catch (Exception e) {
+
+	    throw new QueueHandlerException(
+		    QueueHandlerException.GET_VALUE_FROM_QUEUE + e.getMessage(),
+		    e);
+	}
+
+	return updateInfo;
+    }
+
+    private ATMUpdateInfo getUpdateInfoFromQueue() {
+
+	ATMUpdateInfo updateInfo = null;
+
+	if (!this.isEmpty()) {
+
+	    updateInfo = this.messageConsumer.receiveUpdateInfo();
+	}
+
+	return updateInfo;
     }
 
     /**
@@ -308,10 +423,11 @@ public class QueueHandler {
      * 
      * @return
      */
-    public String element() {
-	String firstIp = this.terminalsIpQueue.element();
+    public ATMUpdateInfo element() {
+	Queue<ATMUpdateInfo> snapshot = this.getQueueSnapshot();
+	ATMUpdateInfo firstUpdate = snapshot.element();
 
-	return firstIp;
+	return firstUpdate;
     }
 
     /**
@@ -320,22 +436,43 @@ public class QueueHandler {
      * 
      * @return
      */
-    public String peek() {
-	String firstIp = this.terminalsIpQueue.peek();
-	return firstIp;
+    public ATMUpdateInfo peek() {
+	Queue<ATMUpdateInfo> snapshot = this.getQueueSnapshot();
+	ATMUpdateInfo firstUpdate = snapshot.peek();
+	return firstUpdate;
     }
 
     /**
-     * Returns a copy of this queue, if the queue is null will return null,
-     * empty otherwise
+     * Returns a copy of the queue, if the queue is null will return null, empty
+     * otherwise
      * 
      * @return Queue<String>
      */
-    public Queue<String> viewQueue() {
-	if (this.terminalsIpQueue != null) {
-	    return new LinkedList<String>(this.terminalsIpQueue);
+    public Queue<ATMUpdateInfo> viewQueue() {
+
+	Queue<ATMUpdateInfo> snapshot = this.getQueueSnapshot();
+
+	if (snapshot != null && !snapshot.isEmpty()) {
+
+	    return snapshot;
 	}
 	return null;
+    }
+
+    private Queue<ATMUpdateInfo> getQueueSnapshot() {
+	Queue<ATMUpdateInfo> snapshot = null;
+
+	try {
+
+	    snapshot = this.queueBrowser.getQueueCopy();
+
+	} catch (Exception e) {
+
+	    throw new QueueHandlerException(
+		    QueueHandlerException.GET_QUEUE_COPY + e.getMessage(), e);
+	}
+
+	return snapshot;
     }
 
     /**
@@ -344,35 +481,46 @@ public class QueueHandler {
      * @return
      * @throws QueueHandlerException
      */
-    public int size() throws QueueHandlerException {
-	this.checkNullQueue();
-	return this.terminalsIpQueue.size();
-    }
+    public int size() {
+	int size = 0;
 
-    /**
-     * Returns the full qualified path where the queue is saved or read
-     * 
-     * @return String
-     */
-    private String returnQueuePath() {
-	String path = this.filestorePath + this.queueName;
-	logger.debug("filepath:" + path);
-	return path;
-    }
+	try {
 
-    /**
-     * 
-     * Method that check if is possible to execute an operation over the queue
-     * 
-     * @throws QueueHandlerException
-     */
-    private void checkNullQueue() throws QueueHandlerException {
-	if (this.terminalsIpQueue == null) {
-	    logger.error(QueueHandlerException.NULL_OPERATION_ERROR);
+	    size = this.queueBrowser.queueSize();
+
+	} catch (Exception e) {
+
 	    throw new QueueHandlerException(
-		    QueueHandlerException.NULL_OPERATION_ERROR);
+		    QueueHandlerException.GET_QUEUE_SIZE + e.getMessage(), e);
 	}
+
+	return size;
     }
+
+    // /**
+    // * Returns the full qualified path where the queue is saved or read
+    // *
+    // * @return String
+    // */
+    // private String returnQueuePath() {
+    // String path = this.filestorePath + this.queueName;
+    // logger.debug("filepath:" + path);
+    // return path;
+    // }
+
+    // /**
+    // *
+    // * Method that check if is possible to execute an operation over the queue
+    // *
+    // * @throws QueueHandlerException
+    // */
+    // private void checkNullQueue() throws QueueHandlerException {
+    // if (this.terminalsIpQueue == null) {
+    // logger.error(QueueHandlerException.NULL_OPERATION_ERROR);
+    // throw new QueueHandlerException(
+    // QueueHandlerException.NULL_OPERATION_ERROR);
+    // }
+    // }
 
     /**
      * Validates that the value beeing add is a valid ip

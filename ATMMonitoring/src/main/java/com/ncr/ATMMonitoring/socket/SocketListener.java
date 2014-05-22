@@ -11,6 +11,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
+
 /**
  * The listener interface for receiving socket events. The class that is
  * interested in processing a socket event implements this interface, and the
@@ -90,8 +92,9 @@ public class SocketListener extends Thread {
      * @param ip
      *            the ip
      */
-    public void requestData(String ip) {
-	socketService.updateTerminalSocket(ip);
+    public void requestData(String ip, Long matricula) {
+	
+	socketService.updateTerminalSocket(ip,matricula);
     }
 
     /*

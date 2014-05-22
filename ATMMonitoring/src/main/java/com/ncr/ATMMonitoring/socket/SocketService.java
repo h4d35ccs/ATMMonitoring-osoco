@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import com.ncr.ATMMonitoring.pojo.Query;
 import com.ncr.ATMMonitoring.pojo.Terminal;
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 import com.ncr.agent.baseData.ATMDataStorePojo;
 
 /**
@@ -23,7 +24,7 @@ public interface SocketService {
     public void updateAllTerminalsSocket();
 
     /**
-     * Insert a terminal's ip into the waiting ones list.
+     * Insert a terminal's update info into the waiting ones list.
      * 
      * @param terminal
      *            the terminal whose ip we want to request
@@ -31,20 +32,26 @@ public interface SocketService {
     public void updateTerminalSocket(Terminal terminal);
 
     /**
-     * Insert an ip into the waiting ones list.
+     * Insert an update info into the waiting ones list.
      * 
      * @param ip
      *            the ip to insert
      */
-    public void updateTerminalSocket(String ip);
+    public void updateTerminalSocket(ATMUpdateInfo update);
 
+    /**
+     * Insert an update info into the waiting ones list.
+     * @param ip
+     * @param matricula
+     */
+    public void updateTerminalSocket (String ip, Long matricula);
     /**
      * Insert a series of ip's into the waiting ones list.
      * 
      * @param ips
      *            the ips to insert
      */
-    public void updateTerminalsSocket(Collection<String> ips);
+    public void updateTerminalsSocket(Collection<ATMUpdateInfo> ips);
 
     /**
      * Execute a query and insert the resulting terminals' ip's into the waiting
@@ -88,9 +95,9 @@ public interface SocketService {
      * Load the current queue and extracts one ip from the queue, saving its
      * status afterwards
      * 
-     * @return String
+     * @return ATMUpdateInfo
      */
-    public String getIpToProcess();
+    public ATMUpdateInfo getIpToProcess();
 
     /**
      * Send terminal data as json to another server by push method. Destination

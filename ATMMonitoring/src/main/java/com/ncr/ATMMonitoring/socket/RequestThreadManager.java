@@ -21,6 +21,7 @@ import org.apache.log4j.Logger;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 import com.ncr.ATMMonitoring.utils.Utils;
 
 /**
@@ -71,12 +72,12 @@ public class RequestThreadManager extends Thread {
 	    ks.load(in,
 		    Utils.simpleDecrypt(Utils.KEYSTORE_KEY,
 			    props.getProperty("security.keystorePass"))
-		    .toCharArray());
+			    .toCharArray());
 	    kmf.init(
 		    ks,
 		    Utils.simpleDecrypt(Utils.PRIVATEKEY_KEY,
 			    props.getProperty("security.privatekeyPass"))
-		    .toCharArray());
+			    .toCharArray());
 	    // Install the all-trusting trust manager
 	    SSLContext sc = SSLContext.getInstance("SSL");
 	    sc.init(kmf.getKeyManagers(), trustAllCerts,
@@ -113,7 +114,7 @@ public class RequestThreadManager extends Thread {
     private List<RequestThread> threads = Collections
 	    .synchronizedList(new ArrayList<RequestThread>());
 
-    private Queue<String> ips;
+    private Queue<ATMUpdateInfo> ips;
 
     /**
      * Instantiates a new request thread manager.
@@ -137,7 +138,7 @@ public class RequestThreadManager extends Thread {
      */
     public RequestThreadManager(double maxThreads, double maxTerminals,
 	    int timeOut, int agentPort, int sleepTime, int maxTime,
-	    SocketService socketService, Queue<String> actualQueue) {
+	    SocketService socketService, Queue<ATMUpdateInfo> actualQueue) {
 	this.maxThreads = maxThreads;
 	this.maxTerminals = maxTerminals;
 	this.timeOut = timeOut;
@@ -166,8 +167,9 @@ public class RequestThreadManager extends Thread {
      * @param ip
      *            the ip
      */
-    public void handleIpError(String ip) {
-	socketService.updateTerminalSocket(ip);
+    public void handleIpError(ATMUpdateInfo updateInfo) {
+
+	socketService.updateTerminalSocket(updateInfo);
     }
 
     /*
@@ -177,10 +179,11 @@ public class RequestThreadManager extends Thread {
      */
     public void run() {
 	try {
-	    Iterator<String> iterator = ips.iterator();
+	    Iterator<ATMUpdateInfo> iterator = ips.iterator();
 	    // Set<String> subSet;
 	    String ip;
 	    RequestThread thread;
+	    logger.debug("the queue in the Request thread manager:" + ips);
 	    if (ips.size() > (maxThreads * maxTerminals)) {
 		// El número de ips no nos permite mantener el número m�ximo de
 		// threads y de ips por cada una. Dividimos de la manera m�s
@@ -198,15 +201,21 @@ public class RequestThreadManager extends Thread {
 		    int requestNum = 0;
 		    j = 0;
 		    while (iterator.hasNext() && (j++ < roundedSize)) {
-			ip = iterator.next();
-			logger.info("IP " + ip + " is gonna be updated...");
+			ATMUpdateInfo updateInfo = iterator.next();
+			ip = updateInfo.getAtmIp();
+			logger.info("IP " + ip
+				+ " is gonna be updated... matricula:"
+				+ updateInfo.getAtmMatricula());
 
 			requestNum++;
 		    }
 		    if ((remainingTerminals > 0) && (iterator.hasNext())) {
 			remainingTerminals--;
-			ip = iterator.next();
-			logger.info("IP " + ip + " is gonna be updated...");
+			ATMUpdateInfo updateInfo = iterator.next();
+			ip = updateInfo.getAtmIp();
+			logger.info("IP " + ip
+				+ " is gonna be updated.... matricula:"
+				+ updateInfo.getAtmMatricula());
 
 			requestNum++;
 			j++;
@@ -227,7 +236,8 @@ public class RequestThreadManager extends Thread {
 
 		int requestNum = 0;
 		while (iterator.hasNext()) {
-		    ip = iterator.next();
+		    ATMUpdateInfo updateInfo = iterator.next();
+		    ip = updateInfo.getAtmIp();
 		    logger.info("IP " + ip + " is gonna be updated...");
 
 		    requestNum++;
@@ -314,11 +324,11 @@ public class RequestThreadManager extends Thread {
     }
 
     /**
-     * Returns the first ip to process in the queue
+     * Returns the first update Info to process in the queue
      * 
      * @return
      */
-    public String getIpToProcess() {
+    public ATMUpdateInfo getIpToProcess() {
 	return this.socketService.getIpToProcess();
     }
 }

@@ -11,6 +11,7 @@ import java.net.UnknownHostException;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 import com.ncr.ATMMonitoring.utils.Utils;
 
 /**
@@ -227,10 +228,12 @@ public class RequestThread extends Thread {
      */
     public void run() {
 	String ip = null;
+	ATMUpdateInfo updateInfo = null;
 	// for (String ip : ips) {
 	for (int i = 0; i < this.requestNumber; i++) {
 	    try {
-		ip = this.parent.getIpToProcess();
+		updateInfo = this.parent.getIpToProcess();
+		ip = updateInfo.getAtmIp();
 		logger.info("requesting data to IP: " + ip);
 		requestDataJson(ip);
 	    } catch (Exception e) {
@@ -240,7 +243,7 @@ public class RequestThread extends Thread {
 				+ ". Ip will be requested again in next request phase...",
 			e);
 
-		parent.handleIpError(ip);
+		parent.handleIpError(updateInfo);
 
 	    }
 	}
