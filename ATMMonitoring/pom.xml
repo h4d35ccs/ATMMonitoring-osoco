@@ -61,6 +61,13 @@
             <artifactId>ATMAgent</artifactId>
             <version>1.0</version>
         </dependency>
+        
+        <dependency>
+            <groupId>ncr.serverchain</groupId>
+            <artifactId>serverchain</artifactId>
+            <version>0.1</version>
+        </dependency>
+        
 
 		<!-- Gson: Java to Json conversion -->
 		<dependency>

@@ -18,6 +18,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
@@ -115,6 +116,8 @@ public class RequestThreadManager extends Thread {
 	    .synchronizedList(new ArrayList<RequestThread>());
 
     private Queue<ATMUpdateInfo> ips;
+    
+    private ApplicationContext springContext;
 
     /**
      * Instantiates a new request thread manager.
@@ -138,7 +141,7 @@ public class RequestThreadManager extends Thread {
      */
     public RequestThreadManager(double maxThreads, double maxTerminals,
 	    int timeOut, int agentPort, int sleepTime, int maxTime,
-	    SocketService socketService, Queue<ATMUpdateInfo> actualQueue) {
+	    SocketService socketService, Queue<ATMUpdateInfo> actualQueue, ApplicationContext springContext) {
 	this.maxThreads = maxThreads;
 	this.maxTerminals = maxTerminals;
 	this.timeOut = timeOut;
@@ -147,6 +150,7 @@ public class RequestThreadManager extends Thread {
 	this.maxTime = maxTime;
 	this.socketService = socketService;
 	this.ips = actualQueue;
+	this.springContext = springContext;
 
     }
 
@@ -285,6 +289,10 @@ public class RequestThreadManager extends Thread {
 	    threads.clear();
 
 	}
+    }
+
+    public ApplicationContext getSpringContext() {
+        return springContext;
     }
 
     /**

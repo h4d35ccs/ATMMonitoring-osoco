@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import com.ncr.ATMMonitoring.handler.QueueHandler;
@@ -31,6 +32,10 @@ import com.ncr.agent.baseData.ATMDataStorePojo;
 @Service
 public class SocketServiceImpl implements SocketService {
 
+   
+    @Autowired
+    private ApplicationContext springContext;
+    
     /** The logger. */
     static private Logger logger = Logger.getLogger(SocketServiceImpl.class
 	    .getName());
@@ -207,7 +212,7 @@ public class SocketServiceImpl implements SocketService {
 	logger.debug("the ATM queue waiting for update : " + this.queueHandler.viewQueue());
 	requestThreadManager = new RequestThreadManager(maxThreads,
 		maxTerminals, timeOut, agentPort, sleepTime, maxTime, this,
-		this.queueHandler.viewQueue());
+		this.queueHandler.viewQueue(),springContext);
 	requestThreadManager.start();
     }
 
