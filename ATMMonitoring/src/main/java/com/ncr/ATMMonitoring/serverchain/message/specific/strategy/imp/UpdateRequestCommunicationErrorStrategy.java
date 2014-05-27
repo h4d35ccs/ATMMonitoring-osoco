@@ -1,7 +1,5 @@
 package com.ncr.ATMMonitoring.serverchain.message.specific.strategy.imp;
 
-
-
 import org.apache.log4j.Logger;
 
 import com.ncr.ATMMonitoring.serverchain.message.specific.incoming.UpdateRequestCommunicationError;
@@ -16,42 +14,47 @@ import com.ncr.serverchain.message.specific.strategy.imp.BaseStrategy;
  */
 public class UpdateRequestCommunicationErrorStrategy extends BaseStrategy {
 
-    
     private static final Logger logger = Logger
 	    .getLogger(UpdateRequestCommunicationErrorStrategy.class);
+
     @Override
     public boolean canProcessSpecificMessage() {
-	//to make sure that the message reaches the ROOT
+	// to make sure that the message reaches the ROOT
 	return true;
     }
 
     @Override
     public void processSpecificMessage() {
-	if(this.isRoot()){
-	   
-	    SocketService socketService = this.springContext.getBean(SocketService.class);
-	    ATMUpdateInfo updateInfo  = this.getUpdateInfo();
+	if (this.isRoot()) {
+
+	    SocketService socketService = this.springContext
+		    .getBean(SocketService.class);
+	    ATMUpdateInfo updateInfo = this.getUpdateInfo();
 	    socketService.updateTerminalSocket(updateInfo);
-	    
-	    logger.info("Added ATM not responding info to the update Queue in root: "+updateInfo);
+
+	    logger.info("Added ATM not responding info to the update Queue in root: "
+		    + updateInfo);
 	}
-	
+
     }
-    
-    
-    private ATMUpdateInfo getUpdateInfo(){
-	UpdateRequestCommunicationError updateError = (UpdateRequestCommunicationError)this.messageToProcess;
+
+    private ATMUpdateInfo getUpdateInfo() {
+	UpdateRequestCommunicationError updateError = (UpdateRequestCommunicationError) this.messageToProcess;
 	String atmIp = updateError.getAtmIp();
 	Long atmMatricula = updateError.getMatricula();
-	ATMUpdateInfo updateInfo  = new ATMUpdateInfo(atmIp, atmMatricula);
+	ATMUpdateInfo updateInfo = new ATMUpdateInfo(atmIp, atmMatricula);
 	return updateInfo;
     }
 
     @Override
     public BroadcastType broadcastDirection() {
-	//the message only have to travel in one direction until
-	//it reaches ROOT
-	return BroadcastType.ONE_WAY;
+	BroadcastType broadcast = BroadcastType.ONE_WAY;
+	// the message only have to travel in one direction until
+	// it reaches ROOT
+	if (this.isRoot()) {
+	    broadcast = BroadcastType.NONE;
+	}
+	return broadcast;
     }
 
 }
