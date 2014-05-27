@@ -14,6 +14,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+import com.ncr.ATMMonitoring.scheduledtask.SheduledTaskEnabler;
 import com.ncr.serverchain.NodeInformation;
 import com.ncr.serverchain.NodePosition;
 
@@ -26,7 +27,9 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 
     @Value("${serverchain.beanstodestroy:}")
     private String beansToDestroyComaSeparatedList;
-    
+
+    @Value("${serverchain.taskstostop:}")
+    private String tasksToStop;
 
     @Autowired
     private ApplicationContext springContext;
@@ -37,11 +40,10 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
     private static final Logger logger = Logger
 	    .getLogger(ATMInventoryBeansAdministrator.class);
 
-    private Set<Class<?>> classesObjs = new HashSet<Class<?>>();
-    
+    private Set<Class<?>> beansClasses = new HashSet<Class<?>>();
+    private Set<Class<?>> scheduledTaskClasses = new HashSet<Class<?>>();
+
     private static String BASE_PACKAGE = "com.ncr.ATMMonitoring.";
-    
-    
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -51,21 +53,30 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
     private void shutdownUnnecesaryBeans() {
 
 	if (isNotRoot()) {
+	   
 	    logger.info("Destroyiing not needed beans:"
 		    + beansToDestroyComaSeparatedList);
 	    this.getBeanClassesFromProperties();
+	    
+	    logger.info("stoping not needed scheduled tasks:"
+		    + tasksToStop);
+	    this.getTaskClassesFromProperties();
 
-	    for (Class<?> beanClass : this.classesObjs) {
-		killNotNeededBean(beanClass);
-	    }
+	    this.killAllIndividualBeans();
+	    this.stopAllTask();
+	    //TODO do the killAllBeansInPackage
 
 	}
     }
 
     private boolean isNotRoot() {
-	System.out.println("this.nodePosition.getNodePosition()--->"+this.nodePosition.getNodePosition());
+	System.out.println("this.nodePosition.getNodePosition()--->"
+		+ this.nodePosition.getNodePosition());
+
 	if (!this.nodePosition.getNodePosition()
-		.equals(NodePosition.FIRST_NODE)) {
+		.equals(NodePosition.FIRST_NODE)
+		&& !this.nodePosition.getNodePosition().equals(
+			NodePosition.ONLY_NODE)) {
 	    return true;
 	} else {
 	    return false;
@@ -74,33 +85,62 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 
     private void getBeanClassesFromProperties() {
 
-	String[] classNames = this.separateClassNameFromProperty();
+	String[] classNames = this
+		.separateClassNameFromProperty(this.beansToDestroyComaSeparatedList);
 
 	if (classNames != null) {
 
-	    this.addEachClassFoundToSet(classNames);
+	    this.addEachClassFoundToSet(classNames, this.beansClasses);
 	}
 
     }
 
-    private String[] separateClassNameFromProperty() {
+    private void getTaskClassesFromProperties() {
+
+	String[] classNames = this
+		.separateClassNameFromProperty(this.tasksToStop);
+
+	if (classNames != null) {
+
+	    this.addEachClassFoundToSet(classNames, this.scheduledTaskClasses);
+	}
+
+    }
+
+    private void killAllIndividualBeans() {
+
+	for (Class<?> beanClass : this.beansClasses) {
+	    killNotNeededBean(beanClass);
+	}
+    }
+
+    private void stopAllTask() {
+
+	for (Class<?> scheduledTaskClass : this.scheduledTaskClasses) {
+	    stopScheduledTask(scheduledTaskClass);
+	   
+	}
+    }
+
+    private String[] separateClassNameFromProperty(String comaSeparatedClasses) {
 	String[] classNames = null;
 
-	if (StringUtils.isNotEmpty(this.beansToDestroyComaSeparatedList)) {
+	if (StringUtils.isNotEmpty(comaSeparatedClasses)) {
 
-	    classNames = this.beansToDestroyComaSeparatedList.split(",");
+	    classNames = comaSeparatedClasses.split(",");
 	}
 	return classNames;
     }
 
-    private void addEachClassFoundToSet(String[] classNames) {
+    private void addEachClassFoundToSet(String[] classNames,
+	    Set<Class<?>> classSet) {
 
 	for (String className : classNames) {
 
 	    Class<?> classObj = this.getClassFromName(className);
 
 	    if (classObj != null) {
-		classesObjs.add(classObj);
+		classSet.add(classObj);
 	    }
 	}
     }
@@ -125,7 +165,7 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 	    throws ClassNotFoundException {
 
 	Class<?> classObject = this.getClass().getClassLoader()
-		.loadClass(BASE_PACKAGE+classname);
+		.loadClass(BASE_PACKAGE + classname);
 
 	return classObject;
     }
@@ -173,4 +213,15 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 	}
     }
 
+    private void stopScheduledTask(Class<?> scheduledTaskClass) {
+
+	Object scheduledTask = this.getBeanFactory()
+		.getBean(scheduledTaskClass);
+
+	if (scheduledTask instanceof SheduledTaskEnabler) {
+	    SheduledTaskEnabler sheduledTaskEnabler = (SheduledTaskEnabler) scheduledTask;
+	    sheduledTaskEnabler.disableTask();
+	    logger.info("Task disabled");
+	}
+    }
 }
