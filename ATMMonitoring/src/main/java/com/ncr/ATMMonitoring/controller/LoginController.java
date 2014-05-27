@@ -5,10 +5,15 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.ncr.ATMMonitoring.routertable.RouterTableHandler;
+import com.ncr.serverchain.NodeInformation;
+import com.ncr.serverchain.NodePosition;
 
 /**
  * The Class LoginController.
@@ -20,6 +25,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class LoginController extends GenericController {
+
+    @Autowired
+    private NodeInformation nodeInformation;
 
     /**
      * Render a page for redirect on the client to the correct login page. Is
@@ -63,14 +71,41 @@ public class LoginController extends GenericController {
 	String redirect = "login";
 	String userMsg = "";
 	long loginTime = 0;
-	if (principal != null) {
-	    userMsg = this.getUserGreeting(principal, request);
-	    loginTime = this.getUserLastLogin(principal, request);
-	    redirect = "mainFrame";
+	if (this.isMainNode()) {
+	    
+	    if (principal != null) {
+		userMsg = this.getUserGreeting(principal, request);
+		loginTime = this.getUserLastLogin(principal, request);
+		redirect = "mainFrame";
+	    }
+	    redirectAttributes.addFlashAttribute("userMsg", userMsg);
+	    redirectAttributes.addFlashAttribute("loginTime", loginTime);
+	}else{
+	   
+	    redirect = "redirect:/nodeInfo";
 	}
-	redirectAttributes.addFlashAttribute("userMsg", userMsg);
-	redirectAttributes.addFlashAttribute("loginTime", loginTime);
 	return redirect;
+    }
+    
+    @RequestMapping(value = "/nodeInfo", method = RequestMethod.GET)
+    public String nodeInformation(Map<String, Object> map){
+	this.setAttributesForNodePage(map);
+	return  "nodesInfo";
+	
+    }
+    
+    private  void setAttributesForNodePage(Map<String, Object> map){
+	
+	NodePosition position = this.nodeInformation.getNodePosition();
+	String localUrl = this.nodeInformation.getLocalUrl();
+	String parentUrl = this.nodeInformation.getParentUrl();
+	String routerTable = RouterTableHandler.tableTotring();
+	
+	map.put("nodePosition",position);
+	map.put("localUrl",localUrl);
+	map.put("parentUrl",parentUrl);
+	map.put("routerTable",routerTable);
+	
     }
 
     /**
@@ -110,5 +145,19 @@ public class LoginController extends GenericController {
     @RequestMapping(value = "/mapTest", method = RequestMethod.GET)
     public String mapTest() {
 	return "mapTest";
+    }
+
+    private boolean isMainNode() {
+	NodePosition nodePosition = this.nodeInformation.getNodePosition();
+
+	if (nodePosition.equals(NodePosition.FIRST_NODE)
+		|| nodePosition.equals(NodePosition.ONLY_NODE)) {
+
+	    return true;
+
+	} else {
+
+	    return false;
+	}
     }
 }
