@@ -16,7 +16,7 @@ import com.ncr.ATMMonitoring.service.ScheduledUpdateService;
  * 
  */
 @Component
-public class ScheduledUpdateTask {
+public class ScheduledUpdateTask extends SheduledTaskEnabler {
 
     /** The logger. */
     static final private Logger logger = Logger
@@ -40,9 +40,21 @@ public class ScheduledUpdateTask {
     @Scheduled(cron = CRON_CONF)
     @Transactional
     public void callToCheckCurrentUpdates() {
+	
+	this.runScheduledTask();
+    }
+
+    @Override
+    protected void executeLogic() {
+	this.callScheduledUpdateService();
+	
+    }
+    
+    private void callScheduledUpdateService(){
 	if (!agentPushState.equalsIgnoreCase("on")) {
 	    logger.info("Calling service for checking Current Updates ");
 	    this.scheduledUpdateService.checkCurrentUpdates();
 	}
     }
+    
 }

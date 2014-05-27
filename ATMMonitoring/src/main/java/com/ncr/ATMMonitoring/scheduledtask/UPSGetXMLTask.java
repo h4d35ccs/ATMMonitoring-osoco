@@ -41,7 +41,7 @@ import com.ncr.ATMMonitoring.service.UpsService;
  * 
  */
 @Component
-public class UPSGetXMLTask {
+public class UPSGetXMLTask  extends SheduledTaskEnabler{
 
     /** File extension to check */
     private static final String FILE_EXTENSION = ".xml";
@@ -101,44 +101,60 @@ public class UPSGetXMLTask {
     @Scheduled(cron = CRON_CONF)
     public void checkForUPSUpdates() {
 
-	List<String> filesPath = new ArrayList<String>();
-	List<String> filesPathError = new ArrayList<String>();
+	this.runScheduledTask();
 
-	logger.info("Checking folder for UPS XML files: " + this.xmlFolderPath);
+    }
+    
+    @Override
+    protected void executeLogic() {
+	
+	 this.processFiles();
+    }
+    
+    private void processFiles(){
+   	List<String> filesPath = new ArrayList<String>();
+   	List<String> filesPathError = new ArrayList<String>();
 
-	try {
+   	logger.info("Checking folder for UPS XML files: " + this.xmlFolderPath);
 
-	    filesPath = FileInDiskHandler.getFilespath(FILE_EXTENSION,
-		    this.xmlFolderPath);
+   	try {
 
-	    if (!filesPath.isEmpty()) {
+   	    filesPath = FileInDiskHandler.getFilespath(FILE_EXTENSION,
+   		    this.xmlFolderPath);
 
-		// call the service
-		filesPathError = this.upsService.storeUPSinfo(filesPath);
-		// if has errors, i will only manage those who was processed
-		if (!filesPathError.isEmpty()) {
-		    // i get only those proceed
-		    @SuppressWarnings("unchecked")
-		    Collection<String> toProcess = (Collection<String>) CollectionUtils
-			    .disjunction(filesPathError, filesPath);
-		    this.handleSuccess(new ArrayList<String>(toProcess));
+   	    if (!filesPath.isEmpty()) {
 
-		} else {
-		    // all the files where processed
-		    this.handleSuccess(filesPath);
-		}
+   		// call the service
+   		filesPathError = this.upsService.storeUPSinfo(filesPath);
+   		// if has errors, i will only manage those who was processed
+   		if (!filesPathError.isEmpty()) {
+   		 
+   		    this.processSucessfullFilesOnly(filesPathError,filesPath);
 
-	    } else {
+   		} else {
+   		    // all the files where processed
+   		    this.handleSuccess(filesPath);
+   		}
 
-		logger.debug(" UPS XML folder( " + xmlFolderPath
-			+ " ) is empty, nothing to process");
-	    }
-	} catch (FileHandlerException e) {
+   	    } else {
 
-	    logger.error("Can not read the UPS XML folder( " + xmlFolderPath
-		    + " ) because it is not a directory");
-	}
+   		logger.debug(" UPS XML folder( " + xmlFolderPath
+   			+ " ) is empty, nothing to process");
+   	    }
+   	} catch (FileHandlerException e) {
 
+   	    logger.error("Can not read the UPS XML folder( " + xmlFolderPath
+   		    + " ) because it is not a directory");
+   	}
+
+       }
+    
+    private void processSucessfullFilesOnly(List<String> filesPathError, List<String> filesPath){
+	   // i get only those proceed
+	    @SuppressWarnings("unchecked")
+	    Collection<String> toProcess = (Collection<String>) CollectionUtils
+		    .disjunction(filesPathError, filesPath);
+	    this.handleSuccess(new ArrayList<String>(toProcess));
     }
 
     /**
@@ -220,4 +236,5 @@ public class UPSGetXMLTask {
 
     }
 
+  
 }

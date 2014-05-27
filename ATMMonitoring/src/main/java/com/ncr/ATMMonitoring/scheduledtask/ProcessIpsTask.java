@@ -15,7 +15,7 @@ import com.ncr.ATMMonitoring.socket.SocketService;
  * 
  */
 @Component
-public class ProcessIpsTask {
+public class ProcessIpsTask extends SheduledTaskEnabler {
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(ProcessIpsTask.class);
@@ -29,17 +29,28 @@ public class ProcessIpsTask {
     private String agentPushState;
 
     /** Runs at every minute 30 seconds. */
-    private static final String CRON_CONF = "30 * * * * *";
+    private static final String CRON_CONF = "10 * * * * *";
 
     /**
      * Method that calls the service in order to start the ATM update process
      */
     @Scheduled(cron = CRON_CONF)
     public void processIps() {
+	
+	this.runScheduledTask();
+    }
+    @Override
+    protected void executeLogic() {
+	
+	callSocketService();
+    }
+    
+    private void callSocketService(){
 	if (!agentPushState.equalsIgnoreCase("on")) {
 	    logger.info("Calling service for checking the IPs waiting for update...");
 	    this.socketService.processAwaitingIps();
 	}
     }
+
 
 }
