@@ -1,18 +1,15 @@
 package com.ncr.ATMMonitoring.serverchain.message.specific.strategy.imp;
 
-import java.util.Date;
-
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import com.ncr.ATMMonitoring.routertable.RouterTableHandler;
-import com.ncr.ATMMonitoring.serverchain.message.specific.incoming.UpdateDataResponse;
 import com.ncr.ATMMonitoring.serverchain.message.specific.outgoing.UpdateDataRequest;
+import com.ncr.ATMMonitoring.socket.SocketService;
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 import com.ncr.serverchain.NodePosition;
 import com.ncr.serverchain.message.specific.strategy.BroadcastType;
 import com.ncr.serverchain.message.specific.strategy.imp.BaseStrategy;
-import com.ncr.serverchain.message.wrapper.IncomingMessage;
-import com.ncr.serverchain.message.wrapper.MessageWrapper;
 
 /**
  * <pre>
@@ -31,8 +28,6 @@ public class UpdateDataRequestStrategy extends BaseStrategy {
     private static final Logger logger = Logger
 	    .getLogger(UpdateDataRequestStrategy.class);
 
-    private IncomingMessage turnedBackMessage;
-
     private boolean finalProcessing = false;
 
     /*
@@ -43,7 +38,6 @@ public class UpdateDataRequestStrategy extends BaseStrategy {
      * #setupStrategy(com.ncr.ATMMonitoring.serverchain.NodePosition,
      * com.ncr.ATMMonitoring.serverchain.message.SpecificMessage)
      */
-   
 
     /*
      * (non-Javadoc)
@@ -55,15 +49,20 @@ public class UpdateDataRequestStrategy extends BaseStrategy {
     public boolean canProcessSpecificMessage() {
 
 	boolean canProcess = false;
-	UpdateDataRequest updateDataMessage = (UpdateDataRequest) this.messageToProcess;
+	UpdateDataRequest updateDataMessage = this
+		.castMessageToUpdateDataRequest();
 
 	if (nodeIsLeafOrMiddleAndMatriculaIsPresent(updateDataMessage)) {
 
 	    canProcess = true;
 	}
 
-	logger.debug("can process the message? " + canProcess);
+	logger.debug("can process the message? " + canProcess+" updateDataMessage:"+updateDataMessage);
 	return canProcess;
+    }
+
+    private UpdateDataRequest castMessageToUpdateDataRequest() {
+	return (UpdateDataRequest) this.messageToProcess;
     }
 
     private boolean nodeIsLeafOrMiddleAndMatriculaIsPresent(
@@ -116,25 +115,34 @@ public class UpdateDataRequestStrategy extends BaseStrategy {
 
 	}
     }
-    
 
     private void processWhenLeaf() {
 
 	this.finalProcessing = true;
-
-	this.instanciateTurnedBackMessage();
+	this.callServiceToProcessUpdate();
 	logger.info(" Update data Request processed in leaf");
     }
 
-    private void instanciateTurnedBackMessage() {
-	UpdateDataResponse udr = new UpdateDataResponse();
-	udr.setOriginalRequest((UpdateDataRequest) this.messageToProcess);
-	
-	this.turnedBackMessage = new IncomingMessage("Message incoming from: "
-		+ this.nodeInformation.getLocalBrokerUrl(),
-		 new Date().getTime());
-	
-	this.turnedBackMessage.setSpecificMessage(udr);
+    private void callServiceToProcessUpdate() {
+
+	SocketService socketService = this.getSocketService();
+	ATMUpdateInfo updateInfo = createATMUpdateInfo();
+	socketService.updateTerminalSocket(updateInfo);
+
+    }
+
+    private SocketService getSocketService() {
+	return this.springContext.getBean(SocketService.class);
+    }
+
+    private ATMUpdateInfo createATMUpdateInfo() {
+
+	UpdateDataRequest dataRequest = castMessageToUpdateDataRequest();
+	String atmIp = dataRequest.getAtmIp();
+	long atmMatricula = dataRequest.getMatricula();
+
+	ATMUpdateInfo updateInfo = new ATMUpdateInfo(atmIp, atmMatricula);
+	return updateInfo;
     }
 
     /*
@@ -151,29 +159,21 @@ public class UpdateDataRequestStrategy extends BaseStrategy {
 	if (isMiddleNodeAndCanPassMessage()) {
 
 	    passMessage = BroadcastType.ONE_WAY;
-	    
-	}else if (isLeaf()) {
-	    
-	    passMessage = BroadcastType.TURN_BACK;
-	}
 
+	} 
 	return passMessage;
     }
-    
-    private boolean isMiddleNodeAndCanPassMessage(){
-	
-	if(!this.finalProcessing && canProcessSpecificMessage()){
+
+    private boolean isMiddleNodeAndCanPassMessage() {
+
+	if (!this.finalProcessing && canProcessSpecificMessage()) {
+	    
 	    return true;
-	    
-	}else{
-	    
+
+	} else {
+
 	    return false;
 	}
-    }
-
-    @Override
-    public MessageWrapper getTurnBackMessage() {
-	return this.turnedBackMessage;
     }
 
 }
