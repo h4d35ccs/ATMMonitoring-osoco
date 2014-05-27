@@ -54,13 +54,13 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
 
 	this.socketComunicationParams = socketComunicationParams;
 	this.updateInfo = updateInfo;
-	logger.debug("adapter setup");
+
 	ApplicationContext springContext = socketComunicationParams.getSpringContext();
 	
 	this.nodeInformation = this.getNodeInformation(springContext);
-	logger.debug("nodeInformation ok :)");
+	
 	this.messagePublisher = this.getMessagePublisher(springContext);
-	logger.debug("adapter setup ok");
+
 
     }
 
@@ -120,12 +120,13 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
     private boolean initateServerChain() {
 
 	boolean initiateServerChain = false;
-
+	logger.debug("isRootAndIsNotOnlyNode"+isRootAndIsNotOnlyNode());
 	if (isRootAndIsNotOnlyNode()) {
 
 	    initiateServerChain = true;
+	    
 	}
-
+	logger.debug("initiateServerChain?"+initiateServerChain);
 	return initiateServerChain;
     }
 
@@ -204,7 +205,6 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
 	NodePosition position = this.getNodePosition();
 
 	if (position.equals(NodePosition.ONLY_NODE)) {
-	    logger.debug("is Only Node");
 
 	    return true;
 
@@ -223,12 +223,12 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
 	    RequestThreadManager requestThreadManager = this.socketComunicationParams
 		    .getParentRequestThreadManager();
 	    requestThreadManager.handleIpError(updateInfo);
-	    logger.debug("ATM Info back to the queue");
+	    logger.info("ATM Info back to the queue");
 
-	} else if (initateServerChain()) {
+	} else if (isLeafNode()) {
 
-	    publishCommunicationError();
-	    logger.debug("ATM Info sent to the root node");
+	    this.publishCommunicationError();
+	    logger.info("ATM Info sent to the root node");
 
 	}
 
