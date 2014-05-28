@@ -97,16 +97,35 @@ public class ATMUpdateQueueBrowser {
 	
 	java.util.Queue<ATMUpdateInfo> queueElements = null;
 	
-	try {
+	try{
 	    
-	    queueElements = this.switchElementsFromEnumerationToList();
+	    queueElements = this.getQueueFromEnumeration();
 	    
-	} catch (JMSException e) {
+	
+	
+	} catch (IllegalStateException e){
+	   //the session could be closed, so we try again to get the elements
+		queueElements = this.getQueueFromEnumeration();
 	   
-	    throw new QueueBrowsingException(QueueBrowsingException.GET_QUEUE_ERROR+e.getMessage(),e);
 	}
 	
 	return  queueElements;
+    }
+    
+    private java.util.Queue<ATMUpdateInfo> getQueueFromEnumeration(){
+	
+	java.util.Queue<ATMUpdateInfo> queueElements = null;
+	
+	try {
+		
+		queueElements = this.switchElementsFromEnumerationToList();
+	   
+	    } catch (JMSException e) {
+		
+		 throw new QueueBrowsingException(QueueBrowsingException.GET_QUEUE_ERROR+e.getMessage(),e);
+	    }
+	
+	return queueElements;
     }
     
     
