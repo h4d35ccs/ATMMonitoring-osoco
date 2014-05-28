@@ -20,8 +20,7 @@ import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "locations", uniqueConstraints = { @UniqueConstraint(columnNames = {
-	"address_street", "address_number", "address_city", "address_postcode",
-	"address_country" }) })
+	"address_street", "address_city", "address_postcode", "address_country" }) })
 public class Location {
 
     /** The id. */
@@ -35,11 +34,6 @@ public class Location {
     @Column(name = "address_street")
     @Type(type = "text")
     private String addressStreet;
-
-    /** The address number. */
-    @Column(name = "address_number")
-    @Type(type = "text")
-    private String addressNumber;
 
     /** The address postcode. */
     @Column(name = "address_postcode")
@@ -86,6 +80,10 @@ public class Location {
     /** The public access. */
     @Column(name = "public_access")
     private Boolean publicAccess;
+
+    /** The office code. */
+    @Column(name = "office_code", unique = true)
+    private String officeCode;
 
     // We don't need this for now
     // @OneToMany(mappedBy = "installation")
@@ -252,25 +250,6 @@ public class Location {
     }
 
     /**
-     * Gets the address number.
-     * 
-     * @return the address number
-     */
-    public String getAddressNumber() {
-	return addressNumber;
-    }
-
-    /**
-     * Sets the address number.
-     * 
-     * @param addressNumber
-     *            the new address number
-     */
-    public void setAddressNumber(String addressNumber) {
-	this.addressNumber = addressNumber;
-    }
-
-    /**
      * Gets the address postcode.
      * 
      * @return the address postcode
@@ -334,8 +313,6 @@ public class Location {
      */
     public String getCompleteAddress() {
 	String address = (addressStreet != null) ? addressStreet : "";
-	address += ((addressNumber != null) ? ((address.length() > 0) ? " "
-		: "") + addressNumber : "");
 	address += ((addressCity != null) ? ((address.length() > 0) ? ", " : "")
 		+ addressCity
 		: "");
@@ -398,6 +375,25 @@ public class Location {
 	} else if (!coordY.equals(other.coordY))
 	    return false;
 	return true;
+    }
+
+    /**
+     * Gets the office code.
+     * 
+     * @return the office code
+     */
+    public String getOfficeCode() {
+	return officeCode;
+    }
+
+    /**
+     * Sets the office code.
+     * 
+     * @param officeCode
+     *            the office code to set
+     */
+    public void setOfficeCode(String officeCode) {
+	this.officeCode = officeCode;
     }
 
 }

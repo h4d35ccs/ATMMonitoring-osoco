@@ -11,10 +11,10 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import com.ncr.ATMMonitoring.parser.exception.ParserException;
+import com.ncr.ATMMonitoring.parser.exception.FileNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.ParseUPSChainBuilder;
 import com.ncr.ATMMonitoring.parser.ups.ParseUPSXML;
-import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
-import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 
 /**
  * Class that defines a parse based on SAX<br>
@@ -42,12 +42,12 @@ public abstract class ParseUPSSAX extends ParseUPSXML {
      *            InputStream
      * @throws ParserException
      *             if can't get the SAX parser or a general error occurs
-     * @throws XMLNotReadableException
+     * @throws FileNotReadableException
      *             if can not read the file while executing the
      *             {@link DocumentBuilder#parse(java.io.File)}
      */
     protected void parse(InputStream xmlFile) throws ParserException,
-	    XMLNotReadableException {
+	    FileNotReadableException {
 
 	DefaultHandler handler = this.getDefaultHandler();
 	SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -61,10 +61,10 @@ public abstract class ParseUPSSAX extends ParseUPSXML {
 	    throw new ParserException(
 		    ParserException.PARSER_CONFIGURATION_ERROR, e);
 	} catch (SAXException e) {
-	    throw new XMLNotReadableException(
-		    XMLNotReadableException.PARSE_ERROR, e);
+	    throw new FileNotReadableException(
+		    FileNotReadableException.PARSE_ERROR, e);
 	} catch (IOException e) {
-	    throw new XMLNotReadableException(XMLNotReadableException.IO_ERROR,
+	    throw new FileNotReadableException(FileNotReadableException.IO_ERROR,
 		    e);
 	} catch (Exception e) {
 	    throw new ParserException(ParserException.GENERAL_ERROR

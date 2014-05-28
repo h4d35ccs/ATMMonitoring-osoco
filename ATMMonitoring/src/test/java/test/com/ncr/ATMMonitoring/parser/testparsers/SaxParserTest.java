@@ -5,11 +5,11 @@ import org.xml.sax.SAXException;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
+import com.ncr.ATMMonitoring.parser.exception.NoParserFoundException;
+import com.ncr.ATMMonitoring.parser.exception.ParserException;
+import com.ncr.ATMMonitoring.parser.exception.FileNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.annotation.UPSParser;
 import com.ncr.ATMMonitoring.parser.ups.dto.UPSInfo;
-import com.ncr.ATMMonitoring.parser.ups.exception.NoParserFoundException;
-import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
-import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.imp.ParseUPSSAX;
 
 @UPSParser(priority = UPSParser.HIGH_PRIORITY)
@@ -71,7 +71,7 @@ public class SaxParserTest extends ParseUPSSAX {
 
     @Override
     protected boolean canParseXML() throws ParserException,
-	    XMLNotReadableException {
+	    FileNotReadableException {
 	logger.debug("Sax evaluating: " + this.getOriginalXmlString()
 		+ " acepted:" + this.parseable);
 	this.parse(this.getXmlFile());
@@ -80,7 +80,7 @@ public class SaxParserTest extends ParseUPSSAX {
 
     @Override
     protected UPSInfo applyParser() throws ParserException,
-	    XMLNotReadableException, NoParserFoundException {
+	    FileNotReadableException, NoParserFoundException {
 	logger.debug("Sax parser returning: " + this.parsedInfo);
 	return this.parsedInfo;
     }

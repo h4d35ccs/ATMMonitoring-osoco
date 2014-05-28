@@ -2,11 +2,11 @@ package test.com.ncr.ATMMonitoring.parser.testparsers;
 
 import org.apache.log4j.Logger;
 
+import com.ncr.ATMMonitoring.parser.exception.NoParserFoundException;
+import com.ncr.ATMMonitoring.parser.exception.ParserException;
+import com.ncr.ATMMonitoring.parser.exception.FileNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.annotation.UPSParser;
 import com.ncr.ATMMonitoring.parser.ups.dto.UPSInfo;
-import com.ncr.ATMMonitoring.parser.ups.exception.NoParserFoundException;
-import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
-import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.imp.ParseUPSDom;
 
 @UPSParser
@@ -18,7 +18,7 @@ public class OtherParseLink1 extends ParseUPSDom {
 
     @Override
     protected UPSInfo applyParser() throws ParserException,
-	    XMLNotReadableException, NoParserFoundException {
+	    FileNotReadableException, NoParserFoundException {
 	logger.debug("Link1 parsing: " + this.xml);
 	return new UPSInfo();
     }

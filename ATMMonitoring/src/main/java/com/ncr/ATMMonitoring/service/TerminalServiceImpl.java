@@ -329,27 +329,35 @@ public class TerminalServiceImpl implements TerminalService {
 	    }
 	    Terminal dbTerminal = terminalDAO.getTerminalByMatricula(terminal
 		    .getMatricula());
-	    if ((dbTerminal == null) && (terminal.getSerialNumber() != null)
-		    && (terminal.getSerialNumber().trim().length() > 0)) {
-		dbTerminal = terminalDAO.getTerminalBySerialNumber(terminal
-			.getSerialNumber());
-	    }
-	    if (dbTerminal == null) {
-		dbTerminal = terminalDAO
-			.getTerminalBySimilarity(dataStoreTerminal);
-	    }
-	    if (dbTerminal != null) {
-		dbTerminal.replaceTerminalDataWoVoidValues(terminal);
-		terminal = dbTerminal;
-		terminalDAO.updateTerminal(terminal);
-		logger.debug("Updated Terminal from ATMDataStore with IP "
-			+ terminal.getIp() + " and generated id "
-			+ terminal.getMatricula());
-	    } else {
+	    if ((dbTerminal == null) && (terminal.getMatricula() != null)) {
 		terminalDAO.addTerminal(terminal);
 		logger.debug("Created Terminal from ATMDataStore with IP "
-			+ terminal.getIp() + " and generated id "
+			+ terminal.getIp() + " and externally assigned id "
 			+ terminal.getMatricula());
+	    } else {
+		if ((dbTerminal == null)
+			&& (terminal.getSerialNumber() != null)
+			&& (terminal.getSerialNumber().trim().length() > 0)) {
+		    dbTerminal = terminalDAO.getTerminalBySerialNumber(terminal
+			    .getSerialNumber());
+		}
+		if (dbTerminal == null) {
+		    dbTerminal = terminalDAO
+			    .getTerminalBySimilarity(dataStoreTerminal);
+		}
+		if (dbTerminal != null) {
+		    dbTerminal.replaceTerminalDataWoVoidValues(terminal);
+		    terminal = dbTerminal;
+		    terminalDAO.updateTerminal(terminal);
+		    logger.debug("Updated Terminal from ATMDataStore with IP "
+			    + terminal.getIp() + " and generated id "
+			    + terminal.getMatricula());
+		} else {
+		    terminalDAO.addTerminal(terminal);
+		    logger.debug("Created Terminal from ATMDataStore with IP "
+			    + terminal.getIp() + " and generated id "
+			    + terminal.getMatricula());
+		}
 	    }
 	    addNewEntities(terminal, dataStoreTerminal);
 	    terminalDAO.updateTerminal(terminal);
@@ -1164,17 +1172,7 @@ public class TerminalServiceImpl implements TerminalService {
 	TerminalConfig newConfig = new TerminalConfig();
 	newConfig.setTerminal(terminal);
 	Set<Software> sws = getSoftware(dataStoreTerminal);
-	Set<Software> swsAux = new HashSet<Software>();
-	for (Software sw : sws) {
-	    Software swAux = softwareService.getSoftwareByIdentifyingNumber(sw
-		    .getIdentifyingNumber());
-	    if (swAux != null) {
-		swsAux.add(swAux);
-	    } else {
-		swsAux.add(sw);
-	    }
-	}
-	newConfig.setSoftware(swsAux);
+	newConfig.setSoftware(sws);
 
 	Set<OperatingSystem> oss = getOperatingSystems(dataStoreTerminal);
 	newConfig.setOperatingSystems(oss);

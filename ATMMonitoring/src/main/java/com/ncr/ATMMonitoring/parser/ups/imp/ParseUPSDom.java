@@ -13,10 +13,10 @@ import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
 import org.xml.sax.SAXException;
 
+import com.ncr.ATMMonitoring.parser.exception.FileNotReadableException;
+import com.ncr.ATMMonitoring.parser.exception.ParserException;
 import com.ncr.ATMMonitoring.parser.ups.ParseUPSChainBuilder;
 import com.ncr.ATMMonitoring.parser.ups.ParseUPSXML;
-import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
-import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 
 /**
  * Class that defines a parse based on w3c DOM<br>
@@ -44,11 +44,11 @@ public abstract class ParseUPSDom extends ParseUPSXML {
      * @return Document
      * @throws ParserException
      *             if can't get the document builder or a general error occurs
-     * @throws XMLNotReadableException
+     * @throws FileNotReadableException
      *             if can not read the file while executing the
      *             {@link DocumentBuilder#parse(java.io.File)}
      */
-    private void loadXML() throws ParserException, XMLNotReadableException {
+    private void loadXML() throws ParserException, FileNotReadableException {
 
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 
@@ -63,11 +63,11 @@ public abstract class ParseUPSDom extends ParseUPSXML {
 	    throw new ParserException(
 		    ParserException.PARSER_CONFIGURATION_ERROR, e);
 	} catch (SAXException e) {
-	    throw new XMLNotReadableException(
-		    XMLNotReadableException.PARSE_ERROR, e);
+	    throw new FileNotReadableException(
+		    FileNotReadableException.PARSE_ERROR, e);
 	} catch (IOException e) {
-	    throw new XMLNotReadableException(XMLNotReadableException.IO_ERROR,
-		    e);
+	    throw new FileNotReadableException(
+		    FileNotReadableException.IO_ERROR, e);
 	} catch (Exception e) {
 	    throw new ParserException(ParserException.GENERAL_ERROR
 		    + e.getMessage(), e);
@@ -94,11 +94,11 @@ public abstract class ParseUPSDom extends ParseUPSXML {
      * set
      * 
      * @return Element
-     * @throws XMLNotReadableException
+     * @throws FileNotReadableException
      * @throws ParserException
      */
     protected Element getRootElement() throws ParserException,
-	    XMLNotReadableException {
+	    FileNotReadableException {
 
 	if (this.rootElement == null) {
 
@@ -111,10 +111,11 @@ public abstract class ParseUPSDom extends ParseUPSXML {
      * Returns the {@link Document}
      * 
      * @return Document
-     * @throws XMLNotReadableException
+     * @throws FileNotReadableException
      * @throws ParserException
      */
-    protected Document getDoc() throws ParserException, XMLNotReadableException {
+    protected Document getDoc() throws ParserException,
+	    FileNotReadableException {
 	if (this.doc == null) {
 	    this.loadXML();
 	}

@@ -13,7 +13,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 
-import com.ncr.ATMMonitoring.pojo.annotation.ComboQueryOption;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.OperatingSystemPojo;
 
@@ -54,31 +53,26 @@ public class OperatingSystem {
     private Integer id;
 
     /** The os type. */
-    @ComboQueryOption
     @Column(name = "os_type")
     @Type(type = "text")
     private String osType;
 
     /** The name. */
-    @ComboQueryOption
     @Column(name = "name")
     @Type(type = "text")
     private String name;
 
     /** The serial number. */
-    @ComboQueryOption
     @Column(name = "serial_number")
     @Type(type = "text")
     private String serialNumber;
 
     /** The manufacturer. */
-    @ComboQueryOption
     @Column(name = "manufacturer")
     @Type(type = "text")
     private String manufacturer;
 
     /** The major version. */
-    @ComboQueryOption(versionComparison = ComboQueryOption.USE_VERSION_COMPARISON)
     @Column(name = "major_version")
     private Integer majorVersion;
 
@@ -100,7 +94,6 @@ public class OperatingSystem {
     private String remainingVersion;
 
     /** The service pack major version. */
-    @ComboQueryOption(versionComparison = ComboQueryOption.USE_VERSION_COMPARISON)
     @Column(name = "service_pack_major_version")
     private Integer servicePackMajorVersion;
 
@@ -122,13 +115,11 @@ public class OperatingSystem {
     private String servicePackRemainingVersion;
 
     /** The organization. */
-    @ComboQueryOption
     @Column(name = "organization")
     @Type(type = "text")
     private String organization;
 
     /** The os language. */
-    @ComboQueryOption
     @Column(name = "os_language")
     @Type(type = "text")
     private String osLanguage;

@@ -32,6 +32,15 @@ public interface LocationDAO {
     public Location getLocation(Integer id);
 
     /**
+     * Gets the location with the given office code.
+     * 
+     * @param officeCode
+     *            the office code
+     * @return the location, or null if it doesn't exist
+     */
+    public Location getLocationByOfficeCode(String officeCode);
+
+    /**
      * Lists all locations.
      * 
      * @return the list

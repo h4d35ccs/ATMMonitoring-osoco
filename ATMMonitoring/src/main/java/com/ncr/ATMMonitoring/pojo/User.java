@@ -29,7 +29,6 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -90,6 +89,12 @@ public class User implements UserDetails {
     @Cascade(CascadeType.ALL)
     @OrderBy("query_name")
     private Set<Query> queries = new HashSet<Query>();
+
+    /** The UPS queries. */
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @Cascade(CascadeType.ALL)
+    @OrderBy("query_name")
+    private Set<UpsQuery> upsQueries = new HashSet<UpsQuery>();
 
     /** The dashboard. */
     @OneToOne
@@ -332,6 +337,15 @@ public class User implements UserDetails {
     }
 
     /**
+     * Gets the UPS queries.
+     * 
+     * @return the UPS queries
+     */
+    public Set<UpsQuery> getUpsQueries() {
+	return upsQueries;
+    }
+
+    /**
      * Sets the queries.
      * 
      * @param queries
@@ -339,6 +353,16 @@ public class User implements UserDetails {
      */
     public void setQueries(Set<Query> queries) {
 	this.queries = queries;
+    }
+
+    /**
+     * Sets the UPS queries.
+     * 
+     * @param upsQueries
+     *            the UPS queries to set
+     */
+    public void setUpsQueries(Set<UpsQuery> upsQueries) {
+	this.upsQueries = upsQueries;
     }
 
     /**
@@ -387,21 +411,18 @@ public class User implements UserDetails {
      * @return the html welcome message
      */
     public String getHtmlWelcomeMessage(Locale locale) {
-	// DateFormat timeFormatter = new SimpleDateFormat("H:mm");
-	// String lastLoginFormatted = "";
-	// lastLoginFormatted = DateFormat.getDateInstance(DateFormat.SHORT,
-	// locale).format(lastLogin) +
-	// " - " + timeFormatter.format(lastLogin);
-	//
-	// return
-	// "<div class=\"welcome\"><spring:message code=\"label.welcomeMessage\"/> "
-	// + firstname
-	// + " "
-	// + lastname
-	// + "</div>"
-	// +
-	// "<div class=\"date\">" + lastLoginFormatted + "</div>";
-	return this.firstname + " " + this.lastname;
+	DateFormat timeFormatter = new SimpleDateFormat("H:mm");
+	String lastLoginFormatted = "";
+	lastLoginFormatted = DateFormat.getDateInstance(DateFormat.SHORT,
+		locale).format(lastLogin)
+		+ " - " + timeFormatter.format(lastLogin);
+
+	return "<div class=\"welcome\"><spring:message code=\"label.welcomeMessage\"/> "
+		+ firstname
+		+ " "
+		+ lastname
+		+ "</div>"
+		+ "<div class=\"date\">" + lastLoginFormatted + "</div>";
     }
 
     /**

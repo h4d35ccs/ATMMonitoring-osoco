@@ -13,11 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ncr.ATMMonitoring.dao.UpsDAO;
 import com.ncr.ATMMonitoring.handler.FileInDiskHandler;
+import com.ncr.ATMMonitoring.parser.exception.NoParserFoundException;
+import com.ncr.ATMMonitoring.parser.exception.ParserException;
+import com.ncr.ATMMonitoring.parser.exception.FileNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.ParseUPSChainBuilder;
 import com.ncr.ATMMonitoring.parser.ups.dto.UPSInfo;
-import com.ncr.ATMMonitoring.parser.ups.exception.NoParserFoundException;
-import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
-import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 import com.ncr.ATMMonitoring.pojo.Ups;
 
 /**
@@ -117,7 +117,7 @@ public class UpsServiceImpl implements UpsService {
 	} catch (ParserException e) {
 	    logger.error("Can not parse the file: " + xmlFile
 		    + " due an error: ", e);
-	} catch (XMLNotReadableException e) {
+	} catch (FileNotReadableException e) {
 	    logger.error("Can not Read the file: " + xmlFile, e);
 	} catch (NoParserFoundException e) {
 	    logger.error("The file " + xmlFile
@@ -228,7 +228,7 @@ public class UpsServiceImpl implements UpsService {
      *            the UPSInfo to save
      */
 
-    private void handleParserSucess(UPSInfo file) {
+    private void handleParserSuccess(UPSInfo file) {
 
 	String seriesNumber = file.getSeriesNumber();
 	String model = file.getModel();
@@ -262,14 +262,14 @@ public class UpsServiceImpl implements UpsService {
      *            {@link InputStream} with the XML
      * @return UPSInfo with the extracted info
      * @throws ParserException
-     * @throws XMLNotReadableException
+     * @throws FileNotReadableException
      * @throws NoParserFoundException
      */
     private void parseFile(InputStream xml) throws ParserException,
-	    XMLNotReadableException, NoParserFoundException {
+	    FileNotReadableException, NoParserFoundException {
 
 	UPSInfo xmlInfo = ParseUPSChainBuilder.parse(xml);
-	this.handleParserSucess(xmlInfo);
+	this.handleParserSuccess(xmlInfo);
     }
 
     /**

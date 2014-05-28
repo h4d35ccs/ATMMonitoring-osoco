@@ -2,6 +2,8 @@ package com.ncr.ATMMonitoring.dao;
 
 import java.util.List;
 
+import org.hibernate.type.Type;
+
 import com.ncr.ATMMonitoring.pojo.Ups;
 
 /**
@@ -87,5 +89,38 @@ public interface UpsDAO {
      * @return the list
      */
     public List<Ups> listUps(String sort, String order);
+
+    /**
+     * Gets the UPS's by HQL. Used for the query engine.
+     * 
+     * @param values
+     *            the values of the HQL parameters
+     * @param types
+     *            the types of the HQL parameters
+     * @param hql
+     *            the HQL itself
+     * @return the UPS's that fulfill the HQL
+     */
+    public List<Ups> getUpsByHQL(List<Object> values, List<Type> types,
+	    String hql);
+
+    /**
+     * Gets the UPS's by HQL with a specific order and sorting. Used for the
+     * query engine.
+     * 
+     * @param values
+     *            the values of the HQL parameters
+     * @param types
+     *            the types of the HQL parameters
+     * @param hql
+     *            the HQL itself
+     * @param sort
+     *            the sort
+     * @param order
+     *            the order
+     * @return the UPS's that fulfill the HQL
+     */
+    public List<Ups> getUpsByHQL(List<Object> values, List<Type> types,
+	    String hql, String sort, String order);
 
 }

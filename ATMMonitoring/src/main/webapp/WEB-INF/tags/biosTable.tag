@@ -8,6 +8,7 @@
 <table class="data subform link">
 <tr>
 	<th><spring:message code="label.hardwareDevice.name"/></th>
+	<th><spring:message code="label.hardwareDevice.caption"/></th>
 	<th><spring:message code="label.hardwareDevice.manufacturer"/></th>
 	<th><spring:message code="label.hardwareDevice.smbiosVersion"/></th>
 	<th><spring:message code="label.hardwareDevice.smbiosMajorVersion"/></th>
@@ -27,6 +28,13 @@
 			<td>${hardwareDevice.name}</td>
 		</c:if>
 		<c:if test="${hardwareDevice.name == null}">
+			<td/>
+		</c:if>
+
+		<c:if test="${hardwareDevice.caption != null}">
+			<td>${hardwareDevice.caption}</td>
+		</c:if>
+		<c:if test="${hardwareDevice.caption == null}">
 			<td/>
 		</c:if>
 		

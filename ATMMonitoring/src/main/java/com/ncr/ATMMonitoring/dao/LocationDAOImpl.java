@@ -3,6 +3,7 @@ package com.ncr.ATMMonitoring.dao;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Location;
@@ -78,5 +79,19 @@ public class LocationDAOImpl extends AbstractGenericDAO<Location> implements
     @Override
     public void removeLocation(Integer id) {
 	delete(id);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.dao.LocationDAO#getLocationByOfficeCode(java.lang
+     * .String)
+     */
+    @Override
+    public Location getLocationByOfficeCode(String officeCode) {
+	return (Location) sessionFactory.getCurrentSession()
+		.createCriteria(Location.class)
+		.add(Restrictions.eq("officeCode", officeCode)).uniqueResult();
     }
 }

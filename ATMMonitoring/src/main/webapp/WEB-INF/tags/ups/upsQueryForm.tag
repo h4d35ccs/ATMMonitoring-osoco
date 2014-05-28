@@ -15,7 +15,7 @@
 	</h2>
 
 	<div class="row">
-		<button type="button" onclick="loadInnerSection('#primary', 'ups/queries')" class="btn right"> <spring:message code="label.queries.mine"/> </button>
+		<a href="upsQueries" class="btn right"> <spring:message code="label.queries.mine"/> </a>
 		<c:if test="${empty userQueries}">
 			<div class="message no_queries">
 				<p>
@@ -35,7 +35,7 @@
 						<option value="${userQuery.id}" ${selectedQuery.id == userQuery.id? 'selected': ''}>${userQuery.name}</option>
 					</c:forEach>
 				</select>
-				<input type="button" value="<spring:message code="label.apply"/>" class="btn" onclick="loadInnerSectionFromForm('#userQueriesForm','#primary');">
+				<input type="submit" value="<spring:message code="label.apply"/>" class="btn">
 			</form>
 		</c:if>
 	</div>

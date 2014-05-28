@@ -33,6 +33,8 @@
         <spring:eval expression="@settings.getProperty('security.queriesAccessAllowedRoles')" var="queriesAccessAllowedRoles" scope="request"/>
         <spring:eval expression="@settings.getProperty('security.reportsAccessAllowedRoles')" var="reportsAccessAllowedRoles" scope="request"/>
 		<spring:eval expression="@settings.getProperty('security.editWidgetsLibraryAllowedRoles')" var="editWidgetsLibraryAllowedRoles" scope="request"/>
+		<spring:eval expression="@settings.getProperty('security.upsAccessAllowedRoles')" var="upsAccessAllowedRoles" scope="request"/>
+		<spring:eval expression="@settings.getProperty('security.upsQueriesAccessAllowedRoles')" var="upsQueriesAccessAllowedRoles" scope="request"/>
 		
 		<!-- Push comm only -->
         <spring:eval expression="@settings.getProperty('config.agentPushState').equalsIgnoreCase('on')" var="agentPushState" scope="request"/>
@@ -98,7 +100,7 @@
                 </sec:authorize>
                 <sec:authorize access="hasAnyRole(${terminalsAccessAllowedRoles})">
 	                <li class="terminals">
-	                    <a id="terminalsLink" href="terminals"><span><spring:message code="label.menu.terminals"/></span></a>
+	                    <a href="terminals"><span><spring:message code="label.menu.terminals"/></span></a>
 	                </li>
                 </sec:authorize>
                 <sec:authorize access="hasAnyRole(${upsAccessAllowedRoles})">

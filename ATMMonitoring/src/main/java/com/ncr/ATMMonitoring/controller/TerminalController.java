@@ -33,7 +33,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
@@ -124,50 +123,35 @@ public class TerminalController extends GenericController {
      *            the query id
      * @param principal
      *            the principal
+     * @param redirectAttributes
+     *            the redirect attributes
+     * @return the petition response
      */
     @RequestMapping(value = "/terminals/request", method = RequestMethod.GET)
-    @ResponseBody
     public String requestTerminalsUpdateByQuery(String queryId,
-	    Principal principal) {
+	    Principal principal, RedirectAttributes redirectAttributes) {
 	if (agentPushState.equalsIgnoreCase("on")) {
 	    return "redirect:/dashboard";
 	}
-
-	// final Map<String, String> response = new HashMap<String, String>();
-	// final String responseKey = "response";
-	// String responseType ="success";
-	boolean isError = false;
-	try {
-	    if ((queryId != null) && (principal != null)) {
-		Query query = queryService.getQuery(Integer.parseInt(queryId));
-		if (this.queryService.queryBelongToUser(query,
-			principal.getName())) {
-		    this.atmservice.atmSnmpUpdate(query);
-		}
-	    } else {
-		this.atmservice.atmSnmpUpdate(null);
-		// redirectAttributes.addFlashAttribute("success",
-		// "success.snmpUpdateAll");
+	if ((queryId != null) && (principal != null)) {
+	    Query query = queryService.getQuery(Integer.parseInt(queryId));
+	    if (this.queryService.queryBelongToUser(query, principal.getName())) {
+		this.atmservice.atmSnmpUpdate(query);
 	    }
-
-	} catch (Exception e) {
-	    isError = true;
-	    logger.error(
-		    "An error occurs while calling service to execute update:"
-			    + e.getMessage(), e);
+	} else {
+	    this.atmservice.atmSnmpUpdate(null);
+	    redirectAttributes.addFlashAttribute("success",
+		    "success.snmpUpdateAll");
 	}
-	// response.put(responseKey, responseType);
-	// Gson gson = new GsonBuilder().create();
-	// String json = gson.toJson(response);
-	// try {
-	// // We wait to avoid not loading the recently added DB data
-	// Thread.sleep(1000);
-	// } catch (InterruptedException e) {
-	// e.printStackTrace();
-	// }
 
-	// return "redirect:/terminals/list";
-	return this.generateJsonResponse(isError);
+	try {
+	    // We wait to avoid not loading the recently added DB data
+	    Thread.sleep(1000);
+	} catch (InterruptedException e) {
+	    e.printStackTrace();
+	}
+
+	return "redirect:/terminals/list";
     }
 
     /**
@@ -182,7 +166,6 @@ public class TerminalController extends GenericController {
      * @return the petition response
      */
     @RequestMapping("/terminals/request/{terminalId}")
-    @ResponseBody
     public String requestTerminalUpdateById(
 	    @PathVariable("terminalId") Integer terminalId,
 	    RedirectAttributes redirectAttributes, Principal principal) {
@@ -190,10 +173,9 @@ public class TerminalController extends GenericController {
 	    return "redirect:/dashboard";
 	}
 	Terminal terminal = this.atmservice.atmSnmpUpdate(terminalId);
-	boolean isError = false;
+
 	if (terminal == null) {
-	    // return "redirect:/terminals/list";
-	    isError = true;
+	    return "redirect:/terminals/list";
 	}
 	// try {
 	// logger.debug("request snmp update for terminal" + terminalId);
@@ -201,11 +183,11 @@ public class TerminalController extends GenericController {
 	// redirectAttributes.addFlashAttribute("success",
 	// "success.snmpUpdateTerminal");
 	// } catch (SnmpTimeOutException e) {
-	// String // userMsg = "";
+	// String userMsg = "";
 	// Locale locale = RequestContextUtils.getLocale(request);
 	// if (principal != null) {
 	// User loggedUser = userService.getUserByUsername(principal.getName());
-	// // userMsg = loggedUser.getHtmlWelcomeMessage(locale);
+	// userMsg = loggedUser.getHtmlWelcomeMessage(locale);
 	// Set<BankCompany> bankCompanies = loggedUser
 	// .getManageableBankCompanies();
 	// if ((terminal.getBankCompany() != null)
@@ -214,22 +196,21 @@ public class TerminalController extends GenericController {
 	// return "redirect:/terminals/list";
 	// }
 	// }
-	// ////map.put("userMsg", userMsg)
+	// map.put("userMsg", userMsg);
 	// map.put("ips", e.getIpsHtmlList());
 	// redirectAttributes.addFlashAttribute("timeout",
 	// "timeout.snmpUpdateTerminal");
 	// return "redirect:/terminals/details/" + terminalId;
 	// }
 
-	// try {
-	// // We wait to avoid not loading the recently added DB data
-	// Thread.sleep(1000);
-	// } catch (InterruptedException e) {
-	// e.printStackTrace();
-	// }
+	try {
+	    // We wait to avoid not loading the recently added DB data
+	    Thread.sleep(1000);
+	} catch (InterruptedException e) {
+	    e.printStackTrace();
+	}
 
-	// return "redirect:/terminals/details/" + terminalId;
-	return this.generateJsonResponse(isError);
+	return "redirect:/terminals/details/" + terminalId;
     }
 
     /**
@@ -254,7 +235,7 @@ public class TerminalController extends GenericController {
     @RequestMapping(value = "/terminals/list", method = RequestMethod.GET)
     public String listTerminals(Map<String, Object> map, Principal principal,
 	    String p, String sort, String order, HttpServletRequest request) {
-	// String // userMsg = "";
+	String userMsg = "";
 
 	List<Terminal> terminals = new ArrayList<Terminal>();
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
@@ -263,7 +244,7 @@ public class TerminalController extends GenericController {
 	String sortValue = (sort == null) ? DEFAULT_SORT : sort;
 	String orderValue = (order == null) ? DEFAULT_ORDER : order;
 	if (principal != null) {
-	    // // //userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    bankCompanies = this.bankCompanyService
 		    .getUserManageableBankCompanies(principal.getName());
 	    terminals = this.atmservice.listATMByBanks(bankCompanies, sort,
@@ -276,7 +257,7 @@ public class TerminalController extends GenericController {
 	map.put("banksList", bankCompanies);
 	map.put("installationsList", this.atmservice.listATMInstallations());
 	map.put("userQueries", userQueries);
-	// ////map.put("userMsg", userMsg)
+	map.put("userMsg", userMsg);
 	map.put("terminal", new Terminal());
 	map.put("sort", sortValue);
 	map.put("order", orderValue);
@@ -333,11 +314,11 @@ public class TerminalController extends GenericController {
 	    map.clear();
 	    return "redirect:/terminals/list";
 	}
-	// String // userMsg = "";
+	String userMsg = "";
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
 
-	    // //userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    bankCompanies = this.bankCompanyService
 		    .getUserManageableBankCompanies(principal.getName());
 	    if ((terminal.getBankCompany() != null)
@@ -355,7 +336,7 @@ public class TerminalController extends GenericController {
 	map.put("installationsList", this.atmservice.listATMInstallations());
 	map.put("values", this.atmservice.listATMModelsByManufacturer());
 	map.put("date", date);
-	// //map.put("userMsg", userMsg)
+	map.put("userMsg", userMsg);
 	map.put("terminal", terminal);
 	map.put("preselectedTab", preselectedTab);
 
@@ -374,6 +355,7 @@ public class TerminalController extends GenericController {
 		.getUserManageableBankCompanies(principal.getName());
 	List<Terminal> terminals = this.atmservice.listATMByBanksAndAtmId(
 		bankCompanies, terminalIds);
+
 	model.put("terminals", terminals);
 	model.put("queryDate", date);
 	return "terminalsDetailsSummary";
@@ -419,10 +401,10 @@ public class TerminalController extends GenericController {
     @RequestMapping(value = "/terminals/new", method = RequestMethod.GET)
     public String viewNewTerminal(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
-	// String // userMsg = "";
+	String userMsg = "";
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
-	    // //userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    bankCompanies = this.bankCompanyService
 		    .getUserManageableBankCompanies(principal.getName());
 	}
@@ -430,7 +412,7 @@ public class TerminalController extends GenericController {
 	map.put("values", this.atmservice.listATMModelsByManufacturer());
 	map.put("banksList", bankCompanies);
 	map.put("terminal", new Terminal());
-	// //map.put("userMsg", userMsg)
+	map.put("userMsg", userMsg);
 
 	return "newTerminal";
     }
@@ -466,12 +448,12 @@ public class TerminalController extends GenericController {
 		&& (terminal.getTerminalModel().getId() == null)) {
 	    terminal.setTerminalModel(null);
 	}
-	// String // userMsg = "";
+	String userMsg = "";
 	PagedListHolder<Terminal> pagedListHolder = new PagedListHolder<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 
 	if (principal != null) {
-	    // //userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    Set<Query> userQueries = this.queryService
 		    .getQueriesByUser(principal.getName());
 	    map.put("userQueries", userQueries);
@@ -500,18 +482,18 @@ public class TerminalController extends GenericController {
 	    map.put("pagedListHolder", pagedListHolder);
 	    map.put("banksList", bankCompanies);
 	    map.put("installationsList", this.atmservice.listATMInstallations());
-	    // //map.put("userMsg", userMsg)
+	    map.put("userMsg", userMsg);
 	    return "terminals";
 	}
 
 	this.atmservice.addUpdateATM(terminal, AtmFacade.ADD);
 
-	// try {
-	// // We wait to avoid not loading the recently added DB data
-	// Thread.sleep(500);
-	// } catch (InterruptedException e) {
-	// e.printStackTrace();
-	// }
+	try {
+	    // We wait to avoid not loading the recently added DB data
+	    Thread.sleep(500);
+	} catch (InterruptedException e) {
+	    e.printStackTrace();
+	}
 
 	map.clear();
 	return "redirect:/terminals/list";
@@ -549,11 +531,11 @@ public class TerminalController extends GenericController {
 		&& (terminal.getTerminalModel().getId() == null)) {
 	    terminal.setTerminalModel(null);
 	}
-	// String // userMsg = "";
+	String userMsg = "";
 	List<Terminal> terminals = new ArrayList<Terminal>();
 	Set<BankCompany> bankCompanies = new HashSet<BankCompany>();
 	if (principal != null) {
-	    // //userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    bankCompanies = this.bankCompanyService
 		    .getUserManageableBankCompanies(principal.getName());
 	    terminals = this.atmservice.listATMByBanks(bankCompanies, null,
@@ -562,7 +544,7 @@ public class TerminalController extends GenericController {
 	map.put("banksList", bankCompanies);
 	map.put("installationsList", this.atmservice.listATMInstallations());
 	map.put("terminalsList", terminals);
-	// //map.put("userMsg", userMsg)
+	map.put("userMsg", userMsg);
 	if (result.hasErrors()) {
 	    map.put("errors", true);
 	    return "terminalDetails";
@@ -609,19 +591,19 @@ public class TerminalController extends GenericController {
     public String listTerminalsByQuery(Map<String, Object> map,
 	    Integer queryId, Principal principal, String p, String sort,
 	    String order, HttpServletRequest request, Date queryDate) {
-	// String // userMsg = "";
+	String userMsg = "";
 	Locale locale = RequestContextUtils.getLocale(request);
 	Set<Query> userQueries = null;
 	String sortValue = (sort == null) ? DEFAULT_SORT : sort;
 	String orderValue = (order == null) ? DEFAULT_ORDER : order;
 
 	if (principal != null) {
-	    // //userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    userQueries = this.queryService.getQueriesByUser(principal
 		    .getName());
 	}
 	map.put("userQueries", userQueries);
-	// //map.put("userMsg", userMsg)
+	map.put("userMsg", userMsg);
 	Query query = null;
 	List<Terminal> terminals = null;
 	if (queryId != null) {
@@ -684,13 +666,13 @@ public class TerminalController extends GenericController {
     @RequestMapping(value = "/terminals/models/list", method = RequestMethod.GET)
     public String listTerminalModels(Map<String, Object> map,
 	    Principal principal, String p, HttpServletRequest request) {
-	// String // userMsg = "";
-	// if (principal != null) {
-	// // //userMsg = this.getUserGreeting(principal, request);
-	// }
+	String userMsg = "";
+	if (principal != null) {
+	    userMsg = this.getUserGreeting(principal, request);
+	}
 	PagedListHolder<TerminalModel> pagedListHolder = new PagedListHolder<TerminalModel>(
 		this.atmservice.listATMModels());
-	// //map.put("userMsg", userMsg)
+	map.put("userMsg", userMsg);
 	map.put("terminalModel", new TerminalModel());
 	int page = 0;
 	if (p != null) {
@@ -738,14 +720,14 @@ public class TerminalController extends GenericController {
 	}
 
 	if (result.hasErrors()) {
-	    // String // userMsg = "";
-	    // if (principal != null) {
-	    // // //userMsg = this.getUserGreeting(principal, request);
-	    // }
+	    String userMsg = "";
+	    if (principal != null) {
+		userMsg = this.getUserGreeting(principal, request);
+	    }
 
 	    PagedListHolder<TerminalModel> pagedListHolder = new PagedListHolder<TerminalModel>(
 		    this.atmservice.listATMModels());
-	    // //map.put("userMsg", userMsg)
+	    map.put("userMsg", userMsg);
 	    int page = 0;
 	    if (p != null) {
 		try {
@@ -757,7 +739,7 @@ public class TerminalController extends GenericController {
 	    pagedListHolder.setPage(page);
 	    pagedListHolder.setPageSize(terminalModelsPageSize);
 	    map.put("pagedListHolder", pagedListHolder);
-	    // //map.put("userMsg", userMsg)
+	    map.put("userMsg", userMsg);
 	    return "terminalModels";
 	}
 
@@ -798,11 +780,11 @@ public class TerminalController extends GenericController {
 	    map.clear();
 	    return "redirect:/terminals/models/list";
 	}
-	// String // userMsg = "";
-	// if (principal != null) {
-	// // //userMsg = this.getUserGreeting(principal, request);
-	// }
-	// //map.put("userMsg", userMsg)
+	String userMsg = "";
+	if (principal != null) {
+	    userMsg = this.getUserGreeting(principal, request);
+	}
+	map.put("userMsg", userMsg);
 	map.put("terminalModel", terminalModel);
 
 	return "terminalModelDetails";
@@ -836,11 +818,11 @@ public class TerminalController extends GenericController {
 	}
 
 	if (result.hasErrors()) {
-	    // String // userMsg = "";
-	    // if (principal != null) {
-	    // // //userMsg = this.getUserGreeting(principal, request);
-	    // }
-	    // //map.put("userMsg", userMsg)
+	    String userMsg = "";
+	    if (principal != null) {
+		userMsg = this.getUserGreeting(principal, request);
+	    }
+	    map.put("userMsg", userMsg);
 	    return "terminalModelDetails";
 	}
 
@@ -1090,30 +1072,6 @@ public class TerminalController extends GenericController {
 	return "closeIframeUpdateParent";
     }
 
-    /**
-     * Gets the changes of one ATM
-     * 
-     * @param terminalId
-     * @param map
-     * @return
-     */
-    @RequestMapping("/terminals/details/historical/{terminalId}")
-    public String showTerminalHistoricaAndCharacteristics(
-	    @PathVariable("terminalId") Integer terminalId,
-	    Map<String, Object> map, Long dateTime, String preselectedTab) {
-
-	Terminal terminal = this.atmservice.getATMById(terminalId);
-	Map<Class<? extends Auditable>, Map<Date, Integer>> historicalChanges = terminal
-		.buildHistoricalChanges();
-	Date date = dateTime == null ? null : new Date(dateTime);
-
-	map.put("historicalChanges", historicalChanges);
-	map.put("terminal", terminal);
-	map.put("date", date);
-	map.put("preselectedTab", preselectedTab);
-	return "terminalHistorical";
-    }
-
     private Map<Location, List<Integer>> buildTerminalIdsByLocationModel(
 	    List<Terminal> terminals, Date queryDate) {
 	Map<Location, List<Integer>> terminalsLocationsInfo = new HashMap<Location, List<Integer>>();
@@ -1136,89 +1094,5 @@ public class TerminalController extends GenericController {
 	}
 
 	return terminalsLocationsInfo;
-    }
-
-    /**
-     * Sends the ATM photo in json format<br>
-     * {imagename:"name of the image", imagetype:
-     * "type of picture, atm or manufacturer", imagebinary:"base64 binary file"}
-     * 
-     * @param terminalId
-     * @return String i json format
-     */
-    @RequestMapping("/terminals/details/photo/{terminalId}")
-    @ResponseBody
-    public String getTerminalImage(
-	    @PathVariable("terminalId") Integer terminalId) {
-	// final Map<String, String> response = new HashMap<String, String>();
-	// // final String imageNameKey = "imagename";
-	// // final String imageTypeKey = "imagetype";
-	// // final String imagekey = "imagebinary";
-	String imagename = null;
-	String imageType = "nophoto";
-	byte[] imageBytes = null;
-
-	try {
-	    Terminal atm = this.atmservice.getATMById(terminalId);
-
-	    if ((atm != null) && (atm.getTerminalModel() != null)) {
-
-		if (atm.getTerminalModel().getPhoto() != null) {
-		    imageType = "atm";
-		    imagename = atm.getTerminalModel().getProductClass()
-			    + ".png";
-		    imageBytes = atm.getTerminalModel().getPhoto();
-		    // imageBase64 = Base64.encodeBase64String(ImageBytes);
-
-		} else if (atm.getTerminalModel().getManufacturer() != null) {
-		    imageType = "manufacturer";
-		    imagename = atm.getTerminalModel().getManufacturer()
-			    .toLowerCase()
-			    + ".png";
-		}
-
-	    } else if ((atm != null) && (atm.getTerminalVendor() != null)) {
-		imageType = "manufacturer";
-		imagename = atm.getTerminalVendor().toLowerCase() + ".png";
-	    }
-	} catch (Exception e) {
-	    // if an error occurs, i will not crash the user interface, i show
-	    // then the no picture img
-	    logger.error("can not get the picture of the ATM: " + terminalId
-		    + "due an error " + e.getMessage()
-		    + ". The Atm will show no picture image", e);
-	}
-	logger.debug("Image: " + imagename + "imageType:" + imageType);
-	return this.generatelImageForJson(imagename, imageType, imageBytes,
-		null);
-
-    }
-
-    /**
-     * Returns the picture associated to the ATM model in JSON format ( String
-     * base 64)
-     * 
-     * @param modelId
-     * @return String JSON
-     */
-    @RequestMapping("/terminals/model/photo/{modelId}")
-    @ResponseBody
-    public String getTerminalModelImage(@PathVariable("modelId") Integer modelId) {
-	byte[] imageBytes = null;
-	String imagename = null;
-	String imageType = "nophoto";
-
-	TerminalModel atmModel = this.atmservice.getATMModel(modelId);
-
-	if ((atmModel != null) && (atmModel.getPhoto() != null)) {
-
-	    imagename = atmModel.getProductClass() + ".png";
-	    imageBytes = atmModel.getPhoto();
-	    imageType = "model";
-
-	}
-	return this.generatelImageForJson(imagename, imageType, imageBytes,
-		null);
-
     }
 }

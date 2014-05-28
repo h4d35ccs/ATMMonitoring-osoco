@@ -12,11 +12,11 @@ import org.apache.commons.collections.Predicate;
 import org.apache.log4j.Logger;
 import org.reflections.Reflections;
 
+import com.ncr.ATMMonitoring.parser.exception.NoParserFoundException;
+import com.ncr.ATMMonitoring.parser.exception.ParserException;
+import com.ncr.ATMMonitoring.parser.exception.FileNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.annotation.UPSParser;
 import com.ncr.ATMMonitoring.parser.ups.dto.UPSInfo;
-import com.ncr.ATMMonitoring.parser.ups.exception.NoParserFoundException;
-import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
-import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 
 /**
  * Class that builds and executes the chain of responsibility of UPS Parsers <BR>
@@ -69,7 +69,7 @@ public class ParseUPSChainBuilder {
      * @return {@link UPSInfo}
      * @throws ParserException
      *             if occurs a general error
-     * @throws XMLNotReadableException
+     * @throws FileNotReadableException
      *             if can not read the XML or the content of a node
      * 
      * 
@@ -78,7 +78,7 @@ public class ParseUPSChainBuilder {
      *             found to the given XML
      */
     public static UPSInfo parse(InputStream xmlFile) throws ParserException,
-	    XMLNotReadableException, NoParserFoundException {
+	    FileNotReadableException, NoParserFoundException {
 	ParseUPSXML firstLink = ParseUPSChainBuilder.getParser();
 	return firstLink.parseXML(xmlFile);
     }

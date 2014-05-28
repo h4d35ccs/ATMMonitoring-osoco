@@ -1,33 +1,52 @@
-<%@include file="includes/JspImports.jsp"%>
-<div id="scheduledContent">
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@page contentType="text/html;charset=UTF-8" %>
+<%@page pageEncoding="UTF-8"%>
+
+<t:osoco-wrapper titleCode="label.scheduledUpdatesManager" userMsg="${userMsg}" section="schedule">
+
+<jsp:attribute name="header">
+    <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/css/fullcalendar.print.css" media="print"/>
+    <link rel="stylesheet" type="text/css" href="resources/css/ncr_fullcalendar.css"/>
+    <script type="text/javascript" src="resources/js/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="resources/js/scheduled.js"></script>
+    <script type="text/javascript">
+      function deleteScheduledUpdate(id) {
+	      var confirm = window.confirm('<spring:message code="label.scheduledUpdate.confirmDeletion"/>');
+	      if (confirm == true) {
+	          self.location = 'terminals/schedules/delete/' + id;
+	      };
+      };
+    </script>
+</jsp:attribute>
+
+<jsp:body>
+
 <div id="header_g">
-  <%-- <nav id="breadcrumb">
+  <nav id="breadcrumb">
     <ul>
       <li><a href="dashboard"><spring:message code="breadcrumb.home"/></a></li>
       <li><spring:message code="label.scheduler"/></li>
     </ul>
-  </nav> --%>
-  	<c:set var="navigationBackMain" scope="request" >home</c:set>
-			<c:set var="navigationActual" value="label.scheduler" scope="request" />
-			<jsp:include page="includes/navigation.jsp" />
+  </nav>
   <div class="botonera">
     <ul>
-      <li><button onclick="loadInnerSection('#primary','terminals/schedules/new')" class="btn add"><spring:message code="label.schedule.new"/></button></li>
+      <li><a href="terminals/schedules/new" class="btn add"><spring:message code="label.schedule.new"/></a></li>
     </ul>
   </div>
 </div>
-<div id="dialog-confirm" title=''>
+
 <h1><spring:message code="label.scheduledUpdatesManager"/></h1>
- <div id="confirmContainer">
-  <c:if test="${success != null}">
-  <div class="notification" id="notification">
+
+<c:if test="${success != null}">
+  <div class="notification">
     <p><spring:message code="${success}" /></p>
   </div>
-  <script type="text/javascript">
-  	fadeNotification("#notification","notification");
-  </script>
-  </c:if>
-  </div>
+</c:if>
+
 <div id="header_g">
 	<div id="toggleSchedulerView" class="columns_botonera">
 	  <nav>
@@ -42,6 +61,7 @@
 	  </nav>
 	</div>
 </div>
+
 <div id="schedulerList" class="scheduler hide">
 <div class="box">
 <h2><spring:message code="label.weeklyScheduledUpdates"/></h2>
@@ -108,7 +128,7 @@
         <td width="50px" class="center-cell">${scheduledUpdate.completeHour}</td>
         <td width="100px" class="center-cell">${scheduledUpdate.query.name}</td>
 		<td width="90px" class="center-cell">
-			<button onClick="deleteConfirmation('terminals/schedules/delete/${scheduledUpdate.id}',schUpDeleteConfirmation,'#primary','#notification','notification')" class="form-submit delete right"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
+			<button onClick="deleteScheduledUpdate(${scheduledUpdate.id})" class="form-submit delete right"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
 		</td>
     </tr>
 </c:forEach>
@@ -125,6 +145,7 @@
 </c:if>
 </div>
 </div>
+
 <div class="box">
 <h2><spring:message code="label.monthlyScheduledUpdates"/></h2>
 <div class="margin-box">
@@ -166,7 +187,7 @@
         <td width="50px" class="center-cell">${scheduledUpdate.completeHour}</td>
         <td width="100px" class="center-cell">${scheduledUpdate.query.name}</td>
 		<td width="90px" class="center-cell">
-			<button onClick="deleteConfirmation('terminals/schedules/delete/${scheduledUpdate.id}',schUpDeleteConfirmation,'#primary','#notification','notification')" class="form-submit delete right"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
+			<button onClick="deleteScheduledUpdate(${scheduledUpdate.id})" class="form-submit delete right"><spring:message code="label.scheduledUpdate.deleteScheduledUpdate"/></button>
 		</td>
     </tr>
 </c:forEach>
@@ -183,12 +204,11 @@
 </c:if>
 </div>
 </div>
+
 </div>
+
 <div id="schedulerCalendar" class="scheduler"></div>
-</div>
-<script type="text/javascript">
-function initPageJS() {
-	initScheduler();
-}	
-</script>
-</div>
+
+</jsp:body>
+
+</t:osoco-wrapper>

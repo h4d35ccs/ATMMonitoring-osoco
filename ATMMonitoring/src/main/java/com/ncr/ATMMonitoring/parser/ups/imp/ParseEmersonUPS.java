@@ -13,12 +13,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.ncr.ATMMonitoring.parser.exception.NoParserFoundException;
+import com.ncr.ATMMonitoring.parser.exception.ParserException;
+import com.ncr.ATMMonitoring.parser.exception.FileNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.ParseUPSChainBuilder;
 import com.ncr.ATMMonitoring.parser.ups.annotation.UPSParser;
 import com.ncr.ATMMonitoring.parser.ups.dto.UPSInfo;
-import com.ncr.ATMMonitoring.parser.ups.exception.NoParserFoundException;
-import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
-import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 
 /**
  * Class that parses an Emerson UPS XML with the following structure:<br>
@@ -111,7 +111,7 @@ public class ParseEmersonUPS extends ParseUPSDom {
      */
     @Override
     protected UPSInfo applyParser() throws ParserException,
-	    XMLNotReadableException, NoParserFoundException {
+	    FileNotReadableException, NoParserFoundException {
 
 	UPSInfo info = null;
 
@@ -222,11 +222,11 @@ public class ParseEmersonUPS extends ParseUPSDom {
 	    info.setOriginalXML(xml);
 	    logger.debug("Parsed xml: " + info);
 	} catch (ParseException e) {
-	    throw new XMLNotReadableException(
-		    XMLNotReadableException.PARSE_ELEMENT_ERROR, e);
+	    throw new FileNotReadableException(
+		    FileNotReadableException.PARSE_ELEMENT_ERROR, e);
 	} catch (DOMException e) {
-	    throw new XMLNotReadableException(
-		    XMLNotReadableException.PARSE_ELEMENT_ERROR, e);
+	    throw new FileNotReadableException(
+		    FileNotReadableException.PARSE_ELEMENT_ERROR, e);
 	} catch (Exception e) {
 	    throw new ParserException(ParserException.GENERAL_ERROR, e);
 	}
@@ -241,7 +241,7 @@ public class ParseEmersonUPS extends ParseUPSDom {
      */
     @Override
     protected boolean canParseXML() throws ParserException,
-	    XMLNotReadableException {
+	    FileNotReadableException {
 	boolean willParse = false;
 	if (this.getRootElement() != null
 		&& this.getRootElement().getNodeName()

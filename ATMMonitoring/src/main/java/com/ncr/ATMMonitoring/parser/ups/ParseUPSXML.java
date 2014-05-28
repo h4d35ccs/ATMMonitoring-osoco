@@ -6,10 +6,10 @@ import java.io.InputStream;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
+import com.ncr.ATMMonitoring.parser.exception.NoParserFoundException;
+import com.ncr.ATMMonitoring.parser.exception.ParserException;
+import com.ncr.ATMMonitoring.parser.exception.FileNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.dto.UPSInfo;
-import com.ncr.ATMMonitoring.parser.ups.exception.NoParserFoundException;
-import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
-import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
 
 /**
  * Interface that define a XML UPS Parser ( a Link in the responsibility chain) <br>
@@ -43,7 +43,7 @@ public abstract class ParseUPSXML {
      * @return {@link UPSInfo}
      * @throws ParserException
      *             if occurs a general error
-     * @throws XMLNotReadableException
+     * @throws FileNotReadableException
      *             if can not read the XML or the content of a node
      * 
      * 
@@ -52,7 +52,7 @@ public abstract class ParseUPSXML {
      *             found to the given XML
      */
     public UPSInfo parseXML(InputStream xmlFile) throws ParserException,
-	    XMLNotReadableException, NoParserFoundException {
+	    FileNotReadableException, NoParserFoundException {
 	UPSInfo upsInfo = null;
 	try {
 	    // in order to avoid the stream closing after each read,
@@ -95,7 +95,7 @@ public abstract class ParseUPSXML {
      * Returns true if the parser will process the file, false if it will
      * delegate the process to the next parser
      * 
-     * @throws XMLNotReadableException
+     * @throws FileNotReadableException
      *             if can not read the XML or the content of a node
      * @throws ParserException
      *             if occurs a general error
@@ -103,7 +103,7 @@ public abstract class ParseUPSXML {
      * @return boolean
      */
     protected abstract boolean canParseXML() throws ParserException,
-	    XMLNotReadableException;
+	    FileNotReadableException;
 
     /**
      * Method that holds the specific logic to parse each XML and must be
@@ -112,7 +112,7 @@ public abstract class ParseUPSXML {
      * @return UPSInfo
      */
     protected abstract UPSInfo applyParser() throws ParserException,
-	    XMLNotReadableException, NoParserFoundException;
+	    FileNotReadableException, NoParserFoundException;
 
     /**
      * Sets the next parser in the chain
@@ -129,7 +129,7 @@ public abstract class ParseUPSXML {
      * Calls the {@link ParseUPSXML#applyParser(InputStream)} method in the next
      * parser
      * 
-     * @throws XMLNotReadableException
+     * @throws FileNotReadableException
      *             if the xml can not be read
      * @throws NoParserFoundException
      *             if the xml can not be parsed by any parser in the classpath
@@ -140,7 +140,7 @@ public abstract class ParseUPSXML {
      */
 
     private UPSInfo callNextParser() throws ParserException,
-	    XMLNotReadableException, NoParserFoundException, IOException {
+	    FileNotReadableException, NoParserFoundException, IOException {
 	UPSInfo upsInfo = null;
 
 	if (this.nextParser != null) {

@@ -57,16 +57,4 @@ public class SoftwareServiceImpl implements SoftwareService {
     public Software getSoftware(Integer id) {
 	return softwareDAO.getSoftware(id);
     }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.ncr.ATMMonitoring.service.SoftwareService#getSoftwareByIdentifyingNumber
-     * (java.lang.String)
-     */
-    @Override
-    public Software getSoftwareByIdentifyingNumber(String id) {
-	return softwareDAO.getSoftwareByIdentifyingNumber(id);
-    }
 }

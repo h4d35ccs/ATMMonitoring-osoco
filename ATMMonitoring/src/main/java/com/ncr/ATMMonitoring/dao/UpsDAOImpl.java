@@ -4,9 +4,12 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.type.Type;
 import org.springframework.stereotype.Repository;
 
 import com.ncr.ATMMonitoring.pojo.Ups;
@@ -176,5 +179,47 @@ public class UpsDAOImpl extends AbstractGenericDAO<Ups> implements UpsDAO {
 	}
 
 	return ups;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.UpsDAO#getUpsByHQL(java.util.List,
+     * java.util.List, java.lang.String)
+     */
+    @Override
+    public List<Ups> getUpsByHQL(List<Object> values, List<Type> types,
+	    String hql) {
+	return getUpsByHQL(values, types, hql, null, null);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.dao.UpsDAO#getUpsByHQL(java.util.List,
+     * java.util.List, java.lang.String, java.lang.String, java.lang.String)
+     */
+    @Override
+    public List<Ups> getUpsByHQL(List<Object> values, List<Type> types,
+	    String hql, String sort, String order) {
+	if (sort != null) {
+	    hql += " order by ups." + sort;
+	    if (order != null) {
+		hql += " " + order;
+	    }
+	}
+	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	query.setParameters(values.toArray(), types.toArray(new Type[0]));
+	logger.debug("Executing the HQL sentence '" + hql
+		+ "' with the values " + values + "and types " + types);
+	try {
+	    return query.list();
+	} catch (HibernateException e) {
+	    logger.error(
+		    "There was an error while executing the HQL sentence '"
+			    + hql + "' with the values " + values
+			    + "and types " + types, e);
+	    throw e;
+	}
     }
 }

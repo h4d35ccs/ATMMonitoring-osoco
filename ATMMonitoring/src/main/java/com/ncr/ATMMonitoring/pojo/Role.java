@@ -74,10 +74,6 @@ public class Role implements Serializable {
     @Column(name = "can_access_reports", columnDefinition = "boolean default false")
     private Boolean canAccessReports = false;
 
-    /** The flag that tells us whether the users can edit UPS data. */
-    @Column(name = "can_edit_ups", columnDefinition = "boolean default false")
-    private Boolean canEditUps = false;
-
     /** The flag that tells us whether the users can view UPS data. */
     @Column(name = "can_view_ups", columnDefinition = "boolean default false")
     private Boolean canViewUps = false;
@@ -330,25 +326,6 @@ public class Role implements Serializable {
     }
 
     /**
-     * Gets the UPS edition flag.
-     * 
-     * @return the UPS edition flag
-     */
-    public Boolean getCanEditUps() {
-	return canEditUps;
-    }
-
-    /**
-     * Sets the UPS edition flag.
-     * 
-     * @param canEditUps
-     *            the UPS edition flag
-     */
-    public void setCanEditUps(Boolean canEditUps) {
-	this.canEditUps = canEditUps;
-    }
-
-    /**
      * Gets the UPS data access flag.
      * 
      * @return the UPS data access flag
@@ -444,9 +421,6 @@ public class Role implements Serializable {
 	}
 	if ((canViewUps != null) && canViewUps) {
 	    authList.add(new SimpleGrantedAuthority("CAN_VIEW_UPS"));
-	}
-	if ((canEditUps != null) && canEditUps) {
-	    authList.add(new SimpleGrantedAuthority("CAN_EDIT_UPS"));
 	}
 	if ((canUseUpsQueries != null) && canUseUpsQueries) {
 	    authList.add(new SimpleGrantedAuthority("CAN_USE_UPS_QUERIES"));

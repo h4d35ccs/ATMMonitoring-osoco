@@ -2,7 +2,6 @@ package com.ncr.ATMMonitoring.pojo;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -22,7 +21,6 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Type;
 
-import com.ncr.ATMMonitoring.pojo.annotation.ComboQueryOption;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.HotfixPojo;
 
@@ -69,24 +67,20 @@ public class Hotfix extends Auditable {
     private Terminal terminal;
 
     /** The number. */
-    @ComboQueryOption
     @Column(name = "numbr")
     private Integer number;
 
     /** The fix comments. */
-    @ComboQueryOption
     @Column(name = "fix_comments")
     @Type(type = "text")
     private String fixComments;
 
     /** The hotfix id. */
-    @ComboQueryOption
     @Column(name = "hotfix_id")
     @Type(type = "text")
     private String hotfixId;
 
     /** The description. */
-    @ComboQueryOption
     @Column(name = "description")
     @Type(type = "text")
     private String description;

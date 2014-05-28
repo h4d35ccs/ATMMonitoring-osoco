@@ -9,7 +9,7 @@
 			<spring:message code="label.query.downloadCsv" />
 		</a>
 	</c:if>
-	<c:if test="${query != null}">
+	<c:if test="${query != null && query.id != null}">
 		<a href="ups/export/${query.id}" class="btn download" target="_blank" id="exportUps"> 
 			<spring:message code="label.query.downloadCsv" />
 		</a>

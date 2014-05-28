@@ -14,7 +14,6 @@ import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Type;
 
-import com.ncr.ATMMonitoring.pojo.annotation.ComboQueryOption;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.agent.baseData.os.module.IExplorerPojo;
 
@@ -48,7 +47,6 @@ public class InternetExplorer {
 
     /** The major version. */
     @Column(name = "major_version")
-    @ComboQueryOption(versionComparison = ComboQueryOption.USE_VERSION_COMPARISON)
     private Integer majorVersion;
 
     /** The minor version. */

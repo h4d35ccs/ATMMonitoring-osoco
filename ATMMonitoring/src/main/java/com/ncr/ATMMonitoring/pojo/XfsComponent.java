@@ -25,7 +25,6 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Type;
 
-import com.ncr.ATMMonitoring.pojo.annotation.ComboQueryOption;
 import com.ncr.ATMMonitoring.utils.Operation;
 import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.agent.baseData.standard.xfs.module.ALM;
@@ -262,7 +261,6 @@ public class XfsComponent {
     private List<LogicalCashUnit> logicalCashUnits = new ArrayList<LogicalCashUnit>();
 
     /** The xfs class. */
-    @ComboQueryOption
     @Column(name = "xfs_class", length = 50, nullable = false)
     private String xfsClass;
 
@@ -271,836 +269,685 @@ public class XfsComponent {
     private String deviceName;
 
     /** The accept media. */
-    @ComboQueryOption
     @Column(name = "accept_media")
     private Boolean acceptMedia;
 
     /** The algorithms. */
-    @ComboQueryOption
     @Column(name = "algorithms")
     @Type(type = "text")
     private String algorithms;
 
     /** The autobeep. */
-    @ComboQueryOption
     @Column(name = "autobeep")
     @Type(type = "text")
     private String autobeep;
 
     /** The autodeposit. */
-    @ComboQueryOption
     @Column(name = "autodeposit")
     private Boolean autodeposit;
 
     /** The autoretract period. */
-    @ComboQueryOption
     @Column(name = "autoretract_period")
     private Integer autoretractPeriod;
 
     /** The auxiliaries. */
-    @ComboQueryOption
     @Column(name = "auxiliaries")
     @Type(type = "text")
     private String auxiliaries;
 
     /** The back image color format. */
-    @ComboQueryOption
     @Column(name = "back_image_color_format")
     @Type(type = "text")
     private String backImageColorFormat;
 
     /** The backscan color. */
-    @ComboQueryOption
     @Column(name = "backscan_color")
     @Type(type = "text")
     private String backscanColor;
 
     /** The cameras. */
-    @ComboQueryOption
     @Column(name = "cameras")
     @Type(type = "text")
     private String cameras;
 
     /** The camdata. */
-    @ComboQueryOption
     @Column(name = "cam_data")
     @Type(type = "text")
     private String camdata;
 
     /** The cards. */
-    @ComboQueryOption
     @Column(name = "cards")
     private Integer cards;
 
     /** The cashin. */
-    @ComboQueryOption
     @Column(name = "cash_in")
     private Boolean cashin;
 
     /** The char support. */
-    @ComboQueryOption
     @Column(name = "char_support")
     @Type(type = "text")
     private String charSupport;
 
     /** The chipio. */
-    @ComboQueryOption
     @Column(name = "chip_io")
     private Boolean chipio;
 
     /** The chip power. */
-    @ComboQueryOption
     @Column(name = "chip_power")
     @Type(type = "text")
     private String chipPower;
 
     /** The chip protocol. */
-    @ComboQueryOption
     @Column(name = "chip_protocol")
     @Type(type = "text")
     private String chipProtocol;
 
     /** The code line format. */
-    @ComboQueryOption
     @Column(name = "code_line_format")
     @Type(type = "text")
     private String codeLineFormat;
 
     /** The coins. */
-    @ComboQueryOption
     @Column(name = "coins")
     private Boolean coins;
 
     /** The compound. */
-    @ComboQueryOption
     @Column(name = "compound")
     private Boolean compound;
 
     /** The comparemagneticstripe. */
-    @ComboQueryOption
     @Column(name = "compare_magnetic_stripe")
     private Boolean comparemagneticstripe;
 
     /** The control. */
-    @ComboQueryOption
     @Column(name = "control")
     @Type(type = "text")
     private String control;
 
     /** The cursor. */
-    @ComboQueryOption
     @Column(name = "cursor")
     private Boolean cursor;
 
     /** The cylinders. */
-    @ComboQueryOption
     @Column(name = "cylinders")
     private Boolean cylinders;
 
     /** The default backscan color. */
-    @ComboQueryOption
     @Column(name = "default_backscan_color")
     @Type(type = "text")
     private String defaultBackscanColor;
 
     /** The default frontscan color. */
-    @ComboQueryOption
     @Column(name = "default_frontscan_color")
     @Type(type = "text")
     private String defaultFrontscanColor;
 
     /** The deptransport. */
-    @ComboQueryOption
     @Column(name = "dep_transport")
     private Boolean deptransport;
 
     /** The derivation algorithms. */
-    @ComboQueryOption
     @Column(name = "derivation_algorithms")
     @Type(type = "text")
     private String derivationAlgorithms;
 
     /** The is prepare dispense. */
-    @ComboQueryOption
     @Column(name = "is_prepare_dispense")
     private Boolean isPrepareDispense;
 
     /** The dip mode. */
-    @ComboQueryOption
     @Column(name = "dip_mode")
     @Type(type = "text")
     private String dipMode;
 
     /** The dispense to. */
-    @ComboQueryOption
     @Column(name = "dispense_to")
     @Type(type = "text")
     private String dispenseTo;
 
     /** The display. */
-    @ComboQueryOption
     @Column(name = "display")
     @Type(type = "text")
     private String display;
 
     /** The display light. */
-    @ComboQueryOption
     @Column(name = "display_light")
     private Boolean displayLight;
 
     /** The doors. */
-    @ComboQueryOption
     @Column(name = "doors")
     @Type(type = "text")
     private String doors;
 
     /** The eject position. */
-    @ComboQueryOption
     @Column(name = "eject_position")
     @Type(type = "text")
     private String ejectPosition;
 
     /** The emv hash algorithm. */
-    @ComboQueryOption
     @Column(name = "emv_hash_algorithm")
     @Type(type = "text")
     private String emvHashAlgorithm;
 
     /** The emv import schemes. */
-    @ComboQueryOption
     @Column(name = "emv_import_schemes")
     @Type(type = "text")
     private String emvImportSchemes;
 
     /** The encio protocols. */
-    @ComboQueryOption
     @Column(name = "encio_protocols")
     @Type(type = "text")
     private String encioProtocols;
 
     /** The encoder. */
-    @ComboQueryOption
     @Column(name = "encoder")
     private Boolean encoder;
 
     /** The encodenames. */
-    @ComboQueryOption
     @Column(name = "encode_names")
     @Type(type = "text")
     private String encodenames;
 
     /** The endorser. */
-    @ComboQueryOption
     @Column(name = "endorser")
     private Boolean endorser;
 
     /** The envelopesupply. */
-    @ComboQueryOption
     @Column(name = "envelope_supply")
     @Type(type = "text")
     private String envelopesupply;
 
     /** The exchange types. */
-    @ComboQueryOption
     @Column(name = "exchange_types")
     @Type(type = "text")
     private String exchangeTypes;
 
     /** The extents. */
-    @ComboQueryOption
     @Column(name = "extents")
     @Type(type = "text")
     private String extents;
 
     /** The extra. */
-    @ComboQueryOption
     @Column(name = "extra")
     @Type(type = "text")
     private String extra;
 
     /** The fontnames. */
-    @ComboQueryOption
     @Column(name = "font_names")
     @Type(type = "text")
     private String fontnames;
 
     /** The forms. */
-    @ComboQueryOption
     @Column(name = "forms")
     private Boolean forms;
 
     /** The front image color format. */
-    @ComboQueryOption
     @Column(name = "front_image_color_format")
     @Type(type = "text")
     private String frontImageColorFormat;
 
     /** The frontscan color. */
-    @ComboQueryOption
     @Column(name = "frontscan_color")
     @Type(type = "text")
     private String frontscanColor;
 
     /** The guidlights. */
-    @ComboQueryOption
     @Column(name = "guidlights")
     @Type(type = "text")
     private String guidlights;
 
     /** The has cash box. */
-    @ComboQueryOption
     @Column(name = "has_cash_box")
     private Boolean hasCashBox;
 
     /** The has inserted sensor. */
-    @ComboQueryOption
     @Column(name = "has_inserted_sensor")
     private Boolean hasInsertedSensor;
 
     /** The has shutter. */
-    @ComboQueryOption
     @Column(name = "has_shutter")
     private Boolean hasShutter;
 
     /** The has taken sensor. */
-    @ComboQueryOption
     @Column(name = "has_taken_sensor")
     private Boolean hasTakenSensor;
 
     /** The hsm vendor. */
-    @ComboQueryOption
     @Column(name = "hsm_vendor")
     @Type(type = "text")
     private String hsmVendor;
 
     /** The id connect. */
-    @ComboQueryOption
     @Column(name = "id_connect")
     private Boolean idConnect;
 
     /** The id key. */
-    @ComboQueryOption
     @Column(name = "id_key")
     @Type(type = "text")
     private String idKey;
 
     /** The imagecapture. */
-    @ComboQueryOption
     @Column(name = "image_capture")
     @Type(type = "text")
     private String imagecapture;
 
     /** The image source. */
-    @ComboQueryOption
     @Column(name = "image_source")
     @Type(type = "text")
     private String imageSource;
 
     /** The image type. */
-    @ComboQueryOption
     @Column(name = "image_type")
     @Type(type = "text")
     private String imageType;
 
     /** The indicators. */
-    @ComboQueryOption
     @Column(name = "indicators")
     @Type(type = "text")
     private String indicators;
 
     /** The insert orientation. */
-    @ComboQueryOption
     @Column(name = "insert_orientation")
     @Type(type = "text")
     private String insertOrientation;
 
     /** The intermediate stacker. */
-    @ComboQueryOption
     @Column(name = "intermediate_stacker")
     private Integer intermediateStacker;
 
     /** The is application refuse. */
-    @ComboQueryOption
     @Column(name = "is_application_refuse")
     private Boolean isApplicationRefuse;
 
     /** The is autofeed. */
-    @ComboQueryOption
     @Column(name = "is_autofeed")
     private Boolean isAutofeed;
 
     /** The is card taken sensor. */
-    @ComboQueryOption
     @Column(name = "is_card_taken_sensor")
     private Boolean isCardTakenSensor;
 
     /** The is compare signatures. */
-    @ComboQueryOption
     @Column(name = "is_compare_signatures")
     private Boolean isCompareSignatures;
 
     /** The is hsm journaling. */
-    @ComboQueryOption
     @Column(name = "is_hsm_journaling")
     private Boolean isHsmJournaling;
 
     /** The is intermediate stacker. */
-    @ComboQueryOption
     @Column(name = "is_intermediate_stacker")
     private Boolean isIntermediateStacker;
 
     /** The is items taken sensor. */
-    @ComboQueryOption
     @Column(name = "is_items_taken_sensor")
     private Boolean isItemsTakenSensor;
 
     /** The is key import through parts. */
-    @ComboQueryOption
     @Column(name = "is_key_import_through_parts")
     private Boolean isKeyImportThroughParts;
 
     /** The is media presented. */
-    @ComboQueryOption
     @Column(name = "is_media_presented")
     private Boolean isMediaPresented;
 
     /** The is pin can persist after use. */
-    @ComboQueryOption
     @Column(name = "is_pin_can_persist_after_use")
     private Boolean isPinCanPersistAfterUse;
 
     /** The is present control. */
-    @ComboQueryOption
     @Column(name = "is_present_control")
     private Boolean isPresentControl;
 
     /** The is rescan. */
-    @ComboQueryOption
     @Column(name = "is_rescan")
     private Boolean isRescan;
 
     /** The is retract counts items. */
-    @ComboQueryOption
     @Column(name = "is_retract_counts_items")
     private Boolean isRetractCountsItems;
 
     /** The is retract to transport. */
-    @ComboQueryOption
     @Column(name = "is_retract_to_transport")
     private Boolean isRetractToTransport;
 
     /** The is safe door. */
-    @ComboQueryOption
     @Column(name = "is_safe_door")
     private Boolean isSafeDoor;
 
     /** The is set pin block data required. */
-    @ComboQueryOption
     @Column(name = "is_set_pin_block_data_requited")
     private Boolean isSetPinBlockDataRequired;
 
     /** The is stamp. */
-    @ComboQueryOption
     @Column(name = "is_stamp")
     private Boolean isStamp;
 
     /** The is type combined. */
-    @ComboQueryOption
     @Column(name = "is_type_combined")
     private Boolean isTypeCombined;
 
     /** The item info types. */
-    @ComboQueryOption
     @Column(name = "item_info_types")
     @Type(type = "text")
     private String itemInfoTypes;
 
     /** The key block import formats. */
-    @ComboQueryOption
     @Column(name = "key_block_import_formats")
     @Type(type = "text")
     private String keyBlockImportFormats;
 
     /** The key check modes. */
-    @ComboQueryOption
     @Column(name = "key_check_modes")
     @Type(type = "text")
     private String keyCheckModes;
 
     /** The key lock. */
-    @ComboQueryOption
     @Column(name = "key_lock")
     private Boolean keyLock;
 
     /** The key num. */
-    @ComboQueryOption
     @Column(name = "key_num")
     private Integer keyNum;
 
     /** The keys. */
-    @ComboQueryOption
     @Column(name = "keys")
     @Type(type = "text")
     private String keys;
 
     /** The logical. */
-    @ComboQueryOption
     @Column(name = "logical")
     @Type(type = "text")
     private String logical;
 
     /** The magneticstriperead. */
-    @ComboQueryOption
     @Column(name = "magnetic_stripe_read")
     private Boolean magneticstriperead;
 
     /** The magneticstripewrite. */
-    @ComboQueryOption
     @Column(name = "magnetic_stripe_write")
     private Boolean magneticstripewrite;
 
     /** The max 2 retract. */
-    @ComboQueryOption
     @Column(name = "max_2_retract")
     private Integer max2Retract;
 
     /** The max bills. */
-    @ComboQueryOption
     @Column(name = "max_bills")
     private Integer maxBills;
 
     /** The max cash in items. */
-    @ComboQueryOption
     @Column(name = "max_cash_in_items")
     private Integer maxCashInItems;
 
     /** The max coins. */
-    @ComboQueryOption
     @Column(name = "max_coins")
     private Integer maxCoins;
 
     /** The max data length. */
-    @ComboQueryOption
     @Column(name = "max_data_length")
     private Integer maxDataLength;
 
     /** The max dispense items. */
-    @ComboQueryOption
     @Column(name = "max_dispense_items")
     private Integer maxDispenseItems;
 
     /** The max media on stacker. */
-    @ComboQueryOption
     @Column(name = "max_media_on_stacker")
     private Integer maxMediaOnStacker;
 
     /** The max num chars. */
-    @ComboQueryOption
     @Column(name = "max_num_chars")
     private Integer maxNumChars;
 
     /** The max pictures. */
-    @ComboQueryOption
     @Column(name = "max_pictures")
     private Integer maxPictures;
 
     /** The max retract. */
-    @ComboQueryOption
     @Column(name = "max_retract")
     @Type(type = "text")
     private String maxRetract;
 
     /** The media taken. */
-    @ComboQueryOption
     @Column(name = "media_taken")
     private Boolean mediaTaken;
 
     /** The memory chip protocols. */
-    @ComboQueryOption
     @Column(name = "memory_chip_protocols")
     @Type(type = "text")
     private String memoryChipProtocols;
 
     /** The micr. */
-    @ComboQueryOption
     @Column(name = "micr")
     private Boolean micr;
 
     /** The move items. */
-    @ComboQueryOption
     @Column(name = "move_items")
     @Type(type = "text")
     private String moveItems;
 
     /** The multi page. */
-    @ComboQueryOption
     @Column(name = "multi_page")
     private Boolean multiPage;
 
     /** The num leds. */
-    @ComboQueryOption
     @Column(name = "num_leds")
     private Integer numLeds;
 
     /** The ocr. */
-    @ComboQueryOption
     @Column(name = "ocr")
     private Boolean ocr;
 
     /** The output positions. */
-    @ComboQueryOption
     @Column(name = "output_positions")
     @Type(type = "text")
     private String outputPositions;
 
     /** The paper sources. */
-    @ComboQueryOption
     @Column(name = "paper_sources")
     @Type(type = "text")
     private String paperSources;
 
     /** The pin formats. */
-    @ComboQueryOption
     @Column(name = "pin_formats")
     @Type(type = "text")
     private String pinFormats;
 
     /** The pockets. */
-    @ComboQueryOption
     @Column(name = "pockets")
     private Integer pockets;
 
     /** The power off. */
-    @ComboQueryOption
     @Column(name = "power_off")
     @Type(type = "text")
     private String powerOff;
 
     /** The power on. */
-    @ComboQueryOption
     @Column(name = "power_on")
     @Type(type = "text")
     private String powerOn;
 
     /** The power save control. */
-    @ComboQueryOption
     @Column(name = "power_save_control")
     private Boolean powerSaveControl;
 
     /** The presentation algorithms. */
-    @ComboQueryOption
     @Column(name = "presentation_algorithms")
     @Type(type = "text")
     private String presentationAlgorithms;
 
     /** The printer. */
-    @ComboQueryOption
     @Column(name = "printer")
     private Boolean printer;
 
     /** The print on retracts. */
-    @ComboQueryOption
     @Column(name = "print_on_retracts")
     private Boolean printOnRetracts;
 
     /** The print size. */
-    @ComboQueryOption
     @Column(name = "print_size")
     @Type(type = "text")
     private String printSize;
 
     /** The programatically deactivate. */
-    @ComboQueryOption
     @Column(name = "programatically_deactivate")
     private Boolean programaticallyDeactivate;
 
     /** The provider. */
-    @ComboQueryOption
     @Column(name = "provider")
     @Type(type = "text")
     private String provider;
 
     /** The read form. */
-    @ComboQueryOption
     @Column(name = "read_form")
     @Type(type = "text")
     private String readForm;
 
     /** The read tracks. */
-    @ComboQueryOption
     @Column(name = "read_tracks")
     @Type(type = "text")
     private String readTracks;
 
     /** The refill. */
-    @ComboQueryOption
     @Column(name = "refill")
     private Boolean refill;
 
     /** The reset control. */
-    @ComboQueryOption
     @Column(name = "reset_control")
     @Type(type = "text")
     private String resetControl;
 
     /** The resolutions. */
-    @ComboQueryOption
     @Column(name = "resolutions")
     @Type(type = "text")
     private String resolutions;
 
     /** The retract. */
-    @ComboQueryOption
     @Column(name = "retract")
     private Boolean retract;
 
     /** The retract areas. */
-    @ComboQueryOption
     @Column(name = "retract_areas")
     @Type(type = "text")
     private String retractAreas;
 
     /** The retract bins. */
-    @ComboQueryOption
     @Column(name = "retract_bins")
     @Type(type = "text")
     private String retractBins;
 
     /** The retractenvelope. */
-    @ComboQueryOption
     @Column(name = "retract_envelope")
     @Type(type = "text")
     private String retractenvelope;
 
     /** The retract stacker actions. */
-    @ComboQueryOption
     @Column(name = "retract_stacker_actions")
     @Type(type = "text")
     private String retractStackerActions;
 
     /** The retract to deposit. */
-    @ComboQueryOption
     @Column(name = "retract_to_deposit")
     private Boolean retractToDeposit;
 
     /** The retract transport actions. */
-    @ComboQueryOption
     @Column(name = "retract_transport_actions")
     @Type(type = "text")
     private String retractTransportActions;
 
     /** The rsa authentication scheme. */
-    @ComboQueryOption
     @Column(name = "rsa_auth_scheme")
     @Type(type = "text")
     private String rsaAuthenticationScheme;
 
     /** The rsa crypt algorithm. */
-    @ComboQueryOption
     @Column(name = "rsa_crypt_algorithm")
     @Type(type = "text")
     private String rsaCryptAlgorithm;
 
     /** The rsa keycheck mode. */
-    @ComboQueryOption
     @Column(name = "rsa_keycheck_mode")
     @Type(type = "text")
     private String rsaKeycheckMode;
 
     /** The rsa signature algorithm. */
-    @ComboQueryOption
     @Column(name = "rsa_signature_algorithm")
     @Type(type = "text")
     private String rsaSignatureAlgorithm;
 
     /** The security type. */
-    @ComboQueryOption
     @Column(name = "security_type")
     @Type(type = "text")
     private String securityType;
 
     /** The sensors. */
-    @ComboQueryOption
     @Column(name = "sensors")
     @Type(type = "text")
     private String sensors;
 
     /** The shutter control. */
-    @ComboQueryOption
     @Column(name = "shutter_control")
     private Boolean shutterControl;
 
     /** The signature scheme. */
-    @ComboQueryOption
     @Column(name = "signature_scheme")
     @Type(type = "text")
     private String signatureScheme;
 
     /** The stamp. */
-    @ComboQueryOption
     @Column(name = "stamp")
     @Type(type = "text")
     private String stamp;
 
     /** The positions. */
-    @ComboQueryOption
     @Column(name = "positions")
     @Type(type = "text")
     private String positions;
 
     /** The symbologies. */
-    @ComboQueryOption
     @Column(name = "symbologies")
     @Type(type = "text")
     private String symbologies;
 
     /** The can filter symbologies. */
-    @ComboQueryOption
     @Column(name = "can_filter_symbologies")
     private Boolean canFilterSymbologies;
 
     /** The toner. */
-    @ComboQueryOption
     @Column(name = "toner")
     private Boolean toner;
 
     /** The type. */
-    @ComboQueryOption
     @Column(name = "type")
     @Type(type = "text")
     private String type;
 
     /** The validation algorithms. */
-    @ComboQueryOption
     @Column(name = "validation_algorithms")
     @Type(type = "text")
     private String validationAlgorithms;
 
     /** The vandal check. */
-    @ComboQueryOption
     @Column(name = "vandal_check")
     private Boolean vandalCheck;
 
     /** The windows printer. */
-    @ComboQueryOption
     @Column(name = "windows_printer")
     @Type(type = "text")
     private String windowsPrinter;
 
     /** The write form. */
-    @ComboQueryOption
     @Column(name = "write_form")
     @Type(type = "text")
     private String writeForm;
 
     /** The write mode. */
-    @ComboQueryOption
     @Column(name = "write_mode")
     @Type(type = "text")
     private String writeMode;
 
     /** The write tracks. */
-    @ComboQueryOption
     @Column(name = "write_tracks")
     @Type(type = "text")
     private String writeTracks;

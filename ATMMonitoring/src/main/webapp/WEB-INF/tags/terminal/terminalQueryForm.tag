@@ -8,7 +8,7 @@
 <div class="action_box">
 	<h2>
 		<spring:message code="label.queries"/>
-		<a id="queryHelp" class="info inline cboxElement">
+		<a href="#help_pop" class="info inline">
 			<span>
 				<spring:message code="label.moreInfo"/>
 			</span>
@@ -16,7 +16,7 @@
 	</h2>
 
 	<div class="row">
-		<button type="button" onclick="loadInnerSection('#primary', 'queries')" class="btn right"> <spring:message code="label.queries.mine"/> </button>
+		<a href="queries" class="btn right"> <spring:message code="label.queries.mine"/> </a>
 		<c:if test="${empty userQueries}">
 			<div class="message no_queries">
 				<p>
@@ -25,8 +25,9 @@
 				<div class="flecha"></div>
 			</div>
 		</c:if>
+		
 		<c:if test="${!empty userQueries}">
-			<form method="post" name="userQueriesForm" action="terminals/byQuery" id="userQueriesForm">
+			<form method="post" name="userQueriesForm" action="terminals/byQuery">
 				<label>
 					<spring:message code="label.choose.query"/>:
 				</label>
@@ -44,7 +45,7 @@
 						<spring:message code="label.calendar.open"/>
 					</span>
 				</a>
-				<input type="button" value="<spring:message code="label.apply"/>" class="btn" onclick="loadInnerSectionFromForm('#userQueriesForm','#primary');">
+				<input type="submit" value="<spring:message code="label.apply"/>" class="btn">
 			</form>
 		</c:if>
 	</div>

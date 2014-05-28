@@ -10,8 +10,110 @@
 <t:osoco-wrapperWoMenu titleCode="label.terminalsManager" section="iframe">
 
 <jsp:attribute name="header">
-    <script type="text/javascript" src="resources/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/black-tie/jquery-ui-1.9.2.custom.min.css">
     <script type="text/javascript" src="resources/js/terminalInstallation.js"></script>
+    <script type="text/javascript">
+    	$(function() {
+    		var locations = [
+				<c:forEach items="${locations}" var="location">
+					{
+						id: "${location.id}",
+						code: "${location.officeCode}",
+						name: "${location.office}",
+						address: "${location.completeAddress}"
+					},
+				</c:forEach>
+	    		];
+	    	var nr = null;
+	    	var sources = {};
+	    	for (i in locations) {
+	    		for (f in locations[i]) {
+	    			if (f != 'id') {
+	    				if (!(f in sources)) {
+	    					sources[f] = [];
+	    				}
+	    				sources[f].push({value: locations[i][f], nr: i});
+	    			} else {
+	    				if (!(f in sources)) {
+	    					sources[f] = [];
+	    				}
+	    				sources[f][locations[i][f]] = i;
+	    			}
+	    		}
+	    	}
+	    	function refreshInputs() {
+	    		if (nr != null) {
+	    			var combo = $( ".inOffice select" );
+	    			if (combo.val() != locations[nr].id) {
+	    				combo.val( locations[nr].id );
+	    				combo.change();
+	    			}
+	    			$( ".inOffice #code" ).val( locations[nr].code );
+	    			$( ".inOffice #name" ).val( locations[nr].name );
+	    			$( ".inOffice #address" ).val( locations[nr].address );
+	    		} else {
+	    			$( ".inOffice select" ).val( '' );
+	    			$( ".inOffice #code" ).val( '' );
+	    			$( ".inOffice #name" ).val( '' );
+	    			$( ".inOffice #address" ).val( '' );
+	    		}
+	    	}
+	    	refreshInputs();
+	    	function renderItem( ul, item ) {
+	    		return $( "<li>" )
+	    		.append( "<a>" + item.value + "<br>" + locations[item.nr].address + "</a>" )
+	    		.appendTo( ul );
+	    	}
+	    	$( ".inOffice #office" ).change(function() {
+	    		var val = $( ".inOffice #office" ).val();
+	    		if (val != '') {
+	    			nr = sources['id'][val];
+	    		}
+	    		refreshInputs();
+	    		showMapAndCenterAtAddress($( ".inOffice #address" ).val());
+	    	});
+	    	$( ".inOffice input" ).blur(refreshInputs);
+	    	$( ".inOffice #code" ).autocomplete({
+	    		minLength: 3,
+	    		source: sources['code'],
+	    		focus: function( event, ui ) {
+	    			$( "#code" ).val( ui.item.value );
+	    			return false;
+	    		},
+	    		select: function( event, ui ) {
+	    			nr = ui.item.nr;
+	    			refreshInputs();
+	    			return false;
+	    		}
+	    	}).data( "ui-autocomplete" )._renderItem = renderItem;
+	    	$( ".inOffice #name" ).autocomplete({
+	    		minLength: 3,
+	    		source: sources['name'],
+	    		focus: function( event, ui ) {
+	    			$( "#name" ).val( ui.item.value );
+	    			return false;
+	    		},
+	    		select: function( event, ui ) {
+	    			nr = ui.item.nr;
+	    			refreshInputs();
+	    			return false;
+	    		}
+	    	}).data( "ui-autocomplete" )._renderItem = renderItem;
+	    	$( ".inOffice #address" ).autocomplete({
+	    		minLength: 3,
+	    		source: sources['address'],
+	    		focus: function( event, ui ) {
+	    			$( "#address" ).val( ui.item.value );
+	    			return false;
+	    		},
+	    		select: function( event, ui ) {
+	    			nr = ui.item.nr;
+	    			refreshInputs();
+	    			return false;
+	    		}
+	    	});
+    	});
+    </script>
 </jsp:attribute>
 
 <jsp:body>
@@ -36,20 +138,31 @@
 	                            <form:select id="office" path="location.id" name="location.id">
 	                              <option value=""></option>
 								  <c:forEach items="${locations}" var="location">
-	                              <option value="${location.id}">${location.completeAddress}</option>
+	                              <option value="${location.id}">${location.officeCode}</option>
 	                              </c:forEach>
 	                            </form:select>
+							</li>
+							<li class="inOffice">
+	                            <label style="font-style: italic;"><spring:message code="label.location.quickSearch"/>:</label>
+							</li>
+							<li class="inOffice">
+								<label><spring:message code="label.location.officeCode"/></label>
+	                            <input type="text" id="code"/>
+							</li>
+							<li class="inOffice">
+								<label><spring:message code="label.location.office"/></label>
+	                            <input  type="text" id="name"/>
+							</li>
+							<li class="inOffice">
+								<label><spring:message code="label.location.address"/></label>
+	                            <input  type="text" id="address"/>
 							</li>
 							<li class="outOffice">
 								<label for="address"><spring:message code="label.location.address"/></label>
 							</li>
 							<li class="outOffice">
 								<label for="addressStreet"><spring:message code="label.location.addressStreet"/></label>
-								<form:input id="addressStreer" path="location.addressStreet" name="addressStreet"/>
-							</li>
-							<li class="outOffice">
-								<label for="addressNumber"><spring:message code="label.location.addressNumber"/></label>
-								<form:input id="addressNumber" path="location.addressNumber" name="addressNumber"/>
+								<form:input id="addressStreet" path="location.addressStreet" name="addressStreet"/>
 							</li>
 							<li class="outOffice">
 								<label for="addressCity"><spring:message code="label.location.addressCity"/></label>
@@ -83,6 +196,7 @@
 								<label for="displaced"><spring:message code="label.location.displaced"/></label>
 								<form:checkbox id="displaced" path="location.displaced" name="displaced"/>
 							</li>
+							<hr>
 							<li>
 								<label for="startDate"><spring:message code="label.installation.startDate"/></label>
 	                            <c:set var="now" value="<%=new java.util.Date()%>" />

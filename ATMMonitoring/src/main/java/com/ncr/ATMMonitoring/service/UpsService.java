@@ -50,7 +50,7 @@ public interface UpsService {
     public List<InputStream> storeUPSinfo(Collection<InputStream> xmlFiles);
 
     /**
-     * Generates the XML files, extract the information and store it in the
+     * Parses the XML files, extract the information and store it in the
      * database. Returns true if the file was processed by the parser
      * 
      * @param xmlFiles

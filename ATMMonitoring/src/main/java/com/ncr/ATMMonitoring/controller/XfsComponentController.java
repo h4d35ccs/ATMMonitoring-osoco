@@ -60,9 +60,9 @@ public class XfsComponentController extends GenericController {
 	if (xfsComponent == null) {
 	    return "redirect:/terminals/list";
 	}
-	// String userMsg = "";
+	String userMsg = "";
 	if (principal != null) {
-	    // userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    boolean allowed = false;
 	    Set<BankCompany> banks = this.bankCompanyService
 		    .getUserManageableBankCompanies(principal.getName());
@@ -78,7 +78,7 @@ public class XfsComponentController extends GenericController {
 		return "redirect:/terminals/list";
 	    }
 	}
-	// map.put("userMsg", userMsg);
+	map.put("userMsg", userMsg);
 	map.put("xfsComponent", xfsComponent);
 
 	return "xfsComponentDetails";
@@ -107,9 +107,9 @@ public class XfsComponentController extends GenericController {
 	if (jxfsComponent == null) {
 	    return "redirect:/terminals/list";
 	}
-	// String userMsg = "";
+	String userMsg = "";
 	if (principal != null) {
-	    // userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    boolean allowed = false;
 	    Set<BankCompany> banks = this.bankCompanyService
 		    .getUserManageableBankCompanies(principal.getName());
@@ -125,7 +125,7 @@ public class XfsComponentController extends GenericController {
 		return "redirect:/terminals/list";
 	    }
 	}
-	// map.put("userMsg", userMsg);
+	map.put("userMsg", userMsg);
 	map.put("jxfsComponent", jxfsComponent);
 
 	return "jxfsComponentDetails";

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * The Class externalreportsController.
+ * The Class ExternalReportsController.
  */
 @Controller
 public class ExternalReportsController extends GenericController {
@@ -29,11 +29,11 @@ public class ExternalReportsController extends GenericController {
     public void requestTerminalsUpdate(Map<String, Object> map,
 	    HttpServletRequest request, Principal principal) {
 
-	// String userMsg = "";
-	// if (principal != null) {
-	// //userMsg = this.getUserGreeting(principal, request);
-	// }
-	// map.put("userMsg", userMsg);
+	String userMsg = "";
+	if (principal != null) {
+	    userMsg = this.getUserGreeting(principal, request);
+	}
+	map.put("userMsg", userMsg);
 	return;// "/externalreports.jsp";
     }
 }

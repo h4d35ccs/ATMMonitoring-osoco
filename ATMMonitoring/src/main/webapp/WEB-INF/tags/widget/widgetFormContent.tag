@@ -91,7 +91,7 @@
 
 
 <div class="botonera">
-	<button id="widgetFormSubmit" class="btn next" onClick="postNewWidgetRequestResponse('#newWidgetForm','#cboxClose'); return false;"><spring:message code="widget.${operationType}.button.label"/></button> 
+	<input type="submit" class="btn next" value="<spring:message code="widget.${operationType}.button.label"/>">
 </div>
 
 <script type="text/javascript">

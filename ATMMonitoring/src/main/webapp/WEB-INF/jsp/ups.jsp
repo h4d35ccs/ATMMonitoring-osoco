@@ -1,14 +1,33 @@
-<%@include file="includes/JspImports.jsp"%>
+<%@taglib tagdir="/WEB-INF/tags/ups/" prefix="ups" %>
+<%@taglib tagdir="/WEB-INF/tags" prefix="t"%>
+
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@page contentType="text/html;charset=UTF-8" %>
+<%@page pageEncoding="UTF-8"%>
+
+<t:osoco-wrapper titleCode="label.upss" userMsg="${userMsg}" section="ups">
+	<jsp:attribute name="header">
+		<script type="text/javascript">
+				 function initPageJS() {
+					loadHelpHTML('terminals',"#help_pop",'#queries'); 
+					$("#queryHelp").click(function() {
+						$("#queryHelp").colorbox({inline:true, href: "#help_pop"});
+					});
+				 }
+		</script>
+	</jsp:attribute>
+	<jsp:body>
 		<div id="header_g">
-			<%-- <nav id="breadcrumb">
+			<nav id="breadcrumb">
 				<ul>
 					<li><a href="dashboard"> <spring:message code="breadcrumb.home"/> </a> </li>
-					<li> <spring:message code="breadcrumb.terminals"/> </li>
+					<li> <spring:message code="breadcrumb.ups"/> </li>
 				</ul>
-			</nav> --%>
-			<c:set var="navigationBackMain" scope="request" >home</c:set>
-			<c:set var="navigationActual" value="breadcrumb.ups" scope="request" />
-			<jsp:include page="includes/navigation.jsp" />
+			</nav>
 		</div>
 		<div  id="contentparent">
 			<div class="content" id="contentUps">
@@ -41,7 +60,7 @@
 		
 						<c:if test="${query != null}">
 							<spring:message code="label.forquery"/> : ${query.name}
-							<a href="ups/queries/show?queryId=${query.id}" class="edit">
+							<a href="upsQueries/show?queryId=${query.id}" class="edit">
 								<span> <g:message code="label.edit"/> </span>
 							</a>
 						</c:if>
@@ -58,11 +77,5 @@
 				</div>
 			</div>
 		</div>
-<script type="text/javascript">
-		 function initPageJS() {
-			loadHelpHTML('terminals',"#help_pop",'#queries'); 
-			$("#queryHelp").click(function() {
-				$("#queryHelp").colorbox({inline:true, href: "#help_pop"});
-			});
-		 }
-</script>
+	</jsp:body>
+</t:osoco-wrapper>

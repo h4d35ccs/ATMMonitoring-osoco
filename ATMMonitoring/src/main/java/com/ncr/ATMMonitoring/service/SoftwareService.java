@@ -32,15 +32,6 @@ public interface SoftwareService {
     public Software getSoftware(Integer id);
 
     /**
-     * Gets the software by identifying number.
-     * 
-     * @param id
-     *            the software id
-     * @return the software by identifying number
-     */
-    public Software getSoftwareByIdentifyingNumber(String id);
-
-    /**
      * List software.
      * 
      * @return the software list

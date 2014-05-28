@@ -2,6 +2,8 @@ package com.ncr.ATMMonitoring.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
+
+import com.ncr.ATMMonitoring.utils.Operation;
 
 /**
  * The UPS Pojo.
@@ -22,6 +28,45 @@ public class Ups implements Serializable {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 3914511485325636325L;
+
+    /** The comboboxes data for the query designer. */
+    private static final Map<String, Map> comboboxes;
+
+    static {
+	comboboxes = new TreeMap<String, Map>();
+	comboboxes.put("ip",
+		Operation.getOperationsByType(Operation.DataType.STRING));
+	comboboxes.put("firmware",
+		Operation.getOperationsByType(Operation.DataType.STRING));
+	comboboxes.put("runningStatus",
+		Operation.getOperationsByType(Operation.DataType.STRING));
+	comboboxes.put("chargePercentage",
+		Operation.getOperationsByType(Operation.DataType.NUMBER));
+	comboboxes.put("expensePercentage",
+		Operation.getOperationsByType(Operation.DataType.NUMBER));
+	comboboxes.put("alarmMsg",
+		Operation.getOperationsByType(Operation.DataType.STRING));
+	comboboxes.put("type",
+		Operation.getOperationsByType(Operation.DataType.STRING));
+	comboboxes.put("model",
+		Operation.getOperationsByType(Operation.DataType.STRING));
+	comboboxes.put("seriesNumber",
+		Operation.getOperationsByType(Operation.DataType.STRING));
+	comboboxes.put("runningTimeMillisec",
+		Operation.getOperationsByType(Operation.DataType.NUMBER));
+	comboboxes.put("autonomyMillisec",
+		Operation.getOperationsByType(Operation.DataType.NUMBER));
+	comboboxes.put("numPosition",
+		Operation.getOperationsByType(Operation.DataType.STRING));
+	comboboxes.put("audFmo",
+		Operation.getOperationsByType(Operation.DataType.DATE));
+	comboboxes.put("generalStatusMsg",
+		Operation.getOperationsByType(Operation.DataType.STRING));
+	comboboxes.put("lastExecutionDate",
+		Operation.getOperationsByType(Operation.DataType.DATE));
+	comboboxes.put("originalXML",
+		Operation.getOperationsByType(Operation.DataType.STRING));
+    }
 
     /** The id. */
     @Id
@@ -40,6 +85,7 @@ public class Ups implements Serializable {
 
     /** The running status. */
     @Column(name = "running_status")
+    @Type(type = "text")
     private String runningStatus;
 
     /** The charge percentage. */
@@ -52,6 +98,7 @@ public class Ups implements Serializable {
 
     /** The alarm message. */
     @Column(name = "alarm_msg")
+    @Type(type = "text")
     private String alarmMsg;
 
     /** The type. */
@@ -84,6 +131,7 @@ public class Ups implements Serializable {
 
     /** The general status message. */
     @Column(name = "general_status_msg")
+    @Type(type = "text")
     private String generalStatusMsg;
 
     /** The last execution date. */
@@ -92,6 +140,7 @@ public class Ups implements Serializable {
 
     /** The original xml. */
     @Column(name = "xml")
+    @Type(type = "text")
     private String originalXML;
 
     /**
@@ -168,6 +217,15 @@ public class Ups implements Serializable {
      */
     public void setRunningStatus(String runningStatus) {
 	this.runningStatus = runningStatus;
+    }
+
+    /**
+     * Gets the comboboxes data for the query GUI.
+     * 
+     * @return the comboboxes data
+     */
+    public static Map<String, Map> getComboboxes() {
+	return comboboxes;
     }
 
     /**

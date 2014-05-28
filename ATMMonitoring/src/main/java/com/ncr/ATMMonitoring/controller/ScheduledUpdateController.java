@@ -103,10 +103,10 @@ public class ScheduledUpdateController extends GenericController {
 	if (agentPushState.equalsIgnoreCase("on")) {
 	    return "redirect:/dashboard";
 	}
-	// String userMsg = "";
+	String userMsg = "";
 	if (principal != null) {
-	    // userMsg = this.getUserGreeting(principal, request);
-	    // map.put("userMsg", userMsg);
+	    userMsg = this.getUserGreeting(principal, request);
+	    map.put("userMsg", userMsg);
 	    map.put("weeklyScheduledUpdates",
 		    this.atmService.listScheduledUpdates(AtmFacade.WEEKLY));
 	    map.put("monthlyScheduledUpdates",
@@ -134,13 +134,13 @@ public class ScheduledUpdateController extends GenericController {
 	if (agentPushState.equalsIgnoreCase("on")) {
 	    return "redirect:/dashboard";
 	}
-	// String userMsg = "";
+	String userMsg = "";
 	if (principal != null) {
-	    // userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    Set<Query> userQueries = this.queryService
 		    .getQueriesByUser(principal.getName());
 	    map.put("userQueries", userQueries);
-	    // map.put("userMsg", userMsg);
+	    map.put("userMsg", userMsg);
 	    map.put("scheduledUpdate", new ScheduledUpdate());
 	}
 	if (queryId != null) {
@@ -211,13 +211,13 @@ public class ScheduledUpdateController extends GenericController {
 	if (agentPushState.equalsIgnoreCase("on")) {
 	    return "redirect:/dashboard";
 	}
-	// String userMsg = "";
+	String userMsg = "";
 	if (principal != null) {
-	    // userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    Set<Query> userQueries = this.queryService
 		    .getQueriesByUser(principal.getName());
 	    map.put("userQueries", userQueries);
-	    // map.put("userMsg", userMsg);
+	    map.put("userMsg", userMsg);
 	}
 
 	logger.debug("update's query': " + scheduledUpdate.getQuery().getId());
@@ -236,9 +236,7 @@ public class ScheduledUpdateController extends GenericController {
 	    ScheduledUpdate newScheduledUpdate = scheduledUpdate;
 	    map.put("scheduledUpdate", newScheduledUpdate);
 	    return "newScheduledUpdate";
-
 	} else {
-
 	    this.atmService.addScheduledUpdate(scheduledUpdate);
 	    redirectAttributes.addFlashAttribute("success",
 		    "label.new.scheduledUpdate.created");

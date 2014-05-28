@@ -28,8 +28,7 @@
         <intercept-url pattern="/terminals/export/**" access="hasAnyRole(${security.queriesAccessAllowedRoles})"/>
         <intercept-url pattern="/terminals/byQuery" access="hasAnyRole(${security.queriesAccessAllowedRoles})"/>
         <intercept-url pattern="/ups/**" access="hasAnyRole(${security.upsAccessAllowedRoles})"/>
-        <intercept-url pattern="/ups/update" access="hasAnyRole(${security.upsManagementAllowedRoles})"/>
-        <intercept-url pattern="/ups/queries/**" access="hasAnyRole(${security.upsQueriesAccessAllowedRoles})"/>
+        <intercept-url pattern="/upsQueries/**" access="hasAnyRole(${security.upsQueriesAccessAllowedRoles})"/>
         <intercept-url pattern="/ups/export/**" access="hasAnyRole(${security.upsQueriesAccessAllowedRoles})"/>
         <intercept-url pattern="/ups/byQuery" access="hasAnyRole(${security.upsQueriesAccessAllowedRoles})"/>
         <intercept-url pattern="/externalreports/**" access="hasAnyRole(${security.reportsAccessAllowedRoles})"/>

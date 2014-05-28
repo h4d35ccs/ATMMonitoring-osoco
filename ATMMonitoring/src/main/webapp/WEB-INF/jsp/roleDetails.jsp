@@ -1,4 +1,75 @@
-<%@include file="includes/JspImports.jsp"%>
+<%@taglib uri="http://www.ncr.com/tags" prefix="ncr"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<%@page contentType="text/html;charset=UTF-8" %>
+<%@page pageEncoding="UTF-8"%>
+
+<t:osoco-wrapper titleCode="label.rolesManager" userMsg="${userMsg}" section="roles">
+
+<jsp:attribute name="header">
+    <script type="text/javascript">
+    $(document).ready(function(){
+            $("#editRoleButton").click(function(event) {
+                $("#showRole").hide();
+                $("#editForm").show();
+	        });
+            $("#cancelEdit").click(function(event) {
+                $("#showRole").show();
+                $("#editForm").hide();
+	        });
+            $("#canViewTerminals").click(function(event) {
+            	if (!$("#canViewTerminals").is(':checked')) {
+                	$("#canEditTerminals").attr('checked', false);
+                	$("#canRequestUpdate").attr('checked', false);
+                   	$("#canUseQueries").attr('checked', false);
+                	$("#canEditTerminals").prop('readonly', 'readonly');
+                	$("#canRequestUpdate").prop('readonly', 'readonly');
+                   	$("#canUseQueries").prop('readonly', 'readonly');
+            	} else {
+                	$("#canEditTerminals").prop('readonly', '');
+                	$("#canRequestUpdate").prop('readonly', '');
+                	$("#canUseQueries").prop('readonly', '');
+            	}
+	        });
+            $("#canViewUps").click(function(event) {
+            	if (!$("#canViewUps").is(':checked')) {
+                   	$("#canEditUps").attr('checked', false);
+                   	$("#canUseUpsQueries").attr('checked', false);
+                   	$("#canEditUps").prop('readonly', 'readonly');
+                   	$("#canUseUpsQueries").prop('readonly', 'readonly');
+            	} else {
+                	$("#canEditUps").prop('readonly', '');
+                	$("#canUseUpsQueries").prop('readonly', '');
+            	}
+	        });
+            <c:if test="${role.canViewTerminals != true}">
+           	$("#canEditTerminals").attr('checked', false);
+           	$("#canRequestUpdate").attr('checked', false);
+           	$("#canUseQueries").attr('checked', false);
+           	$("#canEditTerminals").prop('readonly', 'readonly');
+           	$("#canRequestUpdate").prop('readonly', 'readonly');
+           	$("#canUseQueries").prop('readonly', 'readonly');
+           	</c:if>
+            <c:if test="${role.canViewUps != true}">
+           	$("#canEditUps").attr('checked', false);
+           	$("#canUseUpsQueries").attr('checked', false);
+           	$("#canEditUps").prop('readonly', 'readonly');
+           	$("#canUseUpsQueries").prop('readonly', 'readonly');
+           	</c:if>
+            <c:if test="${duplicatedName == true}">
+           	$("#showRole").hide();
+           	$("#editForm").show();
+			</c:if>
+	    });
+    </script>
+</jsp:attribute>
+
+<jsp:body>
 			<div id="header_g">
 					<nav id="breadcrumb">
 						<ul>
@@ -14,16 +85,7 @@
 				</div>
 			<div class="content">
 				<h1><spring:message code="label.role.name"/> ${role.name}</h1>
-				<c:if test="${success != null}">
-					<div id ="updateRoleNotification" class="notification">
-						<p>
-							<spring:message code="${success}" />
-						</p>
-					</div>
-					<script type="text/javascript">
-						fadeNotification("#updateRoleNotification", "notification");
-					</script>
-				</c:if>
+
 				<div class="action_box data desplegable">
 					<h2 class="txt last"><spring:message code="label.roleDetails"/></h2>
 					<div class="collapsible last">
@@ -100,14 +162,6 @@
 											<form:checkbox id="canViewUps" class='form-tf-grey' path="canViewUps" style="margin: 0;"/><br>
 				
 								 			<h5>
-								 				<form:label path="canEditUps" style="padding: 0.1em 1em 0.1em 3.0em;">
-													<spring:message code="label.role.canEditUps"/>
-												</form:label>
-											</h5>
-
-											<form:checkbox id="canEditUps" class='form-tf-grey' path="canEditUps" style="margin: 0;"/><br>
-				
-								 			<h5>
 								 				<form:label path="canUseUpsQueries" style="padding: 0.1em 1em 0.1em 3.0em;">
 													<spring:message code="label.role.canUseUpsQueries"/>
 												</form:label>
@@ -145,12 +199,14 @@
 									</ul>
 								<div class="botonera">
 
-									<button class="btn" onclick="loadInnerSectionFromForm('#role','#primary'); return false;" ><spring:message code="label.role.updateRole"/></button>
+									<input type="submit" class="btn" value="<spring:message code="label.role.updateRole"/>"/>
                                     <input id="cancelEdit" type="reset" class="cancel right" value="<spring:message code="label.cancel"/>" />
 								</div>
+
 								</div>
 							</form:form>
 					            </div>
+
 								<div id="showRole"  class="ul_data ul_data_wide ${errors  != null ? 'hide': ''}">
 									<ul>
 										<li>
@@ -213,14 +269,6 @@
 												</h4><br>
 											</c:if>
 
-											<c:if test="${role.canEditUps == true}">
-												<h5>
-													<label style="padding: 0.1em 1em 0.1em 3em;">
-														<spring:message code="label.role.canEditUps"/>
-													</label>
-												</h5><br>
-											</c:if>
-
 											<c:if test="${role.canUseUpsQueries == true}">
 												<h5>
 													<label style="padding: 0.1em 1em 0.1em 3em;">
@@ -260,58 +308,7 @@
 					<!-- // collapsible -->
 				</div>
 			</div>
-<script type="text/javascript">
-function initPageJS() { 
-            $("#editRoleButton").click(function(event) {
-                $("#showRole").hide();
-                $("#editForm").show();
-	        });
-            $("#cancelEdit").click(function(event) {
-                $("#showRole").show();
-                $("#editForm").hide();
-	        });
-            $("#canViewTerminals").click(function(event) {
-            	if (!$("#canViewTerminals").is(':checked')) {
-                	$("#canEditTerminals").attr('checked', false);
-                	$("#canRequestUpdate").attr('checked', false);
-                   	$("#canUseQueries").attr('checked', false);
-                	$("#canEditTerminals").prop('readonly', 'readonly');
-                	$("#canRequestUpdate").prop('readonly', 'readonly');
-                   	$("#canUseQueries").prop('readonly', 'readonly');
-            	} else {
-                	$("#canEditTerminals").prop('readonly', '');
-                	$("#canRequestUpdate").prop('readonly', '');
-                	$("#canUseQueries").prop('readonly', '');
-            	}
-	        });
-            $("#canViewUps").click(function(event) {
-            	if (!$("#canViewUps").is(':checked')) {
-                   	$("#canEditUps").attr('checked', false);
-                   	$("#canUseUpsQueries").attr('checked', false);
-                   	$("#canEditUps").prop('readonly', 'readonly');
-                   	$("#canUseUpsQueries").prop('readonly', 'readonly');
-            	} else {
-                	$("#canEditUps").prop('readonly', '');
-                	$("#canUseUpsQueries").prop('readonly', '');
-            	}
-	        });
-            <c:if test="${role.canViewTerminals != true}">
-           	$("#canEditTerminals").attr('checked', false);
-           	$("#canRequestUpdate").attr('checked', false);
-           	$("#canUseQueries").attr('checked', false);
-           	$("#canEditTerminals").prop('readonly', 'readonly');
-           	$("#canRequestUpdate").prop('readonly', 'readonly');
-           	$("#canUseQueries").prop('readonly', 'readonly');
-           	</c:if>
-            <c:if test="${role.canViewUps != true}">
-           	$("#canEditUps").attr('checked', false);
-           	$("#canUseUpsQueries").attr('checked', false);
-           	$("#canEditUps").prop('readonly', 'readonly');
-           	$("#canUseUpsQueries").prop('readonly', 'readonly');
-           	</c:if>
-            <c:if test="${duplicatedName == true}">
-           	$("#showRole").hide();
-           	$("#editForm").show();
-			</c:if>
-	    }
-    </script>
+
+</jsp:body>
+
+</t:osoco-wrapper>

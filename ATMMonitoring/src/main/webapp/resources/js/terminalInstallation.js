@@ -34,10 +34,6 @@ function initHandlers() {
         address = optionSelected.text;
         onAddressChanged(address);
     });
-    $("#address").change(function(event) {
-        address = $(this).val();
-        onAddressChanged(address);
-    });
     $("#coordX,#coordY").change(function(event) {
         coordX = parseCoord($("#coordX").val());
         coordY = parseCoord($("#coordY").val());

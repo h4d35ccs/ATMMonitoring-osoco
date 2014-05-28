@@ -57,10 +57,10 @@ public class DashboardController extends GenericController {
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String showDashboard(Map<String, Object> map, Principal principal,
 	    HttpServletRequest request) {
-	// String userMsg = "";
+	String userMsg = "";
 	Dashboard dashboard = null;
 	if (principal != null) {
-	    // userMsg = this.getUserGreeting(principal, request);
+	    userMsg = this.getUserGreeting(principal, request);
 	    dashboard = (Dashboard) request.getSession().getAttribute(
 		    SESSION_KEY_DASHBOARD);
 	    logger.debug("Dasboard loaded from session: " + dashboard);
@@ -74,7 +74,7 @@ public class DashboardController extends GenericController {
 
 	}
 
-	// map.put("userMsg", userMsg);
+	map.put("userMsg", userMsg);
 	map.put("dashboard", dashboard);
 	map.put("columnOptions", Dashboard.ColumnOptions.values());
 	return "dashboard";
