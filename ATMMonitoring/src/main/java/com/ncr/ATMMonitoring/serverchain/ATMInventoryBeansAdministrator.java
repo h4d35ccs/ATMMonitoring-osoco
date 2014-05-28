@@ -52,35 +52,34 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 
     private void shutdownUnnecesaryBeans() {
 
-	if (isNotRoot()) {
-	   
+	if (haveConfiguredBeansToShutdown()) {
+
 	    logger.info("Destroyiing not needed beans:"
 		    + beansToDestroyComaSeparatedList);
+
 	    this.getBeanClassesFromProperties();
-	    
-	    logger.info("stoping not needed scheduled tasks:"
-		    + tasksToStop);
 	    this.getTaskClassesFromProperties();
 
 	    this.killAllIndividualBeans();
+	    logger.info("stoping not needed scheduled tasks:" + tasksToStop);
 	    this.stopAllTask();
-	    //TODO do the killAllBeansInPackage
+	    // TODO do the killAllBeansInPackage
 
 	}
     }
 
-    private boolean isNotRoot() {
-	System.out.println("this.nodePosition.getNodePosition()--->"
-		+ this.nodePosition.getNodePosition());
+    private boolean haveConfiguredBeansToShutdown() {
 
-	if (!this.nodePosition.getNodePosition()
-		.equals(NodePosition.FIRST_NODE)
-		&& !this.nodePosition.getNodePosition().equals(
-			NodePosition.ONLY_NODE)) {
+	if (!StringUtils.isEmpty(this.beansToDestroyComaSeparatedList)
+		|| !StringUtils.isEmpty(this.tasksToStop)) {
+	    
 	    return true;
+	    
 	} else {
+	    
 	    return false;
 	}
+
     }
 
     private void getBeanClassesFromProperties() {
@@ -118,7 +117,7 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 
 	for (Class<?> scheduledTaskClass : this.scheduledTaskClasses) {
 	    stopScheduledTask(scheduledTaskClass);
-	   
+
 	}
     }
 
@@ -209,7 +208,7 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 	    logger.debug("destroying: " + beanName);
 	    Object beanInstance = beansAndInstances.get(beanName);
 	    beanFactory.destroyBean(beanName, beanInstance);
-	    logger.debug("destroyed: " + beanName);
+	    logger.info("destroyed: " + beanName);
 	}
     }
 
@@ -221,7 +220,8 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 	if (scheduledTask instanceof SheduledTaskEnabler) {
 	    SheduledTaskEnabler sheduledTaskEnabler = (SheduledTaskEnabler) scheduledTask;
 	    sheduledTaskEnabler.disableTask();
-	    logger.info("Task disabled");
+	    logger.info("Task disabled: "
+		    + scheduledTask.getClass().getSimpleName());
 	}
     }
 }
