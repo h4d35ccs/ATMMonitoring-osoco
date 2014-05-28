@@ -3,6 +3,8 @@ package com.ncr.ATMMonitoring.serverchain.adapter;
 import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 
 /**
+ * Adapter class that connects the socket communication and the chain communication
+ * allowing the execution in single node mode
  * @author Otto Abreu
  * 
  */
@@ -15,7 +17,7 @@ public interface ATMUpdateRequestAdapter {
      * @param socketComunicationParams
      */
     void setupAdapter(ATMUpdateInfo updateInfo,
-	    ATMSocketComunicationParams socketComunicationParams);
+	    ATMSocketCommunicationParams socketComunicationParams);
 
     /**
      * Executes the request of the given ATM. This method will call directly the
@@ -25,9 +27,11 @@ public interface ATMUpdateRequestAdapter {
      */
     void requestATMUpdate();
 
+    
     /**
-     * Handles the error while communicating with the ATM
+     * The ATM Requests to the Root node to execute an update 
      */
-    void handleATMCommunicationError();
+    void requestUpdateToRoot();
+    
 
 }
