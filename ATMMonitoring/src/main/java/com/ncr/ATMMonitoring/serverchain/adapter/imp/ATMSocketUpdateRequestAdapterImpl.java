@@ -1,4 +1,4 @@
-package com.ncr.ATMMonitoring.serverchain.adapter;
+package com.ncr.ATMMonitoring.serverchain.adapter.imp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,30 +12,38 @@ import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 
+import com.ncr.ATMMonitoring.serverchain.adapter.ATMSocketCommunicationParams;
+import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateAdapterFactory;
+import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateRequestAdapter;
+import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateResponseAdapter;
 import com.ncr.ATMMonitoring.serverchain.adapter.exception.ATMUpdateRequestException;
 import com.ncr.ATMMonitoring.serverchain.message.specific.incoming.UpdateRequestCommunicationError;
+import com.ncr.ATMMonitoring.serverchain.message.specific.incoming.UpdateSelfRequest;
 import com.ncr.ATMMonitoring.serverchain.message.specific.outgoing.UpdateDataRequest;
 import com.ncr.ATMMonitoring.socket.RequestThreadManager;
+import com.ncr.ATMMonitoring.socket.SocketListener;
 import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 import com.ncr.ATMMonitoring.utils.Utils;
 import com.ncr.serverchain.MessagePublisher;
 import com.ncr.serverchain.NodeInformation;
 import com.ncr.serverchain.NodePosition;
 import com.ncr.serverchain.ServerchainMainBeanFactory;
+import com.ncr.serverchain.message.specific.SpecificMessage;
 import com.ncr.serverchain.message.wrapper.MessageWrapper;
 
 /**
  * @author Otto Abreu
  * 
  */
-public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
+public class ATMSocketUpdateRequestAdapterImpl implements
+	ATMUpdateRequestAdapter {
 
     private static Logger logger = Logger
-	    .getLogger(ATMUpdateRequestAdapterImpl.class);
+	    .getLogger(ATMSocketUpdateRequestAdapterImpl.class);
 
     private ATMUpdateInfo updateInfo;
 
-    private ATMSocketComunicationParams socketComunicationParams;
+    private ATMSocketCommunicationParams socketComunicationParams;
 
     private NodeInformation nodeInformation;
 
@@ -50,17 +58,17 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
      */
     @Override
     public void setupAdapter(ATMUpdateInfo updateInfo,
-	    ATMSocketComunicationParams socketComunicationParams) {
+	    ATMSocketCommunicationParams socketComunicationParams) {
 
 	this.socketComunicationParams = socketComunicationParams;
 	this.updateInfo = updateInfo;
 
-	ApplicationContext springContext = socketComunicationParams.getSpringContext();
-	
-	this.nodeInformation = this.getNodeInformation(springContext);
-	
-	this.messagePublisher = this.getMessagePublisher(springContext);
+	ApplicationContext springContext = socketComunicationParams
+		.getSpringContext();
 
+	this.nodeInformation = this.getNodeInformation(springContext);
+
+	this.messagePublisher = this.getMessagePublisher(springContext);
 
     }
 
@@ -72,7 +80,8 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
 	return nodeInformation;
     }
 
-    private MessagePublisher getMessagePublisher(ApplicationContext springContext) {
+    private MessagePublisher getMessagePublisher(
+	    ApplicationContext springContext) {
 	MessagePublisher messagePublisher = ServerchainMainBeanFactory
 		.getMessagePublisherInstance(springContext);
 	return messagePublisher;
@@ -104,7 +113,7 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
 		this.openSocketComunication();
 
 	    } catch (Exception e) {
-		logger.debug("handling error");
+		logger.debug("handling error",e);
 		this.handleATMCommunicationError();
 	    }
 	}
@@ -120,13 +129,13 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
     private boolean initateServerChain() {
 
 	boolean initiateServerChain = false;
-	logger.debug("isRootAndIsNotOnlyNode"+isRootAndIsNotOnlyNode());
+	logger.debug("isRootAndIsNotOnlyNode" + isRootAndIsNotOnlyNode());
 	if (isRootAndIsNotOnlyNode()) {
 
 	    initiateServerChain = true;
-	    
+
 	}
-	logger.debug("initiateServerChain?"+initiateServerChain);
+	logger.debug("initiateServerChain?" + initiateServerChain);
 	return initiateServerChain;
     }
 
@@ -215,8 +224,8 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
 
     }
 
-    @Override
-    public void handleATMCommunicationError() {
+    
+    private void handleATMCommunicationError() {
 
 	if (isOnlyNode()) {
 
@@ -244,8 +253,14 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
 
 	int messageId = commErrorInfo.getMatricula().intValue();
 
+	this.publishMessageToRoot(messageId, wrapperInfoMessage, commErrorInfo);
+    }
+
+    private void publishMessageToRoot(long messageId,
+	    String wrapperInfoMessage, SpecificMessage message) {
+
 	this.messagePublisher.publishIncomingMessage(messageId,
-		wrapperInfoMessage, commErrorInfo);
+		wrapperInfoMessage, message);
     }
 
     private UpdateRequestCommunicationError createUpdateRequestError() {
@@ -262,8 +277,114 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
     private NodePosition getNodePosition() {
 
 	NodePosition position = this.nodeInformation.getNodePosition();
-	logger.debug("the position is: "+position);
+	logger.debug("the position is: " + position);
 	return position;
+    }
+
+    private String handleATMResponse(String json, String ip) {
+
+	String endMessage = socketComunicationParams.getEndCommMsg();
+
+	if (isOnlyNode()) {
+
+	    endMessage = this.handleATMResponseInOnlyNodeMode(json, ip);
+
+	} else {
+
+	    this.generateUpdateDataResponseMessageToRoot(json);
+	}
+
+	return endMessage;
+    }
+
+    private String handleATMResponseInOnlyNodeMode(String json, String ip) {
+	RequestThreadManager parent = socketComunicationParams
+		.getParentRequestThreadManager();
+
+	String endCommMsg = socketComunicationParams.getEndCommMsg();
+
+	try {
+	    Long matricula = parent.handleIpSuccess(json);
+	    if (matricula != null) {
+		// Tenemos una matrícula nueva, así que la enviamos al
+		// agente
+		logger.info("New generated id " + matricula
+			+ " will be sent to IP: " + ip);
+		endCommMsg += ":" + matricula;
+	    }
+	} catch (Exception e) {
+	    logger.error(
+		    "An error happened while saving data received from ip: "
+			    + ip + "\nJson: " + json, e);
+	}
+
+	return endCommMsg;
+    }
+
+    private void generateUpdateDataResponseMessageToRoot(String jsonResponse) {
+
+	ATMUpdateResponseAdapter responseAdapter = ATMUpdateAdapterFactory
+		.getUpdateResponseAdapter(ATMUpdateAdapterFactory.SOCKET_COMMUNICATION_ADAPTER);
+	responseAdapter.setupResponseAdapter(this.socketComunicationParams
+		.getSpringContext());
+	UpdateDataRequest originalRequestData = generatetOriginalRequestData();
+
+	responseAdapter.generateUpdateDataMessageToRoot(jsonResponse,
+		originalRequestData);
+    }
+
+    private UpdateDataRequest generatetOriginalRequestData() {
+
+	String atmIp = this.updateInfo.getAtmIp();
+	long atmMatricula = this.updateInfo.getAtmMatricula();
+	UpdateDataRequest originalRequestData = new UpdateDataRequest(atmIp,
+		atmMatricula);
+	return originalRequestData;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateRequestAdapter#
+     * requestUpdateToRoot()
+     */
+    @Override
+    public void requestUpdateToRoot() {
+
+	String ip = this.updateInfo.getAtmIp();
+	long matricula = this.updateInfo.getAtmMatricula();
+
+	if (this.isOnlyNode()) {
+
+	    this.requestUpdateToRootOnlyNode(ip, matricula);
+
+	} else {
+
+	    this.requestUpdateToRootServerChain(ip, matricula);
+	}
+
+    }
+
+    private void requestUpdateToRootOnlyNode(String ip, long matricula) {
+
+	SocketListener socketListener = socketComunicationParams
+		.getSocketListenerParent();
+
+	socketListener.requestData(ip, matricula);
+
+	logger.info("Update request from " + ip + " sent to SocketListener");
+    }
+
+    private void requestUpdateToRootServerChain(String ip, long matricula) {
+
+	UpdateSelfRequest selfRequest = new UpdateSelfRequest(ip, matricula);
+
+	String wrapperInfoMessage = "ATM Update request  Message from: "
+		+ this.nodeInformation.getLocalUrl();
+
+	this.publishMessageToRoot(matricula, wrapperInfoMessage, selfRequest);
+
+	logger.info("Update request from " + ip + " sent to root");
     }
 
     /*-************************************************************************
@@ -283,9 +404,9 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
      *            the socket
      * @return true, if successful
      */
-    private boolean confirmIdentity() {
+    private boolean confirmIdentity(Socket socket) {
 
-	Socket socket = socketComunicationParams.getComunicationSocket();
+	
 	RequestThreadManager parent = socketComunicationParams
 		.getParentRequestThreadManager();
 	String hashSeed = socketComunicationParams.getHashSeed();
@@ -359,8 +480,6 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
      */
     private void requestDataJson(String ip) throws Exception {
 
-	RequestThreadManager parent = socketComunicationParams
-		.getParentRequestThreadManager();
 	int agentPort = socketComunicationParams.getAgentPort();
 	String endCommMsg = socketComunicationParams.getEndCommMsg();
 	int timeOut = socketComunicationParams.getTimeOut();
@@ -374,7 +493,7 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
 	    socket.setSoTimeout(timeOut * 1000);
 
 	    // Confirmamos la identidad del agente
-	    if (confirmIdentity()) {
+	    if (confirmIdentity(socket)) {
 		logger.info("Id confirmed for IP: " + ip);
 	    } else {
 		logger.error("Id couldn't be confirmed for IP: " + ip);
@@ -387,24 +506,14 @@ public class ATMUpdateRequestAdapterImpl implements ATMUpdateRequestAdapter {
 	    PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 	    String json;
 	    String endMsg = endCommMsg;
+
 	    try {
-		// Recuperamos el Json con los datos del DataStore
+		// // Recuperamos el Json con los datos del DataStore
 		json = in.readLine();
 		logger.info("Data received from IP: " + ip);
-		try {
-		    Long matricula = parent.handleIpSuccess(json);
-		    if (matricula != null) {
-			// Tenemos una matrícula nueva, así que la enviamos al
-			// agente
-			logger.info("New generated id " + matricula
-				+ " will be sent to IP: " + ip);
-			endMsg += ":" + matricula;
-		    }
-		} catch (Exception e) {
-		    logger.error(
-			    "An error happened while saving data received from ip: "
-				    + ip + "\nJson: " + json, e);
-		}
+
+		endMsg = this.handleATMResponse(json, ip);
+
 		// Enviamos el mensaje que confirma el final de la comunicacion
 		logger.info("Sending final comm message to IP: " + ip);
 		out.println(endMsg);
