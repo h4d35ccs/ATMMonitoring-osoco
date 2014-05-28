@@ -2,68 +2,47 @@ package com.ncr.ATMMonitoring.serverchain.message.specific.strategy.imp;
 
 import org.apache.log4j.Logger;
 
-import com.ncr.serverchain.message.specific.strategy.BroadcastType;
-import com.ncr.serverchain.message.specific.strategy.imp.BaseStrategy;
+import com.ncr.ATMMonitoring.serverchain.message.specific.incoming.UpdateDataResponse;
+import com.ncr.ATMMonitoring.socket.SocketService;
+import com.ncr.serverchain.message.specific.strategy.imp.DirectRootCommunicationStrategy;
 
 /**
+ * Strategy to process a response from an ATM
+ * 
+ * This strategy let pass the message until reaches the Root node
+ * where is processed.
+ * 
+ * In order to process the message, the SocketService is called
+ * 
  * @author Otto Abreu
- *
+ * 
  */
-public class UpdateDataResponseStrategy extends
-	BaseStrategy {
+public class UpdateDataResponseStrategy extends DirectRootCommunicationStrategy {
 
- 
-    
     private static final Logger logger = Logger
 	    .getLogger(UpdateDataResponseStrategy.class);
-    
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.serverchain.message.specific.strategy.SpecifcMessageProcessStrategy#canProcessSpecificMessage()
-     */
-    @Override
-    public boolean canProcessSpecificMessage() {
-	// always true because is going up
-	// each parent should be able to process the message
-	//until it reaches the root node
-	return true;
+
+    protected void customLogicToProcessMessageInRoot() {
+
+	    SocketService socketService = this.getSocketService();
+	    UpdateDataResponse dataResponse = this
+		    .castMessageToUpdateDataResponse();
+
+	    String json = dataResponse.getJsonMessage();
+	    socketService.processTerminalJson(json);
+
+	    logger.debug("message sent to socket service to be Processed");
+
     }
 
-    /* (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.serverchain.message.specific.strategy.SpecifcMessageProcessStrategy#processSpecificMessage()
-     */
-    @Override
-    public void processSpecificMessage() {
-	
-	this.processMessageWhenReachedRoot();
+    private SocketService getSocketService() {
+	return (SocketService) this.getSpringBean(SocketService.class);
     }
-    
-    
-    private void processMessageWhenReachedRoot(){
-	
-	if (isRoot()) {
-	    logger.debug("Processing message in root: "+this.messageToProcess);
-	}else{
-	    logger.debug("Doing nothing  in middle node: "+this.messageToProcess);
-	}
+
+    private UpdateDataResponse castMessageToUpdateDataResponse() {
+	return (UpdateDataResponse) this.messageToProcess;
     }
-    
-   
-    /*
-     * (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.serverchain.message.specific.strategy.SpecifcMessageProcessStrategy#broadcastDirection()
-     */
-    @Override
-    public BroadcastType broadcastDirection() {
-	
-	BroadcastType broadcastDirection = BroadcastType.ONE_WAY;
-	
-	if(isRoot()){
-	   
-	    broadcastDirection = BroadcastType.NONE;
-	}
-	return broadcastDirection;
-    }
-    
+
 
 }
