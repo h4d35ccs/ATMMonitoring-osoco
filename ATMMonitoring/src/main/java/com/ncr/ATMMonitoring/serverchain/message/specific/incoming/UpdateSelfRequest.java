@@ -1,12 +1,15 @@
 package com.ncr.ATMMonitoring.serverchain.message.specific.incoming;
 
 import com.ncr.serverchain.message.specific.SpecificMessage;
+import com.ncr.serverchain.message.specific.strategy.StrategyMapper;
+import com.ncr.ATMMonitoring.serverchain.message.specific.strategy.imp.UpdateSelfRequestStrategy;
 
 /**
  * Holds the information regarding an ATM asking for an update
  * @author Otto Abreu
  * 
  */
+@StrategyMapper(strategyMapping= UpdateSelfRequestStrategy.class)
 public class UpdateSelfRequest implements SpecificMessage {
 
     /**
@@ -16,10 +19,10 @@ public class UpdateSelfRequest implements SpecificMessage {
 
     private String atmIp;
 
-    private int matricula;
+    private long matricula;
     
     
-    public UpdateSelfRequest(String atmIp, int matricula) {
+    public UpdateSelfRequest(String atmIp, long matricula) {
 	super();
 	this.atmIp = atmIp;
 	this.matricula = matricula;
@@ -29,8 +32,24 @@ public class UpdateSelfRequest implements SpecificMessage {
         return atmIp;
     }
 
-    public int getMatricula() {
+    public long getMatricula() {
         return matricula;
+    }
+
+    
+    @Override
+    public String toString() {
+	StringBuilder builder = new StringBuilder();
+	builder.append("UpdateSelfRequest [");
+	if (atmIp != null) {
+	    builder.append("atmIp=");
+	    builder.append(atmIp);
+	    builder.append(", ");
+	}
+	builder.append("matricula=");
+	builder.append(matricula);
+	builder.append("]");
+	return builder.toString();
     }
     
     
