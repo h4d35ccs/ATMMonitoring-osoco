@@ -42,7 +42,7 @@ import com.ncr.ATMMonitoring.service.LocationService;
  * 
  */
 @Component
-public class OfficeGetTxtTask {
+public class OfficeGetTxtTask  extends SheduledTaskEnabler {
 
     /** The logger. */
     private static final Logger logger = Logger
@@ -100,28 +100,7 @@ public class OfficeGetTxtTask {
     @Scheduled(cron = CRON_CONF)
     public void checkForOfficeUpdates() {
 
-	logger.info("Checking the offices txt file: " + this.txtPath);
-
-	try {
-	    File file = new File(txtPath);
-	    if (file.exists()) {
-		if (!file.canRead()) {
-		    logger.error("Can not read the offices txt file ("
-			    + txtPath + " ).");
-		    return;
-		}
-		boolean success = locationService
-			.storeOfficesInfo(new FileInputStream(file));
-		if (success) {
-		    handleSuccess(Arrays.asList(new String[] { txtPath }));
-		} else {
-		    logger.error("Some error happenede while parsing the offices file "
-			    + txtPath);
-		}
-	    }
-	} catch (FileNotFoundException e) {
-	    logger.error("Can not read the offices txt file " + txtPath);
-	}
+	this.runScheduledTask();
 
     }
 
@@ -202,6 +181,44 @@ public class OfficeGetTxtTask {
 	    break;
 	}
 
+    }
+
+   /*
+    * (non-Javadoc)
+    * @see com.ncr.ATMMonitoring.scheduledtask.SheduledTaskEnabler#executeLogic()
+    */
+    @Override
+    protected void executeLogic() {
+	processFiles();
+	
+    }
+    /**
+     * gets the files to process and call the service
+     */
+    private void processFiles(){
+	
+	logger.info("Checking the offices txt file: " + this.txtPath);
+
+	try {
+	    File file = new File(txtPath);
+	    if (file.exists()) {
+		if (!file.canRead()) {
+		    logger.error("Can not read the offices txt file ("
+			    + txtPath + " ).");
+		    return;
+		}
+		boolean success = locationService
+			.storeOfficesInfo(new FileInputStream(file));
+		if (success) {
+		    handleSuccess(Arrays.asList(new String[] { txtPath }));
+		} else {
+		    logger.error("Some error happenede while parsing the offices file "
+			    + txtPath);
+		}
+	    }
+	} catch (FileNotFoundException e) {
+	    logger.error("Can not read the offices txt file " + txtPath);
+	}
     }
 
 }
