@@ -58,6 +58,26 @@ public class UpdateDataResponse implements SpecificMessage{
     public void setJsonMessage(String jsonMessage) {
         this.jsonMessage = jsonMessage;
     }
+
+
+    @Override
+    public String toString() {
+	StringBuilder builder = new StringBuilder();
+	builder.append("UpdateDataResponse [");
+	if (originalRequest != null) {
+	    builder.append("originalRequest=");
+	    builder.append(originalRequest);
+	    builder.append(", ");
+	}
+	if (jsonMessage != null) {
+	    builder.append("jsonMessage=");
+	    builder.append(jsonMessage);
+	}
+	builder.append("]");
+	return builder.toString();
+    }
+    
+    
     
     
 }
