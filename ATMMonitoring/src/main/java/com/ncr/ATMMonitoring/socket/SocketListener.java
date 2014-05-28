@@ -8,10 +8,10 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-
-import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 
 /**
  * The listener interface for receiving socket events. The class that is
@@ -58,6 +58,9 @@ public class SocketListener extends Thread {
     // @Autowired
     /** The socket service. */
     private SocketService socketService;
+    
+    @Autowired
+    private ApplicationContext springContext;
 
     /**
      * Instantiates a new socket listener.
@@ -127,7 +130,7 @@ public class SocketListener extends Thread {
 	    while (true) {
 		try {
 		    new SocketListenerThread(serverSocket.accept(), okMessage,
-			    this).start();
+			    this,springContext).start();
 		} catch (SocketException e) {
 		    // Si el listener est� a nulo, eso quiere decir que se est�n
 		    // liberando los recursos y no es un error
