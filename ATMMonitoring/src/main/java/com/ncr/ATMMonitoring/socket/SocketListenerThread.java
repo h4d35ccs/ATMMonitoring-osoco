@@ -5,6 +5,12 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContext;
+
+import com.ncr.ATMMonitoring.serverchain.adapter.ATMSocketCommunicationParams;
+import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateAdapterFactory;
+import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateRequestAdapter;
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 
 /**
  * The Class SocketListenerThread.
@@ -30,6 +36,8 @@ public class SocketListenerThread extends Thread {
     /** The socket listener parent. */
     private SocketListener parent;
 
+    private ApplicationContext springContext;
+
     /**
      * Instantiates a new socket listener thread.
      * 
@@ -41,10 +49,11 @@ public class SocketListenerThread extends Thread {
      *            the socket listener parent
      */
     public SocketListenerThread(Socket socket, String okMessage,
-	    SocketListener parent) {
+	    SocketListener parent, ApplicationContext springContext) {
 	this.socket = socket;
 	this.okMessage = okMessage;
 	this.parent = parent;
+	this.springContext = springContext;
     }
 
     /*
@@ -64,10 +73,10 @@ public class SocketListenerThread extends Thread {
 		out.println(okMessage);
 		logger.info("Update request confirmed ('" + okMessage
 			+ "') to IP: " + ip);
-		//TODO Ask the ATM for the Matricula
+		// TODO Ask the ATM for the Matricula
 		long matricula = 1;
-		// Pedimos los datos al agente
-		parent.requestData(ip,matricula);
+		this.executeAdapter(ip, matricula);
+
 	    } catch (IOException e) {
 		logger.error("An exception was thrown while processing "
 			+ "an update request from IP: " + ip, e);
@@ -78,5 +87,36 @@ public class SocketListenerThread extends Thread {
 	    logger.error("An exception was thrown while processing "
 		    + "an update request from IP: " + ip, e);
 	}
+    }
+
+    private void executeAdapter(String ip, long matricula) {
+
+	ATMUpdateRequestAdapter requestAdapter =  this.getUpdateAdapter(ip, matricula);
+
+	requestAdapter.requestUpdateToRoot();
+    }
+    
+    private ATMUpdateRequestAdapter getUpdateAdapter(String ip, long matricula){
+	
+	ATMUpdateRequestAdapter requestAdapter = ATMUpdateAdapterFactory
+		.getRequestAdapterInstance(ATMUpdateAdapterFactory.SOCKET_COMMUNICATION_ADAPTER);
+	
+	ATMUpdateInfo updateInfo = new ATMUpdateInfo(ip, matricula);
+	
+	ATMSocketCommunicationParams socketComunicationParams = this
+		.getSocketCommunicationParams();
+
+	requestAdapter.setupAdapter(updateInfo, socketComunicationParams);
+	
+	return requestAdapter;
+    }
+
+    private ATMSocketCommunicationParams getSocketCommunicationParams() {
+	
+	ATMSocketCommunicationParams socketComunicationParams = new ATMSocketCommunicationParams();
+	socketComunicationParams.setSocketListenerParent(this.parent);
+	socketComunicationParams.setSpringContext(this.springContext);
+
+	return socketComunicationParams;
     }
 }
