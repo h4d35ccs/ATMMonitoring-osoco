@@ -21,7 +21,7 @@ import com.ncr.serverchain.message.wrapper.OutgoingMessage;
  * 	*UPDATE: means that if the value is present in the router table, will be updated, if not
  * 		will be added
  * 	*REMOVE_ONLY: if the value is present in the router table, will be deleted
- * 	*FORCE_UPDATE_FROM_ROOT: no mater what, will perform an UPDATE
+ * 	*FORCE_UPDATE_FROM_ROOT: no matter what, will perform an UPDATE
  * 
  * This strategy only can process the message if 
  * 	*the given matricula is present and the final processing node reflected in the router table is not the same.
