@@ -14,7 +14,7 @@ import com.ncr.ATMMonitoring.service.TerminalService;
  * 
  */
 @Component
-public class CheckDateLicenseTask {
+public class CheckDateLicenseTask  extends SheduledTaskEnabler{
 
     /** The logger. */
     static private Logger logger = Logger.getLogger(CheckDateLicenseTask.class);
@@ -31,6 +31,16 @@ public class CheckDateLicenseTask {
      */
     @Scheduled(cron = CRON_CONF)
     public void processIps() {
+	this.runScheduledTask();
+    }
+
+    @Override
+    protected void executeLogic() {
+	this.callTerminalServiceToCheckLicence();
+	
+    }
+    
+    private void callTerminalServiceToCheckLicence(){
 	logger.info("Calling service for checking the date-limited license...");
 	terminalService.checkDateLicense();
     }

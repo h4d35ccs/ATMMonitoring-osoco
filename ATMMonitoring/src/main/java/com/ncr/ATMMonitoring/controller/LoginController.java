@@ -2,9 +2,16 @@ package com.ncr.ATMMonitoring.controller;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.ncr.ATMMonitoring.routertable.RouterTableHandler;
+import com.ncr.serverchain.NodeInformation;
+import com.ncr.serverchain.NodePosition;
 
 /**
  * The Class LoginController.
@@ -15,7 +22,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 
 @Controller
-public class LoginController {
+public class LoginController extends GenericController {
+
+    @Autowired
+    private NodeInformation nodeInformation;
 
     /**
      * Render a page for redirect on the client to the correct login page. Is
@@ -55,7 +65,33 @@ public class LoginController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
-	return "login";
+	String redirect = "login";
+	if (!this.isMainNode()) {
+
+	    redirect = "redirect:/nodeInfo";
+	}
+	return redirect;
+    }
+
+    @RequestMapping(value = "/nodeInfo", method = RequestMethod.GET)
+    public String nodeInformation(Map<String, Object> map) {
+	this.setAttributesForNodePage(map);
+	return "nodesInfo";
+
+    }
+
+    private void setAttributesForNodePage(Map<String, Object> map) {
+
+	NodePosition position = this.nodeInformation.getNodePosition();
+	String localUrl = this.nodeInformation.getLocalUrl();
+	String parentUrl = this.nodeInformation.getParentUrl();
+	String routerTable = RouterTableHandler.tableTotring();
+
+	map.put("nodePosition", position);
+	map.put("localUrl", localUrl);
+	map.put("parentUrl", parentUrl);
+	map.put("routerTable", routerTable);
+
     }
 
     /**
@@ -69,5 +105,19 @@ public class LoginController {
     public String loginFailed(Map<String, Object> map) {
 	map.put("error", true);
 	return "login";
+    }
+
+    private boolean isMainNode() {
+	NodePosition nodePosition = this.nodeInformation.getNodePosition();
+
+	if (nodePosition.equals(NodePosition.FIRST_NODE)
+		|| nodePosition.equals(NodePosition.ONLY_NODE)) {
+
+	    return true;
+
+	} else {
+
+	    return false;
+	}
     }
 }

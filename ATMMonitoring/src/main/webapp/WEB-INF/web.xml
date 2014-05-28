@@ -22,6 +22,8 @@
         <param-value>
             /WEB-INF/applicationContext.xml
             /WEB-INF/security-context.xml
+            /WEB-INF/updatequeue-config.xml
+            /WEB-INF/serverchain-config.xml
         </param-value>
     </context-param>
 

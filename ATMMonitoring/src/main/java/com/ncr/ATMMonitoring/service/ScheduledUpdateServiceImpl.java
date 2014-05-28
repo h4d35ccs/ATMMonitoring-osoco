@@ -15,6 +15,7 @@ import com.ncr.ATMMonitoring.dao.ScheduledUpdateDAO;
 import com.ncr.ATMMonitoring.pojo.ScheduledUpdate;
 import com.ncr.ATMMonitoring.pojo.Terminal;
 import com.ncr.ATMMonitoring.socket.SocketService;
+import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 
 /**
  * The Class ScheduledUpdateServiceImpl.
@@ -112,15 +113,17 @@ public class ScheduledUpdateServiceImpl implements ScheduledUpdateService {
 		return;
 	    }
 	}
-	Set<String> ips = new HashSet<String>();
+	Set<ATMUpdateInfo> updatesInfo = new HashSet<ATMUpdateInfo>();
 	for (ScheduledUpdate update : updates) {
 	    List<Terminal> terminals = queryService.executeQuery(update
 		    .getQuery());
 	    for (Terminal terminal : terminals) {
-		ips.add(terminal.getIp());
+		ATMUpdateInfo updateInfo = new ATMUpdateInfo(terminal.getIp(),
+			terminal.getMatricula());
+		updatesInfo.add(updateInfo);
 	    }
 	}
-	socketService.updateTerminalsSocket(ips);
+	socketService.updateTerminalsSocket(updatesInfo);
     }
 
     /*

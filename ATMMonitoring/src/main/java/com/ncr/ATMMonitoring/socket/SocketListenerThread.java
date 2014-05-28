@@ -64,9 +64,10 @@ public class SocketListenerThread extends Thread {
 		out.println(okMessage);
 		logger.info("Update request confirmed ('" + okMessage
 			+ "') to IP: " + ip);
-
+		//TODO Ask the ATM for the Matricula
+		long matricula = 1;
 		// Pedimos los datos al agente
-		parent.requestData(ip);
+		parent.requestData(ip,matricula);
 	    } catch (IOException e) {
 		logger.error("An exception was thrown while processing "
 			+ "an update request from IP: " + ip, e);
