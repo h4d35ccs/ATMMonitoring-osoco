@@ -33,20 +33,24 @@ public class UpdateDataRequest implements SpecificMessage {
     public Long getMatricula() {
         return matricula;
     }
-    
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
+
     @Override
-    public String toString(){
-	StringBuffer sb = new StringBuffer("");
-	sb.append("atmIp: ");
-	sb.append(atmIp);
-	sb.append(" ");
-	sb.append("matricula:");
-	sb.append(matricula);
-	return sb.toString();
+    public String toString() {
+	StringBuilder builder = new StringBuilder();
+	builder.append("UpdateDataRequest [");
+	if (atmIp != null) {
+	    builder.append("atmIp=");
+	    builder.append(atmIp);
+	    builder.append(", ");
+	}
+	if (matricula != null) {
+	    builder.append("matricula=");
+	    builder.append(matricula);
+	}
+	builder.append("]");
+	return builder.toString();
     }
+    
+    
 
 }
