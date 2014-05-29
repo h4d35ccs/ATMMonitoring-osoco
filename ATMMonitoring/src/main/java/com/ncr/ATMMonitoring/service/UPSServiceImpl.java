@@ -16,11 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ncr.ATMMonitoring.dao.UpsDAO;
 import com.ncr.ATMMonitoring.handler.FileInDiskHandler;
+import com.ncr.ATMMonitoring.parser.exception.FileNotReadableException;
 import com.ncr.ATMMonitoring.parser.ups.ParseUPSChainBuilder;
 import com.ncr.ATMMonitoring.parser.ups.dto.UPSInfo;
-import com.ncr.ATMMonitoring.parser.ups.exception.NoParserFoundException;
-import com.ncr.ATMMonitoring.parser.ups.exception.ParserException;
 import com.ncr.ATMMonitoring.parser.ups.exception.XMLNotReadableException;
+import com.ncr.ATMMonitoring.parser.exception.NoParserFoundException;
+import com.ncr.ATMMonitoring.parser.exception.ParserException;
 import com.ncr.ATMMonitoring.pojo.Ups;
 
 /**
@@ -113,7 +114,7 @@ public class UPSServiceImpl implements UPSService {
 	} catch (ParserException e) {
 	    logger.error("Can not parse the file: " + xmlFile
 		    + " due an error: ", e);
-	} catch (XMLNotReadableException e) {
+	} catch (FileNotReadableException e) {
 	    logger.error("Can not Read the file: " + xmlFile, e);
 	} catch (NoParserFoundException e) {
 	    logger.error("The file " + xmlFile
@@ -195,7 +196,7 @@ public class UPSServiceImpl implements UPSService {
      * @throws NoParserFoundException
      */
     private void parseFile(InputStream xml) throws ParserException,
-	    XMLNotReadableException, NoParserFoundException {
+    FileNotReadableException, NoParserFoundException {
 
 	UPSInfo xmlInfo = ParseUPSChainBuilder.parse(xml);
 	this.handleParserSucess(xmlInfo);
