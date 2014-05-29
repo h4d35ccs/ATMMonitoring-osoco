@@ -10,9 +10,7 @@ import java.net.UnknownHostException;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
-import org.springframework.context.ApplicationContext;
 
-import com.ncr.ATMMonitoring.serverchain.adapter.ATMSocketCommunicationParams;
 import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateAdapterFactory;
 import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateRequestAdapter;
 import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateResponseAdapter;
@@ -22,12 +20,8 @@ import com.ncr.ATMMonitoring.serverchain.message.specific.incoming.UpdateSelfReq
 import com.ncr.ATMMonitoring.serverchain.message.specific.outgoing.UpdateDataRequest;
 import com.ncr.ATMMonitoring.socket.RequestThreadManager;
 import com.ncr.ATMMonitoring.socket.SocketListener;
-import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
 import com.ncr.ATMMonitoring.utils.Utils;
-import com.ncr.serverchain.MessagePublisher;
-import com.ncr.serverchain.NodeInformation;
 import com.ncr.serverchain.NodePosition;
-import com.ncr.serverchain.ServerchainMainBeanFactory;
 import com.ncr.serverchain.message.specific.SpecificMessage;
 import com.ncr.serverchain.message.wrapper.MessageWrapper;
 
@@ -35,57 +29,12 @@ import com.ncr.serverchain.message.wrapper.MessageWrapper;
  * @author Otto Abreu
  * 
  */
-public class ATMSocketUpdateRequestAdapterImpl implements
+public class ATMSocketUpdateRequestAdapterImpl extends
 	ATMUpdateRequestAdapter {
 
     private static Logger logger = Logger
 	    .getLogger(ATMSocketUpdateRequestAdapterImpl.class);
 
-    private ATMUpdateInfo updateInfo;
-
-    private ATMSocketCommunicationParams socketComunicationParams;
-
-    private NodeInformation nodeInformation;
-
-    private MessagePublisher messagePublisher;
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateRequestAdapter#
-     * setupAdapter(com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo,
-     * com.ncr.ATMMonitoring.serverchain.adapter.ATMSocketComunicationParams)
-     */
-    @Override
-    public void setupAdapter(ATMUpdateInfo updateInfo,
-	    ATMSocketCommunicationParams socketComunicationParams) {
-
-	this.socketComunicationParams = socketComunicationParams;
-	this.updateInfo = updateInfo;
-
-	ApplicationContext springContext = socketComunicationParams
-		.getSpringContext();
-
-	this.nodeInformation = this.getNodeInformation(springContext);
-
-	this.messagePublisher = this.getMessagePublisher(springContext);
-
-    }
-
-    private NodeInformation getNodeInformation(ApplicationContext springContext) {
-
-	NodeInformation nodeInformation = ServerchainMainBeanFactory
-		.getNodeInformationInstance(springContext);
-
-	return nodeInformation;
-    }
-
-    private MessagePublisher getMessagePublisher(
-	    ApplicationContext springContext) {
-	MessagePublisher messagePublisher = ServerchainMainBeanFactory
-		.getMessagePublisherInstance(springContext);
-	return messagePublisher;
-    }
 
     /*
      * (non-Javadoc)
@@ -323,24 +272,27 @@ public class ATMSocketUpdateRequestAdapterImpl implements
 
     private void generateUpdateDataResponseMessageToRoot(String jsonResponse) {
 
+	
+	ATMUpdateResponseAdapter responseAdapter = this.getATMUpdateResponseAdapter();
+
+	responseAdapter.sendUpdateDataMessage(jsonResponse);
+    }
+    
+    
+   
+    private ATMUpdateResponseAdapter getATMUpdateResponseAdapter(){
+	
 	ATMUpdateResponseAdapter responseAdapter = ATMUpdateAdapterFactory
 		.getUpdateResponseAdapter(ATMUpdateAdapterFactory.SOCKET_COMMUNICATION_ADAPTER);
+	
+	String ip = this.updateInfo.getAtmIp();
+	long matricula = this.updateInfo.getAtmMatricula();
 	responseAdapter.setupResponseAdapter(this.socketComunicationParams
-		.getSpringContext());
-	UpdateDataRequest originalRequestData = generatetOriginalRequestData();
-
-	responseAdapter.generateUpdateDataMessageToRoot(jsonResponse,
-		originalRequestData);
+		.getSpringContext(),ip,matricula);
+	
+	return responseAdapter;
     }
 
-    private UpdateDataRequest generatetOriginalRequestData() {
-
-	String atmIp = this.updateInfo.getAtmIp();
-	long atmMatricula = this.updateInfo.getAtmMatricula();
-	UpdateDataRequest originalRequestData = new UpdateDataRequest(atmIp,
-		atmMatricula);
-	return originalRequestData;
-    }
 
     /*
      * (non-Javadoc)
