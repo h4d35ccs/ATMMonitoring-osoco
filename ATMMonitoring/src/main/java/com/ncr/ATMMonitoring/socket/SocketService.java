@@ -41,10 +41,12 @@ public interface SocketService {
 
     /**
      * Insert an update info into the waiting ones list.
+     * 
      * @param ip
      * @param matricula
      */
-    public void updateTerminalSocket (String ip, Long matricula);
+    public void updateTerminalSocket(String ip, Long matricula);
+
     /**
      * Insert a series of ip's into the waiting ones list.
      * 

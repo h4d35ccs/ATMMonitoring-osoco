@@ -58,7 +58,7 @@ public class SocketListener extends Thread {
     // @Autowired
     /** The socket service. */
     private SocketService socketService;
-    
+
     @Autowired
     private ApplicationContext springContext;
 
@@ -96,8 +96,8 @@ public class SocketListener extends Thread {
      *            the ip
      */
     public void requestData(String ip, Long matricula) {
-	
-	socketService.updateTerminalSocket(ip,matricula);
+
+	socketService.updateTerminalSocket(ip, matricula);
     }
 
     /*
@@ -108,43 +108,73 @@ public class SocketListener extends Thread {
     public void run() {
 	// Cada vez que nos llegue una petici�n de conexi�n, la desviamos a un
 	// hilo nuevo
-	if (agentPushState.equalsIgnoreCase("on")) {
-	    while (true) {
-		try {
-		    new SocketListenerPushThread(serverSocket.accept(), this)
-			    .start();
-		} catch (SocketException e) {
-		    // Si el listener est� a nulo, eso quiere decir que se est�n
-		    // liberando los recursos y no es un error
-		    if (listener == null) {
-			return;
-		    }
-		    logger.error("An exception was thrown while processing "
-			    + "a socket connection.", e);
-		} catch (Exception e) {
-		    logger.error("An exception was thrown while processing "
-			    + "a socket connection.", e);
-		}
-	    }
+	if (isPushOperation()) {
+
+	    this.runSocketListenerInPushState();
+
 	} else {
-	    while (true) {
-		try {
-		    new SocketListenerThread(serverSocket.accept(), okMessage,
-			    this,springContext).start();
-		} catch (SocketException e) {
-		    // Si el listener est� a nulo, eso quiere decir que se est�n
-		    // liberando los recursos y no es un error
-		    if (listener == null) {
-			return;
-		    }
-		    logger.error("An exception was thrown while processing "
-			    + "a socket connection.", e);
-		} catch (Exception e) {
-		    logger.error("An exception was thrown while processing "
-			    + "a socket connection.", e);
-		}
-	    }
+
+	    this.runSocketListener();
+
 	}
+    }
+
+    private void runSocketListenerInPushState() {
+	while (true) {
+
+	    this.startSocketListenerInPushState();
+	}
+    }
+
+    private void startSocketListenerInPushState() {
+	try {
+	    new SocketListenerPushThread(serverSocket.accept(), this,this.springContext).start();
+
+	} catch (SocketException e) {
+
+	    this.handleServerSocketException(e);
+
+	} catch (Exception e) {
+
+	    this.handleGenericExceptionWhileStartingListener(e);
+	}
+    }
+
+    private void runSocketListener() {
+	while (true) {
+
+	    this.startSocketListener();
+	}
+    }
+
+    private void startSocketListener() {
+	try {
+
+	    new SocketListenerThread(serverSocket.accept(), okMessage, this,
+		    this.springContext).start();
+
+	} catch (SocketException e) {
+
+	    this.handleServerSocketException(e);
+
+	} catch (Exception e) {
+	    this.handleGenericExceptionWhileStartingListener(e);
+	}
+    }
+
+    public void handleServerSocketException(SocketException e) {
+	// Si el listener est� a nulo, eso quiere decir que se est�n
+	// liberando los recursos y no es un error
+	if (listener == null) {
+	    return;
+	}
+	logger.error("An exception was thrown while processing "
+		+ "a socket connection.", e);
+    }
+
+    public void handleGenericExceptionWhileStartingListener(Exception e) {
+	logger.error("An exception was thrown while processing "
+		+ "a socket connection.", e);
     }
 
     /**
@@ -235,6 +265,16 @@ public class SocketListener extends Thread {
      * @return the long
      */
     public Long handleIpSuccess(String json) {
-	return socketService.processTerminalJson(json);
+	Long newMatricula = socketService.processTerminalJson(json);
+	return newMatricula;
+    }
+
+    private boolean isPushOperation() {
+	if (agentPushState.equalsIgnoreCase("on")) {
+	    logger.info("SocketListener in push mode");
+	    return true;
+	} else {
+	    return false;
+	}
     }
 }

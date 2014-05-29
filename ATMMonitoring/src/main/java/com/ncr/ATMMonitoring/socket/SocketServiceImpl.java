@@ -224,20 +224,55 @@ public class SocketServiceImpl implements SocketService {
      * .String)
      */
     public Long processTerminalJson(String json) {
-	// logger.debug("Json received: " + json);
+
+	ATMDataStorePojo data = this.convertJsonToStorePojo(json);
+	Terminal terminal = this.saveTerminalData(data);
+	Long newMatricula = this.getNewMatriculaIfNewATM(data,terminal);
+
+	return newMatricula;
+    }
+    /*
+     * (non-Javadoc)
+     * @see com.ncr.ATMMonitoring.socket.SocketService#processTerminalJsonPush(java.lang.String)
+     */
+    
+    
+    
+    private ATMDataStorePojo convertJsonToStorePojo(String json){
+	
 	ATMDataStorePojo data = ATMDataStorePojo.fromJson(json);
-	logger.debug("ATMDataStore received: " + data.toString());
-	// logger.debug("Resulting Json: " + data.toJson());
+	logger.debug("ATMDataStore received: " + data.toString());	
+	return data;
+    }
+    
+    
+    private Terminal saveTerminalData(ATMDataStorePojo data){
 	Terminal terminal = terminalService.persistDataStoreTerminal(data);
+	return terminal;
+    }
+    
+    
+    private Long getNewMatriculaIfNewATM(ATMDataStorePojo data, Terminal terminal){
+
 	Long newMatricula = null;
-	if ((data.getMatricula() == null)
-		|| (data.getMatricula().length() == 0)) {
+	if (isNewATM(data)) {
 	    // La matrícula es nueva, la devolvemos
 	    newMatricula = terminal.getMatricula();
-	    data.setMatricula(newMatricula.toString());
+	    logger.debug("new matricula "+newMatricula+" for terminal ["+data.getCurrentip()+" | "+data.getCurrentmac()+"]");
 	}
-	sendDataToPushServer(data);
+	
 	return newMatricula;
+    }
+    
+    private boolean isNewATM(ATMDataStorePojo data){
+	if ((data.getMatricula() == null)
+		|| (data.getMatricula().length() == 0)) {
+	    
+	    return true;
+	}else{
+	    
+	    return false;
+	}
     }
 
     /*

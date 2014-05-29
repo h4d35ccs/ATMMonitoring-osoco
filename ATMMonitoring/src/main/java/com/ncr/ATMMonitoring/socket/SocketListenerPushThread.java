@@ -9,7 +9,10 @@ import java.net.SocketTimeoutException;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContext;
 
+import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateAdapterFactory;
+import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateResponseAdapter;
 import com.ncr.ATMMonitoring.utils.Utils;
 
 /**
@@ -32,6 +35,8 @@ public class SocketListenerPushThread extends Thread {
 
     /** The socket listener parent. */
     private SocketListener parent;
+    
+    private ApplicationContext springContext;
 
     /**
      * Instantiates a new socket listener push thread.
@@ -41,9 +46,10 @@ public class SocketListenerPushThread extends Thread {
      * @param parent
      *            the socket listener parent
      */
-    public SocketListenerPushThread(Socket socket, SocketListener parent) {
+    public SocketListenerPushThread(Socket socket, SocketListener parent, ApplicationContext springContext) {
 	this.socket = socket;
 	this.parent = parent;
+	this.springContext = springContext;
     }
 
     /*
@@ -86,6 +92,10 @@ public class SocketListenerPushThread extends Thread {
 				    + " will be sent to IP: " + ip);
 			    endMsg += ":" + matricula;
 			}
+			
+			
+			this.executeAdapter(json, ip, matricula);
+			
 		    } catch (Exception e) {
 			logger.error(
 				"An error happened while saving data received from ip: "
@@ -94,7 +104,9 @@ public class SocketListenerPushThread extends Thread {
 		    // Enviamos el mensaje que confirma el final de la
 		    // comunicaci�n
 		    logger.info("Sending final comm message to IP: " + ip);
+		    
 		    out.println(endMsg);
+		    //TODO add the adapter
 		} catch (SocketTimeoutException e) {
 		    logger.error("We received no response from IP: " + ip, e);
 		    throw e;
@@ -114,6 +126,20 @@ public class SocketListenerPushThread extends Thread {
 	    logger.error("An exception was thrown while processing "
 		    + "an update request from IP: " + ip, e);
 	}
+    }
+    
+    private void executeAdapter(String jsonResponse, String atmIp, Long matricula){
+	
+	ATMUpdateResponseAdapter adapter = this.getAdapter(jsonResponse, atmIp, matricula);
+	
+	adapter.sendUpdateDataMessage(jsonResponse);
+    }
+    
+    private ATMUpdateResponseAdapter getAdapter(String jsonResponse, String atmIp, Long matricula){
+	
+	ATMUpdateResponseAdapter adapter = ATMUpdateAdapterFactory.getUpdateResponseAdapter(ATMUpdateAdapterFactory.PUSH_COMMUNICATION_ADAPTER);
+	adapter.setupResponseAdapter(this.springContext, atmIp, matricula);
+	return adapter;
     }
 
     /**

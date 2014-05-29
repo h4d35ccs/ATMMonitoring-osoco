@@ -74,7 +74,7 @@ public class SocketListenerThread extends Thread {
 		logger.info("Update request confirmed ('" + okMessage
 			+ "') to IP: " + ip);
 		// TODO Ask the ATM for the Matricula
-		long matricula = 1;
+		long matricula = 1000001;
 		this.executeAdapter(ip, matricula);
 
 	    } catch (IOException e) {
