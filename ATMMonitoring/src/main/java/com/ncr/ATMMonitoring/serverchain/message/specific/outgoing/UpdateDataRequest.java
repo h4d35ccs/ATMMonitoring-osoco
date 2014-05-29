@@ -12,7 +12,7 @@ import com.ncr.serverchain.message.specific.strategy.StrategyMapper;
 @StrategyMapper(strategyMapping = UpdateDataRequestStrategy.class)
 public class UpdateDataRequest implements SpecificMessage {
     
- 
+
     private static final long serialVersionUID = 1L;
 
     private String atmIp;
@@ -33,6 +33,14 @@ public class UpdateDataRequest implements SpecificMessage {
     public Long getMatricula() {
         return matricula;
     }
+    
+    public void setAtmIp(String atmIp) {
+        this.atmIp = atmIp;
+    }
+
+    public void setMatricula(Long matricula) {
+        this.matricula = matricula;
+    }
 
     @Override
     public String toString() {
@@ -50,7 +58,6 @@ public class UpdateDataRequest implements SpecificMessage {
 	builder.append("]");
 	return builder.toString();
     }
-    
-    
+     
 
 }
