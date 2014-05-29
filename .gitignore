@@ -2,3 +2,4 @@ target
 cleanTags.sh
 .DS_Store
 .settings
+/jsonsExamples
