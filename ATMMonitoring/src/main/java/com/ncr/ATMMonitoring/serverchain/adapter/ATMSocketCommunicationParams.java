@@ -1,7 +1,5 @@
 package com.ncr.ATMMonitoring.serverchain.adapter;
 
-import java.net.Socket;
-
 import org.springframework.context.ApplicationContext;
 
 import com.ncr.ATMMonitoring.socket.RequestThreadManager;
@@ -39,9 +37,7 @@ public class ATMSocketCommunicationParams {
 
     /** The number of ips to notify. */
     private int requestNumber;
-    
-    private Socket comunicationSocket;
-    
+        
     private ApplicationContext springContext;
     
     private SocketListener socketListenerParent;
@@ -118,14 +114,6 @@ public class ATMSocketCommunicationParams {
 
     public void setRequestNumber(int requestNumber) {
         this.requestNumber = requestNumber;
-    }
-
-    public Socket getComunicationSocket() {
-        return comunicationSocket;
-    }
-
-    public void setComunicationSocket(Socket comunicationSocket) {
-        this.comunicationSocket = comunicationSocket;
     }
 
     public ApplicationContext getSpringContext() {
