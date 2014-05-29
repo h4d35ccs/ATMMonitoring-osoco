@@ -1,6 +1,11 @@
 package com.ncr.ATMMonitoring.serverchain.adapter;
 
+import org.springframework.context.ApplicationContext;
+
 import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
+import com.ncr.serverchain.MessagePublisher;
+import com.ncr.serverchain.NodeInformation;
+import com.ncr.serverchain.ServerchainMainBeanFactory;
 
 /**
  * Adapter class that connects the socket communication and the chain communication
@@ -8,7 +13,16 @@ import com.ncr.ATMMonitoring.updatequeue.ATMUpdateInfo;
  * @author Otto Abreu
  * 
  */
-public interface ATMUpdateRequestAdapter {
+public abstract class ATMUpdateRequestAdapter {
+
+    
+    protected ATMUpdateInfo updateInfo;
+
+    protected ATMSocketCommunicationParams socketComunicationParams;
+
+    protected NodeInformation nodeInformation;
+
+    protected MessagePublisher messagePublisher;
 
     /**
      * Setup that prepares the adapter
@@ -16,8 +30,36 @@ public interface ATMUpdateRequestAdapter {
      * @param updateInfo
      * @param socketComunicationParams
      */
-    void setupAdapter(ATMUpdateInfo updateInfo,
-	    ATMSocketCommunicationParams socketComunicationParams);
+    public void setupAdapter(ATMUpdateInfo updateInfo,
+	    ATMSocketCommunicationParams socketComunicationParams) {
+
+	this.socketComunicationParams = socketComunicationParams;
+	this.updateInfo = updateInfo;
+
+	ApplicationContext springContext = socketComunicationParams
+		.getSpringContext();
+
+	this.nodeInformation = this.getNodeInformation(springContext);
+
+	this.messagePublisher = this.getMessagePublisher(springContext);
+
+    }
+    
+    private NodeInformation getNodeInformation(ApplicationContext springContext) {
+
+  	NodeInformation nodeInformation = ServerchainMainBeanFactory
+  		.getNodeInformationInstance(springContext);
+
+  	return nodeInformation;
+      }
+
+      private MessagePublisher getMessagePublisher(
+  	    ApplicationContext springContext) {
+  	MessagePublisher messagePublisher = ServerchainMainBeanFactory
+  		.getMessagePublisherInstance(springContext);
+  	return messagePublisher;
+      }
+
 
     /**
      * Executes the request of the given ATM. This method will call directly the
@@ -25,13 +67,13 @@ public interface ATMUpdateRequestAdapter {
      * 
      * The setup method should be called before executing this method
      */
-    void requestATMUpdate();
+    public abstract void requestATMUpdate();
 
     
     /**
      * The ATM Requests to the Root node to execute an update 
      */
-    void requestUpdateToRoot();
+    public abstract void requestUpdateToRoot();
     
 
 }
