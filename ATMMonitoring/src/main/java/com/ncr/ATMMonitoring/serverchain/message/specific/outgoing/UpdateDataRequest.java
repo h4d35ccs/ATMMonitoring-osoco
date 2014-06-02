@@ -20,7 +20,7 @@ public class UpdateDataRequest implements SpecificMessage {
     private Long matricula;
     
  
-    public UpdateDataRequest(String atmIp, long matricula) {
+    public UpdateDataRequest(String atmIp, Long matricula) {
 	super();
 	this.atmIp = atmIp;
 	this.matricula = matricula;
