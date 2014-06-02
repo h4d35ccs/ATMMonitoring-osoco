@@ -1,11 +1,13 @@
 package com.ncr.ATMMonitoring.serverchain;
 
+import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.reflections.Reflections;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +15,9 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.ncr.ATMMonitoring.scheduledtask.SheduledTaskEnabler;
 import com.ncr.serverchain.NodeInformation;
@@ -23,13 +28,16 @@ import com.ncr.serverchain.NodePosition;
  * 
  */
 @Component
-public class ATMInventoryBeansAdministrator implements InitializingBean {
+public class ATMInventoryBeansManager implements InitializingBean {
 
     @Value("${serverchain.beanstodestroy:}")
     private String beansToDestroyComaSeparatedList;
 
     @Value("${serverchain.taskstostop:}")
     private String tasksToStop;
+
+    @Value("${serverchain.packagestodestroy:}")
+    private String packagestodestroy;
 
     @Autowired
     private ApplicationContext springContext;
@@ -38,13 +46,23 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
     private NodeInformation nodePosition;
 
     private static final Logger logger = Logger
-	    .getLogger(ATMInventoryBeansAdministrator.class);
+	    .getLogger(ATMInventoryBeansManager.class);
 
     private Set<Class<?>> beansClasses = new HashSet<Class<?>>();
     private Set<Class<?>> scheduledTaskClasses = new HashSet<Class<?>>();
+    private Set<String> packagesNamesToDestroyBeans = new HashSet<String>();
+
+    private static final Class<?>[] SPRING_ANNOTATIONS_CLASSES = new Class<?>[] {
+	    Component.class, Service.class, Controller.class, Repository.class };
 
     private static String BASE_PACKAGE = "com.ncr.ATMMonitoring.";
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+     */
     @Override
     public void afterPropertiesSet() throws Exception {
 	shutdownUnnecesaryBeans();
@@ -54,29 +72,34 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 
 	if (haveConfiguredBeansToShutdown()) {
 
-	    logger.info("Destroyiing not needed beans:"
-		    + beansToDestroyComaSeparatedList);
-
 	    this.getBeanClassesFromProperties();
 	    this.getTaskClassesFromProperties();
+	    this.getPackagesToDestroyBeans();
 
+	    logger.info("Destroyiing not needed beans:"
+		    + beansToDestroyComaSeparatedList);
 	    this.killAllIndividualBeans();
+
 	    logger.info("stoping not needed scheduled tasks:" + tasksToStop);
 	    this.stopAllTask();
-	    // TODO do the killAllBeansInPackage
+
+	    logger.info("Destroying  not needed beans from packages:"
+		    + this.packagestodestroy);
+	    this.killClassesInPackage();
 
 	}
     }
 
     private boolean haveConfiguredBeansToShutdown() {
 
-	if (!StringUtils.isEmpty(this.beansToDestroyComaSeparatedList)
-		|| !StringUtils.isEmpty(this.tasksToStop)) {
-	    
+	if ((!StringUtils.isEmpty(this.beansToDestroyComaSeparatedList))
+		|| (!StringUtils.isEmpty(this.tasksToStop))
+		|| (!StringUtils.isEmpty(this.packagestodestroy))) {
+
 	    return true;
-	    
+
 	} else {
-	    
+
 	    return false;
 	}
 
@@ -104,6 +127,24 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 	    this.addEachClassFoundToSet(classNames, this.scheduledTaskClasses);
 	}
 
+    }
+
+    private void getPackagesToDestroyBeans() {
+	String[] packageNames = this
+		.separateClassNameFromProperty(this.packagestodestroy);
+
+	if (packageNames != null) {
+	    this.addEachPackageFoundToSet(packageNames);
+	}
+
+    }
+
+    private void addEachPackageFoundToSet(String[] packagesNames) {
+
+	for (String packageName : packagesNames) {
+	    String completePackageName = BASE_PACKAGE + packageName;
+	    this.packagesNamesToDestroyBeans.add(completePackageName);
+	}
     }
 
     private void killAllIndividualBeans() {
@@ -223,5 +264,38 @@ public class ATMInventoryBeansAdministrator implements InitializingBean {
 	    logger.info("Task disabled: "
 		    + scheduledTask.getClass().getSimpleName());
 	}
+    }
+
+    private void killClassesInPackage() {
+
+	Set<Class<?>> allBeansToDestroy = this.getAllBeansToDestroy();
+
+	for (Class<?> beanToDestroy : allBeansToDestroy) {
+	    logger.info("Killing bean: " + beanToDestroy);
+	    this.killNotNeededBean(beanToDestroy);
+	}
+
+    }
+
+    private Set<Class<?>> getAllBeansToDestroy() {
+
+	Set<Class<?>> allBeansToDestroy = new HashSet<Class<?>>();
+	for (String fullPackageName : this.packagesNamesToDestroyBeans) {
+
+	    allBeansToDestroy.addAll(this
+		    .getAllBeansFromAPackage(fullPackageName));
+
+	}
+	return allBeansToDestroy;
+    }
+
+    private Set<Class<?>> getAllBeansFromAPackage(String packageName) {
+
+	Set<Class<?>> beansToDestroy = new HashSet<Class<?>>();
+	Reflections reflections = new Reflections(packageName);
+	beansToDestroy = reflections.getTypesAnnotatedWith(Service.class,
+		true);
+	logger.debug("beansToDestroy-->" + beansToDestroy);
+	return beansToDestroy;
     }
 }
