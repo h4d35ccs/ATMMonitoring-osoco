@@ -3,6 +3,9 @@
  */
 package com.ncr.ATMMonitoring.serverchain.adapter.imp;
 
+import org.apache.log4j.Logger;
+
+import com.ncr.ATMMonitoring.serverchain.ATMMatriculaHandler;
 import com.ncr.ATMMonitoring.serverchain.adapter.ATMUpdateResponseAdapter;
 import com.ncr.ATMMonitoring.socket.SocketService;
 import com.ncr.agent.baseData.ATMDataStorePojo;
@@ -16,6 +19,9 @@ public class ATMPushUpdateAdapterImp extends ATMUpdateResponseAdapter {
 
     private ATMDataStorePojo dataFromATM;
 
+    private static Logger logger = Logger
+	    .getLogger(ATMPushUpdateAdapterImp.class);
+
     /*
      * (non-Javadoc)
      * 
@@ -26,14 +32,18 @@ public class ATMPushUpdateAdapterImp extends ATMUpdateResponseAdapter {
     public void sendUpdateDataMessage(String jsonResponse) {
 
 	this.setATMDataStorePojo(jsonResponse);
-	this.verifyIfMatriculaIsSet();
+	this.verifyIfNewMatricula();
 
 	if (useServerChain()) {
 
+	    logger.info("Using serverchain to send the update from: "
+		    + this.dataFromATM.getCurrentip());
 	    this.sendDataToParentNode(jsonResponse);
 
 	} else {
 
+	    logger.info("Using push data to send the update from: "
+		    + this.dataFromATM.getCurrentip());
 	    this.sendDataToPushServer(jsonResponse);
 
 	}
@@ -61,29 +71,62 @@ public class ATMPushUpdateAdapterImp extends ATMUpdateResponseAdapter {
      * ATMDataStorePojo
      * 
      */
-    private void verifyIfMatriculaIsSet() {
+    private void verifyIfNewMatricula() {
 
 	if (this.originalRequestData.getMatricula() == null) {
 
-	    this.setOldMatriculaifNotSet();
+	    logger.info("ATM had matricula");
+	    this.handleOldMatriculainOriginalRequest();
 
 	} else {
-
-	    this.setMatriculaIfNewATM();
+	    logger.info("The ATM receives a new matricula");
+	    this.handleNewATMMatriculaNumber();
 	}
     }
 
-    private void setOldMatriculaifNotSet() {
+    private void handleOldMatriculainOriginalRequest() {
 
 	Long oldMatricula = Long.parseLong(this.dataFromATM.getMatricula());
 	this.originalRequestData.setMatricula(oldMatricula);
+
+	this.addNoPresentMatriculaToRouterTable(oldMatricula);
     }
 
-    private void setMatriculaIfNewATM() {
+    private void addNoPresentMatriculaToRouterTable(long oldMatricula) {
+
+	boolean matriculaPresent = this.getMatriculaHandler()
+		.matriculaPresentInRouterTable(oldMatricula);
+
+	if (!matriculaPresent) {
+	    logger.info("Adding existing matricula to router table "+oldMatricula); 
+	    this.getMatriculaHandler().addATMtoRouterTable(oldMatricula);
+	}
+    }
+
+    private void handleNewATMMatriculaNumber() {
+
+	this.setvalueInDataStorePojo();
+	this.updateRouterTable();
+    }
+
+    private void setvalueInDataStorePojo() {
 
 	String matricula = Long.toString(this.originalRequestData
 		.getMatricula());
+
 	this.dataFromATM.setMatricula(matricula);
+    }
+
+    private void updateRouterTable() {
+
+	ATMMatriculaHandler matriculaHandler = this.getMatriculaHandler();
+
+	matriculaHandler.addATMtoRouterTable(this.originalRequestData
+		.getMatricula());
+    }
+
+    private ATMMatriculaHandler getMatriculaHandler() {
+	return this.springContext.getBean(ATMMatriculaHandler.class);
     }
 
     private void sendDataToPushServer(String jsonResponse) {
@@ -94,6 +137,7 @@ public class ATMPushUpdateAdapterImp extends ATMUpdateResponseAdapter {
     }
 
     private SocketService getSocketService() {
+
 	return this.springContext.getBean(SocketService.class);
     }
 
