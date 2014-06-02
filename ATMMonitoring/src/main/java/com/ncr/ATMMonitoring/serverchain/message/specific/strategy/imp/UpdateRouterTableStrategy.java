@@ -79,12 +79,12 @@ public class UpdateRouterTableStrategy extends BaseStrategy {
 	if (matriculaIsPresentInLocalTable()
 		&& diferentProcessingNodePressent()) {
 
-	    logger.debug("is going to update he router table");
+	    logger.debug("is going to update the router table");
 	    return true;
 
-	} else if (!matriculaIsPresentInLocalTable() && isUpdate()) {
+	} else if ((!matriculaIsPresentInLocalTable() && isUpdate()) && !isLeaf()) {
 
-	    logger.debug("is going to add to the router table");
+	    logger.debug("is going to add to the router table .");
 	    return true;
 	}
 
@@ -185,22 +185,22 @@ public class UpdateRouterTableStrategy extends BaseStrategy {
 
 	if (isUpdate() || isForcedUpdateFromRoot()) {
 
-	    if (!isOriginalProcessingNode()
-		    && !isOldProcessingNodeaAChild(matricula)) {
-
+	    if ((!isOriginalProcessingNode()
+		    && !isOldProcessingNodeaAChild(matricula))) {
+		logger.debug("is not original processing node and child is not old processing");
 		this.updateValueInTable(matricula);
 
 	    } else if (!isOriginalProcessingNode()
 		    && isOldProcessingNodeaAChild(matricula)) {
-
+		logger.debug("is not original processing node and child is old processing");
 		RouterTableHandler.removeMatriculaFromTable(matricula);
 
 	    } else if (isOriginalProcessingNode()) {
-
+		logger.debug("is  original processing node");
 		RouterTableHandler.removeMatriculaFromTable(matricula);
 
-	    } else {
-
+	    } else if(!isOriginalProcessingNode()) {
+		logger.debug("is  Not original processing node");
 		this.addValueToTable(matricula);
 	    }
 
