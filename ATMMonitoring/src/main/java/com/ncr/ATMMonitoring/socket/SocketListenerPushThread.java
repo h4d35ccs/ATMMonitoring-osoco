@@ -27,15 +27,15 @@ import com.ncr.ATMMonitoring.utils.Utils;
 public class SocketListenerPushThread extends Thread {
 
     /** The logger. */
-    static private Logger logger = Logger.getLogger(SocketListenerPushThread.class
-	    .getName());
+    static private Logger logger = Logger
+	    .getLogger(SocketListenerPushThread.class.getName());
 
     /** The socket. */
     private Socket socket;
 
     /** The socket listener parent. */
     private SocketListener parent;
-    
+
     private ApplicationContext springContext;
 
     /**
@@ -46,7 +46,8 @@ public class SocketListenerPushThread extends Thread {
      * @param parent
      *            the socket listener parent
      */
-    public SocketListenerPushThread(Socket socket, SocketListener parent, ApplicationContext springContext) {
+    public SocketListenerPushThread(Socket socket, SocketListener parent,
+	    ApplicationContext springContext) {
 	this.socket = socket;
 	this.parent = parent;
 	this.springContext = springContext;
@@ -92,10 +93,9 @@ public class SocketListenerPushThread extends Thread {
 				    + " will be sent to IP: " + ip);
 			    endMsg += ":" + matricula;
 			}
-			
-			
+
 			this.executeAdapter(json, ip, matricula);
-			
+
 		    } catch (Exception e) {
 			logger.error(
 				"An error happened while saving data received from ip: "
@@ -104,9 +104,9 @@ public class SocketListenerPushThread extends Thread {
 		    // Enviamos el mensaje que confirma el final de la
 		    // comunicaci�n
 		    logger.info("Sending final comm message to IP: " + ip);
-		    
+
 		    out.println(endMsg);
-		    //TODO add the adapter
+		    
 		} catch (SocketTimeoutException e) {
 		    logger.error("We received no response from IP: " + ip, e);
 		    throw e;
@@ -127,17 +127,21 @@ public class SocketListenerPushThread extends Thread {
 		    + "an update request from IP: " + ip, e);
 	}
     }
-    
-    private void executeAdapter(String jsonResponse, String atmIp, Long matricula){
-	
-	ATMUpdateResponseAdapter adapter = this.getAdapter(jsonResponse, atmIp, matricula);
-	
+
+    private void executeAdapter(String jsonResponse, String atmIp,
+	    Long matricula) {
+
+	ATMUpdateResponseAdapter adapter = this.getAdapter(jsonResponse, atmIp,
+		matricula);
+
 	adapter.sendUpdateDataMessage(jsonResponse);
     }
-    
-    private ATMUpdateResponseAdapter getAdapter(String jsonResponse, String atmIp, Long matricula){
-	
-	ATMUpdateResponseAdapter adapter = ATMUpdateAdapterFactory.getUpdateResponseAdapter(ATMUpdateAdapterFactory.PUSH_COMMUNICATION_ADAPTER);
+
+    private ATMUpdateResponseAdapter getAdapter(String jsonResponse,
+	    String atmIp, Long matricula) {
+
+	ATMUpdateResponseAdapter adapter = ATMUpdateAdapterFactory
+		.getUpdateResponseAdapter(ATMUpdateAdapterFactory.PUSH_COMMUNICATION_ADAPTER);
 	adapter.setupResponseAdapter(this.springContext, atmIp, matricula);
 	return adapter;
     }
@@ -163,8 +167,8 @@ public class SocketListenerPushThread extends Thread {
 	    // Enviamos al agente la cadena base para el hash
 	    String randomSeed = RandomStringUtils.randomAlphanumeric(20);
 	    logger.info("Sending the authentication data ["
-		    + RequestThread.hashSeed
-		    + "] to " + socket.getInetAddress().getHostAddress() + ":"
+		    + RequestThread.hashSeed + "] to "
+		    + socket.getInetAddress().getHostAddress() + ":"
 		    + socket.getPort());
 	    out.println(randomSeed);
 
@@ -196,8 +200,7 @@ public class SocketListenerPushThread extends Thread {
 			// Confirmamos al agente que la autenticaci�n fue
 			// correcta y le pedimos que actualice su hash
 			out.println(RequestThread.authUpdateMsg + ":"
-				+ oldParentSeed + ":"
-				+ parentSeed);
+				+ oldParentSeed + ":" + parentSeed);
 			return true;
 		    }
 		}
