@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 
 import com.ncr.ATMMonitoring.routertable.RouterTableHandler;
+import com.ncr.ATMMonitoring.serverchain.message.specific.UpdateRouterTableMessage.UpdateType;
 import com.ncr.ATMMonitoring.serverchain.message.specific.incoming.UpdateRouterTable;
 import com.ncr.serverchain.ChildrenLinkListHandler;
 import com.ncr.serverchain.message.specific.SpecificMessage;
@@ -35,8 +36,9 @@ import com.ncr.serverchain.message.wrapper.OutgoingMessage;
  * 
  * When the root is reached, the broadcast changes to BroadcastType.TURN_BACK, because it is necessary to notify all branches in case 
  * the client was in another branch and have to be removed. For that last reason the original message changes from UPDATE to REMOVE_ONLY
- *
+ * 
  * @author Otto Abreu
+ * 
  * <pre>
  */
 public class UpdateRouterTableStrategy extends BaseStrategy {
@@ -44,6 +46,8 @@ public class UpdateRouterTableStrategy extends BaseStrategy {
     private UpdateRouterTable updateMessage;
     private static final Logger logger = Logger
 	    .getLogger(UpdateRouterTableStrategy.class);
+
+    private boolean updatedByParent;
 
     /*
      * (non-Javadoc)
@@ -82,7 +86,7 @@ public class UpdateRouterTableStrategy extends BaseStrategy {
 	    logger.debug("is going to update the router table");
 	    return true;
 
-	} else if ((!matriculaIsPresentInLocalTable() && isUpdate()) && !isLeaf()) {
+	} else if ((!matriculaIsPresentInLocalTable() && isUpdate())) {
 
 	    logger.debug("is going to add to the router table .");
 	    return true;
@@ -182,32 +186,42 @@ public class UpdateRouterTableStrategy extends BaseStrategy {
     }
 
     private void proccessByOperationMiddle(long matricula) {
-
+	logger.debug("message flag: "+this.updateMessage.getUpdateType());
 	if (isUpdate() || isForcedUpdateFromRoot()) {
 
-	    if ((!isOriginalProcessingNode()
-		    && !isOldProcessingNodeaAChild(matricula))) {
+	    if ((!isOriginalProcessingNode() && !isOldProcessingNodeaAChild(matricula))) {
 		logger.debug("is not original processing node and child is not old processing");
 		this.updateValueInTable(matricula);
 
 	    } else if (!isOriginalProcessingNode()
 		    && isOldProcessingNodeaAChild(matricula)) {
 		logger.debug("is not original processing node and child is old processing");
-		RouterTableHandler.removeMatriculaFromTable(matricula);
+		this.updateValueInTable(matricula);
 
 	    } else if (isOriginalProcessingNode()) {
 		logger.debug("is  original processing node");
 		RouterTableHandler.removeMatriculaFromTable(matricula);
 
-	    } else if(!isOriginalProcessingNode()) {
+	    } else if (!isOriginalProcessingNode()) {
 		logger.debug("is  Not original processing node");
 		this.addValueToTable(matricula);
+
 	    }
 
 	} else if (isRemoveOnly()) {
 
 	    RouterTableHandler.removeMatriculaFromTable(matricula);
+
+	} else if (isUpdateFromParent()) {
+
+	    if (isOriginalProcessingNode() || diferentProcessingNodePressent()) {
+		logger.debug("is update from parent and will remove matricula");
+		RouterTableHandler.removeMatriculaFromTable(matricula);
+		this.updatedByParent = true;
+	    }
+
 	}
+
     }
 
     private boolean isUpdate() {
@@ -227,6 +241,19 @@ public class UpdateRouterTableStrategy extends BaseStrategy {
 
 	if (this.updateMessage.getUpdateType().equals(
 		UpdateRouterTable.UpdateType.FORCE_UPDATE_FROM_ROOT)) {
+
+	    return true;
+
+	} else {
+
+	    return false;
+	}
+    }
+
+    private boolean isUpdateFromParent() {
+
+	if (this.updateMessage.getUpdateType().equals(
+		UpdateRouterTable.UpdateType.UPDATE_FROM_PARENT)) {
 
 	    return true;
 
@@ -302,7 +329,12 @@ public class UpdateRouterTableStrategy extends BaseStrategy {
 
 	    broadcast = BroadcastType.ONE_WAY;
 
-	} else if (this.isMiddle() && this.isRemoveOnly()){
+	} else if (this.isMiddle() && this.isRemoveOnly()) {
+
+	    broadcast = BroadcastType.ONE_WAY;
+
+	} else if (this.isMiddle()
+		&& (isUpdateFromParent() && this.updatedByParent)) {
 
 	    broadcast = BroadcastType.ONE_WAY;
 	}
@@ -332,4 +364,27 @@ public class UpdateRouterTableStrategy extends BaseStrategy {
 		.getSpringBean(ChildrenLinkListHandler.class);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.serverchain.message.specific.strategy.imp.BaseStrategy#
+     * getChangeDirectionMessageInTwoWay()
+     */
+    @Override
+    public SpecificMessage getChangeDirectionMessageInTwoWay() {
+
+	UpdateRouterTable updateMessageSecondDirection = null;
+
+	if (isMiddle()) {
+
+	    long matricula = this.updateMessage.getMatricula();
+	    String newFinalNodeInCharge = this.updateMessage
+		    .getNewFinalNodeInCharge();
+	    updateMessageSecondDirection = new UpdateRouterTable(matricula,
+		    newFinalNodeInCharge);
+	    updateMessageSecondDirection
+		    .setUpdateType(UpdateType.UPDATE_FROM_PARENT);
+	}
+	return updateMessageSecondDirection;
+    }
 }
