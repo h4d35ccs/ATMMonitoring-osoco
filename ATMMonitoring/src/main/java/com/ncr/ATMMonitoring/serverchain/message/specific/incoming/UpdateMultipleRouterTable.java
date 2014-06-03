@@ -2,8 +2,8 @@ package com.ncr.ATMMonitoring.serverchain.message.specific.incoming;
 
 import java.util.Properties;
 
+import com.ncr.ATMMonitoring.serverchain.message.specific.UpdateRouterTableMessage;
 import com.ncr.ATMMonitoring.serverchain.message.specific.strategy.imp.UpdateMultipleRouterTableStrategy;
-import com.ncr.serverchain.message.specific.UpdateRouterTableMessage;
 import com.ncr.serverchain.message.specific.strategy.StrategyMapper;
 
 /**
