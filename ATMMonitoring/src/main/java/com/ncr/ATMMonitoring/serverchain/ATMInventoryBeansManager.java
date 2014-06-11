@@ -1,6 +1,5 @@
 package com.ncr.ATMMonitoring.serverchain;
 
-import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -21,7 +20,6 @@ import org.springframework.stereotype.Service;
 
 import com.ncr.ATMMonitoring.scheduledtask.SheduledTaskEnabler;
 import com.ncr.serverchain.NodeInformation;
-import com.ncr.serverchain.NodePosition;
 
 /**
  * @author Otto Abreu
