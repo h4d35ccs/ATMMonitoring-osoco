@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import com.ncr.ATMMonitoring.routertable.RouterTableHandler;
 import com.ncr.ATMMonitoring.serverchain.message.specific.UpdateRouterTableMessage.UpdateType;
 import com.ncr.ATMMonitoring.serverchain.message.specific.incoming.UpdateMultipleRouterTable;
+import com.ncr.ATMMonitoring.serverchain.message.specific.incoming.UpdateRouterTable;
 import com.ncr.serverchain.message.specific.SpecificMessage;
 import com.ncr.serverchain.message.specific.strategy.BroadcastType;
 import com.ncr.serverchain.message.specific.strategy.imp.BaseStrategy;
@@ -58,9 +59,9 @@ public class UpdateMultipleRouterTableStrategy extends BaseStrategy {
     public boolean canProcessSpecificMessage() {
 
 	boolean canProcess = false;
-	logger.debug("routerTableIsDiferent?"+routerTableIsDiferent()+" - routerTableDoNotContainsValues? "+routerTableDoNotContainsValues());
+
 	if (routerTableIsDiferent() && routerTableDoNotContainsValues()) {
-	    
+
 	    canProcess = true;
 
 	} else if (this.isRoot()) {
@@ -158,7 +159,8 @@ public class UpdateMultipleRouterTableStrategy extends BaseStrategy {
      */
     @Override
     public void processSpecificMessage() {
-	logger.debug("router table before update: "+RouterTableHandler.tableTotring());
+	logger.debug("router table before update: "
+		+ RouterTableHandler.tableTotring());
 	if (this.isMiddle()) {
 
 	    processOnMiddleNodes();
@@ -167,8 +169,9 @@ public class UpdateMultipleRouterTableStrategy extends BaseStrategy {
 
 	    processOnLeaf();
 
-	} 
-	logger.debug("router table after update: "+RouterTableHandler.tableTotring());
+	}
+	logger.debug("router table after update: "
+		+ RouterTableHandler.tableTotring());
     }
 
     private void processOnMiddleNodes() {
@@ -182,9 +185,23 @@ public class UpdateMultipleRouterTableStrategy extends BaseStrategy {
 	    logger.debug("is going to add all the values: " + newValues);
 	    addAllNewValues(newValues);
 
-	} else if (this.isRemove() && this.matriculasPresentInTable()) {
+	} else if ((this.isRemove() || this.isUpdateFromParent())
+		&& this.matriculasPresentInTable()) {
 	    logger.debug("is going to remove all the values: " + newValues);
 	    removePresentMatriculas(newValues);
+	}
+    }
+
+    private boolean isUpdateFromParent() {
+	UpdateMultipleRouterTable updateMessage = getUpdateMultipleRouterTableMessage();
+	if (updateMessage.getUpdateType().equals(
+		UpdateRouterTable.UpdateType.UPDATE_FROM_PARENT)) {
+
+	    return true;
+
+	} else {
+
+	    return false;
 	}
     }
 
@@ -211,7 +228,7 @@ public class UpdateMultipleRouterTableStrategy extends BaseStrategy {
 		.commonPresentMatricula(newValues);
 
 	for (String matricula : commonmatricula) {
-	    logger.debug("deleting matricula:"+matricula);
+	    logger.debug("deleting matricula:" + matricula);
 	    RouterTableHandler.removeMatriculaFromTable(Integer
 		    .parseInt(matricula));
 	}
@@ -229,8 +246,6 @@ public class UpdateMultipleRouterTableStrategy extends BaseStrategy {
 	}
     }
 
-    
-
     /*
      * (non-Javadoc)
      * 
@@ -246,7 +261,8 @@ public class UpdateMultipleRouterTableStrategy extends BaseStrategy {
 
 	    broadcast = BroadcastType.TURN_BACK;
 
-	} else if (this.isRemove() && this.isMiddle()) {
+	} else if ((this.isRemove() || this.isUpdateFromParent())
+		&& this.isMiddle()) {
 
 	    broadcast = BroadcastType.ONE_WAY;
 
@@ -259,26 +275,44 @@ public class UpdateMultipleRouterTableStrategy extends BaseStrategy {
 
     /*
      * (non-Javadoc)
-     * @see com.ncr.ATMMonitoring.serverchain.message.specific.strategy.imp.BaseStrategy#getTurnBackMessage()
+     * 
+     * @see
+     * com.ncr.ATMMonitoring.serverchain.message.specific.strategy.imp.BaseStrategy
+     * #getTurnBackMessage()
      */
     @Override
     public MessageWrapper getTurnBackMessage() {
-	
+
 	OutgoingMessage turnBackMessage = new OutgoingMessage(
-		"Change router table multiple",  new Date().getTime());
+		"Change router table multiple", new Date().getTime());
 	SpecificMessage message = this.generateTurnBackOnRoot();
-	
+
 	turnBackMessage.setSpecificMessage(message);
 	return turnBackMessage;
     }
-    
+
     private SpecificMessage generateTurnBackOnRoot() {
 	UpdateMultipleRouterTable updateMsg = null;
-	if(this.isRoot()){
-	   updateMsg =   this.getUpdateMultipleRouterTableMessage();
+	
+	if (this.isRoot()) {
+	    updateMsg = this.getUpdateMultipleRouterTableMessage();
 	    updateMsg.setUpdateType(UpdateType.REMOVE_ONLY);
 	}
 	return updateMsg;
+    }
+    
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.ncr.serverchain.message.specific.strategy.imp.BaseStrategy#
+     * getChangeDirectionMessageInTwoWay()
+     */
+    @Override
+    public SpecificMessage getChangeDirectionMessageInTwoWay() {
+	
+	UpdateMultipleRouterTable updateMessage = getUpdateMultipleRouterTableMessage();
+	updateMessage.setUpdateType(UpdateType.UPDATE_FROM_PARENT);
+	return updateMessage;
     }
 
 }
