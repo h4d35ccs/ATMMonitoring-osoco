@@ -28,7 +28,7 @@ public class ProducerOutgoingTestExecuter {
 	    
 	    for(int i = 0; i < MAX_AMOUNT_OF_MESSAGES_TO_SEND; i++ ){
 
-	    UpdateDataRequest udr = new UpdateDataRequest("192.168.1.1", 3);
+	    UpdateDataRequest udr = new UpdateDataRequest("192.168.1.1", 3l);
 
 	    messagePublisher.publishOutgoingMessage(this.count++,
 		    MessageWrapper.DEFAULT_OUTGOINGMESSAGE_INNER_MESSAGE + nodeInformation.getLocalUrl(), udr);

@@ -25,7 +25,7 @@ public class NetworkMappingTest {
     private static final Logger logger = Logger
 	    .getLogger(NetworkMappingTest.class);
     
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(fixedDelay = 40000)
     public void getMap(){
 	
 	if(nodePosition.getNodePosition().equals(NodePosition.FIRST_NODE)){ 

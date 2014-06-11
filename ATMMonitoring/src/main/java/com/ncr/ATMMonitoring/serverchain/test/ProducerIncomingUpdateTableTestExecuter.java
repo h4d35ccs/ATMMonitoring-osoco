@@ -32,7 +32,7 @@ public class ProducerIncomingUpdateTableTestExecuter {
 
     private int count = 0;
 
-    @Scheduled(cron="*/20 * * * * ?")
+//    @Scheduled(cron="*/20 * * * * ?")
     public void runProducer() {
 	String localUrl = nodeInformation.getLocalBrokerUrl();
 	logger.debug(" cont change from local leaf (2<x<5):"+this.count);
