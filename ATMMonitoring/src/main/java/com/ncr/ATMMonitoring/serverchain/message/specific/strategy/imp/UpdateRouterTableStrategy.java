@@ -23,6 +23,8 @@ import com.ncr.serverchain.message.wrapper.OutgoingMessage;
  * 		will be added
  * 	*REMOVE_ONLY: if the value is present in the router table, will be deleted
  * 	*FORCE_UPDATE_FROM_ROOT: no matter what, will perform an UPDATE
+ * 	*UPDATE_FROM_PARENT means that a parent node is propagating the update to the lower branches, after receiving an update.
+ * 	this means that if a matricula is present but the processing node is different, must be removed
  * 
  * This strategy only can process the message if 
  * 	*the given matricula is present and the final processing node reflected in the router table is not the same.
@@ -30,12 +32,19 @@ import com.ncr.serverchain.message.wrapper.OutgoingMessage;
  * 
  * 	* The matricula is not present, but is an update, 
  * 		this means that the client has bean added to a leaf in this branch and will be be added.
+ * 	
  * 
  * When a middle node is reached, the broadcast is BroadcastType.TWO_WAY, because it is necessary 
  * to notify all child branches and the parent that a change is occurring.
  * 
  * When the root is reached, the broadcast changes to BroadcastType.TURN_BACK, because it is necessary to notify all branches in case 
- * the client was in another branch and have to be removed. For that last reason the original message changes from UPDATE to REMOVE_ONLY
+ * the client was in another branch and have to be removed. For that last reason the original message changes from UPDATE to REMOVE_ONLY.
+ * 
+ * * The UPDATE flag only travels bottom up
+ * 
+ * * The UPDATE_FROM_PARENT only travels from a parent to a child, not from child to parent
+ * 
+ * * The REMOVE_ONLY only travels after reached root
  * 
  * @author Otto Abreu
  * 
