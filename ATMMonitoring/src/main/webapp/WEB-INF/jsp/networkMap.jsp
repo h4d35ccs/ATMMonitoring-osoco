@@ -10,13 +10,21 @@
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@page pageEncoding="UTF-8"%>
 
-<t:osoco-wrapper titleCode="label.terminalsManager" userMsg="${userMsg}"
+<t:osoco-wrapper titleCode="label.networkmap" userMsg="${userMsg}"
 	section="networkMap">
 
 	<jsp:attribute name="header">
 	<link rel="stylesheet" href="resources/css/jstree.style.min.css" />
 	<script type="text/javascript" src="resources/js/jstree.min.js"></script>
 	<script type="text/javascript" src="resources/js/networkTree.js"></script>
+	<script>
+		var reloadLocallyOkMessage ="<spring:message code="success.reloadLocallyNetworkMap"/>";
+		var reloadLocallyErrorMessage ="<spring:message code="error.reloadLocallyNetworkMap"/>";
+		var requestRemoteOkMessage ="<spring:message code="success.requestRemoteNetworkMap"/>";
+		var requestRemoteErrorMessage ="<spring:message code="error.requestRemoteNetworkMap"/>";
+		var editRouterTableOkMessage = "<spring:message code="success.editRouterTable"/>";
+		var editRouterTableErrorMessage = "<spring:message code="error.editRouterTable"/>";
+	</script>	
 	<script type="text/javascript"
 			src="resources/js/networkPageFunctions.js"></script>
 	</jsp:attribute>
@@ -51,7 +59,6 @@
 								<ul id="routerTableContentUl"></ul>
 							</div>
 					</div>
-					
 					<div id="routerTableEdit" class="action_box data hidden">
 							<h2 id="routerTableEditContentTitle"></h2>
 							<form id="editRouterTable" onSubmit="submitEditValuesForm('#'+this.id);return false;">
@@ -70,10 +77,8 @@
 			</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
-	
 			startNetworkTree();
 			setupReloadButton();
-	
 		});
 	</script>
 </jsp:body>

@@ -4,16 +4,14 @@ var commonNameAndId = "'" + editInputCommonName + "[$cont]'";
 var commonUrl = "serverchain/";
 var getNetworkMapUrl = commonUrl + "networkmap";
 var forceNetworkMapUrl = commonUrl + "forceMapping";
-
-var reloadLocallyOkMessage = "Network Map Locally reloaded";
-var reloadLocallyErrorMessage = "An Error occurs while Reloading Locally the Network Map";
-
-var requestRemoteOkMessage = "The Remote Request was succesfuly Sent";
-var requestRemoteErrorMessage = "An Error occurs while Requesting the Remote Request";
-
-var editRouterTableOkMessage = "The Update was succesfuly Sent";
-var editRouterTableErrorMessage = "An Error occurs while Sending the Update Request";
-
+//var reloadLocallyOkMessage = "Network Map Locally reloaded";
+//var reloadLocallyErrorMessage = "An Error occurs while Reloading Locally the Network Map";
+//
+//var requestRemoteOkMessage = "The Remote Request was succesfuly Sent";
+//var requestRemoteErrorMessage = "An Error occurs while Requesting the Remote Request";
+//
+//var editRouterTableOkMessage = "The Update was succesfuly Sent";
+//var editRouterTableErrorMessage = "An Error occurs while Sending the Update Request";
 var messageBoxDelay = 20000;
 
 function setupReloadButton() {
