@@ -79,6 +79,7 @@
 		$(document).ready(function() {
 			startNetworkTree();
 			setupReloadButton();
+			setInterval(reloadTree, 20000);
 		});
 	</script>
 </jsp:body>

@@ -17,7 +17,7 @@ var messageBoxDelay = 20000;
 function setupReloadButton() {
 	try {
 		$("#reloadNetwork").click(function() {
-			NetworkTree.reload();
+			reloadTree();
 			hideActionDiv("#routerTableEdit");
 			hideActionDiv("#routerTable");
 			showOkMessage(reloadLocallyOkMessage);
@@ -258,4 +258,8 @@ function showMessageBox(message, cssClass) {
 	$("#messageBox").focus();
 	$("#messageBox").delay(messageBoxDelay).fadeOut("slow"); 
 
+}
+
+function reloadTree(){
+	NetworkTree.reload();
 }
