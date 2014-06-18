@@ -34,10 +34,11 @@ public class ATMSocketUpdateResponseAdapterImp extends ATMUpdateResponseAdapter 
     }
 
     public Long getMatricula(String jsonResponse) {
+	
 	ATMDataStorePojo data = this.generateDataStore(jsonResponse);
 	Long matricula = null;
-
-	if (StringUtils.isEmpty(data.getMatricula())) {
+	
+	if (!StringUtils.isEmpty(data.getMatricula())) {
 	    matricula = Long.parseLong(data.getMatricula());
 	}
 
