@@ -29,7 +29,7 @@ public class ProcessIpsTask extends SheduledTaskEnabler {
     private String agentPushState;
 
     /** Runs at every minute 30 seconds. */
-    private static final String CRON_CONF = "10 * * * * *";
+    private static final String CRON_CONF = "*/5 * * * * *";
 
     /**
      * Method that calls the service in order to start the ATM update process
@@ -47,7 +47,7 @@ public class ProcessIpsTask extends SheduledTaskEnabler {
     
     private void callSocketService(){
 	if (!agentPushState.equalsIgnoreCase("on")) {
-	    logger.info("Calling service for checking the IPs waiting for update...");
+	    logger.debug("Calling service for checking the IPs waiting for update...");
 	    this.socketService.processAwaitingIps();
 	}
     }
