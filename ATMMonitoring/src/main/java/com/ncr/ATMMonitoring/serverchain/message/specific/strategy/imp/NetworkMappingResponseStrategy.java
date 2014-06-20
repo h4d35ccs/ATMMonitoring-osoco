@@ -2,7 +2,6 @@ package com.ncr.ATMMonitoring.serverchain.message.specific.strategy.imp;
 
 import org.apache.log4j.Logger;
 
-import com.ncr.ATMMonitoring.routertable.RouterTableHandler;
 import com.ncr.ATMMonitoring.serverchain.message.specific.incoming.NetworkMappingResponse;
 import com.ncr.serverchain.message.specific.strategy.BroadcastType;
 import com.ncr.serverchain.message.specific.strategy.imp.BaseStrategy;
@@ -49,8 +48,7 @@ public class NetworkMappingResponseStrategy extends BaseStrategy {
 
 	if (this.isRoot()) {
 	    processInRoot();
-	} else {
-	    processNodeMiddle();
+	
 	}
 
     }
@@ -75,17 +73,7 @@ public class NetworkMappingResponseStrategy extends BaseStrategy {
 	mapHandler.updateNetworkMap(responseMessage.getNodesRecolectedInfo());
     }
 
-    private void processNodeMiddle() {
-
-	String nodeUrlAndPort = this.nodeInformation.getLocalUrl();
-	String routerTable = RouterTableHandler.tableTotring();
-	String parentUrl = this.nodeInformation.getParentUrl();
-
-	castMessageToNetworkMappingResponse().addNodeInformationLeaforMiddle(
-		nodeUrlAndPort, routerTable, parentUrl);
-
-	logger.debug("middle Node Information Added");
-    }
+   
 
     private NetworkMappingResponse castMessageToNetworkMappingResponse() {
 	return (NetworkMappingResponse) this.messageToProcess;
