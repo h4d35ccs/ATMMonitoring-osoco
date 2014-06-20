@@ -198,17 +198,17 @@ public class SocketServiceImpl implements SocketService {
 		    + "Comms are set to push model, so updates cannot be requested from the server.");
 	    return;
 	}
-	logger.info("Checking the IPs waiting for update...");
+	logger.debug("Checking the IPs waiting for update...");
 //	this.queueHandler.loadQueue();
 	if (this.queueHandler.isEmpty()) {
-	    logger.info("Nothing in the queue, no ip to process");
+	    logger.debug("Nothing in the queue, no ip to process");
 	    return;
 	}
 	if ((requestThreadManager != null) && requestThreadManager.isAlive()) {
 	    logger.info("Request threads manager still busy with previous requests...");
 	    return;
 	}
-	logger.info("Processing the IPs waiting for update...");
+	logger.debug("Processing the IPs waiting for update...");
 	logger.debug("the ATM queue waiting for update : " + this.queueHandler.viewQueue());
 	requestThreadManager = new RequestThreadManager(maxThreads,
 		maxTerminals, timeOut, agentPort, sleepTime, maxTime, this,
