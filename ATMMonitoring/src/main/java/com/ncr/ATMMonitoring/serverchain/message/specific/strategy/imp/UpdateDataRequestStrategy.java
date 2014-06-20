@@ -57,7 +57,7 @@ public class UpdateDataRequestStrategy extends BaseStrategy {
 	    canProcess = true;
 	}
 
-	logger.debug("can process the message? " + canProcess+" updateDataMessage:"+updateDataMessage);
+	logger.info("can process the message? " + canProcess+" updateDataMessage:"+updateDataMessage);
 	return canProcess;
     }
 
