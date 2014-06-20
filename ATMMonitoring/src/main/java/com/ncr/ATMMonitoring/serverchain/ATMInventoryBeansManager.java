@@ -1,5 +1,6 @@
 package com.ncr.ATMMonitoring.serverchain;
 
+import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -22,6 +23,11 @@ import com.ncr.ATMMonitoring.scheduledtask.SheduledTaskEnabler;
 import com.ncr.serverchain.NodeInformation;
 
 /**
+ * Class that kill all the non needed resources.
+ * 
+ * If a class can not be kill, the process will not stop the deployment of the
+ * app
+ * 
  * @author Otto Abreu
  * 
  */
@@ -37,6 +43,9 @@ public class ATMInventoryBeansManager implements InitializingBean {
     @Value("${serverchain.packagestodestroy:}")
     private String packagestodestroy;
 
+    @Value("${serverchain.resourcesbeanstodestroy:}")
+    private String resourcesBeansTodestroy;
+
     @Autowired
     private ApplicationContext springContext;
 
@@ -49,11 +58,18 @@ public class ATMInventoryBeansManager implements InitializingBean {
     private Set<Class<?>> beansClasses = new HashSet<Class<?>>();
     private Set<Class<?>> scheduledTaskClasses = new HashSet<Class<?>>();
     private Set<String> packagesNamesToDestroyBeans = new HashSet<String>();
-
-    private static final Class<?>[] SPRING_ANNOTATIONS_CLASSES = new Class<?>[] {
-	    Component.class, Service.class, Controller.class, Repository.class };
-
+    private Set<String> resourcesBeansToDestroy = new HashSet<String>();
     private static String BASE_PACKAGE = "com.ncr.ATMMonitoring.";
+
+    private static final Set<Class<? extends Annotation>> SPRING_ANNOTATIONS_CLASSES;
+
+    static {
+	SPRING_ANNOTATIONS_CLASSES = new HashSet<Class<? extends Annotation>>();
+	SPRING_ANNOTATIONS_CLASSES.add(Component.class);
+	SPRING_ANNOTATIONS_CLASSES.add(Service.class);
+	SPRING_ANNOTATIONS_CLASSES.add(Controller.class);
+	SPRING_ANNOTATIONS_CLASSES.add(Repository.class);
+    }
 
     /*
      * (non-Javadoc)
@@ -69,30 +85,39 @@ public class ATMInventoryBeansManager implements InitializingBean {
     private void shutdownUnnecesaryBeans() {
 
 	if (haveConfiguredBeansToShutdown()) {
-
 	    this.getBeanClassesFromProperties();
 	    this.getTaskClassesFromProperties();
 	    this.getPackagesToDestroyBeans();
+	    this.getResourcesBeansToDestroy();
 
-	    logger.info("Destroyiing not needed beans:"
-		    + beansToDestroyComaSeparatedList);
+	    logger.debug("Destroying  not needed resources  beans: "
+		    + this.resourcesBeansToDestroy);
+	    this.killResourcesBeans();
+
+	    logger.debug("Destroying  not needed beans in package: "
+		    + this.packagesNamesToDestroyBeans);
+	    this.killClassesInPackage();
+	    
+	    logger.debug("Destroying not needed individual beans:"
+		    + this.beansToDestroyComaSeparatedList);
 	    this.killAllIndividualBeans();
 
-	    logger.info("stoping not needed scheduled tasks:" + tasksToStop);
+	    logger.debug("stoping not needed scheduled tasks:" + tasksToStop);
 	    this.stopAllTask();
+	
+	   logger.info("Not needed beans and resources destroyed");
 
-	    logger.info("Destroying  not needed beans from packages:"
-		    + this.packagestodestroy);
-	    this.killClassesInPackage();
 
 	}
     }
-
+    
+  
     private boolean haveConfiguredBeansToShutdown() {
 
-	if ((!StringUtils.isEmpty(this.beansToDestroyComaSeparatedList))
-		|| (!StringUtils.isEmpty(this.tasksToStop))
-		|| (!StringUtils.isEmpty(this.packagestodestroy))) {
+	if ((StringUtils.isNotEmpty(this.beansToDestroyComaSeparatedList))
+		|| (StringUtils.isNotEmpty(this.tasksToStop))
+		|| (StringUtils.isNotEmpty(this.packagestodestroy))
+		|| (StringUtils.isNotEmpty(this.resourcesBeansTodestroy))) {
 
 	    return true;
 
@@ -145,18 +170,64 @@ public class ATMInventoryBeansManager implements InitializingBean {
 	}
     }
 
+    private void getResourcesBeansToDestroy() {
+	String[] resourcesName = this
+		.separateClassNameFromProperty(this.resourcesBeansTodestroy);
+	if (resourcesName != null) {
+	    this.addAllResourcesNamesToSet(resourcesName);
+
+	}
+    }
+
+    private void addAllResourcesNamesToSet(String[] resourcesName) {
+	for (String resoruce : resourcesName) {
+	    this.resourcesBeansToDestroy.add(resoruce);
+	}
+    }
+
     private void killAllIndividualBeans() {
 
 	for (Class<?> beanClass : this.beansClasses) {
-	    killNotNeededBean(beanClass);
+	    killSingleBean(beanClass);
+	}
+    }
+
+    private void killSingleBean(Class<?> beanClass) {
+	try {
+	    killBeanClass(beanClass);
+	} catch (Exception e) {
+	    logger.warn("Can not kill bean: " + beanClass + " due :"
+		    + e.getMessage());
 	}
     }
 
     private void stopAllTask() {
 
 	for (Class<?> scheduledTaskClass : this.scheduledTaskClasses) {
-	    stopScheduledTask(scheduledTaskClass);
+	    stopTask(scheduledTaskClass);
 
+	}
+    }
+
+    private void stopTask(Class<?> scheduledTaskClass) {
+	try {
+	    stopScheduledTask(scheduledTaskClass);
+	} catch (Exception e) {
+	    logger.warn("can not stop task: " + scheduledTaskClass + " due: "
+		    + e.getMessage());
+	}
+    }
+
+    private void stopScheduledTask(Class<?> scheduledTaskClass) {
+
+	Object scheduledTask = this.getBeanFactory()
+		.getBean(scheduledTaskClass);
+
+	if (scheduledTask instanceof SheduledTaskEnabler) {
+	    SheduledTaskEnabler sheduledTaskEnabler = (SheduledTaskEnabler) scheduledTask;
+	    sheduledTaskEnabler.disableTask();
+	    logger.debug("Task disabled: "
+		    + scheduledTask.getClass().getSimpleName());
 	}
     }
 
@@ -208,6 +279,15 @@ public class ATMInventoryBeansManager implements InitializingBean {
 	return classObject;
     }
 
+    private void killBeanClass(Class<?> beanClass) {
+	try {
+	    killNotNeededBean(beanClass);
+	} catch (Exception e) {
+	    logger.warn("Can not kill bean class: " + beanClass + " due: "
+		    + e.getMessage());
+	}
+    }
+
     private void killNotNeededBean(Class<?> beanClass) {
 
 	Map<String, ?> beansAndInstances = this.getBeansAndInstances(beanClass);
@@ -247,20 +327,7 @@ public class ATMInventoryBeansManager implements InitializingBean {
 	    logger.debug("destroying: " + beanName);
 	    Object beanInstance = beansAndInstances.get(beanName);
 	    beanFactory.destroyBean(beanName, beanInstance);
-	    logger.info("destroyed: " + beanName);
-	}
-    }
-
-    private void stopScheduledTask(Class<?> scheduledTaskClass) {
-
-	Object scheduledTask = this.getBeanFactory()
-		.getBean(scheduledTaskClass);
-
-	if (scheduledTask instanceof SheduledTaskEnabler) {
-	    SheduledTaskEnabler sheduledTaskEnabler = (SheduledTaskEnabler) scheduledTask;
-	    sheduledTaskEnabler.disableTask();
-	    logger.info("Task disabled: "
-		    + scheduledTask.getClass().getSimpleName());
+	    logger.debug("destroyed: " + beanName);
 	}
     }
 
@@ -269,10 +336,18 @@ public class ATMInventoryBeansManager implements InitializingBean {
 	Set<Class<?>> allBeansToDestroy = this.getAllBeansToDestroy();
 
 	for (Class<?> beanToDestroy : allBeansToDestroy) {
-	    logger.info("Killing bean: " + beanToDestroy);
-	    this.killNotNeededBean(beanToDestroy);
+	    logger.debug("Killing bean: " + beanToDestroy);
+	    this.killBeanClass(beanToDestroy);
 	}
 
+    }
+
+    private void killResourcesBeans() {
+	for (String resourceId : this.resourcesBeansToDestroy) {
+	    DefaultListableBeanFactory beanFactory = this.getBeanFactory();
+	    beanFactory.destroySingleton(resourceId);
+	    logger.debug("destroyed resource: " + resourceId);
+	}
     }
 
     private Set<Class<?>> getAllBeansToDestroy() {
@@ -282,18 +357,27 @@ public class ATMInventoryBeansManager implements InitializingBean {
 
 	    allBeansToDestroy.addAll(this
 		    .getAllBeansFromAPackage(fullPackageName));
-
 	}
+	logger.debug("beansToDestroy:" + allBeansToDestroy);
 	return allBeansToDestroy;
     }
 
     private Set<Class<?>> getAllBeansFromAPackage(String packageName) {
 
 	Set<Class<?>> beansToDestroy = new HashSet<Class<?>>();
+	this.addAllAnnotatedBeansToSet(beansToDestroy, packageName);
+	return beansToDestroy;
+    }
+
+    private Set<Class<?>> addAllAnnotatedBeansToSet(
+	    Set<Class<?>> beansToDestroy, String packageName) {
 	Reflections reflections = new Reflections(packageName);
-	beansToDestroy = reflections.getTypesAnnotatedWith(Service.class,
-		true);
-	logger.debug("beansToDestroy-->" + beansToDestroy);
+	for (Class<? extends Annotation> springAnnotationClass : SPRING_ANNOTATIONS_CLASSES) {
+
+	    beansToDestroy.addAll(reflections.getTypesAnnotatedWith(
+		    springAnnotationClass, true));
+	}
+
 	return beansToDestroy;
     }
 }
