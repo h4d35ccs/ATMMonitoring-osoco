@@ -25,6 +25,10 @@
             <name>SpringSource Milestone Releases</name>
             <url>http://maven.springframework.org/milestone</url>
         </repository>
+        <repository>
+			<id>local-repo</id>
+			<url>file://${project.basedir}/lib</url>
+		</repository>
 	</repositories>
 
  	<properties>
@@ -58,12 +62,11 @@
             <version>1.0</version>
         </dependency>
         
-        <dependency>
+   <!--     <dependency>
             <groupId>ncr.serverchain</groupId>
             <artifactId>serverchain</artifactId>
             <version>0.1</version>
-        </dependency>
-        
+        </dependency> -->
 
 		<!-- Gson: Java to Json conversion -->
 		<dependency>
@@ -314,9 +317,20 @@
 			<version>${org.springframework.version}</version>
 		</dependency>	
             
-	</dependencies>
+<!--serverchain -->
 
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.4.2</version>
+		</dependency>
 
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.10</version>
+		</dependency>
+</dependencies>
 	<build>
 	 <pluginManagement>
 	  <plugins>
