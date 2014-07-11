@@ -35,7 +35,7 @@ function startNetworkTree() {
 			"resources/images/icons/server.png",
 			"resources/images/icons/serversIdle.png",
 			"resources/images/icons/serverRoot.png");
-	NetworkTree.nodeIddleSeconds = 40;
+	NetworkTree.nodeIddleSeconds = 60;
 	NetworkTree.startJStreeRemote(getMenuItems, getNetworkMapUrl);
 	// NetworkTree.startJStreeLocal(networkJson(),getMenuItems);
 	NetworkTree.extraMenuHandler = notLeafMenuHandler;
