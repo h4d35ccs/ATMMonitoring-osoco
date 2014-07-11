@@ -328,7 +328,7 @@
 								<a class="TerminalConfig" href="${currentUrl}#features"><spring:message code="label.software"/></a>
 							</li>
 							<li>
-								<a class="SoftwareAggregate" href="${currentUrl}#features"><spring:message code="label.softwareAggregates"/></a>
+								<a class="AuditableSoftwareAggregate" href="${currentUrl}#features"><spring:message code="label.softwareAggregates"/></a>
 							</li>
 							<li>
 								<a class="Hotfix" href="${currentUrl}#features"><spring:message code="label.hotfixes"/></a>
